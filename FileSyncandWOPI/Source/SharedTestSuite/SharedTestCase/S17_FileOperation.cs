@@ -180,16 +180,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                         11267,
                         @"[In Appendix B: Product Behavior] If the specified attributes[FileOperationRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
                 }
-
-                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 11268, this.Site))
-                {
-                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
-                             GenericErrorCodeTypes.HighLevelExceptionThrown,
-                             cellStoreageResponse.ResponseVersion.ErrorCode,
-                             "MS-FSSHTTP",
-                             11268,
-                             @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the file operation subresponse.<27> Section 2.3.1.33:  In SharePoint Server 2013, if the FileOperationRequestType attributes is not provided, a ""HighLevelExceptionThrown"" error code MUST be returned as part of the SubResponseData element associated with the file operation subresponse.");
-                }
             }
 
             else
