@@ -3,6 +3,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
     using System;
     using System.Globalization;
     using Microsoft.Protocols.TestTools;
+    using Microsoft.Protocols.TestSuites.Common;
 
     /// <summary>
     /// This is the partial part of the class MsfsshttpbAdapterCapture for MS-FSSHTTPB knowledge part.
@@ -544,13 +545,16 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             // Verify the stream object header related requirements.
             this.ExpectStreamObjectHeaderStart(instance.StreamObjectHeaderStart, instance.GetType(), site);
 
-            // Capture requirement MS-FSSHTTPB_R385, if stream object start type is StreamObjectHeaderStart16bit. 
-            site.CaptureRequirementIfAreEqual<Type>(
-                     typeof(StreamObjectHeaderStart16bit),
-                     instance.StreamObjectHeaderStart.GetType(),
-                     "MS-FSSHTTPB",
-                     385,
-                     @"[In Content Tag Knowledge Entry] Content Tag Entry Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Entry.");
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 385, SharedContext.Current.Site))
+            {
+                // Capture requirement MS-FSSHTTPB_R385, if stream object start type is StreamObjectHeaderStart16bit. 
+                site.CaptureRequirementIfAreEqual<Type>(
+                         typeof(StreamObjectHeaderStart16bit),
+                         instance.StreamObjectHeaderStart.GetType(),
+                         "MS-FSSHTTPB",
+                         385,
+                         @"[In Content Tag Knowledge Entry] Content Tag Entry Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Entry.");
+            }
 
             // Directly capture requirement MS-FSSHTTPB_R386, if there are no parsing errors. 
             site.CaptureRequirement(
