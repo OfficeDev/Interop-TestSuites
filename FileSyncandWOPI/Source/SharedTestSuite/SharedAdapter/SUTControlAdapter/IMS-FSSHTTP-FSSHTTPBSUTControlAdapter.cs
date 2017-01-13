@@ -102,6 +102,6 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="fileName">The name of the file.</param>
         /// <returns>A return value represents the absolute URL of the file on the specified Document library list if succeed, otherwise return null.</returns>
         [MethodHelp("Add a file (fileName) with any content into the document library (documentLibraryUrl). If the operation succeeds, enter true; otherwise, enter false.")]
-        bool AddFileToSUT(string documentLibraryUrl, string fileName);
+        bool UploadTextFile(string documentLibraryUrl, string fileName);
     }
 }

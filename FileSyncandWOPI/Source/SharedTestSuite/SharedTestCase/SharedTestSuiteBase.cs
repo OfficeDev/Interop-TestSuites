@@ -737,7 +737,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             string fileUrl = fileUri.Substring(0, fileUri.LastIndexOf("/", StringComparison.OrdinalIgnoreCase));
             string fileName = fileUri.Substring(fileUri.LastIndexOf("/", StringComparison.OrdinalIgnoreCase) + 1);
 
-            bool ret = this.SutPowerShellAdapter.AddFileToSUT(fileUrl, fileName);
+            bool ret = this.SutPowerShellAdapter.UploadTextFile(fileUrl, fileName);
 
             if (ret == false)
             {
