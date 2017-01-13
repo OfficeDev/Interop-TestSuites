@@ -411,6 +411,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 ErrorCodeType.Success,
                 SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                 "Test case cannot continue unless the put changes succeed.");
+
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4110, this.Site))
+            {
+                Site.CaptureRequirement(
+                    "MS-FSSHTTPB",
+                    4110,
+                    @"[In Appendix B: Product Behavior] Implementation does execute Sub-requests with different or same Priority in any order with respect to each other. (<6> Section 2.2.2.1:  SharePoint Server 2010 and SharePoint Server 2013 execute Sub-requests with different or same Priority in any order with respect to each other.)");
+            }
         }
 
         /// <summary>
