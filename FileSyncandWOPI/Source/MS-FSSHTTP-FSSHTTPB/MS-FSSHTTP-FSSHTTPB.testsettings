@@ -22,7 +22,7 @@
     <DeploymentItem filename="..\Common\Proxy\MS-FSSHTTP-FSSHTTPB.wsdl" />
     <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchMajorVersioning.ps1" />
     <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\ChangeDocLibraryStatus.ps1" />
-    <DeploymentItem filename="D:\Work\Github\Interop-TestSuites2\FileSyncandWOPI\Source\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\AddFileToSUT.ps1" />
+    <DeploymentItem filename="..\SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\AddFileToSUT.ps1" />
     <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
@@ -46,4 +46,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>
