@@ -12190,9 +12190,10 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Doc_Sect>2.3.1.34</ns1:Doc_Sect>
 		<ns1:Description>[In FileOperationSubRequestType] The FileOperationSubRequestType complex type contains information about a file operation subrequest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R111111.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11112</ns1:REQ_ID>
@@ -12417,9 +12418,10 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Doc_Sect>2.3.1.37</ns1:Doc_Sect>
 		<ns1:Description>[In VersioningSubRequestType] The VersioningSubRequestType complex type contains information about a versioning subrequest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R111341.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11135</ns1:REQ_ID>
@@ -21967,6 +21969,48 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R111111</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the FileOperation subrequest. (Microsoft SharePoint Server 2016 and above support this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R11111:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R111112</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the FileOperation subrequest. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R11111:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R111341</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the versioning subrequest. (Microsoft SharePoint Server 2016 and above support this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R11134:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R111342</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the versioning subrequest. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R11134:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
