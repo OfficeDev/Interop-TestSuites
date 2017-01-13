@@ -1329,6 +1329,11 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S13_TC22_PutChanges_ForceRevisionChainOptimization_Zero()
         {
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4130, this.Site))
+            {
+                Site.Assume.Inconclusive("Implementation does not support the Diagnostic Request Option Output field.");
+            }
+
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
