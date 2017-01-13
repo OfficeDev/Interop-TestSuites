@@ -166,5 +166,9 @@
    <Property name="R8203Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R385Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that Content Tag Entry Start (2 bytes)is A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Entry.-->
   <Property name="R385Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+   <!--Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return the wrong value. Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+   <Property name="R4106Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+   <!--Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the Object Data Size match the size of the Binary Item in the corresponding Object Data for this object. Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+   <Property name="R4107Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
  </Properties>
 </TestSite>
