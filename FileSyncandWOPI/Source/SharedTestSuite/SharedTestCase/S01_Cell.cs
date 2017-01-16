@@ -1467,7 +1467,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          1869,
                          @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
 
-                if (Common.IsRequirementEnabled(1102401, this.Site))
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1102401, this.Site))
                 {
                     // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1101401
                     Site.CaptureRequirementIfIsNotNull(
@@ -1491,7 +1491,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                     @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
 
-                if (Common.IsRequirementEnabled(1102401, this.Site))
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1102401, this.Site))
                 {
                     Site.Assert.IsNotNull(
                     response.ResponseCollection.Response[0].SuggestedFileName,
@@ -1513,7 +1513,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          1869,
                          @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
 
-                if (Common.IsRequirementEnabled(1102401, this.Site))
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1102401, this.Site))
                 {
                     // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1101402
                     Site.CaptureRequirementIfIsNull(
@@ -1531,7 +1531,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                     @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
 
-                if (Common.IsRequirementEnabled(1102401, this.Site))
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1102401, this.Site))
                 {
                     Site.Assert.IsNull(
                     response.ResponseCollection.Response[0].SuggestedFileName,

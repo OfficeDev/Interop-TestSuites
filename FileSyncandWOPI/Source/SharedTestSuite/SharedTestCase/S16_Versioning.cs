@@ -43,7 +43,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestInitialize]
         public void S16_VersioningInitialization()
         {
-            this.Site.Assume.IsTrue(Common.IsRequirementEnabled(111341, this.Site), "This test case only runs when Versioning subrequest is supported.");
+            this.Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 111341, this.Site), "This test case only runs when Versioning subrequest is supported.");
             this.DefaultFileUrl = this.PrepareFile();
         }
 

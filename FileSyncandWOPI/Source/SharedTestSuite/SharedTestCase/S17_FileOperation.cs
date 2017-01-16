@@ -43,7 +43,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestInitialize]
         public void S17_FileOperationInitialization()
         {
-            this.Site.Assume.IsTrue(Common.IsRequirementEnabled(111111, this.Site), "This test case only runs when FileOperation subrequest is supported.");
+            this.Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 111111, this.Site), "This test case only runs when FileOperation subrequest is supported.");
             this.DefaultFileUrl = this.PrepareFile();
         }
 
