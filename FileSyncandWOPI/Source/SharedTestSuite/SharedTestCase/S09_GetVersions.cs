@@ -531,7 +531,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S09_TC06_ResourceIDDifferentWithUrl()
         {
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(11272, this.Site), "This test case runs only when implementation uses the value of the ResourceID attribute to identify the file instead of the Url attribute  when UseResourceID set to true and the ResourceID attribute is set on the Request element.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 11272, this.Site), "This test case runs only when implementation uses the value of the ResourceID attribute to identify the file instead of the Url attribute  when UseResourceID set to true and the ResourceID attribute is set on the Request element.");
 
             string anotherFile = this.PrepareFile();
 
