@@ -7,7 +7,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// A class which contains test cases used to capture the requirements related with GetVersions operation.
+    /// A class which contains test cases used to capture the requirements related with Versioning operation.
     /// </summary>
     [TestClass]
     public abstract class S16_Versioning : SharedTestSuiteBase
@@ -43,6 +43,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestInitialize]
         public void S16_VersioningInitialization()
         {
+            this.Site.Assume.IsTrue(Common.IsRequirementEnabled(111341, this.Site), "This test case only runs when Versioning subrequest is supported.");
             this.DefaultFileUrl = this.PrepareFile();
         }
 

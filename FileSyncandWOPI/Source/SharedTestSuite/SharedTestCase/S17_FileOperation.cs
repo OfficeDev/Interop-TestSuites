@@ -7,7 +7,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// A class which contains test cases used to capture the requirements related with GetVersions operation.
+    /// A class which contains test cases used to capture the requirements related with FileOperation operation.
     /// </summary>
     [TestClass]
     public abstract class S17_FileOperation : SharedTestSuiteBase
@@ -43,6 +43,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestInitialize]
         public void S17_FileOperationInitialization()
         {
+            this.Site.Assume.IsTrue(Common.IsRequirementEnabled(111111, this.Site), "This test case only runs when FileOperation subrequest is supported.");
             this.DefaultFileUrl = this.PrepareFile();
         }
 

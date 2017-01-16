@@ -616,7 +616,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              isR3008Verified,
                              "MS-FSSHTTP",
                              3008,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. <3> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. <8> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3009

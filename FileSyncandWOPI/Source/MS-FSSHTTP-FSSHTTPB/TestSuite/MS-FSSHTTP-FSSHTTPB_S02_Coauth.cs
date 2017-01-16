@@ -111,7 +111,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              isR3006Verified,
                              "MS-FSSHTTP",
                              3006,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. <3> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. <8> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3007
@@ -185,7 +185,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              isR3008Verified,
                              "MS-FSSHTTP",
                              3008,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. <3> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. <8> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3009
@@ -196,14 +196,14 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              "MS-FSSHTTP",
                              3009,
                              @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
-                }
 
-                Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.InvalidUrl,
-                    response.ResponseVersion.ErrorCode,
-                    "MS-FSSHTTP",
-                    11071,
-                    @"[In GenericErrorCodeTypes] InvalidUrl indicates an error when the associated protocol server site URL is empty.");
+                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                        GenericErrorCodeTypes.InvalidUrl,
+                        response.ResponseVersion.ErrorCode,
+                        "MS-FSSHTTP",
+                        11071,
+                        @"[In GenericErrorCodeTypes] InvalidUrl indicates an error when the associated protocol server site URL is empty.");
+                }
             }
             else
             {
@@ -223,6 +223,11 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                     Site.Assert.IsNull(
                         response.ResponseCollection,
                         @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
+
+                    Site.Assert.AreNotEqual<GenericErrorCodeTypes>(
+                        GenericErrorCodeTypes.InvalidUrl,
+                        response.ResponseVersion.ErrorCode,
+                        @"[In GenericErrorCodeTypes] InvalidUrl indicates an error when the associated protocol server site URL is empty.");
                 }
             }
         }

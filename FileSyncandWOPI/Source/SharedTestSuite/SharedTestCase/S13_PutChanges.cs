@@ -411,6 +411,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 ErrorCodeType.Success,
                 SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                 "Test case cannot continue unless the put changes succeed.");
+
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4110, this.Site))
+            {
+                Site.CaptureRequirement(
+                    "MS-FSSHTTPB",
+                    4110,
+                    @"[In Appendix B: Product Behavior] Implementation does execute Sub-requests with different or same Priority in any order with respect to each other. (<6> Section 2.2.2.1:  SharePoint Server 2010 and SharePoint Server 2013 execute Sub-requests with different or same Priority in any order with respect to each other.)");
+            }
         }
 
         /// <summary>
@@ -1321,6 +1329,11 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S13_TC22_PutChanges_ForceRevisionChainOptimization_Zero()
         {
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4130, this.Site))
+            {
+                Site.Assume.Inconclusive("Implementation does not support the Diagnostic Request Option Output field.");
+            }
+
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 

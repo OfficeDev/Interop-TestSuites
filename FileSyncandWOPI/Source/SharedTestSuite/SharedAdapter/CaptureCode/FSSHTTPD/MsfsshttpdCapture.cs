@@ -686,6 +686,24 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             // Add the log information.
             site.Log.Add(LogEntryKind.Debug, "The value of Object Data Size is:{0}", objectDataSize.DecodedValue);
 
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4106, SharedContext.Current.Site))
+            {         
+                site.CaptureRequirement(
+                         "MS-FSSHTTPB",
+                         4106,
+                         @"[In Appendix B: Product Behavior] Implementation does return the wrong value. (<1> Section 2.2.1.12.6.1:  SharePoint Server 2010 and SharePoint Workspace 2010 might return the wrong value.)");
+            }
+
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4107, SharedContext.Current.Site))
+            {
+                site.CaptureRequirementIfAreEqual<ulong>(
+                        32,
+                        objectDataSize.DecodedValue,
+                        "MS-FSSHTTPB",
+                        4107,
+                        @"[In Appendix B: Product Behavior] Object Data Size match the size of the Binary Item in the corresponding Object Data for this object. (Microsoft Office 2013 and Microsoft SharePoint Server 2013 and above follow this behavior.)");
+            }
+
             site.Assert.IsTrue(typeof(Compact64bitInt).Equals(objectDataSize.GetType()), "The type of objectPartitionID should be a compact unsigned 64-bit integer.");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R21            

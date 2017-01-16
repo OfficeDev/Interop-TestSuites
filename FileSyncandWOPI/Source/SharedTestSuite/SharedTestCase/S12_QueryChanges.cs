@@ -1159,54 +1159,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
-        /// This method is used to test query changes with the allow fragment 2 flag is true.
-        /// </summary>
-        [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S12_TC27_QueryChanges_AllowFragments2_One()
-        {
-            // Initialize the service
-            string fileUrl = Common.GetConfigurationPropertyValue("BigFile", this.Site);
-            this.InitializeContext(fileUrl, this.UserName01, this.Password01, this.Domain);
-
-            // Create query changes request with allow fragments E flag with the value true.
-            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
-            QueryChangesCellSubRequest queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, false, false, true, 0, true, true, 0, null, 10000, null, null);
-            queryChange.AllowFragments2 = 1;
-            cellRequest.AddSubRequest(queryChange, null);
-            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
-            CellStorageResponse cellStorageResponse = this.Adapter.CellStorageRequest(fileUrl, new SubRequestType[] { cellSubRequest });
-            CellSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
-            this.Site.Assert.AreEqual<ErrorCodeType>(
-                ErrorCodeType.Success,
-                SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
-                "Test case cannot continue unless the query changes succeed.");
-
-            FsshttpbResponse queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
-            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(queryResponse, this.Site);
-
-            DataElement fragDataElement = queryResponse.DataElementPackage.DataElements.FirstOrDefault(e => e.DataElementType == DataElementType.FragmentDataElementData);
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                Site.CaptureRequirementIfIsNotNull(
-                         fragDataElement,
-                         "MS-FSSHTTPB",
-                         4040,
-                         @"[In Query Changes] E – Allow Fragments 2 (1 bit): If set, a bit that specifies to allow fragments;");
-            }
-            else
-            {
-                this.Site.Assert.IsNotNull(
-                    fragDataElement,
-                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): If set, a bit that specifies to allow fragments;");
-            }
-        }
-
-        /// <summary>
         /// This method is used to test query changes with the allow fragment 2 flag is false.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S12_TC28_QueryChanges_AllowFragments2_Zero()
+        public void TestCase_S12_TC27_QueryChanges_AllowFragments2_Zero()
         {
             // Initialize the service
             string fileUrl = Common.GetConfigurationPropertyValue("BigFile", this.Site);
@@ -1514,7 +1470,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test method aims to verify flag Round Knowledge to Whole Cell Changes.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S12_TC29_QueryChanges_RoundKnowledgeToWholeCellChanges()
+        public void TestCase_S12_TC28_QueryChanges_RoundKnowledgeToWholeCellChanges()
         {
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
