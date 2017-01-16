@@ -2846,16 +2846,57 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     @"[In CoauthSubResponseDataType] TransitionID: A guid specifies that if 2 requests are operated on 2 different files in the protocol server, the TransitionID values returned in the 2 corresponding responses are different.");
             }
         }
-        #endregion
-
-        #endregion 
-
-        #region Private helper function
 
         /// <summary>
-        /// A method used to capture LockType related requirements when joining coauthoring session.
+        /// A method used to verify the protocol server returns an error code when the request token is empty string.
         /// </summary>
-        /// <param name="response">A return value represents the CoauthSubResponse information.</param>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S02_TC44_RequestTokenIsEmptyString()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Join Coauthoring session without the request token.
+            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+            CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest }, string.Empty);
+
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3010, this.Site))
+            {
+                SharedTestSuiteHelper.CheckCellStorageResponse(cellResponse, this.Site, 0);
+                Response response = cellResponse.ResponseCollection.Response[0];
+                this.StatusManager.RecordCoauthSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+
+                Site.Log.Add(
+                    LogEntryKind.Debug,
+                    "If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in ResponseVersion element, it actually {0}",
+                    response.ErrorCodeSpecified ? "returns" : "does not return");
+
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+                    Site.CaptureRequirementIfIsTrue(
+                             response.ErrorCodeSpecified,
+                             "MS-FSSHTTP",
+                             3010,
+                             @"[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                }
+                else
+                {
+                    Site.Assert.IsTrue(
+                            response.ErrorCodeSpecified,
+                            @"[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                }
+            }
+        }
+        #endregion
+
+            #endregion
+
+            #region Private helper function
+
+            /// <summary>
+            /// A method used to capture LockType related requirements when joining coauthoring session.
+            /// </summary>
+            /// <param name="response">A return value represents the CoauthSubResponse information.</param>
         private void CaptureLockTypeRelatedRequirementsWhenJoinCoauthoringSession(CoauthSubResponseType response)
         {
             this.Site.Log.Add(

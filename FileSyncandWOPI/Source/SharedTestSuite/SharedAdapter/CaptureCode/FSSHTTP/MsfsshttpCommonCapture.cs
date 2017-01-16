@@ -247,7 +247,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             }
 
             // Now here only supported one request.
-            if (responseCollection.Response != null && responseCollection.Response.Length >= 1)
+            if (responseCollection.Response != null && responseCollection.Response.Length >= 1 && !string.IsNullOrEmpty(requestToken))
             {
                 MsfsshttpAdapterCapture.ValidateResponseElement(responseCollection.Response[0], site);
                 MsfsshttpAdapterCapture.ValidateResponseToken(responseCollection.Response[0], requestToken, site);
