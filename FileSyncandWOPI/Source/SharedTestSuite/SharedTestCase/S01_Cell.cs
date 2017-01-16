@@ -599,35 +599,30 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S01_TC12_UploadContents_ExclusiveLockSuccess()
         {
+            string randomFileUrl = SharedTestSuiteHelper.GenerateNonExistFileUrl(this.Site);
+
             // Initialize the context using user01 and defaultFileUrl.
-            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+            this.InitializeContext(randomFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            // Get the exclusive lock with all valid parameters, expect the server responses the error code "Success".
-            ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.GetLock);
-            CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
-            this.Site.Assert.AreEqual<ErrorCodeType>(
-                        ErrorCodeType.Success,
-                        SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
-                        "Test case cannot continue unless the Get Lock of ExclusiveLock sub request succeeds.");
-
-            // Record the current file status.
-            this.StatusManager.RecordExclusiveLock(this.DefaultFileUrl, subRequest.SubRequestData.ExclusiveLockID);
-
-            // Update contents with the same ByPassLockID used the previous step and coalesce true.
             CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
-            putChange.SubRequestData.ExclusiveLockID = subRequest.SubRequestData.ExclusiveLockID;
-            putChange.SubRequestData.BypassLockID = subRequest.SubRequestData.ExclusiveLockID;
             putChange.SubRequestData.CoalesceSpecified = true;
             putChange.SubRequestData.Coalesce = true;
+            putChange.SubRequestData.ExpectNoFileExistsSpecified = true;
+            putChange.SubRequestData.ExpectNoFileExists = true;
+            putChange.SubRequestData.ExclusiveLockID = SharedTestSuiteHelper.DefaultExclusiveLockID;
+            putChange.SubRequestData.BypassLockID = putChange.SubRequestData.ExclusiveLockID;
+            putChange.SubRequestData.Timeout = "3600";
 
-            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+            CellStorageResponse response = Adapter.CellStorageRequest(randomFileUrl, new SubRequestType[] { putChange });
             CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
 
             this.Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.Success,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                     "When the file is locked by exclusive lock and the ByPassLockID is specified by the valid exclusive lock id, the server returns the error code success.");
+
+            this.StatusManager.RecordExclusiveLock(randomFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID, this.UserName01, this.Password01, this.Domain);
+            this.StatusManager.RecordFileUpload(randomFileUrl);
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
@@ -668,7 +663,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChange.SubRequestData.CoalesceSpecified = true;
             putChange.SubRequestData.Coalesce = true;
 
-            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+            response = Adapter.CellStorageRequest(randomFileUrl, new SubRequestType[] { putChange });
             cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
 
             this.Site.Assert.AreEqual<ErrorCodeType>(

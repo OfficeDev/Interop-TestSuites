@@ -590,10 +590,30 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Join the Coauthoring session using the third client.
             this.InitializeContext(this.DefaultFileUrl, this.UserName03, this.Password03, this.Domain);
             string thirdClientId = System.Guid.NewGuid().ToString();
-            subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(thirdClientId, SharedTestSuiteHelper.ReservedSchemaLockID);
-            cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            joinResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
-            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site), "The operation CoauthingSubRequest should succeed.");
+
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+
+            while (retryCount > 0)
+            {
+                subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(thirdClientId, SharedTestSuiteHelper.ReservedSchemaLockID);
+                cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+                joinResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site) == ErrorCodeType.Success)
+                {
+                    break;
+                }
+
+                retryCount--;
+                if (retryCount == 0)
+                {
+                    Site.Assert.Fail("Join the coauthoring session should be succeed if the current client is the third coauthor.");
+                }
+
+                System.Threading.Thread.Sleep(waitTime);
+            }
+
             this.StatusManager.RecordCoauthSession(this.DefaultFileUrl, thirdClientId, SharedTestSuiteHelper.ReservedSchemaLockID, this.UserName03, this.Password03, this.Domain);
 
             this.CaptureCoauthStatusRelatedRequirementsWhenJoinCoauthoringSession(joinResponse);
