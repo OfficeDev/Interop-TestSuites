@@ -63,8 +63,6 @@
     <Property name="R3007Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R3009Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for the server does return the Response element when the URL is empty string. Set R3009Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
     <Property name="R3009Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-    <!--Set R3010Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does return the ErrorCode element when the RequestToken attribute of the corresponding Request element is an empty string. Set R3010Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-    <Property name="R3010Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R3011Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server does return the ErrorCode element when the RequestToken attribute of the corresponding Request element is an empty string. Set R3011Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
     <Property name="R3011Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R3064Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server does not return the CoauthStatus attribute as specified in section 7. Set R3064Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
@@ -173,5 +171,7 @@
     <Property name="R111111Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R4110Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does execute Sub-requests with different or same Priority in any order with respect to each other. Set R4110Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R4110Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R99045001Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does not return the added data elements When the ReturnDataElementsAdded flag is not set. Set R4110Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R99045001Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   </Properties>
 </TestSite>

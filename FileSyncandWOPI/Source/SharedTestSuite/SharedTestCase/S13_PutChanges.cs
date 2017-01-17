@@ -1094,29 +1094,29 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbResponse putChangeResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(putChangeResponse, this.Site);
 
-            bool isVerifyR99045 = putChangeResponse.CellSubResponses[0].GetSubResponseData<PutChangesSubResponseData>().PutChangesResponse != null
+            bool isVerifyR99045002 = putChangeResponse.CellSubResponses[0].GetSubResponseData<PutChangesSubResponseData>().PutChangesResponse != null
                     && putChangeResponse.CellSubResponses[0].GetSubResponseData<PutChangesSubResponseData>().PutChangesResponse.DataElementAdded != null
                     && putChangeResponse.CellSubResponses[0].GetSubResponseData<PutChangesSubResponseData>().PutChangesResponse.DataElementAdded.Count.DecodedValue != 0;
 
             Site.Log.Add(
                 TestTools.LogEntryKind.Debug,
                 "When the ReturnDataElementsAdded flag is set, the server will return the added data elements, actually it {0} return",
-                isVerifyR99045 ? "does" : "does not");
+                isVerifyR99045002 ? "does" : "does not");
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R99045
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R99045002
                 Site.CaptureRequirementIfIsTrue(
-                         isVerifyR99045,
+                         isVerifyR99045002,
                          "MS-FSSHTTPB",
-                         99045,
-                         @"[Additional Flags] B – Return Data Elements Added (1 bit): A bit that specifies that the data elements that are added to the storage as part of this Put Changes will be returned in a data element collection specified in the Put Changes response by the Data Elements Added collection (section 2.2.3.1.3).");
+                         99045002,
+                         @"[Additional Flags] B – Return Data Elements Added (1 bit): When the ReturnDataElementsAdded flag is set, the server will return the added data elements.");
             }
             else
             {
                 Site.Assert.IsTrue(
-                    isVerifyR99045,
-                    @"[Additional Flags] B – Return Data Elements Added (1 bit): A bit that specifies that the data elements that are added to the storage as part of this Put Changes will be returned in a data element collection specified in the Put Changes response by the Data Elements Added collection (section 2.2.3.1.3).");
+                    isVerifyR99045002,
+                    @"[Additional Flags] B – Return Data Elements Added (1 bit): When the ReturnDataElementsAdded flag is set, the server will return the added data elements.");
             }
         }
 
@@ -1166,10 +1166,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 "When the ReturnDataElementsAdded flag is set, the server will not return the added data elements, actually it {0} return",
                 notIncludeAddedDataElements ? "does not" : "does");
 
-            Site.Assert.IsTrue(
-                notIncludeAddedDataElements,
-                "When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements");
-        }
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 99045001, this.Site))
+            {
+                Site.CaptureRequirementIfIsTrue(
+                    notIncludeAddedDataElements,
+                    99045001,
+                    @"[Additional Flags] B – Return Data Elements Added (1 bit): When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements.");
+            }
+            }
 
         /// <summary>
         /// A method used to verify server check the index entry that is actually applied when Coherency Check Only Applied Index Entries set to 1.

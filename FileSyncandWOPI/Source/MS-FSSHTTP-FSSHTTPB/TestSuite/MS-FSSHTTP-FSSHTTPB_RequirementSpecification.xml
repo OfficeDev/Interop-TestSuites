@@ -29347,6 +29347,28 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-FSSHTTPB_R99045001, MS-FSSHTTPB_R99045002.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPB_R99045001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[Additional Flags] B – Return Data Elements Added (1 bit): When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPB_R99045:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPB_R99045002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[Additional Flags] B – Return Data Elements Added (1 bit): When the ReturnDataElementsAdded flag is set, the server will return the added data elements.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTPB_R99045:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
