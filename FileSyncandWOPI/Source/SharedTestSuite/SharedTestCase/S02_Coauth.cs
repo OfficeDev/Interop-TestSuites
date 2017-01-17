@@ -2909,11 +2909,11 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
         #endregion
 
-            #endregion
+        #endregion
 
-            #region Private helper function
+        #region Private helper function
 
-            /// <summary>
+        /// <summary>
             /// A method used to capture LockType related requirements when joining coauthoring session.
             /// </summary>
             /// <param name="response">A return value represents the CoauthSubResponse information.</param>
