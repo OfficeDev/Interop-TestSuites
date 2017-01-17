@@ -1182,8 +1182,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     notIncludeAddedDataElements,
                     @"When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements");
             }
-            
-            }
+        }
 
         /// <summary>
         /// A method used to verify server check the index entry that is actually applied when Coherency Check Only Applied Index Entries set to 1.
