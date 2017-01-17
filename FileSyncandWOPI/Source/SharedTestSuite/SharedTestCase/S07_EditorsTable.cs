@@ -228,16 +228,16 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
                 // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4082
                 Site.CaptureRequirementIfAreEqual<string>(
-                    (this.UserName01 + "@" + this.Domain).ToLower(),
-                    editor1.EmailAddress.ToLower(),
+                    (this.UserName02 + "@" + this.Domain).ToLower(),
+                    editor2.EmailAddress.ToLower(),
                     "MS-FSSHTTPB",
                     4082,
                     @"[In EditorElement] EmailAddress: A string that specifies the email address associated with the client.");
 
                 // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4083
                 Site.CaptureRequirementIfAreEqual<string>(
-                    (this.UserName01 + "@" + this.Domain).ToLower(),
-                    editor1.EmailAddress.ToLower(),
+                    (this.UserName02 + "@" + this.Domain).ToLower(),
+                    editor2.EmailAddress.ToLower(),
                     "MS-FSSHTTPB",
                     4083,
                     @"[In EditorElement] The format of the email address MUST be as specified in [RFC2822] section 3.4.1.");
