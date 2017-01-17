@@ -697,7 +697,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4107, SharedContext.Current.Site))
             {
                 site.CaptureRequirementIfAreEqual<ulong>(
-                        32,
+                        (ulong)objectGroupObjectData.Data.Content.Count(),
                         objectDataSize.DecodedValue,
                         "MS-FSSHTTPB",
                         4107,
