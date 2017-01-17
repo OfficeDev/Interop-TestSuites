@@ -154,8 +154,95 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                             // Here having something need to be distinguished between the MOSS2010 and MOSS2013
                             if (nodeObject.DataNodeObjectData == null && nodeObject.IntermediateNodeObjectList != null)
                             {
-                                // This situation could most happens for MOSS2010, we fake intermediate node instead of the root node when the zip file size is larger than 1M.
-                                // In the current stage, this kind of signature algorithm is not mentioned in the open specification, so leave this verify blank.
+                                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8213, SharedContext.Current.Site))
+                                {
+                                    bool isR8213Verified = false;
+                                    if (compressedSize > 1024 * 1024 && nodeObject.IntermediateNodeObjectList.Count > 1)
+                                    {
+                                        isR8213Verified = true;
+                                    }
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8213Verified,
+                                            "MS-FSSHTTPD",
+                                            8213,
+                                            @"[In Appendix A: Product Behavior] For implementation, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabyte, a list of subchunks is generated. <4> Section 2.4.1:  For SharePoint Server 2010, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabyte, a list of subchunks is generated.");
+                                }
+
+                                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8207, SharedContext.Current.Site))
+                                {
+                                    bool isR8207Verified = false;
+                                    if (compressedSize > 3 * 1024 * 1024 && nodeObject.IntermediateNodeObjectList.Count > 1)
+                                    {
+                                        isR8207Verified = true;
+                                    }
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8207Verified,
+                                            "MS-FSSHTTPD",
+                                            8207,
+                                            @"[In Appendix A: Product Behavior] For implementation, if the number of .ZIP file bytes represented by a chunk is greater than 3 megabytes, a list of subchunks is generated. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)");
+                                }
+
+                                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8208, SharedContext.Current.Site) && Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8210, SharedContext.Current.Site))
+                                {
+                                    bool isR8208Verified = true;
+                                    bool isR8210Verified = true;
+                                    if (nodeObject.IntermediateNodeObjectList[nodeObject.IntermediateNodeObjectList.Count - 1].DataSize.DataSize > 1024 * 1024)
+                                    {
+                                        isR8208Verified = false;
+                                    }
+
+                                    for (int i = 0; i < nodeObject.IntermediateNodeObjectList.Count - 1; i++)
+                                    {
+                                        if (nodeObject.IntermediateNodeObjectList[i].DataSize.DataSize != 1024 * 1024)
+                                        {
+                                            isR8210Verified = false;
+                                        }
+                                    }
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8208Verified,
+                                            "MS-FSSHTTPD",
+                                            8208,
+                                            @"[In Appendix A: Product Behavior] The size of each subchunk is at most 1 megabyte. (Microsoft SharePoint Server 2010 follows this behavior.)");
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8210Verified,
+                                            "MS-FSSHTTPD",
+                                            8210,
+                                            @"[In Appendix A: Product Behavior] All but the last subchunk MUST be 1 megabyte in size. (Microsfot SharePoint Server 2010 follows this behavior.)");
+                                }
+
+                                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8209, SharedContext.Current.Site) && Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8211, SharedContext.Current.Site))
+                                {
+                                    bool isR8209Verified = true;
+                                    bool isR8211Verified = true;
+                                    if (nodeObject.IntermediateNodeObjectList[nodeObject.IntermediateNodeObjectList.Count - 1].DataSize.DataSize > 3 * 1024 * 1024)
+                                    {
+                                        isR8209Verified = false;
+                                    }
+
+                                    for (int i = 0; i < nodeObject.IntermediateNodeObjectList.Count - 1; i++)
+                                    {
+                                        if (nodeObject.IntermediateNodeObjectList[i].DataSize.DataSize != 3 * 1024 * 1024)
+                                        {
+                                            isR8211Verified = false;
+                                        }
+                                    }
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8209Verified,
+                                            "MS-FSSHTTPD",
+                                            8209,
+                                            @"[In Appendix A: Product Behavior] The size of each subchunk is at most 3 megabytes. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)");
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8211Verified,
+                                            "MS-FSSHTTPD",
+                                            8211,
+                                            @"[In Appendix A: Product Behavior] All but the last subchunk MUST be 3 megabyte in size. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)");
+                                }
                             }
                             else if (nodeObject.DataNodeObjectData != null)
                             {
