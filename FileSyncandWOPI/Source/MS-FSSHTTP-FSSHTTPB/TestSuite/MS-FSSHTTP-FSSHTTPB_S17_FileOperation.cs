@@ -43,7 +43,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            string fileName = this.DefaultFileUrl.Substring(this.DefaultFileUrl.LastIndexOf("/", StringComparison.OrdinalIgnoreCase) + 1);
+            string fileName = this.DefaultFileUrl.Substring(this.DefaultFileUrl.LastIndexOf("/", System.StringComparison.OrdinalIgnoreCase) + 1);
             string newName = Common.GenerateResourceName(this.Site, "fileName") + ".txt";
 
             FileOperationSubRequestType fileoperationSubRequest = SharedTestSuiteHelper.CreateFileOperationSubRequest(FileOperationRequestTypes.Rename, newName, null, this.Site);
