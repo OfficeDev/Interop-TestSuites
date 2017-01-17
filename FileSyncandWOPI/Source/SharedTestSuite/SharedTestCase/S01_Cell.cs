@@ -105,6 +105,43 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.Site.Assert.IsTrue(
                         isContentMatch,
                         "The download file contents should be equal to the updated file contents.");
+
+            // Query the updated file content using the invalid url.
+            string invalidUrl = this.DefaultFileUrl + "Invalid";
+            queryChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
+            response = Adapter.CellStorageRequest(invalidUrl, new SubRequestType[] { queryChange });
+            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1875
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.CellRequestFail,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         1875,
+                         @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element. [and the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.]");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11230
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.CellRequestFail,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         11230,
+                         @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] [If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element, and] the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.CellRequestFail,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                    @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element. [and the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.]");
+
+                Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.CellRequestFail,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                    @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] [If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element, and] the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.");
+            }
         }
 
         /// <summary>
