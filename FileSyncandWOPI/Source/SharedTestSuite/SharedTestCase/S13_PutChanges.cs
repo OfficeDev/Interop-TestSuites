@@ -1176,6 +1176,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                         @"[Additional Flags] B – Return Data Elements Added (1 bit): When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements.");
                 }
             }
+            else
+            {
+                Site.Assert.IsTrue(
+                    notIncludeAddedDataElements,
+                    @"When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements");
+            }
+            
             }
 
         /// <summary>
