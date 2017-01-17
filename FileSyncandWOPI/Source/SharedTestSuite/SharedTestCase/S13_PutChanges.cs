@@ -1166,12 +1166,15 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 "When the ReturnDataElementsAdded flag is set, the server will not return the added data elements, actually it {0} return",
                 notIncludeAddedDataElements ? "does not" : "does");
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 99045001, this.Site))
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                Site.CaptureRequirementIfIsTrue(
-                    notIncludeAddedDataElements,
-                    99045001,
-                    @"[Additional Flags] B – Return Data Elements Added (1 bit): When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements.");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 99045001, this.Site))
+                {
+                    Site.CaptureRequirementIfIsTrue(
+                        notIncludeAddedDataElements,
+                        99045001,
+                        @"[Additional Flags] B – Return Data Elements Added (1 bit): When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements.");
+                }
             }
             }
 

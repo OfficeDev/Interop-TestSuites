@@ -64,6 +64,8 @@
   <Property name="R3122Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R3009Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does not return the Response element when the URL is empty string. Set R3009Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R3009Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R3010Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server does not return the ErrorCode element when the RequestToken attribute of the corresponding Request element is an empty string. Set R3010Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+  <Property name="R3010Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R3011Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for the server does not return the ErrorCode element when the RequestToken attribute of the corresponding Request element is an empty string. Set R3011Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R3011Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R3064Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for coauth subRequest the server does return the CoauthStatus attribute as specified in section 7. Set R3064Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
@@ -169,7 +171,7 @@
    <!--Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return the wrong value. Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
    <Property name="R4106Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
    <!--Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the Object Data Size match the size of the Binary Item in the corresponding Object Data for this object. Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R4107Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+   <Property name="R4107Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R111341Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate the implementation does support Versioning subrequest. Set R111341Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement.-->
   <Property name="R111341Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R111111Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate the implementation does support FileOperation subrequest. Set R111111Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement.-->
