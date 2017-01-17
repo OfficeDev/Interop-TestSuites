@@ -190,75 +190,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
-        /// A method used to verify that Versioning sub-request failed with empty url.
-        /// </summary>
-        [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S16_TC02_Versioning_EmptyUrl()
-        {
-            // Initialize the service
-            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            VersioningSubRequestType versioningSubRequest = SharedTestSuiteHelper.CreateVersioningSubRequest(SequenceNumberGenerator.GetCurrentToken(), VersioningRequestTypes.GetVersionList, null, this.Site);
-            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(string.Empty, new SubRequestType[] { versioningSubRequest });
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11151
-                Site.CaptureRequirementIfAreNotEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.Success,
-                    cellStoreageResponse.ResponseVersion.ErrorCode,
-                    "MS-FSSHTTP",
-                    11151,
-                    @"[In VersioningSubResponseType] In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.");
-            }
-            else
-            {
-                Site.Assert.AreNotEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.Success,
-                    cellStoreageResponse.ResponseVersion.ErrorCode,
-                    "Error should occur if call versioning request with empty url.");
-            }
-        }
-
-        /// <summary>
-        /// A method used to verify that error FileNotExistsOrCannotBeCreated should be returned if the protocol server was unable to find the URL for the file.
-        /// </summary>
-        [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S16_TC03_Versioning_FileNotExistsOrCannotBeCreated()
-        {
-            string fileUrlNotExit = SharedTestSuiteHelper.GenerateNonExistFileUrl(this.Site);
-
-            // Initialize the service
-            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            VersioningSubRequestType versioningSubRequest = SharedTestSuiteHelper.CreateVersioningSubRequest(SequenceNumberGenerator.GetCurrentToken(), VersioningRequestTypes.GetVersionList, null, this.Site);
-            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(fileUrlNotExit, new SubRequestType[] { versioningSubRequest });
-            VersioningSubResponseType versioningSubResponse = SharedTestSuiteHelper.ExtractSubResponse<VersioningSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11246
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                    ErrorCodeType.FileNotExistsOrCannotBeCreated,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(versioningSubResponse.ErrorCode, this.Site),
-                    "MS-FSSHTTP",
-                    11246,
-                    @"[In Versioning Subrequest] [The protocol returns results based on the following conditions:]If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""FileNotExistsOrCannotBeCreated"" in the ErrorCode attribute sent back in the SubResponse element.");
-            }
-            else
-            {
-                Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.FileNotExistsOrCannotBeCreated,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(versioningSubResponse.ErrorCode, this.Site),
-                    "Error FileNotExistsOrCannotBeCreated should be returned if the protocol server was unable to find the URL for the file.");
-            }
-        }
-
-        /// <summary>
         /// A method used to verify that restore version can be executed successfully.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S16_TC04_Versioning_RestoreVersion_Success()
+        public void TestCase_S16_TC02_Versioning_RestoreVersion_Success()
         {
             string documentLibraryName = Common.GetConfigurationPropertyValue("MSFSSHTTPFSSHTTPBLibraryName", this.Site);
             if (!SutPowerShellAdapter.SwitchMajorVersioning(documentLibraryName, true))
@@ -332,7 +267,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// A method used to verify that error VersionNotFound should be returned if the version is not found.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S16_TC05_Versioning_RestoreVersion_VersionNotFound()
+        public void TestCase_S16_TC03_Versioning_RestoreVersion_VersionNotFound()
         {
             string documentLibraryName = Common.GetConfigurationPropertyValue("MSFSSHTTPFSSHTTPBLibraryName", this.Site);
             if (!SutPowerShellAdapter.SwitchMajorVersioning(documentLibraryName, true))
@@ -410,7 +345,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// A method used to verify that FileVersionEventDataType with type 3 indicates a user restored the file content to its state at a previous version.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S16_TC06_FileVersionEventDataType_Restore()
+        public void TestCase_S16_TC04_FileVersionEventDataType_Restore()
         {
             string documentLibraryName = Common.GetConfigurationPropertyValue("MSFSSHTTPFSSHTTPBLibraryName", this.Site);
             if (!SutPowerShellAdapter.SwitchMajorVersioning(documentLibraryName, true))
@@ -527,7 +462,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// A method used to verify that FileOperation sub-request can be executed successfully when all input parameters are correct.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S16_TC07_FileVersionEventDataType_Rename()
+        public void TestCase_S16_TC05_FileVersionEventDataType_Rename()
         {
             string documentLibraryName = Common.GetConfigurationPropertyValue("MSFSSHTTPFSSHTTPBLibraryName", this.Site);
             if (!SutPowerShellAdapter.SwitchMajorVersioning(documentLibraryName, true))

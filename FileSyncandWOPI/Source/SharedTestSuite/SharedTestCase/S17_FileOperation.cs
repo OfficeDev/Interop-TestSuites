@@ -111,45 +111,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
-        /// A method used to verify that FileOperation sub-request failed with empty url.
-        /// </summary>
-        [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S17_TC02_FileOperation_EmptyUrl()
-        {
-            // Initialize the service
-            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            string fileName = this.DefaultFileUrl.Substring(this.DefaultFileUrl.LastIndexOf("/", StringComparison.OrdinalIgnoreCase) + 1);
-            string newName = Common.GenerateResourceName(this.Site, "fileName") + ".txt";
-
-            FileOperationSubRequestType fileoperationSubRequest = SharedTestSuiteHelper.CreateFileOperationSubRequest(FileOperationRequestTypes.Rename, newName, null, this.Site);
-            
-            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(string.Empty, new SubRequestType[] { fileoperationSubRequest });
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11121
-                Site.CaptureRequirementIfAreNotEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.Success,
-                    cellStoreageResponse.ResponseVersion.ErrorCode,
-                    "MS-FSSHTTP",
-                    11121,
-                    @"[In FileOperationSubResponseType] In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.");
-            }
-            else
-            {
-                Site.Assert.AreNotEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.Success,
-                    cellStoreageResponse.ResponseVersion.ErrorCode,
-                    "Error should occur if call fileoperation request with empty url.");
-            }
-        }
-
-        /// <summary>
         /// A method used to verify that FileOperation sub-request failed with FileOperationRequestType is not specified.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S17_TC03_FileOperation_ErrorCode()
+        public void TestCase_S17_TC02_FileOperation_ErrorCode()
         {
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -197,7 +162,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// A method used to verify that ResourceID is not changed even if the URL of the file changes.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S17_TC04_ResourceIDNotChanged()
+        public void TestCase_S17_TC03_ResourceIDNotChanged()
         {
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);

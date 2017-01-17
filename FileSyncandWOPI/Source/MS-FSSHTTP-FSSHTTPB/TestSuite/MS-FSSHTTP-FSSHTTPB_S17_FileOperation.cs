@@ -1,5 +1,7 @@
 namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 {
+    using Microsoft.Protocols.TestSuites.Common;
+    using Microsoft.Protocols.TestSuites.SharedAdapter;
     using Microsoft.Protocols.TestSuites.SharedTestSuite;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -31,6 +33,41 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         }
 
         #endregion
+
+        /// <summary>
+        /// A method used to verify that FileOperation sub-request failed with empty url.
+        /// </summary>
+        [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
+        public void MSFSSHTTP_FSSHTTPB_TestCase_S17_TC01_FileOperation_EmptyUrl()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            string fileName = this.DefaultFileUrl.Substring(this.DefaultFileUrl.LastIndexOf("/", StringComparison.OrdinalIgnoreCase) + 1);
+            string newName = Common.GenerateResourceName(this.Site, "fileName") + ".txt";
+
+            FileOperationSubRequestType fileoperationSubRequest = SharedTestSuiteHelper.CreateFileOperationSubRequest(FileOperationRequestTypes.Rename, newName, null, this.Site);
+
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(string.Empty, new SubRequestType[] { fileoperationSubRequest });
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11121
+                Site.CaptureRequirementIfAreNotEqual<GenericErrorCodeTypes>(
+                    GenericErrorCodeTypes.Success,
+                    cellStoreageResponse.ResponseVersion.ErrorCode,
+                    "MS-FSSHTTP",
+                    11121,
+                    @"[In FileOperationSubResponseType] In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.");
+            }
+            else
+            {
+                Site.Assert.AreNotEqual<GenericErrorCodeTypes>(
+                    GenericErrorCodeTypes.Success,
+                    cellStoreageResponse.ResponseVersion.ErrorCode,
+                    "Error should occur if call fileoperation request with empty url.");
+            }
+        }
 
         /// <summary>
         /// Initialize the shared context based on the specified request file URL, user name, password and domain for the MS-FSSHTTP test purpose.
