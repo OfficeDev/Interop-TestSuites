@@ -1192,13 +1192,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     fragDataElement,
                     "MS-FSSHTTPB",
                     4041,
-                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
             }
             else
             {
                 this.Site.Assert.IsNull(
                     fragDataElement,
-                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
             }
 
             cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
@@ -1222,13 +1222,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     fragDataElement,
                     "MS-FSSHTTPB",
                     4041,
-                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
             }
             else
             {
                 this.Site.Assert.IsNotNull(
                     fragDataElement,
-                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
             }
         }
         #endregion
@@ -1454,7 +1454,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     queryResponse2.DataElementPackage.DataElements.Count,
                     "MS-FSSHTTPB",
                     43001,
-                    @"[In Query Changes] Whenever the A ?Reserved field is set to 0 or 1, the protocol server must return the same response.");
+                    @"[In Query Changes] Whenever the A – Reserved field is set to 0 or 1, the protocol server must return the same response.");
             }
             else
             {
@@ -1487,7 +1487,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                 "Test case cannot continue unless the query changes succeed.");
             FsshttpbResponse queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
-            Knowledge knowledgeFirst = queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().Knowledge;
             ExGuid storageIndex = queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
 
             // Put Change
@@ -1515,13 +1514,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                 "Test case cannot continue unless the query changes succeed.");
             queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
-            DataElement data = queryResponse.DataElementPackage.DataElements.FirstOrDefault(dataElement => dataElement.DataElementType == DataElementType.CellManifestDataElementData);
+            Knowledge knowledge = queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().Knowledge;
 
-            // Query change with first knowledge
+            // Query change with knowledge returned in previous step
             cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, null, null, null);
             queryChange.RoundKnowledgeToWholeCellChanges = 1;
-            queryChange.Knowledge = knowledgeFirst;
+            queryChange.Knowledge = knowledge;
             cellRequest.AddSubRequest(queryChange, null);
             cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
             cellStorageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
@@ -1531,17 +1530,22 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                 "Test case cannot continue unless the query changes succeed.");
             queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
-            DataElement dataSecond = queryResponse.DataElementPackage.DataElements.FirstOrDefault(dataElement => dataElement.DataElementType == DataElementType.CellManifestDataElementData);
+            DataElement data = queryResponse.DataElementPackage.DataElements.FirstOrDefault(dataElement => dataElement.DataElementType == DataElementType.CellManifestDataElementData);
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4042
-                Site.CaptureRequirementIfAreEqual<ExGuid>(
-                    ((CellManifestDataElementData)data.Data).CellManifestCurrentRevision.CellManifestCurrentRevisionExtendedGUID,
-                    ((CellManifestDataElementData)dataSecond.Data).CellManifestCurrentRevision.CellManifestCurrentRevisionExtendedGUID,
-                         "MS-FSSHTTPB",
-                         4042,
-                         @"[In Query Changes] F ?Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned.");
+                Site.CaptureRequirementIfIsNull(
+                    data,
+                    "MS-FSSHTTPB",
+                    4042,
+                    @"[In Query Changes] F – Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned.");
+            }
+            else
+            {
+                Site.Assert.IsNull(
+                    data,
+                    "There should no changes returned if set Knowledge to that has queried and set RoundKnowledgeToWholeCellChanges.");
             }
         }
         #endregion

@@ -192,5 +192,7 @@
    <Property name="R8210Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
    <!--Set R8211Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that All but the last subchunk MUST be 3 megabyte in size. Set R8211Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
    <Property name="R8211Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+   <!--Set R15181Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the attribute ErrorCode does be present when this protocol is not enabled. Set R15181Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+   <Property name="R15181Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
  </Properties>
 </TestSite>

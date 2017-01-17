@@ -498,21 +498,24 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15181
-                Site.CaptureRequirementIfIsTrue(
-                         response.ResponseVersion.ErrorCodeSpecified,
-                         "MS-FSSHTTP",
-                         15181,
-                         @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if any one of the following is true.
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15181, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15181
+                    Site.CaptureRequirementIfIsTrue(
+                             response.ResponseVersion.ErrorCodeSpecified,
+                             "MS-FSSHTTP",
+                             15181,
+                             @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if any one of the following is true.
                          This protocol is not enabled on the protocol server.");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R368
-                Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
-                         GenericErrorCodeTypes.WebServiceTurnedOff,
-                         response.ResponseVersion.ErrorCode,
-                         "MS-FSSHTTP",
-                         368,
-                         @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R368
+                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                             GenericErrorCodeTypes.WebServiceTurnedOff,
+                             response.ResponseVersion.ErrorCode,
+                             "MS-FSSHTTP",
+                             368,
+                             @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
+                }
             }
             else
             {
