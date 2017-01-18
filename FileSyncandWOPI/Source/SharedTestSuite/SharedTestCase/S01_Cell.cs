@@ -105,43 +105,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.Site.Assert.IsTrue(
                         isContentMatch,
                         "The download file contents should be equal to the updated file contents.");
-
-            // Query the updated file content using the invalid url.
-            string invalidUrl = this.DefaultFileUrl + "Invalid";
-            queryChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
-            response = Adapter.CellStorageRequest(invalidUrl, new SubRequestType[] { queryChange });
-            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1875
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.CellRequestFail,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         1875,
-                         @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element. [and the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.]");
-
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11230
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.CellRequestFail,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         11230,
-                         @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] [If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element, and] the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.");
-            }
-            else
-            {
-                Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.CellRequestFail,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                    @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element. [and the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.]");
-
-                Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.CellRequestFail,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                    @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] [If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element, and] the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.");
-            }
         }
 
         /// <summary>
@@ -631,89 +594,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
-        /// This method is used to test uploading file contents succeeds when the file has an exclusive lock and the ByPassLockID is specified or not specified.
-        /// </summary>
-        [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC12_UploadContents_ExclusiveLockSuccess()
-        {
-            string randomFileUrl = SharedTestSuiteHelper.GenerateNonExistFileUrl(this.Site);
-
-            // Initialize the context using user01 and defaultFileUrl.
-            this.InitializeContext(randomFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
-            putChange.SubRequestData.CoalesceSpecified = true;
-            putChange.SubRequestData.Coalesce = true;
-            putChange.SubRequestData.ExpectNoFileExistsSpecified = true;
-            putChange.SubRequestData.ExpectNoFileExists = true;
-            putChange.SubRequestData.ExclusiveLockID = SharedTestSuiteHelper.DefaultExclusiveLockID;
-            putChange.SubRequestData.BypassLockID = putChange.SubRequestData.ExclusiveLockID;
-            putChange.SubRequestData.Timeout = "3600";
-
-            CellStorageResponse response = Adapter.CellStorageRequest(randomFileUrl, new SubRequestType[] { putChange });
-            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
-
-            this.Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.Success,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                    "When the file is locked by exclusive lock and the ByPassLockID is specified by the valid exclusive lock id, the server returns the error code success.");
-
-            this.StatusManager.RecordExclusiveLock(randomFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID, this.UserName01, this.Password01, this.Domain);
-            this.StatusManager.RecordFileUpload(randomFileUrl);
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // If the server responds with the error code "Success", 
-                // when the above steps show that the client has got an exclusive lock and the PutChange subrequest was sent with BypassLockID equal to ExclusiveLockID, 
-                // then requirement MS-FSSHTTP_R833 is captured.
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.Success,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         833,
-                         @"[In CellSubRequestDataOptionalAttributes][BypassLockID] If a client has got an exclusive lock, this value[BypassLockID] MUST be the same as the value of ExclusiveLockID, as specified in section 2.3.1.1.");
-
-                // If the server responds with "ExclusiveLock" in LockType attribute, the requirement MS-FSSHTTP_R1533 is captured. 
-                Site.CaptureRequirementIfAreEqual<string>(
-                         "ExclusiveLock",
-                         cellSubResponse.SubResponseData.LockType.ToString(),
-                         "MS-FSSHTTP",
-                         1533,
-                         @"[In CellSubResponseDataType] The LockType attribute MUST be set to ""ExclusiveLock"" in the cell subresponse if the ExclusiveLockID attribute is sent in the cell subrequest and the protocol server is successfully able to take an exclusive lock.");
-            }
-            else
-            {
-                Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.Success,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                    @"[In CellSubRequestDataOptionalAttributes][BypassLockID] If a client has got an exclusive lock, this value[BypassLockID] MUST be the same as the value of ExclusiveLockID, as specified in section 2.3.1.1.");
-
-                Site.Assert.AreEqual<string>(
-                    "ExclusiveLock",
-                    cellSubResponse.SubResponseData.LockType.ToString(),
-                    @"[In CellSubResponseDataType] The LockType attribute MUST be set to ""ExclusiveLock"" in the cell subresponse if the ExclusiveLockID attribute is sent in the cell subrequest and the protocol server is successfully able to take an exclusive lock.");
-            }
-
-            // Update contents without the ByPassLockID and coalesce true.
-            putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
-            putChange.SubRequestData.BypassLockID = null;
-            putChange.SubRequestData.CoalesceSpecified = true;
-            putChange.SubRequestData.Coalesce = true;
-
-            response = Adapter.CellStorageRequest(randomFileUrl, new SubRequestType[] { putChange });
-            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
-
-            this.Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.Success,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                    "When the file is locked by exclusive lock and the ByPassLockID is not specified, the server returns the error code success.");
-        }
-
-        /// <summary>
         /// This method is used to test uploading file contents succeeds when the file has an exclusive lock and the specified by incorrect value.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC13_UploadContents_ExclusiveLockFail()
+        public void TestCase_S01_TC12_UploadContents_ExclusiveLockFail()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -749,7 +633,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This method is used to test retrieving the content when sending the partition id in MS-FSSHTTP format for the server version is 2.2 or higher;
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC14_DownloadContents_Success_PartitionID()
+        public void TestCase_S01_TC13_DownloadContents_Success_PartitionID()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -819,7 +703,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test uploading file contents when the ETag value is valid.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC15_UploadContents_ValidEtag()
+        public void TestCase_S01_TC14_UploadContents_ValidEtag()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -909,7 +793,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test uploading file contents when the ETag value does not match the value stored by the server.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC16_UploadContents_InvalidEtag()
+        public void TestCase_S01_TC15_UploadContents_InvalidEtag()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -956,7 +840,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test when uploading contents the GetFileProps attribute does not affect the response for the attribute LastModifiedTime and CreateTime.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC17_UploadContents_GetFileProps()
+        public void TestCase_S01_TC16_UploadContents_GetFileProps()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1013,7 +897,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test CoauthVersion attribute when the coauthoring status is Alone or coauthoring.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC18_UploadContents_CoauthVersion()
+        public void TestCase_S01_TC17_UploadContents_CoauthVersion()
         {
             // User1 Join the coauthoring session.
             CoauthStatusType coauthStatus = this.PrepareCoauthoringSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
@@ -1056,7 +940,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This method is used to test uploading file contents with the attribute of PartitionID. 
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC19_UploadContents_Success_PartitionID()
+        public void TestCase_S01_TC18_UploadContents_Success_PartitionID()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1159,7 +1043,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test the CoalesceHResult attribute when uploading file contents.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC20_UploadContents_CoalesceHResult()
+        public void TestCase_S01_TC19_UploadContents_CoalesceHResult()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1345,7 +1229,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This method is used to test BinaryDataSize attribute will be ignored by the protocol server when uploading file contents.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC21_UploadContents_DifferentBinaryDataSize()
+        public void TestCase_S01_TC20_UploadContents_DifferentBinaryDataSize()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1405,7 +1289,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This method is used to test uploading file contents with the Lock ID attribute defined in MS-FSSHTTPB for the server of the version is 2.2 or higher.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC22_UploadContents_Success_LockID()
+        public void TestCase_S01_TC21_UploadContents_Success_LockID()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1479,7 +1363,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test the ExpectNoFileExists attribute when uploading file contents. 
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC23_UploadContents_ExpectNoFileExists()
+        public void TestCase_S01_TC22_UploadContents_ExpectNoFileExists()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1581,7 +1465,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This method is used to test uploading file contents when the file has a shared lock and the SchemaLockID is other schema lock id.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC24_UploadContents_DifferentSchemaLockID()
+        public void TestCase_S01_TC23_UploadContents_DifferentSchemaLockID()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1636,7 +1520,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This method is used to test uploading file contents when the file has a shared lock and the ByPassLockID is not set or not same with this schema lock identified.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC25_UploadContents_SchemaLockIDIgnored()
+        public void TestCase_S01_TC24_UploadContents_SchemaLockIDIgnored()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1711,7 +1595,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This method is used to test uploading file contents after all the protocol clients have released their lock for that file.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC26_UploadContents_AfterReleaseSchemaLock()
+        public void TestCase_S01_TC25_UploadContents_AfterReleaseSchemaLock()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);

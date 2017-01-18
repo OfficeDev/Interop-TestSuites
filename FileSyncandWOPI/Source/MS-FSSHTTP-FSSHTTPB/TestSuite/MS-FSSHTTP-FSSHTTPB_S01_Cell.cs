@@ -186,6 +186,50 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         }
 
         /// <summary>
+        /// A method used to verify CellRequestFail will be returned if server was unable to find the URL for the file specified in the Url attribute.
+        /// </summary>
+        [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
+        public void MSFSSHTTP_FSSHTTPB_S01_TC03_DownloadContents_InvalidUrl()
+        {
+            // Query the updated file content using the invalid url.
+            string invalidUrl = this.DefaultFileUrl + "Invalid";
+            CellSubRequestType queryChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
+            CellStorageResponse response = Adapter.CellStorageRequest(invalidUrl, new SubRequestType[] { queryChange });
+            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1875
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.CellRequestFail,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         1875,
+                         @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element. [and the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.]");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11230
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.CellRequestFail,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         11230,
+                         @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] [If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element, and] the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.CellRequestFail,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                    @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element. [and the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.]");
+
+                Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.CellRequestFail,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                    @"[In Cell Subrequest][The protocol server returns results based on the following conditions:] [If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""CellRequestFail"" in the ErrorCode attribute sent back in the SubResponse element, and] the binary data in the returned SubRequestData element indicates an HRESULT Error as described in [MS-FSSHTTPB] section 2.2.3.2.4.");
+            }
+        }
+
+        /// <summary>
         /// Initialize the shared context based on the specified request file URL, user name, password and domain for the MS-FSSHTTP test purpose.
         /// </summary>
         /// <param name="requestFileUrl">Specify the request file URL.</param>
