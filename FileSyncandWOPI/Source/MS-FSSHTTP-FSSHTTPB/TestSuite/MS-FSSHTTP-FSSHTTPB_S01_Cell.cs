@@ -193,6 +193,10 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         {
             // Query the updated file content using the invalid url.
             string invalidUrl = this.DefaultFileUrl + "Invalid";
+
+            // Initialize the context using user01 and invalid url.
+            this.InitializeContext(invalidUrl, this.UserName01, this.Password01, this.Domain);
+
             CellSubRequestType queryChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
             CellStorageResponse response = Adapter.CellStorageRequest(invalidUrl, new SubRequestType[] { queryChange });
             CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);

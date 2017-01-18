@@ -171,9 +171,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             this.Adapter.Reset();
             SharedContext.Current.Clear();
-
-            // Inconclusive the current case when it passes but all the Should/May properties  within it are false.
-            Common.AssumeInconclusiveIfAllShouldMayPropertiesFalse(this.TestContext, this.Site);
         }
 
         #endregion 
