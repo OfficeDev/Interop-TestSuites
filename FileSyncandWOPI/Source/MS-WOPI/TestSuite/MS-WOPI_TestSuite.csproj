@@ -36,6 +36,7 @@
     <Reference Include="Microsoft.Protocols.TestTools.VSTS" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
     <Reference Include="System" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\SharedTestSuite\SharedTestCase\S01_Cell.cs">
