@@ -153,19 +153,87 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCleanup]
         public void MSFSSHTTP_FSSHTTPBTestCleanup()
         {
+            System.Collections.Generic.Dictionary<StatusManager.ServerStatus, Action> status =
+                new System.Collections.Generic.Dictionary<StatusManager.ServerStatus, Action>();
+
+            foreach (System.Collections.Generic.KeyValuePair<StatusManager.ServerStatus, Action> pairs in this.StatusManager.DocumentLibraryStatusRollbackFunctions)
+            {
+                status.Add(pairs.Key, pairs.Value);
+            }
+
             if (!this.StatusManager.RollbackStatus())
             {
                 this.Site.Log.Add(
                     LogEntryKind.Debug,
-                    "The error message report for the clean up environments {0}", 
+                    "The error message report for the clean up environments {0}",
                     this.StatusManager.GenerateErrorMessageReport());
+            }
+
+            foreach (System.Collections.Generic.KeyValuePair<StatusManager.ServerStatus, Action> pairs in status)
+            {
+                if (pairs.Key == StatusManager.ServerStatus.DisableCoauth)
+                {
+                    string url = this.PrepareFile();
+
+                    int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+                    int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+                    int temp = retryCount;
+
+                    while (retryCount > 0)
+                    {
+                        // Join a Coauthoring session with AllowFallbackToExclusive attribute set to true
+                        CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, true, SharedTestSuiteHelper.DefaultExclusiveLockID);
+                        CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(url, new SubRequestType[] { subRequest });
+                        CoauthSubResponseType firstJoinResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+                        this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(firstJoinResponse.ErrorCode, this.Site), "The client should join the coauthoring session successfully.");
+                        if (temp == retryCount)
+                        {
+                            this.StatusManager.RecordExclusiveLock(url, SharedTestSuiteHelper.DefaultExclusiveLockID);
+                        }
+
+                        if (firstJoinResponse.SubResponseData.ExclusiveLockReturnReasonSpecified
+                            && firstJoinResponse.SubResponseData.ExclusiveLockReturnReason == ExclusiveLockReturnReasonTypes.CoauthoringDisabled)
+                        {
+                            System.Threading.Thread.Sleep(waitTime);
+                            retryCount--;
+
+                            // Release lock
+                            ExclusiveLockSubRequestType coauthLockRequest = new ExclusiveLockSubRequestType();
+                            coauthLockRequest.SubRequestToken = SequenceNumberGenerator.GetCurrentToken().ToString();
+                            coauthLockRequest.SubRequestData = new ExclusiveLockSubRequestDataType();
+                            coauthLockRequest.SubRequestData.ExclusiveLockRequestType = ExclusiveLockRequestTypes.ReleaseLock;
+                            coauthLockRequest.SubRequestData.ExclusiveLockRequestTypeSpecified = true;
+                            coauthLockRequest.SubRequestData.ExclusiveLockID = SharedTestSuiteHelper.DefaultExclusiveLockID;
+
+                            CoauthSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(
+                                this.Adapter.CellStorageRequest(url, new SubRequestType[] { coauthLockRequest }), 0, 0, this.Site);
+
+                            Site.Assert.AreEqual<string>(
+                                "success",
+                                subResponse.ErrorCode.ToLower(),
+                                "Failed to release the exclusive lock.");
+                        }
+                        else
+                        {
+                            // Release lock
+                            SchemaLockSubRequestType schemaLockRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.ReleaseLock, null, null);
+                            CellStorageResponse response = Adapter.CellStorageRequest(url, new SubRequestType[] { schemaLockRequest });
+                            SchemaLockSubResponseType schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+                            Site.Assert.AreEqual<string>(
+                                "success",
+                                schemaLockSubResponse.ErrorCode.ToLower(),
+                                "Failed to release the schema lock.");
+                            break;
+                        }
+                    }
+                }
             }
 
             if (!this.StatusManager.CleanUpFiles())
             {
                 this.Site.Log.Add(
                     LogEntryKind.Debug,
-                    "The error message report for the clean up environments {0}", 
+                    "The error message report for the clean up environments {0}",
                     this.StatusManager.GenerateErrorMessageReport());
             }
 

@@ -2177,11 +2177,32 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Join the Coauthoring session using the third client
             this.InitializeContext(this.DefaultFileUrl, this.UserName03, this.Password03, this.Domain);
             string thirdClientId = System.Guid.NewGuid().ToString();
-            request = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(thirdClientId, SharedTestSuiteHelper.ReservedSchemaLockID);
-            response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { request });
-            joinResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(response, 0, 0, this.Site);
-            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site), "The third client should join the coauthoring session successfully.");
-            this.StatusManager.RecordCoauthSession(this.DefaultFileUrl, thirdClientId, SharedTestSuiteHelper.ReservedSchemaLockID, this.UserName03, this.Password03, this.Domain);
+
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+
+            while (retryCount > 0)
+            {
+                request = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(thirdClientId, SharedTestSuiteHelper.ReservedSchemaLockID);
+                response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { request });
+                joinResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(response, 0, 0, this.Site);
+
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site) != ErrorCodeType.Success)
+                {
+                    System.Threading.Thread.Sleep(waitTime);
+                    retryCount--;
+                }
+                else
+                {
+                    this.StatusManager.RecordCoauthSession(this.DefaultFileUrl, thirdClientId, SharedTestSuiteHelper.ReservedSchemaLockID, this.UserName03, this.Password03, this.Domain);
+                    break;
+                }
+
+                if (retryCount == 0)
+                {
+                    this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site), "The third client should join the coauthoring session successfully.");
+                }
+            }
 
             // Refresh the Coauthoring session using the third client
             request = SharedTestSuiteHelper.CreateCoauthSubRequestForRefreshCoauthoringSession(thirdClientId, SharedTestSuiteHelper.ReservedSchemaLockID);
@@ -2197,7 +2218,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1887
                 Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
                          CoauthStatusType.Coauthoring,
-                         refreshResponse.SubResponseData.CoauthStatus,
+                         anotherRefreshResponse.SubResponseData.CoauthStatus,
                          "MS-FSSHTTP",
                          1887,
                          @"[In Refresh Coauthoring Session] If the current client is the third coauthor joining the coauthoring session, the protocol server MUST return a CoauthStatus set to ""Coauthoring"", which indicates that the current client is coauthoring when editing the document.");
@@ -2206,7 +2227,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             {
                 Site.Assert.AreEqual<CoauthStatusType>(
                     CoauthStatusType.Coauthoring,
-                    refreshResponse.SubResponseData.CoauthStatus,
+                    anotherRefreshResponse.SubResponseData.CoauthStatus,
                     @"If the coauthoring session contains more than one client, the protocol server should return a CoauthStatus set to ""Coauthoring"", if the client sends refresh coauthoring session.");
             }
         }

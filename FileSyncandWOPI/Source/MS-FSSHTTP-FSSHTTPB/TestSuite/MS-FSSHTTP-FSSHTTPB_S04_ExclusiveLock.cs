@@ -477,6 +477,8 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
         public void MSFSSHTTP_FSSHTTPB_S04_TC07_ExclusiveLock_CellStorageWebServiceDisabled()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15181, this.Site), "This test case only runs when WebServiceTurnedOff is returned if this protocol is not enabled on server.");
+
             if (!this.SutPowerShellAdapter.SwitchCellStorageService(false))
             {
                 this.Site.Assert.Fail("Cannot disable the cell storage web service.");
@@ -498,24 +500,21 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15181, this.Site))
-                {
-                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15181
-                    Site.CaptureRequirementIfIsTrue(
-                             response.ResponseVersion.ErrorCodeSpecified,
-                             "MS-FSSHTTP",
-                             15181,
-                             @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if any one of the following is true.
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15181
+                Site.CaptureRequirementIfIsTrue(
+                         response.ResponseVersion.ErrorCodeSpecified,
+                         "MS-FSSHTTP",
+                         15181,
+                         @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if any one of the following is true.
                          This protocol is not enabled on the protocol server.");
 
-                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R368
-                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
-                             GenericErrorCodeTypes.WebServiceTurnedOff,
-                             response.ResponseVersion.ErrorCode,
-                             "MS-FSSHTTP",
-                             368,
-                             @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
-                }
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R368
+                Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                         GenericErrorCodeTypes.WebServiceTurnedOff,
+                         response.ResponseVersion.ErrorCode,
+                         "MS-FSSHTTP",
+                         368,
+                         @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
             }
             else
             {

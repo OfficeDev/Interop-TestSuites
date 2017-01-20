@@ -28,6 +28,17 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         private Dictionary<ServerStatus, Action> documentLibraryStatusRollbackFunctions;
 
         /// <summary>
+        /// A dictionary which maintains the mapping between the file URL and the server status roll back functions.
+        /// </summary>
+        public Dictionary<ServerStatus, Action> DocumentLibraryStatusRollbackFunctions
+        {
+            get
+            {
+                return this.documentLibraryStatusRollbackFunctions;
+            }
+        }
+
+        /// <summary>
         /// A dictionary which maintains the mapping between the file URL and the check out functions.
         /// </summary>
         private Dictionary<string, Action> fileCheckOutRollbackFunctions;
