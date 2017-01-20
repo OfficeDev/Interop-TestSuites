@@ -236,8 +236,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          1197,
                          @"[In Convert to Exclusive Lock] The protocol server returns an error code value set to ""ExitCoauthSessionAsConvertToExclusiveFailed"" when the following conditions are both true:
-                         1.The ReleaseLockOnConversionToExclusiveFailure attribute is set to true in the coauthoring subrequest;
-                         2.Multiple clients are in the coauthoring session.");
+1.The ReleaseLockOnConversionToExclusiveFailure attribute is set to true in the coauthoring subrequest;
+2.Multiple clients are in the coauthoring session.");
 
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                          ErrorCodeType.ExitCoauthSessionAsConvertToExclusiveFailed,
@@ -252,9 +252,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          444,
-                         @"[In SubRequestDataOptionalAttributes] ReleaseLockOnConversionToExclusiveFailure: A Boolean value that specifies to the protocol server whether the server is allowed to remove the ClientId entry associated with the current client in the File coauthoring tracker when all of the following conditions are true:
-                         Either the type of coauthoring subrequest is ""Convert to an exclusive lock"" or the type of the schema lock subrequest is ""Convert to an Exclusive Lock"".
-                         The conversion to an exclusive lock failed.");
+                         @"[In SubRequestDataOptionalAttributes] ReleaseLockOnConversionToExclusiveFailure: A Boolean value that specifies to the protocol server whether the server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker when all of the following conditions are true:
+Either the type of coauthoring subrequest is ""Convert to an exclusive lock"" or the type of the schema lock subrequest is ""Convert to an Exclusive Lock"".
+The conversion to an exclusive lock failed.");
 
                 bool isInSession = this.IsPresentInCoauthSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, this.UserName01, this.Password01, this.Domain);
 
@@ -279,8 +279,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          678,
                          @"[In SchemaLockSubRequestDataType] ReleaseLockOnConversionToExclusiveFailure: A Boolean value that specifies to the protocol server whether the server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker, provided that all of the following conditions are true:
-                         The type of the schema lock subrequest is ""Convert to an Exclusive Lock"";
-                         The conversion to an exclusive lock failed.");
+The type of the schema lock subrequest is ""Convert to an Exclusive Lock"";
+The conversion to an exclusive lock failed.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R679
                 Site.CaptureRequirementIfIsFalse(
@@ -288,7 +288,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          679,
                          @"[In SchemaLockSubRequestDataType] When all the preceding conditions[1. The type of the schema lock subrequest is ""Convert to an Exclusive Lock"". 2. The conversion to an exclusive lock failed.] are true, the following apply:
-                         A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of true indicates that the protocol server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker.");
+A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of true indicates that the protocol server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R445
                 Site.CaptureRequirementIfIsFalse(
@@ -296,7 +296,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          445,
                          @"[In SubRequestDataOptionalAttributes] When all the above conditions[1. The type of co-authoring sub request is ""Convert to an exclusive lock"" or the type of the schema lock sub request is ""Convert to an Exclusive Lock"" 2. The conversion to an exclusive lock failed] are true:
-                         A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of true indicates that the protocol server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker.");
+A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of true indicates that the protocol server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker.");
             }
             else
             {
@@ -304,15 +304,15 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     ErrorCodeType.ExitCoauthSessionAsConvertToExclusiveFailed,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
                     @"[In Convert to Exclusive Lock] The protocol server returns an error code value set to ""ExitCoauthSessionAsConvertToExclusiveFailed"" when the following conditions are both true:
-                        1.The ReleaseLockOnConversionToExclusiveFailure attribute is set to true in the coauthoring subrequest;
-                        2.Multiple clients are in the coauthoring session.");
+1.The ReleaseLockOnConversionToExclusiveFailure attribute is set to true in the coauthoring subrequest;
+2.Multiple clients are in the coauthoring session.");
 
                 Site.Assert.AreNotEqual<ErrorCodeType>(
                     ErrorCodeType.Success,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
-                    @"[In SubRequestDataOptionalAttributes] ReleaseLockOnConversionToExclusiveFailure: A Boolean value that specifies to the protocol server whether the server is allowed to remove the ClientId entry associated with the current client in the File coauthoring tracker when all of the following conditions are true:
-                        Either the type of coauthoring subrequest is ""Convert to an exclusive lock"" or the type of the schema lock subrequest is ""Convert to an Exclusive Lock"".
-                        The conversion to an exclusive lock failed.");
+                    @"[In SubRequestDataOptionalAttributes] ReleaseLockOnConversionToExclusiveFailure: A Boolean value that specifies to the protocol server whether the server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker when all of the following conditions are true:
+Either the type of coauthoring subrequest is ""Convert to an exclusive lock"" or the type of the schema lock subrequest is ""Convert to an Exclusive Lock"".
+The conversion to an exclusive lock failed.");
 
                 bool isInSession = this.IsPresentInCoauthSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, this.UserName01, this.Password01, this.Domain);
                 Site.Assert.IsFalse(
@@ -528,8 +528,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          678,
                          @"[In SchemaLockSubRequestDataType] ReleaseLockOnConversionToExclusiveFailure: A Boolean value that specifies to the protocol server whether the server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker, provided that all of the following conditions are true:
-                         The type of the schema lock subrequest is ""Convert to an Exclusive Lock"";
-                         The conversion to an exclusive lock failed.");
+The type of the schema lock subrequest is ""Convert to an Exclusive Lock"";
+The conversion to an exclusive lock failed.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R680
                 Site.CaptureRequirementIfIsTrue(
@@ -544,7 +544,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          446,
                          @"[In SubRequestDataOptionalAttributes][When all the above conditions 1. The type of co-authoring sub request is ""Convert to an exclusive lock"" or the type of the schema lock sub request is ""Convert to an Exclusive Lock"" 2. The conversion to an exclusive lock failed] are true:
-                         A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false indicates that the protocol server is not allowed to remove the ClientId entry associated with the current client in the File coauthoring tracker.");
+A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false indicates that the protocol server is not allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker.");
             }
             else
             {
@@ -563,9 +563,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                   isInsession ? "exists" : "not exists");
                 Site.Assert.IsTrue(
                     isInsession,
-                    @"[In SchemaLockSubRequestDataType] ReleaseLockOnConversionToExclusiveFailure: A Boolean value that specifies to the protocol server whether the server is allowed to remove the ClientId entry associated with the current client in the File coauthoring tracker, provided that all of the following conditions are true:
-                        The type of the schema lock subrequest is ""Convert to an Exclusive Lock"";
-                        The conversion to an exclusive lock failed.");
+                    @"[In SchemaLockSubRequestDataType] ReleaseLockOnConversionToExclusiveFailure: A Boolean value that specifies to the protocol server whether the server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker, provided that all of the following conditions are true:
+The type of the schema lock subrequest is ""Convert to an Exclusive Lock"";
+The conversion to an exclusive lock failed.");
             }
         }
 
