@@ -644,6 +644,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                   joinResponse.SubResponseData.CoauthStatus,
                   "If the current client is the third coauthor joining the coauthoring session, the protocol server should return the CoauthStatusType as Coauthoring.");
             }
+
+            isSetMaxNumberSuccess = SutPowerShellAdapter.SetMaxNumOfCoauthUsers(2);
+            Site.Assert.AreEqual(true, isSetMaxNumberSuccess, "The operation SetMaxNumOfCoauthUsers should succeed.");
         }
 
         /// <summary>
@@ -948,10 +951,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     SharedTestSuiteHelper.ConvertToErrorCodeType(response.ErrorCode, this.Site),
                     "After set the max number of coauthUsers to 2, the protocol should not allow the third user to join the coauth session.");
             }
-
-            // Use SUT method to set the max number of coauthors to 5.
-            isSetMaxNumberSuccess = SutPowerShellAdapter.SetMaxNumOfCoauthUsers(5);
-            Site.Assert.AreEqual(true, isSetMaxNumberSuccess, "The operation SetMaxNumOfCoauthUsers should succeed.");
         }
 
         /// <summary>
@@ -2218,7 +2217,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1887
                 Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
                          CoauthStatusType.Coauthoring,
-                         anotherRefreshResponse.SubResponseData.CoauthStatus,
+                         refreshResponse.SubResponseData.CoauthStatus,
                          "MS-FSSHTTP",
                          1887,
                          @"[In Refresh Coauthoring Session] If the current client is the third coauthor joining the coauthoring session, the protocol server MUST return a CoauthStatus set to ""Coauthoring"", which indicates that the current client is coauthoring when editing the document.");
@@ -2227,9 +2226,12 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             {
                 Site.Assert.AreEqual<CoauthStatusType>(
                     CoauthStatusType.Coauthoring,
-                    anotherRefreshResponse.SubResponseData.CoauthStatus,
+                    refreshResponse.SubResponseData.CoauthStatus,
                     @"If the coauthoring session contains more than one client, the protocol server should return a CoauthStatus set to ""Coauthoring"", if the client sends refresh coauthoring session.");
             }
+
+            isSetMaxNumberSuccess = SutPowerShellAdapter.SetMaxNumOfCoauthUsers(2);
+            Site.Assert.AreEqual(true, isSetMaxNumberSuccess, "The operation SetMaxNumOfCoauthUsers should succeed.");
         }
 
         /// <summary>
@@ -2540,6 +2542,9 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of true ind
                          isInCoauthoringSesssion,
                          @"[In Convert to Exclusive Lock] When the ReleaseLockOnConversionToExclusiveFailure attribute is set to true and the conversion to an exclusive lock failed, the protocol server removes the client from the coauthoring session for the file.");
             }
+
+            isSetMaxNumberSuccess = SutPowerShellAdapter.SetMaxNumOfCoauthUsers(2);
+            Site.Assert.AreEqual(true, isSetMaxNumberSuccess, "The operation SetMaxNumOfCoauthUsers should succeed.");
         }
 
         /// <summary>
@@ -2628,6 +2633,9 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
                         @"[In SubRequestDataOptionalAttributes][When all the above conditions 1. The type of co-authoring sub request is ""Convert to an exclusive lock"" or the type of the schema lock sub request is ""Convert to an Exclusive Lock"" 2. The conversion to an exclusive lock failed] are true:
 A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false indicates that the protocol server is not allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker.");
             }
+
+            isSetMaxNumberSuccess = SutPowerShellAdapter.SetMaxNumOfCoauthUsers(2);
+            Site.Assert.AreEqual(true, isSetMaxNumberSuccess, "The operation SetMaxNumOfCoauthUsers should succeed.");
         }
 
         /// <summary>

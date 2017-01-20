@@ -844,6 +844,7 @@ The conversion to an exclusive lock failed.");
             this.StatusManager.RecordSchemaLock(this.DefaultFileUrl, subRequest.SubRequestData.ClientID, subRequest.SubRequestData.SchemaLockID);
 
             // Get a schema lock with a different ClientId comparing with the previous step, expect the server returns the error code "Success".
+            this.InitializeContext(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
             SchemaLockSubRequestType subRequest2 = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, false, null);
             subRequest2.SubRequestData.ClientID = Guid.NewGuid().ToString();
             response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest2 });
@@ -851,6 +852,7 @@ The conversion to an exclusive lock failed.");
             Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site), "Test case cannot continue unless the Get Lock of SchemaLock sub request succeeds.");
             this.StatusManager.RecordSchemaLock(this.DefaultFileUrl, subRequest2.SubRequestData.ClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
 
+            this.InitializeContext(this.DefaultFileUrl, this.UserName03, this.Password03, this.Domain);
             int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
             int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
