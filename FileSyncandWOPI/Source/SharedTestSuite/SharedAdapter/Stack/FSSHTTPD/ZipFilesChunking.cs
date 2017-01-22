@@ -128,10 +128,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
                         if (headerLength + compressedSize <= 4096)
                         {
-                            LeafNodeObject expectNode = new LeafNodeObject.IntermediateNodeObjectBuilder().Build(content, this.GetSingleChunkSignature(header, dataFileSignatureBytes));
-                            if (!expectNode.Signature.Equals(nodeObject.Signature))
+                            if (Common.GetConfigurationPropertyValue("SutVersion", SharedContext.Current.Site) != "SharePointFoundation2010" && Common.GetConfigurationPropertyValue("SutVersion", SharedContext.Current.Site) != "SharePointServer2010")
                             {
-                                site.Assert.Fail("For the Zip file, when zip file is less than 4096, expect the signature {0}, actual signature {1}", expectNode.Signature.ToString(), nodeObject.Signature.ToString());
+                                LeafNodeObject expectNode = new LeafNodeObject.IntermediateNodeObjectBuilder().Build(content, this.GetSingleChunkSignature(header, dataFileSignatureBytes));
+                                if (!expectNode.Signature.Equals(nodeObject.Signature))
+                                {
+                                    site.Assert.Fail("For the Zip file, when zip file is less than 4096, expect the signature {0}, actual signature {1}", expectNode.Signature.ToString(), nodeObject.Signature.ToString());
+                                }
                             }
 
                             // Verify the zip file less than 4096 bytes
@@ -251,11 +254,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                                             nodeObject.DataSize.DataSize,
                                             "The Data Size of the Intermediate Node Object MUST be the total number of bytes represented by the chunk.");
 
-                                SignatureObject contentSignature = new SignatureObject();
-                                contentSignature.SignatureData = new BinaryItem(dataFileSignatureBytes);
-                                if (!contentSignature.Equals(nodeObject.Signature))
+                                if (Common.GetConfigurationPropertyValue("SutVersion", SharedContext.Current.Site) != "SharePointFoundation2010" && Common.GetConfigurationPropertyValue("SutVersion", SharedContext.Current.Site) != "SharePointServer2010")
                                 {
-                                    site.Assert.Fail("For the Zip file content, expect the signature {0}, actual signature {1}", contentSignature.ToString(), nodeObject.Signature.ToString());
+                                    SignatureObject contentSignature = new SignatureObject();
+                                    contentSignature.SignatureData = new BinaryItem(dataFileSignatureBytes);
+                                    if (!contentSignature.Equals(nodeObject.Signature))
+                                    {
+                                        site.Assert.Fail("For the Zip file content, expect the signature {0}, actual signature {1}", contentSignature.ToString(), nodeObject.Signature.ToString());
+                                    }
                                 }
 
                                 // Verify the zip file larger than 4096 bytes and less than 1MB.
