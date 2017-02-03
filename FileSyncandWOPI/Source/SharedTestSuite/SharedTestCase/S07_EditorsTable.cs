@@ -827,10 +827,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             }
             else
             {
-                Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.EditorMetadataQuotaReached,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
-                    @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<49> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1976, this.Site))
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
+                        ErrorCodeType.EditorMetadataQuotaReached,
+                        SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
+                        @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<49> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
+                }
             }
         }
 

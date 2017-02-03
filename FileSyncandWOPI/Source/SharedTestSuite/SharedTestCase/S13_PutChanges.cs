@@ -1178,9 +1178,12 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             }
             else
             {
-                Site.Assert.IsTrue(
-                    notIncludeAddedDataElements,
-                    @"When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 99045001, this.Site))
+                {
+                    Site.Assert.IsTrue(
+                        notIncludeAddedDataElements,
+                        @"When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements");
+                }
             }
         }
 

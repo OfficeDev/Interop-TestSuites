@@ -185,7 +185,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                         CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, true, SharedTestSuiteHelper.DefaultExclusiveLockID);
                         CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(url, new SubRequestType[] { subRequest });
                         CoauthSubResponseType firstJoinResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
-                        this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(firstJoinResponse.ErrorCode, this.Site), "The client should join the coauthoring session successfully.");
+                        if (SharedTestSuiteHelper.ConvertToErrorCodeType(firstJoinResponse.ErrorCode, this.Site) != ErrorCodeType.Success)
+                        {
+                            break;
+                        }
                         if (temp == retryCount)
                         {
                             this.StatusManager.RecordExclusiveLock(url, SharedTestSuiteHelper.DefaultExclusiveLockID);
