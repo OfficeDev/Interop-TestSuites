@@ -600,7 +600,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
                 joinResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
 
-                if (SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site) == ErrorCodeType.Success)
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site) == ErrorCodeType.Success
+                    && joinResponse.SubResponseData.CoauthStatus == CoauthStatusType.Coauthoring)
                 {
                     break;
                 }
