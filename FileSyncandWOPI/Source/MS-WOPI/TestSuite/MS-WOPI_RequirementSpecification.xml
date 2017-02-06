@@ -2781,6 +2781,7 @@ JSON:
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WOPI_R292005</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.3.5.1.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Response Body] This value [FileExtension] MUST begin with a ".".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8984,7 +8985,7 @@ JSON:
 		<ns1:REQ_ID>MS-WOPI_R950001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Response Body] Implementation does return the value false for field SupportsCoauth. &lt;1&gt; Section 3.3.5.1.1.2:  SharePoint Foundation 2013, SharePoint Server 2013 and above return the value false for the SupportsCoauth field.</ns1:Description>
-		<ns1:Derived>MS-WOPI_R950:1</ns1:Derived>
+		<ns1:Derived>MS-WOPI_R950:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8995,7 +8996,7 @@ JSON:
 		<ns1:REQ_ID>MS-WOPI_R950002</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Response Body] Implementation does return the value true for field SupportsCoauth. (SharePoint Server 2010 follows this behavior).</ns1:Description>
-		<ns1:Derived>MS-WOPI_R950:1</ns1:Derived>
+		<ns1:Derived>MS-WOPI_R950:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
