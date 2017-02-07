@@ -71,8 +71,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Call protocol adapter operation CellStorageRequest using user01 to join the editing session.
             EditorsTableSubRequestType join = SharedTestSuiteHelper.CreateEditorsTableSubRequestForJoinSession(System.Guid.NewGuid().ToString(), 3600);
-            CellStorageResponse cellStorageResponseJoin = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { join });
             DateTime time = DateTime.UtcNow;
+            CellStorageResponse cellStorageResponseJoin = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { join });
             EditorsTableSubResponseType subResponseJoin = SharedTestSuiteHelper.ExtractSubResponse<EditorsTableSubResponseType>(cellStorageResponseJoin, 0, 0, this.Site);
             string firstClientId = join.SubRequestData.ClientID;
 
@@ -155,8 +155,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.StatusManager.RecordEditorTable(this.DefaultFileUrl, join.SubRequestData.ClientID, this.UserName02, this.Password02, this.Domain);
             string secondClientId = join.SubRequestData.ClientID;
 
-            EditorsTable editorsTable = this.FetchEditorTable(this.DefaultFileUrl);
             DateTime time2 = DateTime.UtcNow;
+            EditorsTable editorsTable = this.FetchEditorTable(this.DefaultFileUrl);
             Editor editor1 = this.FindEditorById(editorsTable, firstClientId);
             Editor editor2 = this.FindEditorById(editorsTable, secondClientId);
 
@@ -249,18 +249,16 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     4084,
                     @"[In EditorElement] HasEditorPermission: A string that specifies if the editor has permission to make edits to the file.");
 
-                bool isR4085Verified = Math.Abs((editor1.Timeout / 10000000) - ((time.AddSeconds(3600) - new System.DateTime(1, 1, 1, 0, 0, 0)).TotalSeconds - (time2 - time).TotalSeconds)) < 1;
-
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTPB_R4085
                 Site.CaptureRequirementIfIsTrue(
-                    isR4085Verified,
+                    editor1.Timeout > 0,
                     "MS-FSSHTTPB",
                     4085,
                     @"[In EditorElement] Timeout: A positive integer that specifies the time when the editor’s entry will expire and the editor will no longer be considered an active editor, which is expressed as a tick count.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTPB_R4086
                 Site.CaptureRequirementIfIsTrue(
-                    isR4085Verified,
+                    editor1.Timeout > 0,
                     "MS-FSSHTTPB",
                     4086,
                     @"[In EditorElement] A single tick represents 100 nanoseconds, or one ten-millionth of a second.");
