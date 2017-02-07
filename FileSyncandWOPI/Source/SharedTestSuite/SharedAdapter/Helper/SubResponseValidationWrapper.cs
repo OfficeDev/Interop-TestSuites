@@ -86,7 +86,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         foreach (DataElement storageIndex in fsshttpbResponse.DataElementPackage.DataElements.Where(dataElement => dataElement.DataElementType == DataElementType.StorageIndexDataElementData))
                         {
                             // Just build the root node to try to parse the signature related requirements, no need to restore the result.
-                            new RootNodeObject.RootNodeObjectBuilder().Build(
+                            new IntermediateNodeObject.RootNodeObjectBuilder().Build(
                                        fsshttpbResponse.DataElementPackage.DataElements,
                                        storageIndex.DataElementExtendedGUID);
                         }

@@ -97,7 +97,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             FsshttpbResponse fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
-            byte[] downloadBytes = new RootNodeObject.RootNodeObjectBuilder().Build(fsshttpbResponse.DataElementPackage.DataElements, fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID)
+            byte[] downloadBytes = new IntermediateNodeObject.RootNodeObjectBuilder().Build(fsshttpbResponse.DataElementPackage.DataElements, fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID)
                                                                              .GetContent()
                                                                              .ToArray();
 
@@ -171,7 +171,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          cellSubResponse.SubResponseData.ModifiedBy.IndexOf(this.UserName01, StringComparison.OrdinalIgnoreCase) >= 0,
                          "MS-FSSHTTP",
                          855,
-                         @"[In CellSubResponseDataOptionalAttributes] ModifiedBy: A UserNameType that specifies the user name for the client that last modified the file.");
+                         @"[In CellSubResponseDataOptionalAttributes] ModifiedBy: A UserNameType that specifies the user name for the protocol client that last modified the file.");
             }
             else
             {
@@ -425,7 +425,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                          "MS-FSSHTTP",
                          818,
-                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the client matches the Etag specified for that file on the server.");
+                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the protocol client matches the Etag specified for that file on the server.");
             }
 
             // Query the file content with invalid ETag
@@ -594,94 +594,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
-        /// This method is used to test uploading file contents succeeds when the file has an exclusive lock and the ByPassLockID is specified or not specified.
-        /// </summary>
-        [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC12_UploadContents_ExclusiveLockSuccess()
-        {
-            // Initialize the context using user01 and defaultFileUrl.
-            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            // Get the exclusive lock with all valid parameters, expect the server responses the error code "Success".
-            ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.GetLock);
-            CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
-            this.Site.Assert.AreEqual<ErrorCodeType>(
-                        ErrorCodeType.Success,
-                        SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
-                        "Test case cannot continue unless the Get Lock of ExclusiveLock sub request succeeds.");
-
-            // Record the current file status.
-            this.StatusManager.RecordExclusiveLock(this.DefaultFileUrl, subRequest.SubRequestData.ExclusiveLockID);
-
-            // Update contents with the same ByPassLockID used the previous step and coalesce true.
-            CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
-            putChange.SubRequestData.ExclusiveLockID = subRequest.SubRequestData.ExclusiveLockID;
-            putChange.SubRequestData.BypassLockID = subRequest.SubRequestData.ExclusiveLockID;
-            putChange.SubRequestData.CoalesceSpecified = true;
-            putChange.SubRequestData.Coalesce = true;
-
-            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
-            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
-
-            this.Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.Success,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                    "When the file is locked by exclusive lock and the ByPassLockID is specified by the valid exclusive lock id, the server returns the error code success.");
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // If the server responds with the error code "Success", 
-                // when the above steps show that the client has got an exclusive lock and the PutChange subrequest was sent with BypassLockID equal to ExclusiveLockID, 
-                // then requirement MS-FSSHTTP_R833 is captured.
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.Success,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         833,
-                         @"[In CellSubRequestDataOptionalAttributes][BypassLockID] If a client has got an exclusive lock, this value[BypassLockID] MUST be the same as the value of ExclusiveLockID, as specified in section 2.3.1.1.");
-
-                // If the server responds with "ExclusiveLock" in LockType attribute, the requirement MS-FSSHTTP_R1533 is captured. 
-                Site.CaptureRequirementIfAreEqual<string>(
-                         "ExclusiveLock",
-                         cellSubResponse.SubResponseData.LockType.ToString(),
-                         "MS-FSSHTTP",
-                         1533,
-                         @"[In CellSubResponseDataType] The LockType attribute MUST be set to ""ExclusiveLock"" in the cell subresponse if the ExclusiveLockID attribute is sent in the cell subrequest and the protocol server is successfully able to take an exclusive lock.");
-            }
-            else
-            {
-                Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.Success,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                    @"[In CellSubRequestDataOptionalAttributes][BypassLockID] If a client has got an exclusive lock, this value[BypassLockID] MUST be the same as the value of ExclusiveLockID, as specified in section 2.3.1.1.");
-
-                Site.Assert.AreEqual<string>(
-                    "ExclusiveLock",
-                    cellSubResponse.SubResponseData.LockType.ToString(),
-                    @"[In CellSubResponseDataType] The LockType attribute MUST be set to ""ExclusiveLock"" in the cell subresponse if the ExclusiveLockID attribute is sent in the cell subrequest and the protocol server is successfully able to take an exclusive lock.");
-            }
-
-            // Update contents without the ByPassLockID and coalesce true.
-            putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
-            putChange.SubRequestData.BypassLockID = null;
-            putChange.SubRequestData.CoalesceSpecified = true;
-            putChange.SubRequestData.Coalesce = true;
-
-            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
-            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
-
-            this.Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.Success,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                    "When the file is locked by exclusive lock and the ByPassLockID is not specified, the server returns the error code success.");
-        }
-
-        /// <summary>
         /// This method is used to test uploading file contents succeeds when the file has an exclusive lock and the specified by incorrect value.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC13_UploadContents_ExclusiveLockFail()
+        public void TestCase_S01_TC12_UploadContents_ExclusiveLockFail()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -717,7 +633,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This method is used to test retrieving the content when sending the partition id in MS-FSSHTTP format for the server version is 2.2 or higher;
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC14_DownloadContents_Success_PartitionID()
+        public void TestCase_S01_TC13_DownloadContents_Success_PartitionID()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -787,7 +703,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test uploading file contents when the ETag value is valid.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC15_UploadContents_ValidEtag()
+        public void TestCase_S01_TC14_UploadContents_ValidEtag()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -831,7 +747,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                          "MS-FSSHTTP",
                          818,
-                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the client matches the Etag specified for that file on the server.");
+                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the protocol client matches the Etag specified for that file on the server.");
 
                 // If both the Etag are not equal, then capture requirement R2087, R2088
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2087
@@ -856,7 +772,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                          "MS-FSSHTTP",
                          842,
-                         @"[In CellSubResponseDataOptionalAttributes] Etag defines the file version and allows for the client to know the version of the file.");
+                         @"[In CellSubResponseDataOptionalAttributes] Etag defines the file version and allows for the protocol client to know the version of the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R843
                 Site.CaptureRequirement(
@@ -877,7 +793,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test uploading file contents when the ETag value does not match the value stored by the server.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC16_UploadContents_InvalidEtag()
+        public void TestCase_S01_TC15_UploadContents_InvalidEtag()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -901,7 +817,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          818,
-                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the client matches the Etag specified for that file on the server.");
+                         @"[In CellSubRequestDataOptionalAttributes] Any time the protocol client specifies the Etag attribute in a cell subrequest, the server MUST check to ensure that the Etag sent by the protocol client matches the Etag specified for that file on the server.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R819
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
@@ -924,7 +840,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test when uploading contents the GetFileProps attribute does not affect the response for the attribute LastModifiedTime and CreateTime.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC17_UploadContents_GetFileProps()
+        public void TestCase_S01_TC16_UploadContents_GetFileProps()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -964,7 +880,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     Site.CaptureRequirement(
                              "MS-FSSHTTP",
                              3089,
-                             @"[In Appendix B: Product Behavior] When [GetFileProps is] set to true in Put Changes subrequest, the implementation does return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] When [GetFileProps is] set to true in Put Changes subrequest, the implementation does return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
                 }
             }
             else
@@ -981,7 +897,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test CoauthVersion attribute when the coauthoring status is Alone or coauthoring.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC18_UploadContents_CoauthVersion()
+        public void TestCase_S01_TC17_UploadContents_CoauthVersion()
         {
             // User1 Join the coauthoring session.
             CoauthStatusType coauthStatus = this.PrepareCoauthoringSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
@@ -1024,7 +940,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This method is used to test uploading file contents with the attribute of PartitionID. 
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC19_UploadContents_Success_PartitionID()
+        public void TestCase_S01_TC18_UploadContents_Success_PartitionID()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1111,14 +1027,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                              "MS-FSSHTTPB",
                              213802,
-                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<4> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
+                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<7> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
                 }
                 else
                 {
                     Site.Assert.AreEqual<ErrorCodeType>(
                              ErrorCodeType.Success,
                              SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<4> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
+                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<7> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
                 }
             }
         }
@@ -1127,7 +1043,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test the CoalesceHResult attribute when uploading file contents.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC20_UploadContents_CoalesceHResult()
+        public void TestCase_S01_TC19_UploadContents_CoalesceHResult()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1271,7 +1187,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              Convert.ToInt32(cellSubResponse.SubResponseData.CoalesceHResult),
                              "MS-FSSHTTP",
                              3097,
-                             @"[In CellSubResponseDataOptionalAttributes][CoalesceHResult] If CoalesceHResult is not equal to 0, it indicates an exception or failure condition that occurred.");
+                             @"[In CellSubResponseDataOptionalAttributes][CoalesceHResult] If CoalesceHResult is not equal to 0, it indicates an exception or failure condition that occurred. <32>");
 
                     bool isR1528Verified = Convert.ToInt32(cellSubResponse.SubResponseData.CoalesceHResult) >= -2147483648 && Convert.ToInt32(cellSubResponse.SubResponseData.CoalesceHResult) <= 2147483647;
                     Site.Log.Add(
@@ -1289,7 +1205,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              cellSubResponse.SubResponseData.CoalesceErrorMessage,
                              "MS-FSSHTTP",
                              3095,
-                             @"[In CellSubResponseDataOptionalAttributes][CoalesceErrorMessage] CoalesceErrorMessage MUST be sent only when the CoalesceHResult attribute is set to an integer value which is not equal to 0.");
+                             @"[In CellSubResponseDataOptionalAttributes][CoalesceErrorMessage] CoalesceErrorMessage MUST be sent only when the CoalesceHResult attribute is set to an integer value which is not equal to 0. <31>");
 
                     // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R4002
                     Site.CaptureRequirement(
@@ -1313,7 +1229,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This method is used to test BinaryDataSize attribute will be ignored by the protocol server when uploading file contents.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC21_UploadContents_DifferentBinaryDataSize()
+        public void TestCase_S01_TC20_UploadContents_DifferentBinaryDataSize()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1373,7 +1289,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This method is used to test uploading file contents with the Lock ID attribute defined in MS-FSSHTTPB for the server of the version is 2.2 or higher.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC22_UploadContents_Success_LockID()
+        public void TestCase_S01_TC21_UploadContents_Success_LockID()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1427,6 +1343,18 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              "MS-FSSHTTP",
                              1834,
                              @"[In CellSubRequestDataOptionalAttributes][BypassLockID] A protocol server that has a version number of 2.2 MUST accept both LockID and BypassLockID.");
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R518
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTP",
+                             518,
+                             @"[In CellSubRequestDataType][SchemaLockID] After a protocol client is able to get a shared lock for a file with a specific schema lock identifier, the server MUST allow only other protocol clients that specify the same schema lock identifier to share the file lock.");
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R519
+                    Site.CaptureRequirement(
+                             "MS-FSSHTTP",
+                             519,
+                             @"[In CellSubRequestDataType] The protocol server ensures that at any instant in time, only clients having the same schema lock identifier can lock the file.");
                 }
             }
         }
@@ -1435,7 +1363,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test case is used to test the ExpectNoFileExists attribute when uploading file contents. 
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S01_TC23_UploadContents_ExpectNoFileExists()
+        public void TestCase_S01_TC22_UploadContents_ExpectNoFileExists()
         {
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1446,7 +1374,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChange.SubRequestData.Etag = string.Empty;
             putChange.SubRequestData.CoalesceSpecified = true;
             putChange.SubRequestData.Coalesce = true;
-            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange }, "1",
+                2, 2, null, null, null, null, true);
             CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
@@ -1458,6 +1387,23 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          1869,
                          @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
+
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1102401, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1101401
+                    Site.CaptureRequirementIfIsNotNull(
+                             response.ResponseCollection.Response[0].SuggestedFileName,
+                             "MS-FSSHTTP",
+                             1101401,
+                             @"[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is true] specifies the host should return a suggested/available file name that the client can try instead.");
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1102401
+                    Site.CaptureRequirementIfIsNotNull(
+                        response.ResponseCollection.Response[0].SuggestedFileName,
+                        "MS-FSSHTTP",
+                        1102401,
+                        @"[In Appendix B: Product Behavior] Implementation does support SuggestedFileName to specify that the suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request. (Microsoft SharePoint Server 2016 and above support this behavior.)");
+                }
             }
             else
             {
@@ -1465,8 +1411,243 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     ErrorCodeType.CellRequestFail,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                     @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
+
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1102401, this.Site))
+                {
+                    Site.Assert.IsNotNull(
+                    response.ResponseCollection.Response[0].SuggestedFileName,
+                    "[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is true] specifies the host should return a suggested/available file name that the client can try instead.");
+                }
+            }
+
+            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange }, "1",
+                2, 2, null, null, null, null, false);
+            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1869
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.CellRequestFail,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         1869,
+                         @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
+
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1102401, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1101402
+                    Site.CaptureRequirementIfIsNull(
+                         response.ResponseCollection.Response[0].SuggestedFileName,
+                         "MS-FSSHTTP",
+                         1101402,
+                         @"[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is false] specifies the host should not return a suggested/available file name that the client can try instead.");
+                }
+
+            }
+            else
+            {
+                Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.CellRequestFail,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                    @"[In Cell Subrequest] In this case[If the ExpectNoFileExists attribute is set to true in a file content upload cell subrequest, the Etag attribute MUST be an empty string], the protocol server MUST cause the cell subrequest to fail with a coherency error if the file already exists on the server.");
+
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1102401, this.Site))
+                {
+                    Site.Assert.IsNull(
+                    response.ResponseCollection.Response[0].SuggestedFileName,
+                    "[In Request] ShouldReturnDisambiguatedFileName: If an upload request fails with a coherency failure, this flag [is false] specifies the host should not return a suggested/available file name that the client can try instead.");
+                }
             }
         }
+
+        /// <summary>
+        /// This method is used to test uploading file contents when the file has a shared lock and the SchemaLockID is other schema lock id.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S01_TC23_UploadContents_DifferentSchemaLockID()
+        {
+            // Initialize the context using user01 and defaultFileUrl.
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Get a schema lock with all valid parameters, expect the server returns the error code "Success".
+            SchemaLockSubRequestType subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, false, null);
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            SchemaLockSubResponseType schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+
+            Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site), "Test case cannot continue unless the Get Lock of SchemaLock sub request succeeds.");
+            this.StatusManager.RecordSchemaLock(this.DefaultFileUrl, subRequest.SubRequestData.ClientID, subRequest.SubRequestData.SchemaLockID);
+
+            // If the server version is 2.2, it should also accept the client version 2.0
+            if (response.ResponseVersion.Version >= 2 && response.ResponseVersion.MinorVersion >= 2)
+            {
+                // Initialize the context using user02 and defaultFileUrl.
+                this.InitializeContext(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
+
+                string otherSchemaLockID = Guid.NewGuid().ToString();
+                // Update contents using the same SchemaLockId and ByPassLockID as the previous step's SchemaLockId when the coalesce is true.
+                CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.SchemaLockID = otherSchemaLockID;
+                putChange.SubRequestData.BypassLockID = otherSchemaLockID;
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+                    // If the server does not return the error code "Success", then it indicates that the protocol server to block the other client with different schema lock identifier. In this case, the requirement MS-FSSHTTP_R517 can be captured.
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R517
+                    Site.CaptureRequirementIfAreNotEqual<ErrorCodeType>(
+                             ErrorCodeType.Success,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             517,
+                             @"[In CellSubRequestDataType][SchemaLockID] This schema lock identifier is used by the protocol server to block other clients with a different schema lock identifier.");
+                }
+                else
+                {
+                    Site.Assert.AreNotEqual<ErrorCodeType>(
+                        ErrorCodeType.Success,
+                        SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                        @"[In CellSubRequestDataType][SchemaLockID] This schema lock identifier is used by the protocol server to block other clients with a different schema lock identifier.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method is used to test uploading file contents when the file has a shared lock and the ByPassLockID is not set or not same with this schema lock identified.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S01_TC24_UploadContents_SchemaLockIDIgnored()
+        {
+            // Initialize the context using user01 and defaultFileUrl.
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Get a schema lock with all valid parameters, expect the server returns the error code "Success".
+            SchemaLockSubRequestType subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, false, null);
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            SchemaLockSubResponseType schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+
+            Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site), "Test case cannot continue unless the Get Lock of SchemaLock sub request succeeds.");
+            this.StatusManager.RecordSchemaLock(this.DefaultFileUrl, subRequest.SubRequestData.ClientID, subRequest.SubRequestData.SchemaLockID);
+
+            // If the server version is 2.2, it should also accept the client version 2.0
+            if (response.ResponseVersion.Version >= 2 && response.ResponseVersion.MinorVersion >= 2)
+            {
+                string otherSchemaLockID = Guid.NewGuid().ToString();
+                // Update contents and the ByPassLockID not same with SchemaLockId.
+                CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.SchemaLockID = subRequest.SubRequestData.SchemaLockID;
+                putChange.SubRequestData.BypassLockID = otherSchemaLockID;
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponseNotSameWithSchemaLockId1 = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+                putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.SchemaLockID = subRequest.SubRequestData.SchemaLockID;
+                putChange.SubRequestData.BypassLockID = otherSchemaLockID;
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponseNotSameWithSchemaLockId2 = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+                this.Site.Assert.AreEqual<ErrorCodeType>(
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponseNotSameWithSchemaLockId1.ErrorCode, this.Site),
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponseNotSameWithSchemaLockId2.ErrorCode, this.Site),
+                         "If the ByPassLockID is not same with this schema lock identified, the SchemaLockID will be ignored by the server.");
+
+                // Update contents and the ByPassLockID not set.
+                putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.SchemaLockID = subRequest.SubRequestData.SchemaLockID;
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponseNotSetByPassLockID1 = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+                // Update contents and the ByPassLockID not set.
+                putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponseNotSetByPassLockID2 = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+                this.Site.Assert.AreEqual<ErrorCodeType>(
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponseNotSetByPassLockID1.ErrorCode, this.Site),
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponseNotSetByPassLockID2.ErrorCode, this.Site),
+                         "If the ByPassLockID is not set, the SchemaLockID will be ignored by the server.");
+
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11278
+                    this.Site.CaptureRequirement(
+                             11278,
+                            "[In CellSubRequestDataType][SchemaLockID] if the ByPassLockID is not set or not same with this schema lock identified, the SchemaLockID will be ignored by the server.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method is used to test uploading file contents after all the protocol clients have released their lock for that file.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S01_TC25_UploadContents_AfterReleaseSchemaLock()
+        {
+            // Initialize the context using user01 and defaultFileUrl.
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Get a schema lock with all valid parameters, expect the server returns the error code "Success".
+            SchemaLockSubRequestType subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, false, null);
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            SchemaLockSubResponseType schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+
+            Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site), "Test case cannot continue unless the Get Lock of SchemaLock sub request succeeds.");
+            this.StatusManager.RecordSchemaLock(this.DefaultFileUrl, subRequest.SubRequestData.ClientID, subRequest.SubRequestData.SchemaLockID);
+
+            // Release lock with same ClientId and SchemaLockId with first step, expect server responses the error code "Success".
+            subRequest = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.ReleaseLock, null, null);
+            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+            Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site), "Test case cannot continue unless the Get Lock of SchemaLock sub request succeeds.");
+            this.StatusManager.CancelSharedLock(this.DefaultFileUrl, subRequest.SubRequestData.ClientID, subRequest.SubRequestData.SchemaLockID);
+
+            // If the server version is 2.2, it should also accept the client version 2.0
+            if (response.ResponseVersion.Version >= 2 && response.ResponseVersion.MinorVersion >= 2)
+            {
+                string otherSchemaLockID = Guid.NewGuid().ToString();
+                // Update contents using the different schema lock ID.
+                CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+                putChange.SubRequestData.SchemaLockID = otherSchemaLockID;
+                putChange.SubRequestData.BypassLockID = otherSchemaLockID;
+                putChange.SubRequestData.CoalesceSpecified = true;
+                putChange.SubRequestData.Coalesce = true;
+
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+                CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R520
+                    this.Site.CaptureRequirementIfAreEqual<ErrorCodeType>(                          
+                            ErrorCodeType.Success,
+                            SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                             520,
+                            "[In CellSubRequestDataType] After all the protocol clients have released their lock for that file, the protocol server MUST allow a protocol client with a different schema lock identifier to get a shared lock for that file.");
+                }
+                else
+                {
+                    this.Site.Assert.AreEqual<ErrorCodeType>(
+                            ErrorCodeType.Success,
+                            SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                            "[In CellSubRequestDataType] After all the protocol clients have released their lock for that file, the protocol server MUST allow a protocol client with a different schema lock identifier to get a shared lock for that file.");
+                }
+            }
+        }
+
         #endregion
     }
 }

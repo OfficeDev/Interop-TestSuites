@@ -14,7 +14,8 @@
          "SharePointFoundation2010" (Microsoft® SharePoint® Foundation 2010 Service Pack 2 (SP2));
          "SharePointFoundation2013" (Microsoft® SharePoint® Foundation 2013 Service Pack 1 (SP1));
          "SharePointServer2010" (Microsoft® SharePoint® Server 2010 Service Pack 2 (SP2));
-         "SharePointServer2013" (Microsoft® SharePoint® Server 2013 Service Pack 1 (SP1)) . -->
+         "SharePointServer2013" (Microsoft® SharePoint® Server 2013 Service Pack 1 (SP1));
+         "SharePointServer2016" (Microsoft® SharePoint® Server 2016). -->
     <Property name="SutVersion" value="SharePointServer2013"/>
     <!-- The TargetSiteCollectionUrl property specifies the fully qualified URL of the service which the test suite would be run on. -->
     <Property name="TargetSiteCollectionUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]" />
@@ -53,7 +54,11 @@
          The supported values are:
          "HTTP", the transport is HTTP;
          "HTTPS", the transport is HTTPS. -->
-    <Property name="TransportType" value="HTTP"/>    
+    <Property name="TransportType" value="HTTP"/>
+    <!-- The WaitTime property specifies the time interval (in milliseconds) to retry an operation. Depending on your environment, you may need to increase the value to avoid intermittent failures. -->
+    <Property name="WaitTime" value="1000" />
+    <!-- The RetryCount property specifies the maximum count to retry an operation in the event if the operation does not succeed. Depending on your environment, you may need to increase the value to avoid intermittent failures. -->
+    <Property name="RetryCount" value="300" />
     <!-- Test suite client section ends. -->
   </Properties>
 </TestSite>

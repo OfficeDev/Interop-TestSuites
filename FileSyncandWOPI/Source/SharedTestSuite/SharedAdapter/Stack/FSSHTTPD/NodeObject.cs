@@ -28,7 +28,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// Gets or sets the intermediate node object list.
         /// </summary>
-        public List<IntermediateNodeObject> IntermediateNodeObjectList { get; set; }
+        public List<LeafNodeObject> IntermediateNodeObjectList { get; set; }
 
         /// <summary>
         /// Gets or sets the signature.
@@ -51,15 +51,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
     /// The data of Root Node Object.
     /// </summary>
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Easy to maintain one group of classes in one .cs file.")]
-    public class RootNodeObject : NodeObject
+    public class IntermediateNodeObject : NodeObject
     {
         /// <summary>
-        /// Initializes a new instance of the RootNodeObject class.
+        /// Initializes a new instance of the IntermediateNodeObject class.
         /// </summary>
-        public RootNodeObject()
-            : base(StreamObjectTypeHeaderStart.RootNodeObject)
+        public IntermediateNodeObject()
+            : base(StreamObjectTypeHeaderStart.IntermediateNodeObject)
         {
-            this.IntermediateNodeObjectList = new List<IntermediateNodeObject>();
+            this.IntermediateNodeObjectList = new List<LeafNodeObject>();
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         {
             List<byte> content = new List<byte>();
 
-            foreach (IntermediateNodeObject intermediateNode in this.IntermediateNodeObjectList)
+            foreach (LeafNodeObject intermediateNode in this.IntermediateNodeObjectList)
             {
                 content.AddRange(intermediateNode.GetContent());
             }
@@ -89,7 +89,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             int index = currentIndex;
             if (lengthOfItems != 0)
             {
-                throw new StreamObjectParseErrorException(currentIndex, "RootNodeObject", "Stream Object over-parse error", null);
+                throw new StreamObjectParseErrorException(currentIndex, "IntermediateNodeObject", "Stream Object over-parse error", null);
             }
 
             this.Signature = StreamObject.GetCurrent<SignatureObject>(byteArray, ref index);
@@ -121,7 +121,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             /// <param name="dataElements">Specify the data element list.</param>
             /// <param name="storageIndexExGuid">Specify the storage index extended GUID.</param>
             /// <returns>Return a root node object build from the data element list.</returns>
-            public RootNodeObject Build(List<DataElement> dataElements, ExGuid storageIndexExGuid)
+            public IntermediateNodeObject Build(List<DataElement> dataElements, ExGuid storageIndexExGuid)
             {
                 if (DataElementUtils.TryAnalyzeWhetherFullDataElementList(dataElements, storageIndexExGuid)
                     && DataElementUtils.TryAnalyzeWhetherConfirmSchema(dataElements, storageIndexExGuid))
@@ -154,9 +154,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             /// </summary>
             /// <param name="fileContent">Specify the byte array.</param>
             /// <returns>Return a root node object build from the byte array.</returns>
-            public RootNodeObject Build(byte[] fileContent)
+            public IntermediateNodeObject Build(byte[] fileContent)
             {
-                RootNodeObject rootNode = new RootNodeObject();
+                IntermediateNodeObject rootNode = new IntermediateNodeObject();
                 rootNode.Signature = new SignatureObject();
                 rootNode.DataSize = new DataSizeObject();
                 rootNode.DataSize.DataSize = (ulong)fileContent.Length;
@@ -171,7 +171,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             /// <param name="objectGroupList">Specify the object group data element list.</param>
             /// <param name="rootExGuid">Specify the root extended GUID.</param>
             /// <returns>Return a root node object build from the object group data element list.</returns>
-            private RootNodeObject Build(List<ObjectGroupDataElementData> objectGroupList, ExGuid rootExGuid)
+            private IntermediateNodeObject Build(List<ObjectGroupDataElementData> objectGroupList, ExGuid rootExGuid)
             {
                 ObjectGroupObjectDeclare rootDeclare;
                 ObjectGroupObjectData root = this.FindByExGuid(objectGroupList, rootExGuid, out rootDeclare);
@@ -182,9 +182,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 }
 
                 int index = 0;
-                RootNodeObject rootNode = null;
+                IntermediateNodeObject rootNode = null;
 
-                if (StreamObject.TryGetCurrent<RootNodeObject>(root.Data.Content.ToArray(), ref index, out rootNode))
+                if (StreamObject.TryGetCurrent<IntermediateNodeObject>(root.Data.Content.ToArray(), ref index, out rootNode))
                 {
                     rootNode.ExGuid = rootExGuid;
 
@@ -192,13 +192,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     {
                         ObjectGroupObjectDeclare intermediateDeclare;
                         ObjectGroupObjectData intermediateData = this.FindByExGuid(objectGroupList, extGuid, out intermediateDeclare);
-                        rootNode.IntermediateNodeObjectList.Add(new IntermediateNodeObject.IntermediateNodeObjectBuilder().Build(objectGroupList, intermediateData, extGuid));
+                        rootNode.IntermediateNodeObjectList.Add(new LeafNodeObject.IntermediateNodeObjectBuilder().Build(objectGroupList, intermediateData, extGuid));
 
                         // Capture the intermediate related requirements
                         if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
                         {
                             MsfsshttpdCapture.VerifyObjectGroupObjectDataForIntermediateNode(intermediateData, intermediateDeclare, objectGroupList, SharedContext.Current.Site);
-                            MsfsshttpdCapture.VerifyIntermediateNodeObject(rootNode.IntermediateNodeObjectList.Last(), SharedContext.Current.Site);
+                            MsfsshttpdCapture.VerifyLeafNodeObject(rootNode.IntermediateNodeObjectList.Last(), SharedContext.Current.Site);
                         }
                     }
 
@@ -206,17 +206,17 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     {
                         // Capture the root node related requirements. 
                         MsfsshttpdCapture.VerifyObjectGroupObjectDataForRootNode(root, rootDeclare, objectGroupList, SharedContext.Current.Site);
-                        MsfsshttpdCapture.VerifyRootNodeObject(rootNode, SharedContext.Current.Site);
+                        MsfsshttpdCapture.VerifyIntermediateNodeObject(rootNode, SharedContext.Current.Site);
                     }
                 }
                 else
                 {
                     // If there is only one object in the file, SharePoint Server 2010 does not return the Root Node Object, but an Intermediate Node Object at the beginning.
                     // At this case, we will add the root node object for the further parsing.
-                    rootNode = new RootNodeObject();
+                    rootNode = new IntermediateNodeObject();
                     rootNode.ExGuid = rootExGuid;
                     
-                    rootNode.IntermediateNodeObjectList.Add(new IntermediateNodeObject.IntermediateNodeObjectBuilder().Build(objectGroupList, root, rootExGuid));
+                    rootNode.IntermediateNodeObjectList.Add(new LeafNodeObject.IntermediateNodeObjectBuilder().Build(objectGroupList, root, rootExGuid));
                     rootNode.DataSize = new DataSizeObject();
                     rootNode.DataSize.DataSize = (ulong)rootNode.IntermediateNodeObjectList.Sum(o => (float)o.DataSize.DataSize);
                 }
@@ -266,13 +266,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
     /// <summary>
     /// The data of Intermediate Node Object.
     /// </summary>
-    public class IntermediateNodeObject : NodeObject
+    public class LeafNodeObject : NodeObject
     {
         /// <summary>
-        /// Initializes a new instance of the IntermediateNodeObject class.
+        /// Initializes a new instance of the LeafNodeObjectData class.
         /// </summary>
-        public IntermediateNodeObject()
-            : base(StreamObjectTypeHeaderStart.IntermediateNodeObject)
+        public LeafNodeObject()
+            : base(StreamObjectTypeHeaderStart.LeafNodeObject)
         {
         }
 
@@ -295,14 +295,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             }
             else if (this.IntermediateNodeObjectList != null)
             {
-                foreach (IntermediateNodeObject intermediateNode in this.IntermediateNodeObjectList)
+                foreach (LeafNodeObject intermediateNode in this.IntermediateNodeObjectList)
                 {
                     content.AddRange(intermediateNode.GetContent());
                 }
             }
             else
             {
-                throw new InvalidOperationException("The DataNodeObjectData and IntermediateNodeObjectList properties in IntermediateNodeObject cannot be null at the same time.");
+                throw new InvalidOperationException("The DataNodeObjectData and IntermediateNodeObjectList properties in LeafNodeObjectData cannot be null at the same time.");
             }
             
             return content;
@@ -319,7 +319,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             int index = currentIndex;
             if (lengthOfItems != 0)
             {
-                throw new StreamObjectParseErrorException(currentIndex, "IntermediateNodeObject", "Stream Object over-parse error", null);
+                throw new StreamObjectParseErrorException(currentIndex, "LeafNodeObjectData", "Stream Object over-parse error", null);
             }
 
             this.Signature = StreamObject.GetCurrent<SignatureObject>(byteArray, ref index);
@@ -352,13 +352,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             /// <param name="dataObj">Specify the object group object.</param>
             /// <param name="intermediateGuid">Specify the intermediate extended GUID.</param>
             /// <returns>Return the intermediate node object.</returns>
-            public IntermediateNodeObject Build(List<ObjectGroupDataElementData> objectGroupList, ObjectGroupObjectData dataObj, ExGuid intermediateGuid)
+            public LeafNodeObject Build(List<ObjectGroupDataElementData> objectGroupList, ObjectGroupObjectData dataObj, ExGuid intermediateGuid)
             {
-                IntermediateNodeObject node = null;
-                RootNodeObject rootNode = null;
+                LeafNodeObject node = null;
+                IntermediateNodeObject rootNode = null;
 
                 int index = 0;
-                if (StreamObject.TryGetCurrent<IntermediateNodeObject>(dataObj.Data.Content.ToArray(), ref index, out node))
+                if (StreamObject.TryGetCurrent<LeafNodeObject>(dataObj.Data.Content.ToArray(), ref index, out node))
                 {
                     if (dataObj.ObjectExGUIDArray == null)
                     {
@@ -385,8 +385,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     }
                     else
                     {
-                        // Contain a list of IntermediateNodeObject
-                        node.IntermediateNodeObjectList = new List<IntermediateNodeObject>();
+                        // Contain a list of LeafNodeObjectData
+                        node.IntermediateNodeObjectList = new List<LeafNodeObject>();
                         node.DataNodeObjectData = null;
                         foreach (ExGuid extGuid in dataObj.ObjectExGUIDArray.Content)
                         {
@@ -401,12 +401,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         }
                     }
                 }
-                else if (StreamObject.TryGetCurrent<RootNodeObject>(dataObj.Data.Content.ToArray(), ref index, out rootNode))
+                else if (StreamObject.TryGetCurrent<IntermediateNodeObject>(dataObj.Data.Content.ToArray(), ref index, out rootNode))
                 {
-                    // In Sub chunking for larger than 1MB zip file, MOSS2010 could return RootNodeObject.
+                    // In Sub chunking for larger than 1MB zip file, MOSS2010 could return IntermediateNodeObject.
                     // For easy further process, the rootNode will be replaced by intermediate node instead.
-                    node = new IntermediateNodeObject();
-                    node.IntermediateNodeObjectList = new List<IntermediateNodeObject>();
+                    node = new LeafNodeObject();
+                    node.IntermediateNodeObjectList = new List<LeafNodeObject>();
                     node.DataSize = rootNode.DataSize;
                     node.ExGuid = rootNode.ExGuid;
                     node.Signature = rootNode.Signature;
@@ -425,7 +425,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 }
                 else
                 {
-                    throw new InvalidOperationException("In the ObjectGroupDataElement cannot only contain the RootNodeObject or IntermediateNodeOBject.");
+                    throw new InvalidOperationException("In the ObjectGroupDataElement cannot only contain the IntermediateNodeObject or IntermediateNodeOBject.");
                 }
 
                 return node;
@@ -437,9 +437,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             /// <param name="array">Specify the byte array.</param>
             /// <param name="signature">Specify the signature.</param>
             /// <returns>Return the intermediate node object.</returns>
-            public IntermediateNodeObject Build(byte[] array, SignatureObject signature)
+            public LeafNodeObject Build(byte[] array, SignatureObject signature)
             {
-                IntermediateNodeObject nodeObject = new IntermediateNodeObject();
+                LeafNodeObject nodeObject = new LeafNodeObject();
                 nodeObject.DataSize = new DataSizeObject();
                 nodeObject.DataSize.DataSize = (ulong)array.Length;
 

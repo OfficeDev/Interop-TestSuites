@@ -671,7 +671,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().PartialResult,
                          "MS-FSSHTTPB",
                          444,
-                         @"[In Query Changes] Max Data Elements (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies limit of DoS mitigation at which the server starts breaking up the results into partial results.");
+                         @"[In Query Changes] Max Data Elements (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies, in bytes, the limit of data elements at which the server starts breaking up the results into partial results.");
 
                 // For the requirement MS-FSSHTTPB_R990351, it is not fully validated, because it cost too much to validate its size.
                 Site.CaptureRequirementIfIsTrue(
@@ -729,25 +729,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbResponse queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(queryResponse, this.Site);
             DataElement fragDataElement = queryResponse.DataElementPackage.DataElements.FirstOrDefault(e => e.DataElementType == DataElementType.FragmentDataElementData);
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                Site.CaptureRequirementIfIsNull(
-                         fragDataElement,
-                         "MS-FSSHTTPB",
-                         2145,
-                         @"[In Query Changes] B - Allow Fragments (1 bit): otherwise[If B - Allow Fragments is not set], it[B - Allow Fragments] does not allow fragments.");
-            }
-            else
-            {
-                this.Site.Assert.IsNull(
-                    fragDataElement,
-                    @"[In Query Changes] B - Allow Fragments (1 bit): otherwise[If B - Allow Fragments is not set], it[B - Allow Fragments] does not allow fragments.");
-            }
         }
 
         /// <summary>
-        /// The method uses to verify whether the object data is excluded when C - Exclude Object Data is set or not.
+        /// The method uses to verify whether the Serial Numbers of filtered out data elements is included in the response Knowledge when D - Include Filtered Out Data Elements In Knowledge is set or not.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S12_TC17_QueryChanges_IncludeFilteredOutDataElementsInKnowledge()
@@ -830,20 +815,23 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 "Expect the specialized knowledge number is larger when the Include Filtered Out Data Elements In Knowledge is set, and actually it {0}",
                 isVerified ? "is" : "is not");
 
-            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2148, MS-FSSHTTPB_R2149
+            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2148, MS-FSSHTTPB_R4113
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 Site.CaptureRequirementIfIsTrue(
                          isVerified,
                          "MS-FSSHTTPB",
                          2148,
-                         @"[In Query Changes] D - Include Filtered Out Data Elements In Knowledge (1 bit): If set, a bit that specifies to include the serial numbers (section 2.2.1.9) of filtered out data elements in the response knowledge.");
+                         @"[In Query Changes] D - Include Filtered Out Data Elements In Knowledge (1 bit): If set, a bit that specifies to include the Serial Numbers (section 2.2.1.9) of filtered out data elements in the response Knowledge (section 2.2.1.13).");
 
-                Site.CaptureRequirementIfIsTrue(
-                         isVerified,
-                         "MS-FSSHTTPB",
-                         2149,
-                         @"[In Query Changes] D - Include Filtered Out Data Elements In Knowledge (1 bit): otherwise[If D - Include Filtered Out Data Elements In Knowledge is not set], the serial numbers of filtered out data elements are not included in the response knowledge.");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4113, SharedContext.Current.Site))
+                {
+                    Site.CaptureRequirementIfIsTrue(
+                             isVerified,
+                             "MS-FSSHTTPB",
+                             4113,
+                             @"[In Appendix B: Product Behavior] If D - Include Filtered Out Data Elements In Knowledge is not set, the Serial Numbers of filtered out data elements are not included in the response Knowledge. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
+                }
             }
             else
             {
@@ -895,7 +883,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isIncludeStorageManifest,
                          "MS-FSSHTTPB",
                          437,
-                         @"[In Query Changes] F - Include Storage Manifest (1 bit): If set, a bit that specifies to include the storage manifest. (Microsoft SharePoint Server 2013/Microsoft SharePoint Foundation 2013 follow this behavior.)");
+                         @"[In Query Changes] F - Include Storage Manifest (1 bit): If set, a bit that specifies to include the Storage Manifest. (Microsoft SharePoint Server 2013/Microsoft SharePoint Foundation 2013 follow this behavior.)");
             }
             else
             {
@@ -909,7 +897,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S12_TC19_QueryChanges_IncludeStorageManifest_Zero()
         {
-            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 2150, this.Site))
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4115, this.Site))
             {
                 Site.Assume.Inconclusive("Implementation does not support Storage Manifest flag.");
             }
@@ -939,14 +927,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 "When include Storage Manifest is not set, the storage manifest is not included. But actually it {0}",
                 notIncludeStorageManifest ? "is not include" : "is included");
 
-            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2150
+            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4115
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 Site.CaptureRequirementIfIsTrue(
                          notIncludeStorageManifest,
                          "MS-FSSHTTPB",
-                         2150,
-                         @"[In Query Changes] F - Include Storage Manifest (1 bit): otherwise[If D - Include Storage Manifest is not set], the storage manifest is not included. (Microsoft SharePoint Server 2013/Microsoft SharePoint Foundation 2013 follow this behavior.)");
+                         4115,
+                         @"[In Appendix B: Product Behavior] If D - Include Storage Manifest is not set, the Storage Manifest is not included. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
             }
             else
             {
@@ -962,7 +950,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S12_TC20_QueryChanges_IncludeCellChanges()
         {
-            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 2151, this.Site) && !Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 438, this.Site))
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4117, this.Site) && !Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 438, this.Site))
             {
                 Site.Assume.Inconclusive("Implementation does not support Cell Changes flag.");
             }
@@ -1006,7 +994,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 }
             }
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 2151, this.Site))
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4117, this.Site))
             {
                 // Initialize the service
                 this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1030,14 +1018,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 "When Include Cell Changes is not set, the cell manifest is not included. Actually it {0}",
                 isExcludeCellChanges ? "is not included" : "is included");
 
-                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2151
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4117
                 if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
                 {
                     Site.CaptureRequirementIfIsTrue(
                              isExcludeCellChanges,
                              "MS-FSSHTTPB",
-                             2151,
-                             @"[In Query Changes] G - Include Cell Changes (1 bit): otherwise[If E - Include Cell Changes is not set], cell changes are not included. (Microsoft SharePoint Server 2013/Microsoft SharePoint Foundation 2013 follow this behavior.)");
+                             4117,
+                             @"[In Appendix B: Product Behavior] If E - Include Cell Changes is not set, cell changes are not included. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
                 }
                 else
                 {
@@ -1117,6 +1105,132 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 this.Site.Assert.IsTrue(isVerifiedR927, "[In Query Changes] Cell ID (variable): If the Cell ID is 0x0000, no scoping restriction is specified.");
             }
         }
+
+        /// <summary>
+        /// The method uses to verify server must return same response whenever the C - Exclude Object Data field is set to 0 or 1.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S12_TC26_QueryChanges_ExcludeObjectData()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Query changes with Exclude Object Data setting to value 1.
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            QueryChangesCellSubRequest queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
+            queryChange.ExcludeObjectData = 1;
+            cellRequest.AddSubRequest(queryChange, null);
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse queryResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType querySubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(queryResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(querySubResponse.ErrorCode, this.Site), "The operation QueryChanges should succeed.");
+            FsshttpbResponse fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(querySubResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
+
+            // Query changes with Exclude Object Data setting to value 0.
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
+            queryChange.ExcludeObjectData = 0;
+            cellRequest.AddSubRequest(queryChange, null);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            queryResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType querySubResponse2 = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(queryResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(querySubResponse2.ErrorCode, this.Site), "The operation QueryChanges should succeed.");
+            FsshttpbResponse fsshttpbResponse2 = SharedTestSuiteHelper.ExtractFsshttpbResponse(querySubResponse2, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse2, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R214601
+                Site.CaptureRequirementIfAreEqual<int>(
+                    fsshttpbResponse.DataElementPackage.DataElements.Count,
+                    fsshttpbResponse2.DataElementPackage.DataElements.Count,
+                    "MS-FSSHTTPB",
+                    214601,
+                    @"[In Query Changes] Whenever the C –Exclude Object Data field is set to 0 or 1, the protocol server must return the same response.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<int>(
+                    fsshttpbResponse.DataElementPackage.DataElements.Count,
+                    fsshttpbResponse2.DataElementPackage.DataElements.Count,
+                    "Server must return same response whenever the C- Exclude Object Data field is set to 0 or 1.");
+            }
+        }
+
+        /// <summary>
+        /// This method is used to test query changes with the allow fragment 2 flag is false.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S12_TC27_QueryChanges_AllowFragments2_Zero()
+        {
+            // Initialize the service
+            string fileUrl = Common.GetConfigurationPropertyValue("BigFile", this.Site);
+            this.InitializeContext(fileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Create query changes request with allow fragments E flag with the value true.
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            QueryChangesCellSubRequest queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, false, false, true, 0, true, true, 0, null, 10000, null, null);
+            queryChange.AllowFragments2 = 0;
+            cellRequest.AddSubRequest(queryChange, null);
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse cellStorageResponse = this.Adapter.CellStorageRequest(fileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the query changes succeed.");
+
+            FsshttpbResponse queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(queryResponse, this.Site);
+
+            DataElement fragDataElement = queryResponse.DataElementPackage.DataElements.FirstOrDefault(e => e.DataElementType == DataElementType.FragmentDataElementData);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                Site.CaptureRequirementIfIsNull(
+                    fragDataElement,
+                    "MS-FSSHTTPB",
+                    4041,
+                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+            }
+            else
+            {
+                this.Site.Assert.IsNull(
+                    fragDataElement,
+                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+            }
+
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, 10000, null, null);
+            queryChange.AllowFragments2 = 0;
+            cellRequest.AddSubRequest(queryChange, null);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            cellStorageResponse = this.Adapter.CellStorageRequest(fileUrl, new SubRequestType[] { cellSubRequest });
+            subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the query changes succeed.");
+            queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(queryResponse, this.Site);
+            fragDataElement = queryResponse.DataElementPackage.DataElements.FirstOrDefault(e => e.DataElementType == DataElementType.FragmentDataElementData);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                Site.CaptureRequirementIfIsNotNull(
+                    fragDataElement,
+                    "MS-FSSHTTPB",
+                    4041,
+                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+            }
+            else
+            {
+                this.Site.Assert.IsNotNull(
+                    fragDataElement,
+                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+            }
+        }
         #endregion
 
         #region Knowledge Related
@@ -1157,7 +1271,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isCombined,
                          "MS-FSSHTTPB",
                          2126,
-                         @"[In Cell Knowledge Range] GUID (16 bytes): Combined with the From sequence number, it[GUID (16 bytes)] forms the starting serial number (section 2.2.1.9) of the range.");
+                         @"[In Cell Knowledge Range] GUID (16 bytes): Combined with the From sequence number, it[GUID (16 bytes)] forms the starting Serial Number (section 2.2.1.9) of the range.");
 
                 // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2128
                 Site.CaptureRequirementIfIsTrue(
@@ -1165,12 +1279,23 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTPB",
                          2128,
                          @"[In Cell Knowledge Range] From (variable): When combined with the GUID, it[From (variable)] forms the serial number of the starting data element in the range.");
+
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4007
+                Site.CaptureRequirementIfIsNotNull(
+                         cellSpecializedKnowledgeData.CellKnowledgeRangeList,
+                         "MS-FSSHTTPB",
+                         4007,
+                         @"[In Serial Number] The server will return a Cell Knowledge Range that specifies the range of serial numbers, as specified in section 2.2.1.13.2.1.");
             }
             else
             {
                 Site.Assert.IsTrue(
                     isCombined,
                     @"[In Cell Knowledge Range] GUID (16 bytes): Combined with the From sequence number, it[GUID (16 bytes)] forms the starting serial number (section 2.2.1.9) of the range.");
+
+                Site.Assert.IsNotNull(
+                    cellSpecializedKnowledgeData.CellKnowledgeRangeList,
+                    @"[In Serial Number] The server will return a Cell Knowledge Range that specifies the range of serial numbers, as specified in section 2.2.1.13.2.1.");
             }
         }
 
@@ -1207,14 +1332,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isCombined,
                          "MS-FSSHTTPB",
                          2127,
-                         @"[In Cell Knowledge Range] GUID (16 bytes): Combined with the To sequence number, it[GUID (16 bytes)] forms the ending serial number of the range.");
+                         @"[In Cell Knowledge Range] GUID (16 bytes): Combined with the To sequence number, it[GUID (16 bytes)] forms the ending Serial Number of the range.");
 
                 // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2129
                 Site.CaptureRequirementIfIsTrue(
                          isCombined,
                          "MS-FSSHTTPB",
                          2129,
-                         @"[In Cell Knowledge Range] To (variable): When combined with the GUID, it[To (variable)] forms the serial number of the ending data element in the range.");
+                         @"[In Cell Knowledge Range] To (variable): When combined with the GUID, it[To (variable)] forms the Serial Number of the ending data element in the range.");
             }
             else
             {
@@ -1283,7 +1408,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isVerifiedR570,
                          "MS-FSSHTTPB",
                          570,
-                         @"[In Waterline Knowledge] The Waterline Knowledge specifies the current server waterline, which is the serial number (section 2.2.1.9) greater than or equal to the serial number of all the cells on the server that the client has downloaded.");
+                         @"[In Waterline Knowledge] The Waterline Knowledge specifies the current server waterline, which is the Serial Number (section 2.2.1.9) greater than or equal to the Serial Number of all the cells on the server that the client has downloaded.");
             }
             else
             {
@@ -1292,6 +1417,137 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
         #endregion
 
+        /// <summary>
+        /// This test method aims to verify server must return the same response when Reserved field is set to 0 or 1.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S12_TC25_QueryChanges_ReservedIsIgnored()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Create query changes request with setting Reserved to value 0.
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            QueryChangesCellSubRequest queryChangeWithReserved0 = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, null, null, null);
+            queryChangeWithReserved0.Reserved = 0;
+            cellRequest.AddSubRequest(queryChangeWithReserved0, null);
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse cellStorageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            FsshttpbResponse queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+
+            // Create query changes request with setting Reserved to value 1.
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            QueryChangesCellSubRequest queryChangeWithReserved1 = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, null, null, null);
+            queryChangeWithReserved1.Reserved = 1;
+            cellRequest.AddSubRequest(queryChangeWithReserved1, null);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            cellStorageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            FsshttpbResponse queryResponse2 = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R43001
+                Site.CaptureRequirementIfAreEqual<int>(
+                    queryResponse.DataElementPackage.DataElements.Count,
+                    queryResponse2.DataElementPackage.DataElements.Count,
+                    "MS-FSSHTTPB",
+                    43001,
+                    @"[In Query Changes] Whenever the A – Reserved field is set to 0 or 1, the protocol server must return the same response.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<int>(
+                    queryResponse.DataElementPackage.DataElements.Count,
+                    queryResponse2.DataElementPackage.DataElements.Count,
+                    "Server must return same response whenever the A- Reserved field is set to 0 or 1.");
+            }
+        }
+
+
+        /// <summary>
+        /// This test method aims to verify flag Round Knowledge to Whole Cell Changes.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S12_TC28_QueryChanges_RoundKnowledgeToWholeCellChanges()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Query change
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            QueryChangesCellSubRequest queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, null, null, null);
+            cellRequest.AddSubRequest(queryChange, null);
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse cellStorageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the query changes succeed.");
+            FsshttpbResponse queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+            ExGuid storageIndex = queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
+
+            // Put Change
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            ExGuid storageIndexExGuid;
+            List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+            putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
+            dataElements.AddRange(queryResponse.DataElementPackage.DataElements);
+            cellRequest.AddSubRequest(putChange, dataElements);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site), "The PutChanges operation should succeed.");
+
+            // Query change again
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, null, null, null);
+            cellRequest.AddSubRequest(queryChange, null);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            cellStorageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the query changes succeed.");
+            queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+            Knowledge knowledge = queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().Knowledge;
+
+            // Query change with knowledge returned in previous step
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, null, null, null);
+            queryChange.RoundKnowledgeToWholeCellChanges = 1;
+            queryChange.Knowledge = knowledge;
+            cellRequest.AddSubRequest(queryChange, null);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            cellStorageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the query changes succeed.");
+            queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+            DataElement data = queryResponse.DataElementPackage.DataElements.FirstOrDefault(dataElement => dataElement.DataElementType == DataElementType.CellManifestDataElementData);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4042
+                Site.CaptureRequirementIfIsNull(
+                    data,
+                    "MS-FSSHTTPB",
+                    4042,
+                    @"[In Query Changes] F – Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned.");
+            }
+            else
+            {
+                Site.Assert.IsNull(
+                    data,
+                    "There should no changes returned if set Knowledge to that has queried and set RoundKnowledgeToWholeCellChanges.");
+            }
+        }
         #endregion
     }
 }

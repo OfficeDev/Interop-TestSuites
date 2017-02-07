@@ -24,11 +24,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// This method is used to chunk the file data.
         /// </summary>
-        /// <returns>A list of IntermediateNodeObject.</returns>
-        public override List<IntermediateNodeObject> Chunking()
+        /// <returns>A list of LeafNodeObjectData.</returns>
+        public override List<LeafNodeObject> Chunking()
         {
-            List<IntermediateNodeObject> list = new List<IntermediateNodeObject>();
-            IntermediateNodeObject.IntermediateNodeObjectBuilder builder = new IntermediateNodeObject.IntermediateNodeObjectBuilder();
+            List<LeafNodeObject> list = new List<LeafNodeObject>();
+            LeafNodeObject.IntermediateNodeObjectBuilder builder = new LeafNodeObject.IntermediateNodeObjectBuilder();
 
             int index = 0;
             while (ZipHeader.IsFileHeader(this.FileContent, index))
@@ -88,13 +88,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="rootNode">Specify the root node object which will be analyzed.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public override void AnalyzeChunking(RootNodeObject rootNode, ITestSite site)
+        public override void AnalyzeChunking(IntermediateNodeObject rootNode, ITestSite site)
         {
-            List<IntermediateNodeObject> cloneList = new List<IntermediateNodeObject>(rootNode.IntermediateNodeObjectList);
+            List<LeafNodeObject> cloneList = new List<LeafNodeObject>(rootNode.IntermediateNodeObjectList);
 
             while (cloneList.Count != 0)
             {
-                IntermediateNodeObject nodeObject = cloneList.First();
+                LeafNodeObject nodeObject = cloneList.First();
                 byte[] content = nodeObject.DataNodeObjectData.ObjectData;
 
                 if (cloneList.Count == 1)
@@ -128,10 +128,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
                         if (headerLength + compressedSize <= 4096)
                         {
-                            IntermediateNodeObject expectNode = new IntermediateNodeObject.IntermediateNodeObjectBuilder().Build(content, this.GetSingleChunkSignature(header, dataFileSignatureBytes));
-                            if (!expectNode.Signature.Equals(nodeObject.Signature))
+                            if (Common.GetConfigurationPropertyValue("SutVersion", SharedContext.Current.Site) != "SharePointFoundation2010" && Common.GetConfigurationPropertyValue("SutVersion", SharedContext.Current.Site) != "SharePointServer2010")
                             {
-                                site.Assert.Fail("For the Zip file, when zip file is less than 4096, expect the signature {0}, actual signature {1}", expectNode.Signature.ToString(), nodeObject.Signature.ToString());
+                                LeafNodeObject expectNode = new LeafNodeObject.IntermediateNodeObjectBuilder().Build(content, this.GetSingleChunkSignature(header, dataFileSignatureBytes));
+                                if (!expectNode.Signature.Equals(nodeObject.Signature))
+                                {
+                                    site.Assert.Fail("For the Zip file, when zip file is less than 4096, expect the signature {0}, actual signature {1}", expectNode.Signature.ToString(), nodeObject.Signature.ToString());
+                                }
                             }
 
                             // Verify the zip file less than 4096 bytes
@@ -154,8 +157,95 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                             // Here having something need to be distinguished between the MOSS2010 and MOSS2013
                             if (nodeObject.DataNodeObjectData == null && nodeObject.IntermediateNodeObjectList != null)
                             {
-                                // This situation could most happens for MOSS2010, we fake intermediate node instead of the root node when the zip file size is larger than 1M.
-                                // In the current stage, this kind of signature algorithm is not mentioned in the open specification, so leave this verify blank.
+                                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8213, SharedContext.Current.Site))
+                                {
+                                    bool isR8213Verified = false;
+                                    if (compressedSize > 1024 * 1024 && nodeObject.IntermediateNodeObjectList.Count > 1)
+                                    {
+                                        isR8213Verified = true;
+                                    }
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8213Verified,
+                                            "MS-FSSHTTPD",
+                                            8213,
+                                            @"[In Appendix A: Product Behavior] For implementation, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabyte, a list of subchunks is generated. <4> Section 2.4.1:  For SharePoint Server 2010, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabyte, a list of subchunks is generated.");
+                                }
+
+                                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8207, SharedContext.Current.Site))
+                                {
+                                    bool isR8207Verified = false;
+                                    if (compressedSize > 3 * 1024 * 1024 && nodeObject.IntermediateNodeObjectList.Count > 1)
+                                    {
+                                        isR8207Verified = true;
+                                    }
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8207Verified,
+                                            "MS-FSSHTTPD",
+                                            8207,
+                                            @"[In Appendix A: Product Behavior] For implementation, if the number of .ZIP file bytes represented by a chunk is greater than 3 megabytes, a list of subchunks is generated. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)");
+                                }
+
+                                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8208, SharedContext.Current.Site) && Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8210, SharedContext.Current.Site))
+                                {
+                                    bool isR8208Verified = true;
+                                    bool isR8210Verified = true;
+                                    if (nodeObject.IntermediateNodeObjectList[nodeObject.IntermediateNodeObjectList.Count - 1].DataSize.DataSize > 1024 * 1024)
+                                    {
+                                        isR8208Verified = false;
+                                    }
+
+                                    for (int i = 0; i < nodeObject.IntermediateNodeObjectList.Count - 1; i++)
+                                    {
+                                        if (nodeObject.IntermediateNodeObjectList[i].DataSize.DataSize != 1024 * 1024)
+                                        {
+                                            isR8210Verified = false;
+                                        }
+                                    }
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8208Verified,
+                                            "MS-FSSHTTPD",
+                                            8208,
+                                            @"[In Appendix A: Product Behavior] The size of each subchunk is at most 1 megabyte. (Microsoft SharePoint Server 2010 follows this behavior.)");
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8210Verified,
+                                            "MS-FSSHTTPD",
+                                            8210,
+                                            @"[In Appendix A: Product Behavior] All but the last subchunk MUST be 1 megabyte in size. (Microsfot SharePoint Server 2010 follows this behavior.)");
+                                }
+
+                                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8209, SharedContext.Current.Site) && Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8211, SharedContext.Current.Site))
+                                {
+                                    bool isR8209Verified = true;
+                                    bool isR8211Verified = true;
+                                    if (nodeObject.IntermediateNodeObjectList[nodeObject.IntermediateNodeObjectList.Count - 1].DataSize.DataSize > 3 * 1024 * 1024)
+                                    {
+                                        isR8209Verified = false;
+                                    }
+
+                                    for (int i = 0; i < nodeObject.IntermediateNodeObjectList.Count - 1; i++)
+                                    {
+                                        if (nodeObject.IntermediateNodeObjectList[i].DataSize.DataSize != 3 * 1024 * 1024)
+                                        {
+                                            isR8211Verified = false;
+                                        }
+                                    }
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8209Verified,
+                                            "MS-FSSHTTPD",
+                                            8209,
+                                            @"[In Appendix A: Product Behavior] The size of each subchunk is at most 3 megabytes. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)");
+
+                                    site.CaptureRequirementIfIsTrue(
+                                            isR8211Verified,
+                                            "MS-FSSHTTPD",
+                                            8211,
+                                            @"[In Appendix A: Product Behavior] All but the last subchunk MUST be 3 megabyte in size. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)");
+                                }
                             }
                             else if (nodeObject.DataNodeObjectData != null)
                             {
@@ -164,11 +254,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                                             nodeObject.DataSize.DataSize,
                                             "The Data Size of the Intermediate Node Object MUST be the total number of bytes represented by the chunk.");
 
-                                SignatureObject contentSignature = new SignatureObject();
-                                contentSignature.SignatureData = new BinaryItem(dataFileSignatureBytes);
-                                if (!contentSignature.Equals(nodeObject.Signature))
+                                if (Common.GetConfigurationPropertyValue("SutVersion", SharedContext.Current.Site) != "SharePointFoundation2010" && Common.GetConfigurationPropertyValue("SutVersion", SharedContext.Current.Site) != "SharePointServer2010")
                                 {
-                                    site.Assert.Fail("For the Zip file content, expect the signature {0}, actual signature {1}", contentSignature.ToString(), nodeObject.Signature.ToString());
+                                    SignatureObject contentSignature = new SignatureObject();
+                                    contentSignature.SignatureData = new BinaryItem(dataFileSignatureBytes);
+                                    if (!contentSignature.Equals(nodeObject.Signature))
+                                    {
+                                        site.Assert.Fail("For the Zip file content, expect the signature {0}, actual signature {1}", contentSignature.ToString(), nodeObject.Signature.ToString());
+                                    }
                                 }
 
                                 // Verify the zip file larger than 4096 bytes and less than 1MB.
@@ -191,19 +284,19 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         }
 
         /// <summary>
-        /// Convert chunk data to IntermediateNodeObject from byte array.
+        /// Convert chunk data to LeafNodeObjectData from byte array.
         /// </summary>
         /// <param name="chunkData">A byte array that contains the data.</param>
-        /// <returns>A list of IntermediateNodeObject.</returns>
-        private List<IntermediateNodeObject> GetSubChunkList(byte[] chunkData)
+        /// <returns>A list of LeafNodeObjectData.</returns>
+        private List<LeafNodeObject> GetSubChunkList(byte[] chunkData)
         {
-            List<IntermediateNodeObject> subChunkList = new List<IntermediateNodeObject>();
+            List<LeafNodeObject> subChunkList = new List<LeafNodeObject>();
             int index = 0;
             while (index < chunkData.Length)
             {
                 int length = chunkData.Length - index < 1048576 ? chunkData.Length - index : 1048576;
                 byte[] temp = AdapterHelper.GetBytes(chunkData, index, length);
-                subChunkList.Add(new IntermediateNodeObject.IntermediateNodeObjectBuilder().Build(temp, this.GetSubChunkSignature()));
+                subChunkList.Add(new LeafNodeObject.IntermediateNodeObjectBuilder().Build(temp, this.GetSubChunkSignature()));
                 index += length;
             }
 

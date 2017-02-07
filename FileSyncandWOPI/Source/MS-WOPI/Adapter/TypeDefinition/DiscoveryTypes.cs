@@ -13,7 +13,7 @@
 namespace Microsoft.Protocols.TestSuites.MS_WOPI
 {
     using System.Xml.Serialization;
- 
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.1")]
     [System.SerializableAttribute()]
@@ -375,6 +375,9 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
 
         /// <remarks/>
         embedview,
+
+        /// <remarks/>
+        embededit,
 
         /// <remarks/>
         mobileclient,

@@ -360,7 +360,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             }
 
             NetworkCredential credentialInstance = new NetworkCredential(userName, securePassword, domain);
-            securePassword.Dispose();
             CredentialCache credentialCache = new CredentialCache();
             credentialCache.Add(requestTargetLocation, "NTLM", credentialInstance);
             request.Credentials = credentialCache;

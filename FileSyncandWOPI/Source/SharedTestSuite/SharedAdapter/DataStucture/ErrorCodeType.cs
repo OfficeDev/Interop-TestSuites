@@ -33,6 +33,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         FileUnauthorizedAccess,
 
         /// <summary>
+        /// Indicating an error when the file path is not found.
+        /// </summary>
+        PathNotFound,
+
+        /// <summary>
         /// Indicating an error when one or more SubRequest elements for a targeted URL for the file was unable to be parsed. 
         /// </summary>
         InvalidSubRequest,
@@ -82,6 +87,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         Unknown,
 
+        /// <summary>
+        /// Indicating the version number does not match a version of the file.
+        /// </summary>
+        VersionNotFound,
         #endregion
 
         #region CellRequestErrorCodeTypes

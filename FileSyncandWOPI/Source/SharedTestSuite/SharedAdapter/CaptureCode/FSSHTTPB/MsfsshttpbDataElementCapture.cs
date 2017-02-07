@@ -25,7 +25,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      239,
-                     @"[In Data Element Package] A data element package contains the serialized file data elements made up of storage index (section 2.2.1.12.2), storage manifest (section 2.2.1.12.3), cell manifest (section 2.2.1.12.4), revision manifest (section 2.2.1.12.5), and object group (section 2.2.1.12.6) or object data (section 2.2.1.12.6.4), or both.");
+                     @"[In Data Element Package] A Data Element Package contains the serialized file data elements made up of Storage Index (section 2.2.1.12.2), Storage Manifest (section 2.2.1.12.3), Cell Manifest (section 2.2.1.12.4), Revision Manifest (section 2.2.1.12.5), and Object Group (section 2.2.1.12.6) or Object Data (section 2.2.1.12.6.4), or both.");
 
             // Verify the stream object header related requirements.
             this.ExpectStreamObjectHeaderStart(instance.StreamObjectHeaderStart, instance.GetType(), site);
@@ -40,7 +40,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      240,
-                     @"[In Data Element Package] Data Element Package Start (2 bytes): A 16-bit stream object header (section 2.2.1.5.1) that specifies a data element package start.");
+                     @"[In Data Element Package] Data Element Package Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies a Data Element Package start.");
 
             // Directly capture requirement MS-FSSHTTPB_R241, if the reserved value equals to 0.
             site.CaptureRequirementIfAreEqual<uint>(
@@ -56,7 +56,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          243,
-                         @"[In Data Element Package] Data Element (variable): An optional array of data elements (section 2.2.1.12.1) that specifies the serialized file data elements.");
+                         @"[In Data Element Package] Data Element (variable): An optional array that contains the serialized file data elements.");
             }
 
             // Verify the stream object header end related requirements.
@@ -73,7 +73,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      245,
-                     @"[In Data Element Package] Data Element Package End (1 byte): An 8-bit stream object header (section 2.2.1.5.3) that specifies a data element package end.");
+                     @"[In Data Element Package] Data Element Package End (1 byte): An 8-bit Stream Object Header (section 2.2.1.5.3) that specifies a Data Element Package end.");
         }
 
         /// <summary>
@@ -249,19 +249,19 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      259,
-                     @"[In Storage Index Data Element] Storage Index Manifest Mapping (2 bytes): Zero or one 16-bit stream object header that specifies the storage index manifest mappings (with manifest mapping extended GUID and serial number).");
+                     @"[In Storage Index Data Element] Storage Index Manifest Mapping (2 bytes): Zero or one 16-bit Stream Object Header that specifies the Storage Index Manifest Mappings (with Manifest Mapping Extended GUID and Serial Number).");
 
             // Directly capture requirement MS-FSSHTTPB_R260, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      260,
-                     @"[In Storage Index Data Element] Manifest Mapping Extended GUID (variable): An extended GUID that specifies the manifest mapping.");
+                     @"[In Storage Index Data Element] Manifest Mapping Extended GUID (variable): An Extended GUID that specifies the Manifest Mapping.");
 
             // Directly capture requirement MS-FSSHTTPB_R261, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      261,
-                     @"[In Storage Index Data Element] Manifest Mapping Serial Number (variable): A serial number that specifies the manifest mapping.");
+                     @"[In Storage Index Data Element] Manifest Mapping Serial Number (variable): A Serial Number that specifies the Manifest Mapping.");
 
             // Verify the stream object header end related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -289,25 +289,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      262,
-                     @"[In Storage Index Data Element] Storage Index Cell Mapping (2 bytes): Zero or more 16-bit stream object header that specifies the  storage index cell mappings (with cell identifier, cell mapping extended GUID, and cell mapping serial number).");
+                     @"[In Storage Index Data Element] Storage Index Cell Mapping (2 bytes): Zero or more 16-bit Stream Object Header that specifies the  Storage Index Cell Mappings (with cell identifier, cell mapping extended GUID, and Cell Mapping Serial Number).");
 
             // Directly capture requirement MS-FSSHTTPB_R263, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      263,
-                     @"[In Storage Index Data Element] Cell ID (variable): A cell ID (section 2.2.1.10) that specifies the cell identifier.");
+                     @"[In Storage Index Data Element] Cell ID (variable): A Cell ID (section 2.2.1.10) that specifies the cell identifier.");
 
             // Directly capture requirement MS-FSSHTTPB_R264, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      264,
-                     @"[In Storage Index Data Element] Cell Mapping Extended GUID (variable): An extended GUID that specifies the cell mapping.");
+                     @"[In Storage Index Data Element] Cell Mapping Extended GUID (variable): An Extended GUID that specifies the Cell Mapping.");
 
             // Directly capture requirement MS-FSSHTTPB_R265, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      265,
-                     @"[In Storage Index Data Element] Cell Mapping Serial Number (variable): A serial number that specifies the cell mapping.");
+                     @"[In Storage Index Data Element] Cell Mapping Serial Number (variable): A Serial Number that specifies the Cell Mapping.");
 
             // Verify the stream object header end related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -335,25 +335,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      266,
-                     @"[In Storage Index Data Element] Storage Index Revision Mapping (2 bytes): Zero or more 16-bit stream object header that specifies the storage index revision mappings (with revision and revision mapping extended GUIDs, and revision mapping serial number).");
+                     @"[In Storage Index Data Element] Storage Index Revision Mapping (2 bytes): Zero or more 16-bit Stream Object Headers that specify the Storage Index Revision Mappings (with revision and Revision Mapping Extended GUIDs, and Revision Mapping Serial Number).");
 
             // Directly capture requirement MS-FSSHTTPB_R267, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      267,
-                     @"[In Storage Index Data Element] Revision Extended GUID (variable): An extended GUID that specifies the revision.");
+                     @"[In Storage Index Data Element] Revision Extended GUID (variable): An Extended GUID that specifies the revision.");
 
             // Directly capture requirement MS-FSSHTTPB_R268, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      268,
-                     @"[In Storage Index Data Element] Revision Mapping Extended GUID (variable): An extended GUID that specifies the revision mapping.");
+                     @"[In Storage Index Data Element] Revision Mapping Extended GUID (variable): An Extended GUID that specifies the Revision Mapping.");
 
             // Directly capture requirement MS-FSSHTTPB_R269, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      269,
-                     @"[In Storage Index Data Element] Revision Mapping Serial Number (variable): A serial number that specifies the revision mapping.");
+                     @"[In Storage Index Data Element] Revision Mapping Serial Number (variable): A Serial Number that specifies the Revision Mapping.");
 
             // Verify the stream object header related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -381,7 +381,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      276,
-                     @"[In Storage Manifest Data Element] Storage Manifest Schema GUID (2 bytes): A 16-bit stream object header that specifies a storage manifest schema GUID.");
+                     @"[In Storage Manifest Data Element] Storage Manifest Schema GUID (2 bytes): A 16-bit Stream Object Header that specifies a Storage Manifest schema GUID.");
 
             // Directly capture requirement MS-FSSHTTPB_R277, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -415,19 +415,19 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      278,
-                     @"[In Storage Manifest Data Element] Storage Manifest Root Declare (2 bytes): A 16-bit stream object header that specifies one or more storage manifest root declare.");
+                     @"[In Storage Manifest Data Element] Storage Manifest Root Declare (2 bytes): A 16-bit Stream Object Header that specifies one or more Storage Manifest root declare.");
 
             // Directly capture requirement MS-FSSHTTPB_R279, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      279,
-                     @"[In Storage Manifest Data Element] Root Extended GUID (variable): An extended GUID that specifies the root storage manifest.");
+                     @"[In Storage Manifest Data Element] Root Extended GUID (variable): An Extended GUID that specifies the root Storage Manifest.");
 
             // Directly capture requirement MS-FSSHTTPB_R280, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      280,
-                     @"[In Storage Manifest Data Element] Cell ID (variable): A cell ID (section 2.2.1.10) that specifies the cell identifier.");
+                     @"[In Storage Manifest Data Element] Cell ID (variable): A Cell ID (section 2.2.1.10) that specifies the cell identifier.");
 
             // Verify the stream object header related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -455,13 +455,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      286,
-                     @"[In Cell Manifest Data Element] Cell Manifest Current Revision (2 bytes): A 16-bit stream object header that specifies a cell manifest current revision.");
+                     @"[In Cell Manifest Data Element] Cell Manifest Current Revision (2 bytes): A 16-bit Stream Object Header that specifies a Cell Manifest current revision.");
 
             // Directly capture requirement MS-FSSHTTPB_R287, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      287,
-                     @"[In Cell Manifest Data Element] Cell Manifest Current Revision Extended GUID (variable): An extended GUID that specifies the revision.");
+                     @"[In Cell Manifest Data Element] Cell Manifest Current Revision Extended GUID (variable): An Extended GUID that specifies the revision.");
 
             // Verify the stream object header related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -489,19 +489,19 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      293,
-                     @"[In Revision Manifest Data Elements] Revision Manifest (2 bytes): A 16-bit stream object header that specifies a revision manifest.");
+                     @"[In Revision Manifest Data Elements] Revision Manifest (2 bytes): A 16-bit Stream Object Header that specifies a Revision Manifest.");
 
             // Directly capture requirement MS-FSSHTTPB_R294, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      294,
-                     @"[In Revision Manifest Data Elements] Revision ID (variable): An extended GUID that specifies the revision identifier represented by this data element.");
+                     @"[In Revision Manifest Data Elements] Revision ID (variable): An Extended GUID that specifies the revision identifier represented by this data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R295, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      295,
-                     @"[In Revision Manifest Data Elements] Base Revision ID (variable): An extended GUID that specifies the revision identifier of a base revision that could contain additional information for this revision.");
+                     @"[In Revision Manifest Data Elements] Base Revision ID (variable): An Extended GUID that specifies the revision identifier of a base revision that could contain additional information for this revision.");
 
             // Verify the stream object header related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -529,19 +529,19 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      296,
-                     @"[In Revision Manifest Data Elements] Revision Manifest Root Declare (2 bytes, optional): Zero or more 16-bit stream object header that specifies a revision manifest root declare, each followed by root and object extended GUIDs.");
+                     @"[In Revision Manifest Data Elements] Revision Manifest Root Declare (2 bytes, optional): Zero or more 16-bit Stream Object Header that specifies a Revision Manifest root declare, each followed by root and object Extended GUIDs.");
 
             // Directly capture requirement MS-FSSHTTPB_R297, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      297,
-                     @"[In Revision Manifest Data Elements] Root Extended GUID (optional, variable): An extended GUID that specifies the root revision for each revision manifest root declare.");
+                     @"[In Revision Manifest Data Elements] Root Extended GUID (optional, variable): An Extended GUID that specifies the root revision for each Revision Manifest Root Declare.");
 
             // Directly capture requirement MS-FSSHTTPB_R298, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      298,
-                     @"[In Revision Manifest Data Elements] Object Extended GUID (optional, variable): An extended GUID that specifies the object for each revision manifest root declare.");
+                     @"[In Revision Manifest Data Elements] Object Extended GUID (optional, variable): An Extended GUID that specifies the object for each Revision Manifest Root Declare.");
 
             // Verify the stream object header related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -569,13 +569,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      299,
-                     @"[In Revision Manifest Data Elements] Revision Manifest Object Group References (2 bytes, optional): Zero or more 16-bit stream object header that specifies a revision manifest object group references, each followed by object group extended GUIDs.");
+                     @"[In Revision Manifest Data Elements] Revision Manifest Object Group References (2 bytes, optional): Zero or more 16-bit Stream Object Header that specifies a Revision Manifest Object Group references, each followed by Object Group Extended GUIDs.");
 
             // Directly capture requirement MS-FSSHTTPB_R300, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      300,
-                     @"[In Revision Manifest Data Elements] Object Group Extended GUID (variable): An extended GUID that specifies the object group for each Revision Manifest Object Group References.");
+                     @"[In Revision Manifest Data Elements] Object Group Extended GUID (variable): An Extended GUID that specifies the Object Group for each Revision Manifest Object Group Reference.");
 
             // Verify the stream object header related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -601,7 +601,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      308,
-                     @"[In Object Group Data Elements] Object Group Declarations Start (variable): A 16-bit (section 2.2.1.5.1) or 32-bit stream object header (section 2.2.1.5.2) that specifies an object group declaration start.");
+                     @"[In Object Group Data Elements] Object Group Declarations Start (variable): A 16-bit (section 2.2.1.5.1) or 32-bit Stream Object Header (section 2.2.1.5.2) that specifies an Object Group declaration start.");
 
             // Directly capture requirement MS-FSSHTTPB_R309, if there are no parsing errors. 
             if (instance.ObjectDeclarationList != null && instance.ObjectDeclarationList.Count != 0)
@@ -610,7 +610,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          309,
-                         @"[In Object Group Data Elements] Object Declaration (variable): An optional array of object declarations (section 2.2.1.12.6.1) that specifies the object.");
+                         @"[In Object Group Data Elements] Object Declaration (variable): An optional array of Object Declarations (section 2.2.1.12.6.1) that specifies the object.");
             }
             
             if (instance.ObjectGroupObjectBLOBDataDeclarationList != null && instance.ObjectGroupObjectBLOBDataDeclarationList.Count != 0)
@@ -619,7 +619,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          3091,
-                         @"[In Object Group Data Elements] Object Data BLOB Declaration (variable): An optional array of object data BLOB declarations (section 2.2.1.12.6.2) that specifies the object.");
+                         @"[In Object Group Data Elements] Object Data BLOB Declaration (variable): An optional array of Object Data BLOB declarations (section 2.2.1.12.6.2) that specifies the object.");
             }
             
             // Verify the stream object header end related requirements.
@@ -632,7 +632,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      310,
-                     @"[In Object Group Data Elements] Object Group Declarations End (1 byte): An 8-bit stream object header (section 2.2.1.5.3) that specifies an object group declaration end.");
+                     @"[In Object Group Data Elements] Object Group Declarations End (1 byte): An 8-bit Stream Object Header (section 2.2.1.5.3) that specifies an Object Group declaration end.");
         }
 
         /// <summary>
@@ -655,7 +655,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      311,
-                     @"[In Object Group Data Elements] Object Group Data Start (variable): A 16-bit or 32-bit stream object header that specifies an object group data start.");
+                     @"[In Object Group Data Elements] Object Group Data Start (variable): A 16-bit or 32-bit Stream Object Header that specifies an Object Group data start.");
 
             if (instance.ObjectGroupObjectDataList != null && instance.ObjectGroupObjectDataList.Count != 0)
             {
@@ -663,7 +663,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          312,
-                         @"[In Object Group Data Elements] Object Data (variable): An optional array of object data (section 2.2.1.12.6.4) that specifies the object data.");
+                         @"[In Object Group Data Elements] Object Data (variable): An optional array of Object Data (section 2.2.1.12.6.4) that specifies the Object Data.");
             }
             
             if (instance.ObjectGroupObjectDataBLOBReferenceList != null && instance.ObjectGroupObjectDataBLOBReferenceList.Count != 0)
@@ -672,7 +672,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          3121,
-                         @"[In Object Group Data Elements] Object Data BLOB Reference (variable): An optional array of object data BLOB references (section 2.2.1.12.6.5) that specifies the object data's references.");
+                         @"[In Object Group Data Elements] Object Data BLOB Reference (variable): An optional array of Object Data BLOB references (section 2.2.1.12.6.5) that specifies the Object Data's references.");
             }
 
             // Verify the stream object header end related requirements.
@@ -685,7 +685,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      313,
-                     @"[In Object Group Data Elements] Object Group Data End (1 byte): An 8-bit stream object header that specifies an object group data end.");
+                     @"[In Object Group Data Elements] Object Group Data End (1 byte): An 8-bit Stream Object Header that specifies an Object Group data end.");
         }
 
         /// <summary>
@@ -708,13 +708,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      315,
-                     @"[In Object Declaration] Object Group Object Declaration (variable): A 16-bit (section 2.2.1.5.1) or 32-bit stream object header (section 2.2.1.5.2) that specifies an object group object declaration.");
+                     @"[In Object Declaration] Object Group Object Declaration (variable): A 16-bit (section 2.2.1.5.1) or 32-bit Stream Object Header (section 2.2.1.5.2) that specifies an Object Group object declaration.");
 
             // Directly capture requirement MS-FSSHTTPB_R316, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      316,
-                     @"[In Object Declaration] Object Extended GUID (variable): An extended GUID (section 2.2.1.7) that specifies the object.");
+                     @"[In Object Declaration] Object Extended GUID (variable): An Extended GUID (section 2.2.1.7) that specifies the object.");
 
             // Directly capture requirement MS-FSSHTTPB_R317, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -764,37 +764,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      321,
-                     @"[In Object Data BLOB Declaration] Object Group Object Data BLOB Declaration (variable): A 16-bit (section 2.2.1.5.1) or 32-bit stream object header section 2.2.1.5.2) that specifies an object group object data BLOB declaration.");
+                     @"[In Object Data BLOB Declaration] Object Group Object Data BLOB Declaration (variable): A 16-bit (section 2.2.1.5.1) or 32-bit Stream Object Header section 2.2.1.5.2) that specifies an Object Group Object Data BLOB declaration.");
 
             // Directly capture requirement MS-FSSHTTPB_R322, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      322,
-                     @"[In Object Data BLOB Declaration] Object Extended GUID (variable): An extended GUID (section 2.2.1.7) that specifies the object.");
+                     @"[In Object Data BLOB Declaration] Object Extended GUID (variable): An Extended GUID (section 2.2.1.7) that specifies the object.");
 
             // Directly capture requirement MS-FSSHTTPB_R323, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      323,
-                     @"[In Object Data BLOB Declaration] Object Data BLOB EXGUID (variable): An extended GUID that specifies the object data BLOB.");
+                     @"[In Object Data BLOB Declaration] Object Data BLOB EXGUID (variable): An Extended GUID that specifies the Object Data BLOB.");
 
             // Directly capture requirement MS-FSSHTTPB_R324, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      324,
                      @"[In Object Data BLOB Declaration] Object Partition ID (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the object partition of the object.");
-
-            // Directly capture requirement MS-FSSHTTPB_R325, if there are no parsing errors. 
-            site.CaptureRequirement(
-                     "MS-FSSHTTPB",
-                     325,
-                     @"[In Object Data BLOB Declaration] Object Data Size (variable): A compact unsigned 64-bit integer that specifies the size in bytes of the opaque binary data for the declared object.");
-
-            // Directly capture requirement MS-FSSHTTPB_R935, if there are no parsing errors. 
-            site.CaptureRequirement(
-                     "MS-FSSHTTPB",
-                     935,
-                     @"[In Object Data BLOB Declaration] Object Data Size (variable): This[Object Data Size] MUST match the size of the binary item (section 2.2.1.3) in the corresponding object data BLOB referenced by the object data BLOB reference (section 2.2.1.12.6.5) for this object.");
 
             // Directly capture requirement MS-FSSHTTPB_R326, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -832,13 +820,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      2108,
-                     @"[In Object Metadata Declaration] Object Group Metadata Declarations (variable): 32-bit stream object header section 2.2.1.5.2) that specifies an object group metadata declarations.");
+                     @"[In Object Metadata Declaration] Object Group Metadata Declarations (variable): 32-bit Stream Object Header section 2.2.1.5.2) that specifies an Object Group metadata declarations.");
 
             // Directly capture requirement MS-FSSHTTPB_R2109, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      2109,
-                     @"[In Object Metadata Declaration] Object Metadata (variable): An array of object metadata (section 2.2.1.12.6.3.1) that specifies the object metadata.");
+                     @"[In Object Metadata Declaration] Object Metadata (variable): An array of Object Metadata (section 2.2.1.12.6.3.1) that specifies the object metadata.");
 
             // Verify the stream object header end related requirements.
             this.ExpectStreamObjectHeaderEnd(instance.StreamObjectHeaderEnd, instance.GetType(), site);
@@ -848,7 +836,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      2110,
-                     @"[In Object Metadata Declaration] Object Group Metadata Declarations End (2 byte): An 16-bit stream object header (section 2.2.1.5.4) that specifies the end of object group metadata declarations.");
+                     @"[In Object Metadata Declaration] Object Group Metadata Declarations End (2 byte): An 16-bit Stream Object Header (section 2.2.1.5.4) that specifies the end of Object Group metadata declarations.");
 
             if (Common.Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 21072, site))
             {
@@ -856,7 +844,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                     "MS-FSSHTTPB",
                     21072,
-                    @"[In Appendix B: Product Behavior] Implementation does support an Object Metadata Declaration.(SharePoint Server 2013 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does support an Object Metadata Declaration.(SharePoint Server 2013 and above follow this behavior.)");
             }
         }
 
@@ -880,7 +868,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      2112,
-                     @"[In Object Metadata] Object Group Metadata (variable): 32-bit stream object header (section 2.2.1.5.2) that specifies an object group metadata.");
+                     @"[In Object Metadata] Object Group Metadata (variable): 32-bit Stream Object Header (section 2.2.1.5.2) that specifies an Object Group metadata.");
 
             // Directly capture requirement MS-FSSHTTPB_R2113, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -912,25 +900,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      328,
-                     @"[In Object Data] Object Group Object Data (variable): A 16-bit (section 2.2.1.5.1) or 32-bit stream object header (section 2.2.1.5.2) that specifies an object group object data.");
+                     @"[In Object Data] Object Group Object Data (variable): A 16-bit (section 2.2.1.5.1) or 32-bit Stream Object Header (section 2.2.1.5.2) that specifies an Object Group Object Data.");
 
             // Directly capture requirement MS-FSSHTTPB_R329, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      329,
-                     @"[In Object Data] Object Extended GUID Array (variable): An extended GUID array (section 2.2.1.8) that specifies the object group.");
+                     @"[In Object Data] Object Extended GUID Array (variable): An Extended GUID array (section 2.2.1.8) that specifies the Object Group.");
 
             // Directly capture requirement MS-FSSHTTPB_R330, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      330,
-                     @"[In Object Data] Cell ID Array (variable): A cell ID array (section 2.2.1.11) that specifies the object group.");
+                     @"[In Object Data] Cell ID Array (variable): A Cell ID Array (section 2.2.1.11) that specifies the Object Group.");
 
             // Directly capture requirement MS-FSSHTTPB_R331, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      331,
-                     @"[In Object Data] Data (variable): A binary item (section 2.2.1.3) that specifies the binary data that is opaque to this protocol[MS-FSSHTTPB] in the case of an Object Group Object Data.");
+                     @"[In Object Data] Data (variable): A Binary Item (section 2.2.1.3) that specifies the binary data that is opaque to this protocol[MS-FSSHTTPB] in the case of an Object Group Object Data.");
 
             // Verify the stream object header related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -956,25 +944,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      332,
-                     @"[In Object Data BLOB Reference] Object Group Object Data BLOB Reference (variable): A 16-bit (section 2.2.1.5.1) or 32-bit stream object header (section 2.2.1.5.2) that specifies an object group object data BLOB reference (section 2.2.1.12.6.5).");
+                     @"[In Object Data BLOB Reference] Object Group Object Data BLOB Reference (variable): A 16-bit (section 2.2.1.5.1) or 32-bit Stream Object Header (section 2.2.1.5.2) that specifies an Object Group Object Data BLOB reference (section 2.2.1.12.6.5).");
 
             // Directly capture requirement MS-FSSHTTPB_R333, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      333,
-                     @"[In Object Data BLOB Reference] Object Extended GUID Array (variable): An extended GUID array (section 2.2.1.8) that specifies the object references.");
+                     @"[In Object Data BLOB Reference] Object Extended GUID Array (variable): An Extended GUID Array (section 2.2.1.8) that specifies the object references.");
 
             // Directly capture requirement MS-FSSHTTPB_R334, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      334,
-                     @"[In Object Data BLOB Reference] Cell ID Array (variable): A cell ID array (section 2.2.1.11) that specifies the cell references.");
+                     @"[In Object Data BLOB Reference] Cell ID Array (variable): A Cell ID Array (section 2.2.1.11) that specifies the cell references.");
 
             // Directly capture requirement MS-FSSHTTPB_R335, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      335,
-                     @"[In Object Data BLOB Reference] BLOB Extended GUID (variable): An extended GUID (section 2.2.1.7) that specifies the object data BLOB.");
+                     @"[In Object Data BLOB Reference] BLOB Extended GUID (variable): An Extended GUID (section 2.2.1.7) that specifies the Object Data BLOB.");
 
             // Verify the stream object header related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -1002,13 +990,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      340,
-                     @"[In Data Element Fragment Data Elements] Data Element Fragment (4 bytes): A 32-bit stream object header (section 2.2.1.5.2) that specifies a data element fragment.");
+                     @"[In Data Element Fragment Data Elements] Data Element Fragment (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a Data Element Fragment.");
 
             // Directly capture requirement MS-FSSHTTPB_R341, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      341,
-                     @"[In Data Element Fragment Data Elements] Fragment Extended GUID (variable): An extended GUID that specifies the data element fragment.");
+                     @"[In Data Element Fragment Data Elements] Fragment Extended GUID (variable): An Extended GUID that specifies the Data Element Fragment.");
 
             // Directly capture requirement MS-FSSHTTPB_R342, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -1020,7 +1008,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      343,
-                     @"[In Data Element Fragment Data Elements] Fragment File Chunk Reference (variable): A file chunk reference (section 2.2.1.2) that specifies the data element fragment.");
+                     @"[In Data Element Fragment Data Elements] Fragment File Chunk Reference (variable): A File Chunk Reference (section 2.2.1.2) that specifies the Data Element Fragment.");
 
             // Directly capture requirement MS-FSSHTTPB_R344, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -1060,31 +1048,37 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      255,
-                     @"[In Storage Index Data Element] Data Element Start (2 bytes): A 16-bit stream object header (section 2.2.1.5.1) that specifies a data element start.");
+                     @"[In Storage Index Data Element] Data Element Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies a data element start.");
 
             // Directly capture requirement MS-FSSHTTPB_R256, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      256,
-                     @"[In Storage Index Data Element] Data Element Extended GUID (variable): An extended GUID (section 2.2.1.7) that specifies the data element.");
+                     @"[In Storage Index Data Element] Data Element Extended GUID (variable): An Extended GUID (section 2.2.1.7) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R257, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      257,
-                     @"[In Storage Index Data Element] Serial Number (variable): A serial number (section 2.2.1.9) that specifies the data element.");
+                     @"[In Storage Index Data Element] Serial Number (variable): A Serial Number (section 2.2.1.9) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R258, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      258,
-                     @"[In Storage Index Data Element] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the storage index data element type.");
+                     @"[In Storage Index Data Element] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the Storage Index data element type.");
 
             // Directly capture requirement MS-FSSHTTPB_R99007, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      99007,
                      @"[In Storage Index Data Element] When serializing a Storage Index data element, there is no sequence for Storage Index Manifest Mapping, Storage Index Cell Mapping and Storage Index Revision Mapping.");
+
+            // Directly capture requirement MS-FSSHTTPB_R4011, if there are no parsing errors. 
+            site.CaptureRequirement(
+                     "MS-FSSHTTPB",
+                     4011,
+                     @"[In Storage Index Data Element] Additionally, the Storage Index contains a set of mappings, and each mapping is assigned a serial number that is unique to that mapping.");
 
             // Verify the stream object header end related requirements.
             this.ExpectStreamObjectHeaderEnd(instance.StreamObjectHeaderEnd, instance.GetType(), site);
@@ -1096,7 +1090,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      270,
-                     @"[In Storage Index Data Element] Data Element End (1 byte): An 8-bit stream object header that specifies a data element end.");
+                     @"[In Storage Index Data Element] Data Element End (1 byte): An 8-bit Stream Object Header that specifies a data element end.");
         }
 
         /// <summary>
@@ -1121,25 +1115,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      272,
-                     @"[In Storage Manifest Data Element] Data Element Start (2 bytes): A 16-bit stream object header (section 2.2.1.5.1) that specifies a data element start.");
+                     @"[In Storage Manifest Data Element] Data Element Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies a data element start.");
 
             // Directly capture requirement MS-FSSHTTPB_R273, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      273,
-                     @"[In Storage Manifest Data Element] Data Element Extended GUID (variable): An extended GUID (section 2.2.1.7) that specifies the data element.");
+                     @"[In Storage Manifest Data Element] Data Element Extended GUID (variable): An Extended GUID (section 2.2.1.7) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R274, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      274,
-                     @"[In Storage Manifest Data Element] Serial Number (variable): A serial number (section 2.2.1.9) that specifies the data element.");
+                     @"[In Storage Manifest Data Element] Serial Number (variable): A Serial Number (section 2.2.1.9) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R275, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      275,
-                     @"[In Storage Manifest Data Element] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the storage manifest data element type.");
+                     @"[In Storage Manifest Data Element] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the Storage Manifest data element type.");
 
             // Verify the stream object header end related requirements.
             this.ExpectStreamObjectHeaderEnd(instance.StreamObjectHeaderEnd, instance.GetType(), site);
@@ -1151,7 +1145,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      281,
-                     @"[In Storage Manifest Data Element] Data Element End (1 byte): An 8-bit stream object header (section 2.2.1.5.3) that specifies a data element end.");
+                     @"[In Storage Manifest Data Element] Data Element End (1 byte): An 8-bit Stream Object Header (section 2.2.1.5.3) that specifies a data element end.");
         }
 
         /// <summary>
@@ -1170,25 +1164,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      282,
-                     @"[In Cell Manifest Data Element] Data Element Start (2 bytes): A 16-bit stream object header (section 2.2.1.5.1) that specifies a data element start.");
+                     @"[In Cell Manifest Data Element] Data Element Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies a data element start.");
 
             // Directly capture requirement MS-FSSHTTPB_R283, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      283,
-                     @"[In Cell Manifest Data Element] Data Element Extended GUID (variable): An extended GUID (section 2.2.1.7) that specifies the data element.");
+                     @"[In Cell Manifest Data Element] Data Element Extended GUID (variable): An Extended GUID (section 2.2.1.7) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R284, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      284,
-                     @"[In Cell Manifest Data Element] Serial Number (variable): A serial number (section 2.2.1.9) that specifies the data element.");
+                     @"[In Cell Manifest Data Element] Serial Number (variable): A Serial Number (section 2.2.1.9) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R285, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      285,
-                     @"[In Cell Manifest Data Element] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the cell manifest data element type");
+                     @"[In Cell Manifest Data Element] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the Cell Manifest data element type");
 
             // Verify the stream object header end related requirements.
             this.ExpectStreamObjectHeaderEnd(instance.StreamObjectHeaderEnd, instance.GetType(), site);
@@ -1200,7 +1194,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      288,
-                     @"[In Cell Manifest Data Element] Data Element End (1 byte): An 8-bit stream object header (section 2.2.1.5.3) that specifies a data element end.");
+                     @"[In Cell Manifest Data Element] Data Element End (1 byte): An 8-bit Stream Object Header (section 2.2.1.5.3) that specifies a data element end.");
         }
 
         /// <summary>
@@ -1219,25 +1213,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      289,
-                     @"[In Revision Manifest Data Elements] Data Element Start (2 bytes): A 16-bit stream object header (section 2.2.1.5.1) that specifies a data element start.");
+                     @"[In Revision Manifest Data Elements] Data Element Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies a data element start.");
 
             // Directly capture requirement MS-FSSHTTPB_R290, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      290,
-                     @"[In Revision Manifest Data Elements] Data Element Extended GUID (variable): An extended GUID (section 2.2.1.7) that specifies the data element.");
+                     @"[In Revision Manifest Data Elements] Data Element Extended GUID (variable): An Extended GUID (section 2.2.1.7) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R291, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      291,
-                     @"[In Revision Manifest Data Elements] Serial Number (variable): A serial number (section 2.2.1.9) that specifies the data element.");
+                     @"[In Revision Manifest Data Elements] Serial Number (variable): A Serial Number (section 2.2.1.9) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R292, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      292,
-                     @"[In Revision Manifest Data Elements] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the revision manifest data element type.");
+                     @"[In Revision Manifest Data Elements] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the Revision Manifest data element type.");
 
             // Verify the stream object header end related requirements.
             this.ExpectStreamObjectHeaderEnd(instance.StreamObjectHeaderEnd, instance.GetType(), site);
@@ -1249,7 +1243,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      301,
-                     @"[In Revision Manifest Data Elements] Data Element End (1 byte): An 8-bit stream object header (section 2.2.1.5.3) that specifies a data element end.");
+                     @"[In Revision Manifest Data Elements] Data Element End (1 byte): An 8-bit Stream Object Header (section 2.2.1.5.3) that specifies a data element end.");
         }
 
         /// <summary>
@@ -1268,25 +1262,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      302,
-                     @"[In Object Group Data Elements] Data Element Start (2 bytes): A 16-bit stream object header (section 2.2.1.5.1) that specifies a data element start.");
+                     @"[In Object Group Data Elements] Data Element Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies a data element start.");
 
             // Directly capture requirement MS-FSSHTTPB_R303, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      303,
-                     @"[In Object Group Data Elements] Data Element Extended GUID (variable): An extended GUID (section 2.2.1.7) that specifies the data element.");
+                     @"[In Object Group Data Elements] Data Element Extended GUID (variable): An Extended GUID (section 2.2.1.7) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R304, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      304,
-                     @"[In Object Group Data Elements] Serial Number (variable): A serial number (section 2.2.1.9) that specifies the data element.");
+                     @"[In Object Group Data Elements] Serial Number (variable): A Serial Number (section 2.2.1.9) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R305, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      305,
-                     @"[In Object Group Data Elements] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the object group data element type.");
+                     @"[In Object Group Data Elements] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the Object Group data element type.");
 
             if (instance.GetData<ObjectGroupDataElementData>().ObjectMetadataDeclaration != null)
             {
@@ -1294,7 +1288,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          2103,
-                         @"[In Object Group Data Elements] Object Metadata Declaration (variable): If object metadata (section 2.2.1.12.6.3.1) exists, this field MUST specify an object metadata declaration (section 2.2.1.12.6.3).");
+                         @"[In Object Group Data Elements] Object Metadata Declaration (variable): If Object Metadata (section 2.2.1.12.6.3.1) exists, this field MUST specify an Object Metadata Declaration (section 2.2.1.12.6.3).");
             }
 
             // Verify the stream object header end related requirements.
@@ -1307,7 +1301,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      314,
-                     @"[In Object Group Data Elements] Data Element End (1 byte): An 8-bit stream object header that specifies a data element end.");
+                     @"[In Object Group Data Elements] Data Element End (1 byte): An 8-bit Stream Object Header that specifies a data element end.");
         }
 
         /// <summary>
@@ -1330,31 +1324,31 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      346,
-                     @"[In Object Data BLOB Data Elements] Data Element Start (2 bytes): A 16-bit stream object header (section 2.2.1.5.1) that specifies a data element start.");
+                     @"[In Object Data BLOB Data Elements] Data Element Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies a data element start.");
 
             // Directly capture requirement MS-FSSHTTPB_R347, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      347,
-                     @"[In Object Data BLOB Data Elements] Data Element Extended GUID (variable): An extended GUID (section 2.2.1.7) that specifies the data element.");
+                     @"[In Object Data BLOB Data Elements] Data Element Extended GUID (variable): An Extended GUID (section 2.2.1.7) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R348, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      348,
-                     @"[In Object Data BLOB Data Elements] Serial Number (variable): A serial number (section 2.2.1.9) that specifies the data element.");
+                     @"[In Object Data BLOB Data Elements] Serial Number (variable): A Serial Number (section 2.2.1.9) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R349, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      349,
-                     @"[In Object Data BLOB Data Elements] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the object data BLOB data element type.");
+                     @"[In Object Data BLOB Data Elements] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the Object Data BLOB data element type.");
 
             // Directly capture requirement MS-FSSHTTPB_R350, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      350,
-                     @"[In Object Data BLOB Data Elements] Object Data BLOB (variable): A 16-bit or 32-bit stream object header that specifies an object data BLOB.");
+                     @"[In Object Data BLOB Data Elements] Object Data BLOB (variable): A 16-bit or 32-bit Stream Object Header that specifies an Object Data BLOB.");
 
             // Directly capture requirement MS-FSSHTTPB_R351, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -1366,7 +1360,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      352,
-                     @"[In Object Data BLOB Data Elements] Data Element End (1 byte): An 8-bit stream object header (section 2.2.1.5.3) that specifies a data element end.");
+                     @"[In Object Data BLOB Data Elements] Data Element End (1 byte): An 8-bit Stream Object Header (section 2.2.1.5.3) that specifies a data element end.");
 
             // Verify the stream object header end related requirements.
             this.ExpectStreamObjectHeaderEnd(instance.StreamObjectHeaderEnd, instance.GetType(), site);
@@ -1389,25 +1383,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      336,
-                     @"[In Data Element Fragment Data Elements] Data Element Start (2 bytes): A 16-bit stream object header (section 2.2.1.5.1) that specifies a data element start.");
+                     @"[In Data Element Fragment Data Elements] Data Element Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies a data element start.");
 
             // Directly capture requirement MS-FSSHTTPB_R337, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      337,
-                     @"[In Data Element Fragment Data Elements] Data Element Extended GUID (variable): An extended GUID (section 2.2.1.7) that specifies the data element.");
+                     @"[In Data Element Fragment Data Elements] Data Element Extended GUID (variable): An Extended GUID (section 2.2.1.7) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R338, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      338,
-                     @"[In Data Element Fragment Data Elements] Serial Number (variable): A serial number (section 2.2.1.9) that specifies the data element.");
+                     @"[In Data Element Fragment Data Elements] Serial Number (variable): A Serial Number (section 2.2.1.9) that specifies the data element.");
 
             // Directly capture requirement MS-FSSHTTPB_R339, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      339,
-                     @"[In Data Element Fragment Data Elements] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the object data BLOB data element type (section 2.2.1.12.8).");
+                     @"[In Data Element Fragment Data Elements] Data Element Type (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the value of the Object Data BLOB data element type (section 2.2.1.12.8).");
 
             // Verify the stream object header end related requirements.
             this.ExpectStreamObjectHeaderEnd(instance.StreamObjectHeaderEnd, instance.GetType(), site);
@@ -1419,7 +1413,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      345,
-                     @"[In Data Element Fragment Data Elements] Data Element End (1 byte): An 8-bit stream object header (section 2.2.1.5.3) that specifies a data element end.");
+                     @"[In Data Element Fragment Data Elements] Data Element End (1 byte): An 8-bit Stream Object Header (section 2.2.1.5.3) that specifies a data element end.");
         }
         #endregion
     }

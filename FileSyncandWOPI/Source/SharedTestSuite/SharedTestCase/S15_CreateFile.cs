@@ -246,5 +246,84 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             this.StatusManager.RecordFileUpload(uploadFileUrl);
         }
+
+        /// <summary>
+        /// This method is used to test uploading file contents succeeds when the file has an exclusive lock and the ByPassLockID is specified or not specified.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S15_TC04_UploadContents_ExclusiveLockSuccess()
+        {
+            string randomFileUrl = SharedTestSuiteHelper.GenerateNonExistFileUrl(this.Site);
+
+            // Initialize the context using user01 and defaultFileUrl.
+            this.InitializeContext(randomFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+            putChange.SubRequestData.CoalesceSpecified = true;
+            putChange.SubRequestData.Coalesce = true;
+            putChange.SubRequestData.ExpectNoFileExistsSpecified = true;
+            putChange.SubRequestData.ExpectNoFileExists = true;
+            putChange.SubRequestData.ExclusiveLockID = SharedTestSuiteHelper.DefaultExclusiveLockID;
+            putChange.SubRequestData.BypassLockID = putChange.SubRequestData.ExclusiveLockID;
+            putChange.SubRequestData.Timeout = "3600";
+
+            CellStorageResponse response = Adapter.CellStorageRequest(randomFileUrl, new SubRequestType[] { putChange });
+            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.Success,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                    "When the file is locked by exclusive lock and the ByPassLockID is specified by the valid exclusive lock id, the server returns the error code success.");
+
+            this.StatusManager.RecordExclusiveLock(randomFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID, this.UserName01, this.Password01, this.Domain);
+            this.StatusManager.RecordFileUpload(randomFileUrl);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // If the server responds with the error code "Success", 
+                // when the above steps show that the client has got an exclusive lock and the PutChange subrequest was sent with BypassLockID equal to ExclusiveLockID, 
+                // then requirement MS-FSSHTTP_R833 is captured.
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.Success,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         833,
+                         @"[In CellSubRequestDataOptionalAttributes][BypassLockID] If a client has got an exclusive lock, this value[BypassLockID] MUST be the same as the value of ExclusiveLockID, as specified in section 2.3.1.1.");
+
+                // If the server responds with "ExclusiveLock" in LockType attribute, the requirement MS-FSSHTTP_R1533 is captured. 
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "ExclusiveLock",
+                         cellSubResponse.SubResponseData.LockType.ToString(),
+                         "MS-FSSHTTP",
+                         1533,
+                         @"[In CellSubResponseDataType] The LockType attribute MUST be set to ""ExclusiveLock"" in the cell subresponse if the ExclusiveLockID attribute is sent in the cell subrequest and the protocol server is successfully able to take an exclusive lock.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.Success,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                    @"[In CellSubRequestDataOptionalAttributes][BypassLockID] If a client has got an exclusive lock, this value[BypassLockID] MUST be the same as the value of ExclusiveLockID, as specified in section 2.3.1.1.");
+
+                Site.Assert.AreEqual<string>(
+                    "ExclusiveLock",
+                    cellSubResponse.SubResponseData.LockType.ToString(),
+                    @"[In CellSubResponseDataType] The LockType attribute MUST be set to ""ExclusiveLock"" in the cell subresponse if the ExclusiveLockID attribute is sent in the cell subrequest and the protocol server is successfully able to take an exclusive lock.");
+            }
+
+            // Update contents without the ByPassLockID and coalesce true.
+            putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(this.Site));
+            putChange.SubRequestData.BypassLockID = null;
+            putChange.SubRequestData.CoalesceSpecified = true;
+            putChange.SubRequestData.Coalesce = true;
+
+            response = Adapter.CellStorageRequest(randomFileUrl, new SubRequestType[] { putChange });
+            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.Success,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                    "When the file is locked by exclusive lock and the ByPassLockID is not specified, the server returns the error code success.");
+        }
     }
 }

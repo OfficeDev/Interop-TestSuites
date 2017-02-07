@@ -95,7 +95,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                          "MS-FSSHTTPB",
                          936,
-                         @"[In Put Changes] Expected Storage Index Extended GUID (variable): If the expected storage index was specified and the key that is to be updated in the protocol server’s storage index exists in the expected storage index, the corresponding values in the protocol server’s storage index and the expected storage index MUST match.");
+                         @"[In Put Changes] Expected Storage Index Extended GUID (variable): If the expected Storage Index was specified and the key that is to be updated in the protocol server’s StorageIindex exists in the expected storage index, the corresponding values in the protocol server’s storage index and the expected Storage Index MUST match.");
             }
             else
             {
@@ -107,6 +107,31 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
+            
+            // Create a putChanges cellSubRequest
+            ExGuid storageIndexExGuid2;
+            List<DataElement> dataElements1 = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid2);
+            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid2);
+            putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            cellRequest.AddSubRequest(putChange,  null);
+            CellSubRequestType cellSubRequest1 = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+
+            // Put changes to the protocol server
+            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest1 });
+            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+            fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4050
+                Site.CaptureRequirementIfAreEqual<CellErrorCode>(
+                         CellErrorCode.Referenceddataelementnotfound,
+                         fsshttpbResponse.CellSubResponses[0].ResponseError.GetErrorData<CellError>().ErrorCode,
+                         "MS-FSSHTTPB",
+                         4050,
+                         @"[In Put Changes] If the Extended GUID does not have the corresponding data element in the Data Element Package of the request, the protocol server MUST return a Cell Error failure value of 16 indicating the referenced data element not found failure, as specified in section 2.2");
+            }
         }
 
         /// <summary>
@@ -164,7 +189,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          fsshttpbResponse.CellSubResponses[0].ResponseError.GetErrorData<CellError>().ErrorCode,
                          "MS-FSSHTTPB",
                          937,
-                         @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): otherwise[If the expected storage index was specified and the key that is to be updated in the protocol server’s storage index exists in the expected storage index but the corresponding values in the protocol server’s storage index and the expected storage index doesn't match] the protocol server MUST return a Cell Error Coherency failure value of 12 indicating a coherency failure as specified in section 2.2.3.2.1.");
+                         @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): otherwise[If the expected Storage Index was specified and the key that is to be updated in the protocol server’s Storage Index exists in the expected Storage Index but the corresponding values in the protocol server’s Storage Index and the expected Storage Index doesn't match] the protocol server MUST return a Cell Error Coherency failure value of 12 indicating a coherency failure as specified in section 2.2.3.2.1.");
             }
             else
             {
@@ -289,7 +314,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Put changes to the protocol server to expect the server responds the Coherency failure error.
             CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
             CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
             this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site), "The PutChanges operation should succeed.");
+
         }
 
         /// <summary>
@@ -324,10 +351,23 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             FsshttpbResponse putChangeResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
             CellError cellError = (CellError)putChangeResponse.CellSubResponses[0].ResponseError.ErrorData;
-            Site.Assert.AreEqual<CellErrorCode>(
-                    CellErrorCode.Coherencyfailure,
-                    cellError.ErrorCode,
-                    @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): [if Imply Null Expected if No Mapping flag specifies 1,] If the Expected Storage Index Extended GUID is not specified, the protocol server returns a Cell Error failure value of 12 indicating a coherency failure as specified in section 2.2.3.2.1.");
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTPB_R941
+                Site.CaptureRequirementIfAreEqual<CellErrorCode>(
+                         CellErrorCode.Coherencyfailure,
+                         cellError.ErrorCode,
+                         "MS-FSSHTTPB",
+                         941,
+                         @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): [if Imply Null Expected if No Mapping flag specifies 1,] If a mapping exists, the protocol server MUST return a Cell Error failure value of 12 indicating a coherency failure as specified in section 2.2.3.2.1.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<CellErrorCode>(
+                        CellErrorCode.Coherencyfailure,
+                        cellError.ErrorCode,
+                        @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): [if Imply Null Expected if No Mapping flag specifies 1,] If the Expected Storage Index Extended GUID is not specified, the protocol server returns a Cell Error failure value of 12 indicating a coherency failure as specified in section 2.2.3.2.1.");
+            }
         }
 
         /// <summary>
@@ -371,6 +411,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 ErrorCodeType.Success,
                 SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                 "Test case cannot continue unless the put changes succeed.");
+
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4110, this.Site))
+            {
+                Site.CaptureRequirement(
+                    "MS-FSSHTTPB",
+                    4110,
+                    @"[In Appendix B: Product Behavior] Implementation does execute Sub-requests with different or same Priority in any order with respect to each other. (<6> Section 2.2.2.1:  SharePoint Server 2010 and SharePoint Server 2013 execute Sub-requests with different or same Priority in any order with respect to each other.)");
+            }
         }
 
         /// <summary>
@@ -420,12 +468,15 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // For Microsoft product, in this case the server still responses Referenceddataelementnotfound.
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                Site.CaptureRequirementIfAreEqual<string>(
-                    "referenceddataelementnotfound".ToLower(CultureInfo.CurrentCulture),
-                    fsshttpbResponse.CellSubResponses[0].ResponseError.ErrorData.ErrorDetail.ToLower(CultureInfo.CurrentCulture),
-                    "MS-FSSHTTPB",
-                    51701,
-                    @"[In Put Changes] Implementation does return a Referenced Data Element Not Found failure, when D - Favor Coherency Failure Over Not Found is set to 1 and a Referenced Data Element Not Found (section 2.2.3.2.1) failure occurred. (SharePoint 2010 and above follow this behavior.)");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 51701, SharedContext.Current.Site))
+                {
+                    Site.CaptureRequirementIfAreEqual<string>(
+                        "referenceddataelementnotfound".ToLower(CultureInfo.CurrentCulture),
+                        fsshttpbResponse.CellSubResponses[0].ResponseError.ErrorData.ErrorDetail.ToLower(CultureInfo.CurrentCulture),
+                        "MS-FSSHTTPB",
+                        51701,
+                        @"[In Put Changes] Implementation does return a Referenced Data Element Not Found failure, when D - Favor Coherency Failure Over Not Found is set to 1 and a Referenced Data Element Not Found (section 2.2.3.2.1) failure occurred. (SharePoint 2010 and above follow this behavior.)");
+                }
             }
             else
             {
@@ -535,7 +586,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
 
             // Get the file contents
-            byte[] bytes = new RootNodeObject.RootNodeObjectBuilder()
+            byte[] bytes = new IntermediateNodeObject.RootNodeObjectBuilder()
                                             .Build(fsshttpbResponse.DataElementPackage.DataElements, fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID)
                                             .GetContent()
                                             .ToArray();
@@ -628,7 +679,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isVerifiedR990251,
                          "MS-FSSHTTPB",
                          990251,
-                         @"[In Request Message Syntax] Whenever the[A – Reserved (1 bit) field is set to 0 or 1, the protocol server must return the same response.");
+                         @"[In Request Message Syntax] Whenever the[A – Reserved (1 bit, optional) field is set to 0 or 1, the protocol server must return the same response.");
             }
             else
             {
@@ -687,7 +738,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isVerifiedR990271,
                          "MS-FSSHTTPB",
                          990271,
-                         @"[In Request Message Syntax] Whenever the[B – Reserved (1 bit) field is set to 0 or 1, the protocol server must return the same response.");
+                         @"[In Request Message Syntax] Whenever the[B – Reserved (1 bit, optional) field is set to 0 or 1, the protocol server must return the same response.");
             }
             else
             {
@@ -746,7 +797,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isVerifiedR990341,
                          "MS-FSSHTTPB",
                          990341,
-                         @"[In Request Message Syntax] Whenever the[E – Reserved (4 bit) field is set to 0 or 1, the protocol server must return the same response.");
+                         @"[In Request Message Syntax] Whenever the[E – Reserved (4 bit, optional) field is set to 0 or 1, the protocol server must return the same response.");
             }
             else
             {
@@ -989,19 +1040,19 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          isVerifyR99044,
                          "MS-FSSHTTPB",
                          99044,
-                         @"[Additional Flags] A – Return Applied Storage Index Id Entries (1 bit): A bit that specifies that the storage indexes that are applied to the storage as part of the Put Changes will be returned in a Storage Index specified in the Put Changes Response by the Applied Storage Index Id (section 2.2.3.1.3).");
+                         @"[Additional Flags] A – Return Applied Storage Index Id Entries (1 bit): A bit that specifies that the Storage Indexes that are applied to the storage as part of the Put Changes will be returned in a Storage Index specified in the Put Changes response by the Applied Storage Index Id (section 2.2.3.1.3).");
 
                 // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R99108
                 Site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          99108,
-                         @"[Appendix B: Product Behavior] Additional Flags is supported by SharePoint Server 2013.");
+                         @"[Appendix B: Product Behavior] Additional Flags is supported by SharePoint Server 2013 and SharePoint Server 2016.");
             }
             else
             {
                 Site.Assert.IsTrue(
                     isVerifyR99044,
-                    @"[Additional Flags] A - Return Applied Storage Index Id Entries (1 bit): A bit that specifies that the storage indexes that are applied to the storage as part of the Put Changes will be returned in a Storage Index specified in the Put Changes Response by the Applied Storage Index Id.");
+                    @"[Additional Flags] A – Return Applied Storage Index Id Entries (1 bit): A bit that specifies that the Storage Indexes that are applied to the storage as part of the Put Changes will be returned in a Storage Index specified in the Put Changes response by the Applied Storage Index Id (section 2.2.3.1.3).");
             }
         }
 
@@ -1043,29 +1094,29 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbResponse putChangeResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(putChangeResponse, this.Site);
 
-            bool isVerifyR99045 = putChangeResponse.CellSubResponses[0].GetSubResponseData<PutChangesSubResponseData>().PutChangesResponse != null
+            bool isVerifyR99045002 = putChangeResponse.CellSubResponses[0].GetSubResponseData<PutChangesSubResponseData>().PutChangesResponse != null
                     && putChangeResponse.CellSubResponses[0].GetSubResponseData<PutChangesSubResponseData>().PutChangesResponse.DataElementAdded != null
                     && putChangeResponse.CellSubResponses[0].GetSubResponseData<PutChangesSubResponseData>().PutChangesResponse.DataElementAdded.Count.DecodedValue != 0;
 
             Site.Log.Add(
                 TestTools.LogEntryKind.Debug,
                 "When the ReturnDataElementsAdded flag is set, the server will return the added data elements, actually it {0} return",
-                isVerifyR99045 ? "does" : "does not");
+                isVerifyR99045002 ? "does" : "does not");
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R99045
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R99045002
                 Site.CaptureRequirementIfIsTrue(
-                         isVerifyR99045,
+                         isVerifyR99045002,
                          "MS-FSSHTTPB",
-                         99045,
-                         @"[Additional Flags] B – Return Data Elements Added (1 bit): A bit that specifies that the Data Elements that are added to the storage as part of this Put Changes will be return in a Data Element Collection specified in the Put Changes Response by the Data Elements Added collection (section 2.2.3.1.3).");
+                         99045002,
+                         @"[Additional Flags] B – Return Data Elements Added (1 bit): When the ReturnDataElementsAdded flag is set, the server will return the added data elements.");
             }
             else
             {
                 Site.Assert.IsTrue(
-                    isVerifyR99045,
-                    @"[Additional Flags] B - Return Data Elements Added (1 bit): A bit that specifies that the Data Elements that are added to the storage as part of this Put Changes will be return in a Data Element Collection specified in the Put Changes Response by the Data Elements Added collection (section 2.2.3.1.3).");
+                    isVerifyR99045002,
+                    @"[Additional Flags] B – Return Data Elements Added (1 bit): When the ReturnDataElementsAdded flag is set, the server will return the added data elements.");
             }
         }
 
@@ -1115,9 +1166,25 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 "When the ReturnDataElementsAdded flag is set, the server will not return the added data elements, actually it {0} return",
                 notIncludeAddedDataElements ? "does not" : "does");
 
-            Site.Assert.IsTrue(
-                notIncludeAddedDataElements,
-                "When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements");
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 99045001, this.Site))
+                {
+                    Site.CaptureRequirementIfIsTrue(
+                        notIncludeAddedDataElements,
+                        99045001,
+                        @"[Additional Flags] B – Return Data Elements Added (1 bit): When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements.");
+                }
+            }
+            else
+            {
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 99045001, this.Site))
+                {
+                    Site.Assert.IsTrue(
+                        notIncludeAddedDataElements,
+                        @"When the ReturnDataElementsAdded flag is not set, the server will not return the added data elements");
+                }
+            }
         }
 
         /// <summary>
@@ -1180,7 +1247,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                          "MS-FSSHTTPB",
                          99046,
-                         @"[Additional Flags] C – Check for Id Reuse (1 bit): A bit that specifies that the server should attempt to check the Put Changes Request for the re-use of previously used Ids. ");
+                         @"[Additional Flags] C – Check for Id Reuse (1 bit): A bit that specifies that the server will attempt to check the Put Changes request for the re-use of previously used IDs. ");
 
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                          ErrorCodeType.CellRequestFail,
@@ -1253,12 +1320,15 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                Site.CaptureRequirementIfAreEqual<CellErrorCode>(
-                         CellErrorCode.Coherencyfailure,
-                         fsshttpbResponse.CellSubResponses[0].ResponseError.GetErrorData<CellError>().ErrorCode,
-                         "MS-FSSHTTPB",
-                         9905101,
-                         @"[In Appendix B: Product Behavior] Implementation does not bypass a full file save and related checks that would otherwise be unnecessary, when his flag [E – Full File Replace Put (1 bit)] is set. (Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010 and above follow this behavior.)");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 9905101, SharedContext.Current.Site))
+                {
+                    Site.CaptureRequirementIfAreEqual<CellErrorCode>(
+                             CellErrorCode.Coherencyfailure,
+                             fsshttpbResponse.CellSubResponses[0].ResponseError.GetErrorData<CellError>().ErrorCode,
+                             "MS-FSSHTTPB",
+                             9905101,
+                             @"[In Appendix B: Product Behavior] Implementation does not bypass a full file save and related checks that would otherwise be unnecessary, when his flag [E – Full File Replace Put (1 bit)] is set. (Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010 and above follow this behavior.)");
+                }
             }
             else
             {
@@ -1266,6 +1336,137 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          CellErrorCode.Coherencyfailure,
                          fsshttpbResponse.CellSubResponses[0].ResponseError.GetErrorData<CellError>().ErrorCode,
                          @"[In Appendix B: Product Behavior] Implementation does not bypass a full file save and related checks that would otherwise be unnecessary, when his flag [E – Full File Replace Put (1 bit)] is set. (Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010 and above follow this behavior.)");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify server will not bypass the necessary checks when the ForceRevisionChainOptimization flag is false.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S13_TC22_PutChanges_ForceRevisionChainOptimization_Zero()
+        {
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4130, this.Site))
+            {
+                Site.Assume.Inconclusive("Implementation does not support the Diagnostic Request Option Output field.");
+            }
+
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Create a putChanges cellSubRequest with specified DiagnosticRequestOptionInput attribute and ForceRevisionChainOptimization set to zero
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            ExGuid storageIndexExGuid;
+            List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+            putChange.IsDiagnosticRequestOptionInputUsed = true;
+            putChange.ForceRevisionChainOptimization = 0;
+            cellRequest.AddSubRequest(putChange, dataElements);
+
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the put changes operation on the file {0} succeed.",
+                this.DefaultFileUrl);
+
+            FsshttpbResponse putChangeResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
+
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(putChangeResponse, this.Site);
+
+            bool isForced = putChangeResponse.CellSubResponses[0].GetSubResponseData<PutChangesSubResponseData>().DiagnosticRequestOptionOutput.IsDiagnosticRequestOptionOutput;
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R409502
+                Site.CaptureRequirementIfIsFalse(
+                         isForced,
+                         "MS-FSSHTTPB",
+                         409502,
+                         @"[In Put Changes] F – Forced (1 bit): [False] specifies whether a forced Revision Chain optimization [does not] occurred.");
+            }
+            else
+            {
+                Site.Assert.IsFalse(
+                    isForced,
+                    @"[In Put Changes] F – Forced (1 bit): [False] specifies whether a forced Revision Chain optimization [does not] occurred.");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify if the key that is to be updated in the protocol server's Storage Index does not exist in the 
+        /// expected Storage Index, the Imply Null Expected if No Mapping flag MUST be evaluated.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S13_TC23_PutChanges_ImplyFlagWithKeyNotExist()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Query changes from the protocol server
+            CellSubRequestType queryChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
+            CellStorageResponse queryResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { queryChange });
+            CellSubResponseType querySubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(queryResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(querySubResponse.ErrorCode, this.Site), "The operation QueryChanges should succeed.");
+            FsshttpbResponse fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(querySubResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
+            ExGuid storageIndex = fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
+
+            // Create a putChanges cellSubRequest with specify expected Storage Index and ImplyNullExpectedIfNoMapping set to 0.
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            ExGuid storageIndexExGuid;
+            List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+            putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
+            putChange.ImplyNullExpectedIfNoMapping = 0;
+            dataElements.AddRange(fsshttpbResponse.DataElementPackage.DataElements);
+            cellRequest.AddSubRequest(putChange, dataElements);
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+
+            // Put changes to the protocol server
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            // If the key that is to be updated in the protocol server’s Storage Index does not exist in the expected Storage Index, the Imply Null Expected if No Mapping flag MUST be evaluated.
+            // If this flag is zero, the protocol server MUST apply the change without checking the current value.
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site), "The PutChanges operation should succeed.");
+
+            queryChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
+            queryResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { queryChange });
+            querySubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(queryResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(querySubResponse.ErrorCode, this.Site), "The operation QueryChanges should succeed.");
+            fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(querySubResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
+            ExGuid index2 = storageIndex;
+            storageIndex = fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
+
+            // Create a putChanges cellSubRequest with specify expected Storage Index and ImplyNullExpectedIfNoMapping set to 1.
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
+            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+            putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
+            putChange.ImplyNullExpectedIfNoMapping = 1;
+            dataElements.AddRange(fsshttpbResponse.DataElementPackage.DataElements);
+            cellRequest.AddSubRequest(putChange, dataElements);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+
+            // Put changes to the protocol server
+            response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+
+            // If the key that is to be updated in the protocol server’s Storage Index does not exist in the expected Storage Index, the Imply Null Expected if No Mapping flag MUST be evaluated.
+            // If this flag is one, the protocol server MUST only apply the change if no mapping exists.
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site), "The PutChanges operation should succeed.");
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R2168
+                // This requirement can be captured directly after above steps.
+                Site.CaptureRequirement(
+                         "MS-FSSHTTPB",
+                         2168,
+                         @"[In Put Changes] Expected Storage Index Extended GUID (variable): If the key that is to be updated in the protocol server’s Storage Index does not exist in the expected Storage Index, the Imply Null Expected if No Mapping flag MUST be evaluated.");
             }
         }
         #endregion 

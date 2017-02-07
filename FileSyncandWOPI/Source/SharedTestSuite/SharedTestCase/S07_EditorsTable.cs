@@ -72,6 +72,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Call protocol adapter operation CellStorageRequest using user01 to join the editing session.
             EditorsTableSubRequestType join = SharedTestSuiteHelper.CreateEditorsTableSubRequestForJoinSession(System.Guid.NewGuid().ToString(), 3600);
             CellStorageResponse cellStorageResponseJoin = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { join });
+            DateTime time = DateTime.UtcNow;
             EditorsTableSubResponseType subResponseJoin = SharedTestSuiteHelper.ExtractSubResponse<EditorsTableSubResponseType>(cellStorageResponseJoin, 0, 0, this.Site);
             string firstClientId = join.SubRequestData.ClientID;
 
@@ -155,6 +156,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             string secondClientId = join.SubRequestData.ClientID;
 
             EditorsTable editorsTable = this.FetchEditorTable(this.DefaultFileUrl);
+            DateTime time2 = DateTime.UtcNow;
             Editor editor1 = this.FindEditorById(editorsTable, firstClientId);
             Editor editor2 = this.FindEditorById(editorsTable, secondClientId);
 
@@ -172,21 +174,96 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             {
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1982
                 Site.CaptureRequirement(
-                         "MS-FSSHTTP",
-                         1982,
-                         @"[In Join Editing Session] The protocol server processes this request[the EditorsTableRequestType attribute is set to ""JoinEditingSession""] to add an entry to the editors table associated with the coauthorable file by adding the client’s associated ClientId, Timeout, and AsEditor status in an entry.");
+                    "MS-FSSHTTP",
+                    1982,
+                    @"[In Join Editing Session] The protocol server processes this request[the EditorsTableRequestType attribute is set to ""JoinEditingSession""] to add an entry to the editors table associated with the coauthorable file by adding the client’s associated ClientId, Timeout, and AsEditor status in an entry.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R693
                 Site.CaptureRequirement(
-                         "MS-FSSHTTP",
-                         693,
-                         @"[In SchemaLockSubRequestDataType] When more than one client is editing the file, the protocol server MUST maintain a separate timeout value for each client.");
+                    "MS-FSSHTTP",
+                    693,
+                    @"[In SchemaLockSubRequestDataType] When more than one client is editing the file, the protocol server MUST maintain a separate timeout value for each client.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R9001
                 Site.CaptureRequirement(
-                         "MS-FSSHTTP",
-                         9001,
-                         @"[In Appendix B: Product Behavior] Implementation does support EditorsTable operation. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                    "MS-FSSHTTP",
+                    9001,
+                    @"[In Appendix B: Product Behavior] Implementation does support EditorsTable operation. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
+
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4075
+                Site.CaptureRequirementIfIsTrue(
+                    editor1 != null && editor2 != null,
+                    "MS-FSSHTTPB",
+                    4075,
+                    @"[In EditorElement] CacheID: A string that serves to uniquely identify each client that has access to an editors table on a coauthorable file.");
+
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4076
+                Site.CaptureRequirementIfIsTrue(
+                    editor1 != null && editor2 != null,
+                    "MS-FSSHTTPB",
+                    4076,
+                    @"[In EditorElement] This MUST be the same as the ClientID attribute of the EditorsTableSubRequestDataType ([MS-FSSHTTP] section 2.3.1.23), the CoauthSubRequestDataType [MS-FSSHTTP] section 2.3.1.5), the ExclusiveLockSubRequestDataType ([MS-FSSHTTP] section 2.3.1.9) or the SchemaLockSubRequestDataType ([MS-FSSHTTP] section 2.3.1.13).");
+
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4077
+                Site.CaptureRequirementIfAreEqual<string>(
+                    this.UserName01.ToLower(),
+                    editor1.FriendlyName.ToLower(),
+                    "MS-FSSHTTPB",
+                    4077,
+                    @"[In EditorElement] FriendlyName: A UserNameType that specifies the user name for the client.");
+
+                System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^[a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*");
+                System.Text.RegularExpressions.Regex regex2 = new System.Text.RegularExpressions.Regex(@"([a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*)$");
+                System.Text.RegularExpressions.Match match = regex2.Match(editor1.LoginName);
+
+                bool isVerifiedR4079 = editor1.LoginName.ToLower().Contains(this.UserName01.ToLower()) && (regex.IsMatch(editor1.LoginName)
+                    || (regex2.IsMatch(editor1.LoginName) && match.Success && match.Index > 0));
+
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4079
+                Site.CaptureRequirementIfIsTrue(
+                    isVerifiedR4079,
+                    "MS-FSSHTTPB",
+                    4079,
+                    @"[In EditorElement] LoginName: A UserLoginType that specifies the user login alias of the client.");
+
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4082
+                Site.CaptureRequirementIfAreEqual<string>(
+                    (this.UserName02 + "@" + this.Domain).ToLower(),
+                    editor2.EmailAddress.ToLower(),
+                    "MS-FSSHTTPB",
+                    4082,
+                    @"[In EditorElement] EmailAddress: A string that specifies the email address associated with the client.");
+
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4083
+                Site.CaptureRequirementIfAreEqual<string>(
+                    (this.UserName02 + "@" + this.Domain).ToLower(),
+                    editor2.EmailAddress.ToLower(),
+                    "MS-FSSHTTPB",
+                    4083,
+                    @"[In EditorElement] The format of the email address MUST be as specified in [RFC2822] section 3.4.1.");
+
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4084
+                // If can fetch the editors table, then the following requirement can be directly captured.
+                Site.CaptureRequirement(
+                    "MS-FSSHTTPB",
+                    4084,
+                    @"[In EditorElement] HasEditorPermission: A string that specifies if the editor has permission to make edits to the file.");
+
+                bool isR4085Verified = Math.Abs((editor1.Timeout / 10000000) - ((time.AddSeconds(3600) - new System.DateTime(1, 1, 1, 0, 0, 0)).TotalSeconds - (time2 - time).TotalSeconds)) < 1;
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTPB_R4085
+                Site.CaptureRequirementIfIsTrue(
+                    isR4085Verified,
+                    "MS-FSSHTTPB",
+                    4085,
+                    @"[In EditorElement] Timeout: A positive integer that specifies the time when the editor’s entry will expire and the editor will no longer be considered an active editor, which is expressed as a tick count.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTPB_R4086
+                Site.CaptureRequirementIfIsTrue(
+                    isR4085Verified,
+                    "MS-FSSHTTPB",
+                    4086,
+                    @"[In EditorElement] A single tick represents 100 nanoseconds, or one ten-millionth of a second.");
             }
         }
 
@@ -512,7 +589,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          3031,
-                         @"[In Appendix B: Product Behavior] Implementation does return NewEditorsTableCategoryErrorCodeTypes when the error occurs during the processing of an EditorsTable subrequest. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                         @"[In Appendix B: Product Behavior] Implementation does return NewEditorsTableCategoryErrorCodeTypes when the error occurs during the processing of an EditorsTable subrequest. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
             }
             else
             {
@@ -629,7 +706,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.PrepareJoinEditorsTable(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID);
 
             // Add the first Key/value pair.
-            EditorsTableSubRequestType update = SharedTestSuiteHelper.CreateEditorsTableSubRequestForUpdateSessionMetadata(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.GenerateRandomString(4), System.Text.Encoding.Unicode.GetBytes(SharedTestSuiteHelper.GenerateRandomString(4)));
+            string key = SharedTestSuiteHelper.GenerateRandomString(4);
+            byte[] value = System.Text.Encoding.Unicode.GetBytes(SharedTestSuiteHelper.GenerateRandomString(4));
+            EditorsTableSubRequestType update = SharedTestSuiteHelper.CreateEditorsTableSubRequestForUpdateSessionMetadata(SharedTestSuiteHelper.DefaultClientID, key, value);
             CellStorageResponse cellStorageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { update });
             EditorsTableSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<EditorsTableSubResponseType>(cellStorageResponse, 0, 0, this.Site);
 
@@ -640,6 +719,40 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                         update.SubRequestData.Key,
                         update.SubRequestData.Text[0],
                         this.DefaultFileUrl);
+
+            EditorsTable editorsTable = this.FetchEditorTable(this.DefaultFileUrl);
+            Site.Assert.AreEqual<int>(1, editorsTable.Editors.Length, "Should only one editor exists.");
+            Editor editor = editorsTable.Editors[0];
+
+            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4088
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                editorsTable.Editors[0].Metadata.Count,
+                "MS-FSSHTTPB",
+                4088,
+                "[In EditorElement] Metadata: An element that specifies any arbitrary key-value pairs that the protocol client has provided. ");
+
+            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4089
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                editorsTable.Editors[0].Metadata.Count,
+                "MS-FSSHTTPB",
+                4089,
+                "[In EditorElement] Each contained element represents one such key-value pair.");
+
+            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4090
+            Site.CaptureRequirementIfIsTrue(
+                editorsTable.Editors[0].Metadata.ContainsKey(key),
+                "MS-FSSHTTPB",
+                4090,
+                "[In EditorElement] The name of the element is the key.");
+
+            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4091
+            Site.CaptureRequirementIfIsTrue(
+                AdapterHelper.ByteArrayEquals(value, System.Text.Encoding.Unicode.GetBytes(editorsTable.Editors[0].Metadata[key])),
+                "MS-FSSHTTPB",
+                4091,
+                "[In EditorElement] The binary content is the value.");
 
             // Add the second Key/value pair.
             EditorsTableSubRequestType update2 = SharedTestSuiteHelper.CreateEditorsTableSubRequestForUpdateSessionMetadata(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.GenerateRandomString(4), System.Text.Encoding.Unicode.GetBytes(SharedTestSuiteHelper.GenerateRandomString(4)));
@@ -687,34 +800,40 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // If the ErrorCode attribute returned equals "EditorMetadataQuotaReached", then MS-FSSHTTP_R1976,MS-FSSHTTP_R3035 and MS-FSSHTTP_R3031 can be captured.
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.EditorMetadataQuotaReached,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         1976,
-                         @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<41> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1976, this.Site))
+                {
+                    // If the ErrorCode attribute returned equals "EditorMetadataQuotaReached", then MS-FSSHTTP_R1976,MS-FSSHTTP_R3035 and MS-FSSHTTP_R3031 can be captured.
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.EditorMetadataQuotaReached,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             1976,
+                             @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<49> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
 
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.EditorMetadataQuotaReached,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         3035,
-                         @"[In NewEditorsTableCategoryErrorCodeTypes] The value ""EditorMetadataQuotaReached"" indicates an error when the client has already exceeded its quota for number of key/value pairs.");
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.EditorMetadataQuotaReached,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             3035,
+                             @"[In NewEditorsTableCategoryErrorCodeTypes] The value ""EditorMetadataQuotaReached"" indicates an error when the protocol client has already exceeded its quota for number of key/value pairs.");
 
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.EditorMetadataQuotaReached,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         3031,
-                         @"[In Appendix B: Product Behavior] Implementation does return NewEditorsTableCategoryErrorCodeTypes when the error occurs during the processing of an EditorsTable subrequest. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.EditorMetadataQuotaReached,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             3031,
+                             @"[In Appendix B: Product Behavior] Implementation does return NewEditorsTableCategoryErrorCodeTypes when the error occurs during the processing of an EditorsTable subrequest. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
+                }
             }
             else
             {
-                Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.EditorMetadataQuotaReached,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
-                    @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<41> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1976, this.Site))
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
+                        ErrorCodeType.EditorMetadataQuotaReached,
+                        SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
+                        @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<49> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
+                }
             }
         }
 
@@ -964,7 +1083,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     Site.CaptureRequirement(
                              "MS-FSSHTTP",
                              2050,
-                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<40> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a coauthoring lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
+                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<48> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a coauthoring lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
                 }
             }
         }
@@ -1018,7 +1137,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     Site.CaptureRequirement(
                              "MS-FSSHTTP",
                              2051,
-                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<40> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a schema lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
+                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<48> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a schema lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
                 }
             }
         }

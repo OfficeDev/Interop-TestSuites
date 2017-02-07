@@ -539,12 +539,12 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          1253,
                          @"[In Release Lock] If the protocol server encounters an error because no lock currently exists on the file, the protocol server returns an error code value set to ""FileNotLockedOnServer"".");
 
-                // If the error code equals "FileNotLockedOnServer", then capture MS-FSSHTTP_R3811
+                // If the error code equals "FileNotLockedOnServer", then capture MS-FSSHTTP_R381
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                          ErrorCodeType.FileNotLockedOnServer,
                          SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
-                         3811,
+                         381,
                          @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock exists on a file and a release of the lock is requested as part of a cell storage service request.");
             }
             else
@@ -553,6 +553,40 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     ErrorCodeType.FileNotLockedOnServer,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
                     @"[In Release Lock] If the protocol server encounters an error because no lock currently exists on the file, the protocol server returns an error code value set to ""FileNotLockedOnServer"".");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify the related requirements when convert an exclusive lock on a file which is not locked.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S04_TC43_ConvertExclusiveLock_FileNotLockedOnServer()
+        {
+            // Initialize the service.
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.ConvertToSchema);
+
+            // Convert a file lock which is not locked, expect the server responds the error code "FileNotLockedOnServer".
+            CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // If the error code equals "FileNotLockedOnServer", then capture MS-FSSHTTP_R3811
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.FileNotLockedOnServer,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         3811,
+                         @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock on a file and a conversion of the lock is requested as part of a cell storage service request.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.FileNotLockedOnServer,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
+                    @"[In Convert Lock] If the protocol server encounters an error because no lock currently exists on the file, the protocol server returns an error code value set to ""FileNotLockedOnServer"".");
             }
         }
 
@@ -1397,11 +1431,32 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Record the disable the coauthoring feature status.
             this.StatusManager.RecordDisableCoauth();
 
-            ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.ConvertToSchemaJoinCoauth);
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
-            // Convert the current exclusive lock to a coauthoring shared lock when the coauthoring feature is disabled, expect the server returns the error code "LockNotConvertedAsCoauthDisabled".
-            CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
+            ExclusiveLockSubResponseType exclusiveResponse = null;
+
+            while (retryCount > 0)
+            {
+                ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.ConvertToSchemaJoinCoauth);
+
+                // Convert the current exclusive lock to a coauthoring shared lock when the coauthoring feature is disabled, expect the server returns the error code "LockNotConvertedAsCoauthDisabled".
+                CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+                exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
+
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site) == ErrorCodeType.LockNotConvertedAsCoauthDisabled)
+                {
+                    break;
+                }
+
+                retryCount--;
+                if (retryCount == 0)
+                {
+                    Site.Assert.Fail("Error LockNotConvertedAsCoauthDisabled should be returned if coauthoring feature is disabled.");
+                }
+
+                System.Threading.Thread.Sleep(waitTime);
+            }
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
@@ -1934,11 +1989,32 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Record the disable the coauthoring feature status.
             this.StatusManager.RecordDisableCoauth();
 
-            ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.ConvertToSchema);
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
-            // Convert the current exclusive lock to a schema shared lock when the coauthoring  feature is disabled, expect the server returns the error code "LockNotConvertedAsCoauthDisabled".
-            CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
+            ExclusiveLockSubResponseType exclusiveResponse = null;
+
+            while (retryCount > 0)
+            {
+                ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.ConvertToSchema);
+
+                // Convert the current exclusive lock to a schema shared lock when the coauthoring  feature is disabled, expect the server returns the error code "LockNotConvertedAsCoauthDisabled".
+                CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+                exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
+
+                if (SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site) == ErrorCodeType.LockNotConvertedAsCoauthDisabled)
+                {
+                    break;
+                }
+
+                retryCount--;
+                if (retryCount == 0)
+                {
+                    Site.Assert.Fail("Error LockNotConvertedAsCoauthDisabled should be returned if feature of coauthoring is not completely supported.");
+                }
+
+                System.Threading.Thread.Sleep(waitTime);
+            }
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
@@ -2162,7 +2238,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3071,
-                             @"[In Appendix B: Product Behavior] If the specified attributes[ExclusiveLockRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the exclusive lock subresponse. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] If the specified attributes[ExclusiveLockRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the ResponseVersion element. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3072
@@ -2173,7 +2249,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              response.ResponseVersion.ErrorCode,
                              "MS-FSSHTTP",
                              3072,
-                             @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the exclusive lock subresponse. <15> Section 2.3.1.9: In SharePoint Server 2013 [and Microsoft SharePoint Foundation 2013], if the ExclusiveLockRequestType attribute is not provided, a ""HighLevelExceptionThrown"" error code MUST be returned as part of the SubResponseData element associated with the exclusive lock subresponse.");
+                             @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the ResponseVersion element. <22> Section 2.3.1.9: In SharePoint Server 2013 [and Microsoft SharePoint Foundation 2013], if the ExclusiveLockRequestType attribute is not provided, a ""HighLevelExceptionThrown"" error code MUST be returned as part of the ResponseVersion element.");
                 }
             }
             else
@@ -2214,7 +2290,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(response.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          6341,
-                         @"[In ExclusiveLockSubRequestDataType] If the specified attributes[ExclusiveLockID attribute] are not provided, an ""InvalidArgument"" error code MUST be returned as part of the SubResponseData element associated with the exclusive lock subresponse.<15>");
+                         @"[In ExclusiveLockSubRequestDataType] If the specified attributes[ExclusiveLockID attribute] are not provided, an ""InvalidArgument"" error code MUST be returned as part of the SubResponseData element associated with the exclusive lock subresponse.<22>");
             }
             else
             {

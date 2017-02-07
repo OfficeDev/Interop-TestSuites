@@ -23,6 +23,7 @@ $ret = invoke-command -computer $computerName -Credential $credential -scriptblo
 	$SharePointServer2010           = "SharePointServer2010","Microsoft SharePoint Server 2010"
 	$SharePointFoundation2013       = "SharePointFoundation2013","Microsoft SharePoint Foundation 2013"
 	$SharePointServer2013           = "SharePointServer2013","Microsoft SharePoint Server 2013 "        
+	$SharePointServer2016           = "SharePointServer2016","Microsoft SharePoint Server 2016"        
 
 	$SharePointVersion              = "Unknown Version"
 	$keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
@@ -62,6 +63,11 @@ $ret = invoke-command -computer $computerName -Credential $credential -scriptblo
 			$SharePointVersion = $SharePointServer2013[0]
 			break
 		}
+		elseif($item.DisplayName -eq $SharePointServer2016[1])
+		{
+			$SharePointVersion = $SharePointServer2016[0]
+			break
+		}
 	}
 
 	# If the SharePoint version is "Unknown", then return false
@@ -71,7 +77,7 @@ $ret = invoke-command -computer $computerName -Credential $credential -scriptblo
 	}
 	
 	# If the SharePoint version is SharePointFoundation2013 or SharePointServer2013, then need to update the authentication mode.
-	if($SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0])
+	if($SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0]  -or $SharePointVersion -eq $SharePointServer2016[0])
 	{
         # load assemblies.
         [System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SharePoint") | out-null
