@@ -143,7 +143,8 @@ suites run against.
 	-   Microsoft SharePoint Foundation 2013 Service Pack 1 (SP1)
 	-   Microsoft SharePoint Server 2010 Service Pack 2 (SP2)
 	-   Microsoft SharePoint Server 2013 Service Pack 1 (SP1)
-
+    -   Microsoft SharePoint Server 2016
+    
 **Test Suite Client**
 
 Test suites act as clients to communicate with an SUT and validate
@@ -233,7 +234,7 @@ several scenarios.
 
 ### Shared test suite
 
-The fifteen shared test scenarios are designed to cover testable requirements for
+The seventeen shared test scenarios are designed to cover testable requirements for
 MS-FSSHTTP behavior in both MS-WOPI and MS-FSSHTTP-FSSHTTPB test
 suites. The following table lists the scenarios in the shared test suite.
 
@@ -254,10 +255,12 @@ S12\_QueryChanges        |   Verifies the QueryChanges sub-request operation.
 S13\_PutChanges          |   Verifies the PutChanges sub-request operation.
 S14\_AllocateExtendedGuidRange  |   Verifies the allocate extended GUID range sub-request operations.
 S15\_CreateFile |   Verifies the PutChanges sub-request to create a new file on the server.
+S16\_Versioning |   Verifies the GetVersions operation.
+S17\_FileOperation | Verifies CellSubRequest operation for fileOperation request.
 
 ### MS-FSSHTTP-FSSHTTPB
 
-The fifteen test scenarios are designed to cover testable requirements in the
+The seventeen test scenarios are designed to cover testable requirements in the
 MS-FSSHTTP-FSSHTTPB test suite. The following table lists the scenarios in the MS-FSSHTTP-FSSHTTPB test suite.
 
   Scenario| Description
@@ -277,13 +280,15 @@ MS-FSSHTTP-FSSHTTPB test suite. The following table lists the scenarios in the M
   MS\_FSSHTTP\_FSSHTTPB\_S13\_PutChanges          |        Verifies the PutChanges sub-request operation.
   MS\_FSSHTTP\_FSSHTTPB\_S14\_AllocateExtendedGuidRange |  Verifies the allocate extended GUID range sub-request operations.
   MS\_FSSHTTP\_FSSHTTPB\_S15\_CreateFile                |  Verifies the PutChanges sub-request to create a new file on the server.
+  MS\_FSSHTTP\_FSSHTTPB\_S16\_Versioning                |  Verifies the GetVersions operation.
+  MS\_FSSHTTP\_FSSHTTPB\_S17\_FileOperation             |  Verifies CellSubRequest operation for fileOperation request.
 
 ### MS-WOPI
 
-In the MS-WOPI test suite, there are a total of twenty scenarios that are
+In the MS-WOPI test suite, there are a total of twenty two scenarios that are
 designed to cover the server-side, testable requirements.
 
-The sixteen scenarios (from MSWOPI\_S01 to MSWOPI\_S16) are designed to verify
+The eighteenth scenarios (from MSWOPI\_S01 to MSWOPI\_S16,MSWOPI\_S21 and MSWOPI\_S22) are designed to verify
 the MS-FSSHTTP request embedded in the HTTP body depending on whether or not
 MS-FSSHTTP is implemented.
 
@@ -314,5 +319,8 @@ Scenario| Description
   MS\_WOPI\_S18\_FolderLevelItems               |  Verifies the CheckFolderInfo operation.
   MS\_WOPI\_S19\_FileContentLevelItems          |   Verifies the GetFile, PutFile operations.
   MS\_WOPI\_S20\_FolderChildrenLevelItems       |   Verifies the EnumerateChildren operation.
+  MS\_WOPI\_S21\_Versioning                     |   Verifies the GetVersions operation.
+  MS\_WOPI\_S22\_FileOperation                  |   Verifies CellSubRequest operation for fileOperation request.
+
 
 

@@ -1,6 +1,6 @@
 ## [MS-WOPI] Web Application Open Platform Interface Protocol
-- [MS-WOPI] v20130726 is used to develop the test suite.
-- Release date, 7/30/2013.
+- [MS-WOPI] v20160907 is used to develop the test suite.
+- Release date, 9/7/2016.
 
 To find the new landing page for [MS-WOPI], please visit https://msdn.microsoft.com/en-us/library/hh622722(v=office.12).aspx
 

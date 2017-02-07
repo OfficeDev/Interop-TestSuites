@@ -70,6 +70,7 @@ following versions of SharePoint Server:
 -   Microsoft SharePoint Foundation 2013 Service Pack 1 (SP1)
 -   Microsoft SharePoint Server 2010 Service Pack 2 (SP2)
 -   Microsoft SharePoint Server 2013 Service Pack 1 (SP1)
+-   Microsoft SharePoint Server 2016
 
 The following table describes the required server roles for a
 test suite deployment with Microsoft implementation.
@@ -158,7 +159,7 @@ This section shows the folder structures in the **SharePointFileSyncAndWOPIProto
 | **- FssWopiTestSuiteDeploymentGuide.docx**   |   A doc on the protocol test suite deployment. |
 | **- FssWopiTestSuiteSpecification.docx**     |   A doc on the test suite configuration details, architecture, adapters and test case details.	|
 | **+ MS-XXXX**                                |   The MS-XXXX help documentation |
-| **- \[MS-XXXX\].pdf**                        |   The protocol technical specification. |
+| **- \[MS-XXXX\].md**                         |   The protocol technical specification. |
 | **- MS-XXXX\_SUTControlAdapter.chm**         |   A help doc on the SUT control adapter class library such as declaration syntax and their description. |
 | **- MS-XXXX\_RequirementSpecification.xlsx** |   A spreadsheet that outlines all requirements that are associated with the technical specification. |
 | **- Setup**                                  |   A folder with configuration scripts. |
@@ -234,6 +235,7 @@ configuration script will be required.
 
 -  Microsoft SharePoint Server 2013 Service Pack 1 (SP1)
 -  Microsoft SharePoint Foundation 2013 Service Pack 1 (SP1)
+-  Microsoft SharePoint Server 2016
 
 **SharePoint Server resources**
 
@@ -485,9 +487,9 @@ specific test suite, do the following:
 **powershell** depending on whether the SUT control adapter was
 implemented in managed C\# code or through PowerShell.
 
-\*\*When changing from managed mode to interactive mode, the
+\*\*When changing to interactive mode from managed mode, the
 “adaptertype” attribute must be deleted to avoid a runtime error. When
-changing from powershell mode to interactive mode, an additional step is
+changing to interactive mode from powershell mode, an additional step is
 required—delete the “scriptdir” attribute to avoid a runtime error.
 
 \*\*\*When the manual operation completes successfully, enter the
@@ -508,10 +510,9 @@ Test Session Announcement Protocol (TSAP) is used by PTF to
 broadcast test information when the test suite is running. TSAP
 broadcast helps with mapping test cases to captured frames.
 
-By default, TSAP packets are broadcasted in the network. The user can
+By default, TSAP packets are broadcasted in the network. User can
 disable TSAP broadcast by adding an entry “BeaconLogTargetServer” to
-TestSuite.deployment.ptfconfig to target TSAP for the specified
-machine.
+TestSuite.deployment.ptfconfig to target TSAP only to the specified machine.
 
 To change TSAP packet broadcast, do the following:
 
@@ -544,6 +545,7 @@ Server to be the closest match to the SUT implementation.
 |  **MS-XXXX\_SharePointFoundation2013\_SHOULDMAY.deployment.ptfconfig** | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Foundation 2013 Service Pack 1 (SP1).
 |  **MS-XXXX\_SharePointServer2010\_SHOULDMAY.deployment.ptfconfig**     |  Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Server 2010 Service Pack 2 (SP2).
 |  **MS-XXXX\_SharePointServer2013\_SHOULDMAY.deployment.ptfconfig**     |  Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Server 2013 Service Pack 1 (SP1).
+|  **MS-XXXX\_SharePointServer2016\_SHOULDMAY.deployment.ptfconfig**     |  Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Server 2016.
 
 ### Configuring the test suite client using setup configuration script
 
@@ -743,3 +745,4 @@ Appendix
 [Microsoft SharePoint Foundation 2013 installation and configuration](http://go.microsoft.com/fwlink/?LinkId=517504) | The Microsoft SharePoint Foundation 2013 installation and configuration on TechNet.
 [Microsoft SharePoint Server 2010 deployment](http://go.microsoft.com/fwlink/?LinkId=517505)   |  The Microsoft SharePoint Server 2010 deployment on TechNet.
 [Microsoft SharePoint Server 2013 installation and configuration](http://go.microsoft.com/fwlink/?LinkId=517504) | The Microsoft SharePoint Server 2013 installation and configuration on TechNet.
+[Microsoft SharePoint Server 2016 installation and configuration](https://technet.microsoft.com/zh-cn/library/cc303422(v=office.16).aspx) | Microsoft SharePoint Server 2016 installation and configuration on TechNet.
