@@ -112,7 +112,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 Site.CaptureRequirement(
                    453,
                 @"[In RevertFileContentStreamResponse] A SOAP fault MUST be returned if the protocol server encounters the following error condition while running this operation:
-] Occurs when the site (2) referred by the fileUrl is not a valid site (2).");
+] Occurs when the site referred by the fileUrl is not a valid site.");
             }
         }
 
@@ -134,7 +134,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 Site.CaptureRequirement(
                     454,
                 @"[In RevertFileContentStreamResponse]A SOAP fault MUST be returned if the protocol server encounters the following error condition while running this operation:
-  Occurs when a valid URL is passed in that refers to a page on the parent site (2) of the context site.");
+  Occurs when a valid URL is passed in that refers to a page on the parent site of the context site.");
             }
         }
 

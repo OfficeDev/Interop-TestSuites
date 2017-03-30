@@ -67,7 +67,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Invoke "GetVersions"sub-request with correct input parameters.
             GetVersionsSubRequestType getVersionsSubRequest = SharedTestSuiteHelper.CreateGetVersionsSubRequest(SequenceNumberGenerator.GetCurrentToken());
-            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { getVersionsSubRequest });
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(
+                this.DefaultFileUrl,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, null, true);
             GetVersionsSubResponseType getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetVersionsSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
             this.Site.Assert.IsNotNull(getVersionsSubResponse, "The object 'getVersionsSubResponse' should not be null.");
             this.Site.Assert.IsNotNull(getVersionsSubResponse.ErrorCode, "The object 'getVersionsSubResponse.ErrorCode' should not be null.");
@@ -87,7 +90,41 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                          "MS-FSSHTTP",
                          10004,
-                         @"[In Appendix B: Product Behavior] Implementation does support this operation[GetVersions]. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                         @"[In Appendix B: Product Behavior] Implementation does support this operation[GetVersions]. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
+
+                VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
+
+                // MinorVersion 3 indicates the protocol server is capable of performing ResourceID specific behavior.
+                if (Common.IsRequirementEnabled(11275, this.Site) && version.MinorVersion == 3)
+                {
+                    // Capture the requirement MS-FSSHTTP_R11275
+                    Site.CaptureRequirementIfIsNotNull(
+                             cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
+                             "MS-FSSHTTP",
+                             11275,
+                             @"[In Appendix B: Product Behavior] The ResourceID attribute is present when the UseResourceID attribute is set to true in the corresponding Request element, [and SHOULD NOT be present otherwise]. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11025
+                    Site.CaptureRequirementIfIsNotNull(
+                            cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
+                            "MS-FSSHTTP",
+                            11025,
+                            @"[In Response] ResourceID: A string that specifies the invariant ResourceID for a file, which uniquely identifies the file whose response is being generated.");
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11029
+                    Site.CaptureRequirementIfIsTrue(
+                            !string.IsNullOrEmpty(cellStoreageResponse.ResponseCollection.Response[0].ResourceID),
+                            "MS-FSSHTTP",
+                            11029,
+                            @"[In Response] [ResourceID] If present, the string value MUST NOT be an empty string.");
+
+                    // Capture the requirement MS-FSSHTTP_R11271
+                    Site.CaptureRequirementIfIsNotNull(
+                             cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
+                             "MS-FSSHTTP",
+                             11271,
+                             @"[In Appendix B: Product Behavior] [UseResourceID] When true, the implementation sets the ResourceID attribute on the corresponding Response element to the ResourceID of the file. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                }
             }
             else
             {
@@ -115,7 +152,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Invoke "GetVersions"sub-request with correct input parameters.
             GetVersionsSubRequestType getVersionsSubRequest = SharedTestSuiteHelper.CreateGetVersionsSubRequest(SequenceNumberGenerator.GetCurrentToken());
-            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { getVersionsSubRequest });
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(
+                this.DefaultFileUrl,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, null, false);
             GetVersionsSubResponseType getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetVersionsSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
             this.Site.Assert.IsNotNull(getVersionsSubResponse, "The object 'getVersionsSubResponse' should not be null.");
             this.Site.Assert.IsNotNull(getVersionsSubResponse.ErrorCode, "The object 'getVersionsSubResponse.ErrorCode' should not be null.");
@@ -136,6 +176,19 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          2302,
                          @"[In GetVersionsSubResponseType][Results complex type] list.id: Specifies the GUID of the document library in which the file resides.");
+
+                VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
+
+                // MinorVersion 3 indicates the protocol server is capable of performing ResourceID specific behavior.
+                if (Common.IsRequirementEnabled(11276, this.Site) && version.MinorVersion == 3)
+                {
+                    // Capture the requirement MS-FSSHTTP_R11276
+                    Site.CaptureRequirementIfIsNull(
+                             cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
+                             "MS-FSSHTTP",
+                             11276,
+                             @"[In Appendix B: Product Behavior] The ResourceID attribute [MAY be present when the UseResourceID attribute is set to true in the corresponding Request element, and] is not present otherwise[when the UseResourceID attribute is set to false in the corresponding Request element]. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                }
             }
             else
             {
@@ -303,7 +356,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(querySubResponse.ErrorCode, this.Site), "The operation QueryChanges should succeed.");
             FsshttpbResponse fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(querySubResponse, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(fsshttpbResponse, this.Site);
-            int contentLength = new RootNodeObject.RootNodeObjectBuilder().Build(
+            int contentLength = new IntermediateNodeObject.RootNodeObjectBuilder().Build(
                 fsshttpbResponse.DataElementPackage.DataElements,
                 fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID).GetContent().Count;
 
@@ -469,6 +522,68 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.Assert.IsTrue(
                     isNotStartWithAt,
                     @"[In GetVersionsSubResponseType][VersionData complex type] version: All the other versions MUST exist without any prefix. ");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify that if UseResourceID set to true and set ResourceID, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S09_TC06_ResourceIDDifferentWithUrl()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 11272, this.Site), "This test case runs only when implementation uses the value of the ResourceID attribute to identify the file instead of the Url attribute  when UseResourceID set to true and the ResourceID attribute is set on the Request element.");
+
+            string anotherFile = this.PrepareFile();
+
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Invoke "GetVersions"sub-request with correct input parameters.
+            GetVersionsSubRequestType getVersionsSubRequest = SharedTestSuiteHelper.CreateGetVersionsSubRequest(SequenceNumberGenerator.GetCurrentToken());
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(
+                this.DefaultFileUrl,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, null, true);
+            GetVersionsSubResponseType getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetVersionsSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+            Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site), "Get versions should be succeed.");
+
+            VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
+            Site.Assume.AreEqual<ushort>(3, version.MinorVersion, "This test case runs only when MinorVersion is 3 which indicates the protocol server is capable of performing ResourceID specific behavior.");
+            
+            // Set both Url and ResourceID attribute
+            cellStoreageResponse = Adapter.CellStorageRequest(
+                anotherFile,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, cellStoreageResponse.ResponseCollection.Response[0].ResourceID, true);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11272
+                Site.CaptureRequirementIfIsTrue(
+                     cellStoreageResponse.ResponseCollection.Response[0].Url.Equals(this.DefaultFileUrl, StringComparison.CurrentCultureIgnoreCase),
+                     "MS-FSSHTTP",
+                     11272,
+                     @"[In Appendix B: Product Behavior] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11074
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                     ErrorCodeType.Success,
+                     SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                     "MS-FSSHTTP",
+                     11074,
+                     @"[In MinorVersionNumberType][The value of MinorVersionNumberType] 3: In responses, indicates that the protocol server is capable of performing ResourceID specific behavior.");
+            }
+            else
+            {
+                Site.Assert.IsTrue(
+                    cellStoreageResponse.ResponseCollection.Response[0].Url.Equals(this.DefaultFileUrl, StringComparison.CurrentCultureIgnoreCase),
+                    "[In Appendix B: Product Behavior] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                Site.Assert.AreEqual<ErrorCodeType>(
+                     ErrorCodeType.Success,
+                     SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                     @"[In MinorVersionNumberType][The value of MinorVersionNumberType] 3: In responses, indicates that the protocol server is capable of performing ResourceID specific behavior.");
             }
         }
 

@@ -513,6 +513,10 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
                 {
                     expectedSutPlaceHolderValue = "2013";
                 }
+                else if (currentVersion.Equals("SharePointServer2016", StringComparison.OrdinalIgnoreCase))
+                {
+                    expectedSutPlaceHolderValue = "2016";
+                }
                 else
                 {
                     throw new Exception("Could Not Generate correct startworkflowParameter DataFile file name.");

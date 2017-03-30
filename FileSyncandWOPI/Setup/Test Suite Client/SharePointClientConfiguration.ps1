@@ -293,7 +293,7 @@ if($sutVersionInfo -ne $null -and $sutVersionInfo -ne "" -and $sutVersionInfo -n
     $sutVersion = $sutVersionInfo[0]
     if($sutVersion -eq $script:WindowsSharePointServices3OnSUT[0] -or $sutVersion -eq $script:SharePointServer2007OnSUT[0])
     {
-        Write-Warning "Could not find the supported version of SharePoint server on the server! Install one of the recommended versions ($($script:SharePointFoundation2010OnSUT[1]) $($script:SharePointFoundation2010OnSUT[2]), $($script:SharePointServer2010OnSUT[1]) $($script:SharePointServer2010OnSUT[2]), $($script:SharePointFoundation2013OnSUT[1]) $($script:SharePointFoundation2013OnSUT[2]), $($script:SharePointServer2013OnSUT[1])$($script:SharePointServer2013OnSUT[2])) first and run the SharePointClientConfiguration.ps1 again.`r`n"
+        Write-Warning "Could not find the supported version of SharePoint server on the server! Install one of the recommended versions ($($script:SharePointFoundation2010OnSUT[1]) $($script:SharePointFoundation2010OnSUT[2]), $($script:SharePointServer2010OnSUT[1]) $($script:SharePointServer2010OnSUT[2]), $($script:SharePointFoundation2013OnSUT[1]) $($script:SharePointFoundation2013OnSUT[2]), $($script:SharePointServer2013OnSUT[1])$($script:SharePointServer2013OnSUT[2]), $($script:SharePointServer2016OnSUT[1])) first and run the SharePointClientConfiguration.ps1 again.`r`n"
         Stop-Transcript        
         exit 2
     }
@@ -304,22 +304,8 @@ if($sutVersionInfo -ne $null -and $sutVersionInfo -ne "" -and $sutVersionInfo -n
 }
 else
 {
-    Output "Can't get the SharePoint version automatically. Select the SharePoint version: " "Cyan"
-   
-    Output "1: Microsoft SharePoint Foundation 2010 SP2" "Cyan"
-    Output "2: Microsoft SharePoint Server 2010 SP2" "Cyan"
-    Output "3: Microsoft SharePoint Foundation 2013 SP1" "Cyan"
-    Output "4: Microsoft SharePoint Server 2013 SP1" "Cyan"
-    $isManualSelectVersion = $true
-    $sutVersionChoices = @('1: Microsoft SharePoint Foundation 2010 SP2','2: Microsoft SharePoint Server 2010 SP2','3: Microsoft SharePoint Foundation 2013 SP1','4: Microsoft SharePoint Server 2013 SP1')
-    $sutVersion = ReadUserChoice $sutVersionChoices "sutVersion"
-	Switch($sutVersion)
-	{	  
-		"1" {$sutVersion = $script:SharePointFoundation2010OnSUT[0]; break }
-		"2" {$sutVersion = $script:SharePointServer2010OnSUT[0]; break }
-		"3" {$sutVersion = $script:SharePointFoundation2013OnSUT[0]; break }
-		"4" {$sutVersion = $script:SharePointServer2013OnSUT[0]; break }		
-	}
+    $sutVersioninfo = GetSharePointVersionManually
+    $sutVersion = $sutVersionInfo[0]
 }
 Output "Select the transport type: " "Cyan"
 Output "1: HTTP" "Cyan"
@@ -433,7 +419,7 @@ Output "Configuration for the MS-FSSHTTP-FSSHTTPB_TestSuite.deployment.ptfconfig
 #-----------------------------------------------------
 # Configuration for MS-WOPI ptfconfig file.
 #-----------------------------------------------------
-if($sutVersion -eq $script:SharePointFoundation2013OnSUT[0] -or $sutVersion -eq $script:SharePointServer2013OnSUT[0])
+if($sutVersion -ge $script:SharePointFoundation2013OnSUT[0] -or $sutVersion -ge $script:SharePointServer2013OnSUT[0])
 {
     Output "Configure the MS-WOPI_TestSuite.deployment.ptfconfig file ..." "White"
 

@@ -16,11 +16,10 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\MS-WWSP_Adapter.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -54,6 +53,7 @@
     <None Include="Proxy\WorkflowAssociationData_2007.xsd" />
     <None Include="Proxy\WorkflowAssociationData_2010.xsd" />
     <None Include="Proxy\WorkflowAssociationData_2013.xsd" />
+    <None Include="Proxy\WorkflowAssociationData_2016.xsd" />
     <None Include="SUTControlAdapter\Implementation\CleanUpStartedTasks.ps1" />
     <None Include="SUTControlAdapter\Implementation\CleanUpUploadedFiles.ps1" />
     <None Include="SUTControlAdapter\Implementation\GetBaseIdOfWorkFlowAssociation.ps1" />

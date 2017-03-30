@@ -121,7 +121,7 @@ The response to the request for the title, URL, description, language, and theme
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedGetWeb,
                 353,
-                @"[In GetWebSoapOut] This[GetWebSoapOut] message is the response containing the title, URL, description, language, and theme of the specified site (2).");
+                @"[In GetWebSoapOut] This[GetWebSoapOut] message is the response containing the title, URL, description, language, and theme of the specified site.");
         }
 
         /// <summary>
@@ -402,7 +402,7 @@ Microsoft® SharePoint® Foundation 2013]");
             Site.CaptureRequirementIfIsTrue(
             isVerifiedWebResult,
             857,
-            @"[In WebDefinition] Title: Specifies the title of the site (2).");
+            @"[In WebDefinition] Title: Specifies the title of the site.");
 
             bool isVerified693 = false;
             if (getWebResult.Web.Url.Equals(webUrl, StringComparison.OrdinalIgnoreCase))
@@ -414,7 +414,7 @@ Microsoft® SharePoint® Foundation 2013]");
             Site.CaptureRequirementIfIsTrue(
                 isVerified693,
                 693,
-                @"[In WebDefinition] Url: Specifies the absolute URL of the site (2).");
+                @"[In WebDefinition] Url: Specifies the absolute URL of the site.");
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R694
             bool isVerifiedR694 = false;
@@ -427,7 +427,7 @@ Microsoft® SharePoint® Foundation 2013]");
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR694,
                 694,
-                @"[In WebDefinition] Description: Specifies the description of the site (2).");
+                @"[In WebDefinition] Description: Specifies the description of the site.");
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R695
             string testSiteLanguage = Common.GetConfigurationPropertyValue("TestSiteLanguage", this.Site);
@@ -435,7 +435,7 @@ Microsoft® SharePoint® Foundation 2013]");
                 testSiteLanguage,
                 getWebResult.Web.Language,
                 695,
-                @"[In WebDefinition] Language: Specifies the language code identifier (LCID) for the language of the site (2).");
+                @"[In WebDefinition] Language: Specifies the language code identifier (LCID) for the language of the site.");
         }
 
         /// <summary>

@@ -53,10 +53,35 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                 this.StatusManager.RecordDisableClaimsBasedAuthentication();
             }
 
-            // Create a WhoAmI subRequest with all valid parameters
-            WhoAmISubRequestType subRequest = SharedTestSuiteHelper.CreateWhoAmISubRequest(SequenceNumberGenerator.GetCurrentToken());
-            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            WhoAmISubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<WhoAmISubResponseType>(response, 0, 0, this.Site);
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+
+            WhoAmISubRequestType subRequest = null;
+            CellStorageResponse response = null;
+            WhoAmISubResponseType subResponse = null;
+
+            while (retryCount > 0)
+            {
+                // Create a WhoAmI subRequest with all valid parameters
+                subRequest = SharedTestSuiteHelper.CreateWhoAmISubRequest(SequenceNumberGenerator.GetCurrentToken());
+                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+                subResponse = SharedTestSuiteHelper.ExtractSubResponse<WhoAmISubResponseType>(response, 0, 0, this.Site);
+                Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site), "WhoAmI subRequest should be succeed.");
+
+                Regex regex = new Regex(@"^[a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*");
+                if (regex.IsMatch(subResponse.SubResponseData.UserLogin))
+                {
+                    break;
+                }
+
+                retryCount--;
+                if (retryCount == 0)
+                {
+                    Site.Assert.Fail("Additional authentication prefix should not exist in UserLogin if claim-based authentication mode is enabled");
+                }
+
+                System.Threading.Thread.Sleep(waitTime);
+            }
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
@@ -88,12 +113,34 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                 bool isSwitchedSuccessfully = SutPowerShellAdapter.SwitchClaimsAuthentication(true);
                 this.Site.Assert.IsTrue(isSwitchedSuccessfully, "The claims-based authentication should be enabled successfully.");
 
-                // Send the WhoAmI subRequest to the protocol server
-                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-                subResponse = SharedTestSuiteHelper.ExtractSubResponse<WhoAmISubResponseType>(response, 0, 0, this.Site);
+                waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+                retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
-                Regex r2 = new Regex(@"([a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*)$");
-                Match m = r2.Match(subResponse.SubResponseData.UserLogin);
+                while (retryCount > 0)
+                {
+                    // Send the WhoAmI subRequest to the protocol server
+                    response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+                    subResponse = SharedTestSuiteHelper.ExtractSubResponse<WhoAmISubResponseType>(response, 0, 0, this.Site);
+                    Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site), "WhoAmI subRequest should be succeed.");
+
+                    Regex r2 = new Regex(@"([a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*)$");
+                    Match match = r2.Match(subResponse.SubResponseData.UserLogin);
+                    if (r2.IsMatch(subResponse.SubResponseData.UserLogin) && match.Success && match.Index > 0)
+                    {
+                        break;
+                    }
+
+                    retryCount--;
+                    if (retryCount == 0)
+                    {
+                        Site.Assert.Fail("Additional authentication prefix should not exist in UserLogin if claim-based authentication mode is enabled");
+                    }
+
+                    System.Threading.Thread.Sleep(waitTime);
+                }
+
+                Regex regex2 = new Regex(@"([a-zA-Z]([a-zA-Z0-9\-_])*\\[a-zA-Z]([a-zA-Z0-9])*)$");
+                Match m = regex2.Match(subResponse.SubResponseData.UserLogin);
 
                 if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
                 {
@@ -105,7 +152,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                                   m.Success && m.Index > 0,
                                   "MS-FSSHTTP",
                                   3086,
-                                  @"[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute which is part of the subresponse for a Who Am I subrequest. <20> Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                                  @"[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute which is part of the subresponse for a Who Am I subrequest. <28> Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
                 }
                 else
                 {
@@ -115,7 +162,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
                     this.Site.Assert.IsTrue(
                         m.Success && m.Index > 0,
-                        @"[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute which is part of the subresponse for a Who Am I subrequest. <20> Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)");
+                        @"[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute which is part of the subresponse for a Who Am I subrequest. <28> Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
                 }
             }
         }
@@ -159,7 +206,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              isR3006Verified,
                              "MS-FSSHTTP",
                              3006,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. <3> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. <8> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3007
@@ -169,7 +216,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              response.ResponseCollection,
                              "MS-FSSHTTP",
                              3007,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does not return Response element. <3> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
                 }
             }
             else
@@ -182,14 +229,14 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
                     Site.Assert.IsTrue(
                         isR3006Verified,
-                        "[In Appendix B: Product Behavior] If the URL attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. <3> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
+                        "[In Appendix B: Product Behavior] If the URL attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. <8> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3007, this.Site))
                 {
                     Site.Assert.IsNull(
                         response.ResponseCollection,
-                        @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does not return Response element. <3> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
+                        @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
                 }
             }
         }
@@ -233,7 +280,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              isR3008Verified,
                              "MS-FSSHTTP",
                              3008,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. <3> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. <8> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3009
@@ -243,7 +290,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              response.ResponseCollection,
                              "MS-FSSHTTP",
                              3009,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <3> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
                 }
             }
             else
@@ -263,7 +310,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                 {
                     Site.Assert.IsNull(
                         response.ResponseCollection,
-                        @"[In Appendix B: Product Behavior] If the URL attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <3> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
+                        @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
                 }
             }
         }

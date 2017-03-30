@@ -55,13 +55,34 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <param name="requestToken">Specify the token which uniquely identify the request.</param>
         /// <param name="interval">Specify a nonnegative integer in seconds, which the protocol client will repeat this request.</param>
         /// <param name="metaData">Specify a 32-bit value that specifies information about the scenario and urgency of the request.</param>
-        public void AddRequest(string url, SubRequestType[] subRequests, string requestToken, uint? interval, int? metaData)
+        /// <param name="lastModifiedTime">Specify the last modified time, which is expressed as a tick count.</param>
+        /// <param name="parentFolderResourceID">If UseResourceID is true, this parameter tells the host to create a file in the given folder ResourceID, regardless of the request URL value.</param>
+        /// <param name="shouldReturnDisambiguatedFileName">If an upload request fails with a coherency failure, this flag specifies whether the host should return a suggested/available file name that the client can try instead</param>
+        /// <param name="resourceID">Specify the invariant ResourceID for a file that uniquely identifies the file whose response is being generated</param>
+        /// <param name="useResourceID">Specify if the protocol server MAY perform ResourceID specific behavior for the file whose contents or metadata contents are requested for uploading to the server or downloading from the server. </param>
+        public void AddRequest(string url, SubRequestType[] subRequests, string requestToken, uint? interval, int? metaData,
+            string lastModifiedTime = null, 
+            string parentFolderResourceID = null,
+            bool? shouldReturnDisambiguatedFileName = null,
+            string resourceID = null,
+            bool? useResourceID = null)
         {
             Request request = new Request();
             request.RequestToken = requestToken;
             request.Url = url;
             request.Interval = interval == null ? null : interval.Value.ToString();
             request.MetaData = metaData == null ? null : metaData.Value.ToString();
+            request.ParentFolderResourceID = parentFolderResourceID;
+            request.ResourceID = resourceID;
+            if (shouldReturnDisambiguatedFileName != null)
+            {
+                request.ShouldReturnDisambiguatedFileName = (bool)shouldReturnDisambiguatedFileName;
+                request.ShouldReturnDisambiguatedFileNameSpecified = true;
+            }
+            if (useResourceID != null)
+            {
+                request.UseResourceID = useResourceID.ToString();
+            }
 
             int index = 0;
             if (subRequests != null)
@@ -71,7 +92,18 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 {
                     if (item != null)
                     {
-                        request.SubRequest[index++] = FsshttpConverter.ConvertSubRequestToGenericType<SubRequestElementGenericType>(item);
+                        int temp = index;
+                        request.SubRequest[temp] = FsshttpConverter.ConvertSubRequestToGenericType<SubRequestElementGenericType>(item);
+                        if (!string.IsNullOrEmpty(lastModifiedTime))
+                        {
+                            if (request.SubRequest[temp].SubRequestData == null)
+                            {
+                                request.SubRequest[temp].SubRequestData = new SubRequestDataGenericType();
+                            }
+                            request.SubRequest[temp].SubRequestData.LastModifiedTime = lastModifiedTime;
+                        }
+
+                        index++;
                     }
                 }
             }

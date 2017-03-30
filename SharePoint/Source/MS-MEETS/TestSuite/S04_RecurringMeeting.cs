@@ -131,6 +131,16 @@ namespace Microsoft.Protocols.TestSuites.MS_MEETS
                 224,
                 @"[In GetMeetingWorkspacesSoapOut]The protocol server MUST return only workspaces to which the protocol client can add meetings.");
 
+            getMeetingWorkspacesResult = this.meetsAdapter.GetMeetingWorkspaces(null);
+            Site.Assert.IsNull(getMeetingWorkspacesResult.Exception, "GetMeetingWorkspaces should succeed");
+
+            // If only empty workspaces and single instance workspaces are returned, MS-MEETS_R2311 is verified.
+            Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                getMeetingWorkspacesResult.Result.MeetingWorkspaces.Length,
+                2311,
+                @"[In GetMeetingWorkspaces]If [the value of recurring is] not specified, the server will treat it as false.");
+
             // Get available workspace for recurring meeting, server should only return the first workspace
             getMeetingWorkspacesResult = this.meetsAdapter.GetMeetingWorkspaces(true);
             Site.Assert.IsNull(getMeetingWorkspacesResult.Exception, "GetMeetingWorkspaces should succeed");

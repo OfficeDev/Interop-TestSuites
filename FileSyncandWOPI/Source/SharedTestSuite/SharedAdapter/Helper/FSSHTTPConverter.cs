@@ -53,6 +53,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         case "EditorsTableSubResponseTypeSubResponseData":
                             subResponseDataValue = ConvertToSpecialSubResponse<EditorsTableSubResponseTypeSubResponseData>(propValue);
                             break;
+                        case "VersioningSubResponseDataType":
+                            subResponseDataValue = ConvertToSpecialSubResponse<VersioningSubResponseDataType>(propValue);
+                            break;
                         default:
                             throw new InvalidOperationException("Invalid SubResponseData type " + item.PropertyType.Name);
                     }
@@ -132,6 +135,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         break;
                     case "GetVersionsSubRequestType":
                         subRequestType = SubRequestAttributeType.GetVersions;
+                        break;
+                    case "VersioningSubRequestType":
+                        subRequestType = SubRequestAttributeType.Versioning;
+                        break;
+                    case "FileOperationSubRequestType":
+                        subRequestType = SubRequestAttributeType.FileOperation;
                         break;
                     default:
                         throw new InvalidOperationException("Invalid object type " + value.GetType().Name);

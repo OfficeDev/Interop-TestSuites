@@ -30,13 +30,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="rootNode">Specify the root node object which is needed to be analyzed.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public override void AnalyzeChunking(RootNodeObject rootNode, TestTools.ITestSite site)
+        public override void AnalyzeChunking(IntermediateNodeObject rootNode, TestTools.ITestSite site)
         {
-            List<IntermediateNodeObject> expectList = this.Chunking();
+            List<LeafNodeObject> expectList = this.Chunking();
 
-            foreach (IntermediateNodeObject nodeObject in rootNode.IntermediateNodeObjectList)
+            foreach (LeafNodeObject nodeObject in rootNode.IntermediateNodeObjectList)
             {
-                IntermediateNodeObject expect = expectList.First();
+                LeafNodeObject expect = expectList.First();
 
                 if (!expect.Signature.Equals(nodeObject.Signature))
                 {
@@ -58,11 +58,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// This method is used to chunk the file data.
         /// </summary>
-        /// <returns>A list of IntermediateNodeObject.</returns>
-        public override List<IntermediateNodeObject> Chunking()
+        /// <returns>A list of LeafNodeObjectData.</returns>
+        public override List<LeafNodeObject> Chunking()
         {
             uint horizon = 16384;
-            List<IntermediateNodeObject> list = new List<IntermediateNodeObject>();
+            List<LeafNodeObject> list = new List<LeafNodeObject>();
             int inputLength = FileContent.Length;
 
             if (inputLength <= 0)
@@ -144,8 +144,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="chunkStart">The start index of the chunk.</param>
         /// <param name="chunkEnd">The end index of the chunk.</param>
-        /// <returns>An IntermediateNodeObject which contains a chunk.</returns>
-        private IntermediateNodeObject GetChunk(uint chunkStart, uint chunkEnd)
+        /// <returns>An LeafNodeObjectData which contains a chunk.</returns>
+        private LeafNodeObject GetChunk(uint chunkStart, uint chunkEnd)
         {
             if (chunkEnd <= chunkStart || (chunkEnd - chunkStart > this.maxChunkSize) || chunkStart > uint.MaxValue)
             {
@@ -163,7 +163,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             SignatureObject signature = new SignatureObject();
             signature.SignatureData = new BinaryItem(signatureBytes);
 
-            return new IntermediateNodeObject.IntermediateNodeObjectBuilder().Build(temp, signature);
+            return new LeafNodeObject.IntermediateNodeObjectBuilder().Build(temp, signature);
         }
 
         /// <summary>

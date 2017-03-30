@@ -402,6 +402,22 @@ Microsoft® SharePoint® Foundation 2013]");
             newFields[1].Field.Name = this.GenerateRandomString(10);
             newFields[1].Field.Type = Common.GetConfigurationPropertyValue("UpdateColumns_Type", this.Site);
             newFields[1].ID = ((uint)CONST_MethodIDUNITS.Two).ToString();
+            
+            UpdateColumnsMethod1[] updateFields = new UpdateColumnsMethod1[2];
+            updateFields[0] = new UpdateColumnsMethod1();
+            updateFields[0].Field = new FieldDefinition();
+            updateFields[0].ID = ((uint)CONST_MethodIDUNITS.Three).ToString();
+            updateFields[0].Field.Name = this.GenerateRandomString(10);
+            updateFields[0].Field.Type = Common.GetConfigurationPropertyValue("UpdateColumns_Type", this.Site);
+            updateFields[0].Field.DisplayName = this.GenerateRandomString(10);
+
+            updateFields[1] = new UpdateColumnsMethod1();
+            updateFields[1].Field = new FieldDefinition();
+            updateFields[1].ID = ((uint)CONST_MethodIDUNITS.Four).ToString();
+            updateFields[1].Field.Name = this.GenerateRandomString(10);
+            updateFields[1].Field.Type = Common.GetConfigurationPropertyValue("UpdateColumns_Type", this.Site);
+            updateFields[1].Field.DisplayName = this.GenerateRandomString(10);
+            
             #endregion
 
             try
@@ -421,6 +437,20 @@ Microsoft® SharePoint® Foundation 2013]");
                 Site.CaptureRequirement(
                     514,
                      @"[In UpdateColumnsResponse] When an invalid XML element is passed in as newFields element , a SOAP fault MUST be returned.");
+            }
+
+            try
+            {
+                Adapter.UpdateColumns(null,updateFields, null);
+                Site.Assert.Fail("The expected SOAP fault is not returned for the UpdateColumns operation.");
+            }
+            catch (SoapException)
+            {
+                // Catch the exception, then the following requirements will be captured.
+                // Verify MS-WEBSS requirement: MS-WEBSS_R822
+                Site.CaptureRequirement(
+                    822,
+                    @"[In UpdateColumnsResponse] When an invalid element is the child element of the [newFields, ]updateFields[, or deleteFields elements],  a SOAP fault MUST be returned.");
             }
         }
 
@@ -503,10 +533,10 @@ Microsoft® SharePoint® Foundation 2013]");
                     735,
                     @"[In UpdateColumnsResponse] [A SOAP fault MUST be returned if the protocol server encounters the following error condition while running this operation] Occurs when one of the deleteFields elements of the UpdateColumns element has multiple Method elements without a Fields element defined as the root element.");
 
-                // Verify MS-WEBSS requirement: MS-WEBSS_R822
+                // Verify MS-WEBSS requirement: MS-WEBSS_R822001
                 Site.CaptureRequirement(
-                    822,
-                    @"[In UpdateColumnsResponse] When an invalid XML element is passed in as deleteFields element, a SOAP fault MUST be returned.");
+                    822001,
+                    @"[In UpdateColumnsResponse] When an invalid element is the child element of the [newFields, updateFields, or ]deleteFields elements,  a SOAP fault MUST be returned.");
             }
         }
 

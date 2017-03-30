@@ -313,12 +313,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// Intermediate Node Object
         /// </summary>
-        IntermediateNodeObject = 0x1F, // Defined in MS-FSSHTTPD
+        LeafNodeObject = 0x1F, // Defined in MS-FSSHTTPD
 
         /// <summary>
         /// Root Node Object
         /// </summary>
-        RootNodeObject = 0x20, // Defined in MS-FSSHTTPD
+        IntermediateNodeObject = 0x20, // Defined in MS-FSSHTTPD
 
         /// <summary>
         /// Signature Object
@@ -549,6 +549,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// Diagnostic Request Option Output
         /// </summary>
         DiagnosticRequestOptionOutput = 0x089,
+
+        /// <summary>
+        /// Diagnostic Request Option Input
+        /// </summary>
+        DiagnosticRequestOptionInput = 0x08A,
 
         /// <summary>
         /// Additional Flags

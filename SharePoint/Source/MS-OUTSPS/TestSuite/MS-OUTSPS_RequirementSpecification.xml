@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ns1:ReqTable xmlns:ns1="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/RequirementTable">
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R8681</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] In the following sections, the schema definition might differ from the processing rules imposed by the protocol. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R8682</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The WSDL in this specification matches the WSDL that shipped with the product and provides a base description of the schema.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R8683</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The text that introduces the WSDL might specify differences that reflect actual Microsoft product behavior.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R8684</ns1:REQ_ID>
+		<ns1:Doc_Sect>2</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] For example, the schema definition might allow for an element to be empty, null, or not present but the behavior of the protocol as specified restricts the same elements to being non-empty, not null, and present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R868</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
 		<ns1:Description>[In Transport] Protocol servers MUST support SOAP over HTTP.</ns1:Description>
@@ -116,7 +152,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R880</ns1:REQ_ID>
@@ -125,7 +161,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R881</ns1:REQ_ID>
@@ -134,7 +170,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R884</ns1:REQ_ID>
@@ -198,8 +234,8 @@
 		<ns1:Description>[In RecurrenceRule complex type] The RecurrenceRule complex type defines when a recurrence takes place.
 &lt;s:complexType name="RecurrenceRule"&gt;
   &lt;s:sequence&gt;
-    &lt;s:element name="firstDayOfWeek" type="s1:DayOfWeekOrMonth" /&gt;
-    &lt;s:element name="repeat" type="s1:RepeatPattern" /&gt;
+    &lt;s:element name="firstDayOfWeek" type="tns:DayOfWeekOrMonth" /&gt;
+    &lt;s:element name="repeat" type="tns:RepeatPattern" /&gt;
     &lt;s:choice&gt;
       &lt;s:element name="windowEnd" type="s:dateTime" /&gt;
       &lt;s:element name="repeatForever"&gt;
@@ -302,7 +338,7 @@
 		<ns1:Description>[In RecurrenceDefinition complex type] The RecurrenceDefinition complex type contains a RecurrenceRule (section 2.2.4.2).   
 &lt;s:complexType name="RecurrenceDefinition"&gt;
   &lt;s:sequence&gt;
-    &lt;s:element name="rule" type="s1:RecurrenceRule" /&gt;
+    &lt;s:element name="rule" type="tns:RecurrenceRule" /&gt;
   &lt;/s:sequence&gt;
 &lt;/s:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -325,7 +361,7 @@
 		<ns1:Description>[In Complex Types]The RecurrenceXML complex type contains a RecurrenceDefinition (section 2.2.4.3).
 &lt;s:complexType name="RecurrenceXML"&gt;
   &lt;s:sequence&gt;
-    &lt;s:element name="recurrence" type="s1:RecurrenceDefinition" /&gt;
+    &lt;s:element name="recurrence" type="tns:RecurrenceDefinition" /&gt;
     &lt;s:element name="deleteExceptions" type="s:string" fixed="true" minOccurs="0" maxOccurs="1" /&gt;
   &lt;/s:sequence&gt;
 &lt;/s:complexType&gt;</ns1:Description>
@@ -356,88 +392,98 @@
 		<ns1:REQ_ID>MS-OUTSPS_R902</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
 		<ns1:Description>[In Complex Types]The RepeatPattern complex type contains a choice of elements which describe what days a recurrence occurs on.
-&lt;s:complexType name="RepeatPattern"&gt;
-  &lt;s:choice&gt;
-    &lt;s:element name="daily"&gt;
-      &lt;s:complexType&gt;
-        &lt;s:simpleContent&gt;
-          &lt;s:extension base="s:string"&gt;
-            &lt;s:attribute name="su" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="mo" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="tu" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="we" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="th" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="fr" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="sa" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="weekFrequency" type="s:integer" default="1" use="optional" /&gt;
-          &lt;/s:extension&gt;
-        &lt;/s:simpleContent&gt;
-      &lt;/s:complexType&gt;
-    &lt;/s:element&gt;
-    &lt;s:element name="monthlyByDay"&gt;
-      &lt;s:complexType&gt;
-        &lt;s:simpleContent&gt;
-          &lt;s:extension base="s:string"&gt;
-            &lt;s:attribute name="su" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="mo" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="tu" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="we" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="th" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="fr" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="sa" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="day" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="weekday" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="weekend_day" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="monthFrequency" type="s:integer" default="1" use="optional" /&gt;
-            &lt;s:attribute name="weekdayOfMonth" type="s1:WeekdayOfMonth" default="first" use="optional" /&gt;
-          &lt;/s:extension&gt;
-        &lt;/s:simpleContent&gt;
-      &lt;/s:complexType&gt;
-    &lt;/s:element&gt;
-    &lt;s:element name="monthly"&gt;
-      &lt;s:complexType&gt;
-        &lt;s:simpleContent&gt;
-          &lt;s:extension base="s:string"&gt;
-            &lt;s:attribute name="monthFrequency" type="s:integer" default="1" use="optional" /&gt;
-           &lt;s:attribute name="day" type="s:integer" default="1" use="optional" /&gt;
-          &lt;/s:extension&gt;
-        &lt;/s:simpleContent&gt;
-      &lt;/s:complexType&gt;
-    &lt;/s:element&gt;
-    &lt;s:element name="yearly"&gt;
-      &lt;s:complexType&gt;
-        &lt;s:simpleContent&gt;
-          &lt;s:extension base="s:string"&gt;
-            &lt;s:attribute name="yearFrequency" type="s:integer" default="1" use="optional" /&gt;
-            &lt;s:attribute name="month" type="s:integer" default="1" use="optional" /&gt;
-            &lt;s:attribute name="day" type="s:integer" default="1" use="optional" /&gt;
-          &lt;/s:extension&gt;
-       &lt;/s:simpleContent&gt;
-      &lt;/s:complexType&gt;
-    &lt;/s:element&gt;
-    &lt;s:element name="yearlyByDay"&gt;
-      &lt;s:complexType&gt;
-        &lt;s:simpleContent&gt;
-          &lt;s:extension base="s:string"&gt;
-            &lt;s:attribute name="su" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="mo" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-           &lt;s:attribute name="tu" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-          &lt;s:a name="we" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="th" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="fr" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="sa" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="day" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="weekday" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="weekend_day" type="s1:TrueFalseDOW" default="FALSE" use="optional" /&gt;
-            &lt;s:attribute name="yearFrequency" type="s:integer" default="1" use="optional" /&gt;
-            &lt;s:attribute name="month" type="s:integer" default="1" use="optional" /&gt;
-            &lt;s:attribute name="weekdayOfMonth" type="s1:WeekdayOfMonth" default="first" use="optional" /&gt;
-         &lt;/s:extension&gt;
-        &lt;/s:simpleContent&gt;
-      &lt;/s:complexType&gt;
-    &lt;/s:element&gt;
-  &lt;/s:choice&gt;
-&lt;/s:complexType&gt;</ns1:Description>
+ &lt;s:complexType name="RepeatPattern"&gt;
+   &lt;s:choice&gt;
+     &lt;s:element name="daily"&gt;
+       &lt;s:complexType&gt;
+         &lt;s:simpleContent&gt;
+           &lt;s:extension base="s:string"&gt;
+             &lt;s:attribute name="weekday" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="dayFrequency" type="s:integer" default="1" use="optional" /&gt;
+           &lt;/s:extension&gt;
+         &lt;/s:simpleContent&gt;
+       &lt;/s:complexType&gt;
+     &lt;/s:element&gt;
+     &lt;s:element name="weekly"&gt;
+       &lt;s:complexType&gt;
+         &lt;s:simpleContent&gt;
+           &lt;s:extension base="s:string"&gt;
+             &lt;s:attribute name="su" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="mo" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="tu" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="we" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="th" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="fr" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="sa" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="weekFrequency" type="s:integer" default="1" use="optional" /&gt;
+           &lt;/s:extension&gt;
+         &lt;/s:simpleContent&gt;
+       &lt;/s:complexType&gt;
+     &lt;/s:element&gt;
+     &lt;s:element name="monthlyByDay"&gt;
+       &lt;s:complexType&gt;
+         &lt;s:simpleContent&gt;
+           &lt;s:extension base="s:string"&gt;
+             &lt;s:attribute name="su" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="mo" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="tu" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="we" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="th" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="fr" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="sa" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="day" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="weekday" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="weekend_day" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="monthFrequency" type="s:integer" default="1" use="optional" /&gt;
+             &lt;s:attribute name="weekdayOfMonth" type="tns:WeekdayOfMonth" default="first" use="optional" /&gt;
+           &lt;/s:extension&gt;
+         &lt;/s:simpleContent&gt;
+       &lt;/s:complexType&gt;
+     &lt;/s:element&gt;
+     &lt;s:element name="monthly"&gt;
+       &lt;s:complexType&gt;
+         &lt;s:simpleContent&gt;
+           &lt;s:extension base="s:string"&gt;
+             &lt;s:attribute name="monthFrequency" type="s:integer" default="1" use="optional" /&gt;
+             &lt;s:attribute name="day" type="s:integer" default="1" use="optional" /&gt;
+           &lt;/s:extension&gt;
+         &lt;/s:simpleContent&gt;
+       &lt;/s:complexType&gt;
+     &lt;/s:element&gt;
+     &lt;s:element name="yearly"&gt;
+       &lt;s:complexType&gt;
+         &lt;s:simpleContent&gt;
+           &lt;s:extension base="s:string"&gt;
+             &lt;s:attribute name="yearFrequency" type="s:integer" default="1" use="optional" /&gt;
+             &lt;s:attribute name="month" type="s:integer" default="1" use="optional" /&gt;
+             &lt;s:attribute name="day" type="s:integer" default="1" use="optional" /&gt;
+           &lt;/s:extension&gt;
+         &lt;/s:simpleContent&gt;
+       &lt;/s:complexType&gt;
+     &lt;/s:element&gt;
+     &lt;s:element name="yearlyByDay"&gt;
+       &lt;s:complexType&gt;
+         &lt;s:simpleContent&gt;
+           &lt;s:extension base="s:string"&gt;
+             &lt;s:attribute name="su" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="mo" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="tu" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="we" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="th" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="fr" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="sa" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="day" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="weekday" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="weekend_day" type="tns:TrueFalseDOW" default="FALSE" use="optional" /&gt;
+             &lt;s:attribute name="yearFrequency" type="s:integer" default="1" use="optional" /&gt;
+             &lt;s:attribute name="month" type="s:integer" default="1" use="optional" /&gt;
+             &lt;s:attribute name="weekdayOfMonth" type="tns:WeekdayOfMonth" default="first" use="optional" /&gt;
+           &lt;/s:extension&gt;
+         &lt;/s:simpleContent&gt;
+       &lt;/s:complexType&gt;
+     &lt;/s:element&gt;
+   &lt;/s:choice&gt;
+ &lt;/s:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -453,63 +499,234 @@
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R904</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OUTSPS_R9031</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In RepeatPattern complex type]daily.su: If true, this attribute indicates the recurrence occurs on Sundays.</ns1:Description>
+		<ns1:Description>[In RepeatPattern complex type]daily.weekday: If true, this attribute indicates the recurrence occurs on the weekday (Monday, Tuesday, Wednesday, Thursday, or Friday).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9032</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]daily.dayFrequency: An integer specifying how many days go by before the next day the recurrence occurs on.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9033</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]A 1 means "every day". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9034</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]A 2 means "every other day". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9035</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]A 3 means "every third day". </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9036</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]A 4 means "every fourth day", and so on.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9037</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]Weekly: If the recurrence is a daily recurrence, the Weekly element will be present.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R904</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]weekly.su: If true, this attribute indicates the recurrence occurs on Sundays.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9038</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]weekly.su: If true, this attribute indicates the recurrence occurs on Sundays. If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R905</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In RepeatPattern complex type]daily.mo: If true, this attribute indicates the recurrence occurs on Mondays.</ns1:Description>
+		<ns1:Description>[In RepeatPattern complex type]weekly.mo: If true, this attribute indicates the recurrence occurs on Mondays.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9039</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]weekly.mo: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R906</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In RepeatPattern complex type]daily.tu: If true, this attribute indicates the recurrence occurs on Tuesdays.</ns1:Description>
+		<ns1:Description>[In RepeatPattern complex type]weekly.tu: If true, this attribute indicates the recurrence occurs on Tuesdays.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9040</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]weekly.tu: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R907</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In RepeatPattern complex type]daily.we: If true, this attribute indicates the recurrence occurs on Wednesdays.</ns1:Description>
+		<ns1:Description>[In RepeatPattern complex type]weekly.we: If true, this attribute indicates the recurrence occurs on Wednesdays.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9041</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]weekly.we: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R908</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In RepeatPattern complex type]daily.th: If true, this attribute indicates the recurrence occurs on Thursdays.</ns1:Description>
+		<ns1:Description>[In RepeatPattern complex type]weekly.th: If true, this attribute indicates the recurrence occurs on Thursdays.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9042</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]weekly.th: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R909</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In RepeatPattern complex type]daily.fr: If true, this attribute indicates the recurrence occurs on Fridays.</ns1:Description>
+		<ns1:Description>[In RepeatPattern complex type]weekly.fr: If true, this attribute indicates the recurrence occurs on Fridays.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9043</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]weekly.fr: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R910</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In RepeatPattern complex type]daily.sa: If true, this attribute indicates the recurrence occurs on Saturdays.</ns1:Description>
+		<ns1:Description>[In RepeatPattern complex type]weekly.sa: If true, this attribute indicates the recurrence occurs on Saturdays.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9044</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]weekly.sa: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9045</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]Weekly.weekFrequency: An integer specifying how many weeks go by before the next week the recurrence occurs on. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9046</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]Weekly.weekFrequency: A 1 means "every week".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9047</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]Weekly.weekFrequency: A 2 means "every other week".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9048</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]Weekly.weekFrequency: A 3 means "every third week".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9049</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]Weekly.weekFrequency: A 4 means "every fourth week", and so on.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -534,6 +751,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9050</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]monthlyByDay.su: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R913</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
 		<ns1:Description>[In RepeatPattern complex type]monthlyByDay.mo: If true, this attribute indicates the recurrence occurs on Monday specified by monthlyByDay.weekdayOfMonth.</ns1:Description>
@@ -541,6 +767,15 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9051</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]monthlyByDay.mo: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R914</ns1:REQ_ID>
@@ -552,6 +787,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9052</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]monthlyByDay.tu: If this attribute is present, the protocol server SHOULD interpret it as true..</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R915</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
 		<ns1:Description>[In RepeatPattern complex type]monthlyByDay.we: If true, this attribute indicates the recurrence occurs on Wednesday specified by monthlyByDay.weekdayOfMonth.</ns1:Description>
@@ -559,6 +803,15 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9053</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]monthlyByDay.we: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R916</ns1:REQ_ID>
@@ -570,6 +823,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9054</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]monthlyByDay.th: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R917</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
 		<ns1:Description>[In RepeatPattern complex type]monthlyByDay.fr: If true, this attribute indicates the recurrence occurs on Friday specified by monthlyByDay.weekdayOfMonth.</ns1:Description>
@@ -579,6 +841,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9055</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]monthlyByDay.fr: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R918</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
 		<ns1:Description>[In RepeatPattern complex type]monthlyByDay.sa: If true, this attribute indicates the recurrence occurs on Saturday specified by monthlyByDay.weekdayOfMonth.</ns1:Description>
@@ -586,6 +857,15 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9056</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In RepeatPattern complex type]monthlyByDay.sa: If this attribute is present, the protocol server SHOULD interpret it as true.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R919</ns1:REQ_ID>
@@ -836,7 +1116,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R946</ns1:REQ_ID>
@@ -880,13 +1160,13 @@
 		<ns1:Description>[In TimeZoneXML complex type]The TimeZoneXML complex type contains a TimeZoneRule (section 2.2.4.6) to define a time zone.
 &lt;s:complexType name="TimeZoneXML"&gt;
   &lt;s:sequence&gt;
-    &lt;s:element name="timeZoneRule" type="s1:TimeZoneRule" /&gt;
+    &lt;s:element name="timeZoneRule" type="tns:TimeZoneRule" /&gt;
   &lt;/s:sequence&gt;
 &lt;/s:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R951</ns1:REQ_ID>
@@ -907,21 +1187,21 @@
       &lt;s:complexType&gt;
         &lt;s:simpleContent&gt;
           &lt;s:extension base="s:string"&gt;
-            &lt;s:attribute name="day" type="s1:DayOfWeek" default="su" use="optional" /&gt;
+            &lt;s:attribute name="day" type="tns:DayOfWeek" default="su" use="optional" /&gt;
             &lt;s:attribute name="month" type="s:integer" use="required" /&gt;
             &lt;s:attribute name="dayOfMonth" type="s:integer" use="optional" /&gt;
-            &lt;s:attribute name="weekdayOfMonth" type="s1:WeekdayOfMonth" default="first" use="optional" /&gt;
+            &lt;s:attribute name="weekdayOfMonth" type="tns:WeekdayOfMonth" default="first" use="optional" /&gt;
           &lt;/s:extension&gt;
         &lt;/s:simpleContent&gt;
       &lt;/s:complexType&gt;
     &lt;/s:element&gt;
-    &lt;s:element name="transitionTime" type="s:time" /&gt;
+    &lt;s:element name="transitionTime" type="s:string" /&gt;
   &lt;/s:sequence&gt;
 &lt;/s:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R953</ns1:REQ_ID>
@@ -1025,6 +1305,16 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R9057</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
+		<ns1:Description>[In TransitionDate complex type] The format SHOULD be "hour:minute:second" with no extra leading zeroes.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OUTSPS_R90571.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R962</ns1:REQ_ID>
@@ -2028,7 +2318,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R1058</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Abstract Data Model]This specification does not mandate that implementations adhere to this model as long as their external behavior is consistent with that described in this specification.</ns1:Description>
+		<ns1:Description>[In Abstract Data Model]This document does not mandate that implementations adhere to this model as long as their external behavior is consistent with that described in this document.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2923,7 +3213,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R1154</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken]This attribute[viewFields]tells the protocol server to include property bag (1) fields.</ns1:Description>
+		<ns1:Description>[In GetListItemChangesSinceToken]This attribute[viewFields]tells the protocol server to include property bag fields.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3396,82 +3686,6 @@ tells the protocol server that it SHOULD optimize for a sort, query, or restrict
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R1211</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken]BeginsWith: This element SHOULD be used with document type items to limit the results to a particular document or folder.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R1212</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken]Protocol clients can decide to limit the results this way or omit this and receive all items.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R1213</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken][The schema definition of BeginsWithPathQuery is:]
-&lt;complexType name="BeginsWithPathQuery"&gt;
-  &lt;sequence&gt;
-    &lt;element name="FieldRef" type="string" fixed="" minOccurs="1" maxOccurs="1"&gt;
-      &lt;complexType&gt;
-        &lt;simpleContent&gt;
-          &lt;extension base="string"&gt;
-            &lt;attribute name="Name" type="string" fixed="FileRef" use="required" /&gt;
-          &lt;/extension&gt;
-        &lt;/simpleContent&gt;
-      &lt;/complexType&gt;
-    &lt;/element&gt;
-    &lt;element name="Value" type="string" minOccurs="1" maxOccurs="1"&gt;
-      &lt;complexType&gt;
-        &lt;simpleContent&gt;
-          &lt;extension base="string"&gt;
-            &lt;attribute name="Type" type="string" fixed="Note" use="required" /&gt;
-          &lt;/extension&gt;
-        &lt;/simpleContent&gt;
-      &lt;/complexType&gt;
-    &lt;/element&gt;
-  &lt;/sequence&gt;
-&lt;/complexType&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R1214</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken]BeginsWith.FieldRef: This element specifies the name of the field that contains the value being compared.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R1215</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken]BeginsWith.Value: This element specifies what the contents of the field MUST be to qualify as a match.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R1216</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken]Protocol clients SHOULD set the contents of Value to a subsite URL or the path to whatever file or folder the protocol client requests.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R12160</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages]GetListItemChangesSinceTokenResponse specified the response to a request to download changes that have happened since the protocol client's last download on any protocol server that supports it.</ns1:Description>
@@ -3729,11 +3943,11 @@ IF-Match: &lt;a string&gt;</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R1243</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[In HTTP PUT]Protocol servers MUST respond with an HTTP status code 409 (which indicates a conflict) if the header data does not match the current version and some other issue does not require a different error code.</ns1:Description>
+		<ns1:Description>[In HTTP PUT]Protocol servers MUST respond with an HTTP status code 412 (which indicates a precondition failed) if the header data does not match the current version.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R1244</ns1:REQ_ID>
@@ -3801,7 +4015,7 @@ IF-Match: &lt;a string&gt;</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R12482</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Abstract Data Model]This specification does not mandate that implementations adhere to this model as long as their external behavior is consistent with that described in this specification.</ns1:Description>
+		<ns1:Description>[In Abstract Data Model]This document does not mandate that implementations adhere to this model as long as their external behavior is consistent with that described in this document.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4229,10 +4443,10 @@ or the recurrence does not end.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R50</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Contacts]Contacts SHOULD have some information about a person, group, business, or other entity.</ns1:Description>
+		<ns1:Description>[In Contacts]Contacts have some information about a person, group, business, or other entity.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -4337,11 +4551,11 @@ or the recurrence does not end.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R63</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Documents]The document item MUST include information such as the file name, size, and how or where to get the file itself.</ns1:Description>
+		<ns1:Description>[In Documents]The document item MUST include information for the file name, size, and how or where to get the file itself.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R65</ns1:REQ_ID>
@@ -4409,10 +4623,10 @@ or the recurrence does not end.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R72</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Tasks]Tasks SHOULD have a title, due date, and something to indicate if the task is complete or not.</ns1:Description>
+		<ns1:Description>[In Tasks]Tasks have a title, due date, and something to indicate if the task is complete or not.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -4752,7 +4966,7 @@ If the Field.ID matches, the field is present in the current schema.</ns1:Descri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R115</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Schema of Each Item Type]protocol clients can ignore the property bag (1) fields.</ns1:Description>
+		<ns1:Description>[In Schema of Each Item Type]protocol clients can ignore the property bag fields.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4788,11 +5002,11 @@ If the Field.ID matches, the field is present in the current schema.</ns1:Descri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R208</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Common Schema]Unless stated otherwise[Categories, Modified, ReplicationID], all fields in this section[Attachments, ContentTypeId, Created, ID, owshiddenversion, ReplicationID, vti_versionhistory] MUST be present on all item types&lt;20&gt; and contain valid data.</ns1:Description>
+		<ns1:Description>[In Common Schema]Unless stated otherwise[Attachments, Categories, Created, Modified, ReplicationID, vti_versionhistory], all fields in this section[ContentTypeId, ID, owshiddenversion] MUST be present on all item types&lt;20&gt; and contain valid data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R584</ns1:REQ_ID>
@@ -4885,6 +5099,15 @@ If the Field.ID matches, the field is present in the current schema.</ns1:Descri
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R1781</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Common Schema]Attachments can be absent from the schema.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R179</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In Common Schema]Categories: This is a delimited list of strings stored as a single string.</ns1:Description>
@@ -4957,22 +5180,13 @@ If the Field.ID matches, the field is present in the current schema.</ns1:Descri
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R187</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.4.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Common Schema]ContentTypeId begins with 0x0116 corresponds to Contact Content / item type name.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R188</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Common Schema]ContentTypeId begins with 0x0107 corresponds to Discussion item Content / item type name.</ns1:Description>
+		<ns1:Description>[In Common Schema]ContentTypeId begins with 0x012002 corresponds to Discussion item Content / item type name.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R189</ns1:REQ_ID>
@@ -5227,6 +5441,15 @@ If the Field.ID matches, the field is present in the current schema.</ns1:Descri
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R2181</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Common Schema][vti_versionhistory:]The vti_versionhistory field can be absent from the schema.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R219</ns1:REQ_ID>
@@ -5609,11 +5832,20 @@ If the Field.ID matches, the field is present in the current schema.</ns1:Descri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R863</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Appointment-Specific Schema]If the fAllDayEvent property is 1, the Duration MUST be 86340 seconds (1 minute less than 24 hours). </ns1:Description>
+		<ns1:Description>[In Appointment-Specific Schema]If the fAllDayEvent property is 1, the Duration MUST be 86340 seconds (1 minute less than 24 hours) when the appointment is not a single appointment. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R8631</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.4.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Appointment-Specific Schema]If the fAllDayEvent property is 1, the Duration MUST be [(days of EndDate – days of EventDate + 1)*86400-60] seconds when the appointment is a single appointment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R867</ns1:REQ_ID>
@@ -5622,7 +5854,7 @@ If the Field.ID matches, the field is present in the current schema.</ns1:Descri
 1.
 Change both the EventDate and EndDate into a time zone with no DST transitions, such as UTC.
 2.
-Remove the date portion of the results from step 2.1 so only the time portion remains.
+Remove the date portion of the results from step 2.1 so only the time portion remains. If the appointment is a single appointment, skip this step.
 3.
 Subtract the EventDate value from step 2.2 from the EndDate value from step 2.2. The result is the duration.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -5777,20 +6009,11 @@ Subtract the EventDate value from step 2.2 from the EndDate value from step 2.2.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R281</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Appointment-Specific Schema]fAllDayEvent SHOULD NOT be empty or missing.&lt;26&gt;</ns1:Description>
+		<ns1:Description>[In Appointment-Specific Schema]If fAllDayEvent is empty or missing, then the default value is 0, which means false.&lt;26&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R438</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Appointment-Specific Schema]If it[fAllDayEvent] is[ empty or missing], then the default value is 0, which means false.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R439</ns1:REQ_ID>
@@ -5831,7 +6054,7 @@ Subtract the EventDate value from step 2.2 from the EndDate value from step 2.2.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R286</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Appointment-Specific Schema][For fRecurrence]1 means it[event] is recurring,</ns1:Description>
+		<ns1:Description>[In Appointment-Specific Schema][For fRecurrence]1 means it[event] is a recurring event or an exception,</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7449,7 +7672,7 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R478</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Contact-Specific Schema][For information of CertificatesX509]See PidLidEmsAddressBookX509Certificate in [MS-OXOCNTC], section 2.2.1.10.21.</ns1:Description>
+		<ns1:Description>[In Contact-Specific Schema][For information of CertificatesX509]See PidTagUserX509Certificate in [MS-OXOCNTC], section 2.2.1.10.23.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -7818,11 +8041,11 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R623</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Contact-Specific Schema][The schema definition of CHOICES is:]&lt;s:complexType name="CHOICES"&gt;
+		<ns1:Description>[In Contact-Specific Schema][The schema definition of CHOICES is:]&lt;s:element name="CHOICES"&gt;
    &lt;s:sequence&gt;
       &lt;s:element name="CHOICE" type="string" minOccurs="0" maxOccurs="unbounded" /&gt;
    &lt;/s:sequence&gt;
-&lt;/s:complexType&gt;</ns1:Description>
+&lt;/s:element&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7849,7 +8072,7 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R626</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Contact-Specific Schema][The schema definition of MAPPINGS is:]&lt;s:complexType name="MAPPINGS"&gt;
+		<ns1:Description>[In Contact-Specific Schema][The schema definition of MAPPINGS is:]&lt;s:element name="MAPPINGS"&gt;
    &lt;s:sequence&gt;
       &lt;s:element name="MAPPING" type="string" minOccurs="0" maxOccurs="unbounded"&gt;
          &lt;s:complexType&gt;
@@ -7861,7 +8084,7 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
          &lt;/s:complexType&gt;
       &lt;/s:element&gt;
    &lt;/s:sequence&gt;
-&lt;/s:complexType&gt;</ns1:Description>
+&lt;/s:element&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8545,7 +8768,7 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R67677</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In Discussion-Specific Schema]The following table identifies a field by a group of attributes that appear in GetListResponse.GetListResult.List.Fields.Field (see [MS-LISTSWS] and section 3.2.4.2.</ns1:Description>
+		<ns1:Description>[In Discussion-Specific Schema]The following table identifies some fields by a group of attributes that appear in GetListResponse.GetListResult.List.Fields.Field (see [MS-LISTSWS] and section 3.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9014,11 +9237,12 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R698</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In Task-Specific Schema][One of the task properties appears as the attributes of the element GetListResponse.GetListResult.List.Fields.Field. Field.Name:]AssignedTo[ Field.ID:]{53101f38-dd2e-458c-b245-0c236cc13d1a}[Field.Type:]User.</ns1:Description>
+		<ns1:Description>[In Task-Specific Schema][One of the task properties appears as the attributes of the element GetListResponse.GetListResult.List.Fields.Field. Field.Name:]AssignedTo[ Field.ID:]{53101f38-dd2e-458c-b245-0c236cc13d1a}[Field.Type:]User or UserMulti&lt;37&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OUTSPS_R6981,MS-OUTSPS_R6982.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R699</ns1:REQ_ID>
@@ -9293,7 +9517,7 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R762</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In Task-Specific Schema]FormURN: This property SHOULD be ignored by protocol clients&lt;37&gt;.</ns1:Description>
+		<ns1:Description>[In Task-Specific Schema]FormURN: This property SHOULD be ignored by protocol clients&lt;38&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9411,7 +9635,7 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R773</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In Task-Specific Schema]In addition to the CHOICE element, the protocol server SHOULD provide a MAPPINGS element.</ns1:Description>
+		<ns1:Description>[In Task-Specific Schema]In addition to the CHOICES element, the protocol server SHOULD provide a MAPPINGS element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9430,11 +9654,11 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R775</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In Task-Specific Schema][The schema definition of CHOICES is:]&lt;s:complexType name="CHOICES"&gt;
+		<ns1:Description>[In Task-Specific Schema][The schema definition of CHOICES is:]&lt;s:element name="CHOICES"&gt;
    &lt;s:sequence&gt;
       &lt;s:element name="CHOICE" type="string" minOccurs="0" maxOccurs="unbounded" /&gt;
    &lt;/s:sequence&gt;
-&lt;/s:complexType&gt;</ns1:Description>
+&lt;/s:element&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9786,6 +10010,157 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90381</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.su is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9038:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90391</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.mo is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9039:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90401</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.tu is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9040:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90411</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.we is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9041:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90421</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.th is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9042:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90431</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.fr is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9043:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90441</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.sa is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9044:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90501</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.su is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9050:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90511</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.mo is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9051:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90521</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.tu is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9052:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90531</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.we is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9053:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90541</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.th is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9054:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90551</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.fr is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9055:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90561</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.sa is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9056:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R90571</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does format the transitionTime as "hour:minute:second" with no extra leading zeroes. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R9057:i,MS-OUTSPS_R144:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R732</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does appear at the beginning of the FileDirRef value.(Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
@@ -9960,7 +10335,7 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R12551</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]&lt;2&gt; Section 3.1.4:  Office Outlook 2007 uses the server version element in GetListResponse (see section 3.1.4.5 and [MS-LISTSWS]) to determine whether the server supports GetListItemChangesSinceToken. </ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]&lt;2&gt; Section 3.1.4:  Office Outlook 2007 uses the GetListResult.List.ServerSettings.ServerVersion  in GetListResponse (see section 3.1.4.5 and [MS-LISTSWS]) to determine whether Windows SharePoint Services 3.0 supports GetListItemChangesSinceToken. </ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10074,7 +10449,7 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R8120</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does have zero or one total exceptions and deleted instances. (&lt;12&gt; Section 3.2.1.1.2:  Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, and SharePoint Foundation 2010 allow this).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does have zero or one total exceptions and deleted instances. (&lt;12&gt; Section 3.2.1.1.2:  Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013 allow this).</ns1:Description>
 		<ns1:Derived>MS-OUTSPS_R28:i,MS-OUTSPS_R144:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -10085,7 +10460,7 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R8121</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior][&lt;12&gt; Section 3.2.1.1.2:] Office Outlook 2003, Office Outlook 2007, and Outlook 2010 do not allow this.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior][&lt;12&gt; Section 3.2.1.1.2:] Office Outlook 2003, Office Outlook 2007, Outlook 2010, and Outlook 2013 do not allow this.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10282,6 +10657,26 @@ Description,Duration,EndDate,EventDate,EventType,FooterInfo,fRecurrence,HeaderIn
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R2811</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does have the fAllDayEvent field. (&lt;26&gt; Section 3.2.4.2.2:  Windows SharePoint Services 2.0 does not have the fAllDayEvent field.  Office Outlook 2003 ignores the fAllDayEvent field.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R281:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R2812</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does default the value of AllDayEvent to 0 which means false if fAllDayEvent is empty or missing. (Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R281:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R833</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior]&lt;28&gt; Section 3.2.4.2.4:  Office Outlook 2003 reads only the following fields, ignores all other contact-specific fields, and reads these only if they are in the server's current schema:
@@ -10420,16 +10815,38 @@ Birthday,CellPhone,Comments,Company,CompanyPhonetic,Email,FileAs,FirstName,First
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R847</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]&lt;36&gt; Section 3.2.4.2.4:  Office SharePoint Server 2007 does not include the MAPPINGS element for the Gender field.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]&lt;36&gt; Section 3.2.4.2.4:  Microsoft Office SharePoint Server 2007 and Microsoft SharePoint Server 2010 do not include the MAPPINGS element for the Gender field.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R6981</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does set the default value of AssignedTo to User. (&lt;37&gt; Section 3.2.4.2.8:  For Windows SharePoint Services 3.0 and SharePoint Foundation 2010, the default type is User.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R698:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R6982</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does set the default value of AssignedTo to UserMulti. (&lt;37&gt; Section 3.2.4.2.8:  For SharePoint Foundation 2013, the default type is UserMulti.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R698:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R848</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]&lt;37&gt; Section 3.2.4.2.8:  Office Outlook 2007 serves as a pass-through for this data.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]&lt;38&gt; Section 3.2.4.2.8:  Office Outlook 2007 serves as a pass-through for this data.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

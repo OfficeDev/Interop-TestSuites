@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R3041Enabled to true to verify that CreateSite operation does assign a default LCID based on the default server install language as specified in section 3.1.4.1.2.1. Set R3041Enabled to false to disable this requirement. -->
+    <Property name="R3041Enabled" value="false" />
+    <!-- Set R1002Enabled to true to verify that implementation does additionally support SOAP over HTTPS for securing communication with protocol clients as specified in section 2.1. Set R1002Enabled to false to disable this requirement. -->
+    <Property name="R1002Enabled" value="true" />
+  </Properties>
+</TestSite>

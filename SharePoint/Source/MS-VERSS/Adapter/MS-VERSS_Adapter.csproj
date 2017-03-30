@@ -16,11 +16,10 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
+    <OutputPath>bin\Debug、</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\MS-VERSS_Adapter.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -55,6 +54,7 @@
     <None Include="SUTControlAdapter\Implementation\DeleteItemsInListFromRecycleBin.ps1" />
     <None Include="SUTControlAdapter\Implementation\GetFileVersions.ps1" />
     <None Include="SUTControlAdapter\Implementation\GetFileVersionAttributes.ps1" />
+    <None Include="SUTControlAdapter\Implementation\GetRecycleBin.ps1" />
     <None Include="SUTControlAdapter\Implementation\IsFileExistInRecycleBin.ps1" />
     <None Include="SUTControlAdapter\Implementation\SetFilePublish.ps1" />
     <None Include="SUTControlAdapter\Implementation\SetRecycleBinEnable.ps1" />

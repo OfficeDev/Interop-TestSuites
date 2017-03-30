@@ -2,26 +2,27 @@
 <TestSettings name="MS-OFFICIALFILE" id="479c3f62-0899-41fe-83d7-fab9ac8d9389" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are default test settings for a local test run.</Description>
   <Deployment>
-    <DeploymentItem filename="MS-OFFICIALFILE.runsettings" />
-    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_RequirementSpecification.xml" />
-    <DeploymentItem filename="..\Common\Proxy\MS-OFFICIALFILE.wsdl" />
-    <DeploymentItem filename="..\Common\Proxy\SOAP12.xsd" />
-    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\PropertyElementConfig\PropertyConfig.xml" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\UnholdFiles.ps1" />
-    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_TestSuite.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\Proxy\XML.xsd" />
-    <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SwitchFileMetaDataParsingFeature.ps1" />
-    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Script\Get-ConfigurationPropertyValue.ps1" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\DeleteAllFiles.ps1" />
+    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\Proxy\SOAP12.xsd" />
+    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\Proxy\MS-OFFICIALFILE.wsdl" />
+    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_RequirementSpecification.xml" />
+    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_TestSuite.ptfconfig" />
+    <DeploymentItem filename="MS-OFFICIALFILE.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SwitchFileMetaDataParsingFeature.ps1" />
     <DeploymentItem filename="..\Common\Proxy\SOAP11.xsd" />
+    <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\DeleteAllFiles.ps1" />
+    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\UnholdFiles.ps1" />
+    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\PropertyElementConfig\PropertyConfig.xml" />
+    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\Proxy\XML.xsd" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

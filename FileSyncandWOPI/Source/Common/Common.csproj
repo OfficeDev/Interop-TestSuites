@@ -59,7 +59,12 @@
     <Compile Include="WOPIServerErrorException.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Proxy\Include.xsd" />
     <None Include="Proxy\MS-FSSHTTP-FSSHTTPB.wsdl" />
+    <None Include="Proxy\Request.xsd" />
+    <None Include="Proxy\RequestBody.xsd" />
+    <None Include="Proxy\Response.xsd" />
+    <None Include="Proxy\ResponseBody.xsd" />
     <None Include="Script\Get-ConfigurationPropertyValue.ps1" />
     <None Include="FssWopiCommonConfiguration.deployment.ptfconfig" />
   </ItemGroup>

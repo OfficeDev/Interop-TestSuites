@@ -219,6 +219,22 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                 " FALSE means the operation failed",
                 isRecycleBinEnable);
 
+            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
+
+            while (retryCount > 0)
+            {
+                retryCount--;
+                System.Threading.Thread.Sleep(waitTime);
+
+                isRecycleBinEnable = this.sutControlAdapterInstance.GetRecycleBin();
+                if (isRecycleBinEnable)
+                {
+                    break;
+                }
+            }
+            Site.Assert.IsTrue(isRecycleBinEnable, "Recycle bin should be enable.");
+
             // Get the version that needs to be deleted.
             string deleteFileVersion = AdapterHelper.GetPreviousVersion(getVersionsResponse.results.result);
 

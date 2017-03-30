@@ -42,11 +42,14 @@
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MS-WEBSS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WEBSS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="MS-WEBSS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WEBSS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WEBSS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WEBSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WEBSS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WEBSS_TestSuite.deployment.ptfconfig" />
     <None Include="MS-WEBSS_TestSuite.ptfconfig" />
     <None Include="MS-WEBSS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />

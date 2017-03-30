@@ -191,7 +191,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          dataRead,
                          "MS-FSSHTTPB",
                          944,
-                         @"[In Query Access] Response Error (variable): If read operations will succeed, the response error will have an error type of HRESULT error.");
+                         @"[In Query Access] Response Error (variable): If read operations will succeed, the Response Error will have an error type of HRESULT error.");
 
                 // If HResult is 0,MS-FSSHTTPB_R2228 should be covered.
                 Site.CaptureRequirementIfAreEqual<int>(

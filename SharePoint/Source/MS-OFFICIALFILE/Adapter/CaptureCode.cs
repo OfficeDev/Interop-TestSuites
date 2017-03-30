@@ -36,7 +36,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                         // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R301
                         Site.CaptureRequirement(
                                  301,
-                                 @"[In Appendix C: Product Behavior] Implementation does additionally support SOAP over HTTPS for securing communication with protocol clients. (Microsoft Office SharePoint Server 2007 and above products follow this behavior.)");
+                                 @"[In Appendix B: Product Behavior] Implementation does additionally support SOAP over HTTPS for securing communication with protocol clients. (Microsoft Office SharePoint Server 2007 and above products follow this behavior.)");
                     }
                     else
                     {
@@ -187,11 +187,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
             Site.CaptureRequirement(
                      "MS-OFFICIALFILE",
                      160,
-                     @"[In GetRecordRouting] [This method is deprecated and MUST NOT be called. ]
-                     <wsdl:operation name=""GetRecordRouting"" xmlns:wsdl=""http://schemas.xmlsoap.org/wsdl/"">
-                       <wsdl:input message=""tns:GetRecordRoutingSoapIn""/>
-                       <wsdl:output message=""tns:GetRecordRoutingSoapOut""/>
-                     </wsdl:operation>");
+                     @"[In GetRecordRouting] [The following is the WSDL port type specification of the GetRecordRouting WSDL operation.]
+<wsdl:operation name=""GetRecordRouting"" xmlns:wsdl=""http://schemas.xmlsoap.org/wsdl/"">
+  <wsdl:input message=""tns:GetRecordRoutingSoapIn""/>
+  <wsdl:output message=""tns:GetRecordRoutingSoapOut""/>
+</wsdl:operation>");
 
             // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R161
             Site.CaptureRequirement(
@@ -231,11 +231,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
             Site.CaptureRequirement(
                      "MS-OFFICIALFILE",
                      173,
-                     @"[In GetRecordRoutingCollection] [This method is deprecated and MUST NOT be called.]
-                     <wsdl:operation name=""GetRecordRoutingCollection"" xmlns:wsdl=""http://schemas.xmlsoap.org/wsdl/"">
-                       <wsdl:input message=""tns:GetRecordRoutingCollectionSoapIn""/>
-                       <wsdl:output message=""tns:GetRecordRoutingCollectionSoapOut""/>
-                     </wsdl:operation>");
+                     @"[In GetRecordRoutingCollection] [The following is the WSDL port type specification of the GetRecordRoutingCollection WSDL operation.]
+<wsdl:operation name=""GetRecordRoutingCollection"" xmlns:wsdl=""http://schemas.xmlsoap.org/wsdl/"">
+  <wsdl:input message=""tns:GetRecordRoutingCollectionSoapIn""/>
+  <wsdl:output message=""tns:GetRecordRoutingCollectionSoapOut""/>
+</wsdl:operation>");
 
             // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R174
             Site.CaptureRequirement(
@@ -277,11 +277,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
             Site.CaptureRequirement(
                      "MS-OFFICIALFILE",
                      135,
-                     @"[In GetHoldsInfo] [This method<8> is called to retrieve information about the legal holds in a repository.]
-                     <wsdl:operation name=""GetHoldsInfo"" xmlns:wsdl=""http://schemas.xmlsoap.org/wsdl/"">
-                       <wsdl:input message=""tns:GetHoldsInfoSoapIn""/>
-                       <wsdl:output message=""tns:GetHoldsInfoSoapOut""/>
-                     </wsdl:operation>");
+                     @"[In GetHoldsInfo] [The following is the WSDL port type specification of the GetHoldsInfo WSDL operation.]
+<wsdl:operation name=""GetHoldsInfo"" xmlns:wsdl=""http://schemas.xmlsoap.org/wsdl/"">
+  <wsdl:input message=""tns:GetHoldsInfoSoapIn""/>
+  <wsdl:output message=""tns:GetHoldsInfoSoapOut""/>
+</wsdl:operation>");
 
             // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R136
             Site.CaptureRequirement(
@@ -372,11 +372,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
             Site.CaptureRequirement(
                      "MS-OFFICIALFILE",
                      185,
-                     @"[In GetServerInfo] [This method is called to retrieve information about the repository, such as its type, version, and whether the repository is configured for routing.]
-                     <wsdl:operation name=""GetServerInfo"" xmlns:wsdl=""http://schemas.xmlsoap.org/wsdl/"">
-                       <wsdl:input message=""tns:GetServerInfoSoapIn""/>
-                       <wsdl:output message=""tns:GetServerInfoSoapOut""/>
-                     </wsdl:operation>");
+                     @"[In GetServerInfo] [The following is the WSDL port type specification of the GetServerInfo WSDL operation.]
+<wsdl:operation name=""GetServerInfo"" xmlns:wsdl=""http://schemas.xmlsoap.org/wsdl/"">
+  <wsdl:input message=""tns:GetServerInfoSoapIn""/>
+  <wsdl:output message=""tns:GetServerInfoSoapOut""/>
+</wsdl:operation>");
 
             // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R193
             Site.CaptureRequirement(
@@ -418,13 +418,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                      "MS-OFFICIALFILE",
                      34,
                      @"[In ServerInfo] Server information. 
-                     <xs:complexType name=""ServerInfo"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
-                       <xs:sequence>
-                         <xs:element name=""ServerType"" type=""xs:string""/>
-                         <xs:element name=""ServerVersion"" type=""xs:string""/>
-                         <xs:element name=""RoutingWeb"" type=""xs:string""/>
-                       </xs:sequence>
-                     </xs:complexType>");
+<xs:complexType name=""ServerInfo"" xmlns:xs=""http://www.w3.org/2001/XMLSchema"">
+  <xs:sequence>
+    <xs:element name=""ServerType"" type=""xs:string""/>
+    <xs:element name=""ServerVersion"" type=""xs:string""/>
+    <xs:element minOccurs=""0"" name=""RoutingWeb"" type=""xs:string""/>
+  </xs:sequence>
+</xs:complexType>");
 
             // Parse the GetServerInfoResult from xml to class
             ServerInfo serverInfoInstance = this.ParseGetServerInfoResult(serverInfo);
@@ -509,11 +509,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
             Site.CaptureRequirement(
                      "MS-OFFICIALFILE",
                      197,
-                     @"[In SubmitFile] [This method is called to submit a file and its associated properties to the repository.]
-                     <wsdl:operation name=""SubmitFile"" xmlns:wsdl=""http://schemas.xmlsoap.org/wsdl/"">
-                       <wsdl:input message=""tns:SubmitFileSoapIn""/>
-                       <wsdl:output message=""tns:SubmitFileSoapOut""/>
-                     </wsdl:operation>");
+                     @"[In SubmitFile] [The following is the WSDL port type specification of the SubmitFile WSDL operation.]
+<wsdl:operation name=""SubmitFile"" xmlns:wsdl=""http://schemas.xmlsoap.org/wsdl/"">
+  <wsdl:input message=""tns:SubmitFileSoapIn""/>
+  <wsdl:output message=""tns:SubmitFileSoapOut""/>
+</wsdl:operation>");
 
             // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R224
             Site.CaptureRequirement(

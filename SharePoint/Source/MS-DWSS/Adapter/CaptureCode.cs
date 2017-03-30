@@ -92,23 +92,23 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             Site.CaptureRequirement(
                 138,
                 @"[In CreateDwsResponse] The string [CreateDwsResult] MUST conform to the following XSD:
-                <s:complexType>
-                  <s:choice>
-                    <s:element name=""Error"" type=""Error""/>
-                    <s:element name=""Results"">
-                      <s:complexType>
-                        <s:sequence>
-                          <s:element name=""Url"" type=""s:string"" />
-                          <s:element name=""DoclibUrl"" type=""s:string"" />
-                          <s:element name=""ParentWeb"" type=""s:string""/>
-                          <s:element name=""FailedUsers"" type=""tns:UserType"" minOccurs=""0"" maxOccurs=""unbounded""/>
-                          <s:element name=""AddUsersUrl"" type=""s:string""/>
-                          <s:element name=""AddUsersRole"" type=""s:string""/>
-                        </s:sequence>
-                      </s:complexType>
-                    </s:element>
-                  </s:choice>
-                </s:complexType>");
+                 <s:complexType>
+                   <s:choice>
+                     <s:element ref=""tns: Error""/>
+                     < s:element name = ""Results"" >
+                       < s:complexType >
+                         < s:sequence >
+                           < s:element name = ""Url"" type = ""s:string"" />
+                           < s:element name = ""DoclibUrl"" type = ""s:string"" />
+                           < s:element name = ""ParentWeb"" type = ""s:string"" />
+                           < s:element name = ""FailedUsers"" type = ""tns:UserType"" minOccurs = ""0"" maxOccurs = ""unbounded"" />
+                           < s:element name = ""AddUsersUrl"" type = ""s:string"" />
+                           < s:element name = ""AddUsersRole"" type = ""s:string"" />
+                         </ s:sequence >
+                       </ s:complexType >
+                     </ s:element >
+                   </ s:choice >
+                 </ s:complexType > ");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R118");
@@ -528,48 +528,61 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             Site.CaptureRequirement(
                 207,
                 @"[In GetDwsDataResponse] The XML MUST conform to the following schema:
-                <s:complexType name=""GetDwsDataResultType"">
-                  <s:choice>
-                    <s:element ref=""tns:Error""/>
-                    <s:element name=""Results"">
-                      <xs:sequence>
-                        <xs:element name=""Title"" type=""xs:string""/>
-                        <xs:element name=""LastUpdate"" type=""xs:integer""/>
-                        <xs:element name=""User"">
-                          <xs:complexType>
-                            <xs:sequence>
-                              <xs:element name=""ID"" type=""xs:string""/>
-                              <xs:element name=""Name"" type=""xs:string""/>
-                              <xs:element name=""LoginName"" type=""xs:string""/>
-                              <xs:element name=""Email"" type=""xs:string""/>
-                              <xs:element name=""IsDomainGroup""/>
-                                <s:simpleType>
-                                  <s:restriction base=""s:string"">
-                                    <s:enumeration value=""True"" />
-                                    <s:enumeration value=""False"" />
-                                  </s:restriction>
-                                </s:simpleType>
-                              <xs:element name=""IsSiteAdmin""/>
-                                <s:simpleType>
-                                  <s:restriction base=""s:string"">
-                                    <s:enumeration value=""True"" />
-                                    <s:enumeration value=""False"" />
-                                  </s:restriction>
-                                </s:simpleType>
-                            </xs:sequence>
-                          </xs:complexType>
-                        </xs:element>
-                        <xs:element name=""Members"" type=""tns:MemberData""/>
-                        <xs:sequence minOccurs=""0"">
-                          <xs:element ref=""tns:Assignees""/>
-                          <xs:element ref=""tns:List""/>
-                          <xs:element ref=""tns:List""/>
-                          <xs:element ref=""tns:List""/>
-                        </xs:sequence>
-                      </xs:sequence>
-                    </s:element>
-                  </s:choice>
-                </s:complexType>");
+                 <s:complexType name=""GetDwsDataResultType"">
+                   < s:choice >
+                     < s:element ref= ""tns:Error"" />
+                     < s:element ref= ""tns:Results"" />
+                   </ s:choice >
+                 </ s:complexType > ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R120702");
+
+            // Verify MS-DWSS requirement: MS-DWSS_R120702. If there is any validation error or warning occurred in previous step, an exception will be thrown.
+            Site.CaptureRequirement(
+                120702,
+                @"[In GetDwsDataResponse] Results: It MUST conform to the following schema:
+                   <s:element name=""Results"">
+                     < xs:complexType >
+                       < xs:sequence >
+                         < xs:element name = ""Title"" type = ""xs:string"" />
+                         < xs:element name = ""LastUpdate"" type = ""xs:integer"" />
+                         < xs:element name = ""User"" >
+                           < xs:complexType >
+                             < xs:sequence >
+                               < xs:element name = ""ID"" type = ""xs:string"" />
+                               < xs:element name = ""Name"" type = ""xs:string"" />
+                               < xs:element name = ""LoginName"" type = ""xs:string"" />
+                               < xs:element name = ""Email"" type = ""xs:string"" />
+                               < xs:element name = ""IsDomainGroup"" >
+                                 < s:simpleType >
+                                   < s:restriction base = ""s:string"" >
+                                     < s:enumeration value = ""True"" />
+                                     < s:enumeration value = ""False"" />
+                                   </ s:restriction >
+                                 </ s:simpleType >
+                               </ xs:element >
+                               < xs:element name = ""IsSiteAdmin"" >
+                                 < s:simpleType >
+                                   < s:restriction base = ""s:string"" >
+                                     < s:enumeration value = ""True"" />
+                                     < s:enumeration value = ""False"" />
+                                   </ s:restriction >
+                                 </ s:simpleType >
+                               </ xs:element >
+                             </ xs:sequence >
+                           </ xs:complexType >
+                         </ xs:element >
+                         < xs:element name = ""Members"" type = ""tns:MemberData"" />
+                         < xs:sequence minOccurs = ""0"" >
+                           < xs:element ref= ""tns:Assignees"" />
+                           < xs:element ref= ""tns:List"" />
+                           < xs:element ref= ""tns:List"" />
+                           < xs:element ref= ""tns:List"" />
+                         </ xs:sequence >
+                       </ xs:sequence >
+                     </ xs:complexType >
+                   </ s:element > ");
 
             // The schema of GetDwsDataResult operation has been validated by full WSDL. If it returns success, the schema of GetDwsDataResult operation is valid, capture related requirements.
             // Add the debug information
@@ -628,12 +641,12 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                 343,
                 @"[In Assignees] This element[Assignees] is defined as follows:
                   <xs:element name=""Assignees"">
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element ref=""tns:Member"" maxOccurs=""unbounded""/>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>");
+                    < xs:complexType >
+                      < xs:sequence >
+                        < xs:element ref= ""tns:Member"" minOccurs = ""0"" maxOccurs = ""unbounded"" />
+                      </ xs:sequence >
+                    </ xs:complexType >
+                  </ xs:element >");
 
             // If MS-DWSS_R343 is verified correctly, it means that Assignees which type is Assignees is also verified.
             Site.CaptureRequirement(
@@ -794,12 +807,47 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             Site.CaptureRequirement(
                 238,
                 @"[In GetDwsMetaDataResponse] GetDwsMetaDataResult: This element contains a string that is stand-alone XML, encoded either as an Error element as specified in section 2.2.3.2 or a Result element defined as follows:
-                   <s:complexType>
-                      <s:choice>
-                         <s:element ref=""tns:Error""/>
-                         <s:element name=""Results"" type=""s:string""/>
-                      </s:choice>
-                   </s:complexType>");
+                 <s:complexType name=""GetDwsMetaDataResultType"">
+                   < s:choice >
+                     < s:element ref= ""tns:Error"" />
+                     < s:element name = ""Results"" >
+                        < xs:complexType >
+                         < xs:sequence >
+                            < xs:element name = ""SubscribeUrl"" type = ""xs:string"" minOccurs = ""0"" />
+                            < xs:element name = ""MtgInstance"" type = ""xs:string"" />
+                            < xs:element name = ""SettingUrl"" type = ""xs:string"" />
+                            < xs:element name = ""PermsUrl"" type = ""xs:string"" />
+                            < xs:element name = ""UserInfoUrl"" type = ""xs:string"" />
+                            < xs:element ref= ""tns:Roles"" />
+                            < xs:element ref= ""tns:Schema"" minOccurs = ""0"" maxOccurs = ""3"" />
+                            < xs:element ref= ""tns:ListInfo"" minOccurs = ""0"" maxOccurs = ""3"" />
+                            < xs:element name = ""Permissions"" >
+                               < xs:complexType >
+                                  < xs:choice >
+                                   < xs:element ref= ""tns:Error"" />
+                                   < xs:sequence >
+                                       < xs:element name = ""ManageSubwebs"" minOccurs = ""0"" />
+                                       < xs:element name = ""ManageWeb"" minOccurs = ""0"" />
+                                       < xs:element name = ""ManageRoles"" minOccurs = ""0"" />
+                                       < xs:element name = ""ManageLists"" minOccurs = ""0"" />
+                                       < xs:element name = ""InsertListItems"" minOccurs = ""0"" />
+                                       < xs:element name = ""EditListItems"" minOccurs = ""0"" />
+                                       < xs:element name = ""DeleteListItems"" minOccurs = ""0"" />
+                                  </ xs:sequence >
+                                 </ xs:choice >
+                               </ xs:complexType >
+                            </ xs:element >
+                            < xs:element name = ""HasUniquePerm"" />
+                            < xs:element name = ""WorkspaceType"" />
+                            < xs:element name = ""IsADMode"" />
+                            < xs:element name = ""DocUrl"" />
+                            < xs:element name = ""Minimal"" />
+                            < s:element ref= ""tns:Results"" />
+                         </ xs:sequence >
+                       </ xs:complexType >
+                    </ s:element >
+                   </ s:choice >
+                 </ s:complexType > ");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R595");
@@ -810,14 +858,14 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                 SchemaValidation.ValidationResult,
                 595,
                 @"[In GetDwsMetaDataResponse] The element[GetDwsMetaDataResponse] contains a string that is stand-alone XML, defined as follows:
-                  <s:element name=""GetDwsMetaDataResponse"">
-                    <s:complexType>
-                      <s:sequence>
-                        <s:element minOccurs=""0"" maxOccurs=""1""
-                        name=""GetDwsMetaDataResult"" type=""s:string"" />
-                      </s:sequence>
-                    </s:complexType>
-                  </s:element>");
+                      <s:element name=""GetDwsMetaDataResponse"">
+                         < s:complexType >
+                           < s:sequence >
+                             < s:element minOccurs = ""0"" maxOccurs = ""1""
+                                        name = ""GetDwsMetaDataResult"" type = ""tns:GetDwsMetaDataResultType"" />
+                           </ s:sequence >
+                         </ s:complexType >
+                       </ s:element > ");
 
             // The schema of GetDwsMetaData operation has been validated by full WSDL. If it returns success, the schema of GetDwsMetaData operation is valid, capture related requirements.
             // Add the debug information
@@ -849,7 +897,8 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
         /// Validate the requirements related to schema for GetDwsMetaData results element.
         /// </summary>
         /// <param name="respResults">Results element in GetDwsMetaDataResult element.</param>
-        private void ValidateGetDwsMetaDataResultResults(GetDwsMetaDataResultTypeResults respResults)
+        /// <param name="isMinimal">A Boolean value that specifies whether to return information.</param>
+        private void ValidateGetDwsMetaDataResultResults(GetDwsMetaDataResultTypeResults respResults, bool isMinimal)
         {
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R373");
@@ -888,68 +937,21 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                 395,
                 @"[In RoleType] This type is defined as follows:
                   <xs:simpleType name=""RoleType"">
-                    <xs:restriction base=""xs:string"">
-                      <xs:enumeration value=""None""/>
-                      <xs:enumeration value=""Reader""/>
-                      <xs:enumeration value=""Contributor""/>
-                      <xs:enumeration value=""WebDesigner""/>
-                      <xs:enumeration value=""Administrator""/>
-                    </xs:restriction>
-                  </xs:simpleType>");
+                    < xs:restriction base = ""xs:string"" >
+                      < xs:enumeration value = ""None"" />
+                      < xs:enumeration value = ""Reader"" />
+                      < xs:enumeration value = ""Contributor"" />
+                      < xs:enumeration value = ""WebDesigner"" />
+                      < xs:enumeration value = ""Administrator"" />
+                      < xs:enumeration value = ""Editor"" />
+                    </ xs:restriction >
+                  </ xs:simpleType > ");
 
             // If MS-DWSS_R373 is verified correctly, it means this requirement can be verified.
             Site.CaptureRequirement(
                 252,
                 @"[In GetDwsMetaDataResponse] This element [Roles] MUST conform to the element specification in 2.2.3.6.");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R246");
-
-            // Verify MS-DWSS requirement: MS-DWSS_R246
-            Site.CaptureRequirement(
-                246,
-                @"[In GetDwsMetaDataResponse] It[Results] MUST conform to the following schema:
-                <xs:element name=""Results"">
-                  <xs:complexType>
-                    <xs:sequence>
-                       <xs:element name=""SubscribeUrl"" type=""xs:string"" minOccurs=""0""/>
-                       <xs:element name=""MtgInstance"" type=""xs:string""/>
-                       <xs:element name=""SettingUrl"" type=""xs:string""/>
-                   <xs:element name=""PermsUrl"" type=""xs:string""/>
-                       <xs:element name=""UserInfoUrl"" type=""xs:string""/>
-                       <xs:element ref=""tns:Roles""/>
-                   <xs:element ref=""Schema"" type=""xs:string""/>
-                       <xs:element ref=""Schema"" type=""xs:string""/>
-                       <xs:element ref=""Schema"" type=""xs:string""/>
-                       <xs:element ref=""tns:ListInfo""/>
-                       <xs:element ref=""tns:ListInfo""/>
-                       <xs:element ref=""tns:ListInfo""/>
-                   <xs:element name=""Permissions"">
-                        <xs:complexType>
-                           <xs:choice>
-                            <xs:element ref=""tns:Error""/>
-                              <xs:sequence>
-                                <xs:element name=""ManageSubwebs"" minOccurs=""0""/>
-                                <xs:element name=""ManageWeb"" minOccurs=""0""/>
-                                <xs:element name=""ManageRoles"" minOccurs=""0""/>
-                                <xs:element name=""ManageLists"" minOccurs=""0""/>
-                                <xs:element name=""InsertListItems"" minOccurs=""0""/>
-                                <xs:element name=""EditListItems"" minOccurs=""0""/>
-                                <xs:element name=""DeleteListItems"" minOccurs=""0""/>
-                              </xs:sequence>
-                            </xs:choice>
-                          </xs:complexType>
-                      </xs:element>
-                      <xs:element name=""HasUniquePerm""/>
-                      <xs:element name=""WorkspaceType""/>
-                      <xs:element name=""IsADMode""/>
-                      <xs:element name=""DocUrl""/>
-                      <xs:element name=""Minimal""/>
-                    <s:element name=""GetDwsDataResult"" type=""tns:GetDwsDataResultType""/>
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>");
-
+            
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R620");
 
@@ -957,38 +959,40 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             Site.CaptureRequirement(
                 620,
                 @"[In ListInfo] This element[ListInfo] is defined as follows:
-                <xs:element name=""ListInfo"">
-                  <xs:complexType>
-                    <xs:choice>
-                      <xs:element ref=""tns:Error"" minOccurs=""0""/>
-                      <xs:sequence>
-                        <xs:element name=""Moderated"" type=""xs:boolean""/>
-                        <xs:element name=""ListPermissions"">
-                          <xs:complexType>
-                              <xs:sequence>
-                                <xs:element name=""InsertListItems"" minOccurs=""0""/>
-                                <xs:element name=""EditListItems"" minOccurs=""0""/>
-                                <xs:element name=""DeleteListItems"" minOccurs=""0""/>
-                                <xs:element name=""ManageLists"" minOccurs=""0""/>
-                                <xs:element ref=""tns:Error"" minOccurs=""0""/>
-                              </xs:sequence>
-                          </xs:complexType>
-                        </xs:element>
-                      </xs:sequence>
-                    </xs:choice>
-                    <xs:attribute name=""Name"" type=""xs:string"" use=""required""/>
-                  </xs:complexType>
-                </xs:element>");
-
-            // If MS-DWSS_R620 is verified correctly, this requirements also can be verified directly.
-            Site.CaptureRequirement(
-                260,
-                @"[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element specified in 3.1.4.8.2.3.");
+                 <xs:element name=""ListInfo"">
+                   < xs:complexType >
+                     < xs:choice >
+                       < xs:element ref= ""tns:Error"" minOccurs = ""0"" />
+                       < xs:sequence >
+                         < xs:element name = ""Moderated"" />
+                          < s:simpleType >
+                            < s:restriction base = ""s:string"" >
+                            < s:enumeration value = ""True"" />
+                            < s:enumeration value = ""False"" />
+                            </ s:restriction >
+                          </ s:simpleType >
+                         </ xs:element >
+                         < xs:element name = ""ListPermissions"" >
+                           < xs:complexType >
+                               < xs:sequence >
+                                 < xs:element name = ""InsertListItems"" minOccurs = ""0"" />
+                                 < xs:element name = ""EditListItems"" minOccurs = ""0"" />
+                                 < xs:element name = ""DeleteListItems"" minOccurs = ""0"" />
+                                 < xs:element name = ""ManageLists"" minOccurs = ""0"" />
+                                 < xs:element ref= ""tns:Error"" minOccurs = ""0"" />
+                               </ xs:sequence >
+                           </ xs:complexType >
+                         </ xs:element >
+                       </ xs:sequence >
+                     </ xs:choice >
+                     < xs:attribute name = ""Name"" type = ""xs:string"" use = ""required"" />
+                   </ xs:complexType >
+                 </ xs:element > ");
 
             // If MS-DWSS_R620 is verified correctly, this requirements also can be verified directly.
             Site.CaptureRequirement(
                 262,
-                @"[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element specified in 3.1.4.8.2.3.");
+                @"[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element Documents.");
 
             // If MS-DWSS_R620 is verified correctly, this requirements also can be verified directly.
             Site.CaptureRequirement(
@@ -1061,20 +1065,117 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                     866,
                     @"[In Schema] id: The identifier of the schema. Specified in [MS-PRSTFR] section 2.3.1.2.");
 
-                // If MS-DWSS_R861 is verified correctly, this requirement also can be verified directly.
-                Site.CaptureRequirement(
-                    254,
-                    @"[In GetDwsMetaDataResponse] The element[Schema] MUST conform to the Schema element in the xml element specified in [MS-PRSTFR] section 2.3.1.2.");
+                bool isTasksSchemaContained = false;
+                bool isDocumentsSchemaContained = false;
+                bool isLinksSchemaContained = false;
 
-                // If MS-DWSS_R861 is verified correctly, this requirement also can be verified directly.
-                Site.CaptureRequirement(
-                    256,
-                    @"[In GetDwsMetaDataResponse] The element[Schema] MUST conform to the Schema element in the xml element specified in [MS-PRSTFR] section 2.3.1.2.");
+                foreach (Schema schema in respResults.Schema)
+                {
+                    if (schema.Name == "Tasks")
+                    {
+                        isTasksSchemaContained = true;
+                    }
+                    else if (schema.Name == "Documents")
+                    {
+                        isDocumentsSchemaContained = true;
+                    }
+                    else if (schema.Name == "Links")
+                    {
+                        isLinksSchemaContained = true;
+                    }
+                }
 
-                // If MS-DWSS_R861 is verified correctly, this requirement also can be verified directly.
-                Site.CaptureRequirement(
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R257");
+
+                // Verify MS-DWSS requirement: MS-DWSS_R257
+                Site.CaptureRequirementIfIsTrue(
+                    isDocumentsSchemaContained,
+                    257,
+                    @"[In GetDwsMetaDataResponse] This element[Schema] MUST conform to the Schema element Documents.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R258");
+
+                // Verify MS-DWSS requirement: MS-DWSS_R258
+                Site.CaptureRequirementIfIsTrue(
+                    isLinksSchemaContained,
                     258,
-                    @"[In GetDwsMetaDataResponse] This element [Schema] MUST conform to the Schema element in the xml element specified in [MS-PRSTFR] section 2.3.1.2.");
+                    @"[In GetDwsMetaDataResponse] This element[Schema] MUST conform to the Schema element Links.");
+
+                if (isMinimal && Common.IsRequirementEnabled(2561, this.Site))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R2561");
+
+                    // Verify MS-DWSS requirement: MS-DWSS_R2561
+                    Site.CaptureRequirementIfIsFalse(
+                        isTasksSchemaContained,
+                        2561,
+                        @"[In Appendix B: Product Behavior] Implementation does not return the Schema element for Tasks. (<9> Section 3.1.4.8.2.2: SharePoint Foundation 2013 does not return this Schema element.)");
+                }
+
+                if (this.IsListAdded && Common.IsRequirementEnabled(2562, this.Site))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R2562");
+
+                    // Verify MS-DWSS requirement: MS-DWSS_R2562
+                    Site.CaptureRequirementIfIsTrue(
+                        isTasksSchemaContained,
+                        2562,
+                        @"[In Appendix B: Product Behavior] Implementation does return the Schema element for Tasks. (Windows SharePoint Services 3.0, SharePoint Foundation 2010, and Microsoft SharePoint Server 2016 and above follow this behavior.)");
+                }
+            }
+
+            if (respResults.ListInfo != null)
+            {
+                bool isTasksListInfoContained = false;
+                bool isDocumentListInfoContained = false;
+                bool isLinksListInfoContained = false;
+
+                foreach (ListInfo listInfo in respResults.ListInfo)
+                {
+                    if (listInfo.Name == "Tasks")
+                    {
+                        isTasksListInfoContained = true;
+                    }
+                    else if (listInfo.Name == "Documents")
+                    {
+                        isDocumentListInfoContained = true;
+                    }
+                    else if (listInfo.Name == "Links")
+                    {
+                        isLinksListInfoContained = true;
+                    }
+                }
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R261");
+
+                // Verify MS-DWSS requirement: MS-DWSS_R261
+                Site.CaptureRequirementIfIsTrue(
+                    isTasksListInfoContained,
+                    261,
+                    @"[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element Tasks.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R262");
+
+                // Verify MS-DWSS requirement: MS-DWSS_R262
+                Site.CaptureRequirementIfIsTrue(
+                    isDocumentListInfoContained,
+                    262,
+                    @"[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element Documents.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-DWSS_R263");
+
+                // Verify MS-DWSS requirement: MS-DWSS_R263
+                Site.CaptureRequirementIfIsTrue(
+                    isLinksListInfoContained,
+                    263,
+                    @"[In GetDwsMetaDataResponse] This element [ListInfo] MUST conform to the ListInfo element Links.");
             }
         }
 
@@ -1092,27 +1193,27 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                 351,
                 @"[In List] It[List] is defined as follows:
                   <xs:element name=""List"">
-                    <xs:complexType>
-                      <xs:choice>
-                        <xs:element ref=""tns:Error""/>
-                        <xs:choice>
-                          <xs:element name=""NoChanges"" type=""xs:string""/>
-                          <xs:sequence>
-                            <xs:sequence>
-                              <xs:element ref=""tns:ID""/>
-                              <xs:choice>
-                                <xs:element ref=""tns:Error"" minOccurs=""0""/>
-                                <xs:sequence>
-                                  <xs:any minOccurs=""0"" maxOccurs=""unbounded"" namespace=""##other""/>
-                                </xs:sequence>
-                              </xs:choice>
+                      < xs:complexType >
+                        < xs:choice >
+                          < xs:element ref= ""tns:Error"" />
+                          < xs:choice >
+                            < xs:element name = ""NoChanges"" type = ""xs:string"" />
+                            < xs:sequence >
+                              < xs:sequence >
+                                < xs:element ref= ""tns:ID"" />
+                                < xs:choice >
+                                  < xs:element ref= ""tns:Error"" minOccurs = ""0"" />
+                                  < xs:sequence >
+                                    < xs:any minOccurs = ""0"" maxOccurs = ""unbounded"" namespace=""##other"" processContents='skip'/>
+                                  </xs:sequence>
+                                </xs:choice>
+                              </xs:sequence>
                             </xs:sequence>
-                          </xs:sequence>
+                          </xs:choice>
                         </xs:choice>
-                      </xs:choice>
-                      <xs:attribute name=""Name"" type=""tns:ListType"" use=""required""/>
-                    </xs:complexType>
-                  </xs:element>");
+                        <xs:attribute name = ""Name"" type=""tns:ListType"" use=""required""/>
+                      </xs:complexType>
+                    </xs:element>");
 
             XmlLinkedNode anyNode = null;
 

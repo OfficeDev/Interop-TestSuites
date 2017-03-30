@@ -279,6 +279,86 @@ The claims providers are associated with the Web application (1) specified in th
 The claims providers are listed in the provider names in the input message.
 The claims providers support resolve.");
         }
+
+        /// <summary>
+        /// This test case is used test ResolveMultipleClaim method with resolveInput parameter sets to null.
+        /// </summary>
+        [TestCategory("MSCPSWS"), TestMethod]
+        public void MSCPSWS_S04_TC07_ResolveMultipleClaim_NullResolveInput()
+        {
+            // Call the helper method to get all claims providers.
+            SPProviderHierarchyTree[] allProviders = TestSuiteBase.GetAllProviders();
+
+            ArrayOfString providerNames = new ArrayOfString();
+            SPPrincipalType principalType = SPPrincipalType.User;
+
+            foreach (SPProviderHierarchyTree provider in allProviders)
+            {
+                providerNames.Add(provider.ProviderName);
+            }
+
+            bool caughtException = false;
+            try
+            {
+                // Call Resolve multiple method with resolveInput parameter sets to null.
+                CPSWSAdapter.ResolveMultipleClaim(providerNames, principalType, null);
+            }
+            catch (FaultException faultException)
+            {
+                caughtException = true;
+
+                // If the server returns an ArgumentNullException<""resolveInput""> message, then the following requirement can be captured.
+                Site.CaptureRequirementIfIsTrue(
+                    this.VerifyArgumentNullException(faultException, "resolveInput"),
+                    632,
+                    @"[In ResolveMultipleClaim] If this [resolveInput] is NULL, the protocol server MUST return an ArgumentNullException<""resolveInput""> message.");
+            }
+            finally
+            {
+                this.Site.Assert.IsTrue(caughtException, "If resolveInput is NULL, the protocol server should return an ArgumentNullException<resolveInput> message.");
+
+            }
+        }
+
+        /// <summary>
+        /// This test case is used test ResolveMultipleClaim method with resolveInput parameter sets to null.
+        /// </summary>
+        [TestCategory("MSCPSWS"), TestMethod]
+        public void MSCPSWS_S04_TC08_Resolve_NullResolveInput()
+        {
+            // Call the helper method to get all claims providers.
+            SPProviderHierarchyTree[] allProviders = TestSuiteBase.GetAllProviders();
+
+            ArrayOfString providerNames = new ArrayOfString();
+            SPPrincipalType principalType = SPPrincipalType.User;
+
+            foreach (SPProviderHierarchyTree provider in allProviders)
+            {
+                providerNames.Add(provider.ProviderName);
+            }
+
+            bool caughtException = false;
+            try
+            {
+                // Call Resolve multiple method with resolveInput parameter sets to null.
+                CPSWSAdapter.Resolve(providerNames, principalType, null);
+            }
+            catch (FaultException faultException)
+            {
+                caughtException = true;
+
+                // If the server returns an ArgumentNullException<""value""> message, then the following requirement can be captured.
+                Site.CaptureRequirementIfIsTrue(
+                    this.VerifyArgumentNullException(faultException, "value"),
+                    616,
+                    @"[In Resolve] If this [resolveInput] is NULL, the protocol server MUST return an ArgumentNullException<""value""> message.");
+            }
+            finally
+            {
+                this.Site.Assert.IsTrue(caughtException, "If resolveInput is NULL, the protocol server should return an ArgumentNullException<value> message.");
+
+            }
+        }
         #endregion
     }
 }

@@ -23,12 +23,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// This method is used to chunk the file data.
         /// </summary>
-        /// <returns>A list of IntermediateNodeObject.</returns>
-        public override List<IntermediateNodeObject> Chunking()
+        /// <returns>A list of LeafNodeObjectData.</returns>
+        public override List<LeafNodeObject> Chunking()
         {
             int maxChunkSize = 1 * 1024 * 1024;
-            List<IntermediateNodeObject> list = new List<IntermediateNodeObject>();
-            IntermediateNodeObject.IntermediateNodeObjectBuilder builder = new IntermediateNodeObject.IntermediateNodeObjectBuilder();
+            List<LeafNodeObject> list = new List<LeafNodeObject>();
+            LeafNodeObject.IntermediateNodeObjectBuilder builder = new LeafNodeObject.IntermediateNodeObjectBuilder();
             int chunkStart = 0;
 
             if (this.FileContent.Length <= maxChunkSize)
@@ -54,7 +54,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="rootNode">Specify the root node object which is needed to be analyzed.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        public override void AnalyzeChunking(RootNodeObject rootNode, ITestSite site)
+        public override void AnalyzeChunking(IntermediateNodeObject rootNode, ITestSite site)
         {
             if (rootNode.DataSize.DataSize <= 1024 * 1024)
             {
@@ -65,7 +65,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             }
             else if (rootNode.DataSize.DataSize <= 250 * 1024 * 1024)
             {
-                foreach (IntermediateNodeObject interNode in rootNode.IntermediateNodeObjectList)
+                foreach (LeafNodeObject interNode in rootNode.IntermediateNodeObjectList)
                 {
                     SignatureObject expect = this.GetSignature(interNode.DataNodeObjectData.ObjectData);
                     SignatureObject realValue = interNode.Signature;

@@ -206,6 +206,38 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                 this.VerifyAttachmentContentsLength(fullUrlOfAttachment, newattachmentContents.Length);
 
                 #endregion
+
+                #region HTTPPUT operation with the header data does not match the current version
+                getListItemChangesRes = OutspsAdapter.GetListItemChangesSinceToken(
+                                                                  listId,
+                                                                  null,
+                                                                  null,
+                                                                  viewfieds,
+                                                                  null,
+                                                                  camloptions,
+                                                                  null,
+                                                                  null);
+
+                this.Site.Assert.IsNotNull(getListItemChangesRes, "SUT should return a response contain data.");
+                string headerValue2 = this.GetIfMatchHeaderValueFromResponse(getListItemChangesRes, fullUrlOfAttachment, int.Parse(addedListitemId));
+                int index = Int32.Parse(headerValue2.Replace("\"", string.Empty).Split(',')[1]);
+                string invalidHeaderValue = headerValue2.Split(',')[0] + "," + (index + 1) + "\"";
+                try
+                {
+                    OutspsAdapter.HTTPPUT(fullUrlOfAttachmentPath, invalidHeaderValue, newattachmentContents);
+                }
+                catch (WebException exception)
+                {
+                    HttpWebResponse webResponse = exception.Response as HttpWebResponse;
+
+                    // Verify MS-OUTSPS requirement: MS-OUTSPS_R1243
+                    this.Site.CaptureRequirementIfAreEqual<int>(
+                        412,
+                        (int)webResponse.StatusCode,
+                        1243,
+                        "[In HTTP PUT]Protocol servers MUST respond with an HTTP status code 412 (which indicates a precondition failed) if the header data does not match the current version.");
+                }
+                #endregion
             }
 
             OutspsAdapter.DeleteAttachment(listId, addedListitemId, fullUrlOfAttachment);

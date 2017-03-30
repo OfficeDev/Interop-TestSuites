@@ -1,6 +1,6 @@
 ## [MS-AUTHWS]: Authentication Web Service Protocol
-- [MS-AUTHWS] v20130726 is used to develop the test suite.
-- Release date, 7/30/2013.
+- [MS-AUTHWS] v20160715 is used to develop the test suite.
+- Release date, 07/15/2016.
 
 To find the new landing page for [MS-AUTHWS], please visit https://msdn.microsoft.com/en-us/library/cc313085(v=office.12).aspx
 

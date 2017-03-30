@@ -1,4 +1,4 @@
-#-------------------------------------------------------------------------
+﻿#-------------------------------------------------------------------------
 # Configuration script exit code definition:
 # 1. A normal termination will set the exit code to 0
 # 2. An uncaught THROW will set the exit code to 1
@@ -253,8 +253,11 @@ if($SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -e
 }elseif($SharePointVersion -eq $WindowsSharePointServices3[0] -or $SharePointVersion -eq $SharePointServer2007[0]) 
 { 
 	$product = "12.0" 
+}elseif ($SharePointVersion -eq $SharePointServer2016[0])
+{
+    $product = "16.0" 
 }
-if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] )
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
 	$SharePointShellSnapIn = Get-PSSnapin | Where-Object -FilterScript {$_.Name -eq "Microsoft.SharePoint.PowerShell"}
 	if($SharePointShellSnapIn -eq $null)
@@ -399,7 +402,7 @@ if($useClaims)
 #-----------------------------------------------------
 # Start to configure SUT for MS-SHDACCWS.
 #-----------------------------------------------------
-if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0])
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
 	Output "Start to configure MS-SHDACCWS." "White"
 
@@ -434,8 +437,8 @@ Output "Steps for manual configuration:" "Yellow"
 Output "Create a site collection named $MSSITESSSiteCollectionName ..." "Yellow"
 $MSSITESSSiteCollectionObject  = CreateSiteCollection $MSSITESSSiteCollectionName $sutComputerName "$domain\$userName" "$userName@$domain" $null $null
 
-# Activate the workflows feature for SharePoint Server 2010 and SharePoint Server 2013.
-if ($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0])
+# Activate the workflows feature for SharePoint Server 2010 and SharePoint Server 2013 and SharePoint Server 2016.
+if ($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
     Output "Steps for manual configuration:" "Yellow"
     Output "Active the workflows feature on site collection feature page ..." "Yellow"
@@ -594,8 +597,8 @@ Output "2. Set an alternate access mapping for HTTPS." "Yellow"
 $WebApplicationName = GetWebAPPName $defaultWebAppName
 AddHTTPSBinding "$sutComputerName" $SharePointVersion $WebApplicationName $httpsPortNumberOnAdminSite $true
 
-# Activate the feature DocumentManagement and DocumentSet for SharePoint Server 2013.
-if($SharePointVersion -eq $SharePointServer2013[0])
+# Activate the feature DocumentManagement and DocumentSet for SharePoint Server 2013 and SharePoint Server 2016.
+if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
     $siteUrl = [Microsoft.SharePoint.Administration.SPAdministrationWebApplication]::Local.sites[0].Url
 	
@@ -631,9 +634,10 @@ Output "Create a site collection named $MSMEETSSiteCollectionName ..." "Yellow"
 $MSMEETSSiteCollectionObject = CreateSiteCollection $MSMEETSSiteCollectionName $sutComputerName "$domain\$userName" "$userName@$domain" $null $null
 $MSMEETSSiteCollectionObject.Dispose()
 
-if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointFoundation2013[0])
+if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
-    $webTempfileName = "$env:CommonProgramFiles\Microsoft Shared\Web Server Extensions\15\TEMPLATE\1033\XML\WEBTEMP.XML"
+    $productversion = $product.Split(".")[0]
+    $webTempfileName = "$env:CommonProgramFiles\Microsoft Shared\Web Server Extensions\$productversion\TEMPLATE\1033\XML\WEBTEMP.XML"
 	$meetingTemplates = "Basic Meeting Workspace","Blank Meeting Workspace","Decision Meeting Workspace","Social Meeting Workspace","Multipage Meeting Workspace"
 	
     if(Test-Path $webTempfileName)
@@ -667,7 +671,7 @@ iisreset /restart
 # Start to configure SUT for MS-WWSP.
 #-----------------------------------------------------
 
-if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2007[0] )
+if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2007[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
     Output "Start to run configurations of MS-WWSP." "White"
 
@@ -706,8 +710,8 @@ if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $S
     Output "Create the document library $MSWWSPDocumentLibrary under the root web of the site collection $MSSITESSSiteCollectionName ..." "Yellow"
     CreateListItem $MSWWSPSiteCollectionObject.RootWeb $MSWWSPDocumentLibrary 101
 
-    # Activate the workflows feature for SharePoint Server 2010 and SharePoint Server 2013.
-    if ($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0])
+    # Activate the workflows feature for SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2016.
+    if ($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
     {
         Output "Steps for manual configuration:" "Yellow"
         Output "Active the workflows feature on site collection feature page ..." "Yellow"
@@ -723,7 +727,7 @@ if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $S
     CreateListItem $MSWWSPSiteCollectionObject.RootWeb $MSWWSPWorkflowTaskList 107
 
     # The workflow template name is 'Approval' for WindowsSharePointServices3 and SharePointServer2007. 
-    # The workflow template name is 'Approval - SharePoint 2010' for SharePointFoundation2010, SharePointServer2010, SharePointFoundation2013 and SharePointServer2013.
+    # The workflow template name is 'Approval - SharePoint 2010' for SharePointFoundation2010, SharePointServer2010, SharePointFoundation2013, SharePointServer2013 and SharePointServer2016.
     $WorkFlowTemplatename = 'Approval - SharePoint 2010'
     if($SharePointVersion -eq $SharePointServer2007[0] -or $SharePointVersion -eq $WindowsSharePointServices3[0])
     {
@@ -739,7 +743,17 @@ if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $S
 	Output "Steps for manual configuration:" "Yellow"
     Output "Grant full control permission level to $domain\$MSWWSPUser on site $MSWWSPSiteCollectionName..." "Yellow"
     GrantUserPermission $MSWWSP_web "Full Control" $domain.Split(".")[0] $MSWWSPUser
-	
+
+    $site = new-object Microsoft.SharePoint.SPSite("http://$sutComputerName/sites/$MSWWSPSiteCollectionName")
+    $web = $site.openweb()
+    $list = $web.Lists[$MSWWSPDocumentLibrary]
+    $list.EnableMinorVersions = $true
+    $list.EnableModeration =$true
+    $list.DefaultContentApprovalWorkflowId=$list.WorkflowAssociations[0].id
+    $list.update()
+    $web.Dispose()
+    $site.Dispose()
+
     $MSWWSPSiteCollectionObject.Dispose()
 }
 
@@ -837,7 +851,7 @@ $webFilePath = $rootWebFilePath.SubString(0,$rootWebFilePath.LastIndexOf("\"))
 Output "Steps for manual configuration:" "Yellow"
 Output "Create three web applications named $MSAUTHWSFormsWebAPPName,$MSAUTHWSPassportWebAPPName and $MSAUTHWSNoneWebAPPName." "Yellow"
 
-if($product -eq "15.0" -or $product -eq "14.0")
+if($product -eq "15.0" -or $product -eq "14.0" -or $product -eq "16.0")
 {
 	$poolAccount = ($domain.split(".")[0] + "\" + $userName)	
 	CreateWebApplication $sutComputerName $poolAccount $MSAUTHWSFormsWebAPPPort $MSAUTHWSFormsWebAPPName $MSAUTHWSFormsWebAPPName $password $SharePointVersion $true		
@@ -889,7 +903,7 @@ Output "Steps for manual configuration:" "Yellow"
 Output "Configure HTTPS service in SUT web-site $MSAUTHWSNoneWebAPPName." "Yellow"
 AddHTTPSBinding "$sutComputerName" $SharePointVersion $MSAUTHWSNoneWebAPPName $MSAUTHWSNoneWebAPPHTTPSPort $false $MSAUTHWSNoneWebAPPPort
 
-if($product -eq "15.0")
+if($product -eq "15.0" -or $product -eq "16.0")
 {   
     Output "Steps for manual configuration:" "Yellow"
 	Output "Create a web application named $MSAUTHWSWindowsWebAPPName." "Yellow"
@@ -916,7 +930,7 @@ if($product -eq "12.0" -or $product -eq "14.0")
 {
     $authwsLocalPorts= "$MSAUTHWSFormsWebAPPPort,$MSAUTHWSFormsWebAPPHTTPSPort,$MSAUTHWSNoneWebAPPPort,$MSAUTHWSNoneWebAPPHTTPSPort"
 }
-elseif($product -eq "15.0")
+elseif($product -eq "15.0" -or $product -eq "16.0")
 { 
     $authwsLocalPorts= "$MSAUTHWSFormsWebAPPPort,$MSAUTHWSFormsWebAPPHTTPSPort,$MSAUTHWSNoneWebAPPPort,$MSAUTHWSNoneWebAPPHTTPSPort,$MSAUTHWSWindowsWebAPPPort,$MSAUTHWSWindowsWebAPPHTTPSPort" 
 }
@@ -925,7 +939,7 @@ AddFirewallInboundRule  "Enable authws site port number" "TCP" $authwsLocalPorts
 #-----------------------------------------------------
 # Start to configure SUT for MS-CPSWS.
 #-----------------------------------------------------
-if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] )
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] )
 {
 	Output "Start to run configurations of MS-CPSWS." "White"
 	
@@ -954,43 +968,55 @@ if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -e
 #-----------------------------------------------------
 # Start to configure SUT for MS-WSSREST.
 #-----------------------------------------------------
-if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] )
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {
     Output "Start to run configurations of MS-WSSREST." "White"
-	Output "Steps for manual configuration:" "Yellow"
+    Output "Steps for manual configuration:" "Yellow"
     Output "Create a site collection named $MSWSSRESTSiteCollectionName ..." "Yellow"
     $MSWSSRESTSiteCollectionObject = CreateSiteCollection $MSWSSRESTSiteCollectionName $sutComputerName "$domain\$userName" "$userName@$domain" $null $null
 
     $ListNames = @{$MSWSSRESTCalendar = 106;$MSWSSRESTDocumentLibrary = 101;$MSWSSRESTDiscussionBoard = 108;$MSWSSRESTGenericList = 100;$MSWSSRESTSurvey = 102;$MSWSSRESTWorkflowHistoryList = 140;$MSWSSRESTWorkflowTaskList = 107}
-	foreach($ListName in $ListNames.keys)
-	{
-	    Output "Steps for manual configuration:" "Yellow"
+    foreach($ListName in $ListNames.keys)
+    {
+	Output "Steps for manual configuration:" "Yellow"
         Output "Create List $ListName under the root web of the site collection $MSWSSRESTSiteCollectionName ..." "Yellow"
         CreateListItem $MSWSSRESTSiteCollectionObject.RootWeb $ListName $ListNames[$ListName]
-	}
+    }
     
-	#Add Field in list $MSWSSRESTSurvey	
-	AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTSurvey $MSWSSRESTGridChoiceFieldName 16
-	AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTSurvey $MSWSSRESTPageSeparatorFieldName 26
+    #Add Field in list $MSWSSRESTSurvey	
+    AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTSurvey $MSWSSRESTGridChoiceFieldName 16
+    AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTSurvey $MSWSSRESTPageSeparatorFieldName 26
 	
     #Add field in list $MSWSSRESTGenericList
-	AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $MSWSSRESTChoiceFieldName 6 $true $MSWSSREST_SingleChoiceOptions
-	AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $MSWSSRESTMultiChoiceFieldName 15 $true $MSWSSREST_MultiChoiceOptions
+    AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $MSWSSRESTChoiceFieldName 6 $true $MSWSSREST_SingleChoiceOptions
+    AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $MSWSSRESTMultiChoiceFieldName 15 $true $MSWSSREST_MultiChoiceOptions
 
     $fieldNames = @{$MSWSSRESTBooleanFieldName = 8;$MSWSSRESTCurrencyFieldName = 10;$MSWSSRESTIntegerFieldName = 1;$MSWSSRESTNumberFieldName = 9;$MSWSSRESTUrlFieldName = 11;$MSWSSRESTWorkFlowEventTypeFieldName = 30}
     foreach($fieldName in $fieldNames.keys)
-	{
-	    AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $fieldName $fieldNames[$fieldName]
-	}
+    {
+        AddFieldInList $MSWSSRESTSiteCollectionObject.RootWeb $MSWSSRESTGenericList $fieldName $fieldNames[$fieldName]
+    }
 	
-	#Add Lookup field in list $MSWSSRESTGenericList
+    #Add Lookup field in list $MSWSSRESTGenericList
     $web = $MSWSSRESTSiteCollectionObject.RootWeb
     $listName = $MSWSSRESTGenericList
     $list = $web.Lists[$listName]
     $list.Fields.AddLookup($MSWSSRESTLookupFieldName,$list.ID,$false)
+
+    # Update ThreadIndex to be un-hidden
+    $listName = $MSWSSRESTDiscussionBoard
+    $list = $web.Lists[$listName]
+    $threadIndex = $list.Fields.GetFieldByInternalName("ThreadIndex")
+    $type = $ThreadIndex.GetType()
+    $bindingFlag = [System.Reflection.BindingFlags]::NonPublic -bor [System.Reflection.BindingFlags]::Instance
+    $methodInfo = $type.GetMethod("SetFieldBoolValue", [System.Reflection.BindingFlags]$($bindingFlag))
+    $arrayList = @("CanToggleHidden", $true)
+    $methodInfo.Invoke($threadIndex, $arrayList)    
+    $threadIndex.Hidden = $false
+    $threadIndex.Update()
 		
-	# Create a workflow association under specified list
-	Output "Steps for manual configuration:" "Yellow"
+    # Create a workflow association under specified list
+    Output "Steps for manual configuration:" "Yellow"
     Output "Create a workflow association with the name of $MSWWSPWorkflowName under specified list $MSWSSRESTWorkflowTaskList ..." "Yellow"
     AddListWorkFlow $MSWSSRESTSiteCollectionObject $MSWSSRESTWorkflowTaskList $MSWSSRESTWorkflowName "Three-state" $MSWSSRESTWorkflowTaskList $MSWSSRESTWorkflowHistoryList
 	
@@ -1083,7 +1109,7 @@ Output "1. Open Active Directory Users and Computers..." "Yellow"
 Output "2. Create user $MSOFFICIALFILEReadUser..." "Yellow"
 CreateUserOnDC $MSOFFICIALFILEReadUser $MSOFFICIALFILEReadUserPassword
 
-if($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0])
+if($SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
 {	
 	Output "Steps for manual configuration:" "Yellow"
 	Output "Create a subsite named $MSOFFICIALFILERoutingRepositorySite under site collection MSOFFICIALFILESiteCollectionName ..." "Yellow"

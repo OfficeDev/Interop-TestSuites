@@ -1,6 +1,6 @@
 ## [MS-SITESS]: Sites Web Service Protocol
-- [MS-SITESS] v20121003 is used to develop the test suite.
-- Release date, 10/8/2012.
+- [MS-SITESS] v20160715 is used to develop the test suite.
+- Release date, 07/15/2016.
 
 To find the new landing page for [MS-SITESS]], please visit https://msdn.microsoft.com/en-us/library/cc313065(v=office.12).aspx
 

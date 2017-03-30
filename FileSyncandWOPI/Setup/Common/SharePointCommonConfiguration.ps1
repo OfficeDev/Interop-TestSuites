@@ -135,6 +135,7 @@ function GetSharePointVersion
     $script:SharePointServer2010           = "Microsoft SharePoint Server 2010",          "14.0.7015.1000", "SP2"
     $script:SharePointFoundation2013       = "Microsoft SharePoint Foundation 2013",      "15.0.4571.1502", "SP1"
     $script:SharePointServer2013           = "Microsoft SharePoint Server 2013",          "15.0.4571.1502", "SP1"
+    $script:SharePointServer2016           = "Microsoft SharePoint Server 2016",          "16.0.4351.1000", ""
     $SharePointVersion                     = "Unknown Version"    
     
     $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
@@ -199,6 +200,15 @@ function GetSharePointVersion
                 $SharePointVersion = $script:SharePointServer2013[0]
                 $recommendVersion = $script:SharePointServer2013[1]
                 $recommendMinorVersion = $script:SharePointServer2013[2]
+                $isRecommendMinorVersion = CompareSharePointMinorVersion $version $recommendVersion
+                break
+            }
+            elseif($item.DisplayName -eq $script:SharePointServer2016[0])
+            {
+                $version = $item.DisplayVersion
+                $SharePointVersion = $script:SharePointServer2016[0]
+                $recommendVersion = $script:SharePointServer2016[1]
+                $recommendMinorVersion = $script:SharePointServer2016[2]
                 $isRecommendMinorVersion = CompareSharePointMinorVersion $version $recommendVersion
                 break
             }
@@ -2267,7 +2277,7 @@ function SetServerAuthenticationMode
     </configuration>
 "@       
     
-    if($SharePointVersion -eq $SharePointServer2013[0])
+    if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
     {
         $mumberShip = "LdapMember"
         $roleManager = "LdapRole"
@@ -2306,7 +2316,7 @@ function SetServerAuthenticationMode
     else
     {
     
-        if(($SharePointVersion -ne $SharePointServer2013[0]) -and $root.connectionStrings -eq $null)
+        if((($SharePointVersion -ne $SharePointServer2013[0]) -and ($SharePointVersion -eq $SharePointServer2016[0])) -and $root.connectionStrings -eq $null)
         {
             $formsElement = $xml.CreateElement("connectionStrings")
             $root.appendchild($formsElement)
@@ -2331,7 +2341,7 @@ function SetServerAuthenticationMode
             }
         }
         
-        if($SharePointVersion -eq $SharePointServer2013[0])
+        if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0])
         {
             $stsRoleProviders = $stsRoot."system.web".roleManager.providers.add
             $stsRoleProvider = $stsRoleProviders | where {$_.name -eq $roleManager} 
@@ -2433,7 +2443,7 @@ function CreateWebApplication
 
     $memberShipProvider = "AspNetActiveDirectoryMembershipProvider"
     $roleProviderName = "temp"
-    if($SharePointVersion -eq $SharePointServer2013[0])
+    if($SharePointVersion -ge $SharePointServer2013[0])
     {        
         $memberShipProvider = "LdapMember"
         $roleProviderName = "LdapRole"
@@ -3275,7 +3285,11 @@ function CheckServerInstallationMode
     if($SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0])
     {
         $sutShortVersion = "15.0"
-    }   
+    }
+    elseif($SharePointVersion -eq $SharePointServer2016[0])
+    {
+        $sutShortVersion = "16.0"
+    }    
     $ServerModeChildItem = get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Shared Tools\Web Server Extensions\$sutShortVersion\WSS"
     $isStandaloneInstallation = $true
     if($ServerModeChildItem.ServerRole -ieq "SINGLESERVER")
@@ -3728,7 +3742,8 @@ function GetSharePointServerVersion
     $script:SharePointFoundation2010OnSUT       = "SharePointFoundation2010","Microsoft SharePoint Foundation 2010","SP2"
     $script:SharePointServer2010OnSUT           = "SharePointServer2010","Microsoft SharePoint Server 2010","SP2"
     $script:SharePointFoundation2013OnSUT       = "SharePointFoundation2013","Microsoft SharePoint Foundation 2013","SP1"
-    $script:SharePointServer2013OnSUT           = "SharePointServer2013","Microsoft SharePoint Server 2013 ","SP1"
+    $script:SharePointServer2013OnSUT           = "SharePointServer2013","Microsoft SharePoint Server 2013","SP1"
+    $script:SharePointServer2016OnSUT           = "SharePointServer2016","Microsoft SharePoint Server 2016"
     $SharePointVersion                          = "Unknown Version"
     
     $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
@@ -3736,7 +3751,7 @@ function GetSharePointServerVersion
 
    $sutVersion = invoke-command -computer $computerName -Credential $credential -ErrorAction SilentlyContinue -scriptblock{
     param(
-    $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointServer2013OnSUT
+    $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointServer2013OnSUT,$script:SharePointServer2016OnSUT
     )
 
         $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
@@ -3776,9 +3791,14 @@ function GetSharePointServerVersion
                 $SharePointVersion = $script:SharePointServer2013OnSUT[0], $script:SharePointServer2013OnSUT[1].TrimEnd(),$script:SharePointServer2013OnSUT[2]
                 break
             }
+            elseif($item.DisplayName -eq $script:SharePointServer2016OnSUT[1])
+            {
+                $SharePointVersion = $script:SharePointServer2016OnSUT[0], $script:SharePointServer2016OnSUT[1]
+                break
+            }
         }
         return $SharePointVersion
-    }-ArgumentList $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointServer2013OnSUT
+    }-ArgumentList $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointServer2013OnSUT,$script:SharePointServer2016OnSUT
     
     return $sutVersion
 }
@@ -3788,12 +3808,11 @@ function GetSharePointServerVersion
 # </summary>
 # <returns>
 # An array with three values, represents the version information of the SharePoint Server.
-# Return "WindowsSharePointServices3, Microsoft Windows SharePoint Services 3.0, SP3" if SharePoint version is "Windows SharePoint Services 3.0".
-# Return "SharePointServer2007, Microsoft Office SharePoint Server 2007, SP3" if SharePoint version is "Microsoft Office SharePoint Server 2007".
 # Return "SharePointFoundation2010, Microsoft SharePoint Foundation 2010, SP2" if SharePoint version is "Microsoft SharePoint Foundation 2010".
-# Return "SharePointServer2010, Microsoft SharePoint Server 2010, SP2"" if SharePoint version is "Microsoft SharePoint Server 2010".
-# Return "SharePointFoundation2013, Microsoft SharePoint Foundation 2013, SP1"" if SharePoint version is "Microsoft SharePoint Foundation 2013".
-# Return "SharePointServer2013, Microsoft SharePoint Server 2013, SP1"" if SharePoint version is "Microsoft SharePoint Server 2013".
+# Return "SharePointServer2010, Microsoft SharePoint Server 2010, SP2" if SharePoint version is "Microsoft SharePoint Server 2010".
+# Return "SharePointFoundation2013, Microsoft SharePoint Foundation 2013, SP1" if SharePoint version is "Microsoft SharePoint Foundation 2013".
+# Return "SharePointServer2013, Microsoft SharePoint Server 2013, SP1" if SharePoint version is "Microsoft SharePoint Server 2013".
+# Return "SharePointServer2013, Microsoft SharePoint Server 2016" if SharePoint version is "Microsoft SharePoint Server 2016".
 # Otherwise, return "Unknown Version".
 # </returns>
 #-----------------------------------------------------------------------------------
@@ -3801,23 +3820,21 @@ function GetSharePointVersionManually
 {
     
     Output "Unable to get the SharePoint version automatically. Select the SharePoint version: " "Cyan"
-    Output "1: Windows SharePoint Services 3.0 SP3" "Cyan"
-    Output "2: Microsoft Office SharePoint Server 2007 SP3" "Cyan"
-    Output "3: Microsoft SharePoint Foundation 2010 SP2" "Cyan"
-    Output "4: Microsoft SharePoint Server 2010 SP2" "Cyan"
-    Output "5: Microsoft SharePoint Foundation 2013 SP1" "Cyan"
-    Output "6: Microsoft SharePoint Server 2013 SP1" "Cyan"
+    Output "1: Microsoft SharePoint Foundation 2010 SP2" "Cyan"
+    Output "2: Microsoft SharePoint Server 2010 SP2" "Cyan"
+    Output "3: Microsoft SharePoint Foundation 2013 SP1" "Cyan"
+    Output "4: Microsoft SharePoint Server 2013 SP1" "Cyan"
+    Output "5: Microsoft SharePoint Server 2016" "Cyan"
     $isManualSelectVersion = $true
-    $sutVersionChoices = @('1: Windows SharePoint Services 3.0 SP3','2: Microsoft Office SharePoint Server 2007 SP3','3: Microsoft SharePoint Foundation 2010 SP2','4: Microsoft SharePoint Server 2010 SP2','5: Microsoft SharePoint Foundation 2013 SP1','6: Microsoft SharePoint Server 2013 SP1')
+    $sutVersionChoices = @('1: Microsoft SharePoint Foundation 2010 SP2','2: Microsoft SharePoint Server 2010 SP2','3: Microsoft SharePoint Foundation 2013 SP1','4: Microsoft SharePoint Server 2013 SP1','5: Microsoft SharePoint Server 2016')
     $sutVersion = ReadUserChoice $sutVersionChoices "sutVersion"
     Switch($sutVersion)
     {
-        "1" {$sutVersion = $script:WindowsSharePointServices3OnSUT; break }
-        "2" {$sutVersion = $script:SharePointServer2007OnSUT[0], $script:SharePointServer2007OnSUT[1].TrimEnd(),$script:SharePointServer2007OnSUT[2]; break }
-        "3" {$sutVersion = $script:SharePointFoundation2010OnSUT; break }
-        "4" {$sutVersion = $script:SharePointServer2010OnSUT; break }
-        "5" {$sutVersion = $script:SharePointFoundation2013OnSUT; break }
-        "6" {$sutVersion = $script:SharePointServer2013OnSUT[0], $script:SharePointServer2013OnSUT[1].TrimEnd(),$script:SharePointServer2013OnSUT[2]; break }        
+        "1" {$sutVersion = $script:SharePointFoundation2010OnSUT[0]; break }
+        "2" {$sutVersion = $script:SharePointServer2010OnSUT[0]; break }
+        "3" {$sutVersion = $script:SharePointFoundation2013OnSUT[0]; break }
+        "4" {$sutVersion = $script:SharePointServer2013OnSUT[0]; break }
+        "5" {$sutVersion = $script:SharePointServer2016OnSUT[0]; break }        
     }
     
     return $sutVersion

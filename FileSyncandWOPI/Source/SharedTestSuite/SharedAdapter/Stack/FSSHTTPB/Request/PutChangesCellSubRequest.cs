@@ -30,6 +30,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
             this.IsAdditionalFlagsUsed = false;
             this.IsLockIdUsed = false;
+            this.IsDiagnosticRequestOptionInputUsed = false;
         }
 
         /// <summary>
@@ -86,6 +87,17 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// Gets or sets a value indicating whether the additional flags is used.
         /// </summary>
         public bool IsAdditionalFlagsUsed { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the diagnostic request option input is used.
+        /// </summary>
+        public bool IsDiagnosticRequestOptionInputUsed { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value: Force Revision Chain Optimization (1 bit): A bit that specifies that the server should optimize the chain of revisions by refactoring them as part of the Put Changes request.
+        /// If the IsDiagnosticRequestOptionInputUsed is false, this property will be ignored.
+        /// </summary>
+        public int ForceRevisionChainOptimization { get; set; }
 
         /// <summary>
         /// Gets or sets a value: Return Applied Storage Index Id Entries (1 bit): A bit that specifies that the storage indexes that are applied to the storage as part of the Put Changes will be returned in a Storage Index specified in the Put Changes Response by the Applied Storage Index Id.
@@ -148,6 +160,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// Gets or sets Additional Flags Header (4 bytes): A 32-bit stream object header that specifies the start of an Additional Flags structure.
         /// </summary>
         internal StreamObjectHeaderStart32bit AdditionalFlagsStart { get; set; }
+
+        /// <summary>
+        /// Gets or sets Diagnostic Request Option Input Header (4 bytes): A 32-bit stream object header that specifies the start of an Diagnostic Request Option Input structure.
+        /// </summary>
+        internal StreamObjectHeaderStart32bit DiagnosticRequestOptionInputStart { get; set; }
 
         /// <summary>
         /// Gets or sets Lock Id Header (4 bytes): A 32-bit stream object header that specifies a Lock Id start.
@@ -226,6 +243,17 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             if (this.OptionalClientKnowledge != null)
             {
                 byteList.AddRange(this.OptionalClientKnowledge.SerializeToByteList());
+            }
+
+            if (this.IsDiagnosticRequestOptionInputUsed)
+            {
+                this.DiagnosticRequestOptionInputStart = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.DiagnosticRequestOptionInput, 2);
+                byteList.AddRange(this.DiagnosticRequestOptionInputStart.SerializeToByteList());
+
+                BitWriter diagnosticRequestOptionWriter = new BitWriter(2);
+                diagnosticRequestOptionWriter.AppendInit32(this.ForceRevisionChainOptimization, 1);
+                diagnosticRequestOptionWriter.AppendInit32(this.Reserve, 7);
+                byteList.AddRange(diagnosticRequestOptionWriter.Bytes);
             }
 
             // sub-request end

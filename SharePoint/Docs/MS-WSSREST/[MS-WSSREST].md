@@ -1,6 +1,6 @@
 ## [MS-WSSREST]: ListData Data Service Protocol
-- [MS-WSSREST] v20130726 is used to develop the test suite.
-- Release date, 7/30/2013  
+- [MS-WSSREST] v20160715 is used to develop the test suite.
+- Release date, 07/15/2016.  
 
 To find the new landing page for [MS-WSSREST], please visit https://msdn.microsoft.com/en-us/library/dd960495(v=office.12).aspx
 

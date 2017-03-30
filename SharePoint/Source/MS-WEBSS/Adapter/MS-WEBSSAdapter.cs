@@ -143,6 +143,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             {
                 this.service.CustomizeCss(cssFile);
                 this.CaptureTransportRelatedRequirements();
+                this.ValidateCustomizeCss();
             }
             catch (SoapException exp)
             {

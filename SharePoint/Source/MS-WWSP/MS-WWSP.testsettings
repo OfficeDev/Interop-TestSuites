@@ -5,6 +5,7 @@
     <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_Claim_2010.xml" />
     <DeploymentItem filename="TestSuite\MS-WWSP_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\Proxy\WorkflowAssociationData_2013.xsd" />
+    <DeploymentItem filename="Adapter\Proxy\WorkflowAssociationData_2016.xsd" />
     <DeploymentItem filename="..\Common\Script\Get-ConfigurationPropertyValue.ps1" />
     <DeploymentItem filename="TestSuite\MS-WWSP_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\Proxy\WorkflowAssociationData_2007.xsd" />
@@ -24,12 +25,15 @@
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\CleanUpUploadedFiles.ps1" />
     <DeploymentItem filename="TestSuite\MS-WWSP_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-WWSP_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-WWSP_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetBaseIdOfWorkFlowAssociation.ps1" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetWorkflowAssociationIdByName.ps1" />
     <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_2010.xml" />
+    <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_2016.xml" />
     <DeploymentItem filename="TestSuite\MS-WWSP_TestSuite.ptfconfig" />
     <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_Claim_2013.xml" />
+    <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_Claim_2016.xml" />
     <DeploymentItem filename="TestSuite\MS-WWSP_RequirementSpecification.xml" />
     <DeploymentItem filename="Adapter\Proxy\WorkflowAssociationData_2010.xsd" />
     <DeploymentItem filename="MS-WWSP.runsettings" />
@@ -59,5 +63,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
-  <Properties />
+  
 </TestSettings>

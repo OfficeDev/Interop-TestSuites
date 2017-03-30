@@ -2,33 +2,35 @@
 <TestSettings name="MS-VERSS" id="fc6ad684-1919-4597-a85a-605e9b5951fc" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are default test settings for running all MS-VERSS test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetRecycleBinEnable.ps1" />
-    <DeploymentItem filename="MS-VERSS.runsettings" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\AddFile.ps1" />
-    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\Proxy\XML.xsd" />
-    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetFileVersionAttributes.ps1" />
-    <DeploymentItem filename="TestSuite\MS-VERSS_RequirementSpecification.xml" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetEnforceCheckout.ps1" />
     <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetVersioning.ps1" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetFileVersions.ps1" />
-    <DeploymentItem filename="TestSuite\MS-VERSS_TestSuite.ptfconfig" />
-    <DeploymentItem filename="..\Common\Script\Get-ConfigurationPropertyValue.ps1" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetFilePublish.ps1" />
-    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\Proxy\SOAP11.xsd" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\IsFileExistInRecycleBin.ps1" />
-    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\Proxy\MS-VERSS.wsdl" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\DeleteItemsInListFromRecycleBin.ps1" />
-    <DeploymentItem filename="TestSuite\MS-VERSS_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-VERSS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\AddFolder.ps1" />
-    <DeploymentItem filename="TestSuite\Resources\MS-VERSS_Test.txt" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\IsFileExistInRecycleBin.ps1" />
+    <DeploymentItem filename="..\Common\Script\Get-ConfigurationPropertyValue.ps1" />
+    <DeploymentItem filename="..\Common\Proxy\XML.xsd" />
+    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-VERSS_TestSuite.ptfconfig" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetFilePublish.ps1" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetRecycleBinEnable.ps1" />
+    <DeploymentItem filename="..\Common\Proxy\MS-VERSS.wsdl" />
     <DeploymentItem filename="..\Common\Proxy\SOAP12.xsd" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\DeleteItemsInListFromRecycleBin.ps1" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetFileVersionAttributes.ps1" />
+    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\Resources\MS-VERSS_Test.txt" />
+    <DeploymentItem filename="..\Common\Proxy\SOAP11.xsd" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetEnforceCheckout.ps1" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetRecycleBin.ps1" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\AddFolder.ps1" />
+    <DeploymentItem filename="TestSuite\MS-VERSS_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-VERSS_RequirementSpecification.xml" />
+    <DeploymentItem filename="MS-VERSS.runsettings" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetVersioning.ps1" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\AddFile.ps1" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetFileVersions.ps1" />
+    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
@@ -51,4 +53,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>

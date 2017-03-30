@@ -257,7 +257,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR396,
                 396,
-                @"[In ExportWorkflowTemplate] [workflowTemplateName:] If a workflow template with the specified name does not exist, the server MUST return a SOAP fault.");
+                @"[In ExportWorkflowTemplate] [workflowTemplateName:] If a workflow template with the specified name does not exist, the server will return a SOAP fault with an implementation-specific error code.");
 
             // If code can run to here, it means that Microsoft SharePoint Foundation 2010 and above support operation ExportWorkflowTemplate.
             this.VerifyOperationExportWorkflowTemplate();

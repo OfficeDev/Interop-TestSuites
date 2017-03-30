@@ -990,7 +990,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // Verify MS-WEBSS requirement: MS-WEBSS_R185
                 Site.CaptureRequirement(
                     185,
-                    @"[In GetContentType] If contentTypeId does not match the content type identifier of a content type on the site (2), the protocol server MUST return a SOAP exception.");
+                    @"[In GetContentType] If contentTypeId does not match the content type identifier of a content type on the site, the protocol server MUST return a SOAP exception.");
             }
         }
 

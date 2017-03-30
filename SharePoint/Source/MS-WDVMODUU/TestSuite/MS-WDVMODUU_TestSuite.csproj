@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S04_MSBinDiffHeader.cs" />
     <Compile Include="TestSuiteBase.cs" />
     <Compile Include="S02_IgnoredHeaders.cs" />
     <Compile Include="S03_PropFindExtension.cs" />
@@ -50,6 +51,7 @@
     <None Include="MS-WDVMODUU_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WDVMODUU_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WDVMODUU_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WDVMODUU_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WDVMODUU_TestSuite.deployment.ptfconfig" />
     <None Include="MS-WDVMODUU_TestSuite.ptfconfig" />
     <None Include="MS-WDVMODUU_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />

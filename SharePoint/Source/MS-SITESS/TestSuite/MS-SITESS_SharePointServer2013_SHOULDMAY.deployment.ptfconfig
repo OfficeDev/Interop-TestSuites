@@ -18,6 +18,8 @@
     <Property name="R328Enabled" value="true"/>
     <!-- Set R329Enabled to true to verify that if the export operation is called successfully, the log file which contains the result of the export operation includes a status code indicating the success of the operation or an error code, as specified in section 7. Set R329Enabled to false to disable this requirement. -->
     <Property name="R329Enabled" value="true"/>
+    <!-- Set R433001Enabled to true to verify that if the export operation succeeds, this file also includes the list of the content migration package files created. Set R433001Enabled to false to disable this requirement. -->
+    <Property name="R433001Enabled" value="true"/>
     <!-- Set R339Enabled to true to verify that if the import operation is called successfully, protocol server creates a log file that contains the result of the import operation in the server location specified in the request message, as specified in section 7. Set R339Enabled to false to disable this requirement. -->
     <Property name="R339Enabled" value="true"/>
     <!-- Set R340Enabled to true to verify that if the import operation is called successfully, the log file which contains the result of the import operation includes a status code indicating the success of the operation or an error code, as specified in section 7. Set R340Enabled to false to disable this requirement. -->
@@ -42,5 +44,19 @@
     <Property name="R3791Enabled" value="true"/>
     <!-- Set R7411Enabled to true to verify that ExportWeb operation does need ExportWebUrl to be case-sensitive as specified in section 3.1.4.2.2.1. Set R7411Enabled to false to disable this requirement. -->
     <Property name="R7411Enabled" value="true"/>
+    <!-- Set R532Enabled to true to verify that if the value of cabSize is less than zero, implementation does return a value of 1 or 7 but the server does not successfully complete the operation. Set R532Enabled to false to disable this requirement. -->
+    <Property name="R532Enabled" value="true"/>
+    <!-- Set R523001Enabled to true to verify that implementation does be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite. Set R523001Enabled to false to disable this requirement. -->
+    <Property name="R523001Enabled" value="false"/>
+    <!-- Set R523002Enabled to true to verify that implementation does not be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite. Set R523002Enabled to false to disable this requirement. -->
+    <Property name="R523002Enabled" value="true"/>
+    <!-- Set R557001Enabled to true to verify that implementation does be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite. Set R557001Enabled to false to disable this requirement. -->
+    <Property name="R557001Enabled" value="false"/>
+    <!-- Set R557002Enabled to true to verify that implementation does not be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite. Set R557002Enabled to false to disable this requirement. -->
+    <Property name="R557002Enabled" value="true"/>
+    <!-- Set R391Enabled to true to verify that implementation does returns an error if logPath is set to an empty string. Set R391Enabled to false to disable this requirement. -->
+    <Property name="R391Enabled" value="false"/>
+    <!-- Set R326001002Enabled to true to verify that implementation does support IsScriptSafeUrl method. Set R326001002Enabled to false to disable this requirement. -->
+    <Property name="R326001002Enabled" value="true"/>
   </Properties>
 </TestSite>

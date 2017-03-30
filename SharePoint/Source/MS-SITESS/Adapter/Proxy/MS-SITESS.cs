@@ -26,6 +26,8 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         private System.Threading.SendOrPostCallback GetSiteTemplatesOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetUpdatedFormDigestOperationCompleted;
+
+        private System.Threading.SendOrPostCallback IsScriptSafeUrlOperationCompleted;
         
         private System.Threading.SendOrPostCallback GetUpdatedFormDigestInformationOperationCompleted;
         
@@ -58,7 +60,10 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         
         /// <remarks/>
         public event GetUpdatedFormDigestInformationCompletedEventHandler GetUpdatedFormDigestInformationCompleted;
-        
+
+        /// <remarks/>
+        public event IsScriptSafeUrlCompletedEventHandler IsScriptSafeUrlCompleted;
+
         /// <remarks/>
         public event ExportWebCompletedEventHandler ExportWebCompleted;
         
@@ -425,10 +430,58 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 this.GetUpdatedFormDigestInformationCompleted(this, new GetUpdatedFormDigestInformationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
-        
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/sharepoint/soap/ExportWeb", RequestNamespace="http://schemas.microsoft.com/sharepoint/soap/", ResponseNamespace="http://schemas.microsoft.com/sharepoint/soap/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public int ExportWeb(string jobName, string webUrl, string dataPath, bool includeSubwebs, bool includeUserSecurity, bool overWrite, int cabSize) {
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/sharepoint/soap/IsScriptSafeUrl", RequestNamespace = "http://schemas.microsoft.com/sharepoint/soap/", ResponseNamespace = "http://schemas.microsoft.com/sharepoint/soap/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool[] IsScriptSafeUrl(string[] urls)
+        {
+            object[] results = this.Invoke("IsScriptSafeUrl", new object[] {
+                    urls});
+            return ((bool[])(results[0]));
+        }
+
+        /// <remarks/>
+        public System.IAsyncResult BeginIsScriptSafeUrl(string[] urls, System.AsyncCallback callback, object asyncState)
+        {
+            return this.BeginInvoke("IsScriptSafeUrl", new object[] {
+                    urls}, callback, asyncState);
+        }
+
+        /// <remarks/>
+        public bool[] EndIsScriptSafeUrl(System.IAsyncResult asyncResult)
+        {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((bool[])(results[0]));
+        }
+
+        /// <remarks/>
+        public void IsScriptSafeUrlAsync(string[] urls)
+        {
+            this.IsScriptSafeUrlAsync(urls, null);
+        }
+
+        /// <remarks/>
+        public void IsScriptSafeUrlAsync(string[] urls, object userState)
+        {
+            if ((this.IsScriptSafeUrlOperationCompleted == null))
+            {
+                this.IsScriptSafeUrlOperationCompleted = new System.Threading.SendOrPostCallback(this.OnIsScriptSafeUrlOperationCompleted);
+            }
+            this.InvokeAsync("IsScriptSafeUrl", new object[] {
+                    urls}, this.IsScriptSafeUrlOperationCompleted, userState);
+        }
+
+        private void OnIsScriptSafeUrlOperationCompleted(object arg)
+        {
+            if ((this.IsScriptSafeUrlCompleted != null))
+            {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.IsScriptSafeUrlCompleted(this, new IsScriptSafeUrlCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/sharepoint/soap/ExportWeb", RequestNamespace = "http://schemas.microsoft.com/sharepoint/soap/", ResponseNamespace = "http://schemas.microsoft.com/sharepoint/soap/", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int ExportWeb(string jobName, string webUrl, string dataPath, bool includeSubwebs, bool includeUserSecurity, bool overWrite, int cabSize)
+        {
             object[] results = this.Invoke("ExportWeb", new object[] {
                         jobName,
                         webUrl,
@@ -1085,6 +1138,36 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+    public delegate void IsScriptSafeUrlCompletedEventHandler(object sender, IsScriptSafeUrlCompletedEventArgs e);
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class IsScriptSafeUrlCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs
+    {
+
+        private object[] results;
+
+        internal IsScriptSafeUrlCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) :
+                base(exception, cancelled, userState)
+        {
+            this.results = results;
+        }
+
+        /// <remarks/>
+        public bool[] Result
+        {
+            get
+            {
+                this.RaiseExceptionIfNecessary();
+                return ((bool[])(this.results[0]));
+            }
+        }
+    }
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.0.30319.1")]
     public delegate void ExportWebCompletedEventHandler(object sender, ExportWebCompletedEventArgs e);

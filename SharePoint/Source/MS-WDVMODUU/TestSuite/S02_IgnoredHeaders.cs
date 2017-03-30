@@ -54,6 +54,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WDVMODUU
             //     MS-Set-Repl-Uid
             //     MS-BinDiff
             //     X-Office-Version
+            //     User-Agent
             // This test case calls the private help method "CompareHttpResponses_Get" for each above ignored header to partially test ignored headers.
             // This help method has two input parameters, one is for the ignored header name, and another is for the value of the ignored header. 
             // The method "CompareHttpResponses_Get" will call HTTP GET method twice, in the first time the HTTP GET request includes the ignored header, 
@@ -132,6 +133,16 @@ namespace Microsoft.Protocols.TestSuites.MS_WDVMODUU
                 doesCaptureR92,
                 92,
                 @"[In X-Office-Version Header] [The reply of implementation does be the same whether X-Office-Version header is included in the request or not.]");
+
+            // Test the ignored header "User-Agent" in HTTP GET method.
+            // Call private help method "CompareHttpResponses_Get" with the ignored header "User-Agent" and its value.
+            // And capture MS-WDVMODUU_R922 if the method "CompareHttpResponses_Get" return true.
+            bool doesCaptureR922 = false;
+            doesCaptureR922 = this.CompareHttpResponses_Get(requestUri, "User-Agent", "Microsoft Office/12.0 (Windows NT 5.2; SyncMan 12.0.6234; Pro)");
+            this.Site.CaptureRequirementIfIsTrue(
+                doesCaptureR922,
+                922,
+                @"[In User-Agent Header] The reply of implementation does be the same whether WebDAV header is included in the request or not.");
         }
 
         /// <summary>
@@ -147,6 +158,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WDVMODUU
             //     Moss-CBFile
             //     MS-Set-Repl-Uid
             //     X-Office-Version
+            //     User-Agent
             // This test case calls the private help method "CompareHttpResponses_Put" for each above ignored header to partially test ignored headers.
             // This help method has two input parameters, one is for the ignored header name, and another is for the value of the ignored header. 
             // The method "CompareHttpResponses_Put" will call HTTP PUT method and DELETE method twice, PUT method will upload a test file to the server, 
@@ -219,6 +231,16 @@ namespace Microsoft.Protocols.TestSuites.MS_WDVMODUU
                 doesCaptureR92,
                 92,
                 @"[In X-Office-Version Header] [The reply of implementation does be the same whether X-Office-Version header is included in the request or not.]");
+
+            // Test the ignored header "User-Agent" in HTTP PUT method.
+            // Call private help method "CompareHttpResponses_Put" with the ignored header "User-Agent" and its value.
+            // And capture MS-WDVMODUU_R922 if the method "CompareHttpResponses_Put" return true.
+            bool doesCaptureR922 = false;
+            doesCaptureR922 = this.CompareHttpResponses_Put(requestUri, bytesTxtFile, "User-Agent", "Microsoft Office/12.0 (Windows NT 5.2; SyncMan 12.0.6234; Pro)");
+            this.Site.CaptureRequirementIfIsTrue(
+                doesCaptureR922,
+                922,
+                @"[In User-Agent Header] The reply of implementation does be the same whether WebDAV header is included in the request or not.");
         }
 
         /// <summary>

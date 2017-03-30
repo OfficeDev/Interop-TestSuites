@@ -170,7 +170,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R23</ns1:REQ_ID>
@@ -184,7 +184,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R24</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In SOAP Fault Message] The following schema specifies the structure of the detail element in the SOAP fault response that is used by this protocol: &lt;s:schema xmlns:s="http://www.w3.org/2001/XMLSchema" targetNamespace=" http://schemas.microsoft.com/sharepoint/soap"&gt;
+		<ns1:Description>[In SOAP Fault Message] The following schema specifies the structure of the detail element in the SOAP fault response that is used by this protocol: &lt;s:schema xmlns:s="http://www.w3.org/2001/XMLSchema" targetNamespace=" http://schemas.microsoft.com/sharepoint/soap/"&gt;
      &lt;s:complexType name="SOAPFaultDetails"&gt;
         &lt;s:sequence&gt;
            &lt;s:element name="errorstring" type="s:string"/&gt;
@@ -195,7 +195,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R25</ns1:REQ_ID>
@@ -236,8 +236,8 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R29</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In SOAP Exception Message]The following schema specifies the structure of the detail element in the SOAP exception response that is used by this protocol: &lt;s:schema xmlns:s="http://www.w3.org/2001/XMLSchema" targetNamespace=" http://schemas.microsoft.com/sharepoint/soap"&gt;
-     &lt;s:complexType name="SOAPFaultDetails"&gt;
+		<ns1:Description>[In SOAP Exception Message]The following schema specifies the structure of the detail element in the SOAP exception response that is used by this protocol: &lt;s:schema xmlns:s="http://www.w3.org/2001/XMLSchema" targetNamespace=" http://schemas.microsoft.com/sharepoint/soap/"&gt;
+     &lt;s:complexType name="SOAPExceptionDetails"&gt;
         &lt;s:sequence&gt;
            &lt;s:element name="errorstring" type="s:string"/&gt;
            &lt;s:element name="faultcode" type="s:string" /&gt;
@@ -437,7 +437,7 @@ A collection of FieldInformation records for a file.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R49</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In CopyResult] [ErrorMessage] If the value of ErrorCode is "Success," the attribute MUST NOT be present.</ns1:Description>
+		<ns1:Description>[In CopyResult] [ErrorMessage] If the value of ErrorCode is "Success", the attribute MUST NOT be present.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -535,7 +535,7 @@ A collection of FieldInformation records for a file.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R59</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyResultCollection] CopyResult: Specifies the status of the copy operation for a single destination location, as defined in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In CopyResultCollection] CopyResult: Specifies the copy status for each destination location, as defined in section 2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -887,7 +887,7 @@ This value is used to indicate a failure to copy the file because the destinatio
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R101</ns1:REQ_ID>
@@ -927,18 +927,7 @@ This value is used to indicate an error when the file on the destination locatio
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R1040</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In CopyErrorCode] InvalidUrl: 
-This value SHOULD be used to indicate an error when the IRI of a destination location is malformed.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-COPYS_R1041, MS-COPYS_R1043, MS-COPYS_R1044.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R109</ns1:REQ_ID>
@@ -1021,7 +1010,7 @@ This value is used to indicate an error for all other error conditions for a giv
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R114</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In FieldType] This protocol supports the following field types[Invalid, Integer, Text, Note, DateTime, Counter, Choice, Lookup, Boolean, Number, Currency, URL, Computed, Threading, Guid, MultiChoice, GridChoice, Calculated, File, Attachments, User, Recurrence, CrossProjectLink, ModStat, AllDayEvent, Error] as a subset of the fields specified in [MS-WSSTS] section 2.3. .[In [MS-WSSTS] section 2.3: The Field Types: AllDayEvent,Attachments,Boolean,Calculated,Choice,Computed,ContentTypeId,Counter,CrossProjectLink,Currency,DateTime,Error,File,GridChoice,Guid,Integer,Invalid,Lookup,MaxItems,ModStat,MultiChoice,Note,Number,PageSeparator,Recurrence,Text,Threading,ThreadIndex,User,URL,WorkflowEventType,WorkflowStatus. ]</ns1:Description>
+		<ns1:Description>[In FieldType] This protocol supports the following field types[Invalid, Integer, Text, Note, DateTime, Counter, Choice, Lookup, Boolean, Number, Currency, URL, Computed, Threading, Guid, MultiChoice, GridChoice, Calculated, File, Attachments, User, Recurrence, CrossProjectLink, ModStat, AllDayEvent, Error] as a subset of the fields specified in [MS-WSSTS] section 2.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1030,7 +1019,7 @@ This value is used to indicate an error for all other error conditions for a giv
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R115</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In FieldType] Other field types [ContentTypeId, Geolocation, MaxItems, PageSeparator, ThreadIndex, WorkflowEventType, WorkflowStatus, LookupMulti, UserMulti] specified in [MS-WSSTS] section 2.3, except the ContentTypeId field type, MUST map to the error field types defined by this protocol</ns1:Description>
+		<ns1:Description>[In FieldType] Other field types [ContentTypeId, Geolocation, MaxItems, PageSeparator, ThreadIndex, WorkflowEventType, WorkflowStatus, LookupMulti, UserMulti] specified in [MS-WSSTS] section 2.3, except the ContentTypeId, LookupMulti and UserMulti field types, MUST map to the error field type defined by this protocol.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1056,6 +1045,24 @@ This value is used to indicate an error for all other error conditions for a giv
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirements: MS-COPYS_R124, MS-COPYS_R125, MS-COPYS_R126.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-COPYS_R1231</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In FieldType] The LookupMulti field type SHOULD map to the Lookup field type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-COPYS_R1232</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In FieldType] The UserMulti field type SHOULD map to the User field type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R127</ns1:REQ_ID>
@@ -1477,6 +1484,16 @@ This value is used to indicate an error for all other error conditions for a giv
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-COPYS_R1233</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In GetItem] [The protocol server returns results based on the following conditions:] If the source location URL is in an invalid format, the protocol server MUST report a SOAP exception.&lt;3&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-COPYS_R12332.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R175</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In GetItem] [The protocol server returns results based on the following conditions:] If the source location points to a different server or uses a different HTTP or HTTPS protocol, the protocol server MUST report a SOAP exception.</ns1:Description>
@@ -1488,21 +1505,11 @@ This value is used to indicate an error for all other error conditions for a giv
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R176</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetItem] [The protocol server returns results based on the following conditions:] If the source location does not point to an existing file on the protocol server, the protocol server MUST report a failure by omitting the Fields and Stream elements in the GetItemResponse element (section 3.1.4.1.2.2).</ns1:Description>
+		<ns1:Description>[In GetItem] [The protocol server returns results based on the following conditions:] If the source location does not point to an existing file on the protocol server, the protocol server MUST omit the Fields and Stream elements in the GetItemResponse element (section 3.1.4.1.2.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R1047</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetItem] [The protocol server returns results based on the following conditions:] If the URL parameter is an invalid URI format string, the protocol server SHOULD return a SOAP fault.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-COPYS_R1048.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R177</ns1:REQ_ID>
@@ -1558,16 +1565,6 @@ http://schemas.microsoft.com/sharepoint/soap/GetItem</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R183</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetItemSoapOut] The SOAP action value of the message is defined as:
-http://schemas.microsoft.com/sharepoint/soap/GetItem</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R184</ns1:REQ_ID>
@@ -1889,7 +1886,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetItem</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R217</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItems] If the type is "DateTime", the value MUST be in the format of "yyyy-mm-dd" or "yyyy-mm-dd hh:mm:ss", or in the UTC format.</ns1:Description>
+		<ns1:Description>[In CopyIntoItems] If the type is "DateTime", the value MUST be a UTC value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1943,11 +1940,11 @@ http://schemas.microsoft.com/sharepoint/soap/GetItem</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R224</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItems] If the file cannot be created at the given destination location,  the protocol server MUST report a failure for this destination location by setting the ErrorCode attribute of the corresponding CopyResult element to "Unknown" and provide a string value that describes the error in the ErrorMessage attribute.</ns1:Description>
+		<ns1:Description>[In CopyIntoItems] If the file cannot be created at the given destination location, the protocol server MUST report a failure for this destination location by setting the ErrorCode attribute of the corresponding CopyResult element to "Unknown" and provide a string value that describes the error in the ErrorMessage attribute.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R225</ns1:REQ_ID>
@@ -1979,7 +1976,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetItem</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R228</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItems] Failure to set or update some or all of the fields MUST NOT be treated as a failure to copy the file and MUST be reported as success for the given destination location.&lt;3&gt;</ns1:Description>
+		<ns1:Description>[In CopyIntoItems] Failure to set or update some or all of the fields MUST NOT be treated as a failure to copy the file and MUST be reported as success for the given destination location.&lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2027,16 +2024,6 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 		<ns1:REQ_ID>MS-COPYS_R239</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In CopyIntoItemsSoapOut] The CopyIntoItemsSoapOut message is the response WSDL message for a CopyIntoItems WSDL operation (section 3.1.4.2).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R240</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItemsSoapOut] The SOAP action value of the message is defined as:
-http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2325,7 +2312,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R270</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItemsLocal] If the source [or destination] location does not point to an existing folder [or the protocol client does not have permission to access the source file], the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to "Unknown" for all of the destination locations.</ns1:Description>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location does not point to a existing folder or file, the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to "Unknown" for this destination location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2334,7 +2321,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R271</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItems] If the [source or] destination location does not point to an existing folder [or the protocol client does not have permission to access the source file], the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to "Unknown" for all of the destination locations.</ns1:Description>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location does not point to a existing folder or file, the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to "Unknown" for this destination location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2343,29 +2330,20 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R272</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItems] If [the source or destination location does not point to an existing folder or] the protocol client does not have permission to access the source file, the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to "Unknown" for all of the destination locations.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R273</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItemsLocal] If the source location does not point to an existing file, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "SourceInvalid" for all of the destination locations.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R274</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "SourceInvalid" for all of the destination locations.</ns1:Description>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location points to an existing file, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "SourceInvalid" for this destination location. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-COPYS_R273</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location points to an existing file, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "SourceInvalid" for this destination location. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R275</ns1:REQ_ID>
@@ -2397,11 +2375,12 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R278</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItemsLocal] If the source location and the destination location refer to different protocol servers, [or if the destination location points to a non-existing folder,] the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "DestinationInvalid".</ns1:Description>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location and the destination location refer to different protocol servers, [or if the destination location points to a non-existing folder,] the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "DestinationInvalid".&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-COPYS_R2781.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R279</ns1:REQ_ID>
@@ -2415,12 +2394,12 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R280</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItemsLocal] Unless otherwise specified, the method behavior for the source IRI, content, fields, and destination locations for the CopyItemsIntoLocal operation is the same as the CopyIntoItems operation, as specified in section 3.1.4.2.&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In CopyIntoItemsLocal] Unless otherwise specified, the method behavior for the source IRI, content, fields, and destination locations for the CopyItemsIntoLocal operation is the same as the CopyIntoItems operation, as specified in section 3.1.4.2.&lt;6&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-COPYS_R281, MS-COPYS_R282, MS-COPYS_R285, MS-COPYS_R286, MS-COPYS_R287, MS-COPYS_R289.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-COPYS_R281, MS-COPYS_R282, MS-COPYS_R285, MS-COPYS_R286, MS-COPYS_R287, MS-COPYS_R289, MS-COPYS_R1043, MS-COPYS_R1044.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R281</ns1:REQ_ID>
@@ -2514,16 +2493,6 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 		<ns1:REQ_ID>MS-COPYS_R295</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In CopyIntoItemsLocalSoapOut] The CopyIntoItemsLocalSoapOut message is the response WSDL message for a CopyIntoItemsLocal WSDL operation (section 3.1.4.3).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R296</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItemsLocalSoapOut] The SOAP action value of the message is defined as:
-http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2690,21 +2659,10 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R1041</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In CopyErrorCode] [For CopyIntoItems operation] Implementation does return an ErrorCode of "InvalidUrl" when a destination location is a malformed IRI.(SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-COPYS_R1040:I, MS-COPYS_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R1043</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In CopyErrorCode] [For CopyIntoItemsLocal operation] Implementation does return an ErrorCode of "InvalidUrl" when a destination location is a malformed IRI.(SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-COPYS_R1040:I, MS-COPYS_R1:i</ns1:Derived>
+		<ns1:Derived>MS-COPYS_R280:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2715,7 +2673,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 		<ns1:REQ_ID>MS-COPYS_R1044</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In CopyErrorCode] [For CopyIntoItemsLocal operation] Implementation does return an ErrorCode of "Unknown" when a destination location  is a malformed IRI on Windows SharePoint Services 3.0 and SharePoint Foundation 2010.</ns1:Description>
-		<ns1:Derived>MS-COPYS_R1040:I, MS-COPYS_R1:i</ns1:Derived>
+		<ns1:Derived>MS-COPYS_R280:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2725,7 +2683,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R148</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [For CopyIntoItems operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(SharePoint Foundation 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [For CopyIntoItems operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-COPYS_R146:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2736,7 +2694,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R149</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [For CopyIntoItemsLocation operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(SharePoint Foundation 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [For CopyIntoItemsLocation operation] Implementation [the value of field with internal name _CopySource ] does equal to the value of source location.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-COPYS_R146:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2778,9 +2736,29 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-COPYS_R12311</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does map the LookupMulti field type to the Lookup field type. (Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-COPYS_R1231:i,MS-COPYS_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-COPYS_R12312</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does map the UserMulti field type to the User field type.type. (Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-COPYS_R1232:i,MS-COPYS_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R230</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] CopyIntoItems operation does not copy the EncodedAbsUrl field.(Windows SharePoint Services 3.0 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] CopyIntoItems operation does not copy the EncodedAbsUrl field.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-COPYS_R228:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2791,7 +2769,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R232</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] CopyIntoItemsLocal operation does not copy the EncodedAbsUrl field.(Windows SharePoint Services 3.0 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] CopyIntoItemsLocal operation does not copy the EncodedAbsUrl field.(Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-COPYS_R228:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2800,10 +2778,31 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItemsLocal</ns1:Description
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R1048</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-COPYS_R12331</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP fault if the URL parameter is an invalid URI format string. (Microsoft SharePoint Foundation 2010 and Microsoft SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-COPYS_R1047:i, MS-COPYS_R1:i</ns1:Derived>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP exception if the source location URL is in an invalid format. (&lt;3&gt; Section 3.1.4.1:  Windows SharePoint Services 3.0 does not return a SOAP exception.)</ns1:Description>
+		<ns1:Derived>MS-COPYS_R1233:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-COPYS_R12332</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP exception if the source location URL is in an invalid format. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-COPYS_R1233:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-COPYS_R2781</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return empty results if the source location and the destination location refer to different protocol servers. (&lt;5&gt; Section 3.1.4.3:  The server returns empty results when the source location and the destination location refer to different protocol servers.)</ns1:Description>
+		<ns1:Derived>MS-COPYS_R278:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
