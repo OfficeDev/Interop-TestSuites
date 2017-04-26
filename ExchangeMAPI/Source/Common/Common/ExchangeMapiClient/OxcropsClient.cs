@@ -597,6 +597,7 @@ namespace Microsoft.Protocols.TestSuites.Common
             RopDeserializer.Register(Convert.ToInt32(RopId.RopFastTransferSourceCopyTo), new RopFastTransferSourceCopyToResponse());
             RopDeserializer.Register(Convert.ToInt32(RopId.RopFastTransferSourceGetBuffer), new RopFastTransferSourceGetBufferResponse());
             RopDeserializer.Register(Convert.ToInt32(RopId.RopTellVersion), new RopTellVersionResponse());
+            RopDeserializer.Register(Convert.ToInt32(RopId.RopFastTransferDestinationPutBufferExtended), new RopFastTransferDestinationPutBufferExtendedResponse());
             #endregion
         }
 
@@ -758,6 +759,7 @@ namespace Microsoft.Protocols.TestSuites.Common
             RopDeserializer.Register(Convert.ToInt32(RopId.RopWriteStream), new RopWriteStreamResponse());
             RopDeserializer.Register(Convert.ToInt32(RopId.RopCloneStream), new RopCloneStreamResponse());
             RopDeserializer.Register(Convert.ToInt32(RopId.RopWriteAndCommitStream), new RopWriteAndCommitStreamResponse());
+            RopDeserializer.Register(Convert.ToInt32(RopId.RopWriteStreamExtended), new RopWriteStreamExtendedResponse());
             #endregion
         }
 

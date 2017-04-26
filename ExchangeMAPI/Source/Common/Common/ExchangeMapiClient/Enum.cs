@@ -651,6 +651,16 @@ namespace Microsoft.Protocols.TestSuites.Common
         RopSetLocalReplicaMidsetDeleted = 0x93,
 
         /// <summary>
+        /// Rop RopWriteStreamExtended id
+        /// </summary>
+        RopWriteStreamExtended = 0xA3,
+
+        /// <summary>
+        /// Rop RopFastTransferDestinationPutBufferExtended id
+        /// </summary>
+        RopFastTransferDestinationPutBufferExtended = 0x9D,
+
+        /// <summary>
         /// Rop Backoff id
         /// </summary>
         RopBackoff = 0xF9,
