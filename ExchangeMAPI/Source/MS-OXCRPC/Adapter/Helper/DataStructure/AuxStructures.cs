@@ -1079,14 +1079,4 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
         /// </summary>
         public byte[] Payload;
     }
-    /// <summary>
-    /// The structure of AUX_SERVER_CAPABILITIES.
-    /// </summary>
-    public struct AUX_SERVER_CAPABILITIES
-    {
-        /// <summary>
-        /// A flag that indicates that the server supports specific capabilities.
-        /// </summary>
-        public uint ServerCapabilityFlags;
-    }
 }
