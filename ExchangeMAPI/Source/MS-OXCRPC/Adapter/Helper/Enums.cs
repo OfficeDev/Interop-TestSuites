@@ -326,7 +326,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
         /// <summary>
         /// Structure AUX_CLIENT_CONNECTION_INFO.
         /// </summary>
-        AUX_CLIENT_CONNECTION_INFO = 0x4A
+        AUX_CLIENT_CONNECTION_INFO = 0x4A,
+
+        /// <summary>
+        /// Structure AUX_TYPE_SERVER_CAPABILITIES.
+        /// </summary>
+        AUX_TYPE_SERVER_CAPABILITIES = 0x46
     }
 
     /// <summary>
