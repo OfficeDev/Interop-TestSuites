@@ -14402,7 +14402,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 
         #region RopWriteStreamExtended
         /// <summary>
-        /// Verify RopWriteStream Response
+        /// Verify RopWriteStreamExtended Response
         /// </summary>
         /// <param name="ropWriteStreamExtendedResponse">The response of RopWriteStreamExtened request</param>
         /// <param name="inputHandleIndex">The field of InputHandleIndex in RopWriteStream request</param>
