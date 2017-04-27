@@ -696,7 +696,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1851</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In AUX_HEADER Structure]  [Type (1 byte)] When the Version field is AUX_VERSION_1 and the type value is "AUX_PROTOCOL_DEVICE_IDENTIFICATION 0x4E", means "AUX_PROTOCOL_DEVICE_IDENTIFICATION " structure will follow the AUX_HEADER.</ns1:Description>
+		<ns1:Description>[In AUX_HEADER Structure] [Type (1 byte)] When the Version field is AUX_VERSION_1 and the type value is "AUX_PROTOCOL_DEVICE_IDENTIFICATION 0x4E", means "AUX_PROTOCOL_DEVICE_IDENTIFICATION " structure will follow the AUX_HEADER.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8185,16 +8185,16 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] As mentioned in section 3.1.4.2.1.1.1, the rgbIn parameter of the EcDoRpcExt2 method, as specified in section 3.1.4.2, can contain more than one extended buffer, each with an RPC_HEADER_EXT structure, as specified in section 2.2.2.1. </ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] As mentioned in section 3.1.4.2.1.1.1, the rgbIn parameter of the EcDoRpcExt2 method, as specified in section 3.1.4.2, can contain more than one extended buffer, each with an RPC_HEADER_EXT structure, as specified in section 2.2.2.1. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649002</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] This concept is called packing. </ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] This concept is called packing. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8203,7 +8203,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649003</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] The client has the ability to pack additional request data into the rgbIn parameter based on whether the server has indicated it supports packing through the presence of flag PACKED_FAST_TRANSFER_UPLOAD_BUFFERS in the ServerCapabilityFlags field of the  AUX_SERVER_CAPABILITIES auxiliary buffer, as specified in section 2.2.2.2.19, returned in the rgbAuxOut parameter of the EcDoConnectEx method, as specified in section 3.1.4.1.1.1.2. </ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] The client has the ability to pack additional request data into the rgbIn parameter based on whether the server has indicated it supports packing through the presence of flag PACKED_FAST_TRANSFER_UPLOAD_BUFFERS in the ServerCapabilityFlags field of the  AUX_SERVER_CAPABILITIES auxiliary buffer, as specified in section 2.2.2.2.19, returned in the rgbAuxOut parameter of the EcDoConnectEx method, as specified in section 3.1.4.1.1.1.2. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8212,7 +8212,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649004</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] The client has the ability to pack additional request data into the rgbIn parameter based on whether the server has indicated it supports packing through the presence of flag PACKED_WRITE_STREAM_UPLOAD_BUFFERS in the ServerCapabilityFlags field of the  AUX_SERVER_CAPABILITIES auxiliary buffer, as specified in section 2.2.2.2.19, returned in the rgbAuxOut parameter of the EcDoConnectEx method, as specified in section 3.1.4.1.1.1.2. </ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] The client has the ability to pack additional request data into the rgbIn parameter based on whether the server has indicated it supports packing through the presence of flag PACKED_WRITE_STREAM_UPLOAD_BUFFERS in the ServerCapabilityFlags field of the  AUX_SERVER_CAPABILITIES auxiliary buffer, as specified in section 2.2.2.2.19, returned in the rgbAuxOut parameter of the EcDoConnectEx method, as specified in section 3.1.4.1.1.1.2. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8221,7 +8221,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649005</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] The ROP commands that support packing are the RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4) if PACKED_WRITE_STREAM_UPLOAD_BUFFERS is indicated as a server capability, </ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] The ROP commands that support packing are the RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4) if PACKED_WRITE_STREAM_UPLOAD_BUFFERS is indicated as a server capability, </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8230,7 +8230,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649006</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] The ROP commands that support packing are the RopFastTransferDestinationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2) and RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) if PACKED_FAST_TRANSFER_UPLOAD_BUFFERS is indicated.</ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] The ROP commands that support packing are the RopFastTransferDestinationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2) and RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) if PACKED_FAST_TRANSFER_UPLOAD_BUFFERS is indicated.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8239,7 +8239,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649007</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] Each extended buffer MUST NOT contain more than 32 KB worth of request data for all ROP requests.</ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] Each extended buffer MUST NOT contain more than 32 KB worth of request data for all ROP requests.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8248,7 +8248,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649008</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] When processing ROP requests, the server MUST only allow a single RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4), a single RopFastTransferDestinationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2), or a single RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) to be present in each subsequent packed extended buffers where the last ROP in the first extended buffer of the input buffer is a corresponding RopWriteStreamExtended ROP, RopFastTransferDestinationPutBuffer ROP, or RopFastTransferDestinationPutBufferExtended ROP.</ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] When processing ROP requests, the server MUST only allow a single RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4), a single RopFastTransferDestinationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2), or a single RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) to be present in each subsequent packed extended buffers where the last ROP in the first extended buffer of the input buffer is a corresponding RopWriteStreamExtended ROP, RopFastTransferDestinationPutBuffer ROP, or RopFastTransferDestinationPutBufferExtended ROP.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8257,7 +8257,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649009</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer]The server MUST aggregate all packed request data into a single combined RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4), RopFastTransferDestinationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2) or RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) request and process it as though it was sent as the last ROP of the first extended buffer in the rgbIn parameter.</ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer]The server MUST aggregate all packed request data into a single combined RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4), RopFastTransferDestinationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2) or RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) request and process it as though it was sent as the last ROP of the first extended buffer in the rgbIn parameter.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8266,7 +8266,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649010</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] The result of the aggregated ROP request MUST be returned in the first extended buffer in the rgbOut parameter of the EcDoRpcExt2 method, as specified in section 3.1.4.2.</ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] The result of the aggregated ROP request MUST be returned in the first extended buffer in the rgbOut parameter of the EcDoRpcExt2 method, as specified in section 3.1.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8275,7 +8275,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649011</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] For the RopWriteStreamExtended ROP, the server MUST return in the WrittenSize field of the RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4) response the combined amount of data written to the stream across all of the packed RopWriteStreamExtended ROP request operations.</ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] For the RopWriteStreamExtended ROP, the server MUST return in the WrittenSize field of the RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4) response the combined amount of data written to the stream across all of the packed RopWriteStreamExtended ROP request operations.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8284,7 +8284,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649012</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] For the RopFastTransferDestinationPutBuffer ROP, the server MUST return in the BufferUsedSize field of the RopFastTransferDesintationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2) response the amount of the buffer used in the last RopFastTransferDestinationPutBuffer ROP in the packed extended buffers.</ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] For the RopFastTransferDestinationPutBuffer ROP, the server MUST return in the BufferUsedSize field of the RopFastTransferDesintationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2) response the amount of the buffer used in the last RopFastTransferDestinationPutBuffer ROP in the packed extended buffers.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8293,7 +8293,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1649013</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In  rgbIn Input Buffer] For the RopFastTransferDestinationPutBufferExtended ROP, the server MUST return in the BufferUsedSize field of the RopFastTransferDesintationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) response the amount of the buffer used in the last RopFastTransferDestinationPutBufferExtended ROP in the packed extended buffers.</ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] For the RopFastTransferDestinationPutBufferExtended ROP, the server MUST return in the BufferUsedSize field of the RopFastTransferDesintationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) response the amount of the buffer used in the last RopFastTransferDestinationPutBufferExtended ROP in the packed extended buffers.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
