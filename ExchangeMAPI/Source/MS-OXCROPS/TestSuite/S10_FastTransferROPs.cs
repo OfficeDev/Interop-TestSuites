@@ -1103,7 +1103,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
 
             // Set to a marker value (StartTopFld) refer to the table in MS-OXCFXICS.
             byte[] transferData = { 0x03, 0x00, 0x09, 0x40 };
-            fastTransferDestinationPutBufferExtendedRequest.RopId = (byte)RopId.RopFastTransferDestinationPutBuffer;
+            fastTransferDestinationPutBufferExtendedRequest.RopId = (byte)RopId.RopFastTransferDestinationPutBufferExtended;
             fastTransferDestinationPutBufferExtendedRequest.LogonId = TestSuiteBase.LogonId;
             fastTransferDestinationPutBufferExtendedRequest.InputHandleIndex = TestSuiteBase.InputHandleIndex0;
             fastTransferDestinationPutBufferExtendedRequest.TransferDataSize = (ushort)transferData.Length;
