@@ -397,7 +397,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             Site.CaptureRequirementIfIsTrue(
                 headerCount <= 96,
                 969,
-                @"[In Extended Buffer Packing] The server MUST NOT place more than 96 individual payloads into a single rgbOut parameter response.");
+                @"[In rgbOut Output Buffer] The server MUST NOT place more than 96 individual payloads into a single rgbOut parameter response.");
 
             // headerCount > 1 means that additional data exists
             if (headerCount > 1)
@@ -416,7 +416,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 // Because each RPC_HEADER_EXT is tested in the VerifyRPCHeaderExt, if the code can arrive here, it means that each buffer contains an RPC_HEADER_EXT.
                 Site.CaptureRequirement(
                     965,
-                    @"[In Extended Buffer Packing] The additional ROP response is placed into the rgbOut parameter buffer following the previous header and associated payload with its own RPC_HEADER_EXT structure.");
+                    @"[In rgbOut Output Buffer] The additional ROP response is placed into the rgbOut parameter buffer following the previous header and associated payload with its own RPC_HEADER_EXT structure.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R777");
@@ -517,7 +517,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             bool isAuxOsVersionInFo = false;
             bool isAuxEndpointCapabilitiesExist = false;
 
-            foreach (AUX_SERVER_TOPOLOGY_STRUCTURE rgbAuxOut1 in rgbAuxOutValue)
+                 foreach (AUX_SERVER_TOPOLOGY_STRUCTURE rgbAuxOut1 in rgbAuxOutValue)
             {
                 if (rgbAuxOut1.Header.Version == 0x01)
                 {
@@ -526,6 +526,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                         rgbAuxOut1.Header.Type == 0x48 ||
                         rgbAuxOut1.Header.Type == 0x17 ||
                         rgbAuxOut1.Header.Type == 0x16 ||
+                        rgbAuxOut1.Header.Type == 0x46 ||
                         rgbAuxOut1.Header.Type == 0x0A)
                     {
                         // Add the debug information
@@ -536,7 +537,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                         // So R55 will be verified if the version of AUX_HEADER is 0x01 and the type of AUX_HEADER is one of the specific values.
                         Site.CaptureRequirement(
                             55,
-                            @"[In AUX_HEADER Structure] [Type (1 byte)] The block type names, associated Type field values, and the corresponding auxiliary block structure that follows the AUX_HEADER structure when the Version field is AUX_VERSION_1 are listed in the following table [The types are: AUX_TYPE_PERF_REQUESTID 0x01, AUX_TYPE_PERF_CLIENTDINFO 0x02, AUX_TYPE_PERF_SERVERINFO 0x03, AUX_TYPE_PERF_SESSIONINFO 0x04, AUX_TYPE_PERF_DEFMDB_SUCCESS 0x05, AUX_TYPE_PERF_DEFGC_SUCCESS 0x06, AUX_TYPE_PERF_MDB_SUCCESS 0x07, AUX_TYPE_PERF_GC_SUCCESS 0x08, AUX_TYPE_PERF_FAILURE 0x09, AUX_TYPE_CLIENT_CONTROL 0x0A, AUX_TYPE_PERF_PROCESSINFO 0x0B, AUX_TYPE_PERF_BG_DEFMDB_SUCCESS 0x0C, AUX_TYPE_PERF_BG_DEFGC_SUCCESS 0x0D, AUX_TYPE_PERF_BG_MDB_SUCCESS 0x0E, AUX_TYPE_PERF_BG_GC_SUCCESS 0x0F, AUX_TYPE_PERF_BG_FAILURE 0x10, AUX_TYPE_PERF_FG_DEFMDB_SUCCESS 0x11, AUX_TYPE_PERF_FG_DEFGC_SUCCESS 0x12, AUX_TYPE_PERF_FG_MDB_SUCCESS 0x13, AUX_TYPE_PERF_FG_GC_SUCCESS 0x14, AUX_TYPE_PERF_FG_FAILURE 0x15, AUX_TYPE_OSVERSIONINFO 0x16, AUX_TYPE_EXORGINO 0x17, AUX_TYPE_PERF_ACCOUNTINFO 0x18, AUX_TYPE_ENDPOINT_CAPABILITIES 0x48, AUX_CLIENT_CONNECTION_INFO 0x4A, AUX_SERVER_SESSION_INFO 0X4B, AUX_PROTOCOL_DEVICE_IDENTIFICATION 0X4E].");
+                            @"[In AUX_HEADER Structure] [Type (1 byte)] The block type names, associated Type field values, and the corresponding auxiliary block structure that follows the AUX_HEADER structure when the Version field is AUX_VERSION_1 are listed in the following table [The types are: AUX_TYPE_PERF_REQUESTID 0x01, AUX_TYPE_PERF_CLIENTDINFO 0x02, AUX_TYPE_PERF_SERVERINFO 0x03, AUX_TYPE_PERF_SESSIONINFO 0x04, AUX_TYPE_PERF_DEFMDB_SUCCESS 0x05, AUX_TYPE_PERF_DEFGC_SUCCESS 0x06, AUX_TYPE_PERF_MDB_SUCCESS 0x07, AUX_TYPE_PERF_GC_SUCCESS 0x08, AUX_TYPE_PERF_FAILURE 0x09, AUX_TYPE_CLIENT_CONTROL 0x0A, AUX_TYPE_PERF_PROCESSINFO 0x0B, AUX_TYPE_PERF_BG_DEFMDB_SUCCESS 0x0C, AUX_TYPE_PERF_BG_DEFGC_SUCCESS 0x0D, AUX_TYPE_PERF_BG_MDB_SUCCESS 0x0E, AUX_TYPE_PERF_BG_GC_SUCCESS 0x0F, AUX_TYPE_PERF_BG_FAILURE 0x10, AUX_TYPE_PERF_FG_DEFMDB_SUCCESS 0x11, AUX_TYPE_PERF_FG_DEFGC_SUCCESS 0x12, AUX_TYPE_PERF_FG_MDB_SUCCESS 0x13, AUX_TYPE_PERF_FG_GC_SUCCESS 0x14, AUX_TYPE_PERF_FG_FAILURE 0x15, AUX_TYPE_OSVERSIONINFO 0x16, AUX_TYPE_EXORGINO 0x17, AUX_TYPE_PERF_ACCOUNTINFO 0x18, AUX_TYPE_SERVER_CAPABILITIES 0x46, AUX_TYPE_ENDPOINT_CAPABILITIES 0x48, AUX_CLIENT_CONNECTION_INFO 0x4A, AUX_SERVER_SESSION_INFO 0X4B, AUX_PROTOCOL_DEVICE_IDENTIFICATION 0X4E].");
                     }
                 }
 
@@ -600,6 +601,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                         isAuxOsVersionInFo,
                         1438,
                         @"[In Appendix B: Product Behavior] Implementation doesn't support sending the AUX_OSVERSIONINFO block. <16> Section 3.1.4.1.2.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support sending the AUX_OSVERSIONINFO block.");
+                }
+
+                // Check whether block AUX_TYPE_SERVER_CAPABILITIES exists in the rgbAuxOut
+                // According to the Open Specification, version 0x01 and type 0x46 indicate that block AUX_TYPE_SERVER_CAPABILITIES exists in rgbAuxOut payload.
+                if (rgbAuxOut1.Header.Version == 0x01 && rgbAuxOut1.Header.Type == 0x46)
+                {
+                    
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R1521");
+
+                    // Verify MS-OXCRPC requirement: MS-OXCRPC_R291004
+                    Site.CaptureRequirementIfAreEqual<int>(
+                        0x0001,
+                        BitConverter.ToInt32(rgbAuxOut1.Payload, 0) & 0x0001,
+                        291004,
+                        @"[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The value of Flag PACKED_FAST_TRANSFER_UPLOAD_BUFFERS is 0x00000001.");
+
+                    // Verify MS-OXCRPC requirement: MS-OXCRPC_R291007
+                    Site.CaptureRequirementIfAreEqual<int>(
+                        0x0002,
+                        BitConverter.ToInt32(rgbAuxOut1.Payload, 0) & 0x0002,
+                        291007,
+                        @"[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The value of Flag PACKED_WRITE_STREAM_UPLOAD_BUFFERS is 0x00000002.");
+
                 }
 
                 // Check whether block AUX_ENDPOINT_CAPABILITIES exists in the rgbAuxOut
@@ -816,7 +841,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 Site.CaptureRequirementIfIsTrue(
                     isDeserialized,
                     967,
-                    @"[In Extended Buffer Packing] If there is still more residual room remains in the rgbOut parameter, the server can continue to produce more response data until the rgbOut parameter does not have enough room to hold another response.");
+                    @"[In rgbOut Output Buffer] If there is still more residual room remains in the rgbOut parameter, the server can continue to produce more response data until the rgbOut parameter does not have enough room to hold another response.");
             }
         }
 
@@ -844,7 +869,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 Site.CaptureRequirementIfIsTrue(
                     payloadArray[i].Length <= 32768,
                     961,
-                    @"[In Extended Buffer Packing] When processing ROP requests, the server MUST NOT produce more than 32 KB worth of response data for all ROP requests.");
+                    @"[In rgbOut Output Buffer] When processing ROP requests, the server MUST NOT produce more than 32 KB worth of response data for all ROP requests.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R964, the length of payloadArray is: {0}", payloadArray[i].Length);
@@ -854,7 +879,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 Site.CaptureRequirementIfIsTrue(
                     payloadArray[i].Length <= 32768,
                     964,
-                    @"[In Extended Buffer Packing]The additional response data is also limited to 32 KB in size.");
+                    @"[In rgbOut Output Buffer] The additional response data is also limited to 32 KB in size.");
             }
         }
 

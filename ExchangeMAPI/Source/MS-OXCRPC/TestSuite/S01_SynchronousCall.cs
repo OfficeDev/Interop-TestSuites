@@ -1676,7 +1676,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             Site.CaptureRequirementIfIsTrue(
                 readStreamResponse.DataSize <= ConstValues.RequestedByteCount,
                 972,
-                @"[In Extended Buffer Packing]The server MUST NOT return more data to the client than the client originally requested.");
+                @"[In rgbOut Output Buffer] The server MUST NOT return more data to the client than the client originally requested.");
 
             #endregion
 
@@ -4527,7 +4527,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             Site.CaptureRequirementIfIsTrue(
                 payloadCount > 1,
                 962,
-                @"[In Extended Buffer Packing] However, when the server finishes processing a RopQueryRows ROP ([MS-OXCROPS] section 2.2.5.4), RopReadStream ROP ([MS-OXCROPS] section 2.2.9.2), or RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.3) from the rgbIn request buffer and it [actual ROP request] was the last ROP command in the request and the client has requested packing through the Chain flag and there is residual room in the rgbOut response buffer, the server can add additional data to the rgbOut parameter response, each with its own RPC_HEADER_EXT header.");
+                @"[In rgbOut Output Buffer] However, when the server finishes processing a RopQueryRows ROP ([MS-OXCROPS] section 2.2.5.4), RopReadStream ROP ([MS-OXCROPS] section 2.2.9.2), or RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.3) from the rgbIn request buffer and it [actual ROP request] was the last ROP command in the request and the client has requested packing through the Chain flag and there is residual room in the rgbOut response buffer, the server can add additional data to the rgbOut parameter response, each with its own RPC_HEADER_EXT header.");
         }
 
         /// <summary>

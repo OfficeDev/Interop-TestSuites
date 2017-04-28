@@ -440,7 +440,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R55</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In AUX_HEADER Structure] [Type (1 byte)] The block type names, associated Type field values, and the corresponding auxiliary block structure that follows the AUX_HEADER structure when the Version field is AUX_VERSION_1 are listed in the following table [The types are: AUX_TYPE_PERF_REQUESTID 0x01, AUX_TYPE_PERF_CLIENTDINFO 0x02, AUX_TYPE_PERF_SERVERINFO 0x03, AUX_TYPE_PERF_SESSIONINFO 0x04, AUX_TYPE_PERF_DEFMDB_SUCCESS 0x05, AUX_TYPE_PERF_DEFGC_SUCCESS 0x06, AUX_TYPE_PERF_MDB_SUCCESS 0x07, AUX_TYPE_PERF_GC_SUCCESS 0x08, AUX_TYPE_PERF_FAILURE 0x09, AUX_TYPE_CLIENT_CONTROL 0x0A, AUX_TYPE_PERF_PROCESSINFO 0x0B, AUX_TYPE_PERF_BG_DEFMDB_SUCCESS 0x0C, AUX_TYPE_PERF_BG_DEFGC_SUCCESS 0x0D, AUX_TYPE_PERF_BG_MDB_SUCCESS 0x0E, AUX_TYPE_PERF_BG_GC_SUCCESS 0x0F, AUX_TYPE_PERF_BG_FAILURE 0x10, AUX_TYPE_PERF_FG_DEFMDB_SUCCESS 0x11, AUX_TYPE_PERF_FG_DEFGC_SUCCESS 0x12, AUX_TYPE_PERF_FG_MDB_SUCCESS 0x13, AUX_TYPE_PERF_FG_GC_SUCCESS 0x14, AUX_TYPE_PERF_FG_FAILURE 0x15, AUX_TYPE_OSVERSIONINFO 0x16, AUX_TYPE_EXORGINO 0x17, AUX_TYPE_PERF_ACCOUNTINFO 0x18, AUX_TYPE_ENDPOINT_CAPABILITIES 0x48, AUX_CLIENT_CONNECTION_INFO 0x4A, AUX_SERVER_SESSION_INFO 0X4B, AUX_PROTOCOL_DEVICE_IDENTIFICATION 0X4E].</ns1:Description>
+		<ns1:Description>[In AUX_HEADER Structure] [Type (1 byte)] The block type names, associated Type field values, and the corresponding auxiliary block structure that follows the AUX_HEADER structure when the Version field is AUX_VERSION_1 are listed in the following table [The types are: AUX_TYPE_PERF_REQUESTID 0x01, AUX_TYPE_PERF_CLIENTDINFO 0x02, AUX_TYPE_PERF_SERVERINFO 0x03, AUX_TYPE_PERF_SESSIONINFO 0x04, AUX_TYPE_PERF_DEFMDB_SUCCESS 0x05, AUX_TYPE_PERF_DEFGC_SUCCESS 0x06, AUX_TYPE_PERF_MDB_SUCCESS 0x07, AUX_TYPE_PERF_GC_SUCCESS 0x08, AUX_TYPE_PERF_FAILURE 0x09, AUX_TYPE_CLIENT_CONTROL 0x0A, AUX_TYPE_PERF_PROCESSINFO 0x0B, AUX_TYPE_PERF_BG_DEFMDB_SUCCESS 0x0C, AUX_TYPE_PERF_BG_DEFGC_SUCCESS 0x0D, AUX_TYPE_PERF_BG_MDB_SUCCESS 0x0E, AUX_TYPE_PERF_BG_GC_SUCCESS 0x0F, AUX_TYPE_PERF_BG_FAILURE 0x10, AUX_TYPE_PERF_FG_DEFMDB_SUCCESS 0x11, AUX_TYPE_PERF_FG_DEFGC_SUCCESS 0x12, AUX_TYPE_PERF_FG_MDB_SUCCESS 0x13, AUX_TYPE_PERF_FG_GC_SUCCESS 0x14, AUX_TYPE_PERF_FG_FAILURE 0x15, AUX_TYPE_OSVERSIONINFO 0x16, AUX_TYPE_EXORGINO 0x17, AUX_TYPE_PERF_ACCOUNTINFO 0x18, AUX_TYPE_SERVER_CAPABILITIES 0x46, AUX_TYPE_ENDPOINT_CAPABILITIES 0x48, AUX_CLIENT_CONNECTION_INFO 0x4A, AUX_SERVER_SESSION_INFO 0X4B, AUX_PROTOCOL_DEVICE_IDENTIFICATION 0X4E].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -663,6 +663,16 @@
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1350001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_HEADER Structure] [Type (1 byte)] When the Version field is AUX_VERSION_1 and the type value is "AUX_TYPE_SERVER_CAPABILITIES0x46", means "AUX_TYPE_SERVER_CAPABILITIES" structure will follow the AUX_HEADER.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requrements: MS-OXCRPC_R291004, MS-OXCRPC_R291007, MS-OXCRPC_R291009.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1518</ns1:REQ_ID>
@@ -2526,7 +2536,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R291004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
-		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The value of Flang PACKED_FAST_TRANSFER_UPLOAD_BUFFERS is 0x00000001.</ns1:Description>
+		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The value of Flag PACKED_FAST_TRANSFER_UPLOAD_BUFFERS is 0x00000001.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
