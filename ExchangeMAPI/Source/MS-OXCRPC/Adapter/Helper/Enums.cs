@@ -152,6 +152,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
         RopWriteStream,
 
         /// <summary>
+        /// This ROP writes bytes to a stream.
+        /// </summary>
+        RopWriteStreamExtended,
+
+        /// <summary>
         /// This ROP commits stream operations.
         /// </summary>
         RopCommitStream,
@@ -200,6 +205,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
         /// This ROP retrieves a stream of data from a fast transfer source object.
         /// </summary>
         RopFastTransferSourceGetBuffer,
+
+        /// <summary>
+        /// This ROP initializes a FastTransfer operation for uploading content encoded in a client-provided FastTransfer stream into a mailbox.
+        /// </summary>
+        RopFastTransferDestinationConfigure,
+
+        /// <summary>
+        /// This ROP uploads the next portion of an input FastTransfer stream for a previously configured FastTransfer upload operation.
+        /// </summary>
+        RopFastTransferDestinationPutBuffer,
+
+        /// <summary>
+        /// This ROP uploads the next portion of an input FastTransfer stream for a previously configured FastTransfer upload operation.
+        /// </summary>
+        RopFastTransferDestinationPutBufferExtended,
 
         /// <summary>
         /// This ROP sets the properties visible on a table.
