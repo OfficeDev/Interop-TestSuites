@@ -3667,6 +3667,474 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             Site.Assert.AreEqual<uint>(0, this.returnValue, "Call EcDoDisconnect method should succeed with a valid CXH and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
             #endregion
         }
+
+        /// <summary>
+        /// This case tests calling RopWriteStreamExtended in ExDoRpcExt.
+        /// </summary>
+        [TestCategory("MSOXCRPC"), TestMethod()]
+        public void MSOXCRPC_S01_TC20_TestRopWriteStreamExtended()
+        {
+            this.CheckTransport();
+
+            #region Client connects with Server
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.returnValue = this.oxcrpcAdapter.EcDoConnectEx(
+                ref this.pcxh,
+                TestSuiteBase.UlIcxrLinkForNoSessionLink,
+                ref this.pulTimeStamp,
+                null,
+                this.userDN,
+                ref this.pcbAuxOut,
+                this.rgwClientVersion,
+                out this.rgwBestVersion,
+                out this.picxr);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoConnectEx should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            #endregion
+
+            #region Logon to mailbox
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopLogon, this.unusedInfo, this.userPrivilege);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoCompression | PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            RopLogonResponse logonResponse = (RopLogonResponse)this.response;
+            Site.Assert.AreEqual<uint>(0, logonResponse.ReturnValue, "RopLogon should succeed and '0' is expected to be returned. The returned value is {0}.", logonResponse.ReturnValue);
+            this.objHandle = this.responseSOHTable[TestSuiteBase.FIRST][logonResponse.OutputHandleIndex];
+            #endregion
+
+            #region RopCreateMessage
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopCreateMessage, this.objHandle, logonResponse.FolderIds[(int)FolderIds.Inbox]);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.responseSOHTable = new List<List<uint>>();
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoCompression | PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+
+            RopCreateMessageResponse createMessageResponse = (RopCreateMessageResponse)this.response;
+            Site.Assert.AreEqual<uint>(0x00000000, createMessageResponse.ReturnValue, "RopCreateMessage should succeed, the ReturnValue of its response is expected to be 0(success). The returned value is {0}.", createMessageResponse.ReturnValue);
+            uint messageHandle = this.responseSOHTable[TestSuiteBase.FIRST][createMessageResponse.OutputHandleIndex];
+            #endregion
+
+            #region RopOpenStream
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopOpenStream, messageHandle, TestSuiteBase.OpenModeFlags);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.responseSOHTable = new List<List<uint>>();
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoCompression | PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+
+            RopOpenStreamResponse openStreamResponse = (RopOpenStreamResponse)this.response;
+            Site.Assert.AreEqual<uint>(0x00000000, openStreamResponse.ReturnValue, "RopOpenStream should succeed, the ReturnValue of its response is expected to be 0(success). The returned value is {0}.", openStreamResponse.ReturnValue);
+            this.objHandle = this.responseSOHTable[TestSuiteBase.FIRST][openStreamResponse.OutputHandleIndex];
+            #endregion
+
+            #region RopWriteStreamExtended
+            RopWriteStreamExtendedResponse writeStreamExtendedResponse;
+            for (int i = 0; i < int.Parse(Common.GetConfigurationPropertyValue("WriteStreamCount", this.Site)); i++)
+            {
+                // Parameter auxInfo is no use for RopWriteStream command, so set it to unUsedInfo
+                this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopWriteStreamExtended, this.objHandle, this.unusedInfo);
+                this.pcbOut = ConstValues.ValidpcbOut;
+                this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+                this.responseSOHTable = new List<List<uint>>();
+
+                this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                    ref this.pcxh,
+                    PulFlags.NoCompression | PulFlags.NoXorMagic,
+                    this.rgbIn,
+                    ref this.pcbOut,
+                    null,
+                    ref this.pcbAuxOut,
+                    out this.response,
+                    ref this.responseSOHTable);
+
+                Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+
+                writeStreamExtendedResponse = (RopWriteStreamExtendedResponse)this.response;
+                Site.Assert.AreEqual<uint>(0x00000000, writeStreamExtendedResponse.ReturnValue, "RopWriteStream should succeed, the ReturnValue of its response is expected to be 0(success). The returned value is {0}.", writeStreamExtendedResponse.ReturnValue);
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R1649011");
+
+                // Verify MS-OXCRPC requirement: MS-OXCRPC_R1649011
+                Site.CaptureRequirementIfIsTrue(
+                    writeStreamExtendedResponse.WrittenSize > 0,
+                    1649011,
+                    @"[In rgbIn Input Buffer] For the RopWriteStreamExtended ROP, the server MUST return in the WrittenSize field of the RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4) response the combined amount of data written to the stream across all of the packed RopWriteStreamExtended ROP request operations.");
+            }
+            #endregion
+
+            #region RopCommitStream
+            // Parameter auxInfo is no use for RopCommitStream command, so set it to unUsedInfo
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopCommitStream, this.objHandle, this.unusedInfo);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.responseSOHTable = new List<List<uint>>();
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoCompression | PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+
+            RopCommitStreamResponse commitStreamResponse = (RopCommitStreamResponse)this.response;
+            Site.Assert.AreEqual<uint>(0x00000000, commitStreamResponse.ReturnValue, "RopCommitStream should succeed, the ReturnValue of its response is expected to be 0(success). The returned value is {0}.", commitStreamResponse.ReturnValue);
+            #endregion
+
+            #region Client disconnects with Server
+            this.returnValue = this.oxcrpcAdapter.EcDoDisconnect(ref this.pcxh);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoDisconnect should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            #endregion
+        }
+
+        /// <summary>
+        /// This case tests calling RopFastTransferDestinationPutBuffer in ExDoRpcExt.
+        /// </summary>
+        [TestCategory("MSOXCRPC"), TestMethod()]
+        public void MSOXCRPC_S01_TC21_TestRopFastTransferDestinationPutBuffer()
+        {
+            this.CheckTransport();
+
+            #region Client connects with Server
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.returnValue = this.oxcrpcAdapter.EcDoConnectEx(
+                ref this.pcxh,
+                TestSuiteBase.UlIcxrLinkForNoSessionLink,
+                ref this.pulTimeStamp,
+                null,
+                this.userDN,
+                ref this.pcbAuxOut,
+                this.rgwClientVersion,
+                out this.rgwBestVersion,
+                out this.picxr);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoConnectEx should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            #endregion
+
+            #region Logon to mailbox
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopLogon, this.unusedInfo, this.userPrivilege);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoCompression | PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            RopLogonResponse logonResponse = (RopLogonResponse)this.response;
+            Site.Assert.AreEqual<uint>(0, logonResponse.ReturnValue, "RopLogon should succeed and '0' is expected to be returned. The returned value is {0}.", logonResponse.ReturnValue);
+            this.objHandle = this.responseSOHTable[TestSuiteBase.FIRST][logonResponse.OutputHandleIndex];
+            #endregion
+
+            #region OpenFolder
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopOpenFolder, this.objHandle, logonResponse.FolderIds[(int)FolderIds.Inbox]);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.responseSOHTable = new List<List<uint>>();
+            uint payloadCount = 0;
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.rgbOut,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable,
+                out payloadCount,
+                ref this.rgbAuxOut);
+
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            RopOpenFolderResponse openFolderResponse = (RopOpenFolderResponse)this.response;
+            Site.Assert.AreEqual<uint>(0, openFolderResponse.ReturnValue, "RopOpenFolder should succeed and '0' is expected to be returned. The returned value is {0}.", openFolderResponse.ReturnValue);
+            this.objHandle = this.responseSOHTable[TestSuiteBase.FIRST][openFolderResponse.OutputHandleIndex];
+            #endregion
+
+            #region Create Subfolder
+            // Create subFolder.
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopCreateFolder, this.objHandle, 0);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.responseSOHTable = new List<List<uint>>();
+            payloadCount = 0;
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.rgbOut,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable,
+                out payloadCount,
+                ref this.rgbAuxOut);
+
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            RopCreateFolderResponse createFolderResponse = (RopCreateFolderResponse)this.response;
+            Site.Assert.AreEqual<uint>(0, createFolderResponse.ReturnValue, "RopCreateFolder should succeed and '0' is expected to be returned. The returned value is {0}.", createFolderResponse.ReturnValue);
+            this.objHandle = this.responseSOHTable[TestSuiteBase.FIRST][openFolderResponse.OutputHandleIndex];
+            #endregion
+
+            #region Call RopFastTransferDestinationConfigure
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopFastTransferDestinationConfigure, this.objHandle, this.unusedInfo);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.responseSOHTable = new List<List<uint>>();
+   
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.rgbOut,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable,
+                out payloadCount,
+                ref this.rgbAuxOut);
+
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            RopFastTransferDestinationConfigureResponse fastTransferDestinationConfigureResponse = (RopFastTransferDestinationConfigureResponse)this.response;
+            Site.Assert.AreEqual<uint>(0, fastTransferDestinationConfigureResponse.ReturnValue, "RopFastTransferDestinationConfigure should succeed and '0' is expected to be returned. The returned value is {0}.", fastTransferDestinationConfigureResponse.ReturnValue);
+            this.objHandle = this.responseSOHTable[TestSuiteBase.FIRST][fastTransferDestinationConfigureResponse.OutputHandleIndex];
+            #endregion
+
+            #region Call RopFastTransferDestinationPutBuffer
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopFastTransferDestinationPutBuffer, this.objHandle, this.unusedInfo);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.responseSOHTable = new List<List<uint>>();
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+               ref this.pcxh,
+               PulFlags.NoXorMagic,
+               this.rgbIn,
+               ref this.rgbOut,
+               ref this.pcbOut,
+               null,
+               ref this.pcbAuxOut,
+               out this.response,
+               ref this.responseSOHTable,
+               out payloadCount,
+               ref this.rgbAuxOut);
+
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            RopFastTransferDestinationPutBufferResponse fastTransferDestinationPutBufferResponse = (RopFastTransferDestinationPutBufferResponse)this.response;
+            Site.Assert.AreEqual<uint>(0, fastTransferDestinationPutBufferResponse.ReturnValue, "RopFastTransferDestinationPutBuffer should succeed and '0' is expected to be returned. The returned value is {0}.", fastTransferDestinationPutBufferResponse.ReturnValue);
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R1649012");
+
+            // Verify MS-OXCRPC requirement: MS-OXCRPC_R1649012
+            Site.CaptureRequirementIfIsTrue(
+                fastTransferDestinationPutBufferResponse.BufferUsedSize > 0,
+                1649012,
+                @"[In rgbIn Input Buffer] For the RopFastTransferDestinationPutBuffer ROP, the server MUST return in the BufferUsedSize field of the RopFastTransferDesintationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2) response the amount of the buffer used in the last RopFastTransferDestinationPutBuffer ROP in the packed extended buffers.");
+            #endregion
+
+            #region Client disconnects with Server
+            this.returnValue = this.oxcrpcAdapter.EcDoDisconnect(ref this.pcxh);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoDisconnect should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            #endregion
+        }
+
+        /// <summary>
+        /// This case tests calling RopFastTransferDestinationPutBufferExtended in ExDoRpcExt.
+        /// </summary>
+        [TestCategory("MSOXCRPC"), TestMethod()]
+        public void MSOXCRPC_S01_TC22_TestRopFastTransferDestinationPutBufferExtended()
+        {
+            this.CheckTransport();
+
+            #region Client connects with Server
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.returnValue = this.oxcrpcAdapter.EcDoConnectEx(
+                ref this.pcxh,
+                TestSuiteBase.UlIcxrLinkForNoSessionLink,
+                ref this.pulTimeStamp,
+                null,
+                this.userDN,
+                ref this.pcbAuxOut,
+                this.rgwClientVersion,
+                out this.rgwBestVersion,
+                out this.picxr);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoConnectEx should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            #endregion
+
+            #region Logon to mailbox
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopLogon, this.unusedInfo, this.userPrivilege);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoCompression | PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            RopLogonResponse logonResponse = (RopLogonResponse)this.response;
+            Site.Assert.AreEqual<uint>(0, logonResponse.ReturnValue, "RopLogon should succeed and '0' is expected to be returned. The returned value is {0}.", logonResponse.ReturnValue);
+            this.objHandle = this.responseSOHTable[TestSuiteBase.FIRST][logonResponse.OutputHandleIndex];
+            #endregion
+
+            #region OpenFolder
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopOpenFolder, this.objHandle, logonResponse.FolderIds[(int)FolderIds.Inbox]);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.responseSOHTable = new List<List<uint>>();
+            uint payloadCount = 0;
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.rgbOut,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable,
+                out payloadCount,
+                ref this.rgbAuxOut);
+
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            RopOpenFolderResponse openFolderResponse = (RopOpenFolderResponse)this.response;
+            Site.Assert.AreEqual<uint>(0, openFolderResponse.ReturnValue, "RopOpenFolder should succeed and '0' is expected to be returned. The returned value is {0}.", openFolderResponse.ReturnValue);
+            this.objHandle = this.responseSOHTable[TestSuiteBase.FIRST][openFolderResponse.OutputHandleIndex];
+            #endregion
+
+            #region Create Subfolder
+            // Create subFolder.
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopCreateFolder, this.objHandle, 0);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.responseSOHTable = new List<List<uint>>();
+            payloadCount = 0;
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.rgbOut,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable,
+                out payloadCount,
+                ref this.rgbAuxOut);
+
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            RopCreateFolderResponse createFolderResponse = (RopCreateFolderResponse)this.response;
+            Site.Assert.AreEqual<uint>(0, createFolderResponse.ReturnValue, "RopCreateFolder should succeed and '0' is expected to be returned. The returned value is {0}.", createFolderResponse.ReturnValue);
+            this.objHandle = this.responseSOHTable[TestSuiteBase.FIRST][openFolderResponse.OutputHandleIndex];
+            #endregion
+
+            #region Call RopFastTransferDestinationConfigure
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopFastTransferDestinationConfigure, this.objHandle, this.unusedInfo);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.responseSOHTable = new List<List<uint>>();
+
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+                ref this.pcxh,
+                PulFlags.NoXorMagic,
+                this.rgbIn,
+                ref this.rgbOut,
+                ref this.pcbOut,
+                null,
+                ref this.pcbAuxOut,
+                out this.response,
+                ref this.responseSOHTable,
+                out payloadCount,
+                ref this.rgbAuxOut);
+
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            RopFastTransferDestinationConfigureResponse fastTransferDestinationConfigureResponse = (RopFastTransferDestinationConfigureResponse)this.response;
+            Site.Assert.AreEqual<uint>(0, fastTransferDestinationConfigureResponse.ReturnValue, "RopFastTransferDestinationConfigure should succeed and '0' is expected to be returned. The returned value is {0}.", fastTransferDestinationConfigureResponse.ReturnValue);
+            this.objHandle = this.responseSOHTable[TestSuiteBase.FIRST][fastTransferDestinationConfigureResponse.OutputHandleIndex];
+            #endregion
+
+            #region Call RopFastTransferDestinationPutBufferExtended
+            this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopFastTransferDestinationPutBufferExtended, this.objHandle, this.unusedInfo);
+            this.pcbOut = ConstValues.ValidpcbOut;
+            this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
+            this.responseSOHTable = new List<List<uint>>();
+            this.returnValue = this.oxcrpcAdapter.EcDoRpcExt2(
+               ref this.pcxh,
+               PulFlags.NoXorMagic,
+               this.rgbIn,
+               ref this.rgbOut,
+               ref this.pcbOut,
+               null,
+               ref this.pcbAuxOut,
+               out this.response,
+               ref this.responseSOHTable,
+               out payloadCount,
+               ref this.rgbAuxOut);
+
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            RopFastTransferDestinationPutBufferExtendedResponse fastTransferDestinationPutBufferExtendedResponse = (RopFastTransferDestinationPutBufferExtendedResponse)this.response;
+            Site.Assert.AreEqual<uint>(0, fastTransferDestinationPutBufferExtendedResponse.ReturnValue, "RopFastTransferDestinationPutBuffer should succeed and '0' is expected to be returned. The returned value is {0}.", fastTransferDestinationPutBufferExtendedResponse.ReturnValue);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R1649013");
+
+            // Verify MS-OXCRPC requirement: MS-OXCRPC_R1649013
+            Site.CaptureRequirementIfIsTrue(
+                fastTransferDestinationPutBufferExtendedResponse.BufferUsedSize > 0,
+                1649013,
+                @"[In rgbIn Input Buffer] For the RopFastTransferDestinationPutBufferExtended ROP, the server MUST return in the BufferUsedSize field of the RopFastTransferDesintationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) response the amount of the buffer used in the last RopFastTransferDestinationPutBufferExtended ROP in the packed extended buffers.");
+            #endregion
+
+            #region Client disconnects with Server
+            this.returnValue = this.oxcrpcAdapter.EcDoDisconnect(ref this.pcxh);
+            Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoDisconnect should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
+            #endregion
+        }
         #endregion
 
         /// <summary>
