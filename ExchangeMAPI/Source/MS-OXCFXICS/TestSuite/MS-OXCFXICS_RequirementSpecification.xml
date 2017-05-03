@@ -6370,7 +6370,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183008</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
-		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] The value MUST NOT be set to 0x0000. </ns1:Description>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] The value [TransferDataSize] MUST NOT be set to 0x0000. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6406,7 +6406,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183012</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
-		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] This array contains the data to be uploaded to the destination FastTransfer object and contains the next portion of a FastTransfer stream. </ns1:Description>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] This array [TransferData] contains the data to be uploaded to the destination FastTransfer object and contains the next portion of a FastTransfer stream. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6433,7 +6433,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183015</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] ReturnValue (4 bytes): An unsigned 32-bit integer. </ns1:Description>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] ReturnValue (4 bytes): An unsigned 32-bit integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6442,7 +6442,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183016</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] This [ReturnValue] value [ReturnValue] represents the ROP execution status.</ns1:Description>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] This value [ReturnValue] represents the ROP execution status.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6451,7 +6451,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183017</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] TransferStatus (2 bytes): A 16-bit enumeration. </ns1:Description>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] TransferStatus (2 bytes): A 16-bit enumeration.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6469,7 +6469,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183019</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] InProgressCount (4 bytes): An unsigned 32-bit integer. </ns1:Description>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] InProgressCount (4 bytes): An unsigned 32-bit integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6492,7 +6492,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXCFXICS_R3183021001</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCFXICS_R318302101</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183022</ns1:REQ_ID>
@@ -6500,13 +6500,13 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] This field [InProgressCount] is usable only for progress information display.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183023</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] TotalStepCount (4 bytes): An unsigned 32-bit integer. </ns1:Description>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] TotalStepCount (4 bytes): An unsigned 32-bit integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6527,8 +6527,8 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] This field [TotalStepCount] is used only to display progress information.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183026</ns1:REQ_ID>
@@ -6538,7 +6538,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requrement: MS-OXCFXICS_R3183026001.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requrement: MS-OXCFXICS_R318302601.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183027</ns1:REQ_ID>
@@ -6554,14 +6554,14 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] Reserved (1 byte): The field [Reserved][MUST be set to 0x00 when sending, and ]MUST be ignored on receipt.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183029</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] BufferUsedSize (2 bytes): An unsigned 16-bit integer. </ns1:Description>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] BufferUsedSize (2 bytes): An unsigned 16-bit integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6570,12 +6570,12 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183030</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] The value SHOULD&lt;15&gt; be the same size as the value of TransferDataSize field if the value of the ReturnValue field is equal to Success (0x00000000)[; otherwise, it can be equal to or less than the value of the TransferDataSize field on failure when the value of the ReturnValue field is not equal to Success (0x00000000)]. </ns1:Description>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] The value [BufferSizeUsed] SHOULD&lt;15&gt; be the same size as the value of TransferDataSize field if the value of the ReturnValue field is equal to Success (0x00000000)[; otherwise, it can be equal to or less than the value of the TransferDataSize field on failure when the value of the ReturnValue field is not equal to Success (0x00000000)]. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requrement: MS-OXCFXICS_R318303000101.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requrement: MS-OXCFXICS_R318303003.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183031</ns1:REQ_ID>
@@ -17767,7 +17767,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2156002</ns1:REQ_ID>
@@ -23356,7 +23356,7 @@ This sequence is correct and it produces the same result as the previous single 
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFXICS_R3183021001</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCFXICS_R318302101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the InProgressCount field to 0x0000 in RopFastTransferDestinationPutBufferExtended ROP Response Buffer.  (Section 2.2.3.1.2.3.2: Microsoft Exchange Server 2007 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3183021:i,MS-OXCFXICS_R1:i</ns1:Derived>
@@ -23420,7 +23420,7 @@ This sequence is correct and it produces the same result as the previous single 
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFXICS_R3183026001</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCFXICS_R318302601</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x0001. [&lt;14&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 set the value of the TotalStepCount field to 0x0001.]</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3183026:i;MS-OXCFXICS_R1:i</ns1:Derived>
@@ -23451,10 +23451,10 @@ This sequence is correct and it produces the same result as the previous single 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFXICS_R318303000101</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCFXICS_R318303003</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when the value of the ReturnValue field is equal to Success (0x00000000) ( &lt;15&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCFXICS_R3183030:p</ns1:Derived>
+		<ns1:Derived>MS-OXCFXICS_R3183030001:p</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23965,7 +23965,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R5100</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support this specification [MS-OXCMAPIHTTP]. (Exchange Server 2013 Service Pack 1 (SP1) and above follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support this specification [MS-OXCMAPIHTTP]. (Exchange Server 2013 Service Pack 1 (SP1) and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
