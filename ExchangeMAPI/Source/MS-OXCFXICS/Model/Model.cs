@@ -4895,6 +4895,35 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
             return RopResult.Success;
         }
 
+
+        /// <summary>
+        ///  Uploads the next portion of an input FastTransfer stream for a previously configured FastTransfer upload operation.
+        /// </summary>
+        /// <param name="serverId">A 32-bit signed integer represent the Identity of server.</param>
+        /// <param name="uploadContextHandleIndex">A fastTransfer stream object handle index.</param>
+        /// <param name="transferDataIndex">Transfer data index.</param>
+        /// <returns>Indicate the result of this ROP operation.</returns>
+        [Rule(Action = ("FastTransferDestinationPutBufferExtended(serverId,uploadContextHandleIndex,transferDataIndex)/result"))]
+        public static RopResult FastTransferDestinationPutBufferExtended(int serverId, int uploadContextHandleIndex, int transferDataIndex)
+        {
+            // The construction conditions.
+            Condition.IsTrue(connections.Count > 0);
+            Condition.IsTrue(connections.Keys.Contains(serverId));
+
+            // serverHandleIndex is Invalid Parameter.
+            if (uploadContextHandleIndex < 0 || transferDataIndex <= 0)
+            {
+                return RopResult.InvalidParameter;
+            }
+
+            ModelHelper.CaptureRequirement(
+                3183001,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP] The RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) uploads the next portion of an input FastTransfer stream for a previously configured FastTransfer upload operation.");
+
+            return RopResult.Success;
+        }
+
+
         /// <summary>
         /// Tell the server of another server's version.
         /// </summary>

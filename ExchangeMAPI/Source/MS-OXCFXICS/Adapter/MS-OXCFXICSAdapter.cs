@@ -1798,6 +1798,44 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
         }
 
         /// <summary>
+        ///  Uploads the next portion of an input FastTransfer stream for a previously configured FastTransfer upload operation.
+        /// </summary>
+        /// <param name="serverId">A 32-bit signed integer represent the Identity of server.</param>
+        /// <param name="sourceHandleIndex">A fast transfer stream object handle index.</param>
+        /// <param name="transferDataIndex">Transfer data index.</param>
+        /// <returns>Indicate the result of this ROP operation.</returns>
+        public RopResult FastTransferDestinationPutBufferExtended(int serverId, int sourceHandleIndex, int transferDataIndex)
+        {
+            RopResult result = RopResult.Success;
+            if (sourceHandleIndex < 0 || transferDataIndex <= 0)
+            {
+                return RopResult.InvalidParameter;
+            }
+
+            uint fastTransferDestinationPutBufferExtendedHandle = this.handleContainer[sourceHandleIndex];
+            foreach (int i in this.streamBufferContainer.Keys)
+            {
+                byte[] transferData = this.streamBufferContainer[i];
+                RopFastTransferDestinationPutBufferExtendedRequest fastTransferDestinationPutBufferExtendedRequest = new RopFastTransferDestinationPutBufferExtendedRequest();
+                fastTransferDestinationPutBufferExtendedRequest.RopId = (byte)RopId.RopFastTransferDestinationPutBufferExtended;
+                fastTransferDestinationPutBufferExtendedRequest.LogonId = 0x00;
+                fastTransferDestinationPutBufferExtendedRequest.InputHandleIndex = 0x00;
+                fastTransferDestinationPutBufferExtendedRequest.TransferDataSize = (ushort)transferData.Length;
+                fastTransferDestinationPutBufferExtendedRequest.TransferData = transferData;
+
+                RopFastTransferDestinationPutBufferExtendedResponse response = (RopFastTransferDestinationPutBufferExtendedResponse)this.Process(serverId, fastTransferDestinationPutBufferExtendedRequest, fastTransferDestinationPutBufferExtendedHandle);
+
+                if (RopResult.Success != (RopResult)response.ReturnValue)
+                {
+                    result = (RopResult)response.ReturnValue;
+                    Site.Log.Add(LogEntryKind.Debug, "Call FastTransferDestinationPutBufferExtended fail at {0} times, return error: {1}", i, result);
+                    break;
+                }
+            }
+
+            return result;
+        }
+        /// <summary>
         ///  Initializes a FastTransfer operation for uploading content encoded in a client-provided FastTransfer stream into a mailbox
         /// </summary>
         /// <param name="serverId">A 32-bit signed integer represent the Identity of server.</param>
