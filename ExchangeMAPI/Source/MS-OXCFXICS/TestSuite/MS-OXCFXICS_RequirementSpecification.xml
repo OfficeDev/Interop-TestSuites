@@ -12061,7 +12061,7 @@ state = IncrSyncStateBegin propList IncrSyncStateEnd</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3304</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.12</ns1:Doc_Sect>
-		<ns1:Description>[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.786) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.774) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1) .</ns1:Description>
+		<ns1:Description>[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.786) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.774) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23358,7 +23358,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R318302101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the InProgressCount field to 0x0000 in RopFastTransferDestinationPutBufferExtended ROP Response Buffer.  (Section 2.2.3.1.2.3.2: Microsoft Exchange Server 2007 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the InProgressCount field to 0x00000000 in RopFastTransferDestinationPutBufferExtended ROP Response Buffer.  (Section 2.2.3.1.2.3.2: Microsoft Exchange Server 2007 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3183021:i,MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23422,7 +23422,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R318302601</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x0001. [&lt;14&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 set the value of the TotalStepCount field to 0x0001.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x00000001. [&lt;14&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 set the value of the TotalStepCount field to 0x00000001.]</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3183026:i;MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23433,7 +23433,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183026002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x0000. [ Exchange 2003 and Exchange 2007 set the value of the TotalStepCount field to 0x0000.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x00000000. [ Exchange 2003 and Exchange 2007 set the value of the TotalStepCount field to 0x00000000.]</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3183026:i;MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

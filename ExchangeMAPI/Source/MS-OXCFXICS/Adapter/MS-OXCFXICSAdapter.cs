@@ -1831,6 +1831,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     Site.Log.Add(LogEntryKind.Debug, "Call FastTransferDestinationPutBufferExtended fail at {0} times, return error: {1}", i, result);
                     break;
                 }
+
+                this.VerifyRopFastTransferDestinationPutBufferExtended(fastTransferDestinationPutBufferExtendedRequest, response);
+            
             }
 
             return result;
