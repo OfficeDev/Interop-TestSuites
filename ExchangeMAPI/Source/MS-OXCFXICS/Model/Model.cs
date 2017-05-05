@@ -1122,7 +1122,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 if (requirementContainer.ContainsKey(2593) && requirementContainer[2593])
                 {
                     result = RopResult.NotSupported;
-                    ModelHelper.CaptureRequirement(2593, "[In Appendix A: Product Behavior] <16> Section 2.2.3.2.4.5.1: The HardDelete flag is not supported by Exchange 2003 or Exchange 2007.");
+                    ModelHelper.CaptureRequirement(2593, "[In Appendix A: Product Behavior] <19> Section 2.2.3.2.4.5.1: The HardDelete flag is not supported by Exchange 2003 or Exchange 2007.");
                     return result;
                 }
             }
@@ -1426,7 +1426,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 result = RopResult.InvalidParameter;
                 ModelHelper.CaptureRequirement(
                     3509001,
-                    @"[In Appendix A: Product Behavior]  If unknown flags are set, implementation does fail the operation. <40> Section 3.2.5.9.4.2: Exchange 2010, Exchange 2013 and Exchange 2016 fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.");
+                    @"[In Appendix A: Product Behavior]  If unknown flags are set, implementation does fail the operation. <44> Section 3.2.5.9.4.2: Exchange 2010, Exchange 2013 and Exchange 2016 fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.");
 
                 return result;
             }
@@ -1436,7 +1436,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 result = RopResult.Success;
                 ModelHelper.CaptureRequirement(
                     350900201,
-                    @"[In Appendix A: Product Behavior]  If unknown flags are set, implementation does not fail the operation. <41> Section 3.2.5.9.4.2: Exchange 2007 do not fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.");
+                    @"[In Appendix A: Product Behavior]  If unknown flags are set, implementation does not fail the operation. <44> Section 3.2.5.9.4.2: Exchange 2007 do not fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.");
             }
 
             // Get ConnectionData value.
@@ -2245,7 +2245,7 @@ Return value (4 bytes):] The following table[In section 2.2.3.2.4.4] contains ad
                         // When the ROP return invalid parameter this requirement verified.
                         ModelHelper.CaptureRequirement(
                         3442001,
-                        @"[In Appendix A: Product Behavior] Implementation does not support. <31> Section 3.2.5.8.1.1: Exchange 2010 and Exchange 2013 do not support the Move flag for the RopFastTransferSourceCopyTo ROP (section 2.2.3.1.1.1).");
+                        @"[In Appendix A: Product Behavior] Implementation does not support. <34> Section 3.2.5.8.1.1: Exchange 2010 and Exchange 2013 do not support the Move flag for the RopFastTransferSourceCopyTo ROP (section 2.2.3.1.1.1).");
                     }
 
                     if (requirementContainer.ContainsKey(3442003) && requirementContainer[3442003])
@@ -2255,7 +2255,7 @@ Return value (4 bytes):] The following table[In section 2.2.3.2.4.4] contains ad
                         // When the ROP return invalid parameter this requirement verified.
                         ModelHelper.CaptureRequirement(
                         3442003,
-                        @"[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does fail the operation with an error code InvalidParameter (0x80070057).  <31> Section 3.2.5.8.1.1: The server sets the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag [Move flag].(Microsoft Exchange Server 2010, Exchange Server 2013 and  Exchange Server 2016 follow this behavior.)");
+                        @"[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does fail the operation with an error code InvalidParameter (0x80070057).  <34> Section 3.2.5.8.1.1: The server sets the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag [Move flag].(Microsoft Exchange Server 2010, Exchange Server 2013 and  Exchange Server 2016 follow this behavior.)");
                     }
                 }
 
@@ -2386,7 +2386,7 @@ Return value (4 bytes):] The following table[In section 2.2.3.2.4.4] contains ad
                     {
                         ModelHelper.CaptureRequirement(
                             3442004,
-                            @"[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does not fail the operation.(<31> Section 3.2.5.8.1.1: Microsoft Exchange Server 2007 follows this behavior.)");
+                            @"[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does not fail the operation.(<34> Section 3.2.5.8.1.1: Microsoft Exchange Server 2007 follows this behavior.)");
                     }
                 }
             }
@@ -3198,7 +3198,7 @@ Are folders that have never been reported as deleted folders.");
                                 abstractFastTransferStream.AbstractState.IdSetGiven = new Set<int>();
                                 ModelHelper.CaptureRequirement(
                                     350400101,
-                                    @"[In Appendix A: Product Behavior] Implementation does use this behavior. <40> Section 3.2.5.9.3.1: In Exchange 2007, the RopSynchronizationGetTransferState ROP (section 2.2.3.2.3.1) returns a checkpoint ICS state that is reflective of the current status.");
+                                    @"[In Appendix A: Product Behavior] Implementation does use this behavior. <43> Section 3.2.5.9.3.1: In Exchange 2007, the RopSynchronizationGetTransferState ROP (section 2.2.3.2.3.1) returns a checkpoint ICS state that is reflective of the current status.");
                             }
                             else
                             {
@@ -3453,7 +3453,7 @@ Are folders that have never been reported as deleted folders.");
                                                             // Because the BestBody flag of the CopyFlags field is not set before and the prior ROP is RopFastTransferSourceCopyMessages, so this requirement can be captured.
                                                             ModelHelper.CaptureRequirement(
                                                                 2117002,
-                                                                @"[In Appendix A: Product Behavior] <33> Section 3.2.5.8.1.3: Implementation does support the BestBody flag. If the BestBody flag of the CopyFlags field is not set, implementation does output message bodies in the compressed RTF (Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)");
+                                                                @"[In Appendix A: Product Behavior] <36> Section 3.2.5.8.1.3: Implementation does support the BestBody flag. If the BestBody flag of the CopyFlags field is not set, implementation does output message bodies in the compressed RTF (Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)");
                                                         }
 
                                                         if (requirementContainer.ContainsKey(3118003) && requirementContainer[3118003])
@@ -3486,7 +3486,7 @@ Are folders that have never been reported as deleted folders.");
                                                             // Because the BestBody flag of the CopyFlags field is set before and the prior ROP is RopFastTransferSourceCopyMessages, so this requirement can be captured.
                                                             ModelHelper.CaptureRequirement(
                                                                    2182002,
-                                                                   @"[In Appendix A: Product Behavior] Implementation does support BestBody flag [in RopSynchronizationConfigure ROP]. (<38> Section 3.2.5.9.1.1: Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)");
+                                                                   @"[In Appendix A: Product Behavior] Implementation does support BestBody flag [in RopSynchronizationConfigure ROP]. (<41> Section 3.2.5.9.1.1: Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)");
                                                         }
                                                     }
                                                 }
@@ -4107,7 +4107,7 @@ Are folders that have never been reported as deleted folders.");
                             {
                                 ModelHelper.CaptureRequirement(
                                     3324,
-                                    @"[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyTo, ROP request buffer field conditions is The InputServerObject field is a Folder object<22>, Root element in the produced FastTransfer stream is folderContent.");
+                                    @"[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyTo, ROP request buffer field conditions is The InputServerObject field is a Folder object<25>, Root element in the produced FastTransfer stream is folderContent.");
                             }
 
                             if (priorDownloadOperation == PriorDownloadOperation.RopFastTransferSourceCopyProperties && currentDownloadContext.ObjectType == ObjectType.Folder)
@@ -4490,7 +4490,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                             abstractFastTransferStream.AbstractMessageContent.AbsMessageChildren.AttachmentPrecededByPidTagFXDelProp = true;
                                             ModelHelper.CaptureRequirement(
                                                 3304,
-                                                @"[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.784) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.774) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1)and .");
+                                                @"[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.786) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.774) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
 
                                             // The AttachmentPrecededByPidTagFXDelProp true means server outputs the MetaTagFXDelProp property before outputting subobjects, such as attachment.
                                             ModelHelper.CaptureRequirement(
@@ -4751,14 +4751,14 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                             {
                                 ModelHelper.CaptureRequirement(
                                     3328,
-                                    @"[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyTo, ROP request buffer field conditions is The InputServerObject field is an Attachment object<23>, Root element in the produced FastTransfer stream is attachmentContent.");
+                                    @"[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyTo, ROP request buffer field conditions is The InputServerObject field is an Attachment object<26>, Root element in the produced FastTransfer stream is attachmentContent.");
                             }
 
                             if (priorDownloadOperation == PriorDownloadOperation.RopFastTransferSourceCopyProperties && currentDownloadContext.ObjectType == ObjectType.Attachment)
                             {
                                 ModelHelper.CaptureRequirement(
                                     3329,
-                                    @"[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyProperties, ROP request buffer field conditions is The InputServerObject field is an Attachment object<23>, Root element in the produced FastTransfer stream is attachmentContent.");
+                                    @"[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyProperties, ROP request buffer field conditions is The InputServerObject field is an Attachment object<26>, Root element in the produced FastTransfer stream is attachmentContent.");
                             }
 
                             if (priorOperation == PriorOperation.RopFastTransferDestinationConfigure && currentConnection.AttachmentContainer.Count > 0 && sourOperation == SourceOperation.CopyTo)
@@ -4822,7 +4822,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                     uploadContextHandleIndex = -1;
                     ModelHelper.CaptureRequirement(
                                   3492001,
-                                  @"[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does fail the operation. <36> Section 3.2.5.8.2.1: Exchange 2010, Exchange 2013 and Exchange 2016 fail the ROP [RopFastTransferDestinationConfigure ROP] if unknown bit flags in the CopyFlags field are set.");
+                                  @"[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does fail the operation. <39> Section 3.2.5.8.2.1: Exchange 2010, Exchange 2013 and Exchange 2016 fail the ROP [RopFastTransferDestinationConfigure ROP] if unknown bit flags in the CopyFlags field are set.");
 
                     return result;
                 }
@@ -4859,7 +4859,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                     // Exchange 2007 ignore unknown values of the CopyFlags field.
                     ModelHelper.CaptureRequirement(
                                   3492002,
-                                  @"[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does not fail the operation. <37> Section 3.2.5.8.2.1: Exchange 2007 ignore unknown values of the CopyFlags field.");
+                                  @"[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does not fail the operation. <40> Section 3.2.5.8.2.1: Exchange 2007 ignore unknown values of the CopyFlags field.");
 
                     return result;
                 }

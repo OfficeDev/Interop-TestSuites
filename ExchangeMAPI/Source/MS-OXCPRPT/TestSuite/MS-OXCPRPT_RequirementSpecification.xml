@@ -3970,7 +3970,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R30401001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In RopWriteStreamExtended ROP] The RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4) writes the stream of bytes into a Stream object. </ns1:Description>
+		<ns1:Description>[In RopWriteStreamExtended ROP] The RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4) writes the stream of bytes into a Stream object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4053,7 +4053,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R30401010</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.17.2</ns1:Doc_Sect>
-		<ns1:Description>[In  RopWriteStreamExtended ROP Response Buffer] WrittenSize (4 bytes):  An integer.</ns1:Description>
+		<ns1:Description>[In RopWriteStreamExtended ROP Response Buffer] WrittenSize (4 bytes): An integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4062,7 +4062,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R30401011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.17.2</ns1:Doc_Sect>
-		<ns1:Description>[In  RopWriteStreamExtended ROP Response Buffer] WrittenSize (4 bytes):  An integer that specifies the number of bytes actually written to the stream.</ns1:Description>
+		<ns1:Description>[In RopWriteStreamExtended ROP Response Buffer] WrittenSize (4 bytes): An integer that specifies the number of bytes actually written to the stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

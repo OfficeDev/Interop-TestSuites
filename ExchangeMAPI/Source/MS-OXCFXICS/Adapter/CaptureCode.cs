@@ -5785,7 +5785,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                             this.Site.CaptureRequirementIfIsTrue(
                                    isVerifiedR2813,
                                    2813,
-                                   @"[In Appendix A: Product Behavior] If the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder, implementation does not output.  <19> Section 2.2.4.3.6: Exchange 2010, Exchange 2013 and Exchange 2016 do not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList element as Exchange 2010 , Exchange 2013 and Exchange 2016 do not check permissions on move operations.");
+                                   @"[In Appendix A: Product Behavior] If the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder, implementation does not output.  <22> Section 2.2.4.3.6: Exchange 2010, Exchange 2013 and Exchange 2016 do not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList element as Exchange 2010 , Exchange 2013 and Exchange 2016 do not check permissions on move operations.");
                         }                        
                     }
                 }
@@ -6046,7 +6046,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                             Site.CaptureRequirementIfIsTrue(
                                isVerifyR2701,
                                325901,
-                               @"[In Appendix A: Product Behavior] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, Implementation does output string values with the terminating nulls. (<17> Section 2.2.4.1.3: Microsoft Exchange Server 2007 (only when when string values are not larger than 32 KB) and above follow this behavior.)");
+                               @"[In Appendix A: Product Behavior] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, Implementation does output string values with the terminating nulls. (<20> Section 2.2.4.1.3: Microsoft Exchange Server 2007 (only when when string values are not larger than 32 KB) and above follow this behavior.)");
                         }
 
                         // String type is Serialized the as specified in [MS-OXCDATA]
