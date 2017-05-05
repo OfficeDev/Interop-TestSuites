@@ -2428,7 +2428,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
         /// <param name="isChangedInDB">Indicates if the value is changed in database or not.</param>
         /// <param name="forErrorCode">Indicates if expecting to fail this operation</param>
         /// <param name="isWriteSizeElementRight">Indicates if the written size is right or not.</param>
-        private void VerifyRopWriteStreamExtended(RopWriteStreamResponse ropWriteStreamExtendedResponse, OpenModeFlags openModeFlags, string writeData, bool canBeRetrieval, bool isChangedInDB, bool forErrorCode, bool isWriteSizeElementRight)
+        private void VerifyRopWriteStreamExtended(RopWriteStreamExtendedResponse ropWriteStreamExtendedResponse, OpenModeFlags openModeFlags, string writeData, bool canBeRetrieval, bool isChangedInDB, bool forErrorCode, bool isWriteSizeElementRight)
         {
             if (!forErrorCode)
             {
