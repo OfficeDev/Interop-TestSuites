@@ -1088,6 +1088,52 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
         }
 
         /// <summary>
+        /// Action for [RopWriteStreamExtended] operation
+        /// </summary>
+        /// <param name="openFlag">Specifies the OpenModeFlags of the stream</param>
+        /// <param name="isExceedMax">Indicates whether the write will exceed the maximum stream size.</param>
+        /// <param name="error"> Specifies the ErrorCode when WriteStream failed</param>
+        [Rule(Action = "RopWriteStreamExtendedMethod(openFlag, isExceedMax, out error)")]
+        public static void RopWriteStreamExtendedMethod(OpenModeFlags openFlag, bool isExceedMax, out CPRPTErrorCode error)
+        {
+            Condition.IsTrue(isInitialized && isStreamOpenedSuccess);
+            Condition.IsTrue(openFlag == streamOpenFlag);
+            Condition.IsTrue(globalObj != ServerObjectType.Logon);
+            Condition.IfThen(isExceedMax, openFlag == OpenModeFlags.ReadWrite);
+
+            error = CPRPTErrorCode.None;
+            isStreamWriteSuccess = true;
+
+            if (streamOpenFlag == OpenModeFlags.ReadOnly)
+            {
+                error = CPRPTErrorCode.STG_E_ACCESSDENIED;
+                isStreamWriteSuccess = false;
+            }
+
+            if (isExceedMax)
+            {
+                // For ExchangeServer 2007, StreamSizeError error code returned.
+                if (requirementContainer[86706])
+                {
+                    error = CPRPTErrorCode.StreamSizeError;
+                }
+
+                // For Exchange 2010, toobig error code returned.
+                if (requirementContainer[55707])
+                {
+                    error = CPRPTErrorCode.ecTooBig;
+                }
+
+                if (requirementContainer[90102])
+                {
+                    error = CPRPTErrorCode.ecTooBig;
+                }
+
+                isStreamWriteSuccess = false;
+            }
+        }
+
+        /// <summary>
         /// Action for [RopCommitStream] operations
         /// </summary>
         /// <param name="openFlag">Indicates the OpenModeFlags when stream is opened</param>

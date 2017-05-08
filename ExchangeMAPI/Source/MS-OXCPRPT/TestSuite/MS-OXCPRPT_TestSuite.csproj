@@ -71,7 +71,9 @@
     <Compile Include="S03_SeekStream_TestSuite.cs" />
     <Compile Include="S04_CopyToStreamsCloneStream_TestSuite.cs" />
     <Compile Include="S04_LockUnLockStream_TestSuite.cs" />
+    <Compile Include="S04_SetDataInStreamExtended_TestSuite.cs" />
     <Compile Include="S04_SetDataWithStream_TestSuite.cs" />
+    <Compile Include="S04_StreamExtendedForErrorCodeTable_TestSuite.cs" />
     <Compile Include="S04_StreamForErrorCodeTable_TestSuite.cs" />
     <Compile Include="S05_RopCopyPropertiesFailSynchronously_TestSuite.cs" />
     <Compile Include="S05_RopCopyPropertiesSuccessSynchronously_TestSuite.cs" />

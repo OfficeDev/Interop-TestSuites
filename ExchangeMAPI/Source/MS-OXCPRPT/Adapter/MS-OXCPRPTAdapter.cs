@@ -2361,6 +2361,85 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
         }
 
         /// <summary>
+        /// This method is used to write the stream of bytes into a Stream object. 
+        /// </summary>
+        /// <param name="openFlag">Specifies the OpenModeFlags of the stream.</param>
+        /// <param name="isExceedMax">Indicates whether the write will exceed the maximum stream size.</param>
+        /// <param name="error"> Specifies the ErrorCode when WriteStream failed:STG_E_ACCESSDENIED
+        /// 0x80030005 Write access is denied.When stream is opened with ReadOnly flag.</param>
+        public void RopWriteStreamExtendedMethod(OpenModeFlags openFlag, bool isExceedMax, out CPRPTErrorCode error)
+        {
+            TaggedPropertyValue[] tagPtyValues = new TaggedPropertyValue[1];
+            if (this.cprptCurrentType == ServerObjectType.Folder)
+            {
+                tagPtyValues[0] = this.GetTaggedPropertyTag(ObjectToOperate.ThirdObject);
+            }
+            else
+            {
+                tagPtyValues[0] = this.GetTaggedPropertyTag(this.cprptCurrentObj);
+            }
+
+            PropertyTag[] ptyTags;
+            ptyTags = new PropertyTag[1];
+            ptyTags[0] = tagPtyValues[0].PropertyTag;
+
+            uint objHandle = 0;
+            switch (this.cprptCurrentObj)
+            {
+                case ObjectToOperate.FirstObject:
+                    objHandle = this.cprptFirstObjectHandle;
+                    break;
+                case ObjectToOperate.SecondObject:
+                    objHandle = this.cprptSecondObjectHandle;
+                    break;
+                default:
+                    break;
+            }
+
+            RopGetPropertiesSpecificResponse getPropertiesSpecificResponse = this.RopGetPropertiesSpecific(objHandle, 0, 0, ptyTags);
+            bool canBeRetrieval = false;
+            bool isChangInDB = true;
+            bool forErrorCode = false;
+            if (isExceedMax)
+            {
+                this.RopSeekStream(this.cprptCurrentHandle, (byte)Origin.Beginning, int.MaxValue, true);
+            }
+
+            RopSeekStreamResponse seekStreamResponse1 = this.RopSeekStream(this.cprptCurrentHandle, (byte)Origin.Current, 0, true);
+            RopWriteStreamExtendedResponse writeStreamExtendedResponse = this.RopWriteStreamExtended(this.cprptCurrentHandle, WriteData, false);
+            RopSeekStreamResponse seekStreamResponse2 = this.RopSeekStream(this.cprptCurrentHandle, (byte)Origin.Current, 0, true);
+            bool isWriteSizeElemetRight = false;
+            if (seekStreamResponse2.NewPosition - seekStreamResponse1.NewPosition == writeStreamExtendedResponse.WrittenSize)
+            {
+                isWriteSizeElemetRight = true;
+            }
+
+            if (writeStreamExtendedResponse.ReturnValue.Equals((uint)CPRPTErrorCode.None))
+            {
+                this.RopSeekStream(this.cprptCurrentHandle, (byte)Origin.Current, (long)(0 - WriteData.Length), true);
+                RopReadStreamResponse readStreamResponse = this.RopReadStream(this.cprptCurrentHandle, (ushort)WriteData.Length, 0x70000000, false);
+                if (WriteData == Encoding.ASCII.GetString(readStreamResponse.Data))
+                {
+                    canBeRetrieval = true;
+                }
+
+                RopGetPropertiesSpecificResponse getPropertiesSpecificResponse1 = this.RopGetPropertiesSpecific(objHandle, 0, 0, ptyTags);
+                if (Common.CompareByteArray(getPropertiesSpecificResponse.RowData.PropertyValues[0].Value, getPropertiesSpecificResponse1.RowData.PropertyValues[0].Value))
+                {
+                    isChangInDB = false;
+                }
+            }
+            else
+            {
+                forErrorCode = true;
+            }
+
+            //this.VerifyRopWriteStream(writeStreamResponse, openFlag, WriteData, canBeRetrieval, isChangInDB, forErrorCode, isWriteSizeElemetRight);
+
+            error = (CPRPTErrorCode)writeStreamExtendedResponse.ReturnValue;
+        }
+
+        /// <summary>
         /// This method is used to ensure that any changes made to a Stream object are persisted in storage for a Folder object. 
         /// </summary>
         /// <param name="openFlag">Indicates the OpenModeFlags when stream is opened.</param>
