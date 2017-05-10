@@ -1481,7 +1481,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             // If the code can reach here, this requirement will be verified.
             Site.CaptureRequirement(
                 966,
-                @"[In Extended Buffer Packing] The server can then compress and/or obfuscate this payload if the client requests and set the Flags field of the RPC_HEADER_EXT structure to indicate how the payload has been altered.");
+                @"[In rgbOut Output Buff] The server can then compress and/or obfuscate this payload if the client requests and set the Flags field of the RPC_HEADER_EXT structure to indicate how the payload has been altered.");
             #endregion
             #endregion
 

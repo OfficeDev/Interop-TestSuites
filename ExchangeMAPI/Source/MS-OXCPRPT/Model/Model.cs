@@ -1240,7 +1240,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                 {
                     ModelHelper.CaptureRequirement(
                         867091,
-                        @"[In Appendix A: Product Behavior] Implementation does implement the RopCopyToStream ROP. (<13> Section 3.2.5.18: Exchange 2007 and above products (except the initial release version of Exchange 2010) follow this behavior.)");
+                        @"[In Appendix A: Product Behavior] Implementation does implement the RopCopyToStream ROP. (<13> Section 3.2.5.19: Exchange 2007 and above products (except the initial release version of Exchange 2010) follow this behavior.)");
                 }
                 
                 ModelHelper.CaptureRequirement(

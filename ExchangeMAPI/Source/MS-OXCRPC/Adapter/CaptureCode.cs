@@ -900,7 +900,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 // If rowCount isn't equal to secRowCount, it indicates that there are two payloads with different RowCount, if code can arrive here, this requirement will be verified.
                 Site.CaptureRequirement(
                     973,
-                    @"[In Extended Buffer Packing] For the RopQueryRows ROP, the server MUST adjust the row count when adding additional response data.");
+                    @"[In rgbOut Output Buff] For the RopQueryRows ROP, the server MUST adjust the row count when adding additional response data.");
             }
 
             // Check for more than one additional response data.
@@ -924,7 +924,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 // If dataSize isn't equal to secDataSize, it indicates there are two payloads with different DataSize, if code can arrive here, this requirement will be verified.
                 Site.CaptureRequirement(
                     1280,
-                    @"[In Extended Buffer Packing] For the RopReadStream ROP, the server MUST adjust the number of bytes to read when adding additional response data.");
+                    @"[In rgbOut Output Buff] For the RopReadStream ROP, the server MUST adjust the number of bytes to read when adding additional response data.");
             }
 
             // Check for more than one additional response data.
@@ -946,7 +946,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 // If additional response date exists and code can arrive here, this requirement will be verified.
                 Site.CaptureRequirement(
                     963,
-                    @"[In Extended Buffer Packing] For the server to produce additional response data, it [Extended Buffer Packing] MUST build a response as if the client sent another request with only a RopQueryRows ROP, RopReadStream ROP, or RopFastTransferSourceGetBuffer ROP.");
+                    @"[In rgbOut Output Buff] For the server to produce additional response data, it [Extended Buffer Packing] MUST build a response as if the client sent another request with only a RopQueryRows ROP, RopReadStream ROP, or RopFastTransferSourceGetBuffer ROP.");
             }
         }
 

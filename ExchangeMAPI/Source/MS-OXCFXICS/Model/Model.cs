@@ -4114,7 +4114,7 @@ Are folders that have never been reported as deleted folders.");
                             {
                                 ModelHelper.CaptureRequirement(
                                     3325,
-                                    @"[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyProperties, ROP request buffer field conditions is The InputServerObject field is a Folder object<22>, Root element in the produced FastTransfer stream is folderContent.");
+                                    @"[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyProperties, ROP request buffer field conditions is The InputServerObject field is a Folder object<25>, Root element in the produced FastTransfer stream is folderContent.");
                             }
 
                             if (priorOperation == PriorOperation.RopFastTransferDestinationConfigure && currentDownloadContext.ObjectType == ObjectType.Folder && sourOperation == SourceOperation.CopyProperties)
