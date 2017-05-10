@@ -2434,7 +2434,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                 forErrorCode = true;
             }
 
-            //this.VerifyRopWriteStream(writeStreamResponse, openFlag, WriteData, canBeRetrieval, isChangInDB, forErrorCode, isWriteSizeElemetRight);
+            this.VerifyRopWriteStream(writeStreamExtendedResponse, openFlag, WriteData, canBeRetrieval, isChangInDB, forErrorCode, isWriteSizeElemetRight);
 
             error = (CPRPTErrorCode)writeStreamExtendedResponse.ReturnValue;
         }
