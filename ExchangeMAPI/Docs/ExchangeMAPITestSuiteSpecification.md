@@ -30,7 +30,7 @@ grouped into one scenario.
 
 The technical specifications in the following table are included
 in the Exchange MAPI Protocol Test Suites package. The 
-technical specifications version is v20150914.
+technical specifications version is v20140130.
 
 **Exchange MAPI Protocol technical specifications**
 
