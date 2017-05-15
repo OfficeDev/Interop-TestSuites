@@ -672,13 +672,6 @@ machine S04_StreamForErrorCodeTable_SlicedModel() : Actions
     (construct model program from Stream_ForErrorCodeTable where scope = "Microsoft.Protocols.TestSuites.MS_OXCPRPT")
 }
 
-// S04 Test Suite Definition: Setting data for stream object.
-// The TestEnabled switch should be set to true for generating test suite code.
-machine S04_StreamForErrorCodeTable_TestSuite() : Actions where TestEnabled = true
-{
-    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S04_StreamForErrorCodeTable_SlicedModel
-}
-
 // Parameter configuration for branch of scenario S07, which verifies the operations of  RopOpenStreamMethod, RopReadStreamMethod, RopWriteStreamExtendedMethod, and RopCommitStreamMethod.
 config StreamExtended_ForErrorCodeTable : Actions
 {
@@ -749,6 +742,13 @@ machine S04_StreamExtendedForErrorCodeTable_SlicedModel() : Actions
 machine S04_StreamExtendedForErrorCodeTable_TestSuite() : Actions where TestEnabled = true
 {
     construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S04_StreamExtendedForErrorCodeTable_SlicedModel
+}
+
+// S04 Test Suite Definition: Setting data for stream object.
+// The TestEnabled switch should be set to true for generating test suite code.
+machine S04_StreamForErrorCodeTable_TestSuite() : Actions where TestEnabled = true
+{
+    construct test cases where strategy="ShortTests", AllowUndeterminedCoverage = true for S04_StreamForErrorCodeTable_SlicedModel
 }
 
 // Parameter configuration for branch of scenario S04, which verifies the operations of RopOpenStreamMethod, RopLockRegionStreamMethod, and RopUnlockRegionStreamMethod.
