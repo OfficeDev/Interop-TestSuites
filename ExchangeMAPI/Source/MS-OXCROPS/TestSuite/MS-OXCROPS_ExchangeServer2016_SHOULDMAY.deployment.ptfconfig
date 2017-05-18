@@ -76,5 +76,7 @@
       <Property name="R5001Enabled" value="false"/>
       <!-- Set R20009Enabled to true to verify that the implementation does fail the EcDoRpcExt2 method with a return value of 0x0000047D or fail the Execute request type with a value of 0x0000047D in the StatusCode field if one of the ROP responses will not fit in the ROP output buffer when the RopBufferSize field of the Execute request type success response body, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2, is set to the maximum value. Set R20009Enabled to false to disable this requirement.-->
       <Property name="R20009Enabled" value="false"/>
+      <!-- Set R3256018Enabled to true to verify that the implementation support RopWriteStreamExtended ROP. Set R3256018Enabled to false to disable this requirement.-->
+      <Property name="R3256018Enabled" value="true"/>
    </Properties>
 </TestSite>

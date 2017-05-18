@@ -607,24 +607,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 // According to the Open Specification, version 0x01 and type 0x46 indicate that block AUX_TYPE_SERVER_CAPABILITIES exists in rgbAuxOut payload.
                 if (rgbAuxOut1.Header.Version == 0x01 && rgbAuxOut1.Header.Type == 0x46)
                 {
-                    
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R1521");
 
-                    // Verify MS-OXCRPC requirement: MS-OXCRPC_R291004
-                    Site.CaptureRequirementIfAreEqual<int>(
-                        0x0001,
-                        BitConverter.ToInt32(rgbAuxOut1.Payload, 0) & 0x0001,
-                        291004,
-                        @"[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The value of Flag PACKED_FAST_TRANSFER_UPLOAD_BUFFERS is 0x00000001.");
+                    if ((BitConverter.ToInt32(rgbAuxOut1.Payload, 0) & 0x0001) == 0x0001)
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R291004");
 
-                    // Verify MS-OXCRPC requirement: MS-OXCRPC_R291007
-                    Site.CaptureRequirementIfAreEqual<int>(
-                        0x0002,
-                        BitConverter.ToInt32(rgbAuxOut1.Payload, 0) & 0x0002,
-                        291007,
-                        @"[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The value of Flag PACKED_WRITE_STREAM_UPLOAD_BUFFERS is 0x00000002.");
+                        // Verify MS-OXCRPC requirement: MS-OXCRPC_R291004
+                        Site.CaptureRequirement(
+                            291004,
+                            @"[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The value of Flag PACKED_FAST_TRANSFER_UPLOAD_BUFFERS is 0x00000001.");
+                    }
 
+                    if((BitConverter.ToInt32(rgbAuxOut1.Payload, 0) & 0x0002)== 0x0002)
+                    {
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R291007");
+
+                        // Verify MS-OXCRPC requirement: MS-OXCRPC_R291007
+                        Site.CaptureRequirement(
+                            291007,
+                            @"[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The value of Flag PACKED_WRITE_STREAM_UPLOAD_BUFFERS is 0x00000002.");
+                    }
                 }
 
                 // Check whether block AUX_ENDPOINT_CAPABILITIES exists in the rgbAuxOut
