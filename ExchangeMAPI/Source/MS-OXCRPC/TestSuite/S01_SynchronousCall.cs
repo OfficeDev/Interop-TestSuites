@@ -3775,7 +3775,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 RopWriteStreamExtendedResponse writeStreamExtendedResponse;
                 for (int i = 0; i < int.Parse(Common.GetConfigurationPropertyValue("WriteStreamCount", this.Site)); i++)
                 {
-                    // Parameter auxInfo is no use for RopWriteStream command, so set it to unUsedInfo
+                    // Parameter auxInfo is no use for RopWriteStreamExtended command, so set it to unUsedInfo
                     this.rgbIn = AdapterHelper.ComposeRgbIn(ROPCommandType.RopWriteStreamExtended, this.objHandle, this.unusedInfo);
                     this.pcbOut = ConstValues.ValidpcbOut;
                     this.pcbAuxOut = ConstValues.ValidpcbAuxOut;
@@ -3794,7 +3794,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
 
                     writeStreamExtendedResponse = (RopWriteStreamExtendedResponse)this.response;
-                    Site.Assert.AreEqual<uint>(0x00000000, writeStreamExtendedResponse.ReturnValue, "RopWriteStream should succeed, the ReturnValue of its response is expected to be 0(success). The returned value is {0}.", writeStreamExtendedResponse.ReturnValue);
+                    Site.Assert.AreEqual<uint>(0x00000000, writeStreamExtendedResponse.ReturnValue, "RopWriteStreamExtended should succeed, the ReturnValue of its response is expected to be 0(success). The returned value is {0}.", writeStreamExtendedResponse.ReturnValue);
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R1649011");
@@ -4165,7 +4165,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
 
                 Site.Assert.AreEqual<uint>(0, this.returnValue, "EcDoRpcExt2 should succeed and '0' is expected to be returned. The returned value is {0}.", this.returnValue);
                 RopFastTransferDestinationPutBufferExtendedResponse fastTransferDestinationPutBufferExtendedResponse = (RopFastTransferDestinationPutBufferExtendedResponse)this.response;
-                Site.Assert.AreEqual<uint>(0, fastTransferDestinationPutBufferExtendedResponse.ReturnValue, "RopFastTransferDestinationPutBuffer should succeed and '0' is expected to be returned. The returned value is {0}.", fastTransferDestinationPutBufferExtendedResponse.ReturnValue);
+                Site.Assert.AreEqual<uint>(0, fastTransferDestinationPutBufferExtendedResponse.ReturnValue, "RopFastTransferDestinationPutBufferExtended should succeed and '0' is expected to be returned. The returned value is {0}.", fastTransferDestinationPutBufferExtendedResponse.ReturnValue);
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R1649013");

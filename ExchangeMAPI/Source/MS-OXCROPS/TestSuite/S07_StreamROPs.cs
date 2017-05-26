@@ -853,7 +853,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                     Common.GetConfigurationPropertyValue("PassWord", this.Site));
 
                 // Step 1: Preparations-Create message and then open a stream.
-                #region Common operations for RopReadStream,RopWriteStream,RopCommitStream and RopWriteAndCommitStream
+                #region Common operations for RopReadStream,RopWriteStreamExtended,RopCommitStream and RopWriteAndCommitStream
 
                 // Common variable for RopWriteStream and RopWriteAndCommitStream.
                 byte[] data = Encoding.ASCII.GetBytes(SampleStreamData + "\0");
@@ -907,7 +907,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 #endregion
 
                 // Step 2: Send the RopWriteStreamExtended request and verify the success response.
-                #region RopWriteStream Response
+                #region RopWriteStreamExtended Response
                 RopWriteStreamExtendedRequest writeStreamExtendedRequest;
                 RopWriteStreamExtendedResponse writeStreamExtendedResponse;
 
@@ -918,7 +918,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
                 writeStreamExtendedRequest.Data = data;
 
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Step 4: Begin to send the RopWriteStream request.");
+                Site.Log.Add(LogEntryKind.Debug, "Step 4: Begin to send the RopWriteStreamExtended request.");
 
                 // Send the RopWriteStreamExtended request and verify the success response.
                 this.responseSOHs = cropsAdapter.ProcessSingleRop(

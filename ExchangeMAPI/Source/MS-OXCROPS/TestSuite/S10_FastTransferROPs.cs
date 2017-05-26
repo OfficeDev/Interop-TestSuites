@@ -1096,8 +1096,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
 
             #endregion
 
-            // Step 4: Send the RopFastTransferDestinationPutBuffer request to verify success response
-            #region RopFastTransferDestinationPutBuffer success response
+            // Step 4: Send the RopFastTransferDestinationPutBufferExtended request to verify success response
+            #region RopFastTransferDestinationPutBufferExtended success response
 
             RopFastTransferDestinationPutBufferExtendedRequest fastTransferDestinationPutBufferExtendedRequest;
 
@@ -1110,7 +1110,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
             fastTransferDestinationPutBufferExtendedRequest.TransferData = transferData;
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Step 4: Begin to send the RopFastTransferDestinationPutBuffer request.");
+            Site.Log.Add(LogEntryKind.Debug, "Step 4: Begin to send the RopFastTransferDestinationPutBufferExtended request.");
 
             this.responseSOHs = cropsAdapter.ProcessSingleRop(
                 fastTransferDestinationPutBufferExtendedRequest,

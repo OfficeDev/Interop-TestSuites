@@ -2365,7 +2365,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
         /// </summary>
         /// <param name="openFlag">Specifies the OpenModeFlags of the stream.</param>
         /// <param name="isExceedMax">Indicates whether the write will exceed the maximum stream size.</param>
-        /// <param name="error"> Specifies the ErrorCode when WriteStream failed:STG_E_ACCESSDENIED
+        /// <param name="error"> Specifies the ErrorCode when WriteStreamExtended failed:STG_E_ACCESSDENIED
         /// 0x80030005 Write access is denied.When stream is opened with ReadOnly flag.</param>
         public void RopWriteStreamExtendedMethod(OpenModeFlags openFlag, bool isExceedMax, out CPRPTErrorCode error)
         {

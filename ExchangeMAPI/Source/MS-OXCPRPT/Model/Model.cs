@@ -1092,7 +1092,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
         /// </summary>
         /// <param name="openFlag">Specifies the OpenModeFlags of the stream</param>
         /// <param name="isExceedMax">Indicates whether the write will exceed the maximum stream size.</param>
-        /// <param name="error"> Specifies the ErrorCode when WriteStream failed</param>
+        /// <param name="error"> Specifies the ErrorCode when WriteStreamExtended failed</param>
         [Rule(Action = "RopWriteStreamExtendedMethod(openFlag, isExceedMax, out error)")]
         public static void RopWriteStreamExtendedMethod(OpenModeFlags openFlag, bool isExceedMax, out CPRPTErrorCode error)
         {
