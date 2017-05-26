@@ -23423,7 +23423,7 @@ This sequence is correct and it produces the same result as the previous single 
 		<ns1:REQ_ID>MS-OXCFXICS_R318302601</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x00000001. [&lt;14&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 set the value of the TotalStepCount field to 0x00000001.]</ns1:Description>
-		<ns1:Derived>MS-OXCFXICS_R3183026:i;MS-OXCFXICS_R1:i</ns1:Derived>
+		<ns1:Derived>MS-OXCFXICS_R3183026:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23434,7 +23434,7 @@ This sequence is correct and it produces the same result as the previous single 
 		<ns1:REQ_ID>MS-OXCFXICS_R3183026002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x00000000. [ Exchange 2003 and Exchange 2007 set the value of the TotalStepCount field to 0x00000000.]</ns1:Description>
-		<ns1:Derived>MS-OXCFXICS_R3183026:i;MS-OXCFXICS_R1:i</ns1:Derived>
+		<ns1:Derived>MS-OXCFXICS_R3183026:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23444,7 +23444,7 @@ This sequence is correct and it produces the same result as the previous single 
 		<ns1:REQ_ID>MS-OXCFXICS_R3183030001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when  the value of the ReturnValue field is equal to Success (0x00000000). ( &lt;15&gt; Section 2.2.3.1.2.3.2: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)</ns1:Description>
-		<ns1:Derived>MS-OXCFXICS_R3183030:i; MS-OXCFXICS_R1:i</ns1:Derived>
+		<ns1:Derived>MS-OXCFXICS_R3183030:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

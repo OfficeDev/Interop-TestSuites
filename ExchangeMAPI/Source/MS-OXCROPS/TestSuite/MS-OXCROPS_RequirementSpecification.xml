@@ -35895,7 +35895,8 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification/>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXCFXICS_R3183001</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3708002</ns1:REQ_ID>
@@ -36121,6 +36122,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXCFXICS_R3183018.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3708027</ns1:REQ_ID>
@@ -36148,6 +36150,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXCFXICS_R3183020.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3708030</ns1:REQ_ID>
@@ -36166,6 +36169,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXCFXICS_R3183024.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3708032</ns1:REQ_ID>
@@ -36202,6 +36206,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirements: MS-OXCFXICS_R3183030001, MS-OXCFXICS_R318303003.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3709</ns1:REQ_ID>
