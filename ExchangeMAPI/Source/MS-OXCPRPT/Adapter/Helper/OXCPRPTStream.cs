@@ -114,6 +114,39 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
         }
 
         /// <summary>
+        /// This ROP writes bytes to a stream. 
+        /// </summary>
+        /// <param name="objHandle">The handle to operate.</param>
+        /// <param name="writeData">These values specify the data how to be written to the stream.</param>
+        /// <param name="needVerify">Whether need to verify the response.</param>
+        /// <returns>The response of this ROP.</returns>
+        private RopWriteStreamExtendedResponse RopWriteStreamExtended(uint objHandle, string writeData, bool needVerify)
+        {
+            this.rawDataValue = null;
+            this.responseValue = null;
+            this.responseSOHsValue = null;
+
+            RopWriteStreamExtendedRequest writeStreamExtendedRequest;
+            RopWriteStreamExtendedResponse writeStreamExtendedResponse;
+
+            writeStreamExtendedRequest.RopId = (byte)RopId.RopWriteStreamExtended;
+            writeStreamExtendedRequest.LogonId = LogonId;
+            writeStreamExtendedRequest.InputHandleIndex = (byte)HandleIndex.FirstIndex;
+
+            byte[] data = Encoding.ASCII.GetBytes(writeData);
+            writeStreamExtendedRequest.DataSize = (ushort)data.Length;
+            writeStreamExtendedRequest.Data = data;
+
+            this.responseSOHsValue = this.ProcessSingleRop(writeStreamExtendedRequest, objHandle, ref this.responseValue, ref this.rawDataValue, RopResponseType.SuccessResponse);
+            writeStreamExtendedResponse = (RopWriteStreamExtendedResponse)this.responseValue;
+            if (needVerify)
+            {
+                this.Site.Assert.AreEqual((uint)RopResponseType.SuccessResponse, writeStreamExtendedResponse.ReturnValue, string.Format("RopWriteStream failed! Error: 0x{0:X8}", writeStreamExtendedResponse.ReturnValue));
+            }
+
+            return writeStreamExtendedResponse;
+        }
+        /// <summary>
         /// This ROP commits stream operations. 
         /// </summary>
         /// <param name="objHandle">The handle to operate.</param>

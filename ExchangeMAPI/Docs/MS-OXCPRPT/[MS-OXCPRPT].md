@@ -1,6 +1,6 @@
 ## [MS-OXCPRPT]: Property and Stream Object Protocol
-- [MS-OXCPRPT] v20160613 is used to develop the test suite. 
-- Release date, 6/13/2016.
+- [MS-OXCPRPT] v20170224 is used to develop the test suite. 
+- Release date, 2/24/2017.
 
 To find the new landing page for [MS-OXCPRPT], please visit https://msdn.microsoft.com/en-us/library/cc425503(v=exchg.80).aspx
 

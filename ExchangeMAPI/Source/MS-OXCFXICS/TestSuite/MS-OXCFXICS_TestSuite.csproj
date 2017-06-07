@@ -72,6 +72,7 @@
     <Compile Include="S02_SyncFastTransferMessage_TestSuite.cs" />
     <Compile Include="S03_SyncFastTransferAttachmentLevel_TestSuite.cs" />
     <Compile Include="S03_SyncFastTransferAttachment_TestSuite.cs" />
+    <Compile Include="S04_SyncFastTransferServerClientServerExtended_TestSuite.cs" />
     <Compile Include="S04_SyncFastTransferServerClientServerUsecpid_TestSuite.cs" />
     <Compile Include="S04_SyncFastTransferServerClientServer_TestSuite.cs" />
     <Compile Include="S05_SyncICSHierarchyChange_TestSuite.cs" />

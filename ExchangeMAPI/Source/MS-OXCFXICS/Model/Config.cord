@@ -855,7 +855,7 @@ machine S01_SyncFastTransferMoveFlag_Scenario() : Actions
 						FastTransferSourceGetBuffer(_,DownloadHandleIndex2,BufferSize.Normal,out secondBufferindex,out _,out _);
 						AreEqual(EnumFastTransferOperation.FastTransferSourceCopyProperties,firstBufferIndex,secondBufferindex):
 						{.
-							ModelHelper.CaptureRequirement(3793001,"[In Appendix A: Product Behavior] Implementation does support the server return the same result whether the flag [Move] is set or not on receipt. (<6> Section 2.2.3.1.1.4.1: Exchange 2010 and Exchange 2013 follows this behavior.)");
+							ModelHelper.CaptureRequirement(3793001,"[In Appendix A: Product Behavior] Implementation does support the server return the same result whether the flag [Move] is set or not on receipt. (<6> Section 2.2.3.1.1.4.1: Exchange 2010, Exchange 2013 and above follows this behavior.)");
 						.};
 						
 						Release(_, DownloadHandleIndex1);
@@ -1740,6 +1740,180 @@ machine S04_SyncFastTransferServerClientServer_SlicedModel() : Actions
 machine S04_SyncFastTransferServerClientServer_TestSuite() : Actions where TestEnabled = true
 {
     construct test cases where strategy = "ShortTests", AllowUndeterminedCoverage = true for S04_SyncFastTransferServerClientServer_SlicedModel
+}
+
+// This machine is designed to define the operation sequencing for Server-to-client-to-server upload operation.
+// constraint value to parameters for testing
+machine S04_SyncFastTransferServerClientServerExtended_Scenario() : Actions
+{
+    (
+        let
+        int logonHandleIndex1,
+        int logonHandleIndex2,
+        int inboxFolderIdIndex1,
+        int inboxFolderIdIndex2,
+        int inboxFolderHandleIndex1,
+        int inboxFolderHandleIndex2,
+        // Variables for new folder and message in serverA
+        int serverANewFolderIdIndex,
+        int serverANewFolderHandleIndex,
+        int serverBNewFolderIdIndex,
+        int serverBNewFolderHandleIndex,
+        // Variables for new folder and message in serverB
+        int serverAMessageHandleIndex,
+        int serverAMessageIdIndex,
+        int serverBMessageHandleIndex,
+        int serverBMessageIdIndex,
+        int serverAattachmentHandleIndex,
+        int serverBattachmentHandleIndex,
+        int DownloadHandleIndex,
+        int configHandleIndex,
+        int transferBufferIndex,
+        Sequence<int> messageIds,
+        Sequence<string> SetPropertyTags,
+        Sequence<string> PropertyTags
+        where
+        {.
+            Condition.In<Sequence<string>>(PropertyTags,(new Sequence<string>()).Add("PidTagAccess").Add("PidTagBody").Add("PidTagCreationTime"));
+            Condition.In<Sequence<string>>(SetPropertyTags,(new Sequence<string>()).Add("PidTagBody"));
+        .}
+        in
+        (
+			call CheckMAPIHTTPTransportSupported(out _);
+            (
+				(
+					return CheckMAPIHTTPTransportSupported(out true);
+					call CheckSecondSUTOnline(out _);
+					(
+					   return CheckSecondSUTOnline(out false);
+					   |
+					   (
+							return CheckSecondSUTOnline(out true);
+							Connect(1, _);
+							Connect(2, _);
+							Logon(1, _, out logonHandleIndex1, out inboxFolderIdIndex1);
+							Logon(2, _, out logonHandleIndex2, out inboxFolderIdIndex2);
+							OpenFolder(1, logonHandleIndex1, inboxFolderIdIndex1, out inboxFolderHandleIndex1);
+							OpenFolder(2, logonHandleIndex2, inboxFolderIdIndex2, out inboxFolderHandleIndex2);
+							//Create a new folder in serverA and serverB
+							CreateFolder(1,inboxFolderHandleIndex1,"TestFolderInServerA",out serverANewFolderIdIndex,out serverANewFolderHandleIndex);
+							CreateFolder(1,serverANewFolderHandleIndex,"SubFolderServerA",out _,out _);
+							CreateFolder(2,inboxFolderHandleIndex2,"TestFolderInServerB",out serverBNewFolderIdIndex,out serverBNewFolderHandleIndex);
+							//Create a new message in serverA and serverB
+							CreateMessage(1, serverANewFolderHandleIndex, serverANewFolderIdIndex, false, out serverAMessageHandleIndex);
+							SetProperties(_,serverAMessageHandleIndex,SetPropertyTags);
+							SaveChangesMessage(1, serverAMessageHandleIndex, out serverAMessageIdIndex);
+							{.
+								Condition.In<Sequence<int>>(messageIds,(new Sequence<int>()).Add(serverAMessageIdIndex));
+							.}:
+							CreateMessage(2, serverBNewFolderHandleIndex, serverBNewFolderIdIndex, false, out serverBMessageHandleIndex);
+							SaveChangesMessage(2, serverBMessageHandleIndex, out serverBMessageIdIndex);
+							//Create an attacnment for the new created message
+							CreateAttachment(1,serverAMessageHandleIndex,out serverAattachmentHandleIndex);
+							SaveChangesAttachment(1,serverAattachmentHandleIndex);
+							CreateAttachment(2,serverBMessageHandleIndex,out serverBattachmentHandleIndex);
+							SaveChangesAttachment(2,serverBattachmentHandleIndex);
+							(
+								(
+									CheckRequirementEnabled(3442001, out _);
+									FastTransferSourceCopyTo(1,serverANewFolderHandleIndex,InputHandleType.FolderHandle,_ ,_,SendOptionAlls.ForUpload,PropertyTags,out DownloadHandleIndex);
+									CheckRequirementEnabled(3492001, out _);
+									CheckRequirementEnabled(3492002, out _);
+									FastTransferDestinationConfigure(2,serverBNewFolderHandleIndex,SourceOperation.CopyTo,_,out configHandleIndex);
+								)|
+								(
+									CheckRequirementEnabled(3454, out _);
+									CheckRequirementEnabled(3442001, out _);
+									FastTransferSourceCopyTo(1,serverAMessageHandleIndex,InputHandleType.MessageHandle,_ ,_,SendOptionAlls.ForUpload,PropertyTags,out DownloadHandleIndex);
+									CheckRequirementEnabled(3492001, out _);
+									CheckRequirementEnabled(3492002, out _);
+									FastTransferDestinationConfigure(2,serverBMessageHandleIndex,SourceOperation.CopyTo,_,out configHandleIndex);
+								)|
+								(
+									CheckRequirementEnabled(3466, out _);
+									FastTransferSourceCopyProperties(1,serverANewFolderHandleIndex,InputHandleType.FolderHandle,_,_,SendOptionAlls.ForUpload,PropertyTags,out DownloadHandleIndex);
+									CheckRequirementEnabled(3492001, out _);
+									CheckRequirementEnabled(3492002, out _);
+									FastTransferDestinationConfigure(2,serverBNewFolderHandleIndex,SourceOperation.CopyProperties,_,out configHandleIndex);
+								)|
+								(
+									CheckRequirementEnabled(3466, out _);
+									FastTransferSourceCopyProperties(1,serverAMessageHandleIndex,InputHandleType.MessageHandle,_,_,SendOptionAlls.ForUpload,PropertyTags,out DownloadHandleIndex);
+									CheckRequirementEnabled(3492001, out _);
+									CheckRequirementEnabled(3492002, out _);
+									FastTransferDestinationConfigure(2,serverBMessageHandleIndex,SourceOperation.CopyProperties,_,out configHandleIndex);
+								)|
+								(
+									FastTransferSourceCopyMessages(1,serverANewFolderHandleIndex,_,SendOptionAlls.ForUpload,messageIds, out DownloadHandleIndex);
+									CheckRequirementEnabled(3492001, out _);
+									CheckRequirementEnabled(3492002, out _);
+									FastTransferDestinationConfigure(2,serverBNewFolderHandleIndex,SourceOperation.CopyMessages,_,out configHandleIndex);
+								)|
+								(
+									FastTransferSourceCopyFolder(1,serverANewFolderHandleIndex,_,SendOptionAlls.ForUpload,out DownloadHandleIndex);
+									CheckRequirementEnabled(3492001, out _);
+									CheckRequirementEnabled(3492002, out _);
+									FastTransferDestinationConfigure(2,serverBNewFolderHandleIndex,SourceOperation.CopyFolder,_,out configHandleIndex);
+								)|
+								(
+									FastTransferSourceCopyFolder(1,serverANewFolderHandleIndex,_,SendOptionAlls.ForUpload,out DownloadHandleIndex);
+									CheckRequirementEnabled(3492001, out _);
+									CheckRequirementEnabled(3492002, out _);
+									FastTransferDestinationConfigure(2,serverBNewFolderHandleIndex,SourceOperation.CopyFolder,_,out configHandleIndex);
+								)
+								|
+								(
+									CheckRequirementEnabled(3442001, out _);
+									FastTransferSourceCopyTo(1,serverAattachmentHandleIndex,InputHandleType.AttachmentHandle,_ ,_,SendOptionAlls.ForUpload,PropertyTags,out DownloadHandleIndex);
+									CheckRequirementEnabled(3492001, out _);
+									CheckRequirementEnabled(3492002, out _);
+									FastTransferDestinationConfigure(2,serverBattachmentHandleIndex,SourceOperation.CopyTo,_,out configHandleIndex);
+								)
+								|
+								(
+									CheckRequirementEnabled(3466, out _);
+									FastTransferSourceCopyProperties(1,serverAattachmentHandleIndex,InputHandleType.AttachmentHandle,_,_,SendOptionAlls.ForUpload,PropertyTags,out DownloadHandleIndex);
+									CheckRequirementEnabled(3492001, out _);
+									CheckRequirementEnabled(3492002, out _);
+									FastTransferDestinationConfigure(2,serverBattachmentHandleIndex,SourceOperation.CopyProperties,_,out configHandleIndex);
+								);           
+							);
+
+							TellVersion(1,DownloadHandleIndex,2);
+							TellVersion(2,configHandleIndex,1);
+
+							FastTransferSourceGetBuffer(1,DownloadHandleIndex,BufferSize.Normal,out transferBufferIndex,out _,out _);
+							FastTransferDestinationPutBufferExtended(2,configHandleIndex,transferBufferIndex);
+
+							Release(1,serverAMessageHandleIndex);
+							Release(2,serverBMessageHandleIndex);
+							Release(1,serverAMessageHandleIndex);
+							Release(1,serverAattachmentHandleIndex);
+							Release(2,serverBattachmentHandleIndex);
+							Release(2,configHandleIndex);
+						)
+					)
+				)
+				|
+				return CheckMAPIHTTPTransportSupported(out false);
+            );
+        )
+    )
+}
+
+// Sliced model based on the S04_SyncFastTransferServerClientServerExtended_Scenario machine.
+machine S04_SyncFastTransferServerClientServerExtended_SlicedModel() : Actions
+{
+	S04_SyncFastTransferServerClientServerExtended_Scenario()
+	||
+    (construct model program from SyncFastTransferServerClientServer where scope = "Microsoft.Protocols.TestSuites.MS_OXCFXICS")
+}
+
+//This machine is designed to generate test case for 
+//S04_SyncFastTransferServerClientServerExtended_TestSuite machine.
+machine S04_SyncFastTransferServerClientServerExtended_TestSuite() : Actions where TestEnabled = true
+{
+    construct test cases where strategy = "ShortTests", AllowUndeterminedCoverage = true for S04_SyncFastTransferServerClientServerExtended_SlicedModel
 }
 
 // Configure for S04_SyncFastTransferServerClientServerUsecpid

@@ -83,6 +83,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     return composeROPCommand.ComposeCommitStreamRequest(inputServerObjectHandle);
                 case ROPCommandType.RopWriteStream:
                     return composeROPCommand.ComposeWriteStreamRequest(inputServerObjectHandle);
+                case ROPCommandType.RopWriteStreamExtended:
+                    return composeROPCommand.ComposeWriteStreamExtendedRequest(inputServerObjectHandle);
                 case ROPCommandType.RopOpenFolder:
                     return composeROPCommand.ComposeOpenFolderRequest(inputServerObjectHandle, auxInfo);
                 case ROPCommandType.RopGetHierarchyTable:
@@ -119,6 +121,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     return composeROPCommand.ComposeRopReleaseRequest(inputServerObjectHandle);
                 case ROPCommandType.RopHardDeleteMessagesAndSubfolders:
                     return composeROPCommand.ComposeRopHardDeleteMessagesAndSubfolders(inputServerObjectHandle);
+                case ROPCommandType.RopFastTransferDestinationConfigure:
+                    return composeROPCommand.ComposeRopFastTransferDestinationConfigure(inputServerObjectHandle);
+                case ROPCommandType.RopFastTransferDestinationPutBuffer:
+                    return composeROPCommand.ComposeRopFastTransferDestinationPutBufferRequest(inputServerObjectHandle);
+                case ROPCommandType.RopFastTransferDestinationPutBufferExtended:
+                    return composeROPCommand.ComposeRopFastTransferDestinationPutBufferExtendedRequest(inputServerObjectHandle);
                 default:
                     throw new InvalidCastException("Invalid ROP command type");
             }

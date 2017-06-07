@@ -72,6 +72,7 @@ the protocol requirements:
 -   Microsoft Exchange Server 2007 Service Pack 3 (SP3)
 -   Microsoft Exchange Server 2010 Service Pack 3 (SP3)
 -   Microsoft Exchange Server 2013 Service Pack 1 (SP1)
+-	Microsoft Exchange Server 2016
 
 The following table describes the required server roles for a
 test suite deployment with Microsoft implementation. An Exchange

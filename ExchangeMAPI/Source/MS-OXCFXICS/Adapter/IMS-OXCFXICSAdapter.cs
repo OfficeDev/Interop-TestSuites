@@ -380,6 +380,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
         RopResult FastTransferDestinationPutBuffer(int serverId, int sourceHandleIndex, int transferDataIndex);
 
         /// <summary>
+        ///  Uploads the next portion of an input FastTransfer stream for a previously configured FastTransfer upload operation.
+        /// </summary>
+        /// <param name="serverId">A 32-bit signed integer represent the Identity of server.</param>
+        /// <param name="sourceHandleIndex">A fast transfer stream object handle index.</param>
+        /// <param name="transferDataIndex">Transfer data index.</param>
+        /// <returns>Indicate the result of this ROP operation.</returns>
+        RopResult FastTransferDestinationPutBufferExtended(int serverId, int sourceHandleIndex, int transferDataIndex);
+
+        /// <summary>
         ///  Initializes a FastTransfer operation for uploading content encoded in a client-provided FastTransfer stream into a mailbox
         /// </summary>
         /// <param name="serverId">A 32-bit signed integer represent the Identity of server.</param>

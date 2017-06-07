@@ -3968,8 +3968,110 @@ Create associated contents table.</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCPRPT_R305</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCPRPT_R30401001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RopWriteStreamExtended ROP] The RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4) writes the stream of bytes into a Stream object.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R30401002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RopWriteStreamExtended ROP] This operation [RopWriteStreamExtended] is valid only on Stream objects. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-OXCPRPT_R30401003</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R30401003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RopWriteStreamExtended ROP] This operation [RopWriteStreamExtended] is valid on Stream objects.</ns1:Description>
+		<ns1:Derived>MS-OXCPRPT_R30401002:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R30401004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RopWriteStreamExtended ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R30401005</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RopWriteStreamExtended ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R30401006</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.17.1</ns1:Doc_Sect>
+		<ns1:Description>[In RopWriteStreamExtended ROP Request Buffer] The following descriptions define valid fields for the RopWriteStreamExtended ROP request buffer ([MS-OXCROPS] section 2.2.9.4.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R30401007</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.17.1</ns1:Doc_Sect>
+		<ns1:Description>[In RopWriteStreamExtended ROP Request Buffer] DataSize (2 bytes):  An integer that specifies the number of bytes in the Data field.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R30401008</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.17.1</ns1:Doc_Sect>
+		<ns1:Description>[In RopWriteStreamExtended ROP Request Buffer] Data (variable):  An array of bytes that constitute the data to be written to the stream.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R30401009</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.17.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopWriteStreamExtended ROP Response Buffer] The following descriptions define valid fields for the RopWriteStreamExtended ROP response buffer ([MS-OXCROPS] section 2.2.9.4.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R30401010</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.17.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopWriteStreamExtended ROP Response Buffer] WrittenSize (4 bytes): An integer.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R30401011</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.17.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopWriteStreamExtended ROP Response Buffer] WrittenSize (4 bytes): An integer that specifies the number of bytes actually written to the stream.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R305</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.18</ns1:Doc_Sect>
 		<ns1:Description>[In RopCommitStream ROP] The RopCommitStream ROP ([MS-OXCROPS] section 2.2.9.4) ensures that any changes made to a Stream object are persisted in storage.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -3978,7 +4080,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R306</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.18</ns1:Doc_Sect>
 		<ns1:Description>[In RopCommitStream ROP] This operation is valid only on Stream objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -3988,7 +4090,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R30601</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.18</ns1:Doc_Sect>
 		<ns1:Description>[In RopCommitStream ROP] This operation is valid on Stream objects.</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R306:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -3998,7 +4100,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R307</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.18</ns1:Doc_Sect>
 		<ns1:Description>[In RopCommitStream ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4007,7 +4109,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R30700</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.18</ns1:Doc_Sect>
 		<ns1:Description>[In RopCommitStream ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4016,7 +4118,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R30701</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.17.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.18.1</ns1:Doc_Sect>
 		<ns1:Description>[In  RopCommitStream ROP Request Buffer] This protocol adds no additional field details to the RopCommitStream ROP request buffer ([MS-OXCROPS] section 2.2.9.4.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4025,7 +4127,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R30702</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.17.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.18.2</ns1:Doc_Sect>
 		<ns1:Description>[In  RopCommitStream ROP Response Buffer] This protocol adds no additional field details to the RopCommitStream ROP response buffer ([MS-OXCROPS] section 2.2.9.4.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4034,7 +4136,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R308</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.19</ns1:Doc_Sect>
 		<ns1:Description>[In RopGetStreamSize ROP] The RopGetStreamSize ROP ([MS-OXCROPS] section 2.2.9.5) retrieves the size of the stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4043,7 +4145,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R309</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.19</ns1:Doc_Sect>
 		<ns1:Description>[In RopGetStreamSize ROP] This operation is valid  only on Stream objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4053,7 +4155,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R30901</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.19</ns1:Doc_Sect>
 		<ns1:Description>[In RopGetStreamSize ROP] This operation is valid on Stream objects.</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R309:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -4063,7 +4165,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R30902</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.19</ns1:Doc_Sect>
 		<ns1:Description>[In RopGetStreamSize ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4072,7 +4174,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R30903</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.19</ns1:Doc_Sect>
 		<ns1:Description>[In RopGetStreamSize ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4081,7 +4183,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R32001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.18.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.19.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopGetStreamSize ROP Request Buffer] This protocol adds no additional field details to the RopGetStreamSize ROP request buffer ([MS-OXCROPS] section 2.2.9.5.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4090,7 +4192,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R32002</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.18.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.19.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopGetStreamSize ROP Response Buffer] The following descriptions define valid fields for the RopGetStreamSize ROP response buffer ([MS-OXCROPS] section 2.2.9.5.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4099,7 +4201,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R320</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.18.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.19.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopGetStreamSize ROP Response Buffer] StreamSize (4 bytes): An integer .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4108,7 +4210,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R32003</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.18.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.19.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopGetStreamSize ROP Response Buffer] StreamSize: An integer that specifies the number of bytes in the stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4117,7 +4219,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R321</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.18.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.19.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopGetStreamSize ROP Response Buffer] The maximum allowed stream size is 2^31 bytes.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4126,7 +4228,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R322</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetStreamSize ROP] The RopSetStreamSize ROP ([MS-OXCROPS] section 2.2.9.6) sets the size of a stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4135,7 +4237,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R323</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetStreamSize ROP] This operation is valid only on Stream objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4145,7 +4247,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R32301</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetStreamSize ROP] This operation is valid on Stream objects.</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R323:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -4155,7 +4257,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R327</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetStreamSize ROP] This ROP is not required prior to writing to the stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4164,7 +4266,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R32701</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetStreamSize ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4173,7 +4275,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R32702</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetStreamSize ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4182,7 +4284,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R32703</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.19.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetStreamSize ROP Request Buffer] The following descriptions define valid fields for the RopSetStreamSize ROP request buffer ([MS-OXCROPS] section 2.2.9.6.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4191,7 +4293,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R328</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.19.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetStreamSize ROP Request Buffer] StreamSize (8 bytes): An integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4200,7 +4302,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R32801</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.19.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetStreamSize ROP Request Buffer] StreamSize: An integer that specifies the size, in bytes, of the stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4209,7 +4311,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R329</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.19.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetStreamSize ROP Request Buffer] StreamSize: The maximum allowed stream size is 2^31 bytes.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4218,7 +4320,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R32901</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.19.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.20.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopSetStreamSize ROP Response Buffer] This protocol adds no additional field details to the RopSetStreamSize ROP response buffer ([MS-OXCROPS] section 2.2.9.6.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4227,7 +4329,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R330</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP] RopSeekStream sets the seek pointer to a new location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4236,7 +4338,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R332</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP] The new location is relative to either the beginning of the stream, the end of the stream, or the current seek pointer, which is specified by Origin parameter.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4245,7 +4347,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R333</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP] This ROP can also be used to get the location of the current seek pointer by setting the Origin field to 0x01 and the Offset field to zero.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4254,7 +4356,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R331</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP] This ROP is valid only on Stream objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4264,7 +4366,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R33101</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP] This ROP is valid on Stream objects.</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R331:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -4274,7 +4376,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R334</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4283,7 +4385,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R33401</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4292,7 +4394,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R33501</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In  RopSeekStream ROP Request Buffer] The following descriptions define valid fields for the RopSeekStream ROP request buffer ([MS-OXCROPS] section 2.2.9.7.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4301,7 +4403,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R33502</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP Request Buffer] Origin (1 byte).: An integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4310,7 +4412,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R33503</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP Request Buffer] Origin: An integer that specifies the point of origin for the seek pointer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4319,7 +4421,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R335</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP Request Buffer] Origin: The Origin field MUST be set to one of the values in the following table.[0x00,0x01,0x02].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4328,7 +4430,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R336</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP Request Buffer] Origin: If the value is 0x00
 ,The point of origin is the beginning of the stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -4338,7 +4440,7 @@ Create associated contents table.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R337</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP Request Buffer] Origin: If the value is 0x01,
 The point of origin is the location of the current seek pointer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -4348,7 +4450,7 @@ The point of origin is the location of the current seek pointer.</ns1:Descriptio
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R338</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP Request Buffer] Origin: If the value is 0x02
 The point of origin is the end of the stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -4358,7 +4460,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R339</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP Request Buffer] Offset (8 bytes).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4367,7 +4469,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R33901</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In  RopSeekStream ROP Request Buffer] Offset: An integer that specifies the number of bytes that the seek pointer is to be offset from the origin.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4376,7 +4478,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R340</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP Request Buffer] Offset: The value can be positive.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4385,7 +4487,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34000</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP Request Buffer] Offset: The value can be negative.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4394,7 +4496,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopSeekStream ROP Response Buffer] The following descriptions define valid fields for the RopSeekStream ROP response buffer ([MS-OXCROPS] section 2.2.9.7.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4403,7 +4505,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R341</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
 		<ns1:Description>[In  RopSeekStream ROP Response Buffer] NewPosition (8 bytes): An integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4412,7 +4514,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34101</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.20.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
 		<ns1:Description>[In  RopSeekStream ROP Response Buffer] NewPosition: An integer that specifies the new offset, in bytes, of the seek pointer from the beginning of the stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4421,7 +4523,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R342</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP] The RopCopyToStream ROP ([MS-OXCROPS] section 2.2.9.8) copies a specified number of bytes from the current seek pointer in the source stream to the current seek pointer in the destination stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4430,7 +4532,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R343</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP] This operation is valid only on Stream objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4440,7 +4542,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34301</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP] This operation is valid on Stream objects.</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R343:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -4450,7 +4552,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R344</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4459,7 +4561,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34401</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4468,7 +4570,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34402</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Request Buffer] The following descriptions define valid fields for the RopCopyToStream ROP request buffer ([MS-OXCROPS] section 2.2.9.8.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4477,7 +4579,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R345</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Request Buffer] ByteCount: 8 bytes integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4486,7 +4588,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34501</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Request Buffer] ByteCount: An integer that specifies the number of bytes to be copied from the source stream to the destination stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4495,7 +4597,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34502</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Response Buffer] The following descriptions define valid fields for the RopCopyToStream ROP response buffer ([MS-OXCROPS] section 2.2.9.8.2)..</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4504,7 +4606,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R35101</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Response Buffer] DestHandleIndex (4 bytes): An integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4513,7 +4615,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R35102</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Response Buffer] DestHandleIndex : An integer that specifies the location in the Server object handle table where the handle for the destination Server object is stored.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4522,7 +4624,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R351</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Response Buffer] DestHandleIndex: The DestHandleIndex field MUST be set to the value of the DestHandleIndex field of the ROP request buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4531,7 +4633,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R352</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Response Buffer] DestHandleIndex: The DestHandleIndex field MUST NOT be present if the ReturnValue field is set to any value other than NullDestinationObject (0x00000503).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4540,7 +4642,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34701</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Response Buffer] ReadByteCount: 8 bytes integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4549,7 +4651,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34702</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Response Buffer] ReadByteCount: An integer that specifies the number of bytes read from the source stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4558,7 +4660,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R347</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Response Buffer] ReadByteCount: If the ReturnValue field is set to NullDestinationObject (0x00000503), the value of the ReadByteCount field is undefined.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4567,7 +4669,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34901</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Response Buffer] WrittenByteCount: 8 bytes integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4576,7 +4678,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34902</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Response Buffer] WrittenByteCount: An integer that specifies the number of bytes written to the destination stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4585,7 +4687,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R349</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.21.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCopyToStream ROP Response Buffer] WrittenByteCount: If the ReturnValue field is set to NullDestinationObject (0x00000503), the value of the WrittenByteCount field is undefined.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4594,7 +4696,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R353</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP] The RopProgress ROP ([MS-OXCROPS] section 2.2.8.13) reports the progress status of an asynchronous operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4603,7 +4705,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R355</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP] This ROP also can abort an in-progress operation if the WantCancel field is set to nonzero.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4612,7 +4714,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R65001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP] This operation is valid on any object on which an asynchronous operation is used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4621,7 +4723,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R65002</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4630,7 +4732,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R65003</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4639,7 +4741,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R65004</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP Request Buffer] The following descriptions define valid fields for the RopProgress ROP request buffer ([MS-OXCROPS] section 2.2.8.13.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4648,7 +4750,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R366</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP Request Buffer] WantCancel (1 byte): A Boolean value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4657,7 +4759,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R36601</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP Request Buffer] WantCancel: A Boolean value that is zero if the client wants the current operation to continue.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4666,7 +4768,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R367</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP Request Buffer] WantCancel: The value is nonzero to request that the server cancel the operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4675,7 +4777,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R36701</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP Response Buffer] The following descriptions define valid fields for the RopProgress ROP response buffer ([MS-OXCROPS] section 2.2.8.13.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4684,7 +4786,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R36801</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP Response Buffer] CompletedTaskCount: 4 bytes integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4693,7 +4795,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R368</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP Response Buffer] CompletedTaskCount: An integer that specifies the approximate number of tasks that the server has completed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4702,7 +4804,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R37001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP Response Buffer] TotalTaskCount: 4 bytes integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4711,7 +4813,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R37002</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP Response Buffer] TotalTaskCount: An integer that specifies the approximate number of tasks the server will complete for the entire operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4720,7 +4822,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R370</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.22.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.23.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopProgress ROP Response Buffer] TotalTaskCount: The value of this field MUST be greater than or equal to the value of the CompletedTaskCount field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4729,7 +4831,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R373</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP] The RopLockRegionStream ROP ([MS-OXCROPS] section 2.2.9.9) is used to lock a specified range of bytes in a Stream object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4738,7 +4840,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R374</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP] This operation is valid only on Stream objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4748,7 +4850,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R37401</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP] This operation is valid on Stream objects.</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R374:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -4758,7 +4860,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R375</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4767,7 +4869,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R37501</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4776,7 +4878,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R37502</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP Request Buffer] The following descriptions define valid fields for the RopLockRegionStream ROP request buffer ([MS-OXCROPS] section 2.2.9.9.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4785,7 +4887,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R376</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP Request Buffer] RegionOffset (8 bytes): An unsigned 64-bit integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4794,7 +4896,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R37601</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP Request Buffer] RegionOffset: An unsigned 64-bit integer that specifies the number of bytes from the beginning of the stream where the beginning of the region to be locked is located.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4803,7 +4905,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R377</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP Request Buffer] RegionSize (8 bytes): An unsigned 64-bit integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4812,7 +4914,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R37701</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP Request Buffer] RegionSize: An unsigned 64-bit integer that specifies the size, in bytes, of the region to be locked.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4821,7 +4923,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R37801</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP Request Buffer] LockFlags (4 bytes): A set of bits that control the read/write access to the locked region.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4830,7 +4932,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R37802</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP Request Buffer] LockFlags: A set of bits that control the read/write access to the locked region.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4839,7 +4941,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R378</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP Request Buffer] LockFlags: The LockFlags field MUST be set to one of the values in the following table.[0x001,Any other value].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4848,7 +4950,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R379</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP Request Buffer] LockFlags: If the value is 0x001, indicates that if this lock is granted, the specified range of bytes can be opened and read any number of times, but writing to the locked range is prohibited except for the owner that was granted this lock.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4857,7 +4959,7 @@ The point of origin is the end of the stream.</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R380</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP Request Buffer] LockFlags: If the value is any other value, indicates that
 if this lock is granted, reading and writing to the specified range of bytes is prohibited except by the owner that was granted this lock.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -4867,7 +4969,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R38001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.23.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.24.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopLockRegionStream ROP Response Buffer] This protocol adds no additional field details to the RopLockRegionStream ROP response buffer ([MS-OXCROPS] section 2.2.9.9.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4876,7 +4978,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R381</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP] The RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10) unlocks a specified range of bytes in a Stream object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4885,7 +4987,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R38102</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP] This ROP is valid only on Stream objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4895,7 +4997,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R38103</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP] This ROP is valid on Stream objects.</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R38102:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -4905,7 +5007,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R383</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4914,7 +5016,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R382</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4923,7 +5025,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R38201</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP Request Buffer] The following descriptions define valid fields for the RopUnlockRegionStream ROP request buffer ([MS-OXCROPS] section 2.2.9.10.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4932,7 +5034,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R384</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP Request Buffer] RegionOffset (8 bytes): An unsigned 64-bit integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4941,7 +5043,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R38401</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP Request Buffer] RegionOffset: An unsigned 64-bit integer that specifies the number of bytes from the beginning of the stream where the beginning of the region to be unlocked is located.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4950,7 +5052,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R385</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP Request Buffer] RegionSize (8 bytes): An unsigned 64-bit integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4959,7 +5061,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R38501</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP Request Buffer] RegionSize: An unsigned 64-bit integer that specifies the size, in bytes, of the region to be unlocked.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4968,7 +5070,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R386</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP Request Buffer] LockFlags (4 bytes).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4977,7 +5079,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R38601</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP Request Buffer] LockFlags: A set of bits that control the read/write access to the locked region.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -4986,8 +5088,8 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R38602</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopUnlockRegionStream ROP Request Buffer] LockFlags: The value of the LockFlags field MUST be one of the values specified in section 2.2.23.1. [0x001,Any other value]</ns1:Description>
+		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
+		<ns1:Description>[In RopUnlockRegionStream ROP Request Buffer] LockFlags: The value of the LockFlags field MUST be one of the values specified in section 2.2.24.1. [0x001,Any other value]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4995,7 +5097,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R387</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP Request Buffer] LockFlags: In addition, it MUST be set to the same value that was used in the RopLockRegionStream ROP request buffer ([MS-OXCROPS] section 2.2.9.9) that was used to lock the region of bytes.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -5004,7 +5106,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R38701</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.24.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.25.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopUnlockRegionStream ROP Response Buffer] This protocol adds no additional field details to the RopUnlockRegionStream ROP response buffer ([MS-OXCROPS] section 2.2.9.10.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -5013,7 +5115,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R388</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP] The RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11) is functionally equivalent to RopWriteStream ([MS-OXCROPS] section 2.2.9.3) followed by RopCommitStream ([MS-OXCROPS] section 2.2.9.4).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5022,7 +5124,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R632</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP] This operation is valid only on Stream objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5032,7 +5134,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R63201</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP] This operation is valid on Stream objects.</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R632:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -5042,7 +5144,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R633</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP] This ROP MUST NOT be used on a Stream object that is opened on a property of a Folder object</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5051,7 +5153,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R390</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5060,7 +5162,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R39001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5069,7 +5171,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R39002</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP Request Buffer] The following descriptions define valid fields for the RopWriteAndCommitStream ROP request buffer ([MS-OXCROPS] section 2.2.9.11.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -5078,7 +5180,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R391</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP Request Buffer] DataSize (2 bytes): An integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -5087,7 +5189,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R39101</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP Request Buffer] DataSize: An integer that specifies the number of bytes in the Data field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -5096,7 +5198,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R392</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP Request Buffer] Data (variable):  An array of bytes that constitute the data to be written and committed to the stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -5105,7 +5207,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R39201</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP Response Buffer] The following descriptions define valid fields for the RopWriteAndCommitStream ROP response buffer ([MS-OXCROPS] section 2.2.9.11.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -5114,7 +5216,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R393</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP Response Buffer] WrittenSize (2 bytes): An integer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -5123,7 +5225,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R39301</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.25.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.26.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopWriteAndCommitStream ROP Response Buffer] WrittenSize: An integer that specifies the number of bytes actually written and committed to the stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -5132,7 +5234,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R394</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.27</ns1:Doc_Sect>
 		<ns1:Description>[In RopCloneStream ROP] The RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12) creates a new Stream object that is a clone of another Stream object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5141,7 +5243,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R395</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.27</ns1:Doc_Sect>
 		<ns1:Description>[In RopCloneStream ROP] The cloned Stream object allows access to the same bytes but has a separate seek pointer</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5150,7 +5252,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R398</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.27</ns1:Doc_Sect>
 		<ns1:Description>[In RopCloneStream ROP] This operation is valid only on Stream objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5160,7 +5262,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R39801</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.27</ns1:Doc_Sect>
 		<ns1:Description>[In RopCloneStream ROP] This operation is valid on Stream objects.</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R398:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -5170,7 +5272,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R399</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.27</ns1:Doc_Sect>
 		<ns1:Description>[In RopCloneStream ROP] The complete syntax of the ROP request buffer and the ROP response buffer is specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5179,7 +5281,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R39900</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.27</ns1:Doc_Sect>
 		<ns1:Description>[In RopCloneStream ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5188,7 +5290,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R39901</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.26.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.27.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopCloneStream ROP Request Buffer] This protocol adds no additional field details to the RopCloneStream ROP request buffer ([MS-OXCROPS] section 2.2.9.12.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -5197,7 +5299,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R39902</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.26.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.27.2</ns1:Doc_Sect>
 		<ns1:Description>[In RopCloneStream ROP Response Buffer] This protocol adds no additional field details to the RopCloneStream ROP response buffer ([MS-OXCROPS] section 2.2.9.12.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6650,7 +6752,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R50404</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCopyProperties] For details about the RopProgress ROP and how it is used, see section 2.2.22 and section 3.2.5.19.</ns1:Description>
+		<ns1:Description>[In Processing RopCopyProperties] For details about the RopProgress ROP and how it is used, see section 2.2.23 and section 3.2.5.20.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6807,7 +6909,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R50804</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCopyTo] For details about the RopProgress ROP and how it is used, see section 2.2.22 and section 3.2.5.19.</ns1:Description>
+		<ns1:Description>[In Processing RopCopyTo] For details about the RopProgress ROP and how it is used, see section 2.2.23 and section 3.2.5.20.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -7432,8 +7534,17 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXCPRPT_R901.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCPRPT_R56901</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCPRPT_R900001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
+		<ns1:Description>[In Processing RopWriteStreamExtended] When the server receives a RopWriteStreamExtended ROP request buffer ([MS-OXCROPS] section 2.2.9.4) from the client, the server should process it the same as it processes RopWriteStream, see section 3.2.5.13.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCPRPT_R56901</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCommitStream] When the server receives a RopCommitStream ROP request buffer ([MS-OXCROPS] section 2.2.9.4) from the client, the server parses the buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7442,7 +7553,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R56902</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCommitStream] The server responds with a RopCommitStream ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7451,7 +7562,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R56903</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCommitStream] For details about how the server parses buffers and processes ROPs, see [MS-OXCROPS] section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7460,7 +7571,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R56904</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCommitStream] For details about how the server formats buffers for the response, see [MS-OXCROPS] section 3.2.5.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7469,7 +7580,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R571</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCommitStream] The server MUST set the property specified in the RopOpenStream ROP request ([MS-OXCROPS] section 2.2.9.1) with the data from the Stream object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7478,7 +7589,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57501</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopGetStreamSize] When the server receives a RopGetStreamSize ROP request buffer ([MS-OXCROPS] section 2.2.9.5) from the client, the server parses the buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7487,7 +7598,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57502</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopGetStreamSize] The server responds with a RopGetStreamSize ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7496,7 +7607,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57503</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopGetStreamSize] For details about how the server parses buffers and processes ROPs, see [MS-OXCROPS] section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7505,7 +7616,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57504</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopGetStreamSize] For details about how the server formats buffers for the response, see [MS-OXCROPS] section 3.2.5.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7514,7 +7625,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R575</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopGetStreamSize] The server MUST return the current size of the Stream object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7523,7 +7634,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57701</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSetStreamSize] When the server receives a RopSetStreamSize ROP request buffer ([MS-OXCROPS] section 2.2.9.6) from the client, the server parses the buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7532,7 +7643,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57702</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSetStreamSize] The server responds with a RopSetStreamSize ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7541,7 +7652,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57703</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSetStreamSize] For details about how the server parses buffers and processes ROPs, see [MS-OXCROPS] section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7550,7 +7661,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57704</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSetStreamSize] For details about how the server formats buffers for the response, see [MS-OXCROPS] section 3.2.5.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7559,7 +7670,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57705</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSetStreamSize] The server sets the current size of the Stream object according to the value specified in the StreamSize field of the ROP request buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7568,7 +7679,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57706</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSetStreamSize] If the size of the stream is increased, the server MUST set the values in the extended stream to 0x00.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7577,7 +7688,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57707</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSetStreamSize] If the size of the stream is decreased, the server discards the values that are beyond the end of the new size.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7586,7 +7697,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57901</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSeekStream] When the server receives a RopSeekStream ROP request buffer ([MS-OXCROPS] section 2.2.9.7) from the client, the server parses the buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7595,7 +7706,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57902</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSeekStream] The server responds with a RopSeekStream ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7604,7 +7715,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57903</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSeekStream] For details about how the server parses buffers and processes ROPs, see [MS-OXCROPS] section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7613,7 +7724,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R57904</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSeekStream] For details about how the server formats buffers for the response, see [MS-OXCROPS] section 3.2.5.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7622,7 +7733,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R581</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSeekStream] The server modifies the location of the seek point associated with the Stream object according to the ROP request buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7631,7 +7742,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R582</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSeekStream] If the client requests the seek pointer be moved beyond 2^31 bytes, the server MUST return the StreamSeekError error code in the ReturnValue field of the ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7640,7 +7751,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R583</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSeekStream] If the client requests the seek pointer be moved beyond the end of the stream, the stream is extended, and zeros filled to the new seek location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7649,7 +7760,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R584</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSeekStream] When Tried to seek to offset before the start or beyond the max stream size of 2^31 error code "0x80030019" with name "StreamSeekError" SHOULD be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7659,7 +7770,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R902</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSeekStream] When The value of the Origin field is invalid error code "0x80030057" with name "StreamInvalidParam" SHOULD be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7669,7 +7780,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R76001</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCopyToStream] When the server receives a RopCopyToStream ROP request buffer ([MS-OXCROPS] section 2.2.9.8) from the client, the server parses the buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7678,7 +7789,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R76002</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCopyToStream] The server responds with a RopCopyToStream ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7687,7 +7798,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R76003</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCopyToStream] For details about how the server parses buffers and processes ROPs, see [MS-OXCROPS] section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7696,7 +7807,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R76004</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCopyToStream] For details about how the server formats buffers for the response, see [MS-OXCROPS] section 3.2.5.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7705,7 +7816,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R59201</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCopyToStream] Servers SHOULD&lt;13&gt; implement this ROP [RopCopyToStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7715,7 +7826,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R592</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCopyToStream] The server MUST read the number of bytes requested from the source Stream object and write those bytes into the destination Stream object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7724,7 +7835,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R591</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCopyToStream] The server MUST move the seek pointer of both the source and destination streams forward the same number of bytes as were copied.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7733,7 +7844,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R593</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.18</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCopyToStream] When Destination object does not exist error code "0x00000503" with name "NullDestinationObject" SHOULD be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7743,7 +7854,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R59702</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopProgress]When the server receives a RopProgress ROP request buffer ([MS-OXCROPS] section 2.2.8.13) from the client, the server parses the buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7752,7 +7863,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R59703</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopProgress] The server responds with a RopProgress ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7761,7 +7872,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R59704</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopProgress] For details about how the server parses buffers and processes ROPs, see [MS-OXCROPS] section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7770,7 +7881,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R59705</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopProgress] For details about how the server formats buffers for the response, see [MS-OXCROPS] section 3.2.5.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7779,7 +7890,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R597</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopProgress] Servers SHOULD&lt;14&gt; implement this ROP [RopProgress].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7788,7 +7899,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R598</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopProgress] If the server implements this ROP, if the server receives a RopProgress ROP request with the WantCancel field set to nonzero, then the server can abort the operation instead of completing it.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7797,7 +7908,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R814</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopProgress]] If the server has completed the operation, it MUST respond with a ROP response buffer that corresponds to the original ROP request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7806,7 +7917,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R815</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopProgress] If the server has aborted the operation, it MUST respond with a ROP response buffer that corresponds to the original ROP request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7815,7 +7926,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R60702</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] When the server receives a RopLockRegionStream ROP request buffer ([MS-OXCROPS] section 2.2.9.9) from the client, the server parses the buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7824,7 +7935,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R60703</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] The server responds with a RopLockRegionStream ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7833,7 +7944,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R60704</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] For details about how the server parses buffers and processes ROPs, see [MS-OXCROPS] section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7842,7 +7953,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R60705</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] For details about how the server formats buffers for the response, see [MS-OXCROPS] section 3.2.5.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7851,7 +7962,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R607</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] Servers MAY&lt;15&gt; implement this ROP [RopLockRegionStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7861,7 +7972,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R60706</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] If the server implements this ROP, the server MUST check for any existing locks on the requested region of the Stream object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7870,7 +7981,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R608</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] If the server implements this ROP, if any are found, the server MUST check the last activity time on the session that locked the region previously.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7879,7 +7990,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R609</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] If the server implements this ROP, if the last activity time was greater than 30 seconds prior to the new request, the server MUST mark the previous lock as expired and discard any pending changes of the Stream object from the session that owned that lock.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7888,7 +7999,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R610</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] If the server implements this ROP, if all previous locks are expired, or if there are no previous locks, the server MUST grant the requesting client a new lock.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7897,7 +8008,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R611</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] If the server implements this ROP, if there are previous locks that are not expired, the server MUST return the AccessDenied error code (0x80070005) in the ReturnValue field of the ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7906,7 +8017,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R612</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] If the server implements this ROP, if a session with an expired lock calls any ROP for the Stream object that would encounter the locked region, the server MUST return the NetworkError error code (0x80040115) in the ReturnValue field of the ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7915,7 +8026,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R888</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopLockRegionStream] If the server implements this ROP, The server MUST limit access to the locked region by other sessions as indicated by the LockFlags field of the ROP request buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7924,7 +8035,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R62002</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopUnlockRegionStream] When the server receives a RopUnlockRegionStream ROP request buffer ([MS-OXCROPS] section 2.2.9.9) from the client, the server parses the buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7933,7 +8044,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R62003</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopUnlockRegionStream] The server responds with a RopUnlockRegionStream ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7942,7 +8053,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R62004</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopUnlockRegionStream] For details about how the server parses buffers and processes ROPs, see [MS-OXCROPS] section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7951,7 +8062,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R62005</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopUnlockRegionStream] For details about how the server formats buffers for the response, see [MS-OXCROPS] section 3.2.5.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7960,7 +8071,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R620</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopUnlockRegionStream] Servers MAY&lt;16&gt; implement this ROP [RopUnlockRegionStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7970,7 +8081,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R62006</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopUnlockRegionStream] If the server implements this ROP[RopUnlockRegionStream], the server MUST remove any existing locks on the requested region that are owned by the session calling the ROP.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7979,7 +8090,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R622</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopUnlockRegionStream] If the server implements , if there are previous locks that are not owned by the session calling the ROP[RopUnlockRegionStream], the server MUST leave them unmodified.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7988,7 +8099,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R80502</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopWriteAndCommitStream] When the server receives a RopWriteAndCommitStream ROP request buffer ([MS-OXCROPS] section 2.2.9.11) from the client, the server parses the buffer</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7997,7 +8108,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R80503</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopWriteAndCommitStream] The server responds with a RopWriteAndCommitStream ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8006,7 +8117,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R80504</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopWriteAndCommitStream] For details about how the server parses buffers and processes ROPs, see [MS-OXCROPS] section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8015,7 +8126,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R80505</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopWriteAndCommitStream] For details about how the server formats buffers for the response, see [MS-OXCROPS] section 3.2.5.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8024,7 +8135,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R80506</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopWriteAndCommitStream] Servers MAY&lt;17&gt;  implement this ROP [RopWriteAndCommitStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8034,7 +8145,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R805</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopWriteAndCommitStream] If the server implements this ROP, it MUST first process the ROP request as specified in section 3.2.5.13</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8043,8 +8154,8 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R812</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.22</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopWriteAndCommitStream] If the server implements this ROP, it MUST then process the ROP process the ROP request as specified in section 3.2.5.14.</ns1:Description>
+		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
+		<ns1:Description>[In Processing RopWriteAndCommitStream] If the server implements this ROP, it MUST then process the ROP process the ROP request as specified in section 3.2.5.15.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8052,7 +8163,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R75602</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.24</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCloneStream]When the server receives a RopLockRegionStream ROP request buffer ([MS-OXCROPS] section 2.2.9.9) from the client, the server parses the buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8061,7 +8172,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R75603</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.24</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCloneStream] The server responds with a RopCloneStream ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8070,7 +8181,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R75604</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.24</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCloneStream] For details about how the server parses buffers and processes ROPs, see [MS-OXCROPS] section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8079,7 +8190,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R75605</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.24</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCloneStream] For details about how the server formats buffers for the response, see [MS-OXCROPS] section 3.2.5.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8088,7 +8199,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R75606</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.24</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCloneStream] Servers MAY&lt;18&gt; implement this ROP [RopCloneStream].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8098,7 +8209,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R756</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.24</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCloneStream] If the server implements this ROP, it MUST create a new Stream object that contains the same data as the source Stream object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8107,7 +8218,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R757</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.24</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCloneStream] Changes made to the stream in one Stream object MUST be immediately visible in the other.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8116,7 +8227,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R758</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.24</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCloneStream] The initial setting of the seek pointer in the cloned Stream object MUST be the same as the current setting of the seek pointer in the source Stream object at the time that this ROP is processed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8125,7 +8236,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R759</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.2.5.24</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopCloneStream] Afterwards, the seek pointers MUST be independent of each other.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8522,7 +8633,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R5070514</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (&lt;10&gt; Section 3.2.5.8: Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (&lt;10&gt; Section 3.2.5.8: Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R5070512:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8553,7 +8664,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R8850103</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the client attempts to open a stream on a public folder in any mode other than ReadOnly. (&lt;11&gt; Section 3.2.5.11: Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the client attempts to open a stream on a public folder in any mode other than ReadOnly. (&lt;11&gt; Section 3.2.5.11: Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R88501:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8574,7 +8685,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R86709</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopCopyToStream ROP. (&lt;13&gt; Section 3.2.5.18: The initial release version of Exchange 2010 does not implement the RopCopyToStream ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopCopyToStream ROP. (&lt;13&gt; Section 3.2.5.19: The initial release version of Exchange 2010 does not implement the RopCopyToStream ROP.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R59201:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8584,7 +8695,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R867091</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCopyToStream ROP. (&lt;13&gt; Section 3.2.5.18: Exchange 2007 and above products (except the initial release version of Exchange 2010) follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCopyToStream ROP. (&lt;13&gt; Section 3.2.5.19: Exchange 2007 and above products (except the initial release version of Exchange 2010) follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R59201:i,MS-OXCPRPT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8595,7 +8706,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R866</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopProgress ROP. (&lt;14&gt; Section 3.2.5.19: The initial release version of Exchange 2010 does not implement the RopProgress ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement the RopProgress ROP. (&lt;14&gt; Section 3.2.5.20: The initial release version of Exchange 2010 does not implement the RopProgress ROP.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8657,7 +8768,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R750</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (&lt;15&gt; Section 3.2.5.20: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (&lt;15&gt; Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R607:i,MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8678,7 +8789,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R751</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (&lt;16&gt; Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (&lt;16&gt; Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R620:i,MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8699,7 +8810,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R752</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (&lt;17&gt; Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (&lt;17&gt; Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R80506:i,MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8720,7 +8831,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R753</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (&lt;18&gt; Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (&lt;18&gt; Section 3.2.5.24: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R75606:i,MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

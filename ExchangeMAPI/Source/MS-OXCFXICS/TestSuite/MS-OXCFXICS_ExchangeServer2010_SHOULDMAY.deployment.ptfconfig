@@ -277,5 +277,11 @@
     <Property name="R5100Enabled" value="false"/>
     <!-- Set R2625Enabled to true to verify that the implementation servers MUST fail the operation if the size of data being sent is larger than the maximum size imposed by an implementation, rather than truncating the data. Set R2625Enabled to false to disable this requirement.-->
     <Property name="R2625Enabled" value="false"/>
+    <!-- Set R318302101Enabled to true to verify for RopFastTransferDestinationPutBufferExtended ROP, implementation does set the InProgressCount field to 0x00000000 in RopFastTransferDestinationPutBufferExtended ROP Response Buffer. Set R318302101Enabled to false to disable this requirement. -->
+    <Property name="R318302101Enabled" value="true"/>
+    <!-- Set R318302601Enabled to true to verify for RopFastTransferDestinationPutBufferExtended ROP, implementation does set this value to 0x00000001. Set R318302601Enabled to false to disable this requirement. -->
+    <Property name="R318302601Enabled" value="true"/>
+    <!-- Set R318303003Enabled to true to verify for RopFastTransferDestinationPutBufferExtended ROP, implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when the value of the ReturnValue field is equal to Success (0x00000000). Set R318303003Enabled to false to disable this requirement. -->
+    <Property name="R318303003Enabled" value="true"/>
   </Properties>
 </TestSite>

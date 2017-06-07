@@ -6305,6 +6305,297 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP] The RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) uploads the next portion of an input FastTransfer stream for a previously configured FastTransfer upload operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP] The complete syntax of the ROP request and response buffers for this ROP are specified in [MS-OXCROPS]. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP] This section specifies the syntax and semantics of various fields that are not fully specified in [MS-OXCROPS].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] The following descriptions define valid fields for the request buffer of the RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183005</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] InputServerObject: The value of this field MUST be the FastTransfer upload context.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183006</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] TransferDataSize (2 bytes): An unsigned 16-bit integer. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183007</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] This value [TransferDataSize] specifies the size of the TransferData field. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183008</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] The value [TransferDataSize] MUST NOT be set to 0x0000. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183009</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] The maximum data size is limited to the available space allowed by the underlying transport used by the EcDoRpcExt2 method ([MS-OXCRPC] section 3.1.4.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183010</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] The maximum data size is limited to the available space allowed by the underlying transport used by the Execute request type&lt;13&gt; ([MS-OXCMAPIHTTP] section 2.2.4.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183011</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] TransferData (variable): An array of bytes. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183012</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] This array [TransferData] contains the data to be uploaded to the destination FastTransfer object and contains the next portion of a FastTransfer stream. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183013</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Request Buffer] The syntax of the FastTransfer stream is specified in section 2.2.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183014</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] The following descriptions define valid fields for the response buffer of the RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183015</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] ReturnValue (4 bytes): An unsigned 32-bit integer.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183016</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] This value [ReturnValue] represents the ROP execution status.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183017</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] TransferStatus (2 bytes): A 16-bit enumeration.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183018</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] Clients MUST ignore the value of this field [TransferStatus].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183019</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] InProgressCount (4 bytes): An unsigned 32-bit integer.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183020</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] This [InProgressCount] value specifies the number of steps that have been completed in the current operation. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183021</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] The server SHOULD set this field [InProgressCount] to 0x00000000. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCFXICS_R318302101</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183022</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] This field [InProgressCount] is usable only for progress information display.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183023</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] TotalStepCount (4 bytes): An unsigned 32-bit integer.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183024</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] This field [TotalStepCount] contains the approximate total number of steps to be completed in the current operation. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183025</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] This field [TotalStepCount] is used only to display progress information.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183026</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] However, the value is implementation-specific&lt;14&gt; and not required for interoperability.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requrement: MS-OXCFXICS_R318302601.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183027</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] Reserved (1 byte): The field [Reserved] MUST be set to 0x00 when sending[, and MUST be ignored on receipt].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183028</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] Reserved (1 byte): The field [Reserved][MUST be set to 0x00 when sending, and ]MUST be ignored on receipt.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183029</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] BufferUsedSize (2 bytes): An unsigned 16-bit integer.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183030</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] The value [BufferSizeUsed] SHOULD&lt;15&gt; be the same size as the value of TransferDataSize field if the value of the ReturnValue field is equal to Success (0x00000000)[; otherwise, it can be equal to or less than the value of the TransferDataSize field on failure when the value of the ReturnValue field is not equal to Success (0x00000000)]. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requrement: MS-OXCFXICS_R318303003.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183031</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] The value SHOULD&lt;15&gt; [be the same size as the value of TransferDataSize field if the value of the ReturnValue field is equal to Success (0x00000000); otherwise, it] can be equal to [or less than] the value of the TransferDataSize field on failure when the value of the ReturnValue field is not equal to Success (0x00000000). </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183032</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] The value SHOULD&lt;15&gt; [be the same size as the value of TransferDataSize field if the value of the ReturnValue field is equal to Success (0x00000000); otherwise, it] can be [equal to or ]less than the value of the TransferDataSize field on failure when the value of the ReturnValue field is not equal to Success (0x00000000). </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R641</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In RopSynchronizationConfigure] The RopSynchronizationConfigure ROP ([MS-OXCROPS] section 2.2.13.1) is used to define the synchronization scope and parameters of the synchronization download operation.</ns1:Description>
@@ -6737,7 +7028,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R705</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSynchronizationConfigure ROP Request Buffer] [SynchronizationFlags] [When the flag name is BestBody,the value is 0x2000] Identifies whether the server outputs message bodies(2) in their original format or in RTF.&lt;13&gt;</ns1:Description>
+		<ns1:Description>[In RopSynchronizationConfigure ROP Request Buffer] [SynchronizationFlags] [When the flag name is BestBody,the value is 0x2000] Identifies whether the server outputs message bodies(2) in their original format or in RTF.&lt;16&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7836,7 +8127,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3215</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2.4.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSynchronizationImportMessageChange ROP Request Buffer] [ImportFlag, when the name is FailOnConflict, the value is 0x40] The server SHOULD&lt;14&gt; support this flag.</ns1:Description>
+		<ns1:Description>[In RopSynchronizationImportMessageChange ROP Request Buffer] [ImportFlag, when the name is FailOnConflict, the value is 0x40] The server SHOULD&lt;17&gt; support this flag.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8235,7 +8526,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1308</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2.4.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSynchronizationImportHierarchyChange ROP Request Buffer] [ HierarchyValues(variable)] PidTagParentSourceKey (section 2.2.1.2.6) MUST be present and it SHOULD&lt;15&gt; be zero-length to identify a folder for which a synchronization upload context was opened.</ns1:Description>
+		<ns1:Description>[In RopSynchronizationImportHierarchyChange ROP Request Buffer] [ HierarchyValues(variable)] PidTagParentSourceKey (section 2.2.1.2.6) MUST be present and it SHOULD&lt;18&gt; be zero-length to identify a folder for which a synchronization upload context was opened.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8271,7 +8562,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1312</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2.4.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSynchronizationImportHierarchyChange ROP Request Buffer] [ HierarchyValues(variable)] PidTagLastModificationTime ([MS-OXPROPS] section 2.753) MUST be present.</ns1:Description>
+		<ns1:Description>[In RopSynchronizationImportHierarchyChange ROP Request Buffer] [ HierarchyValues(variable)] PidTagLastModificationTime ([MS-OXPROPS] section 2.755) MUST be present.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8997,7 +9288,7 @@ Return value (4 bytes):] The following table[In section 2.2.3.2.4.4] contains ad
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R90205</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2.4.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSynchronizationImportDeletes ROP Request Buffer] [ImportDeleteFlags, When the Name is HardDelete, the Value of HardDelete is 0x02] The server SHOULD&lt;16&gt; support this flag.</ns1:Description>
+		<ns1:Description>[In RopSynchronizationImportDeletes ROP Request Buffer] [ImportDeleteFlags, When the Name is HardDelete, the Value of HardDelete is 0x02] The server SHOULD&lt;19&gt; support this flag.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9987,6 +10278,24 @@ propDef = ( propType propInfo )</ns1:Description>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R986001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In fixedPropType, varPropType, mvPropType Property Types] When varPropType is a Property type value of PtypBinary [or PtypServerId], the length lexeme in a propValue element is not used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R986002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In fixedPropType, varPropType, mvPropType Property Types] When varPropType is a Property type value of [PtypBinary or] PtypServerId, the length lexeme in a propValue element is not used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R987</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In fixedPropType, varPropType, mvPropType Property Types] Property type [mvPropType] value of any multi-valued property type (starts with PtypMultiple([MS-OXCDATA] section 2.11.1)), whose base type is either a valid fixedPropType or a valid varPropType.</ns1:Description>
@@ -10089,7 +10398,7 @@ propDef = ( propType propInfo )</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3259</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Serialization of Simple Types] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, the server SHOULD&lt;17&gt; output string values with the terminating nulls.</ns1:Description>
+		<ns1:Description>[In Serialization of Simple Types] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, the server SHOULD&lt;20&gt; output string values with the terminating nulls.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10873,8 +11182,8 @@ propList = *propValue
 
 subFolder = StartSubFld folderContent EndFolder
 subFolderNoDelProps = StartSubFld folderContentNoDelProps EndFolder
-topFolder = StartTopFld folderContentNoDelProps EndFolder
-folderContent = propList
+topFolder = [MetaTagDnPrefix] StartTopFld folderContentNoDelProps EndFolder
+folderContent = [MetaTagDnPrefix] propList
   ( MetaTagNewFXFolder / folderMessages ) 
   [ MetaTagFXDelProp *subFolder ] 
 folderContentNoDelProps = propList
@@ -10887,12 +11196,12 @@ message = ( StartMessage / StartFAIMsg )
   EndMessage
 messageChildren = [ MetaTagFXDelProp ] [ *recipient ] 
   [ MetaTagFXDelProp ] [ *attachment ] 
-messageContent = propList messageChildren
-messageList = *( [MetaTagEcWarning] message )
+messageContent = [MetaTagDnPrefix] propList messageChildren
+messageList = *([MetaTagDnPrefix] [MetaTagEcWarning] [message] )
 recipient = StartRecip propList EndToRecip
 
 attachment = NewAttach PidTagAttachNumber attachmentContent EndAttach
-attachmentContent = propList [embeddedMessage] 
+attachmentContent = [MetaTagDnPrefix] propList [embeddedMessage] 
 embeddedMessage = StartEmbed messageContent EndEmbed
 
 contentsSync = [progressTotal] 
@@ -11326,7 +11635,7 @@ state = IncrSyncStateBegin propList IncrSyncStateEnd</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R109701</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In folderChange Element] [PidTagParentFolderId, Conditional] PidTagParentFolderId SHOULD&lt;18&gt; be present if the Eid flag of the SynchronizationExtraFlags field is set.</ns1:Description>
+		<ns1:Description>[In folderChange Element] [PidTagParentFolderId, Conditional] PidTagParentFolderId SHOULD&lt;21&gt; be present if the Eid flag of the SynchronizationExtraFlags field is set.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11425,7 +11734,7 @@ state = IncrSyncStateBegin propList IncrSyncStateEnd</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1103</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.6</ns1:Doc_Sect>
-		<ns1:Description>[In folderContent Element] [MetaTagEcWarning] Whether the MetaTagEcWarning property is present that is optional, it MAY&lt;19&gt; be output by the server if the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder.</ns1:Description>
+		<ns1:Description>[In folderContent Element] [MetaTagEcWarning] Whether the MetaTagEcWarning property is present that is optional, it MAY&lt;22&gt; be output by the server if the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11752,7 +12061,7 @@ state = IncrSyncStateBegin propList IncrSyncStateEnd</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3304</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.12</ns1:Doc_Sect>
-		<ns1:Description>[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.784) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.774) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1)and .</ns1:Description>
+		<ns1:Description>[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.786) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.774) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11941,7 +12250,7 @@ state = IncrSyncStateBegin propList IncrSyncStateEnd</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3305</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.15</ns1:Doc_Sect>
-		<ns1:Description>[In messageChangePartial Element] Servers SHOULD&lt;20&gt; support partial item downloads.</ns1:Description>
+		<ns1:Description>[In messageChangePartial Element] Servers SHOULD&lt;23&gt; support partial item downloads.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12393,7 +12702,7 @@ state = IncrSyncStateBegin propList IncrSyncStateEnd</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1182</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.20</ns1:Doc_Sect>
-		<ns1:Description>[In propList Element] The propList elements SHOULD NOT&lt;21&gt; contain propValue elements for meta-properties.</ns1:Description>
+		<ns1:Description>[In propList Element] The propList elements SHOULD NOT&lt;24&gt; contain propValue elements for meta-properties.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12762,7 +13071,7 @@ MUST adhere to the following restrictions:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3324</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyTo, ROP request buffer field conditions is The InputServerObject field is a Folder object&lt;22&gt;, Root element in the produced FastTransfer stream is folderContent.</ns1:Description>
+		<ns1:Description>[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyTo, ROP request buffer field conditions is The InputServerObject field is a Folder object&lt;25&gt;, Root element in the produced FastTransfer stream is folderContent.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12771,7 +13080,7 @@ MUST adhere to the following restrictions:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3325</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyProperties, ROP request buffer field conditions is The InputServerObject field is a Folder object&lt;22&gt;, Root element in the produced FastTransfer stream is folderContent.</ns1:Description>
+		<ns1:Description>[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyProperties, ROP request buffer field conditions is The InputServerObject field is a Folder object&lt;25&gt;, Root element in the produced FastTransfer stream is folderContent.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12798,7 +13107,7 @@ MUST adhere to the following restrictions:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3328</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyTo, ROP request buffer field conditions is The InputServerObject field is an Attachment object&lt;23&gt;, Root element in the produced FastTransfer stream is attachmentContent.</ns1:Description>
+		<ns1:Description>[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyTo, ROP request buffer field conditions is The InputServerObject field is an Attachment object&lt;26&gt;, Root element in the produced FastTransfer stream is attachmentContent.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12807,7 +13116,7 @@ MUST adhere to the following restrictions:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3329</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyProperties, ROP request buffer field conditions is The InputServerObject field is an Attachment object&lt;23&gt;, Root element in the produced FastTransfer stream is attachmentContent.</ns1:Description>
+		<ns1:Description>[In FastTransfer Streams in ROPs] When ROP that initiates an operation is RopFastTranserSourceCopyProperties, ROP request buffer field conditions is The InputServerObject field is an Attachment object&lt;26&gt;, Root element in the produced FastTransfer stream is attachmentContent.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12966,7 +13275,7 @@ example: C =A \ B.Set C is the relative compliment of sets A and B.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3332221</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Abstract Data Model] This protocol includes the following abstract data model (ADM) types and elements: Session context cookie&lt;24&gt;, as specified in [MS-OXCMAPIHTTP] section 3.1.1.</ns1:Description>
+		<ns1:Description>[In Abstract Data Model] This protocol includes the following abstract data model (ADM) types and elements: Session context cookie&lt;27&gt;, as specified in [MS-OXCMAPIHTTP] section 3.1.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -14651,7 +14960,7 @@ PidTagChangeNumber = CN8</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3391</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.4.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Decoding] The server SHOULD send the client an RpcFormat error (0x000004B6), or MAY send a FormatError error (0x000004ED)&lt;25&gt;, as specified in [MS-OXCDATA] section 2.4.1, if it encounters an unsupported command or any other decoding failures.</ns1:Description>
+		<ns1:Description>[In Decoding] The server SHOULD send the client an RpcFormat error (0x000004B6), or MAY send a FormatError error (0x000004ED)&lt;28&gt;, as specified in [MS-OXCDATA] section 2.4.1, if it encounters an unsupported command or any other decoding failures.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14750,7 +15059,7 @@ PidTagChangeNumber = CN8</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2003</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.4.3.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Bitmask Command (0x42)] The server SHOULD send the client an RpcFormat error (0x000004B6), and MAY send the client a FormatError error (0x000004ED )&lt;26&gt;, as specified in [MS-OXCDATA] section 2.4.1, if the decoder encounters the Bitmask command when there are fewer than five bytes in the common byte stack.</ns1:Description>
+		<ns1:Description>[In Bitmask Command (0x42)] The server SHOULD send the client an RpcFormat error (0x000004B6), and MAY send the client a FormatError error (0x000004ED )&lt;29&gt;, as specified in [MS-OXCDATA] section 2.4.1, if the decoder encounters the Bitmask command when there are fewer than five bytes in the common byte stack.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14849,7 +15158,7 @@ PidTagChangeNumber = CN8</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3393</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.4.3.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Range Command (0x52)] The server SHOULD send the client an RpcFormat error (0x000004B6), and MAY send the client a FormatError error (0x000004ED)&lt;27&gt;, as specified in [MS-OXCDATA] section 2.4.1, if the high value of the range is larger than the low value of the range.</ns1:Description>
+		<ns1:Description>[In Range Command (0x52)] The server SHOULD send the client an RpcFormat error (0x000004B6), and MAY send the client a FormatError error (0x000004ED)&lt;30&gt;, as specified in [MS-OXCDATA] section 2.4.1, if the high value of the range is larger than the low value of the range.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15480,7 +15789,7 @@ PidTagChangeNumber = CN8</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1826</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.6.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Last Writer Wins Algorithm] The last writer wins algorithm uses the PidTagLastModificationTime ([MS-OXPROPS] section 2.753) property to determine the winning version of the folder or message, as specified in the following steps:
+		<ns1:Description>[In Last Writer Wins Algorithm] The last writer wins algorithm uses the PidTagLastModificationTime ([MS-OXPROPS] section 2.755) property to determine the winning version of the folder or message, as specified in the following steps:
 1.	The version with the most recent PidTagLastModificationTime wins.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -15763,7 +16072,7 @@ Global.Handle, as specified in [MS-OXCRPC] section 3.1.1.</ns1:Description>
 		<ns1:REQ_ID>MS-OXCFXICS_R204022</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In Abstract Data Model] This protocol includes the following ADM element:
-Session context cookie&lt;28&gt;, as specified in [MS-OXCMAPIHTTP] section 3.1.1.</ns1:Description>
+Session context cookie&lt;31&gt;, as specified in [MS-OXCMAPIHTTP] section 3.1.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -16077,7 +16386,7 @@ Have their internal identifiers present in PidTagIdsetGiven and exist in a serve
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3416</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Determining What Differences To Download] The server MAY&lt;29&gt; confirm that the FastTransfer context that is returned by the RopSynchronizationGetTransferState ROP (section 2.2.3.2.3.1), which is sent before the subsequent RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5), contains only the differences that have been downloaded to the client in the current synchronization download operation, in addition to what was reflected in the initial ICS state.</ns1:Description>
+		<ns1:Description>[In Determining What Differences To Download] The server MAY&lt;32&gt; confirm that the FastTransfer context that is returned by the RopSynchronizationGetTransferState ROP (section 2.2.3.2.3.1), which is sent before the subsequent RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5), contains only the differences that have been downloaded to the client in the current synchronization download operation, in addition to what was reflected in the initial ICS state.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16646,7 +16955,7 @@ Have their internal identifiers present in PidTagIdsetGiven and exist in a serve
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1915</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In Working with Property Groups and Partial Changes] Servers that are implemented to support&lt;30&gt; partial message change synchronization MUST either use a mechanism described in this section. [or use an alternative mechanism that localizes changes to a message to a set of properties and subobjects, which can be unambiguously expressed by using the messageChangePartial element, as specified in section 2.2.4.3.15, of the FastTransfer stream.]</ns1:Description>
+		<ns1:Description>[In Working with Property Groups and Partial Changes] Servers that are implemented to support&lt;33&gt; partial message change synchronization MUST either use a mechanism described in this section. [or use an alternative mechanism that localizes changes to a message to a set of properties and subobjects, which can be unambiguously expressed by using the messageChangePartial element, as specified in section 2.2.4.3.15, of the FastTransfer stream.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16655,7 +16964,7 @@ Have their internal identifiers present in PidTagIdsetGiven and exist in a serve
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1916</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In Working with Property Groups and Partial Changes] Servers that are implemented to support&lt;24&gt; partial message change synchronization MUST [either use a mechanism described in this section or] use an alternative mechanism that localizes changes to a message to a set of properties and subobjects, which can be unambiguously expressed by using the messageChangePartial element, as specified in section 2.2.4.3.15, of the FastTransfer stream.</ns1:Description>
+		<ns1:Description>[In Working with Property Groups and Partial Changes] Servers that are implemented to support&lt;33&gt; partial message change synchronization MUST [either use a mechanism described in this section or] use an alternative mechanism that localizes changes to a message to a set of properties and subobjects, which can be unambiguously expressed by using the messageChangePartial element, as specified in section 2.2.4.3.15, of the FastTransfer stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16765,7 +17074,7 @@ Have their internal identifiers present in PidTagIdsetGiven and exist in a serve
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3442</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceCopyTo ROP Request] The server MAY&lt;31&gt; support the Move flag of the CopyFlags field, or alternatively the server can set the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceCopyTo ROP Request] The server MAY&lt;34&gt; support the Move flag of the CopyFlags field, or alternatively the server can set the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16785,7 +17094,7 @@ Have their internal identifiers present in PidTagIdsetGiven and exist in a serve
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3444</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceCopyTo ROP Request] If this flag is not set, the server MAY&lt;32&gt; output the message body in the compressed Rich Text Format (RTF).</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceCopyTo ROP Request] If this flag is not set, the server MAY&lt;35&gt; output the message body in the compressed Rich Text Format (RTF).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16978,7 +17287,7 @@ String properties MUST be output using the Unicode code page (code page property
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2102</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceCopyProperties Request] When the client sends the server a RopFastTransferSourceCopyProperties ROP (section 2.2.3.1.1.2) request, the server MUST parse the request as specified in [MS-OXCROPS] section 2.2.12.7.1 and section 2.2.3.1.1.2 of this specification.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceCopyProperties Request] When the client sends the server a RopFastTransferSourceCopyProperties ROP (section 2.2.3.1.1.2) request, the server MUST parse the request as specified in [MS-OXCROPS] section 2.2.12.8.1 and section 2.2.3.1.1.2 of this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16987,7 +17296,7 @@ String properties MUST be output using the Unicode code page (code page property
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2103</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceCopyProperties Request] The server MUST respond with a RopFastTransferSourceCopyProperties ROP response, as specified in [MS-OXCROPS] section 2.2.12.7.2 and section 2.2.3.1.1.2 of this specification.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceCopyProperties Request] The server MUST respond with a RopFastTransferSourceCopyProperties ROP response, as specified in [MS-OXCROPS] section 2.2.12.8.2 and section 2.2.3.1.1.2 of this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17062,7 +17371,7 @@ String properties MUST be output using the Unicode code page (code page property
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2112</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceCopyMessages ROP Request] When the client sends the server a RopFastTransferSourceCopyMessages ROP (section 2.2.3.1.1.3) request, the server MUST parse the request, as specified in [MS-OXCROPS] section 2.2.12.5.1 and section 2.2.3.1.1.3 of this specification.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceCopyMessages ROP Request] When the client sends the server a RopFastTransferSourceCopyMessages ROP (section 2.2.3.1.1.3) request, the server MUST parse the request, as specified in [MS-OXCROPS] section 2.2.12.6.1 and section 2.2.3.1.1.3 of this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17071,7 +17380,7 @@ String properties MUST be output using the Unicode code page (code page property
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2113</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceCopyMessages ROP Request] The server MUST respond with a RopFastTransferSourceCopyMessages ROP response, as specified in [MS-OXCROPS] section 2.2.12.5.2 and section 2.2.3.1.1.3 of this specification.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceCopyMessages ROP Request] The server MUST respond with a RopFastTransferSourceCopyMessages ROP response, as specified in [MS-OXCROPS] section 2.2.12.6.2 and section 2.2.3.1.1.3 of this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17109,7 +17418,7 @@ String properties MUST be output using the Unicode code page (code page property
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2117</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceCopyMessages ROP Request] If the BestBody flag of the CopyFlags field is not set, the server MAY&lt;33&gt; output message bodies in the compressed RTF.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceCopyMessages ROP Request] If the BestBody flag of the CopyFlags field is not set, the server MAY&lt;36&gt; output message bodies in the compressed RTF.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17158,7 +17467,7 @@ String properties MUST be output using the Unicode code page (code page property
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2121</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceCopyFolder ROP Request] When the client sends the server a RopFastTransferSourceCopyFolder ROP (section 2.2.3.1.1.4) request, the server MUST parse the request, as specified in [MS-OXCROPS] section 2.2.12.4.1 and section 2.2.3.1.1.4 of this specification.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceCopyFolder ROP Request] When the client sends the server a RopFastTransferSourceCopyFolder ROP (section 2.2.3.1.1.4) request, the server MUST parse the request, as specified in [MS-OXCROPS] section 2.2.12.5.1 and section 2.2.3.1.1.4 of this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17167,7 +17476,7 @@ String properties MUST be output using the Unicode code page (code page property
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2122</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceCopyFolder ROP Request] The server MUST respond with a RopFastTransferSourceCopyFolder ROP response, as specified in [MS-OXCROPS] section 2.2.12.4.2 and section 2.2.3.1.1.4 of this specification.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceCopyFolder ROP Request] The server MUST respond with a RopFastTransferSourceCopyFolder ROP response, as specified in [MS-OXCROPS] section 2.2.12.5.2 and section 2.2.3.1.1.4 of this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17232,7 +17541,7 @@ String properties MUST be output using the Unicode code page (code page property
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2135</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceGetBuffer Request] When the client sends the server a RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5) request, the server MUST parse the request as specified in [MS-OXCROPS] section 2.2.12.6.1 and section 2.2.3.1.1.1 of this specification.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceGetBuffer Request] When the client sends the server a RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5) request, the server MUST parse the request as specified in [MS-OXCROPS] section 2.2.12.7.1 and section 2.2.3.1.1.1 of this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17241,7 +17550,7 @@ String properties MUST be output using the Unicode code page (code page property
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2136</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceGetBuffer Request] The server MUST respond with a RopFastTransferSourceGetBuffer ROP response, as specified in [MS-OXCROPS] section 2.2.12.6.2 and section 2.2.3.1.1.1 of this specification.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceGetBuffer Request] The server MUST respond with a RopFastTransferSourceGetBuffer ROP response, as specified in [MS-OXCROPS] section 2.2.12.7.2 and section 2.2.3.1.1.1 of this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17259,7 +17568,7 @@ String properties MUST be output using the Unicode code page (code page property
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2137001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceGetBuffer Request] If the value of the BufferSize field in the ROP request is 0xBABE, the server determines the buffer size based on the residual size of the rgbRopOut field of the Execute request type response&lt;34&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceGetBuffer Request] If the value of the BufferSize field in the ROP request is 0xBABE, the server determines the buffer size based on the residual size of the rgbRopOut field of the Execute request type response&lt;37&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17290,7 +17599,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 		<ns1:Doc_Sect>3.2.5.8.1.5</ns1:Doc_Sect>
 		<ns1:Description>[In Receiving a RopFastTransferSourceGetBuffer Request] If the value of BufferSize in the ROP request is set to a value other than 0xBABE, the following semantics apply:
 The server MUST fail the command before processing the ROP by doing the following:
-The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1) if the resulting BufferSize bytes in the TransferBuffer field are larger than the rgbRopOut field of the Execute request type response&lt;35&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2.</ns1:Description>
+The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1) if the resulting BufferSize bytes in the TransferBuffer field are larger than the rgbRopOut field of the Execute request type response&lt;38&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17372,7 +17681,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2148</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopTellVersion Request] When the client sends the server a RopTellVersion ROP (section 2.2.3.1.1.6) request, the server MUST parse the request, as specified in [MS-OXCROPS] section 2.2.12.8.1 and section 2.2.3.1.1.6 of this specification.</ns1:Description>
+		<ns1:Description>[In Receiving a RopTellVersion Request] When the client sends the server a RopTellVersion ROP (section 2.2.3.1.1.6) request, the server MUST parse the request, as specified in [MS-OXCROPS] section 2.2.12.9.1 and section 2.2.3.1.1.6 of this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17381,7 +17690,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2149</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopTellVersion Request] The server MUST respond with a RopTellVersion ROP response, as specified in [MS-OXCROPS] section 2.2.12.8.2 and section 2.2.3.1.1.6 of this specification.</ns1:Description>
+		<ns1:Description>[In Receiving a RopTellVersion Request] The server MUST respond with a RopTellVersion ROP response, as specified in [MS-OXCROPS] section 2.2.12.9.2 and section 2.2.3.1.1.6 of this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17426,7 +17735,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3492</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferDestinationConfigure Request] The server SHOULD&lt;36&gt; fail the ROP if unknown flags in the CopyFlags field are set, or the server MAY&lt;37&gt; ignore the unknown value of the CopyFlags field.</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferDestinationConfigure Request] The server SHOULD&lt;39&gt; fail the ROP if unknown flags in the CopyFlags field are set, or the server MAY&lt;40&gt; ignore the unknown value of the CopyFlags field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17446,6 +17755,24 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 		<ns1:REQ_ID>MS-OXCFXICS_R2156</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.8.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In Receiving a RopFastTransferDestinationPutBuffer Request] The server MUST respond with a RopFastTransferDestinationPutBuffer ROP response, as specified in [MS-OXCROPS] section 2.2.12.2.2 and section 2.2.3.1.2.2 of this specification.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R2156001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.8.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Receiving a RopFastTransferDestinationPutBufferExtended ROP Request] When the client sends the server a RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) request, the server MUST parse the request, as specified in [MS-OXCROPS] section 2.2.12.3.1 and section 2.2.3.1.2.3 of this specification. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R2156002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.8.2.3 </ns1:Doc_Sect>
+		<ns1:Description>[In Receiving a RopFastTransferDestinationPutBufferExtended ROP Request] The server MUST respond with a RopFastTransferDestinationPutBufferExtended ROP response, as specified in [MS-OXCROPS] section 2.2.12.3.2 and section 2.2.3.1.2.3 of this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17734,7 +18061,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2182</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSynchronizationConfigure ROP Request] [SynchronizationType Constraints] If the BestBody flag of the SynchronizationFlags field is not set, the server MAY&lt;38&gt; write message bodies to the FastTransfer stream in the compressed RTF format.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSynchronizationConfigure ROP Request] [SynchronizationType Constraints] If the BestBody flag of the SynchronizationFlags field is not set, the server MAY&lt;41&gt; write message bodies to the FastTransfer stream in the compressed RTF format.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -18144,7 +18471,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3503</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSynchronizationGetTransferState Request] The FastTransfer stream in the RopFastTransferSourceGetBuffer ROP response buffer associated with the RopSynchronizationGetTransferState ROP SHOULD&lt;39&gt; return the initial ICS state for the download context until the end of the FastTransfer stream has been downloaded.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSynchronizationGetTransferState Request] The FastTransfer stream in the RopFastTransferSourceGetBuffer ROP response buffer associated with the RopSynchronizationGetTransferState ROP SHOULD&lt;42&gt; return the initial ICS state for the download context until the end of the FastTransfer stream has been downloaded.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -18153,7 +18480,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3504</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSynchronizationGetTransferState Request] The FastTransfer stream in the RopFastTransferSourceGetBuffer ROP response buffer associated with the RopSynchronizationGetTransferState ROP MAY&lt;40&gt; return the checkpoint ICS state that is reflective of the current status.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSynchronizationGetTransferState Request] The FastTransfer stream in the RopFastTransferSourceGetBuffer ROP response buffer associated with the RopSynchronizationGetTransferState ROP MAY&lt;43&gt; return the checkpoint ICS state that is reflective of the current status.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -18271,7 +18598,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3509</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSynchronizationImportMessageChange Request] Servers SHOULD&lt;41&gt; fail the ROP if unknown flags are set.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSynchronizationImportMessageChange Request] Servers SHOULD&lt;44&gt; fail the ROP if unknown flags are set.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -18678,7 +19005,7 @@ Specifying the PidTagFolderAssociatedContents property ([MS-OXPROPS] section 2.6
 		<ns1:REQ_ID>MS-OXCFXICS_R3516</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.10</ns1:Doc_Sect>
 		<ns1:Description>[In Effect of Property and Subobject Filters on Download] For example:
-Specifying the PidTagMessageRecipients property ([MS-OXPROPS] section 2.784) in the PropertyTags fields of the request buffer of a RopSynchronizationConfigure ROP (section 2.2.3.2.1.1) excludes recipient subobjects from all message changes downloaded in that operation, but it does not affect recipients of embedded messages that their attachments might have.</ns1:Description>
+Specifying the PidTagMessageRecipients property ([MS-OXPROPS] section 2.786) in the PropertyTags fields of the request buffer of a RopSynchronizationConfigure ROP (section 2.2.3.2.1.1) excludes recipient subobjects from all message changes downloaded in that operation, but it does not affect recipients of embedded messages that their attachments might have.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -18854,7 +19181,7 @@ Specifying the PidTagMessageRecipients meta-property ([MS-OXPROPS] section 2.786
 		<ns1:REQ_ID>MS-OXCFXICS_R2288</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.1</ns1:Doc_Sect>
 		<ns1:Description>[In Abstract Data Model] This protocol includes the following ADM types and elements: Global.Handle, as specified in [MS-OXCRPC] section 3.1.1.
-Session context cookie&lt;42&gt;, as specified in [MS-OXCMAPIHTTP] section 3.1.1.
+Session context cookie&lt;45&gt;, as specified in [MS-OXCMAPIHTTP] section 3.1.1.
 MessagingObject, as specified in section 3.1.1.2. Additional elements for the MessagingObject ADM type are defined in section 3.3.1.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -20462,7 +20789,7 @@ Using client side checkpointing, as specified in section 3.3.5.6.</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3568</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Order of Operations] When performing synchronization, whether to perform upload operations before download operations is implementation-dependent and external to the Bulk Data Transfer Protocol.&lt;43&gt;</ns1:Description>
+		<ns1:Description>[In Order of Operations] When performing synchronization, whether to perform upload operations before download operations is implementation-dependent and external to the Bulk Data Transfer Protocol.&lt;46&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -21202,7 +21529,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3592</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In Client Side Checkpointing] Note: During a synchronization download operation, the server SHOULD&lt;44&gt; return the initial ICS state, until the download is complete, at which time it returns the final ICS state.</ns1:Description>
+		<ns1:Description>[In Client Side Checkpointing] Note: During a synchronization download operation, the server SHOULD&lt;47&gt; return the initial ICS state, until the download is complete, at which time it returns the final ICS state.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -21211,7 +21538,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3593</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In Client Side Checkpointing] Note: During a synchronization download operation, the server MAY&lt;45&gt; return the checkpoint ICS state that is accurate to the time at which the checkpoint was requested, until the download is complete, at which time it returns the final ICS state.</ns1:Description>
+		<ns1:Description>[In Client Side Checkpointing] Note: During a synchronization download operation, the server MAY&lt;48&gt; return the checkpoint ICS state that is accurate to the time at which the checkpoint was requested, until the download is complete, at which time it returns the final ICS state.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -21238,7 +21565,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2369</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.7.1</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a RopFastTransferSourceGetBuffer ROP Request] Clients SHOULD&lt;46&gt; set the value of the BufferSize field in the ROP request to a sentinel value of 0xBABE to achieve maximum efficiency.</ns1:Description>
+		<ns1:Description>[In Sending a RopFastTransferSourceGetBuffer ROP Request] Clients SHOULD&lt;49&gt; set the value of the BufferSize field in the ROP request to a sentinel value of 0xBABE to achieve maximum efficiency.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -22004,7 +22331,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3622</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.9.1</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopFastTransferSourceGetBuffer ROP Response] If a cancellation occurs on a download and there is any data left unprocessed from the result of the RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.3), the client SHOULD NOT update the ICS state by using the RopSynchronizationGetTransferState ROP ([MS-OXCROPS] section 2.2.13.8).</ns1:Description>
+		<ns1:Description>[In Receiving a RopFastTransferSourceGetBuffer ROP Response] If a cancellation occurs on a download and there is any data left unprocessed from the result of the RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.4), the client SHOULD NOT update the ICS state by using the RopSynchronizationGetTransferState ROP ([MS-OXCROPS] section 2.2.13.8).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -22894,7 +23221,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3793001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the server return the same result whether the flag [Move] is set or not on receipt. (&lt;6&gt; Section 2.2.3.1.1.4.1: Exchange 2010 and Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the server return the same result whether the flag [Move] is set or not on receipt. (&lt;6&gt; Section 2.2.3.1.1.4.1: Exchange 2010, Exchange 2013 and above follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3793:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22923,7 +23250,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R525002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] [CopyFlags] [When the flag name is Move, value is 0x01] Implementation does not set the Move flag on a download operation to indicate the following: The FastTransfer operation is being configured as a logical part of a larger object move operation, as opposed to a copy operation. (&lt;7&gt; Section 2.2.3.1.1.4.1: Microsoft Exchange Server 2010 and Exchange Server 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] [CopyFlags] [When the flag name is Move, value is 0x01] Implementation does not set the Move flag on a download operation to indicate the following: The FastTransfer operation is being configured as a logical part of a larger object move operation, as opposed to a copy operation. (&lt;7&gt; Section 2.2.3.1.1.4.1: Microsoft Exchange Server 2010, Exchange Server 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -22952,7 +23279,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3142002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] [CopyFlags] [When the flag name is Move, value is 0x01] Implementation does not set the Move flag on a download operation to indicate the following: When the Move flag is not ignored, if the Move flag is not set, the FastTransfer operation is not being configured as a logical part of a larger object move operation. (&lt;7&gt; Section 2.2.3.1.1.4.1: Microsoft Exchange Server 2010 and Exchange Server 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] [CopyFlags] [When the flag name is Move, value is 0x01] Implementation does not set the Move flag on a download operation to indicate the following: When the Move flag is not ignored, if the Move flag is not set, the FastTransfer operation is not being configured as a logical part of a larger object move operation. (&lt;7&gt; Section 2.2.3.1.1.4.1: Microsoft Exchange Server 2010, Exchange Server 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23011,7 +23338,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R316901101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;10&gt; Section 2.2.3.1.2.2.1: The Execute request type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;10&gt; Section 2.2.3.1.2.2.1: The Execute request type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1). (Exchange Server 2013 Service Pack (SP1) and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23022,6 +23349,17 @@ This sequence is correct and it produces the same result as the previous single 
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the InProgressCount field to 0x0000 in RopFastTransferDestinationPutBuffer ROP Response Buffer.  (Section 2.2.3.1.2.2.2: Microsoft Exchange Server 2007 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3175:i,MS-OXCFXICS_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R318302101</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the InProgressCount field to 0x00000000 in RopFastTransferDestinationPutBufferExtended ROP Response Buffer.  (Section 2.2.3.1.2.3.2: Microsoft Exchange Server 2007 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCFXICS_R3183021:i,MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23073,8 +23411,50 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R318200101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field. ( &lt;12&gt; Section 2.2.3.1.2.2.2: Exchange 2007, Exchange 2010, and Exchange 2013 always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field. ( &lt;12&gt; Section 2.2.3.1.2.2.2: Exchange 2007, Exchange 2010, and Exchange 2013 and Exchange 2016 always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3182001:p</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R318302601</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x00000001. [&lt;14&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 set the value of the TotalStepCount field to 0x00000001.]</ns1:Description>
+		<ns1:Derived>MS-OXCFXICS_R3183026:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183026002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x00000000. [ Exchange 2003 and Exchange 2007 set the value of the TotalStepCount field to 0x00000000.]</ns1:Description>
+		<ns1:Derived>MS-OXCFXICS_R3183026:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R3183030001</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when  the value of the ReturnValue field is equal to Success (0x00000000). ( &lt;15&gt; Section 2.2.3.1.2.3.2: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)</ns1:Description>
+		<ns1:Derived>MS-OXCFXICS_R3183030:i, MS-OXCFXICS_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFXICS_R318303003</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when the value of the ReturnValue field is equal to Success (0x00000000) ( &lt;15&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCFXICS_R3183030001:p</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23084,7 +23464,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2592</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;15&gt; Section 2.2.3.2.4.3.1: The initial release version of Exchange 2010 has a return value of InvalidParameter (0x80070057) if the value of the PidTagParentSourceKey property (section 2.2.1.2.6) has a length of zero.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;18&gt; Section 2.2.3.2.4.3.1: The initial release version of Exchange 2010 has a return value of InvalidParameter (0x80070057) if the value of the PidTagParentSourceKey property (section 2.2.1.2.6) has a length of zero.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23093,7 +23473,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R90205001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. &lt;16&gt; Section 2.2.3.2.4.5.1: The HardDelete flag is not supported by Exchange 2003 or Exchange 2007.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. &lt;19&gt; Section 2.2.3.2.4.5.1: The HardDelete flag is not supported by Exchange 2003 or Exchange 2007.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R90205:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23103,7 +23483,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R90205002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support. (&lt;16&gt; Section 2.2.3.2.4.5.1: Microsoft Exchange Server 2010 and Microsoft Exchange Server 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support. (&lt;19&gt; Section 2.2.3.2.4.5.1: Microsoft Exchange Server 2010, Microsoft Exchange Server 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R90205:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23114,7 +23494,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2593</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;16&gt; Section 2.2.3.2.4.5.1: The HardDelete flag is not supported by Exchange 2003 or Exchange 2007.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;19&gt; Section 2.2.3.2.4.5.1: The HardDelete flag is not supported by Exchange 2003 or Exchange 2007.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23124,7 +23504,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R325901</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, Implementation does output string values with the terminating nulls. (&lt;17&gt; Section 2.2.4.1.3: Microsoft Exchange Server 2007 (only when when string values are not larger than 32 KB) and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, Implementation does output string values with the terminating nulls. (&lt;20&gt; Section 2.2.4.1.3: Microsoft Exchange Server 2007 (only when when string values are not larger than 32 KB) and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3259:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23135,7 +23515,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R325902</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, Implementation does output string values with the terminating nulls. &lt;17&gt; Section 2.2.4.1.3: Exchange 2003 and Exchange 2007 fail to add a null-terminator when string values are larger than 32 KB.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, Implementation does output string values with the terminating nulls. &lt;20&gt; Section 2.2.4.1.3: Exchange 2003 and Exchange 2007 fail to add a null-terminator when string values are larger than 32 KB.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3259:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23145,7 +23525,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R10970101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the PidTagParentFolderId property (section 2.2.1.2.4) in the folderChange element if the Eid flag of the SynchronizationExtraFlags field is set. (&lt;18&gt; Section 2.2.4.3.5: Exchange 2003, Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the PidTagParentFolderId property (section 2.2.1.2.4) in the folderChange element if the Eid flag of the SynchronizationExtraFlags field is set. (&lt;21&gt; Section 2.2.4.3.5: Exchange 2003, Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23154,7 +23534,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R10970102</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagParentFolderId property (section 2.2.1.2.4) in the folderChange element present if the Eid flag of the SynchronizationExtraFlags field is set. (Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagParentFolderId property (section 2.2.1.2.4) in the folderChange element present if the Eid flag of the SynchronizationExtraFlags field is set. (Exchange 2013 and above follows this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23163,7 +23543,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2813</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder, implementation does not output.  &lt;19&gt; Section 2.2.4.3.6: Exchange 2010, Exchange 2013 and Exchange 2016 do not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList element as Exchange 2010 , Exchange 2013 and Exchange 2016 do not check permissions on move operations.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder, implementation does not output.  &lt;22&gt; Section 2.2.4.3.6: Exchange 2010, Exchange 2013 and Exchange 2016 do not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList element as Exchange 2010 , Exchange 2013 and Exchange 2016 do not check permissions on move operations.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R1103:I, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23174,7 +23554,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3305001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In messageChangePartial Element] Implementation does support partial item downloads. (&lt;20&gt; Section 2.2.4.3.15: Microsoft Exchange Server 2007 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In messageChangePartial Element] Implementation does support partial item downloads. (&lt;23&gt; Section 2.2.4.3.15: Microsoft Exchange Server 2007 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3305:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23185,7 +23565,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2814</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;20&gt; Section 2.2.4.3.15: Exchange 2003 and Office Outlook 2003 do not support partial item downloads.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;23&gt; Section 2.2.4.3.15: Exchange 2003 and Office Outlook 2003 do not support partial item downloads.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23194,7 +23574,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2815</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;20&gt; Section 2.2.4.3.15: Exchange 2003 does not support the PartialItem flag of the SendOptions field and Office Outlook 2003 does not pass it.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;23&gt; Section 2.2.4.3.15: Exchange 2003 does not support the PartialItem flag of the SendOptions field and Office Outlook 2003 does not pass it.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23203,7 +23583,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R118201</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList of the folderContent element. (&lt;21&gt; Section 2.2.4.3.20: Exchange 2007 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList of the folderContent element. (&lt;24&gt; Section 2.2.4.3.20: Exchange 2007 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R1182:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23214,7 +23594,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R118202</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList of the folderContent element. (&lt;21&gt; Section 2.2.4.3.20: Exchange 2003, Exchange 2010, Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList of the folderContent element. (&lt;24&gt; Section 2.2.4.3.20: Exchange 2003, Exchange 2010, Exchange 2013  and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23223,7 +23603,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2816</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;22&gt; Section 2.2.4.4: Office Outlook 2003, Office Outlook 2007, Outlook 2010, Outlook 2013 and Outlook 2016 do not use the folderContent element as a root element in a FastTransfer stream.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;25&gt; Section 2.2.4.4: Office Outlook 2003, Office Outlook 2007, Outlook 2010, Outlook 2013 and Outlook 2016 do not use the folderContent element as a root element in a FastTransfer stream.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23232,7 +23612,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1242</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;23&gt; Section 2.2.4.4: The RopFastTransferSourceCopyProperties ROP (section 2.2.3.1.1.2) does not use the attachmentContent element as a root element in a FastTransfer stream in Office Outlook 2003, Office Outlook 2007, Outlook 2010, Outlook 2013 or Outlook 2016 .</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;26&gt; Section 2.2.4.4: The RopFastTransferSourceCopyProperties ROP (section 2.2.3.1.1.2) does not use the attachmentContent element as a root element in a FastTransfer stream in Office Outlook 2003, Office Outlook 2007, Outlook 2010, Outlook 2013 or Outlook 2016 .</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23241,7 +23621,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R333222101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the session context cookie. (&lt;24&gt; Section 3.1.1: Exchange 2003, Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the session context cookie. (&lt;27&gt; Section 3.1.1: Exchange 2003, Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -23250,7 +23630,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R333222102</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the session context cookie. (&lt;24&gt; Section 3.1.1: Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the session context cookie. (&lt;27&gt; Section 3.1.1: Exchange 2013 SP1 and above follows this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -23278,7 +23658,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R20402202</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the session context cookie. (&lt;28&gt; Section 3.2.1: Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the session context cookie. (&lt;28&gt; Section 3.2.1: Exchange 2013 SP1 and above follows this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -23323,7 +23703,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3442001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. &lt;31&gt; Section 3.2.5.8.1.1: Exchange 2010 and Exchange 2013 do not support the Move flag for the RopFastTransferSourceCopyTo ROP (section 2.2.3.1.1.1).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. &lt;34&gt; Section 3.2.5.8.1.1: Exchange 2010 and Exchange 2013 do not support the Move flag for the RopFastTransferSourceCopyTo ROP (section 2.2.3.1.1.1).</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3442:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23345,7 +23725,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3442003</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does fail the operation with an error code InvalidParameter (0x80070057).  &lt;31&gt; Section 3.2.5.8.1.1: The server sets the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag [Move flag].(Microsoft Exchange Server 2010, Exchange Server 2013 and  Exchange Server 2016 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does fail the operation with an error code InvalidParameter (0x80070057).  &lt;34&gt; Section 3.2.5.8.1.1: The server sets the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag [Move flag].(Microsoft Exchange Server 2010, Exchange Server 2013 and  Exchange Server 2016 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3442:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23356,7 +23736,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3442004</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does not fail the operation.(&lt;31&gt; Section 3.2.5.8.1.1: Microsoft Exchange Server 2007 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does not fail the operation.(&lt;34&gt; Section 3.2.5.8.1.1: Microsoft Exchange Server 2007 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3442:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23367,7 +23747,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2825</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;32&gt; Section 3.2.5.8.1.1: The BestBody flag is not supported in Exchange 2013 and Exchange 2016.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;35&gt; Section 3.2.5.8.1.1: The BestBody flag is not supported in Exchange 2013 and Exchange 2016.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23376,7 +23756,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2826</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;32&gt; Section 3.2.5.8.1.1: In Exchange 2013 and Exchange 2016, the message body is always in the original format.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;35&gt; Section 3.2.5.8.1.1: In Exchange 2013 and Exchange 2016, the message body is always in the original format.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23385,7 +23765,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2117002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;33&gt; Section 3.2.5.8.1.3: Implementation does support the BestBody flag. If the BestBody flag of the CopyFlags field is not set, implementation does output message bodies in the compressed RTF (Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;36&gt; Section 3.2.5.8.1.3: Implementation does support the BestBody flag. If the BestBody flag of the CopyFlags field is not set, implementation does output message bodies in the compressed RTF (Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R2117:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23396,7 +23776,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R21370011</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;34&gt; Section 3.2.5.8.1.5: Implementation does not support the Execute request type. (Exchange 2003, Exchange 2007, Exchange 2010, the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;38&gt; Section 3.2.5.8.1.5: Implementation does not support the Execute request type. (Exchange 2003, Exchange 2007, Exchange 2010, the initial release of Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23405,7 +23785,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R21370012</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;34&gt; Section 3.2.5.8.1.5: Implementation does support the Execute request type. (Exchange 2013 SP1 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;38&gt; Section 3.2.5.8.1.5: Implementation does support the Execute request type. (Exchange 2013 SP1 and above follows this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23425,7 +23805,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3492001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does fail the operation. &lt;36&gt; Section 3.2.5.8.2.1: Exchange 2010, Exchange 2013 and Exchange 2016 fail the ROP [RopFastTransferDestinationConfigure ROP] if unknown bit flags in the CopyFlags field are set.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does fail the operation. &lt;39&gt; Section 3.2.5.8.2.1: Exchange 2010, Exchange 2013 and Exchange 2016 fail the ROP [RopFastTransferDestinationConfigure ROP] if unknown bit flags in the CopyFlags field are set.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3492:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23436,7 +23816,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R349200201</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does not fail the operation. &lt;37&gt; Section 3.2.5.8.2.1: Exchange 2003 and Exchange 2007 ignore unknown values of the CopyFlags field.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does not fail the operation. &lt;40&gt; Section 3.2.5.8.2.1: Exchange 2003 and Exchange 2007 ignore unknown values of the CopyFlags field.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3492:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23446,7 +23826,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3492002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does not fail the operation. &lt;37&gt; Section 3.2.5.8.2.1: Exchange 2007 ignore unknown values of the CopyFlags field.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does not fail the operation. &lt;40&gt; Section 3.2.5.8.2.1: Exchange 2007 ignore unknown values of the CopyFlags field.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R349200201:p</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23457,7 +23837,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2182001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. &lt;38&gt; Section 3.2.5.9.1.1: The BestBody flag is not supported in Exchange 2013 and Exchange 2016.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. &lt;41&gt; Section 3.2.5.9.1.1: The BestBody flag is not supported in Exchange 2013 and Exchange 2016.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R2182:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23467,7 +23847,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2182002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support BestBody flag [in RopSynchronizationConfigure ROP]. (&lt;38&gt; Section 3.2.5.9.1.1: Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support BestBody flag [in RopSynchronizationConfigure ROP]. (&lt;41&gt; Section 3.2.5.9.1.1: Microsoft Exchange Server 2007 and Exchange Server 2010 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R2182:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23478,7 +23858,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R350400101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does use this behavior. &lt;40&gt; Section 3.2.5.9.3.1: In Exchange 2007, the RopSynchronizationGetTransferState ROP (section 2.2.3.2.3.1) returns a checkpoint ICS state that is reflective of the current status.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does use this behavior. &lt;43&gt; Section 3.2.5.9.3.1: In Exchange 2007, the RopSynchronizationGetTransferState ROP (section 2.2.3.2.3.1) returns a checkpoint ICS state that is reflective of the current status.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3504:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23489,7 +23869,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3504002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not use this behavior [RopSynchronizationGetTransferState ROP (section 2.2.3.2.3.1) returns a checkpoint ICS state that is reflective of the current status]. (&lt;40&gt; Section 3.2.5.9.3.1: Microsoft Exchange Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not use this behavior [RopSynchronizationGetTransferState ROP (section 2.2.3.2.3.1) returns a checkpoint ICS state that is reflective of the current status]. (&lt;43&gt; Section 3.2.5.9.3.1: Microsoft Exchange Server 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3504:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23499,7 +23879,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3509001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  If unknown flags are set, implementation does fail the operation. &lt;40&gt; Section 3.2.5.9.4.2: Exchange 2010, Exchange 2013 and Exchange 2016 fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  If unknown flags are set, implementation does fail the operation. &lt;44&gt; Section 3.2.5.9.4.2: Exchange 2010, Exchange 2013 and Exchange 2016 fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3509:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23510,7 +23890,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3509002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  If unknown flags are set, implementation does not fail the operation. &lt;41&gt; Section 3.2.5.9.4.2: Exchange 2003 and Exchange 2007 do not fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  If unknown flags are set, implementation does not fail the operation. &lt;44&gt; Section 3.2.5.9.4.2: Exchange 2003 and Exchange 2007 do not fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3509:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23520,7 +23900,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R350900201</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  If unknown flags are set, implementation does not fail the operation. &lt;41&gt; Section 3.2.5.9.4.2: Exchange 2007 do not fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  If unknown flags are set, implementation does not fail the operation. &lt;44&gt; Section 3.2.5.9.4.2: Exchange 2007 do not fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3509002:p</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23531,7 +23911,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2288001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;42&gt; Section 3.3.1:  Exchange 2003, Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the session context cookie. The session context cookie was introduced in Exchange 2013 SP1.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;45&gt; Section 3.3.1:  Exchange 2003, Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the session context cookie. The session context cookie was introduced in Exchange 2013 SP1.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23540,7 +23920,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2835</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;43&gt; Section 3.3.5.1: Office Outlook 2003 introduced the implementation of performing upload operations before download operations.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;46&gt; Section 3.3.5.1: Office Outlook 2003 introduced the implementation of performing upload operations before download operations.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23549,7 +23929,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2835001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;43&gt; Section 3.3.5.1: However the Bulk Data Transfer Protocol has no requirement about the order of upload or download operations.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;46&gt; Section 3.3.5.1: However the Bulk Data Transfer Protocol has no requirement about the order of upload or download operations.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -23558,7 +23938,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3593001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;45&gt; Section 3.3.5.6: In Exchange 2003 and Exchange 2007, synchronization download operations function the same as synchronization upload operations. In Exchange 2003 and Exchange 2007, the server returns checkpoint ICS states that are accurate to the time at which the checkpoint was requested in both synchronization download operations and synchronization upload operations.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;48&gt; Section 3.3.5.6: In Exchange 2003 and Exchange 2007, synchronization download operations function the same as synchronization upload operations. In Exchange 2003 and Exchange 2007, the server returns checkpoint ICS states that are accurate to the time at which the checkpoint was requested in both synchronization download operations and synchronization upload operations.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23567,7 +23947,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2839</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;46&gt; Section 3.3.5.7.1: In Exchange 2003 and Exchange 2007, clients are not required to pass a value in the BufferSize field of a certain size.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;49&gt; Section 3.3.5.7.1: In Exchange 2003 and Exchange 2007, clients are not required to pass a value in the BufferSize field of a certain size.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23576,7 +23956,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2840</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;47&gt; Section 3.3.5.9.1: Office Outlook 2003 does not support the 0x00000480 error code.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;50&gt; Section 3.3.5.9.1: Office Outlook 2003 does not support the 0x00000480 error code.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23585,7 +23965,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R5100</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support this specification [MS-OXCMAPIHTTP]. (Exchange Server 2013 Service Pack 1 (SP1) follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support this specification [MS-OXCMAPIHTTP]. (Exchange Server 2013 Service Pack 1 (SP1) and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

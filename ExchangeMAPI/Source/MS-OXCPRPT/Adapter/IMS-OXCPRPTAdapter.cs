@@ -232,6 +232,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
         void RopWriteStreamMethod(OpenModeFlags openFlag, bool isExceedMax, out CPRPTErrorCode error);
 
         /// <summary>
+        /// This method is used to write the stream of bytes into a Stream object. 
+        /// </summary>
+        /// <param name="openFlag">Specifies the OpenModeFlags of the stream.</param>
+        /// <param name="isExceedMax">Indicates whether the write will exceed the maximum stream size.</param>
+        /// <param name="error"> Specifies the ErrorCode when WriteStreamExtended failed:STG_E_ACCESSDENIED
+        /// 0x80030005 Write access is denied.When stream is opened with ReadOnly flag.</param>
+        void RopWriteStreamExtendedMethod(OpenModeFlags openFlag, bool isExceedMax, out CPRPTErrorCode error);
+
+        /// <summary>
         /// This method is used to ensure that any changes made to a Stream object are persisted in storage for a Folder object. 
         /// </summary>
         /// <param name="openFlag">Indicates the OpenModeFlags when stream is opened.</param>

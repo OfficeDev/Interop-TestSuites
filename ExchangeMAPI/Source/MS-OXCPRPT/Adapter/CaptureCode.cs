@@ -1718,7 +1718,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     (uint)CPRPTErrorCode.NotSupported,
                     ropCopyToResponse.ReturnValue,
                     5070514,
-                    @"[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (<10> Section 3.2.5.8: Exchange 2013 follows this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does return a NotSupported error (0x80040102) if the RopCopyTo ROP request specifies a public folder as either the source object or the destination object. (<10> Section 3.2.5.8: Exchange 2013 and above follow this behavior.)");
             }
         }
         #endregion
@@ -2417,6 +2417,60 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
         }
         #endregion
 
+        #region RopWriteStreamExtended
+        /// <summary>
+        /// Verify the RopWriteStreamExtended operation related requirements.
+        /// </summary>
+        /// <param name="ropWriteStreamExtendedResponse">The RopWriteStreamExtended response buffer structure.</param>
+        /// <param name="openModeFlags">Specifies OpenModeFlags in RopWriteStreamExtended.</param>
+        /// <param name="writeData">The data to be written to the stream.</param>
+        /// <param name="canBeRetrieval">Indicates if the property is immediately available for retrieval by a ROP that uses the same object handle.</param>
+        /// <param name="isChangedInDB">Indicates if the value is changed in database or not.</param>
+        /// <param name="forErrorCode">Indicates if expecting to fail this operation</param>
+        /// <param name="isWriteSizeElementRight">Indicates if the written size is right or not.</param>
+        private void VerifyRopWriteStreamExtended(RopWriteStreamExtendedResponse ropWriteStreamExtendedResponse, OpenModeFlags openModeFlags, string writeData, bool canBeRetrieval, bool isChangedInDB, bool forErrorCode, bool isWriteSizeElementRight)
+        {
+            if (!forErrorCode)
+            {
+                //Verify MS-OXCPRPT requirement: MS-OXCPRPT_R30401001
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    writeData.Length,
+                    (int)ropWriteStreamExtendedResponse.WrittenSize,
+                    30401001,
+                    @"[In RopWriteStreamExtended ROP] The RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4) writes the stream of bytes into a Stream object.");
+
+                //Verify MS-OXCPRPT requirement: MS-OXCPRPT_R30401008
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    writeData.Length,
+                    (int)ropWriteStreamExtendedResponse.WrittenSize,
+                    30401008,
+                    @"[In RopWriteStreamExtended ROP Request Buffer] Data (variable):  An array of bytes that constitute the data to be written to the stream.");
+                
+                // CPRPTErrorCode.None indicates the operation is performed successfully.
+                if (ropWriteStreamExtendedResponse.ReturnValue.Equals((uint)CPRPTErrorCode.None))
+                {
+                    // If this operation is performed successfully, that means this operation is valid on Stream objects.
+                    this.Site.CaptureRequirement(
+                        30401003,
+                        @"[In RopWriteStreamExtended ROP] This operation [RopWriteStreamExtended] is valid on Stream objects.");
+                    
+                    // The parser has ensured the field satisfied the format, otherwise the response cannot be received.
+                    //Verify MS-OXCPRPT requirement: MS-OXCPRPT_R30401010
+                    Site.CaptureRequirement(
+                       30401010,
+                       @"[In RopWriteStreamExtended ROP Response Buffer] WrittenSize (4 bytes): An integer.");
+
+                    //Verify MS-OXCPRPT requirement: MS-OXCPRPT_R30401011
+                    Site.CaptureRequirementIfIsTrue(
+                        isWriteSizeElementRight,
+                        30401011,
+                        @"[In RopWriteStreamExtended ROP Response Buffer] WrittenSize (4 bytes): An integer that specifies the number of bytes actually written to the stream.");
+                }
+
+            }
+        }
+        #endregion
+
         #region RopWriteStreamWithCreatePermission
         /// <summary>
         /// Verify the client has read/write access when open property as stream with Create OpenModeFlags.
@@ -2700,7 +2754,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     // If this operation is performed successfully, that means this operation is valid on Stream objects.
                     Site.CaptureRequirement(
                        750,
-                       @"[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (<15> Section 3.2.5.20: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)");
+                       @"[In Appendix A: Product Behavior] Implementation does implement the RopLockRegionStream ROP. (<15> Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopLockRegionStream ROP.)");
 
                     // If this operation is performed successfully, that means this operation is valid on Stream objects.
                     Site.CaptureRequirement(
@@ -2731,7 +2785,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     // If this operation is performed successfully, that means this operation is valid on Stream objects.
                     Site.CaptureRequirement(
                        751,
-                       @"[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (<16> Section 3.2.5.21: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)");
+                       @"[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (<16> Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)");
 
                     // If this operation is performed successfully, that means this operation is valid on Stream objects.
                     Site.CaptureRequirement(
@@ -2763,7 +2817,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     // Since the RopWriteAndCommitStream ROP response is performed successfully, MS-OXCPRPT_R752 can be captured directly.
                     Site.CaptureRequirement(
                         752,
-                        @"[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (<17> Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))");
+                        @"[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (<17> Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))");
 
                     // Since the RopWriteAndCommitStream ROP response is performed successfully, MS-OXCPRPT_R805 can be captured directly.
                     Site.CaptureRequirement(
@@ -2813,7 +2867,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     // If this operation is performed successfully, the following requirement can be captured.
                     Site.CaptureRequirement(
                        753,
-                       @"[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (<18> Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)");
+                       @"[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (<18> Section 3.2.5.24: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)");
 
                     // If this operation is performed successfully, that means this operation is valid on Stream objects.
                     Site.CaptureRequirement(
