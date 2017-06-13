@@ -38,7 +38,7 @@ technical specifications is v20160715.
 SharePoint Protocol technical specifications
 
   Technical specification  | Protocol name
- :------------- | :------------- 
+ :------------- | :-------------
   MS-ADMINS        |  		  [Administration Web Service Protocol](https://go.microsoft.com/fwlink/?linkid=835091)
   MS-AUTHWS        |       [Authentication Web Service Protocol](https://go.microsoft.com/fwlink/?linkid=835092)
   MS-COPYS         |         [Copy Web Service Protocol](https://go.microsoft.com/fwlink/?linkid=835093)
@@ -133,7 +133,7 @@ Architecture
 The following figure illustrates the SharePoint Protocol Test Suites
 architecture.
 
-![alt tag] (./Doc-Images/SharePoint_Spec_Architecture.png)
+![alt tag](./Doc-Images/SharePoint_Spec_Architecture.png)
 
 **Figure 1: Architecture**
 
@@ -218,7 +218,7 @@ the technical specification.
 All protocol adapters use the proxy class of each protocol to send and
 receive messages.
 
-### SUT Control Adapter 
+### SUT Control Adapter
 
 The SUT control adapter manages all the control functions of the test
 suites that are not associated with the protocol. For example, the setup
@@ -465,5 +465,3 @@ scenarios designed in this test suite.
   S02\_GetForItem        | The client tries to get workflow related data from SUT, include workflow association data, workflow task and workflow data.
   S03\_AlterToDo         | The client tries to update a workflow task.
   S04\_ClaimReleaseTask  | The client tries to start a workflow task for a document, claim it and then release it.
-
-
