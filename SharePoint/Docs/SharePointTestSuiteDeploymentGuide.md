@@ -75,6 +75,7 @@ support two SUTs depending on the protocol requirements:
 -   Microsoft Office SharePoint Server 2007 Service Pack 3 (SP3)
 -   Microsoft SharePoint Server 2010 Service Pack 2 (SP2)
 -   Microsoft SharePoint Server 2013 Service Pack (SP1)
+-	Microsoft SharePoint Server 2016
 
 For the MS-WDVMODUU test suite, you have to install a virus scanner software in order to test the
 X-Virus-Infected header. You will also require a virus file to perform a
@@ -100,6 +101,7 @@ clean and virus-free.
 
 	-   Microsoft SharePoint Foundation 2013 Service Pack (SP1)
 	-   Microsoft SharePoint Server 2013 Service Pack (SP1)
+	-	Microsoft SharePoint Server 2016
 
 **Note**   The anti-virus software should implement [Virus Scan Engine
 API](http://go.microsoft.com/fwlink/?LinkId=518352). A number of ISVs
