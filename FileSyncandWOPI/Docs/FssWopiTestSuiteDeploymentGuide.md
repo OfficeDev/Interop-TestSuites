@@ -63,7 +63,7 @@ Software requirements
 
 ###  System under test
 
-This section is only relevant when running the test suites against the 
+This section is only relevant when running the test suites against the
 following versions of SharePoint Server:
 
 -   Microsoft SharePoint Foundation 2010 Service Pack 2 (SP2)
@@ -96,13 +96,13 @@ client. The following table outlines the software dependencies for the test suit
 **Test suite client software dependencies**
 
 |Operating systems|
-|:------------ | 
+|:------------ |
 | Windows 7 x64 Service Pack 1 and above|
 |Windows 8 x64 and above|
 |Windows 2008 R2 x64 Service Pack 1 and above|
 
 |Software|
-|:------------ | 
+|:------------ |
 | Microsoft Visual Studio 2013 Professional|
 | Microsoft Protocol Test Framework 1.0.2220.0 and above|
 ----------------------------------------------------------------------------
@@ -134,15 +134,15 @@ downloaded the test suites, perform the following steps to successfully configur
 	-   If your computer blocks scripts that are downloaded from the Internet for
 	security reasons, follow these steps to unblock
 	PowerShell scripts.
-  
+
 1.  Right click xxx.ps1 and select **Properties**.   
-  
+
 	![alt tag](./Doc-Images/FssWopi_Deploy1.png)                                                
-												   
+
 1.  Click **Unblock** and then click **OK**.         
-  
+
 	![alt tag](./Doc-Images/FssWopi_Deploy2.png)	  
-												   
+
 Using test suite directories
 ============================================================================================================================================================================================================================
 
@@ -154,7 +154,7 @@ This section shows the folder structures in the **SharePointFileSyncAndWOPIProto
 |:------------ | :-------------|
 | **EULA.rtf**     |   End-User License Agreement. |
 | **ReadMe.txt**   |   A doc on deployment and prerequisite software. |
-| **SharePoint File Sync and WOPI Protocol Test Suites**          |-- | 
+| **SharePoint File Sync and WOPI Protocol Test Suites**          |-- |
 | **- Docs**  |   A folder with documents of all protocol test suites. |
 | **- FssWopiTestSuiteDeploymentGuide.docx**   |   A doc on the protocol test suite deployment. |
 | **- FssWopiTestSuiteSpecification.docx**     |   A doc on the test suite configuration details, architecture, adapters and test case details.	|
@@ -415,7 +415,7 @@ For the MS-WOPI test suite, the SUT configuration steps are as follows:
 
 17. Make sure the MSWOPI\_SiteCollection can be accessed before running
     the test suite.
-	
+
 Configuring the test suite client
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -426,7 +426,7 @@ configuration files can be modified directly. The common configuration
 file and the test-suite specific configuration files can also be
 modified through a script.
 
-###Common configuration file
+### Common configuration file
 
 The common configuration file contains configurable properties common to all
 SharePoint File Sync and WOPI Protocol Test Suites. This file must be
@@ -437,7 +437,7 @@ suites are installed.
 |:------------ | :-------------|
 **FssWopiCommonConfiguration.deployment.ptfconfig** |The deployment configuration file provides the common environmental details for the test suites.
 
-###Test-suite specific configuration files
+### Test-suite specific configuration files
 
 In addition to the common configuration file, each individual test suite
 has the following two configuration files for test-suite specific
@@ -480,7 +480,7 @@ specific test suite, do the following:
 |:------------ | :------------- | :-------------| :-------------
 |Adapter     |    managed or powershell |  interactive\*\*  | **managed**: The SUT control adapter is implemented in C\# managed code.|                                                      
 ||| | **powershell**: The SUT control adapter is implemented through PowerShell.|                                                       
-||| | **interactive**: Interactive adapters are used for manually configuring the server. The interactive adapter displays a dialog box to perform a manual test each time when one of its methods is called. The dialog box will show the method name, parameter names, and values\*\*\*| 
+||| | **interactive**: Interactive adapters are used for manually configuring the server. The interactive adapter displays a dialog box to perform a manual test each time when one of its methods is called. The dialog box will show the method name, parameter names, and values\*\*\*|
  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 \*The Adapter property value is set to either **managed** or
@@ -504,7 +504,7 @@ adapter that matches the server implementation. For information about
 how to create a SUT control adapter, see the [Protocol Test Framework
 (PTF) user documentation](https://github.com/Microsoft/ProtocolTestFramework).
 
-####Configure TSAP broadcast
+#### Configure TSAP broadcast
 
 Test Session Announcement Protocol (TSAP) is used by PTF to
 broadcast test information when the test suite is running. TSAP
@@ -550,7 +550,7 @@ Server to be the closest match to the SUT implementation.
 ### Configuring the test suite client using setup configuration script
 
 **Note** The setup configuration script is only implemented for
-configuring the test suite client on the Windows platform. 
+configuring the test suite client on the Windows platform.
 
 To configure the test suite using the setup configuration script,
 navigate to the **Setup\\Test Suite Client**\\ folder, right-click
@@ -595,7 +595,7 @@ initiated in one of the following two ways: Visual Studio or batch
 scripts.
 
 **Note**   Do not run MS-WOPI and MS-FSSHTTP-FSSHTTPB test suites
-simultaneously. 
+simultaneously.
 
 Microsoft Visual Studio
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -605,24 +605,20 @@ A Visual Studio solution file
 **Source** folder.
 
   1.  Open **SharePointFileSyncAndWOPIProtocolTestSuites.sln** in Visual Studio.                                                                            
-                                                                                                                                                            
-       ![alt tag](./Doc-Images/FssWopi_RunningTS1.png)                                                                                                                                                   
-  --------------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
-  1.  In the **Solution Explorer** pane, right-click **Solution** ‘**SharePointFileSyncAndWOPIProtocolTestSuites**’, and then click **Rebuild Solution**.                                                                                                                           
-         
-  ![alt tag](./Doc-Images/FssWopi_RunningTS2.png)	
 
-  --------------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------  
+![alt tag](./Doc-Images/FssWopi_RunningTS1.png)                                                                                                                                  
 
-  1.  Open **Test Explorer**. On the ribbon, click **TEST,** then click **Windows**, and finally click **Test Explorer**.                                   
-      
-   ![alt tag](./Doc-Images/FssWopi_RunningTS3.png)                                                                                                                                                        
-    --------------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------                                                                                                                                                        
+  2.  In the **Solution Explorer** pane, right-click **Solution** ‘**SharePointFileSyncAndWOPIProtocolTestSuites**’, and then click **Rebuild Solution**.                                                                                                                           
 
-  1.  Select the test case to run, right-click the test case and then select **Run Selected Tests**.                                                        
-                                                                                                                                                            
-      ![alt tag](./Doc-Images/FssWopi_RunningTS4.png)                                                                                                                                                  
-    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ![alt tag](./Doc-Images/FssWopi_RunningTS2.png)
+
+
+  3.  Open **Test Explorer**. On the ribbon, click **TEST,** then click **Windows**, and finally click **Test Explorer**.                                   
+
+   ![alt tag](./Doc-Images/FssWopi_RunningTS3.png)                                                                                                                                                                                                                                                                                                              
+  4.  Select the test case to run, right-click the test case and then select **Run Selected Tests**.                                                        
+
+  ![alt tag](./Doc-Images/FssWopi_RunningTS4.png)                                                                                                                                                  
 
 A Visual Studio solution file
 **MS-XXXX.sln** is provided in each test suite folder.
@@ -630,28 +626,22 @@ A Visual Studio solution file
 
   1.  Select the test suite you would like to run. Let’s take MS-FSSHTTP-FSSHTTPB as an example here, so browse to the **Source\\MS-FSSHTTP-FSSHTTPB** directory.
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
-  1.  Open **MS-FSSHTTP-FSSHTTPB.sln** in Visual Studio.
-  
-    ![alt tag](./Doc-Images/FssWopi_RunningTS5.png)
-	
-	----------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
 
-  1.  In the **Solution Explorer** pane, right-click **Solution** ‘**MS-FSSHTTP-FSSHTTPB**’, and then click **Rebuild Solution**.
-  
-    ![alt tag](./Doc-Images/FssWopi_RunningTS6.png)
-	
-	----------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
+  2.  Open **MS-FSSHTTP-FSSHTTPB.sln** in Visual Studio.
 
-  1.  Open **Test Explorer**. On the ribbon, click **TEST**, then click **Windows**, and finally click **Test Explorer**.
-  
-    ![alt tag](./Doc-Images/FssWopi_RunningTS7.png)
-	
-	----------------------------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
+  ![alt tag](./Doc-Images/FssWopi_RunningTS5.png)
 
-  1.  Select the test case to run. Right-click the test case and then select **Run Selected Tests**.
-  
-    ![alt tag](./Doc-Images/FssWopi_RunningTS8.png)
+
+  3.  In the **Solution Explorer** pane, right-click **Solution** ‘**MS-FSSHTTP-FSSHTTPB**’, and then click **Rebuild Solution**.
+  ![alt tag](./Doc-Images/FssWopi_RunningTS6.png)
+
+
+  4.  Open **Test Explorer**. On the ribbon, click **TEST**, then click **Windows**, and finally click **Test Explorer**.
+  ![alt tag](./Doc-Images/FssWopi_RunningTS7.png)
+
+
+  5.  Select the test case to run. Right-click the test case and then select **Run Selected Tests**.
+  ![alt tag](./Doc-Images/FssWopi_RunningTS8.png)
 
 
 Batch scripts
@@ -735,8 +725,8 @@ Appendix
 ================================================================================================================================================================================================================================================================================================================================================================================================================
  References   | Description
 :------------ | :-------------
-<dochelp@microsoft.com>   |  The alias for Interoperability documentation help, which provides support for Open Specifications and protocol test suites.| 
-[Open Specifications Forums](http://go.microsoft.com/fwlink/?LinkId=111125) | The Microsoft Customer Support Services forums, the actively monitored forums that provide support for the Open Specifications and protocol test suites. 
+<dochelp@microsoft.com>   |  The alias for Interoperability documentation help, which provides support for Open Specifications and protocol test suites.|
+[Open Specifications Forums](http://go.microsoft.com/fwlink/?LinkId=111125) | The Microsoft Customer Support Services forums, the actively monitored forums that provide support for the Open Specifications and protocol test suites.
 [Open Specifications Developer Center](http://go.microsoft.com/fwlink/?LinkId=254469)  | The Open Specifications home page on MSDN.
 [Open Specifications](http://go.microsoft.com/fwlink/?LinkId=179743)                   | The Open Specifications documentation on MSDN.
 [SharePoint Products and Technologies Protocols](http://go.microsoft.com/fwlink/?LinkId=202122) | The SharePoint Open Specifications documentation on MSDN.

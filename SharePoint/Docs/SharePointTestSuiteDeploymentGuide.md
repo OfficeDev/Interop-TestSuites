@@ -95,7 +95,7 @@ clean and virus-free.
 	-   Microsoft SharePoint Foundation 2010 Service Pack 2 (SP2)
 	-   Microsoft Office SharePoint Server 2007 Service Pack 3 (SP3)
 	-   Microsoft SharePoint Server 2010 Service Pack 2 (SP2)
-	
+
 1.  Install any anti-virus software on the following versions of
     SharePoint:
 
@@ -170,12 +170,12 @@ steps to successfully configure the test suites.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 1.  Right-click xxx.ps1 and select **Properties**.   
-  
+
   ![alt tag](./Doc-Images/SP_Deploy1.png)                                              
 ---------------------------------------------------- -----------------------------------------------------------------------------------
 
 2.  Click **Unblock** and click **OK**.             
-												   
+
   ![alt tag](./Doc-Images/SP_Deploy2.png)                                         
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -258,7 +258,7 @@ Configuring the SUT
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 You can configure the SUT using automated scripts, as described in [Configuring SUT1 using the setup configuration script](#configuring-sut1-using-the-setup-configuration-script) and [Configuring SUT2 using the setup configuration script](#configuring-sut2-using-the-setup-configuration-script); or
-configure the SUT manually, as described in 
+configure the SUT manually, as described in
 [Configuring SUT1 manually](#configuring-sut1-manually) and
 [Configuring SUT2 manually](#configuring-sut2-manually).
 
@@ -282,108 +282,108 @@ SharePointTestSuite.config is required.
 
 **SharePoint server resources**
 
- Test suite |  Resource type |  Resource name
-:------------ | :------------- | :-------------
-**All**       |      --        |                --
-**MS-LISTSWS**|      Site collection     |      MSLISTSWS\_SiteCollection
-              |      Document library    |     MSLISTSWS\_DocumentLibrary
-**MS-VERSS**  |      Site collection     |     MSVERSS\_SiteCollection
-**MS-SITESS** |      Site collection     |     MSSITESS\_SiteCollection
-              |      Site                |     MSSITESS\_Site
-              |      Site                |     MSSITESS\_NormalSubSite
-              |      Site                |     MSSITESS\_SpecialSubSite
-              |      Document library    |     MSSITESS\_DocumentLibrary
-              |      Document library    |     MSSITESS\_SubSite\_DocumentLibrary
-              |      Text document       |     MSSITESS\_TestData.txt
-              |      ASPX file           |     MSSITESS\_CustomPage.aspx
-**MS-DWSS**   |      Site collection     |     MSDWSS\_SiteCollection
-              |      Site collection     |     MSDWSS\_SiteCollection\_DocumentWorkspace
-              |      Site                |     MSDWSS\_Site
-              |      Site                |     MSDWSS\_InheritPermissionSite
-              |      Document library    |     MSDWSS\_DocumentLibrary
-              |      Folder              |     MSDWSS\_TestFolder
-              |      Text document       |     MSDWSS\_TestData.txt
-              |      User                |     MSDWSS\_NoneRole
-              |      User                |     MSDWSS\_ReaderRole
-              |      User                |     MSDWSS\_GroupOwner
-              |      Group               |     MSDWSS\_CustomGroup
-**MS-MEETS**  |      Site collection     |     MSMEETS\_SiteCollection
-              |      User                |     MSMEETS\_User
-**MSWEBSS**   |      Site collection     |     MSWEBSS\_SiteCollection
-              |      Document library    |     MSWEBSS\_DocumentLibrary
-              |      Word document       |     MSWEBSS\_TestData.docx
-              |      Site                |     MSWEBSS\_Site
-**MS-WDVMODUU** |      Site collection   |     MSWDVMODUU\_SiteCollection
-              |      Document library    |     MSWDVMODUU\_DocumentLibrary1
-              |      Document library    |     MSWDVMODUU\_DocumentLibrary2
-              |      Text document       |     MSWDVMODUU\_TestData1.txt
-              |      Text document       |     MSWDVMODUU\_TestData2.txt
-              |      Text document       |     MSWDVMODUU\_TestData3.txt
-              |      Fake virus file     |     FakeVirusInfectedFile\_Get.txt
-**MS-WWSP**   |      Site collection     |     MSWWSP\_SiteCollection
-              |      Work Flow           |     MSWWSP\_Workflow
-              |      Work Flow Task List |     Tasks
-              |      Work flow History List |  MSWWSP\_WorkflowHistoryList
-              |      Document library       |  MSWWSP\_DocumentLibrary
-              |       Group                 |  MSWWSP\_UserGroup
-              |      User                   |  MSWWSP\_User
-**MS-OUTSPS** |      Site collection        |  MSOUTSPS\_SiteCollection
-**MS-AUTHWS** |      Web Application        |  MSAUTHWS\_FormsWebAPP
-              |      Web Application        |  MSAUTHWS\_NoneWebAPP
-              |      Web Application        |  MSAUTHWS\_PassportWebAPP
-              |      Web Application        |  MSAUTHWS\_WindowsAPP
-**MS-SHDACCWS** |      Site collection      |  MSSHDACCWS\_SiteCollection
-              |      Document library       |  MSSHDACCWS\_DocumentLibrary
-              |      Text document          |  MSSHDACCWS\_LockedTestData.txt
-              |      Text document          |  MSSHDACCWS\_CoStatusTestData.txt
-              |      Text document          |  MSSHDACCWS\_TestData.txt
-**MS-CPSWS**  |      User                   |  MSCPSWS\_User
-**MS-WSSREST**|      Site collection        |  MSWSSREST\_SiteCollection
-              |      Document library       |  MSWSSREST\_DocumentLibrary
-              |      Calendar               |  MSWSSREST\_Calendar
-              |      DiscussionBoard        |  MSWSSREST\_DiscussionBoard
-              |      GenericList            |  MSWSSREST\_GenericList
-              |      Survey                 |  MSWSSREST\_Survey
-              |      WorkflowHistoryList    |  MSWSSREST\_WorkflowHistoryList
-              |      Tasks                  |  MSWSSREST\_Tasks
-              |      Work Flow              |  MSWSSREST\_Workflow
-              |      ChoiceField            |  MSWSSREST\_ChoiceField
-              |      MultiChoiceField       |  MSWSSREST\_MultiChoiceField
-              |      ChoiceFieldValue       |  MSWSSREST\_SingleChoiceOption1, MSWSSREST\_SingleChoiceOption2
-              |      MultiChoiceFieldValue  |  MSWSSREST\_MultiChoiceOption1, MSWSSREST\_MultiChoiceOption2
-              |      LookupField            |  MSWSSREST\_LookupField
-**MS-OFFICIALFILE** |  Site collection      |  MSOFFICIALFILE\_SiteCollection
-                  |  Site                   |  MSOFFICIALFILE\_RoutingRepository
-                  |  Site                   |  MSOFFICIALFILE\_NoRoutingRepository
-                  |  Site                   |  MSOFFICIALFILE\_EnabledParsingRepository
-                  |  Document library       |  Drop Off Library
-                  |  Document library       |  MSOFFICIALFILE\_DocumentRuleLocationLibrary
-                  |  Document library       |  MSOFFICIALFILE\_NoEnforceLibrary
-                  |  Document library       |  MSOFFICIALFILE\_DocumentSetLocationLibrary
-                  |  DocumentSet            |  MSOFFICIALFILE\_DocumentSetName
-                  |  User                   |  MSOFFICIALFILE\_User
-**MS-COPYS**      |  Site collection        |  MSCOPYS\_SiteCollection
-                  |  Site                   |  MSCOPYS\_SubSiteMeetingWorkspace
-                  |  User                   |  MSCOPYS\_EditUser
-                  |  User                   |  MSCOPYS\_limitUser
-                  |  Text document          |  MSCOPYS\_SourceFile.txt
-                  |  Document library       |  MSCOPYS\_SubSiteDocumentLibrary
-                  |  Document library       |  MSCOPYS\_SourceDocumentLibrary
-                  |  Document library       |  MSCOPYS\_DestinationDocumentLibrary
-                  |  Column                 |  MSCOPYS\_TestReadOnlyField
-                  |  Column                 |  MSCOPYS\_WorkFlowEventField
-                  |  Column field value     |  MSCOPYS\_Source
-                  |  Column field value     |  MSCOPYS\_Destination
-**MS-VIEWSS**     |  Site collection        |  MSVIEWSS\_SiteCollection
-                  |  GenericList            |  MSVIEWSS\_ViewList
-                  |  ListItem               |  MSVIEWSS\_ListItem1
-                  |  ListItem               |  MSVIEWSS\_ListItem2
-                  |  ListItem               |  MSVIEWSS\_ListItem3
-                  |  ListItem               |  MSVIEWSS\_ListItem4
-                  |  ListItem               |  MSVIEWSS\_ListItem5
-                  |  ListItem               |  MSVIEWSS\_ListItem6
-                  |  ListItem               |  MSVIEWSS\_ListItem7
-                  |  ListItem               |  MSVIEWSS\_ListItem7
+| Test suite |  Resource type |  Resource name|
+|:------------ | :------------- | :-------------|
+|**All**       |      --        |                --|
+|**MS-LISTSWS**|      Site collection     |      MSLISTSWS\_SiteCollection|
+|              |      Document library    |     MSLISTSWS\_DocumentLibrary|
+|**MS-VERSS**  |      Site collection     |     MSVERSS\_SiteCollection|
+|**MS-SITESS** |      Site collection     |     MSSITESS\_SiteCollection|
+|              |      Site                |     MSSITESS\_Site|
+|               |      Site                |     MSSITESS\_NormalSubSite|
+|              |      Site                |     MSSITESS\_SpecialSubSite|
+|               |      Document library    |     MSSITESS\_DocumentLibrary|
+|              |      Document library    |     MSSITESS\_SubSite\_DocumentLibrary|
+|              |      Text document       |     MSSITESS\_TestData.txt|
+|              |      ASPX file           |     MSSITESS\_CustomPage.aspx|
+|**MS-DWSS**   |      Site collection     |     MSDWSS\_SiteCollection|
+|              |      Site collection     |     MSDWSS\_SiteCollection\_DocumentWorkspace|
+|              |      Site                |     MSDWSS\_Site|
+|              |      Site                |     MSDWSS\_InheritPermissionSite|
+|              |      Document library    |     MSDWSS\_DocumentLibrary|
+|              |      Folder              |     MSDWSS\_TestFolder|
+|              |      Text document       |     MSDWSS\_TestData.txt|
+|              |      User                |     MSDWSS\_NoneRole|
+|              |      User                |     MSDWSS\_ReaderRole|
+|              |      User                |     MSDWSS\_GroupOwner|
+|              |      Group               |     MSDWSS\_CustomGroup|
+|**MS-MEETS**  |      Site collection     |     MSMEETS\_SiteCollection|
+|              |      User                |     MSMEETS\_User|
+|**MSWEBSS**   |      Site collection     |     MSWEBSS\_SiteCollection|
+|              |      Document library    |     MSWEBSS\_DocumentLibrary|
+|              |      Word document       |     MSWEBSS\_TestData.docx|
+|              |      Site                |     MSWEBSS\_Site|
+|**MS-WDVMODUU** |      Site collection   |     MSWDVMODUU\_SiteCollection|
+|              |      Document library    |     MSWDVMODUU\_DocumentLibrary1|
+|              |      Document library    |     MSWDVMODUU\_DocumentLibrary2|
+|              |      Text document       |     MSWDVMODUU\_TestData1.txt|
+|              |      Text document       |     MSWDVMODUU\_TestData2.txt|
+|              |      Text document       |     MSWDVMODUU\_TestData3.txt|
+|              |      Fake virus file     |     FakeVirusInfectedFile\_Get.txt|
+|**MS-WWSP**   |      Site collection     |     MSWWSP\_SiteCollection|
+|              |      Work Flow           |     MSWWSP\_Workflow|
+|              |      Work Flow Task List |     Tasks|
+|              |      Work flow History List |  MSWWSP\_WorkflowHistoryList|
+|              |      Document library       |  MSWWSP\_DocumentLibrary|
+|              |       Group                 |  MSWWSP\_UserGroup|
+|              |      User                   |  MSWWSP\_User|
+|**MS-OUTSPS** |      Site collection        |  MSOUTSPS\_SiteCollection|
+|**MS-AUTHWS** |      Web Application        |  MSAUTHWS\_FormsWebAPP|
+|              |      Web Application        |  MSAUTHWS\_NoneWebAPP|
+|              |      Web Application        |  MSAUTHWS\_PassportWebAPP|
+|              |      Web Application        |  MSAUTHWS\_WindowsAPP|
+|**MS-SHDACCWS** |      Site collection      |  MSSHDACCWS\_SiteCollection|
+|              |      Document library       |  MSSHDACCWS\_DocumentLibrary|
+|              |      Text document          |  MSSHDACCWS\_LockedTestData.txt|
+|              |      Text document          |  MSSHDACCWS\_CoStatusTestData.txt|
+|              |      Text document          |  MSSHDACCWS\_TestData.txt|
+|**MS-CPSWS**  |      User                   |  MSCPSWS\_User|
+|**MS-WSSREST**|      Site collection        |  MSWSSREST\_SiteCollection|
+|              |      Document library       |  MSWSSREST\_DocumentLibrary|
+|              |      Calendar               |  MSWSSREST\_Calendar|
+|              |      DiscussionBoard        |  MSWSSREST\_DiscussionBoard|
+|              |      GenericList            |  MSWSSREST\_GenericList|
+|              |      Survey                 |  MSWSSREST\_Survey|
+|              |      WorkflowHistoryList    |  MSWSSREST\_WorkflowHistoryList|
+|              |      Tasks                  |  MSWSSREST\_Tasks|
+|              |      Work Flow              |  MSWSSREST\_Workflow|
+|              |      ChoiceField            |  MSWSSREST\_ChoiceField|
+|              |      MultiChoiceField       |  MSWSSREST\_MultiChoiceField|
+|              |      ChoiceFieldValue       |  MSWSSREST\_SingleChoiceOption1, MSWSSREST\_SingleChoiceOption2|
+|              |      MultiChoiceFieldValue  |  MSWSSREST\_MultiChoiceOption1, MSWSSREST\_MultiChoiceOption2|
+|              |      LookupField            |  MSWSSREST\_LookupField|
+|**MS-OFFICIALFILE** |  Site collection      |  MSOFFICIALFILE\_SiteCollection|
+|                  |  Site                   |  MSOFFICIALFILE\_RoutingRepository|
+|                  |  Site                   |  MSOFFICIALFILE\_NoRoutingRepository|
+|                  |  Site                   |  MSOFFICIALFILE\_EnabledParsingRepository|
+|                  |  Document library       |  Drop Off Library|
+|                  |  Document library       |  MSOFFICIALFILE\_DocumentRuleLocationLibrary|
+|                  |  Document library       |  MSOFFICIALFILE\_NoEnforceLibrary|
+|                  |  Document library       |  MSOFFICIALFILE\_DocumentSetLocationLibrary|
+|                  |  DocumentSet            |  MSOFFICIALFILE\_DocumentSetName|
+|                  |  User                   |  MSOFFICIALFILE\_User|
+|**MS-COPYS**      |  Site collection        |  MSCOPYS\_SiteCollection|
+|                  |  Site                   |  MSCOPYS\_SubSiteMeetingWorkspace|
+|                  |  User                   |  MSCOPYS\_EditUser|
+|                  |  User                   |  MSCOPYS\_limitUser|
+|                  |  Text document          |  MSCOPYS\_SourceFile.txt|
+|                  |  Document library       |  MSCOPYS\_SubSiteDocumentLibrary|
+|                  |  Document library       |  MSCOPYS\_SourceDocumentLibrary|
+|                  |  Document library       |  MSCOPYS\_DestinationDocumentLibrary|
+|                  |  Column                 |  MSCOPYS\_TestReadOnlyField|
+|                  |  Column                 |  MSCOPYS\_WorkFlowEventField|
+|                  |  Column field value     |  MSCOPYS\_Source|
+|                  |  Column field value     |  MSCOPYS\_Destination|
+|**MS-VIEWSS**     |  Site collection        |  MSVIEWSS\_SiteCollection|
+|                  |  GenericList            |  MSVIEWSS\_ViewList|
+|                  |  ListItem               |  MSVIEWSS\_ListItem1|
+|                  |  ListItem               |  MSVIEWSS\_ListItem2|
+|                  |  ListItem               |  MSVIEWSS\_ListItem3|
+|                  |  ListItem               |  MSVIEWSS\_ListItem4|
+|                  |  ListItem               |  MSVIEWSS\_ListItem5|
+|                  |  ListItem               |  MSVIEWSS\_ListItem6|
+|                  |  ListItem               |  MSVIEWSS\_ListItem7|
+|                  |  ListItem               |  MSVIEWSS\_ListItem7|
 
 ### Configuring SUT1 using the setup configuration script
 
@@ -429,7 +429,7 @@ to run the test suites.
 -   Any site collection created on the SharePoint site should follow the *Team
     Site* template.
 
-#### MS-SITESS 
+#### MS-SITESS
 
 1.  Create a site collection named **MSSITESS\_SiteCollection**.
 
@@ -456,13 +456,13 @@ to run the test suites.
 
 9.  Update the **Web.config** file to enable the custom pages on the server.
 
-#### MS-DWSS 
+#### MS-DWSS
 
 1.  Create the following new users as specified in [SUT resource requirements](#sut-resource-requirements)
     and set their password to never expire on the domain controller.
 
     **MSDWSS\_NoneRole**, **MSDWSS\_ReaderRole**, and
-    **MSDWSS\_GroupOwner**. 
+    **MSDWSS\_GroupOwner**.
 
 2.  Create a site collection named **MSDWSS\_SiteCollection**.
 
@@ -492,18 +492,18 @@ to run the test suites.
 11. Grant full control permissions to MSDWSS\_CustomGroup
     on MSDWSS\_Site.
 
-#### MS-VERSS 
+#### MS-VERSS
 
 1.  Create a site collection named **MSVERSS\_SiteCollection**.
 
-#### MS-LISTSWS 
+#### MS-LISTSWS
 
 1.  Create a site collection named **MSLISTSWS\_SiteCollection**.
 
 2.  Create a document library named **MSLISTSWS\_DocumentLibrary**
     in MSLISTSWS\_SiteCollection.
 
-#### MS-WWSP 
+#### MS-WWSP
 
 The MS-WWSP test suite supports only the following versions of SharePoint:
 
@@ -543,11 +543,11 @@ The MS-WWSP test suite supports only the following versions of SharePoint:
 3.  Create a workflow history list named **MSWWSP\_WorkflowHistoryList**
     in MSWWSP\_SiteCollection.
 
-	**Note** The workflow association template name and task name will be used in the MS-XXX\_TestSuite.deployment.ptfconfig file in the test suite. 
-	
+	**Note** The workflow association template name and task name will be used in the MS-XXX\_TestSuite.deployment.ptfconfig file in the test suite.
+
 	The workflow association template name must be **Approval** for Microsoft SharePoint Server 2007, and **Approval - SharePoint 2010** for Microsoft SharePoint Server 2010, Microsoft SharePoint Server 2013 and Microsoft SharePoint Server 2016.
 
-#### MS-MEETS 
+#### MS-MEETS
 
 1.  Create a new user named **MSMEETS\_User** and set the password to
     never expire on the domain controller.
@@ -570,7 +570,7 @@ The MS-WWSP test suite supports only the following versions of SharePoint:
 1.  Restart Internet Information
     Services (IIS).
 
-#### MS-WEBSS 
+#### MS-WEBSS
 
 1.  Create a site collection named **MSWEBSS\_SiteCollection**.
 
@@ -586,7 +586,7 @@ The MS-WWSP test suite supports only the following versions of SharePoint:
 4.  Upload one arbitrary .docx file named MSWEBSS\_TestData.docx
     into MSWEBSS\_DocumentLibrary.
 
-#### MS-ADMINS 
+#### MS-ADMINS
 
 1.  In IIS, configure the SharePoint site to support HTTPS.
 
@@ -599,11 +599,11 @@ The MS-WWSP test suite supports only the following versions of SharePoint:
 4.  Add a firewall rule to allow HTTPS port of the SharePoint Central Administration
     site to receive TCP data.
 
-#### MS-OUTSPS 
+#### MS-OUTSPS
 
 1.  Create a site collection named **MSOUTSPS\_SiteCollection**.
 
-#### MS-WDVMODUU 
+#### MS-WDVMODUU
 
 1.  Create a site collection named **MSWDVMODUU\_SiteCollection**.
 
@@ -622,7 +622,7 @@ The MS-WWSP test suite supports only the following versions of SharePoint:
 5.  Upload a fake virus file mentioned in [System under test](#system-under-test)
     into MSWDVMODUU\_DocumentLibrary2.
 
-#### MS-AUTHWS 
+#### MS-AUTHWS
 
 1.  Create three web Applications named
     **MSAUTHWS\_FormsWebAPP**, **MSAUTHWS\_NoneWebAPP**, and
@@ -646,14 +646,14 @@ The MS-WWSP test suite supports only the following versions of SharePoint:
     MSAUTHWS\_FormsWebAPP, MSAUTHWS\_NoneWebAPP, and
     MSAUTHWS\_WindowsAPP to receive TCP data.
 
-#### MS-SHDACCWS 
+#### MS-SHDACCWS
 
 The MS-SHDACCWS test suite supports only the following
 versions of SharePoint:
 
 -   Microsoft SharePoint Foundation 2010
--   Microsoft SharePoint Server 2010 
--   Microsoft SharePoint Foundation 2013 
+-   Microsoft SharePoint Server 2010
+-   Microsoft SharePoint Foundation 2013
 -   Microsoft SharePoint Server 2013
 -	Microsoft SharePoint Server 2016
 
@@ -666,16 +666,16 @@ versions of SharePoint:
     MSSHDACCWS\_CoStatusTestData.txt and MSSHDACCWS\_TestData.txt
     into MSSHDACCWS\_DocumentLibrary.
 
-#### MS- CPSWS 
+#### MS- CPSWS
 
 The MS-CPSWS test suite supports only the following
 versions of SharePoint:
 
 -   Microsoft SharePoint Foundation 2010
--   Microsoft SharePoint Server 2010 
--   Microsoft SharePoint Foundation 2013 
--   Microsoft SharePoint Server 2013 
--	Microsoft SharePoint Server 2016 
+-   Microsoft SharePoint Server 2010
+-   Microsoft SharePoint Foundation 2013
+-   Microsoft SharePoint Server 2013
+-	Microsoft SharePoint Server 2016
 
 1.  Create a user with the name **MSCPSWS\_User** and set the password
     to never expire on the domain controller.
@@ -689,16 +689,16 @@ versions of SharePoint:
     ClaimProviderWebServiceBehavior
     and HttpsClaimProviderWebServiceBehavior.
 
-#### MS-WSSREST 
+#### MS-WSSREST
 
 The MS-WSSREST test suite supports only the following
 versions of SharePoint:
 
 -   Microsoft SharePoint Foundation 2010
--   Microsoft SharePoint Server 2010 
--   Microsoft SharePoint Foundation 2013 
--   Microsoft SharePoint Server 2013 
--	Microsoft SharePoint Server 2016 
+-   Microsoft SharePoint Server 2010
+-   Microsoft SharePoint Foundation 2013
+-   Microsoft SharePoint Server 2013
+-	Microsoft SharePoint Server 2016
 
 1.  Create a site collection named **MSWSSREST\_SiteCollection**.
 
@@ -744,15 +744,15 @@ versions of SharePoint:
 13. In MSWSSREST\_Survey, create two columns with types GridChoice
     and PageSeparator.
 
-#### MS-OFFICIALFILE 
+#### MS-OFFICIALFILE
 
 The MS-OFFICIALFILE test suite supports only the following
 versions of SharePoint:
 
 -  Microsoft Office SharePoint Server 2007
 -  Microsoft SharePoint Server 2010
--  Microsoft SharePoint Server 2013 
--	Microsoft SharePoint Server 2016 
+-  Microsoft SharePoint Server 2013
+-	Microsoft SharePoint Server 2016
 
 For Microsoft Office SharePoint Server 2007, you will only need to
 configure the steps from 1 to 7.
@@ -837,7 +837,7 @@ configure the steps from 1 to 7.
 15. In MSOFFICIALFILE\_RoutingRepository, create a document set
     **MSOFFICIALFILE\_DocumentSetName** on MSOFFICIALFILE\_DocumentRuleLocationLibrary.
 
-#### MS-COPYS 
+#### MS-COPYS
 
 1.  Create two users with name of **MSCOPYS\_limitUser** and
     **MSCOPYS\_EditUser**, and set their password never expire on the
@@ -881,14 +881,14 @@ configure the steps from 1 to 7.
     contents of the file should be “MSCOPYS\_SourceFile”. The file uses
     a form of ANSI.
 
-#### MS-VIEWSS 
+#### MS-VIEWSS
 
 1.  Create a site collection named **MSVIEWSS\_SiteCollection**.
 
 2.  Create a generic list **MSVIEWSS\_ViewList** in MSVIEWSS\_SiteCollection.
 
 3.  Create the following items in list MSVIEWSS\_ViewList.
-    
+
     **Note** Two of the eight items should have the same title.
 
 	MSVIEWSS\_ListItem1, MSVIEWSS\_ListItem2, MSVIEWSS\_ListItem3,
@@ -930,7 +930,7 @@ to run the test suites.
 	SUT administrator.
 
 	-   Any site collection created on the SharePoint site should follow
-	the **Team Site** template. 
+	the **Team Site** template.
 
 #### MS-COPYS
 
@@ -1021,10 +1021,10 @@ for a specific test suite, do the following:
 |  Adapter     |    managed or powershell |  interactive\*\* |  **managed**: The SUT control adapter is implemented in C\# managed code. |                                                         
 ||||**powershell**: The SUT control adapter is implemented through PowerShell.|                                                           
 ||||**interactive**: Interactive adapter is used for manually configuring the server. Interactive adapter displays a dialog box to perform manual test each time when one of its methods is called. The dialog box will show the method name, parameter names and values\*\*\*.|
-  
+
 \*The Adapter property value is set to either **managed** or
 **powershell** depending on whether the SUT control adapter is
-implemented in managed C\# code or through Powershell. 
+implemented in managed C\# code or through Powershell.
 
 \*\*When changing from managed mode to interactive mode, the
 “adaptertype” attribute must be deleted to avoid a runtime error. When
@@ -1091,7 +1091,7 @@ Configuration file  | Description
 ### Configuring the test suite client using the setup configuration script
 
 The setup configuration script is only implemented for
-configuring the test suite client on the Windows platform. 
+configuring the test suite client on the Windows platform.
 
 To configure the test suite using the setup configuration script,
 navigate to the **Setup\\Test Suite Client**\\ folder, right-click
@@ -1133,56 +1133,53 @@ A Microsoft Visual Studio solution file
 **SharePointServerProtocolTestSuites.sln** is provided in the **Source**
 folder. You can run a single or multiple test cases in Visual Studio.
 
- 
-  1.  Open **SharePointServerProtocolTestSuites.sln** in Visual Studio.                                                                        
-   
-	![alt tag](./Doc-Images/SP_RunningTS1.png)
-                                                                                                                                               
-  -------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------
-  1.  In the **Solution Explorer** pane, right-click **Solution ‘SharePointServerProtocolTestSuites’**, and then click **Rebuild Solution**.                                                                                                   
-    
-	![alt tag](./Doc-Images/SP_RunningTS2.png)
 
-	-------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------	
+1.  Open **SharePointServerProtocolTestSuites.sln** in Visual Studio.                                                                        
 
-  1.  Open **Test Explorer**. On the ribbon, click **TEST** , then click **Windows**, and finally click **Test Explorer**.                   
-                                                                                                                                               
-    ![alt tag](./Doc-Images/SP_RunningTS3.png)
+![alt tag](./Doc-Images/SP_RunningTS1.png)
 
-	-------------------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------	
 
-  1.  Select the test case to run. Right-click the test case and then select **Run Selected Tests**.                                                                                                                                                      
-       
-	![alt tag](./Doc-Images/SP_RunningTS4.png)
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.  In the **Solution Explorer** pane, right-click **Solution ‘SharePointServerProtocolTestSuites’**, and then click **Rebuild Solution**.                                                                                                   
+
+![alt tag](./Doc-Images/SP_RunningTS2.png)
+
+
+3.  Open **Test Explorer**. On the ribbon, click **TEST** , then click **Windows**, and finally click **Test Explorer**.                   
+
+![alt tag](./Doc-Images/SP_RunningTS3.png)
+
+
+
+4.  Select the test case to run. Right-click the test case and then select **Run Selected Tests**.                                                                                                                                                      
+
+![alt tag](./Doc-Images/SP_RunningTS4.png)
+
 
 A Visual Studio solution file
 **MS-XXXX.sln** is provided in each test suite folder.
 
-  
-  1.  Select the test suite you would like to run. Let’s take MS-DWSS as an example here, so browse to the **Source\\MS-DWSS\\** directory.
 
-  ------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
-  1.  Open **MS-DWSS.sln** in Visual Studio.
+1.  Select the test suite you would like to run. Let’s take MS-DWSS as an example here, so browse to the **Source\\MS-DWSS\\** directory.
 
-  ![alt tag](./Doc-Images/SP_RunningTS5.png)
-   ------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
-  
-  1.  In the Solution Explorer pane, right-click **Solution ‘MS-DWSS**’, and then click **Rebuild Solution**.
-  
-  ![alt tag](./Doc-Images/SP_RunningTS6.png)
-  
-   ------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
 
-  1.  Open Test Explorer. On the ribbon, click **TEST** , then click **Windows**, and finally click **Test Explorer**
-  
-  ![alt tag](./Doc-Images/SP_RunningTS7.png)
-  
-   ------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
+2.  Open **MS-DWSS.sln** in Visual Studio.
 
-  1.  Select the test case to run. Right-click the test case and then select **Run Selected Tests**.
-  
-  ![alt tag](./Doc-Images/SP_RunningTS8.png)
+![alt tag](./Doc-Images/SP_RunningTS5.png)
+
+
+3.  In the Solution Explorer pane, right-click **Solution ‘MS-DWSS**’, and then click **Rebuild Solution**.
+
+![alt tag](./Doc-Images/SP_RunningTS6.png)
+
+
+4.  Open Test Explorer. On the ribbon, click **TEST** , then click **Windows**, and finally click **Test Explorer**
+
+![alt tag](./Doc-Images/SP_RunningTS7.png)
+
+
+5.  Select the test case to run. Right-click the test case and then select **Run Selected Tests**.
+
+![alt tag](./Doc-Images/SP_RunningTS8.png)
 
 
 Batch scripts
@@ -1268,7 +1265,7 @@ Appendix
 ==============================================================================================================================================================================================================================================================================================================================================================================================================
   References |  Description
 :------------ | :-------------
-<dochelp@microsoft.com> | The alias for Interoperability documentation help, which provides support for the Open Specifications and protocol test suites. 
+<dochelp@microsoft.com> | The alias for Interoperability documentation help, which provides support for the Open Specifications and protocol test suites.
 [Open Specifications Forums](http://go.microsoft.com/fwlink/?LinkId=111125)    |  The Microsoft Customer Support Services forums, the actively monitored forums that provide support for Open Specifications and the protocol test suites.
 [Open Specifications Developer Center](http://go.microsoft.com/fwlink/?LinkId=254469)    |   The Open Specifications home page on MSDN.
 [Open Specifications](http://go.microsoft.com/fwlink/?LinkId=179743)    |   The Open Specifications documentation on MSDN.

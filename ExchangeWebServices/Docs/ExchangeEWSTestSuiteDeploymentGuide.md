@@ -62,7 +62,7 @@ Component| Test suite client minimum requirement
 Software requirements
 -------------------------------------------------------------------------------------------------------------------
 
-### System under test 
+### System under test
 
 This section is only relevant when running the test suites against the
 following versions of Exchange Server:
@@ -197,7 +197,7 @@ You can configure the SUT using automated scripts, as described in [Configuring 
 **Note**   The scripts should be run by a user who has domain
 administrator rights with a mailbox on the SUT.
 
-### SUT resource requirements 
+### SUT resource requirements
 
 Each test suite in the Exchange Server EWS Protocol Test
 Suites package may require varying levels of resources on the SUT. The
@@ -213,31 +213,31 @@ configuration script will be required.
 
 **Exchange server resources**
 
-Test suite | Resource type |  Resource name |  Notes
-:------------ | :------------- | :------------- | :-------------
-**All**         |   --           |          --    |     --                         
-**MS-OXWSATT**  |  Mailbox |  MSOXWSATT\_User01   | Mailbox type user
-**MS-OXWSBTRF** |  Mailbox |  MSOXWSBTRF\_User01  | Mailbox type user
-**MS-OXWSCONT** |  Mailbox |  MSOXWSCONT\_User01  | Mailbox type user
-**MS-OXWSCORE** |  Mailbox |  MSOXWSCORE\_User01  | Mailbox type user
-              |  Mailbox |  MSOXWSCORE\_User02  | Mailbox type user
-              |  Public Folder Mailbox |  MSOXWSCORE\_PublicFolderMailbox  | Public Folder Mailbox created for the public folder of the organization configuration of Exchange 2013.
-              |  Public Folder |  MSOXWSCORE\_PublicFolder          
-**MS-OXWSFOLD** |  Mailbox     |  MSOXWSFOLD\_User01   | Mailbox type user
-              |  Mailbox       |  MSOXWSFOLD\_User02   | Mailbox type user
-              |  ManagedFolder |  MSOXWSFOLD\_ManagedFolder1  | Managed folder created directly in the root path of Outlook
-              |  ManagedFolder |  MSOXWSFOLD\_ManagedFolder2  | Managed folder created directly in the root path of Outlook
-              |  Public Folder Database  | PublicFolderDatabase     | Public Folder Database created for the mailbox of the organization configuration of Exchange 2010 and for the server configuration of Exchange 2007.
-**MS-OXWSMSG**|  Mailbox  |  MSOXWSMSG\_User01  |  Mailbox type user
-              |  Mailbox  |  MSOXWSMSG\_User02  |  Mailbox type user
-              |  Mailbox  |  MSOXWSMSG\_User03  |  Mailbox type user
-              |  Mailbox  |  MSOXWSMSG\_Room01  |  Mailbox type room
-**MS-OXWSMTGS** |  Mailbox|  MSOXWSMTGS\_User01 |  Mailbox type user
-              |  Mailbox  |  MSOXWSMTGS\_User02 |  Mailbox type user
-              |  Mailbox  |  MSOXWSMTGS\_Room01 |  Mailbox type room
-**MS-OXWSSYNC** |  Mailbox|  MSOXWSSYNC\_User01 |  Mailbox type user
-              |  Mailbox  |  MSOXWSSYNC\_User02 |  Mailbox type user
-**MS-OXWSTASK** |  Mailbox|  MSOXWSTASK\_User01 |  Mailbox type user
+|Test suite | Resource type |  Resource name |  Notes|
+|:------------ | :------------- | :------------- | :-------------|
+|**All**         |   --           |          --    |     --                         
+|**MS-OXWSATT**  |  Mailbox |  MSOXWSATT\_User01   | Mailbox type user|  
+|**MS-OXWSBTRF** |  Mailbox |  MSOXWSBTRF\_User01  | Mailbox type user|  
+|**MS-OXWSCONT** |  Mailbox |  MSOXWSCONT\_User01  | Mailbox type user|  
+|**MS-OXWSCORE** |  Mailbox |  MSOXWSCORE\_User01  | Mailbox type user|  
+|                |  Mailbox |  MSOXWSCORE\_User02  | Mailbox type user|  
+|                |  Public Folder Mailbox |  MSOXWSCORE\_PublicFolderMailbox  | Public Folder Mailbox created for the public folder of the organization configuration of Exchange 2013.|  
+|                |  Public Folder |  MSOXWSCORE\_PublicFolder      |      
+|**MS-OXWSFOLD** |  Mailbox     |  MSOXWSFOLD\_User01   | Mailbox type user|  
+|                |  Mailbox       |  MSOXWSFOLD\_User02   | Mailbox type user|  
+|                |  ManagedFolder |  MSOXWSFOLD\_ManagedFolder1  | Managed folder created directly in the root path of Outlook|  
+|                |  ManagedFolder |  MSOXWSFOLD\_ManagedFolder2  | Managed folder created directly in the root path of Outlook|  
+|                |  Public Folder Database  | PublicFolderDatabase     | Public Folder Database created for the mailbox of the organization configuration of Exchange 2010 and for the server configuration of Exchange 2007.|  
+| **MS-OXWSMSG**|  Mailbox  |  MSOXWSMSG\_User01  |  Mailbox type user|  
+|               |  Mailbox  |  MSOXWSMSG\_User02  |  Mailbox type user|  
+|               |  Mailbox  |  MSOXWSMSG\_User03  |  Mailbox type user|  
+|               |  Mailbox  |  MSOXWSMSG\_Room01  |  Mailbox type room|  
+|  **MS-OXWSMTGS** |  Mailbox|  MSOXWSMTGS\_User01 |  Mailbox type user|  
+|                |  Mailbox  |  MSOXWSMTGS\_User02 |  Mailbox type user|  
+|                |  Mailbox  |  MSOXWSMTGS\_Room01 |  Mailbox type room|  
+|  **MS-OXWSSYNC** |  Mailbox|  MSOXWSSYNC\_User01 |  Mailbox type user|  
+|                |  Mailbox  |  MSOXWSSYNC\_User02 |  Mailbox type user|  
+|  **MS-OXWSTASK** |  Mailbox|  MSOXWSTASK\_User01 |  Mailbox type user|  
 
 ### Configuring the SUT using the setup configuration script <a name="configuring-the-sut-using-the-setup-configuration-script"></a>
 
@@ -354,7 +354,7 @@ Property name | Default value\*|Optional value  |  Description|
 Adapter    |     managed or powershell|   interactive\*\* |  **managed**: The SUT control adapter is implemented in C\# managed code.
  ||| **powershell**: The SUT control adapter is implemented through Windows PowerShell.
  ||| **interactive**: Interactive adapters are used for manually configuring the server. Interactive adapter displays a dialog box to perform a manual test each time when one of its methods is called. The dialog box will show the method name, parameter names, and values\*\*\*
- 
+
 \*The Adapter property value is set to either managed or powershell
 depending on whether the SUT control adapter was implemented in managed
 C\# code or through PowerShell.
@@ -412,7 +412,7 @@ Server to be the closest match to the SUT implementation.
 **SHOULD/MAY configuration files**
 
 Configuration file | Description
-:------------ | :------------- 
+:------------ | :-------------
 **MS-XXXX\_ExchangeServer2007\_SHOULDMAY.deployment.ptfconfig** | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2007 Service Pack 3 (SP3).
 **MS-XXXX\_ExchangeServer2010\_SHOULDMAY.deployment.ptfconfig** | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2010 Service Pack 3 (SP3).
 **MS-XXXX\_ExchangeServer2013\_SHOULDMAY.deployment.ptfconfig** | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2013 Service Pack 1 (SP1).
@@ -451,54 +451,53 @@ A Microsoft Visual Studio solution file
 **Source** folder. You can run a single or multiple test cases in Visual
 Studio.
 
-  
-  1.  Open **ExchangeServerEWSProtocolTestSuites.sln** in Visual Studio.                                                                       
-      ![alt tag](./Doc-Images/EWS_RunningTS1.png)                                                                                                                                         
-                                                                                                                                               
+
+1.  Open **ExchangeServerEWSProtocolTestSuites.sln** in Visual Studio.                                                                       
+![alt tag](./Doc-Images/EWS_RunningTS1.png)                                                                                                                                         
+
   -------------------------------------------------------------------------------------------------------------------------------------------- --
-  1.  In the **Solution Explorer** pane, right-click **Solution ‘ExchangeServerEWSProtocolTestSuites’** and then click **Rebuild Solution**.   
-       ![alt tag](./Doc-Images/EWS_RunningTS2.png)                                                                                                                                         
+2.  In the **Solution Explorer** pane, right-click **Solution ‘ExchangeServerEWSProtocolTestSuites’** and then click **Rebuild Solution**.   
+![alt tag](./Doc-Images/EWS_RunningTS2.png)                                                                                                                                         
    -------------------------------------------------------------------------------------------------------------------------------------------- --                                                                                                                                            
 
-  1.  Open **Test Explorer**. On the ribbon click **TEST**, then click **Windows**, and finally click **Test Explorer**.                       
-       ![alt tag](./Doc-Images/EWS_RunningTS3.png)                                                                                                                                      
+3.  Open **Test Explorer**. On the ribbon click **TEST**, then click **Windows**, and finally click **Test Explorer**.                       
+![alt tag](./Doc-Images/EWS_RunningTS3.png)                                                                                                                                      
    -------------------------------------------------------------------------------------------------------------------------------------------- --                                                                                                                                            
 
-  1.  Select the test case to run. Right-click and then select **Run Selected Tests**.
-	   ![alt tag](./Doc-Images/EWS_RunningTS4.png)
+4.  Select the test case to run. Right-click and then select **Run Selected Tests**.
+![alt tag](./Doc-Images/EWS_RunningTS4.png)
   -----------------------------------------------------------------------------------------------------------------------------------------------
 
 A Visual Studio solution file
 **MS-XXXX.sln** is provided in each test suite folder.
 
-  
-  1.  Select the test suite you would like to run. Let’s take MS-OXWSCORE as an example here, so browse to the **Source\\MS-OXWSCORE** directory.
+1.  Select the test suite you would like to run. Let’s take MS-OXWSCORE as an example here, so browse to the **Source\\MS-OXWSCORE** directory.
 
   ------------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------------------
-  1.  Open **MS-OXWSCORE.sln** in Microsoft Visual Studio.
-      
-	  ![alt tag](./Doc-Images/EWS_RunningTS5.png)
+2.  Open **MS-OXWSCORE.sln** in Microsoft Visual Studio.
+
+![alt tag](./Doc-Images/EWS_RunningTS5.png)
 
   -------------------------------------------------------------------------------------------------------------------------------------------- --
 
-  1.  In the **Solution Explorer** pane, right-click **Solution ‘MS-OXWSCORE’**, and then click **Rebuild Solution**.
-  
-  ![alt tag](./Doc-Images/EWS_RunningTS6.png)
-  
+3.  In the **Solution Explorer** pane, right-click **Solution ‘MS-OXWSCORE’**, and then click **Rebuild Solution**.
+
+![alt tag](./Doc-Images/EWS_RunningTS6.png)
+
   -------------------------------------------------------------------------------------------------------------------------------------------- --
 
-  1.  Open **Test Explorer**. On the ribbon click **TEST**, then click **Windows**, and finally click **Test Explorer**.
-  
-  ![alt tag](./Doc-Images/EWS_RunningTS7.png)
-  
+4.  Open **Test Explorer**. On the ribbon click **TEST**, then click **Windows**, and finally click **Test Explorer**.
+
+![alt tag](./Doc-Images/EWS_RunningTS7.png)
+
   -------------------------------------------------------------------------------------------------------------------------------------------- --
 
-  1.  Select the test case to run. Right-click and then select **Run Selected Tests**.
-  
-  ![alt tag](./Doc-Images/EWS_RunningTS8.png)
+5.  Select the test case to run. Right-click and then select **Run Selected Tests**.
+
+![alt tag](./Doc-Images/EWS_RunningTS8.png)
 
 
-Batch scripts 
+Batch scripts
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Exchange Server EWS Protocol Test Suites are installed with a collection

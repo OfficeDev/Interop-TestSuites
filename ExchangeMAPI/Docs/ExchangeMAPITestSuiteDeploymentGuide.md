@@ -62,7 +62,7 @@ Component | Test suite client minimum requirement
 Software requirements
 -------------------------------------------------------------------------------------------------------------------
 
-### System under test 
+### System under test
 
 This section is only relevant when running the test suites against the
 following versions of Exchange Server. Some test suites (MS-OXCFOLD,
@@ -100,11 +100,11 @@ table outlines the software dependencies for the test suite client.
 **Test suite client software dependencies**
 
 |Operating systems |
-|:------------ 
+|:------------
 | Windows 7 x64 Service Pack 1 and above |
 | Windows 8 x64 and above |
 | Windows 2008 R2 x64 Service Pack 1 and above |
- 
+
 |Software|
 |:------------ |
 |Microsoft Visual Studio 2013 Professional|
@@ -134,14 +134,14 @@ downloaded the test suites, perform the following steps to successfully configur
 for security reasons, follow these steps to unblock PowerShell scripts.
 
   --------------------------------------------------------
-  1.  Right-click xxxx.ps1 and select **Properties**.   
-      ![alt tag](./Doc-Images/ExMAPI_Deploy1.png)                                                 
-                                                        
-  ----------------------------------------------------- --
-  1.  Click **Unblock** and then click **OK**.          
-      ![alt tag](./Doc-Images/ExMAPI_Deploy2.png)                                                  
-                                                        
-  
+1.  Right-click xxxx.ps1 and select **Properties**.   
+![alt tag](./Doc-Images/ExMAPI_Deploy1.png)                                                 
+
+
+2.  Click **Unblock** and then click **OK**.          
+![alt tag](./Doc-Images/ExMAPI_Deploy2.png)                                                  
+
+
 
 Using test suite directories
 ======================
@@ -220,12 +220,12 @@ You can configure the SUT using automated scripts, as described in
 [Configuring SUT1 using the setup configuration script](#configuring-sut1-using-the-setup-configuration-script) and
 [Configuring SUT2 using the setup configuration script](#configuring-sut2-using-the-setup-configuration-script); or configure the SUT manually, as
 described in [Configuring SUT1 manually](#configuring-sut1-manually) and
-[Configuring SUT2 manually](#configuring-sut2-manually). 
+[Configuring SUT2 manually](#configuring-sut2-manually).
 
 **Note**  The scripts should be run by a user who has domain
 administrator rights with a mailbox on the Exchange Server.
 
-### SUT resource requirements 
+### SUT resource requirements
 
 Each test suite in the Exchange MAPI Protocol Test Suites
 package may require a varying level of resources on Exchange Server. The
@@ -242,7 +242,7 @@ ExchangeTestSuite.config is required.
 
 **Exchange server resources**
 
-| Test suite     | Resource type | Resource name | Notes | 
+| Test suite     | Resource type | Resource name | Notes |
 | :--- | :--- |:--- |:--- |
 | **All** | Public Folder Database | PublicFolderDatabase | A public folder database is required on Microsoft Exchange Server 2007 SP3 and Microsoft Exchange Server 2010 SP3.|
 || Redirect Server Public Folder Database | PublicFolderDatabase2 | A redirect server is optional.|
@@ -282,7 +282,7 @@ ExchangeTestSuite.config is required.
 ||Mailbox  |  MSOXNSPI\_TestUser      | The mailbox name should be below 20 characters.|
 ||Public Folder | MSOXNSPI\_PublicFolderMailEnabled  |--|
 ||Dynamic Distribution Group| MSOXNSPI\_ADDG01 |--|
-||Distribution Group | MSOXNSPI\_ATDG01 |--| 
+||Distribution Group | MSOXNSPI\_ATDG01 |--|
 ||Mail Contact | MSOXNSPI\_MailContact01|--|
 |**MS-OXORULE**|  Mailbox | MSOXORULE\_TestUser01| The mailbox name should be below 20 characters.|
 ||Mailbox | MSOXORULE\_TestUser02| The mailbox name should be below 20 characters.|
@@ -328,12 +328,12 @@ steps explain what needs to be created or configured on the SUT to run the test 
     MSOXNSPI\_TestUser01 and MSOXNSPI\_TestUser02:
 
 	a.  For MSOXNSPI\_TestUser01, set the following values:
-	
+
 	-  AssistantName: "assistant"
 	-  PhoneticDisplayName: "phoneticdisplayname"
 
 	b.  For MSOXNSPI\_TestUser02, set the following values:
-	
+
 	-  AssistantName: "assistant"
 	-  PhoneticDisplayName: "phoneticdisplayname"
 	-   Office: "Test"
@@ -511,7 +511,7 @@ Property name | Default value\* |Optional value|Description|
 Adapter |  managed or powershell  | interactive\*\* |  **managed**: The SUT control adapter is implemented in C\# managed code.
 ||||**powershell**:The SUT control adapter is implemented through Windows PowerShell.
 ||||**interactive**: Interactive adapters are used when manually configuring a server. Interactive adapter uses a dialog box to perform a manual test each time one of its methods is called. The dialog box contains the method name, parameter names, and values\*\*\*                                     
-   
+
 \*The Adapter property value is set to either managed or powershell
 depending on whether the SUT control adapter was implemented in managed
 C\# code or through Windows PowerShell.
@@ -629,47 +629,51 @@ A Microsoft Visual Studio solution file
 **ExchangeMAPIProtocolTestSuites.sln** is provided in the **Source**
 folder. You can run a single or multiple test cases in Visual Studio.
 
-  1.  Open **ExchangeMAPIProtocolTestSuites.sln** in Microsoft Visual Studio.                                                              
-      ![alt tag](./Doc-Images/ExMAPI_Running1.png)                                                                                                                                     
-                                                                                                                                           
-  ---------------------------------------------------------------------------------------------------------------------------------------- --
-  1.  In the **Solution Explorer** pane, right-click **Solution ‘ExchangeMAPIProtocolTestSuites’**, and then click **Rebuild Solution**.   
-      ![alt tag](./Doc-Images/ExMAPI_Running2.png)                                                                                                                                     
-  ---------------------------------------------------------------------------------------------------------------------------------------- --                                                                                                                                          
+1.  Open **ExchangeMAPIProtocolTestSuites.sln** in Microsoft Visual Studio.                                                              
+  ![alt tag](./Doc-Images/ExMAPI_Running1.png)                                                                                                                                     
 
-  1.  Open **Test Explorer**. Select **TEST** and click **Windows**, then select **Test Explorer**.                                        
-      ![alt tag](./Doc-Images/ExMAPI_Running3.png)                                                                                                                                      
-  ---------------------------------------------------------------------------------------------------------------------------------------- --                                                                                                                                          
 
-  1.  Select the test case to run, right-click and then select **Run Selected Tests**.                                                     
-      ![alt tag](./Doc-Images/ExMAPI_Running4.png)                                                                                                                                     
-                                                                                                                                           
+2.  In the **Solution Explorer** pane, right-click **Solution ‘ExchangeMAPIProtocolTestSuites’**, and then click **Rebuild Solution**.   
+
+![alt tag](./Doc-Images/ExMAPI_Running2.png)                                                                                                                                     
+
+3.  Open **Test Explorer**. Select **TEST** and click **Windows**, then select **Test Explorer**.                                        
+
+![alt tag](./Doc-Images/ExMAPI_Running3.png)                                                                                                                                      
+
+4.  Select the test case to run, right-click and then select **Run Selected Tests**.                                                     
+
+![alt tag](./Doc-Images/ExMAPI_Running4.png)                                                                                                                                     
+
   -------------------------------------------------------------------------------------------------------------------------------------------
 
 A Microsoft Visual Studio solution file
 **MS-XXXX.sln** is provided in each test suite folder.
 
-  1.  Select the test suite you would like to run. Let’s take MS-OXCROPS as an example here, so browse to the **Source\\MS-OXCROPS** directory.
+1.  Select the test suite you would like to run. Let’s take MS-OXCROPS as an example here, so browse to the **Source\\MS-OXCROPS** directory.
 
-  ----------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
-  1.  Open **MS-OXCROPS.sln** in Microsoft Visual Studio.
-  
-	  ![alt tag](./Doc-Images/ExMAPI_Running5.png)
-   ---------------------------------------------------------------------------------------------------------------------------------------- --
 
-  1.  In the **Solution Explorer** pane, right-click **Solution ‘MS-OXCROPS’**, and then click **Rebuild Solution**.
-      ![alt tag](./Doc-Images/ExMAPI_Running6.png)
-   ---------------------------------------------------------------------------------------------------------------------------------------- --
+2.  Open **MS-OXCROPS.sln** in Microsoft Visual Studio.
 
-  1.  Open **Test Explorer**. Select **TEST** and click **Windows**, then select **Test Explorer**.
-      ![alt tag](./Doc-Images/ExMAPI_Running7.png)
-   ---------------------------------------------------------------------------------------------------------------------------------------- --
+![alt tag](./Doc-Images/ExMAPI_Running5.png)
 
-  1.  Select the test case to run, right-click and then select **Run Selected Tests**.
-      ![alt tag](./Doc-Images/ExMAPI_Running8.png)
-  
 
-Batch scripts 
+3.  In the **Solution Explorer** pane, right-click **Solution ‘MS-OXCROPS’**, and then click **Rebuild Solution**.
+
+![alt tag](./Doc-Images/ExMAPI_Running6.png)
+
+
+4.  Open **Test Explorer**. Select **TEST** and click **Windows**, then select **Test Explorer**.
+
+![alt tag](./Doc-Images/ExMAPI_Running7.png)
+
+
+5.  Select the test case to run, right-click and then select **Run Selected Tests**.
+
+![alt tag](./Doc-Images/ExMAPI_Running8.png)
+
+
+Batch scripts
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Exchange MAPI Protocol Test Suites are installed with a collection of
@@ -683,7 +687,7 @@ be found in the **\\Source\\Scripts** directory.
 bin folder.
 
 Batch script  |  Script description
-:------------ | :------------- 
+:------------ | :-------------
 **RunAllExchangeMAPITestCases.cmd** |  Runs all the test cases in Exchange Server MAPI Protocol Test Suites.
 **RunAllMSXXXXTestCases.cmd**       |  Runs all MS-XXXX test cases.
 **RunMSXXXX\_SYY\_TCZZ\_Name.cmd**  |  Runs a specific test case in the test suite.

@@ -63,7 +63,7 @@ suite client.
 Software requirements
 ------------------------------------------------------------------------------------------------------------------------------
 
-### System under test 
+### System under test
 
 This section is only relevant when running the test suites against the
 following versions of Exchange Server:
@@ -97,15 +97,15 @@ table outlines the software dependencies for the test suite client.
 **Test suite client software dependencies**
 
 |Operating systems  |
-| :--- | 
-|Windows 7 x64 Service Pack 1 and above| 
+| :--- |
+|Windows 7 x64 Service Pack 1 and above|
 |Windows 8 x64 and above|
 |Windows 2008 R2 x64 Service Pack 1 and above|
 
 |Software |
 |:--- |
-|Microsoft Visual Studio 2013 Professional| 
-|Microsoft Protocol Test Framework 1.0.2220.0 and above| 
+|Microsoft Visual Studio 2013 Professional|
+|Microsoft Protocol Test Framework 1.0.2220.0 and above|
 
 Deploying test suites
 =======================================================================================================================
@@ -130,28 +130,28 @@ steps to successfully configure the test suites:
 for security reasons, follow these steps to unblock
 PowerShell scripts and the MS\_OXWSDLGM\_ServerAdapter.dll file.
 
- 1.  Right-click xxxx.ps1, and then click **Properties**. 
- 
-   ![alt tag](./Doc-Images/EAS_Deploy1.png)
-                                                             
-                                                             
-  ---------------------------------------------------------- --
- 1.  Click **Unblock,** and then click **OK**.              
-   ![alt tag](./Doc-Images/EAS_Deploy2.png)                                                                                                                          
+ 1.  Right-click xxxx.ps1, and then click **Properties**.
+
+![alt tag](./Doc-Images/EAS_Deploy1.png)
+
+
+
+ 2.  Click **Unblock,** and then click **OK**.              
+![alt tag](./Doc-Images/EAS_Deploy2.png)                                                                                                                          
 
 To unblock MS\_OXWSDLGM\_ServerAdapter.dll, do the following:
 
 1.  Browse to **MS\_OXWSDLGM\_ServerAdapter.dll** in **\\Setup\\SUT**.
 
-  ------------------------------------------------------------------------------------------
-1.  Right click **MS\_OXWSDLGM\_ServerAdapter.dll,** and then click **Properties**.   
-   
-   ![alt tag](./Doc-Images/EAS_Deploy3.png)                                                                                        
-                                                                                          
-  --------------------------------------------------------------------------------------- --
-1.  Click **Unblock,** and then click **OK**.                                           
-   ![alt tag](./Doc-Images/EAS_Deploy4.png)                                                                                       
-                                                                                          
+
+2.  Right click **MS\_OXWSDLGM\_ServerAdapter.dll,** and then click **Properties**.   
+
+![alt tag](./Doc-Images/EAS_Deploy3.png)                                                                                        
+
+
+3.  Click **Unblock,** and then click **OK**.                                           
+![alt tag](./Doc-Images/EAS_Deploy4.png)                                                                                       
+
 
 Using test suite directories
 ============================================================================================================
@@ -168,34 +168,34 @@ This section shows the folder structures in the **ExchangeServerEASProtocolTestS
 | **Exchange Server EAS Protocol Test Suites** |--|            
 |**- Docs**| A folder with documents of all protocol test suites.|
 |**- ExchangeEASTestSuiteDeploymentGuide.docx** |A doc on the protocol test suite deployment. |
-|**+ MS-XXXX** | The MS-XXXX help documentation | 
-| **- \[MS-XXXX\].pdf**   | The protocol technical specification.| 
-| **- MS-XXXX \_SUTControlAdapter.chm**  | A help doc on the SUT control adapter class library such as declaration syntax and their description.| 
-|**- MS-XXXX \_RequirementSpecification.xlsx**|A spreadsheet that outlines all requirements that are associated with the technical specification.| 
-|**- Setup**|A folder with configuration scripts.| 
-| **- Test Suite Client**| A folder with the configuration script to configure the test suite client.| 
-| **- ExchangeClientConfiguration.cmd** | A command file that runs the ExchangeClientConfiguration.ps1 file to configure the properties for the protocol test suites.| 
-| **- ExchangeClientConfiguration.ps1**|A configuration script that will be triggered by the ExchangeClientConfiguration.cmd.| 
-| **- SUT** | A folder with the configuration script to configure the Exchange Server.| 
-|**- ExchangeSUTConfiguration.cmd**| A command file that runs the ExchangeSUTConfiguration.ps1 file to create resources and configure settings on the SUT.| 
-|**- ExchangeSUTConfiguration.ps1**| A configuration script that will be triggered by ExchangeSUTConfiguration.cmd.| 
-|**- Source** | A folder with Microsoft Visual Studio solutions that contain source code for the test suites.| 
-|**- Common** | A folder with Microsoft Visual Studio projects that contains the common source code for the test suites.| 
-|**- ExchangeCommonConfiguration.deployment.ptfconfig** | A common configuration file.| 
-|**- ExchangeServerEASProtocolTestSuites.runsettings**  |A configuration file for the unit test.| 
-|**- ExchangeServerEASProtocolTestSuites.sln**| A Visual Studio solution with projects that encapsulate the protocol test suites source code.| 
-|**- ExchangeServerEASProtocolTestSuites.testsettings** |  A configuration file for running test cases.| 
-|**- MS-XXXX**    |  A folder for the MS-XXXX test suite source code.| 
-|**- MS-XXXX.sln**|  A Microsoft Visual Studio solution with projects of the MS-XXXX test suite.| 
-|**- MS-XXXX.runsettings** | A configuration file for the MS-XXXX unit test.| 
-|**- MS-XXXX.testsettings**| A configuration file for running MS-XXXX test cases.| 
-|**+ Adapter**|The Adapter test suite code.| 
-|**+ TestSuite**|The test suite code.| 
-|**- Scripts** | Exchange Server EAS Test Suites can be run using Visual Studio or batch scripts. The Scripts directory contains a collection of command files that allows users to run specific test cases in the test suite or the entire test suite.| 
-|**- RunAllExchangeEASTestCases.cmd**| A script that can be used to run all test cases in the whole package.| 
-|**- MS-XXXX**| A folder with scripts that belong to the MS-XXXX test suite.| 
-|**- RunAllMSXXXXTestCases.cmd**|  A script that can be used to run all test cases of MS-XXXX.| 
-|**- RunMSXXXX\_SXX\_TCXX\_Name.cmd**| A script that can be used to run a single test case of MS-XXXX.| 
+|**+ MS-XXXX** | The MS-XXXX help documentation |
+| **- \[MS-XXXX\].pdf**   | The protocol technical specification.|
+| **- MS-XXXX \_SUTControlAdapter.chm**  | A help doc on the SUT control adapter class library such as declaration syntax and their description.|
+|**- MS-XXXX \_RequirementSpecification.xlsx**|A spreadsheet that outlines all requirements that are associated with the technical specification.|
+|**- Setup**|A folder with configuration scripts.|
+| **- Test Suite Client**| A folder with the configuration script to configure the test suite client.|
+| **- ExchangeClientConfiguration.cmd** | A command file that runs the ExchangeClientConfiguration.ps1 file to configure the properties for the protocol test suites.|
+| **- ExchangeClientConfiguration.ps1**|A configuration script that will be triggered by the ExchangeClientConfiguration.cmd.|
+| **- SUT** | A folder with the configuration script to configure the Exchange Server.|
+|**- ExchangeSUTConfiguration.cmd**| A command file that runs the ExchangeSUTConfiguration.ps1 file to create resources and configure settings on the SUT.|
+|**- ExchangeSUTConfiguration.ps1**| A configuration script that will be triggered by ExchangeSUTConfiguration.cmd.|
+|**- Source** | A folder with Microsoft Visual Studio solutions that contain source code for the test suites.|
+|**- Common** | A folder with Microsoft Visual Studio projects that contains the common source code for the test suites.|
+|**- ExchangeCommonConfiguration.deployment.ptfconfig** | A common configuration file.|
+|**- ExchangeServerEASProtocolTestSuites.runsettings**  |A configuration file for the unit test.|
+|**- ExchangeServerEASProtocolTestSuites.sln**| A Visual Studio solution with projects that encapsulate the protocol test suites source code.|
+|**- ExchangeServerEASProtocolTestSuites.testsettings** |  A configuration file for running test cases.|
+|**- MS-XXXX**    |  A folder for the MS-XXXX test suite source code.|
+|**- MS-XXXX.sln**|  A Microsoft Visual Studio solution with projects of the MS-XXXX test suite.|
+|**- MS-XXXX.runsettings** | A configuration file for the MS-XXXX unit test.|
+|**- MS-XXXX.testsettings**| A configuration file for running MS-XXXX test cases.|
+|**+ Adapter**|The Adapter test suite code.|
+|**+ TestSuite**|The test suite code.|
+|**- Scripts** | Exchange Server EAS Test Suites can be run using Visual Studio or batch scripts. The Scripts directory contains a collection of command files that allows users to run specific test cases in the test suite or the entire test suite.|
+|**- RunAllExchangeEASTestCases.cmd**| A script that can be used to run all test cases in the whole package.|
+|**- MS-XXXX**| A folder with scripts that belong to the MS-XXXX test suite.|
+|**- RunAllMSXXXXTestCases.cmd**|  A script that can be used to run all test cases of MS-XXXX.|
+|**- RunMSXXXX\_SXX\_TCXX\_Name.cmd**| A script that can be used to run a single test case of MS-XXXX.|
 
 Configuring test suites
 ==============================================================================================================================
@@ -242,49 +242,49 @@ configuration script is required.
 | :--- | :--- | :--- |:--- |
 |  **All**       |   --   |   --|   --|
 |  **MS-ASAIRS**  |  User Mailbox | MSASAIRS\_User01  | --|
-|             |User Mailbox | MSASAIRS\_User02| --| 
-| **MS-ASCAL**  |User Mailbox  | MSASCAL\_User01  | --| 
-|             |User Mailbox |   MSASCAL\_User02 | --| 
-| **MS-ASCMD**|User Mailbox | MSASCMD\_UserY  | “Y” represents the numerate value count and the value range of Y from 01 to 19, since 19 mailbox users will be used.| 
-| | User Mailbox     | MSASCMD\_SearchUser01 | --| 
-| | User Mailbox     | MSASCMD\_SearchUser02 |--| 
-| | DistributionGroup| MSASCMD\_TestGroup | --| 
-| | DistributionGroup| MSASCMD\_LargeGroup| --| 
-| | Folder| MSASCMD\_SharedFolder| The folder is shared and read permissions are granted to user MSASCMD\_User01 and denied to user MSASCMD\_User02.| 
-| | TextFile| MSASCMD\_Non-emptyDocument.txt|The document should be created under MSASCMD\_SharedFolder, and be at least 4 bytes in size.| 
-| | TextFile| MSASCMD\_EmptyDocument.txt| The document should be created under MSASCMD\_SharedFolder and be empty.| 
-| | Picture | MSASCMD\_User01Photo| The file size should be bigger than 1KB.| 
-| | Picture | MSASCMD\_User02Photo  | The file size should be smaller than 1KB.| 
-| | EMail| MSASCMD\_SecureEmailForTest|--| 
-| **MS-ASCNT**  | User Mailbox |   MSASCNTC\_User01  | --| 
-| | User Mailbox  |MSASCNTC\_User02|--| 
-|**MS-ASCON**| User Mailbox|  MSASCON\_User01 |--| 
-| | User Mailbox| MSASCON\_User02  |--| 
-| | User Mailbox| MSASCON\_User03  |--| 
-|**MS-ASDOC**| User Mailbox| MSASDOC\_User01|--| 
-| | Folder| MSASDOC\_SharedFolder|The folder is shared and the full control should be granted to the specified user MSASDOC\_User01.| 
-| |  Folder| MSASDOC\_VisibleFolder|The folder should be created under MSASDOC\_SharedFolder.| 
-| | Folder| MSASDOC\_HiddenFolder|The folder is hidden and should be created under MSASDOC\_SharedFolder.| 
-| | TextFile|MSASDOC\_VisibleDocument|  The document should be created under MSASDOC\_SharedFolder.| 
-| | TextFile| MSASDOC\_HiddenDocument|The document is hidden and should be created under MSASDOC\_SharedFolder.| 
-| **MS-ASEMAIL**|User Mailbox| MSASEMAIL\_User01  |--| 
-| | User Mailbox| MSASEMAIL\_User02|--| 
-| | User Mailbox| MSASEMAIL\_User03|--| 
-| | User Mailbox| MSASEMAIL\_User04|--| 
-| | User Mailbox| MSASEMAIL\_User05|--| 
-| **MS-ASHTTP** | User Mailbox|MSASHTTP\_User01 |--| 
+|             |User Mailbox | MSASAIRS\_User02| --|
+| **MS-ASCAL**  |User Mailbox  | MSASCAL\_User01  | --|
+|             |User Mailbox |   MSASCAL\_User02 | --|
+| **MS-ASCMD**|User Mailbox | MSASCMD\_UserY  | “Y” represents the numerate value count and the value range of Y from 01 to 19, since 19 mailbox users will be used.|
+| | User Mailbox     | MSASCMD\_SearchUser01 | --|
+| | User Mailbox     | MSASCMD\_SearchUser02 |--|
+| | DistributionGroup| MSASCMD\_TestGroup | --|
+| | DistributionGroup| MSASCMD\_LargeGroup| --|
+| | Folder| MSASCMD\_SharedFolder| The folder is shared and read permissions are granted to user MSASCMD\_User01 and denied to user MSASCMD\_User02.|
+| | TextFile| MSASCMD\_Non-emptyDocument.txt|The document should be created under MSASCMD\_SharedFolder, and be at least 4 bytes in size.|
+| | TextFile| MSASCMD\_EmptyDocument.txt| The document should be created under MSASCMD\_SharedFolder and be empty.|
+| | Picture | MSASCMD\_User01Photo| The file size should be bigger than 1KB.|
+| | Picture | MSASCMD\_User02Photo  | The file size should be smaller than 1KB.|
+| | EMail| MSASCMD\_SecureEmailForTest|--|
+| **MS-ASCNT**  | User Mailbox |   MSASCNTC\_User01  | --|
+| | User Mailbox  |MSASCNTC\_User02|--|
+|**MS-ASCON**| User Mailbox|  MSASCON\_User01 |--|
+| | User Mailbox| MSASCON\_User02  |--|
+| | User Mailbox| MSASCON\_User03  |--|
+|**MS-ASDOC**| User Mailbox| MSASDOC\_User01|--|
+| | Folder| MSASDOC\_SharedFolder|The folder is shared and the full control should be granted to the specified user MSASDOC\_User01.|
+| |  Folder| MSASDOC\_VisibleFolder|The folder should be created under MSASDOC\_SharedFolder.|
+| | Folder| MSASDOC\_HiddenFolder|The folder is hidden and should be created under MSASDOC\_SharedFolder.|
+| | TextFile|MSASDOC\_VisibleDocument|  The document should be created under MSASDOC\_SharedFolder.|
+| | TextFile| MSASDOC\_HiddenDocument|The document is hidden and should be created under MSASDOC\_SharedFolder.|
+| **MS-ASEMAIL**|User Mailbox| MSASEMAIL\_User01  |--|
+| | User Mailbox| MSASEMAIL\_User02|--|
+| | User Mailbox| MSASEMAIL\_User03|--|
+| | User Mailbox| MSASEMAIL\_User04|--|
+| | User Mailbox| MSASEMAIL\_User05|--|
+| **MS-ASHTTP** | User Mailbox|MSASHTTP\_User01 |--|
 | | User Mailbox| MSASHTTP\_User02|--|
-| | User Mailbox| MSASHTTP\_User03|--| 
-| | User Mailbox| MSASHTTP\_User04|--| 
-|**MS-ASNOTE**|User Mailbox|MSASNOTE\_User01|--| 
-|**MS-ASPROV**|User Mailbox|MSASPROV\_User01|--| 
+| | User Mailbox| MSASHTTP\_User03|--|
+| | User Mailbox| MSASHTTP\_User04|--|
+|**MS-ASNOTE**|User Mailbox|MSASNOTE\_User01|--|
+|**MS-ASPROV**|User Mailbox|MSASPROV\_User01|--|
 | | User Mailbox| MSASPROV\_User02 |--|                             
 | | User Mailbox| MSASPROV\_User03|--|                              
 | | Active sync mailbox policy|MSASPROV\_UserPolicy01|--|                        
 | | Active sync mailbox policy|MSASPROV\_UserPolicy02|--|                        
-|**MS-ASRM**|User Mailbox  |  MSASRM\_User01|--| 
-| | User Mailbox| MSASRM\_User02|--| 
-| | User Mailbox| MSASRM\_User03|--| 
+|**MS-ASRM**|User Mailbox  |  MSASRM\_User01|--|
+| | User Mailbox| MSASRM\_User02|--|
+| | User Mailbox| MSASRM\_User03|--|
 | | User Mailbox| MSASRM\_User04|--|
 | | User|  MSASRM\_ADUser |A domain user who is granted AD RMS Enterprise Administrator permission.|
 | | DistributionGroup   | MSASRM\_SuperUserGroup    |   --|
@@ -356,8 +356,8 @@ to run the test suites.
     permissions from MSASCMD\_User02. Under the folder
     MSASCMD\_SharedFolder, create a non-empty document named
     MSASCMD\_Non-emptyDocument.txt, and an empty document
-    named MSASCMD\_EmptyDocument.txt. 
- 
+    named MSASCMD\_EmptyDocument.txt.
+
  **Note** The file size of MSASCMD\_Non-emptyDocument.txt should be at least 4 bytes.
 
 8.  Create a shared folder named MSASDOC\_SharedFolder. Also, grant full
@@ -376,7 +376,7 @@ to run the test suites.
 
 10. Grant administrator permissions to the SUT for the following mailbox
     users:
-    
+
     MSASCMD\_User03, MSASPROV\_User01.
 
 11. Grant distribute message permissions to the group
@@ -418,7 +418,7 @@ to run the test suites.
 
 19.  Configure the web site which contains the application that
     implements the EAS protocols.
-	
+
 	a.  Configure Secure Sockets Layer (SSL) as **not required** and ignore
     client certificates on the following sites: Default Web Site, Server
     ActiveSync website, and Autodiscover website.
@@ -430,7 +430,7 @@ to run the test suites.
     able to send a secure email to MSASCMD\_User03.
 
 22.  MSASCMD\_User03 should send an email to MSASCMD\_User09.
-    
+
   **Note** The subsequent steps in this procedure are only necessary for Exchange Server 2010 or Exchange Server 2013.
 
 23.  Add the photo MSASCMD\_User01Photo.jpg to MSASCMD\_User01 and
@@ -456,10 +456,10 @@ to run the test suites.
 
 	a.  Configure Secure Sockets Layer (SSL) as not required and ignore
     client certificates on the following sites:
-	
-    - Default Web Site/\_wmcs 
+
+    - Default Web Site/\_wmcs
 	- Default Web Site/\_wmcs/admin
-    - Default Web Site/\_wmcs/certification 
+    - Default Web Site/\_wmcs/certification
 	- Default Web Site/\_wmcs/licensing
 
 31.  Add Read and Execute permission for the groups Users, Product
@@ -474,7 +474,7 @@ to run the test suites.
 
 34.  Set MSASRM\_SuperUserGroup as the super user group.
 
-35.  Create the following distributed rights policy templates: 
+35.  Create the following distributed rights policy templates:
 
   |  Template Name | Rights |
   | :--- | :--- |
@@ -555,7 +555,7 @@ for a specific test suite, do the following:
 |  Adapter   | managed or powershell | interactive\*\* | **managed**:The SUT control adapter is implemented in C# managed code.
 ||||**powershell**: The SUT control adapter is implemented through Windows PowerShell.
 ||||**interactive**: Interactive adapters are used for manually configuring a server. Interactive adapter displays a dialog box to perform a manual test each time when one of its methods is called. The dialog box will show the method name, parameter names, and values\*\*\*|
- 
+
 \*The Adapter property value is set to either managed or powershell
 depending on whether the SUT control adapter was implemented in managed
 C\# code or through PowerShell.
@@ -598,7 +598,7 @@ To change the TSAP packet broadcast, do the following:
 
 	For example: &lt;Property name="BeaconLogTargetServer" value="dc01"/&gt;
 
-###SHOULD/MAY configuration files
+### SHOULD/MAY configuration files
 
 The test suite has three SHOULD/MAY configuration files that are
 specific to all supported versions of the SUT. Each SHOULD/MAY
@@ -652,7 +652,7 @@ below to update configuration files and configure the test suite client.
 Running test suites
 =================================================================================================================
 
-Once the required software is installed and both the SUT and test suite client 
+Once the required software is installed and both the SUT and test suite client
 are configured appropriately, the test suite is ready to run. The test
 suite can run only on the test suite client and can be initiated in one
 of the following two ways: Visual Studio or batch scripts.
@@ -665,50 +665,50 @@ A Microsoft Visual Studio solution file
 **Source** folder. You can run a single or multiple test cases in Visual
 Studio.
 
-  1.  Open **ExchangeServerEASProtocolTestSuites.sln** in Visual Studio                                                                         
-                                                                                                                                                
-      ![alt tag](./Doc-Images/EAS_RunningTS1.png)                                                                                                                                          
-  --------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------
-  1.  In the **Solution Explorer** pane, right-click **Solution ‘ExchangeServerEASProtocolTestSuites’**, and then click **Rebuild Solution**.   
-                                                                                                                                                
-      ![alt tag](./Doc-Images/EAS_RunningTS2.png)                                                                                                                                         
-  --------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------
-  1.  Open **Test Explorer**. On the ribbon, click **TEST** then click **Windows**, and finally click **Test Explorer**.                        
-      
-	  ![alt tag](./Doc-Images/EAS_RunningTS3.png)                                                                                                                                         
-  --------------------------------------------------------------------------------------------------------------------------------------------- -----------------------------------------------------------------------                                                                                                                      
+1.  Open **ExchangeServerEASProtocolTestSuites.sln** in Visual Studio                                                                         
+![alt tag](./Doc-Images/EAS_RunningTS1.png)                                                                                                                                          
 
-  1.  Select the test case to run. Right-click and then select **Run Selected Tests**.
-	  
-	  ![alt tag](./Doc-Images/EAS_RunningTS4.png)
- 
+2.  In the **Solution Explorer** pane, right-click **Solution ‘ExchangeServerEASProtocolTestSuites’**, and then click **Rebuild Solution**.   
+
+![alt tag](./Doc-Images/EAS_RunningTS2.png)                                                                                                                                         
+
+3.  Open **Test Explorer**. On the ribbon, click **TEST** then click **Windows**, and finally click **Test Explorer**.                        
+
+![alt tag](./Doc-Images/EAS_RunningTS3.png)                                                                                                                                         
+
+
+  4.  Select the test case to run. Right-click and then select **Run Selected Tests**.
+
+![alt tag](./Doc-Images/EAS_RunningTS4.png)
+
 
 A Visual Studio solution file
 **MS-XXXX.sln** is provided in each test suite folder.
 
-  1.  Select the test suite you would like to run. Let’s take MS-ASDOC as an example here, so browse to the **Source\\MS-ASDOC** directory.
+1.  Select the test suite you would like to run. Let’s take MS-ASDOC as an example here, so browse to the **Source\\MS-ASDOC** directory.
 
-  ------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
-  1.  Open **MS-ASDOC.sln** in Visual Studio. 
-    
-	![alt tag](./Doc-Images/EAS_RunningTS5.png)
-	
-   ------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------ 
 
-  1.  In the **Solution Explorer** pane, right-click **Solution ‘MS-ASDOC’**, and then click **Rebuild Solution**. 
-  ![alt tag](./Doc-Images/EAS_RunningTS6.png)
-  ------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
-  
-  1.  Open Test Explorer. On the ribbon, click **TEST**, then click **Windows**, and finally click **Test Explorer**. 
-  ![alt tag](./Doc-Images/EAS_RunningTS7.png)
-  ------------------------------------------------------------------------------------------------------------------------------------------- ------------------------------------------------------------------------------------
-  1.  Select the test case to run. Right-click and then select **Run Selected Tests**. 
-    
-	![alt tag](./Doc-Images/EAS_RunningTS8.png)
+2.  Open **MS-ASDOC.sln** in Visual Studio.
 
-  -------------------------------------------------------------------------------------------------------------------------------------
+![alt tag](./Doc-Images/EAS_RunningTS5.png)
 
-Batch scripts 
+
+3.  In the **Solution Explorer** pane, right-click **Solution ‘MS-ASDOC’**, and then click **Rebuild Solution**.
+
+![alt tag](./Doc-Images/EAS_RunningTS6.png)
+
+
+4.  Open Test Explorer. On the ribbon, click **TEST**, then click **Windows**, and finally click **Test Explorer**.
+
+![alt tag](./Doc-Images/EAS_RunningTS7.png)
+
+5.  Select the test case to run. Right-click and then select **Run Selected Tests**.
+
+![alt tag](./Doc-Images/EAS_RunningTS8.png)
+
+
+
+Batch scripts
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 Exchange Server EAS Protocol test suites are installed with a collection
@@ -722,9 +722,9 @@ scripts can be found in the **\\Source\\Scripts** directory.
 
 |Batch script| Script Description |
 | :--- | :--- |
-| **RunAllExchangeEASTestCases.cmd**  |  Runs all the test cases in Exchange Server EAS Protocol Test Suites.| 
-| **RunAllMSXXXXTestCases.cmd**       |  Runs all MS-XXXX test cases.| 
-| **RunMSXXXX\_SXX\_TCXX\_Name.cmd**  |  Runs a specific test case in the test suite.| 
+| **RunAllExchangeEASTestCases.cmd**  |  Runs all the test cases in Exchange Server EAS Protocol Test Suites.|
+| **RunAllMSXXXXTestCases.cmd**       |  Runs all MS-XXXX test cases.|
+| **RunMSXXXX\_SXX\_TCXX\_Name.cmd**  |  Runs a specific test case in the test suite.|
 
 
 Viewing test suite results, logs, and reports

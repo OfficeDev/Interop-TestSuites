@@ -12,11 +12,11 @@ SharePoint File Sync and WOPI Protocol Test Suites are implemented
 as synthetic clients running against the server-side implementation of a
 given SharePoint protocol. They are designed in a client-to-server
 relationship and were originally developed for the in-house testing of
-Microsoft Open Specifications. 
+Microsoft Open Specifications.
 
 Microsoft Open Specifications are written using the normative
 language defined in [RFC2119](http://go.microsoft.com/fwlink/?LinkId=117453); from which
-statements are extracted as protocol requirements to be listed in the requirement specification. 
+statements are extracted as protocol requirements to be listed in the requirement specification.
 See [Requirement specification](#requirement-specification).
 This document describes how SharePoint File Sync and WOPI Protocol
 Test Suites are designed to verify that the server behavior is in
@@ -123,7 +123,7 @@ Architecture
 The following figure illustrates the SharePoint File Sync and WOPI
 Protocol Test Suites architecture.
 
-![alt tag] (./Doc-Images/FssWopi_Spec_Architecture.png)
+![alt tag](./Doc-Images/FssWopi_Spec_Architecture.png)
 
 **Figure 1: Architecture**
 
@@ -144,7 +144,7 @@ suites run against.
 	-   Microsoft SharePoint Server 2010 Service Pack 2 (SP2)
 	-   Microsoft SharePoint Server 2013 Service Pack 1 (SP1)
     -   Microsoft SharePoint Server 2016
-    
+
 **Test Suite Client**
 
 Test suites act as clients to communicate with an SUT and validate
@@ -209,7 +209,7 @@ the technical specification.
 All protocols in SharePoint File Sync and WOPI Protocol Test Suites
 package use the HTTP transport to communicate with the SUT.
 
-### SUT Control Adapter 
+### SUT Control Adapter
 
 The SUT control adapter manages all control functions of the test
 suites that are not associated with the protocol. For example, the setup
@@ -321,6 +321,3 @@ Scenario| Description
   MS\_WOPI\_S20\_FolderChildrenLevelItems       |   Verifies the EnumerateChildren operation.
   MS\_WOPI\_S21\_Versioning                     |   Verifies the GetVersions operation.
   MS\_WOPI\_S22\_FileOperation                  |   Verifies CellSubRequest operation for fileOperation request.
-
-
-

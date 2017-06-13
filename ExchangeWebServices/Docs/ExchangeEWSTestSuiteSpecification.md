@@ -12,12 +12,12 @@ Exchange EWS Protocol Test Suites are implemented as synthetic
 clients running against the server-side implementation of a given Exchange
 protocol. They are designed in a client-to-server relationship and were
 originally developed for the in-house testing of Microsoft Open
-Specifications. 
+Specifications.
 
 Microsoft Open Specifications are written using the normative
 language defined in [RFC2119](http://go.microsoft.com/fwlink/?LinkId=117453); from which
 statements are extracted as protocol requirements to be
-listed in the requirement specification. See [Requirement specification](#requirement-specification). 
+listed in the requirement specification. See [Requirement specification](#requirement-specification).
 This document describes how Exchange EWS Protocol Test Suites are
 designed to verify that the server behavior is in compliance
 with normative protocol requirements in the technical
@@ -114,7 +114,7 @@ Architecture
 The following figure illustrates the Exchange EWS Protocol Test Suites
 architecture.
 
-![alt tag] (./Doc-Images/EWS_Spec_Architecture.png)
+![alt tag](./Doc-Images/EWS_Spec_Architecture.png)
 
 **Figure 1: Architecture**
 
@@ -137,7 +137,7 @@ suites run against.
 **Test Suite Client**
 
 Test suites act as synthetic clients to communicate with an SUT and
-validate the requirements gathered from technical specifications. 
+validate the requirements gathered from technical specifications.
 Exchange EWS Protocol Test Suites include one common library, ten
 adapters and nine test suites.
 
@@ -213,7 +213,7 @@ to process the Id. All other test suites use the MS-OXWSITEMID protocol
 adapter to parse and process the Id of an ItemId object in a SOAP request
 and a SOAP response.
 
-### SUT Control Adapter 
+### SUT Control Adapter
 
 The SUT control adapter manages all control functions of the test
 suites that are not associated with the protocol. For example, the setup
@@ -251,7 +251,7 @@ scenarios in the test suite.
 This scenario is designed to verify the server-side, testable
 requirements in the MS-OXWSBTRF test suite. The following table lists the
 scenarios in this test suite.
- 
+
  Scenario  | Description
 :------------ | :-------------
 S01\_ExportAndUploadItems  |   Test the operation on exporting items from a mailbox server and upload items to a mailbox server.
@@ -277,7 +277,7 @@ The eight scenarios are designed to verify the server-side, testable
 requirements in the MS-OXWSCORE test suite. The following table lists the
 scenarios in this test suite.
 
- 
+
    Scenario  | Description
 :------------ | :-------------
   S01\_ManageBaseItems        |        Test the operations on creating, retrieving, updating, moving, copying, deleting and marking base items on the server.
@@ -363,5 +363,3 @@ S03\_CopyTaskItem                   | Test the operation on copying a task item 
 S04\_MoveTaskItem                   | Test the operation on moving a task item on the server.
 S05\_OperateMultipleTaskItems       | Test the operation on operating multiple task items on the server at the same time.
 S06\_OperateTaskItemWithOptionalElements  | Test the operations on operating a task item with or without optional elements on the server.
-
-

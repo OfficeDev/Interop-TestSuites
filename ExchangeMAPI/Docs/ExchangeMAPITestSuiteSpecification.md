@@ -13,29 +13,29 @@ Exchange MAPI Protocol Test Suites are implemented as synthetic
 clients running against the server-side implementation of a given Exchange
 protocol. They are designed in a client-to-server relationship and were
 originally developed for the in-house testing of Microsoft Open
-Specifications. 
+Specifications.
 
 Microsoft Open Specifications are written using the normative
 language defined in [RFC2119](http://go.microsoft.com/fwlink/?LinkId=117453); from which
 statements are extracted as protocol requirements to be
-listed in the requirement specification. See [Requirement specification](#requirement-specification). 
+listed in the requirement specification. See [Requirement specification](#requirement-specification).
 This document describes how Exchange MAPI Protocol Test Suites are
 designed to verify that the server behavior is in compliance
 with normative protocol requirements in the technical
-specification. 
+specification.
 
 In a single test suite, similar or related requirements are grouped into one
 test case. Test cases on the same command or operation are
 grouped into one scenario.
 
 The technical specifications in the following table are included
-in the Exchange MAPI Protocol Test Suites package. The 
+in the Exchange MAPI Protocol Test Suites package. The
 technical specifications version is v20140130.
 
 **Exchange MAPI Protocol technical specifications**
 
 Technical specification  | Protocol name
- :------------- | :------------- 
+ :------------- | :-------------
   MS-OXCFOLD       |  		  [Folder Object Protocol](http://go.microsoft.com/fwlink/?LinkID=267166)
   MS-OXCFXICS      |          [Bulk Data Transfer Protocol](http://go.microsoft.com/fwlink/?LinkID=267170)
   MS-OXCMAPIHTTP   |          [Messaging Application Programming Interface (MAPI) Extensions for HTTP](http://go.microsoft.com/fwlink/?LinkID=396883)
@@ -70,7 +70,7 @@ Each requirement applies to a specific scope: server, client, or both.
 If the requirement describes the behavior of the responder, the
 scope of the requirement is the server. If the requirement describes the
 behavior of the initiator, the scope of the requirement is
-the client. If the requirement describes the behavior of the 
+the client. If the requirement describes the behavior of the
 initiator and responder, the scope of the requirement is both the client and server.
 
 Test suites cover normative requirements that describe the behavior
@@ -121,7 +121,7 @@ Architecture
 The following figure illustrates the Exchange MAPI Protocol Test Suites
 architecture.
 
-![alt tag] (./Doc-Images/ExMAPI_Spec_Architecture.png)
+![alt tag](./Doc-Images/ExMAPI_Spec_Architecture.png)
 
 **Figure 1: Architecture**
 
@@ -132,7 +132,7 @@ The following outlines details of the test suites architecture:
 The system under test (SUT) hosts the server-side implementation of the
 protocol, which test suites run against.
 
--   From a third-party’s point of view, the SUT is of 
+-   From a third-party’s point of view, the SUT is of
     server implementation.
 
 -   The following products have been tested with the test suites on the
@@ -241,7 +241,7 @@ the common library to send and receive messages. MS-OXMAPIHTTP,
 MS-OXNSPI, and MS-OXCRPC protocol adapters communicate directly with an
 SUT.
 
-### SUT Control Adapter 
+### SUT Control Adapter
 
 The SUT control adapter manages all control functions of the test
 suites that are not associated with the protocol. For example, the setup
@@ -477,7 +477,7 @@ The two scenarios are designed to verify the server-side, testable
 requirements in the MS-OXCRPC test suite. The following table lists the
 scenarios in this test suite
 
- 
+
    Scenario  |  Description
 :------------ | :-------------
   S01\_SynchronousCall   |  Verifies the requirements related to the EMSMDB interface.
