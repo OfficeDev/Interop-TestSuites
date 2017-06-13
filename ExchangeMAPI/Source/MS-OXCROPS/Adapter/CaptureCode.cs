@@ -14400,6 +14400,77 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 
         #endregion
 
+        #region RopWriteStreamExtended
+        /// <summary>
+        /// Verify RopWriteStreamExtended Response
+        /// </summary>
+        /// <param name="ropWriteStreamExtendedResponse">The response of RopWriteStreamExtened request</param>
+        /// <param name="inputHandleIndex">The field of InputHandleIndex in RopWriteStream request</param>
+        private void VerifyRopWriteStreamExtendedResponse(RopWriteStreamExtendedResponse ropWriteStreamExtendedResponse, byte inputHandleIndex)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3256018");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3256018
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(byte),
+                ropWriteStreamExtendedResponse.RopId.GetType(),
+                3256018,
+                @"[In RopWriteStreamExtended ROP response buffer] RopId (1 byte): An unsigned integer.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3256020");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3256020
+            Site.CaptureRequirementIfAreEqual<byte>(
+                (byte)RopId.RopWriteStreamExtended,
+                ropWriteStreamExtendedResponse.RopId,
+                3256020,
+                @"[In RopWriteStreamExtended ROP response buffer] For this operation [RopWriteStreamExtended], this field [RopId] is set to 0xA3.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3256021");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3256021
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(byte),
+                ropWriteStreamExtendedResponse.InputHandleIndex.GetType(),
+                3256021,
+                @"[In RopWriteStreamExtended ROP response buffer] InputHandleIndex (1 byte): An unsigned intege");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3256022");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3256022
+            Site.CaptureRequirementIfAreEqual<byte>(
+                inputHandleIndex,
+                ropWriteStreamExtendedResponse.InputHandleIndex,
+                3256022,
+                @"[In RopWriteStreamExtended ROP response buffer] [InputHandleIndex (1 byte):] This index that MUST be set to the value specified in the InputHandleIndex field in the request.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3256023");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3256023
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(uint),
+                ropWriteStreamExtendedResponse.ReturnValue.GetType(),
+                3256023,
+                @"[In RopWriteStreamExtended ROP response buffer] ReturnValue (4 bytes): An unsigned integer.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3256025");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3256025
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(uint),
+                ropWriteStreamExtendedResponse.WrittenSize.GetType(),
+                3256025,
+                @"[In RopWriteStreamExtended ROP response buffer] WrittenSize (4 bytes): An unsigned integer.");
+        }
+
+        #endregion
+
         #region RopCommitStream
         /// <summary>
         /// Verify RopCommitStream Response
@@ -15722,6 +15793,141 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
                 ropFastTransferDestinationPutBufferResponse.BufferUsedSize.GetType(),
                 3707,
                 @"[In RopFastTransferDestinationPutBuffer ROP Response Buffer]BufferUsedSize (2 bytes): An unsigned integer.");
+        }
+        #endregion
+
+        #region RopFastTransferDestinationPutBufferExtended
+        /// <summary>
+        /// Verify RopFastTransferDestinationPutBufferExtended Response
+        /// </summary>
+        /// <param name="ropFastTransferDestinationPutBufferExtended">The response of RopFastTransferDestinationPutBufferExtended request</param>
+        /// <param name="inputHandleIndex">The field of InputHandleIndex in RopFastTransferDestinationPutBufferExtended request</param>
+        private void VerifyRopFastTransferDestinationPutBufferExtendedResponse(RopFastTransferDestinationPutBufferExtendedResponse ropFastTransferDestinationPutBufferExtenedResponse, byte inputHandleIndex)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708018");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3708018
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(byte),
+                ropFastTransferDestinationPutBufferExtenedResponse.RopId.GetType(),
+                3708018,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] RopId (1 byte): An unsigned integer.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708020");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3708020
+            Site.CaptureRequirementIfAreEqual<byte>(
+                (byte)RopId.RopFastTransferDestinationPutBufferExtended,
+                ropFastTransferDestinationPutBufferExtenedResponse.RopId,
+                3708020,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] For this operation[RopFastTransferDestinationPutBufferExtended], this field [RopId] is set to 0x9D");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708021");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3708021
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(byte),
+                ropFastTransferDestinationPutBufferExtenedResponse.InputHandleIndex.GetType(),
+                3708021,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] InputHandleIndex (1 byte): An unsigned integer.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708022");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3708022
+            Site.CaptureRequirementIfAreEqual<byte>(
+                inputHandleIndex,
+                ropFastTransferDestinationPutBufferExtenedResponse.InputHandleIndex,
+                3708022,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] [InputHandleIndex] This index MUST be set to the value specified in the InputHandleIndex field in the request.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708023");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3708023
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(uint),
+                ropFastTransferDestinationPutBufferExtenedResponse.ReturnValue.GetType(),
+                3708023,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] ReturnValue (4 bytes): An unsigned integer.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708025");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3708025
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(ushort),
+                ropFastTransferDestinationPutBufferExtenedResponse.TransferStatus.GetType(),
+                3708025,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] TransferStatus (2 bytes): An enumeration.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708027,TransferStatus's value:{0}", ropFastTransferDestinationPutBufferExtenedResponse.TransferStatus);
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3699
+            bool isVerifyR3708027 = (ropFastTransferDestinationPutBufferExtenedResponse.TransferStatus & (ushort)TransferStatus.Error) == (ushort)TransferStatus.Error
+                                 || (ropFastTransferDestinationPutBufferExtenedResponse.TransferStatus & (ushort)TransferStatus.Done) == (ushort)TransferStatus.Done
+                                 || (ropFastTransferDestinationPutBufferExtenedResponse.TransferStatus & (ushort)TransferStatus.Partial) == (ushort)TransferStatus.Partial;
+
+            Site.CaptureRequirementIfIsTrue(
+                isVerifyR3708027,
+                3708027,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] The possible values for this enumeration [the value of Error is 0x0000, the value of Partial is 0x0001 and the value of Done is 0x0003] are specified in [MS-OXCFXICS] section 2.2.3.1.2.2.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708028");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3708028
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(uint),
+                ropFastTransferDestinationPutBufferExtenedResponse.InProgressCount.GetType(),
+                3708028,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] InProgressCount (4 bytes): An unsigned integer.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708030");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3708030
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(uint),
+                ropFastTransferDestinationPutBufferExtenedResponse.TotalStepCount.GetType(),
+                3708030,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] TotalStepCount (4 bytes): An unsigned integ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708032");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3708032
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(byte),
+                ropFastTransferDestinationPutBufferExtenedResponse.RopId.GetType(),
+                3708032,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] Reserved (1 byte): Reserved.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708033,the Reserved's value:{0}", ropFastTransferDestinationPutBufferExtenedResponse.Reserved);
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3708033
+            bool isVerifyR3708033 =
+                (typeof(byte) == ropFastTransferDestinationPutBufferExtenedResponse.Reserved.GetType()) &&(ropFastTransferDestinationPutBufferExtenedResponse.Reserved == ReservedOneByte);
+
+            Site.CaptureRequirementIfIsTrue(
+                isVerifyR3708033,
+                3708033,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] The server MUST set this field to 0x00.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCROPS_R3708034");
+
+            // Verify MS-OXCROPS requirement: MS-OXCROPS_R3708034
+            Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(ushort),
+                ropFastTransferDestinationPutBufferExtenedResponse.BufferUsedSize.GetType(),
+                3708034,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP response buffer] BufferUsedSize (2 bytes): An unsigned integer.");
         }
         #endregion
 

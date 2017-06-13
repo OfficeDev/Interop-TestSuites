@@ -29,7 +29,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 // If the transport sequence is MAPIHTTP and the code can reach here, it means that the implementation does support MAPIHTTP transport.
                 Site.CaptureRequirement(
                         5100,
-                        @"[In Appendix A: Product Behavior] Implementation does support this specification [MS-OXCMAPIHTTP]. (Exchange Server 2013 Service Pack 1 (SP1) follows this behavior.)");
+                        @"[In Appendix A: Product Behavior] Implementation does support this specification [MS-OXCMAPIHTTP]. (Exchange Server 2013 Service Pack 1 (SP1) and above follow this behavior.)");
             }
         }
         #endregion
@@ -405,9 +405,131 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         fastTransferDestinationPutBufferRequest.TransferDataSize,
                         fastTransferDestinationPutBufferResponse.BufferUsedSize,
                         318200101,
-                        @"[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field. ( <12> Section 2.2.3.1.2.2.2: Exchange 2007, Exchange 2010, and Exchange 2013 always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)");
+                        @"[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field. ( <12> Section 2.2.3.1.2.2.2: Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)");
                 }
             }
+        }
+
+        /// <summary>
+        /// Verify Rop RopFastTransferDestinationPutBufferExtended.
+        /// </summary>
+        /// <param name="fastTransferDestinationPutBufferExtendedRequest">The request was sent to server.</param>
+        /// <param name="response">The response was gotten from server.</param>
+        private void VerifyRopFastTransferDestinationPutBufferExtended(RopFastTransferDestinationPutBufferExtendedRequest fastTransferDestinationPutBufferExtenedRequest, object response)
+        {
+            RopFastTransferDestinationPutBufferExtendedResponse fastTransferDestinationPutBufferExtenedResponse = (RopFastTransferDestinationPutBufferExtendedResponse)response;
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R3183015");
+
+            // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R3183015
+            this.Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(uint),
+                fastTransferDestinationPutBufferExtenedResponse.ReturnValue.GetType(),
+                3183015,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] ReturnValue (4 bytes): An unsigned 32-bit integer.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R3183017");
+
+            // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R3183017
+            this.Site.CaptureRequirementIfAreEqual<Type>(
+                typeof(ushort),
+                fastTransferDestinationPutBufferExtenedResponse.TransferStatus.GetType(),
+                3183017,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] TransferStatus (2 bytes): A 16-bit enumeration.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R3183019");
+
+            // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R3183019
+            this.Site.CaptureRequirementIfAreEqual<Type>
+                (typeof(uint),
+                fastTransferDestinationPutBufferExtenedResponse.InProgressCount.GetType(),
+                3183019,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] InProgressCount (4 bytes): An unsigned 32-bit integer.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R3183023");
+
+            //Verify MS-OXCFXICS requirement: MS-OXCFXICS_R3183023
+            this.Site.CaptureRequirementIfAreEqual<Type>
+                (typeof(uint),
+                fastTransferDestinationPutBufferExtenedResponse.TotalStepCount.GetType(),
+                3183023,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] TotalStepCount (4 bytes): An unsigned 32-bit integer.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R3183027");
+
+            // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R3183027
+            this.Site.CaptureRequirementIfAreEqual<byte>(
+                0x00,
+                fastTransferDestinationPutBufferExtenedResponse.Reserved,
+                3183027,
+                @"[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] Reserved (1 byte): The field [Reserved] MUST be set to 0x00 when sending[, and MUST be ignored on receipt].");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R3183029");
+
+            //Verify MS-OXCFXICS requirement: MS-OXCFXICS_R3183029
+            this.Site.CaptureRequirementIfAreEqual<Type>(
+            typeof(ushort),
+            fastTransferDestinationPutBufferExtenedResponse.BufferUsedSize.GetType(),
+            3183029,
+            @"[In RopFastTransferDestinationPutBufferExtended ROP Response Buffer] BufferUsedSize (2 bytes): An unsigned 16-bit integer.");
+
+            if (Common.IsRequirementEnabled(318302101, this.Site))
+            { 
+                //Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R318302101");
+
+                //Verify MS-OXCFXICS requirement:MS-OXCFXICS_R318302101
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                   0x00000000,
+                   fastTransferDestinationPutBufferExtenedResponse.InProgressCount,
+                   318302101,
+                   @"[In Appendix A: Product Behavior] Implementation does set the InProgressCount field to 0x00000000 in RopFastTransferDestinationPutBufferExtended ROP Response Buffer.  (Section 2.2.3.1.2.3.2: Microsoft Exchange Server 2007 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(318302601, this.Site))
+            {
+                //Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R318302601");
+
+                //Verify MS-OXCFXICS_R318302601
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                    0x00000001,
+                    fastTransferDestinationPutBufferExtenedResponse.TotalStepCount,
+                    318302601,
+                    @"[In Appendix A: Product Behavior] Implementation does set this value to 0x00000001. [<14> Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 set the value of the TotalStepCount field to 0x0001.]");
+            }
+
+            if (fastTransferDestinationPutBufferExtenedResponse.ReturnValue == (uint)RopResult.Success)
+            {
+                if (Common.IsRequirementEnabled(318303003, this.Site))
+                {
+                    //Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R318303003");
+                    //Verify MS-OXCFXICS_R318303003
+                    this.Site.CaptureRequirementIfAreEqual<ushort>(
+                        fastTransferDestinationPutBufferExtenedRequest.TransferDataSize,
+                        fastTransferDestinationPutBufferExtenedResponse.BufferUsedSize,
+                        318303003,
+                        @"[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when the value of the ReturnValue field is equal to Success (0x00000000) ( <15> Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)");
+                }
+            }
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R2156002");
+
+            // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R2156002
+            // When RopId is equal to 0x9D which means the ROP is RopFastTransferDestinationPutBufferExtened, so this requirement can be captured.
+            this.Site.CaptureRequirementIfAreEqual<byte>(
+                0x9D,
+                fastTransferDestinationPutBufferExtenedResponse.RopId,
+                2156002,
+                @"[In Receiving a RopFastTransferDestinationPutBufferExtended ROP Request] The server MUST respond with a RopFastTransferDestinationPutBufferExtended ROP response, as specified in [MS-OXCROPS] section 2.2.12.3.2 and section 2.2.3.1.2.3 of this specification.");
         }
 
         /// <summary>
@@ -523,7 +645,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2103,
                     2103,
-                    @"[In Receiving a RopFastTransferSourceCopyProperties Request] The server MUST respond with a RopFastTransferSourceCopyProperties ROP response, as specified in [MS-OXCROPS] section 2.2.12.7.2 and section 2.2.3.1.1.2 of this specification.");
+                    @"[In Receiving a RopFastTransferSourceCopyProperties Request] The server MUST respond with a RopFastTransferSourceCopyProperties ROP response, as specified in [MS-OXCROPS] section 2.2.12.8.2 and section 2.2.3.1.1.2 of this specification.");
             }
             else
             {
@@ -594,7 +716,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2113,
                     2113,
-                    @"[In Receiving a RopFastTransferSourceCopyMessages ROP Request] The server MUST respond with a RopFastTransferSourceCopyMessages ROP response, as specified in [MS-OXCROPS] section 2.2.12.5.2 and section 2.2.3.1.1.3 of this specification.");
+                    @"[In Receiving a RopFastTransferSourceCopyMessages ROP Request] The server MUST respond with a RopFastTransferSourceCopyMessages ROP response, as specified in [MS-OXCROPS] section 2.2.12.6.2 and section 2.2.3.1.1.3 of this specification.");
             }
             else
             {
@@ -653,7 +775,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2122,
                     2122,
-                    @"[In Receiving a RopFastTransferSourceCopyFolder ROP Request] The server MUST respond with a RopFastTransferSourceCopyFolder ROP response, as specified in [MS-OXCROPS] section 2.2.12.4.2 and section 2.2.3.1.1.4 of this specification.");
+                    @"[In Receiving a RopFastTransferSourceCopyFolder ROP Request] The server MUST respond with a RopFastTransferSourceCopyFolder ROP response, as specified in [MS-OXCROPS] section 2.2.12.5.2 and section 2.2.3.1.1.4 of this specification.");
             }
             else
             {
@@ -773,8 +895,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
 
                 subFolder = StartSubFld folderContent EndFolder
                 subFolderNoDelProps = StartSubFld folderContentNoDelProps EndFolder
-                topFolder = StartTopFld folderContentNoDelProps EndFolder
-                folderContent = propList
+                topFolder = [MetaTagDnPrefix] StartTopFld folderContentNoDelProps EndFolder
+                folderContent = [MetaTagDnPrefix] propList
                   ( MetaTagNewFXFolder / folderMessages ) 
                   [ MetaTagFXDelProp *subFolder ] 
                 folderContentNoDelProps = propList
@@ -787,12 +909,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                   EndMessage
                 messageChildren = [ MetaTagFXDelProp ] [ *recipient ] 
                   [ MetaTagFXDelProp ] [ *attachment ] 
-                messageContent = propList messageChildren
-                messageList = *( [MetaTagEcWarning] message )
+                messageContent = [MetaTagDnPrefix] propList messageChildren
+                messageList = *( [MetaTagDnPrefix] [MetaTagEcWarning] message )
                 recipient = StartRecip propList EndToRecip
 
                 attachment = NewAttach PidTagAttachNumber attachmentContent EndAttach
-                attachmentContent = propList [embeddedMessage] 
+                attachmentContent = [MetaTagDnPrefix] propList [embeddedMessage] 
                 embeddedMessage = StartEmbed messageContent EndEmbed
 
                 contentsSync = [progressTotal] 
@@ -872,7 +994,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR2136,
                 2136,
-                @"[In Receiving a RopFastTransferSourceGetBuffer Request] The server MUST respond with a RopFastTransferSourceGetBuffer ROP response, as specified in [MS-OXCROPS] section 2.2.12.6.2 and section 2.2.3.1.1.1 of this specification.");
+                @"[In Receiving a RopFastTransferSourceGetBuffer Request] The server MUST respond with a RopFastTransferSourceGetBuffer ROP response, as specified in [MS-OXCROPS] section 2.2.12.7.2 and section 2.2.3.1.1.1 of this specification.");
 
             if (fastTransferSourceGetBufferResponse.ReturnValue == (uint)RopResult.Success)
             {
@@ -928,7 +1050,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 isVerifyR2149,
                 2149,
                 @"[In  Receiving a RopTellVersion Request]The server MUST respond with a RopTellVersion ROP response, as specified in [MS-OXCROPS] section 
-                2.2.12.8.2 and section 2.2.3.1.1.6 of this specification.");
+                2.2.12.9.2 and section 2.2.3.1.1.6 of this specification.");
         }
 
         /// <summary>
@@ -1666,7 +1788,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         // If the program can execute here, this requirement can be verified directly.
                         this.Site.CaptureRequirement(
                             90205002,
-                            @"[In Appendix A: Product Behavior] Implementation does support. (<16> Section 2.2.3.2.4.5.1: Microsoft Exchange Server 2010 and Microsoft Exchange Server 2013 follow this behavior.)");
+                            @"[In Appendix A: Product Behavior] Implementation does support. (<19> Section 2.2.3.2.4.5.1: Microsoft Exchange Server 2010, Microsoft Exchange Server 2013 and above follow this behavior.)");
                     }
                 }
             }
@@ -3320,7 +3442,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     Site.CaptureRequirementIfIsNotNull(
                         msgChangePartial,
                         3305001,
-                        @"[In messageChangePartial Element] Implementation does support partial item downloads. (<20> Section 2.2.4.3.15: Microsoft Exchange Server 2007 and above follow this behavior.)");
+                        @"[In messageChangePartial Element] Implementation does support partial item downloads. (<23> Section 2.2.4.3.15: Microsoft Exchange Server 2007 and above follow this behavior.)");
                 }
 
                 // Add the debug information
@@ -5654,7 +5776,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                                 this.Site.CaptureRequirementIfIsTrue(
                                     isVerifiedR3299,
                                     118201,
-                                    @"[In Appendix A: Product Behavior] Implementation does support include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList of the folderContent element. (<21> Section 2.2.4.3.20: Exchange 2007 follows this behavior.)");
+                                    @"[In Appendix A: Product Behavior] Implementation does support include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList of the folderContent element. (<24> Section 2.2.4.3.20: Exchange 2007 follows this behavior.)");
                             }
 
                             // Add the debug information
@@ -5663,7 +5785,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                             this.Site.CaptureRequirementIfIsTrue(
                                    isVerifiedR2813,
                                    2813,
-                                   @"[In Appendix A: Product Behavior] If the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder, implementation does not output.  <19> Section 2.2.4.3.6: Exchange 2010, Exchange 2013 and Exchange 2016 do not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList element as Exchange 2010 , Exchange 2013 and Exchange 2016 do not check permissions on move operations.");
+                                   @"[In Appendix A: Product Behavior] If the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder, implementation does not output.  <22> Section 2.2.4.3.6: Exchange 2010, Exchange 2013 and Exchange 2016 do not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList element as Exchange 2010 , Exchange 2013 and Exchange 2016 do not check permissions on move operations.");
                         }                        
                     }
                 }
@@ -5882,7 +6004,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                             Site.CaptureRequirementIfIsTrue(
                                 isVerifyR2700,
                                 325901,
-                                @"[In Appendix A: Product Behavior] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, Implementation does output string values with the terminating nulls. (<17> Section 2.2.4.1.3: Microsoft Exchange Server 2007 (only when when string values are not larger than 32 KB) and above follow this behavior.)");
+                                @"[In Appendix A: Product Behavior] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, Implementation does output string values with the terminating nulls. (<20> Section 2.2.4.1.3: Microsoft Exchange Server 2007 (only when when string values are not larger than 32 KB) and above follow this behavior.)");
                         }
 
                         // String type is Serialized the as specified in [MS-OXCDATA]
@@ -5924,7 +6046,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                             Site.CaptureRequirementIfIsTrue(
                                isVerifyR2701,
                                325901,
-                               @"[In Appendix A: Product Behavior] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, Implementation does output string values with the terminating nulls. (<17> Section 2.2.4.1.3: Microsoft Exchange Server 2007 (only when when string values are not larger than 32 KB) and above follow this behavior.)");
+                               @"[In Appendix A: Product Behavior] Serialization of simple types in FastTransfer streams is identical to serialization of property values as specified [MS-OXCDATA] , with the following exceptions: For PtypString and PtypString8 ([MS-OXCDATA] section 2.11.1) type, Implementation does output string values with the terminating nulls. (<20> Section 2.2.4.1.3: Microsoft Exchange Server 2007 (only when when string values are not larger than 32 KB) and above follow this behavior.)");
                         }
 
                         // String type is Serialized the as specified in [MS-OXCDATA]

@@ -440,7 +440,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R55</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In AUX_HEADER Structure] [Type (1 byte)] The block type names, associated Type field values, and the corresponding auxiliary block structure that follows the AUX_HEADER structure when the Version field is AUX_VERSION_1 are listed in the following table [The types are: AUX_TYPE_PERF_REQUESTID 0x01, AUX_TYPE_PERF_CLIENTDINFO 0x02, AUX_TYPE_PERF_SERVERINFO 0x03, AUX_TYPE_PERF_SESSIONINFO 0x04, AUX_TYPE_PERF_DEFMDB_SUCCESS 0x05, AUX_TYPE_PERF_DEFGC_SUCCESS 0x06, AUX_TYPE_PERF_MDB_SUCCESS 0x07, AUX_TYPE_PERF_GC_SUCCESS 0x08, AUX_TYPE_PERF_FAILURE 0x09, AUX_TYPE_CLIENT_CONTROL 0x0A, AUX_TYPE_PERF_PROCESSINFO 0x0B, AUX_TYPE_PERF_BG_DEFMDB_SUCCESS 0x0C, AUX_TYPE_PERF_BG_DEFGC_SUCCESS 0x0D, AUX_TYPE_PERF_BG_MDB_SUCCESS 0x0E, AUX_TYPE_PERF_BG_GC_SUCCESS 0x0F, AUX_TYPE_PERF_BG_FAILURE 0x10, AUX_TYPE_PERF_FG_DEFMDB_SUCCESS 0x11, AUX_TYPE_PERF_FG_DEFGC_SUCCESS 0x12, AUX_TYPE_PERF_FG_MDB_SUCCESS 0x13, AUX_TYPE_PERF_FG_GC_SUCCESS 0x14, AUX_TYPE_PERF_FG_FAILURE 0x15, AUX_TYPE_OSVERSIONINFO 0x16, AUX_TYPE_EXORGINO 0x17, AUX_TYPE_PERF_ACCOUNTINFO 0x18, AUX_TYPE_ENDPOINT_CAPABILITIES 0x48, AUX_CLIENT_CONNECTION_INFO 0x4A, AUX_SERVER_SESSION_INFO 0X4B, AUX_PROTOCOL_DEVICE_IDENTIFICATION 0X4E].</ns1:Description>
+		<ns1:Description>[In AUX_HEADER Structure] [Type (1 byte)] The block type names, associated Type field values, and the corresponding auxiliary block structure that follows the AUX_HEADER structure when the Version field is AUX_VERSION_1 are listed in the following table [The types are: AUX_TYPE_PERF_REQUESTID 0x01, AUX_TYPE_PERF_CLIENTDINFO 0x02, AUX_TYPE_PERF_SERVERINFO 0x03, AUX_TYPE_PERF_SESSIONINFO 0x04, AUX_TYPE_PERF_DEFMDB_SUCCESS 0x05, AUX_TYPE_PERF_DEFGC_SUCCESS 0x06, AUX_TYPE_PERF_MDB_SUCCESS 0x07, AUX_TYPE_PERF_GC_SUCCESS 0x08, AUX_TYPE_PERF_FAILURE 0x09, AUX_TYPE_CLIENT_CONTROL 0x0A, AUX_TYPE_PERF_PROCESSINFO 0x0B, AUX_TYPE_PERF_BG_DEFMDB_SUCCESS 0x0C, AUX_TYPE_PERF_BG_DEFGC_SUCCESS 0x0D, AUX_TYPE_PERF_BG_MDB_SUCCESS 0x0E, AUX_TYPE_PERF_BG_GC_SUCCESS 0x0F, AUX_TYPE_PERF_BG_FAILURE 0x10, AUX_TYPE_PERF_FG_DEFMDB_SUCCESS 0x11, AUX_TYPE_PERF_FG_DEFGC_SUCCESS 0x12, AUX_TYPE_PERF_FG_MDB_SUCCESS 0x13, AUX_TYPE_PERF_FG_GC_SUCCESS 0x14, AUX_TYPE_PERF_FG_FAILURE 0x15, AUX_TYPE_OSVERSIONINFO 0x16, AUX_TYPE_EXORGINO 0x17, AUX_TYPE_PERF_ACCOUNTINFO 0x18, AUX_TYPE_SERVER_CAPABILITIES 0x46, AUX_TYPE_ENDPOINT_CAPABILITIES 0x48, AUX_CLIENT_CONNECTION_INFO 0x4A, AUX_SERVER_SESSION_INFO 0X4B, AUX_PROTOCOL_DEVICE_IDENTIFICATION 0X4E].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -665,6 +665,16 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1350001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_HEADER Structure] [Type (1 byte)] When the Version field is AUX_VERSION_1 and the type value is "AUX_TYPE_SERVER_CAPABILITIES0x46", means "AUX_TYPE_SERVER_CAPABILITIES" structure will follow the AUX_HEADER.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requrements: MS-OXCRPC_R291004, MS-OXCRPC_R291007, MS-OXCRPC_R291009.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1518</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_HEADER Structure] [Type (1 byte)] When the Version field is AUX_VERSION_1 and the type value is "AUX_TYPE_ENDPOINT_CAPABILITIES0x48", means "AUX_ENDPOINT_CAPABILITIES" structure will follow the AUX_HEADER.&lt;2&gt;</ns1:Description>
@@ -696,7 +706,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1851</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In AUX_HEADER Structure]  [Type (1 byte)] When the Version field is AUX_VERSION_1 and the type value is "AUX_PROTOCOL_DEVICE_IDENTIFICATION 0x4E", means "AUX_PROTOCOL_DEVICE_IDENTIFICATION " structure will follow the AUX_HEADER.</ns1:Description>
+		<ns1:Description>[In AUX_HEADER Structure] [Type (1 byte)] When the Version field is AUX_VERSION_1 and the type value is "AUX_PROTOCOL_DEVICE_IDENTIFICATION 0x4E", means "AUX_PROTOCOL_DEVICE_IDENTIFICATION " structure will follow the AUX_HEADER.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2496,8 +2506,99 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCRPC_R4825</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCRPC_R291001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The AUX_SERVER_CAPABILITIES auxiliary block structure informs the client that the server supports specific capabilities.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R291002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] ServerCapabilityFlags (4 bytes): A flag that indicates that the server supports specific capabilities. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requrements: MS-OXCRPC_R291004, MS-OXCRPC_R291007, MS-OXCRPC_R291009.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R291003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The valid flag values are specified in the following table.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R291004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The value of Flag PACKED_FAST_TRANSFER_UPLOAD_BUFFERS is 0x00000001.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R291005</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] [PACKED_FAST_TRANSFER_UPLOAD_BUFFERS means]The server supports the client sending up packed upload extended buffers, see section 3.1.4.2.1.2.1, containing RopFastTransferDestinationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R291006</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] [PACKED_FAST_TRANSFER_UPLOAD_BUFFERS means] The server supports the client sending up packed upload extended buffers, see section 3.1.4.2.1.2.1, containing RopFastTransferDestinationPutBuffetExtended ROP ([MS-OXCROPS] section 2.2.12.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R291007</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The value of Flag PACKED_WRITE_STREAM_UPLOAD_BUFFERS is 0x00000002.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R291008</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] [PACKED_WRITE_STREAM_UPLOAD_BUFFERS means] The server supports the client sending up packed upload extended buffers, see section 3.1.4.2.1.2.1, containing RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R291009</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] The value of Flag ULTRA_LARGE_PACKED_DOWNLOAD_BUFFERS is 0x00000008.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R291010</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In AUX_SERVER_CAPABILITIES Auxiliary Block Structure] [ULTRA_LARGE_PACKED_DOWNLOAD_BUFFERS means] The server supports the client asking for packed download chained buffers in EcDoRpcExt2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R4825</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_ENDPOINT_CAPABILITIES Auxiliary Block Structure] The AUX_ENDPOINT_CAPABILITIES auxiliary block structure informs the client that the server supports multiple interfaces on a single HTTP endpoint.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2506,7 +2607,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R4826</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_ENDPOINT_CAPABILITIES Auxiliary Block Structure] EndpointCapabilityFlag (4 bytes): A flag that indicates that the server combines capabilities on a single endpoint.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2516,7 +2617,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1521</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_ENDPOINT_CAPABILITIES Auxiliary Block Structure] EndpointCapabilityFlag (4 bytes): The valid flag values [ENDPOINT_CAPABILITIES_SINGLE_ENDPOINT 0x00000001] are specified in the following table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2525,7 +2626,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1522</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_ENDPOINT_CAPABILITIES Auxiliary Block Structure] [EndpointCapabilityFlag (4 bytes)] The server supports combined Directory Service Referral interface (RFRI), name service provider interface (NSPI), and EMSMDB interface on a single HTTP endpoint.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2534,7 +2635,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1768</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_ENDPOINT_CAPABILITIES Auxiliary Block Structure] [EndpointCapabilityFlag (4 bytes)] For more information about RFRI, see [MS-OXABREF]. For more information about NSPI, see [MS-OXNSPI].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2543,7 +2644,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1523</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_ENDPOINT_CAPABILITIES Auxiliary Block Structure] [EndpointCapabilityFlag (4 bytes)] The server MAY&lt;4&gt; process requests for different interfaces independently even when requests are transmitted on the same connection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2553,7 +2654,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1525</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_ENDPOINT_CAPABILITIES Auxiliary Block Structure] [EndpointCapabilityFlag (4 bytes)] A call to one interface is not to be blocked by a previous call to a different interface on the same connection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2562,7 +2663,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R4827</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_CLIENT_CONNECTION_INFO Auxiliary Block Structure] The AUX_CLIENT_CONNECTION_INFO auxiliary block structure provides information about the client connection to be logged by the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2571,7 +2672,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1526</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_CLIENT_CONNECTION_INFO Auxiliary Block Structure] ConnectionGUID (16 bytes): The GUID of the connection to the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2580,7 +2681,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1527</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_CLIENT_CONNECTION_INFO Auxiliary Block Structure] OffsetConnectionContextInfo (2 bytes): The offset from the beginning of the AUX_HEADER structure to the ConnectionContextInfo field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2589,7 +2690,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1528</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_CLIENT_CONNECTION_INFO Auxiliary Block Structure] [OffsetConnectionContextInfo (2 bytes)] A value of zero indicates that the ConnectionContextInfo field is null or empty.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2598,7 +2699,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1529</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_CLIENT_CONNECTION_INFO Auxiliary Block Structure] Reserved (2 bytes): Padding to enforce alignment of the data on a 4-byte field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2607,7 +2708,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1530</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_CLIENT_CONNECTION_INFO Auxiliary Block Structure] ConnectionAttempts (2 bytes): The number of connection attempts.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2616,7 +2717,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R4828</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_CLIENT_CONNECTION_INFO Auxiliary Block Structure] ConnectionFlags (4 bytes): A flag designating the mode of operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2625,7 +2726,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1531</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_CLIENT_CONNECTION_INFO Auxiliary Block Structure] ConnectionFlags (4 bytes): A value of 0x0001 for this field means that the client is running in cached mode.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2634,7 +2735,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1532</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_CLIENT_CONNECTION_INFO Auxiliary Block Structure] [ConnectionFlags (4 bytes)] A value of 0x0000 means that the client is not designating a mode of operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2643,7 +2744,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1533</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_CLIENT_CONNECTION_INFO Auxiliary Block Structure] ConnectionContextInfo (variable): A null-terminated Unicode string that contains opaque connection context information to be logged by the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2652,7 +2753,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1534</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.20</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_CLIENT_CONNECTION_INFO Auxiliary Block Structure] [ConnectionContextInfo (variable)] This field is offset from the beginning of the AUX_HEADER structure by the OffsetConnectionContextInfo field value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2661,7 +2762,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R4829</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_SERVER_SESSION_INFO Auxiliary Block Structure] The AUX_SERVER_SESSION_INFO auxiliary block structure provides server information to be logged by the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2670,7 +2771,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1535</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_SERVER_SESSION_INFO Auxiliary Block Structure] OffsetServerSessionContextInfo (2 bytes): The offset from the beginning of the AUX_HEADER structure to the ServerSessionContextInfo field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2679,7 +2780,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1536</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_SERVER_SESSION_INFO Auxiliary Block Structure] [OffsetServerSessionContextInfo (2 bytes)] A value of zero indicates that the ServerSessionContextInfo field is null or empty.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2688,7 +2789,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1539</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_SERVER_SESSION_INFO Auxiliary Block Structure] ServerSessionContextInfo (variable): A null-terminated Unicode string that contains opaque server session context information to be logged by the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2697,7 +2798,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1540</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.21</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_SERVER_SESSION_INFO Auxiliary Block Structure] [ServerSessionContextInfo (variable)] This field is offset from the beginning of the AUX_HEADER structure by the OffsetServerSessionContextInfo field value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2706,7 +2807,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R4830</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] The AUX_PROTOCOL_DEVICE_IDENTIFICATION auxiliary block structure identifies man-in-middle equipment used in messaging applications.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2715,7 +2816,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1853</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] DeviceManufacturerOffset (2 bytes): The offset from the beginning of the AUX_HEADER structure, as specified in section 2.2.2.2, to the DeviceManufacturer field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2724,7 +2825,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1854</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] A value of zero indicates that the DeviceManufacturer field is null or empty.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2733,7 +2834,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1855</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] DeviceModelOffset (2 bytes): The offset from the beginning of the AUX_HEADER structure to the DeviceModel field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2742,7 +2843,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1856</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] A value of zero indicates that the DeviceModel field is null or empty.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2751,7 +2852,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1857</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] DeviceSerialNumberOffset (2 bytes): The offset from the beginning of the AUX_HEADER structure to the DeviceSerialNumber field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2760,7 +2861,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1858</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] A value of zero indicates that the DeviceSerialNumber field is null or empty.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2769,7 +2870,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1859</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] DeviceVersionOffset (2 bytes): The offset from the beginning of the AUX_HEADER structure to the DeviceVersion field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2778,7 +2879,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1860</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] A value of zero indicates that the DeviceVersion field is null or empty.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2787,7 +2888,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1861</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] DeviceFirmwareVersionOffset (2 bytes): The offset from the beginning of the AUX_HEADER structure to the DeviceFirmwareVersion field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2796,7 +2897,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1862</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] A value of zero indicates that the DeviceFirmwareVersion field is null or empty.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2805,7 +2906,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1863</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] DeviceManufacturer (variable): A null-terminated Unicode string that contains the name of the manufacturer of the device.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2814,7 +2915,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1864</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] This field is offset from the beginning of the AUX_HEADER structure by the value of the DeviceManufacturerOffset field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2823,7 +2924,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1865</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] DeviceModel (variable): A null-terminated Unicode string that contains the model name of the device.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2832,7 +2933,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1866</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] This field is offset from the beginning of the AUX_HEADER structure by the value of the DeviceModelOffset field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2841,7 +2942,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1867</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] DeviceSerialNumber (variable): A null-terminated Unicode string that contains the serial number of the device.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2850,7 +2951,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1868</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] This field is offset from the beginning of the AUX_HEADER structure by the value of the DeviceSerialNumberOffset field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2859,7 +2960,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1869</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] DeviceVersion (variable): A null-terminated Unicode string that contains the version number of the device.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2868,7 +2969,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1870</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] This variable field is offset from the beginning of the AUX_HEADER structure by the value of the DeviceVersionOffset field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2877,7 +2978,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1871</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] DeviceFirmwareVersion (variable): A null-terminated Unicode string that contains the firmware version of the device.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2886,7 +2987,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1872</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In AUX_PROTOCOL_DEVICE_IDENTIFICATION Auxiliary Block Structure] This field is offset from the beginning of the AUX_HEADER structure by the value of the DeviceFirmwareVersionOffset field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -6826,7 +6927,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1315</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Server Versions] The server version values [6.0.67550, 8.0.295.0, 8.0.324.0, 8.0.358.0, 14.0.324.0, 14.0.616.0, 14.1.67.0] that are returned to the client on the EcDoConnectEx method call are shown in the following table [table in section 3.1.4.11.3.2].</ns1:Description>
+		<ns1:Description>[In Server Versions] The server version values [6.0.67550, 8.0.295.0, 8.0.324.0, 8.0.358.0, 8.1.92.0, 14.0.324.0, 14.0.616.0, 14.1.67.0, 15.0.466.0] that are returned to the client on the EcDoConnectEx method call are shown in the following table [table in section 3.1.4.11.3.2].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6878,6 +6979,15 @@ ENDIF</ns1:Description>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1111001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Server Versions] [Server version "8.1.92.0":] The server supports RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1405</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In Server Versions] [Server version "14.0.324.0":] The server supports passing the ConversationMembers flag (0x80) in the TableFlags field of a RopGetContentsTable ROP request ([MS-OXCROPS] section 2.2.4.14).</ns1:Description>
@@ -6899,6 +7009,15 @@ ENDIF</ns1:Description>
 		<ns1:REQ_ID>MS-OXCRPC_R1407</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In Server Versions] [Server version "14.1.67.0":] The server supports passing the FailOnConflict flag (0x40) in the ImportFlag field of a RopSynchronizationImportMessageChange ROP request ([MS-OXCROPS] section 2.2.13.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1111002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In Server Versions] [Server version "15.0.466.0":] The server supports RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7335,6 +7454,15 @@ ENDIF</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R666001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In EcDoRpcExt2 Method (opnum 11)] [pcbOut] If the server indicates it supports a larger ROP response payload through the ULTRA_LARGE_PACKED_DOWNLOAD_BUFFERS flag being present in the Flags field of the AUX_SERVER_CAPABILITIES (section 2.2.2.2.19) auxiliary block returned in rgbAuxOut field of the EcDoConnectEx method (section 3.1.4.1), then the server MUST fail only if pcbOut is larger than 0x00100000.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R668</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
 		<ns1:Description>[In EcDoRpcExt2 Method (opnum 11)] [pcbOut] On output, this parameter contains the size of the ROP response payload, including the size of the RPC_HEADER_EXT header in the rgbOut parameter.</ns1:Description>
@@ -7766,9 +7894,36 @@ ENDIF</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1641001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer]The rgbIn parameter input buffer can contain multiple extended buffers in a single input buffer. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1775</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In rgbIn Input Buffer] The input buffer rgbIn has the following format: RPC_HEADER_EXT structure followed by a Payload field.</ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] Each of the extended buffers contains an RPC_HEADER_EXT structure, as specified in section 2.2.2.1, followed by payloadPayload data. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1775001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] A client MUST NOT send multiple extended buffers in the input buffer, if the server does not indicate it supports extended buffer packing through the AUX_SERVER_CAPABILITIES auxiliary buffer, as specified in section 2.2.2.2.19, returned in the rgbAuxOut parameter of the EcDoConnectEx method, as specified in section 3.1.4.1.1.1.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1775002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer]All RPC_HEADER_EXT structures in the input buffer except for the last MUST NOT contain the Last flag in the Flags field of the RPC_HEADER_EXT structure.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7777,7 +7932,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R766</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In rgbIn Input Buffer] The RPC_HEADER_EXT structure MUST contain the Last flag in the Flags field.</ns1:Description>
+		<ns1:Description>[In rgbIn Input Buffer] The last RPC_HEADER_EXT structure in the input buffer MUST contain the Last flag in its Flags field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8038,9 +8193,127 @@ ENDIF</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] As mentioned in section 3.1.4.2.1.1.1, the rgbIn parameter of the EcDoRpcExt2 method, as specified in section 3.1.4.2, can contain more than one extended buffer, each with an RPC_HEADER_EXT structure, as specified in section 2.2.2.1. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] This concept is called packing. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649003</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] The client has the ability to pack additional request data into the rgbIn parameter based on whether the server has indicated it supports packing through the presence of flag PACKED_FAST_TRANSFER_UPLOAD_BUFFERS in the ServerCapabilityFlags field of the  AUX_SERVER_CAPABILITIES auxiliary buffer, as specified in section 2.2.2.2.19, returned in the rgbAuxOut parameter of the EcDoConnectEx method, as specified in section 3.1.4.1.1.1.2. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649004</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] The client has the ability to pack additional request data into the rgbIn parameter based on whether the server has indicated it supports packing through the presence of flag PACKED_WRITE_STREAM_UPLOAD_BUFFERS in the ServerCapabilityFlags field of the  AUX_SERVER_CAPABILITIES auxiliary buffer, as specified in section 2.2.2.2.19, returned in the rgbAuxOut parameter of the EcDoConnectEx method, as specified in section 3.1.4.1.1.1.2. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649005</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] The ROP commands that support packing are the RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4) if PACKED_WRITE_STREAM_UPLOAD_BUFFERS is indicated as a server capability, </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649006</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] The ROP commands that support packing are the RopFastTransferDestinationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2) and RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) if PACKED_FAST_TRANSFER_UPLOAD_BUFFERS is indicated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649007</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] Each extended buffer MUST NOT contain more than 32 KB worth of request data for all ROP requests.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649008</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] When processing ROP requests, the server MUST only allow a single RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4), a single RopFastTransferDestinationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2), or a single RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) to be present in each subsequent packed extended buffers where the last ROP in the first extended buffer of the input buffer is a corresponding RopWriteStreamExtended ROP, RopFastTransferDestinationPutBuffer ROP, or RopFastTransferDestinationPutBufferExtended ROP.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649009</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer]The server MUST aggregate all packed request data into a single combined RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4), RopFastTransferDestinationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2) or RopFastTransferDestinationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) request and process it as though it was sent as the last ROP of the first extended buffer in the rgbIn parameter.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649010</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] The result of the aggregated ROP request MUST be returned in the first extended buffer in the rgbOut parameter of the EcDoRpcExt2 method, as specified in section 3.1.4.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXCRPC_R1649011, MS-OXCRPC_R1649012 and MS-OXCRPC_R1649013</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649011</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] For the RopWriteStreamExtended ROP, the server MUST return in the WrittenSize field of the RopWriteStreamExtended ROP ([MS-OXCROPS] section 2.2.9.4) response the combined amount of data written to the stream across all of the packed RopWriteStreamExtended ROP request operations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649012</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] For the RopFastTransferDestinationPutBuffer ROP, the server MUST return in the BufferUsedSize field of the RopFastTransferDesintationPutBuffer ROP ([MS-OXCROPS] section 2.2.12.2) response the amount of the buffer used in the last RopFastTransferDestinationPutBuffer ROP in the packed extended buffers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCRPC_R1649013</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In rgbIn Input Buffer] For the RopFastTransferDestinationPutBufferExtended ROP, the server MUST return in the BufferUsedSize field of the RopFastTransferDesintationPutBufferExtended ROP ([MS-OXCROPS] section 2.2.12.3) response the amount of the buffer used in the last RopFastTransferDestinationPutBufferExtended ROP in the packed extended buffers.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R957</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] The format of the the rgbAuxOut parameter input buffer for the EcDoRpcExt2 method, as specified in section 3.1.4.2, is the same as that of the rgbAuxOut parameter input buffer for the EcDoConnectEx method, as specified in section 3.1.4.1.1.1.2.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] The format of the the rgbAuxOut parameter input buffer for the EcDoRpcExt2 method, as specified in section 3.1.4.2, is the same as that of the rgbAuxOut parameter input buffer for the EcDoConnectEx method, as specified in section 3.1.4.1.1.1.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8048,8 +8321,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R958</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] This concept [Extended Buffer Packing] is called packing.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] This concept [Extended Buffer Packing] is called packing.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8057,8 +8330,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R959</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] The server has the ability to "pack" additional response data into the rgbOut parameter based on whether the client has requested this functionality through passing the Chain flag in the pulFlags parameter and whether the ROP in the rgbIn request on the EcDoRpcExt2 method supports packing.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] The server has the ability to "pack" additional response data into the rgbOut parameter based on whether the client has requested this functionality through passing the Chain flag in the pulFlags parameter and whether the ROP in the rgbIn request on the EcDoRpcExt2 method supports packing.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8067,8 +8340,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R960</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] The ROP commands that support packing are the RopQueryRows ROP ([MS-OXCROPS] section 2.2.5.4), the RopReadStream ROP ([MS-OXCROPS] section 2.2.9.2), and the RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.3).</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] The ROP commands that support packing are the RopQueryRows ROP ([MS-OXCROPS] section 2.2.5.4), the RopReadStream ROP ([MS-OXCROPS] section 2.2.9.2), and the RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8077,8 +8350,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R961</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] When processing ROP requests, the server MUST NOT produce more than 32 KB worth of response data for all ROP requests.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] When processing ROP requests, the server MUST NOT produce more than 32 KB worth of response data for all ROP requests.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8086,8 +8359,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R962</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] However, when the server finishes processing a RopQueryRows ROP ([MS-OXCROPS] section 2.2.5.4), RopReadStream ROP ([MS-OXCROPS] section 2.2.9.2), or RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.3) from the rgbIn request buffer and it [actual ROP request] was the last ROP command in the request and the client has requested packing through the Chain flag and there is residual room in the rgbOut response buffer, the server can add additional data to the rgbOut parameter response, each with its own RPC_HEADER_EXT header.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] However, when the server finishes processing a RopQueryRows ROP ([MS-OXCROPS] section 2.2.5.4), RopReadStream ROP ([MS-OXCROPS] section 2.2.9.2), or RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.3) from the rgbIn request buffer and it [actual ROP request] was the last ROP command in the request and the client has requested packing through the Chain flag and there is residual room in the rgbOut response buffer, the server can add additional data to the rgbOut parameter response, each with its own RPC_HEADER_EXT header.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8095,8 +8368,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R963</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] For the server to produce additional response data, it [Extended Buffer Packing] MUST build a response as if the client sent another request with only a RopQueryRows ROP, RopReadStream ROP, or RopFastTransferSourceGetBuffer ROP.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] For the server to produce additional response data, it [Extended Buffer Packing] MUST build a response as if the client sent another request with only a RopQueryRows ROP, RopReadStream ROP, or RopFastTransferSourceGetBuffer ROP.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8104,8 +8377,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R964</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] The additional response data is also limited to 32 KB in size.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] The additional response data is also limited to 32 KB in size.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8113,8 +8386,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R965</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] The additional ROP response is placed into the rgbOut parameter buffer following the previous header and associated payload with its own RPC_HEADER_EXT structure.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] The additional ROP response is placed into the rgbOut parameter buffer following the previous header and associated payload with its own RPC_HEADER_EXT structure.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8122,8 +8395,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R966</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] The server can then compress and/or obfuscate this payload if the client requests and set the Flags field of the RPC_HEADER_EXT structure to indicate how the payload has been altered.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] The server can then compress and/or obfuscate this payload if the client requests and set the Flags field of the RPC_HEADER_EXT structure to indicate how the payload has been altered.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8131,8 +8404,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R967</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] If there is still more residual room remains in the rgbOut parameter, the server can continue to produce more response data until the rgbOut parameter does not have enough room to hold another response.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] If there is still more residual room remains in the rgbOut parameter, the server can continue to produce more response data until the rgbOut parameter does not have enough room to hold another response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8140,8 +8413,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R968</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] The server MUST stop adding additional packed responses to the rgbOut parameter response if the residual size of the rgbOut parameter response is less than 8 KB for the RopReadStream ROP and RopFastTransferSourceGetBuffer ROP and 32 KB for the RopQueryRows ROP.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] The server MUST stop adding additional packed responses to the rgbOut parameter response if the residual size of the rgbOut parameter response is less than 8 KB for the RopReadStream ROP and RopFastTransferSourceGetBuffer ROP and 32 KB for the RopQueryRows ROP.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8149,8 +8422,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R969</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] The server MUST NOT place more than 96 individual payloads into a single rgbOut parameter response.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] The server MUST NOT place more than 96 individual payloads into a single rgbOut parameter response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8158,8 +8431,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R970</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] When it adds additional response data, the server MUST alter its processing of the request to reflect what has already been done.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] When it adds additional response data, the server MUST alter its processing of the request to reflect what has already been done.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8167,8 +8440,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R971</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] For example, if the client requests to read 1,000 rows in the RopQueryRows ROP and the first payload contains 100 rows, the additional response data is processed as if the client requested only 900 rows.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] For example, if the client requests to read 1,000 rows in the RopQueryRows ROP and the first payload contains 100 rows, the additional response data is processed as if the client requested only 900 rows.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8176,8 +8449,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R972</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] The server MUST NOT return more data to the client than the client originally requested.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] The server MUST NOT return more data to the client than the client originally requested.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8185,8 +8458,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R973</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] For the RopQueryRows ROP, the server MUST adjust the row count when adding additional response data.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] For the RopQueryRows ROP, the server MUST adjust the row count when adding additional response data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8194,8 +8467,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1280</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] For the RopReadStream ROP, the server MUST adjust the number of bytes to read when adding additional response data.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] For the RopReadStream ROP, the server MUST adjust the number of bytes to read when adding additional response data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8203,8 +8476,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1281</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] There is no specific limit for the RopFastTransferSourceGetBuffer ROP, but the server MUST stop packing additional extended buffers that contain the RopFastTransferSourceGetBuffer ROP when there is no more data for the fast transfer stream.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] There is no specific limit for the RopFastTransferSourceGetBuffer ROP, but the server MUST stop packing additional extended buffers that contain the RopFastTransferSourceGetBuffer ROP when there is no more data for the fast transfer stream.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8212,8 +8485,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R976</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] For the RopFastTransferSourceGetBuffer ROP, the client requests that the server return all the server data.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] For the RopFastTransferSourceGetBuffer ROP, the client requests that the server return all the server data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8221,8 +8494,8 @@ ENDIF</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1776</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Extended Buffer Packing] For details about how to properly format the RopFastTransferSourceGetBuffer ROP in this way, see [MS-OXCROPS] section 2.2.12.3.</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In rgbOut Output Buffer] For details about how to properly format the RopFastTransferSourceGetBuffer ROP in this way, see [MS-OXCROPS] section 2.2.12.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>

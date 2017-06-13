@@ -141,6 +141,7 @@ protocol, which test suites run against.
 	-   Microsoft Exchange Server 2007 Service Pack 3 (SP3)
 	-   Microsoft Exchange Server 2010 Service Pack 3 (SP3)
 	-   Microsoft Exchange Server 2013 Service Pack 1 (SP1)
+	-   Microsoft Exchange Server 2016
 
 The presence of a second SUT will enable certain multi-server scenarios
 and other test cases that pertain to a second SUT. If a second SUT is

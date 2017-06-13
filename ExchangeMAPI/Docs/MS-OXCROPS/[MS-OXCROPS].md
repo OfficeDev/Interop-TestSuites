@@ -1,6 +1,6 @@
 ## [MS-OXCROPS]: Remote Operations (ROP) List and Encoding Protocol 
-- [MS-OXCROPS] v20150914 is used to develop the test suite. 
-- Release date, 9/14/2015.
+- [MS-OXCROPS] v20170310 is used to develop the test suite. 
+- Release date, 3/10/2017.
 
 To find the new landing page for [MS-OXCROPS], please visit https://msdn.microsoft.com/en-us/library/cc425494(v=exchg.80).aspx
 

@@ -70,6 +70,7 @@ following versions of Exchange Server:
 -   Microsoft Exchange Server 2007 Service Pack 3 (SP3)
 -   Microsoft Exchange Server 2010 Service Pack 3 (SP3)
 -   Microsoft Exchange Server 2013 Service Pack 1 (SP1)
+-	Microsoft Exchange Server 2016
 
 The following table describes the required server roles for a
 test suite deployment with Microsoft implementation. Installing
@@ -585,3 +586,4 @@ References | Description
 [Exchange Server 2013 deployment](http://go.microsoft.com/fwlink/?LinkID=266569)                 |The Exchange Server 2013 planning and deployment on TechNet.
 [Exchange Server 2010 deployment](http://go.microsoft.com/fwlink/?LinkID=517397)                 |The Exchange Server 2010 planning and deployment on TechNet.
 [Exchange Server 2007 deployment](http://go.microsoft.com/fwlink/?LinkID=512508)                 |The Exchange Server 2007 deployment on TechNet.
+[Exchange Server 2016 deployment](https://technet.microsoft.com/en-us/library/aa998636(v=exchg.150).aspx)                 |The Exchange Server 2016 planning and deployment on TechNet.

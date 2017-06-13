@@ -835,6 +835,139 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
             }
         }
 
+        /// <summary>
+        /// This method tests the ROP buffers of RopWriteStreamExtended.
+        /// </summary>
+        [TestCategory("MSOXCROPS"), TestMethod()]
+        public void MSOXCROPS_S07_TC05_TestRopWriteStreamExtended()
+        {
+            this.CheckTransportIsSupported();
+            if (Common.IsRequirementEnabled(3256018, this.Site))
+            {
+                this.cropsAdapter.RpcConnect(
+                    Common.GetConfigurationPropertyValue("SutComputerName", this.Site),
+                    ConnectionType.PrivateMailboxServer,
+                    Common.GetConfigurationPropertyValue("UserEssdn", this.Site),
+                    Common.GetConfigurationPropertyValue("Domain", this.Site),
+                    Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
+                    Common.GetConfigurationPropertyValue("PassWord", this.Site));
+
+                // Step 1: Preparations-Create message and then open a stream.
+                #region Common operations for RopReadStream,RopWriteStreamExtended,RopCommitStream and RopWriteAndCommitStream
+
+                // Common variable for RopWriteStream and RopWriteAndCommitStream.
+                byte[] data = Encoding.ASCII.GetBytes(SampleStreamData + "\0");
+
+                // Log on to the private mailbox.
+                RopLogonResponse logonResponse = Logon(LogonType.Mailbox, this.userDN, out inputObjHandle);
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Step 1:Call GetCreatedMessageHandle method to create a message.");
+
+                // Create a message.
+                uint messageHandle = GetCreatedMessageHandle(logonResponse.FolderIds[4], inputObjHandle);
+
+                // Test RopOpenStream success response.
+                #region Test RopOpenStream success response
+
+                RopOpenStreamRequest openStreamRequest;
+                RopOpenStreamResponse openStreamResponse;
+
+                // Client defines a new property.
+                PropertyTag tag;
+                tag.PropertyId = TestSuiteBase.UserDefinedPropertyId;
+                tag.PropertyType = (ushort)PropertyType.PtypString;
+
+                openStreamRequest.RopId = (byte)RopId.RopOpenStream;
+
+                openStreamRequest.LogonId = TestSuiteBase.LogonId;
+                openStreamRequest.InputHandleIndex = TestSuiteBase.InputHandleIndex0;
+                openStreamRequest.OutputHandleIndex = TestSuiteBase.OutputHandleIndex1;
+                openStreamRequest.PropertyTag = tag;
+                openStreamRequest.OpenModeFlags = (byte)StreamOpenModeFlags.Create;
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Step 1: Begin to send the RopOpenStream request.");
+
+                // Send the RopOpenStream request and verify success response.
+                this.responseSOHs = cropsAdapter.ProcessSingleRop(
+                    openStreamRequest,
+                    messageHandle,
+                    ref this.response,
+                    ref this.rawData,
+                    RopResponseType.SuccessResponse);
+                openStreamResponse = (RopOpenStreamResponse)response;
+                Site.Assert.AreEqual<uint>(
+                    TestSuiteBase.SuccessReturnValue,
+                    openStreamResponse.ReturnValue,
+                    "if ROP succeeds, the ReturnValue of its response is 0(success)");
+                uint streamObjectHandle = responseSOHs[0][openStreamResponse.OutputHandleIndex];
+
+                #endregion
+                #endregion
+
+                // Step 2: Send the RopWriteStreamExtended request and verify the success response.
+                #region RopWriteStreamExtended Response
+                RopWriteStreamExtendedRequest writeStreamExtendedRequest;
+                RopWriteStreamExtendedResponse writeStreamExtendedResponse;
+
+                writeStreamExtendedRequest.RopId = (byte)RopId.RopWriteStreamExtended;
+                writeStreamExtendedRequest.LogonId = TestSuiteBase.LogonId;
+                writeStreamExtendedRequest.InputHandleIndex = TestSuiteBase.InputHandleIndex0;
+                writeStreamExtendedRequest.DataSize = (ushort)data.Length;
+                writeStreamExtendedRequest.Data = data;
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Step 4: Begin to send the RopWriteStreamExtended request.");
+
+                // Send the RopWriteStreamExtended request and verify the success response.
+                this.responseSOHs = cropsAdapter.ProcessSingleRop(
+                    writeStreamExtendedRequest,
+                    streamObjectHandle,
+                    ref this.response,
+                    ref this.rawData,
+                    RopResponseType.SuccessResponse);
+                writeStreamExtendedResponse = (RopWriteStreamExtendedResponse)response;
+                Site.Assert.AreEqual<uint>(
+                    TestSuiteBase.SuccessReturnValue,
+                    writeStreamExtendedResponse.ReturnValue,
+                    "if ROP succeeds, the ReturnValue of its response is 0(success)");
+
+                #endregion
+
+                // Step 3: Send the RopCommitStream request and verify the success response.
+                #region RopCommitStream Response
+
+                RopCommitStreamRequest commitStreamRequest;
+                RopCommitStreamResponse commitStreamResponse;
+
+                commitStreamRequest.RopId = (byte)RopId.RopCommitStream;
+                commitStreamRequest.LogonId = TestSuiteBase.LogonId;
+                commitStreamRequest.InputHandleIndex = TestSuiteBase.InputHandleIndex0;
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Step 5: Begin to send the RopCommitStream request.");
+
+                // Send the RopCommitStream request and verify the success response.
+                this.responseSOHs = cropsAdapter.ProcessSingleRop(
+                    commitStreamRequest,
+                    streamObjectHandle,
+                    ref this.response,
+                    ref this.rawData,
+                    RopResponseType.SuccessResponse);
+                commitStreamResponse = (RopCommitStreamResponse)response;
+                Site.Assert.AreEqual<uint>(
+                    TestSuiteBase.SuccessReturnValue,
+                    commitStreamResponse.ReturnValue,
+                    "if ROP succeeds, the ReturnValue of its response is 0(success)");
+
+                #endregion
+            }
+            else
+            {
+                Site.Assert.Inconclusive("Exchange Server 2010 does not support RopWriteStreamExtended ROP.");
+            }
+        }
         #endregion
 
         #region Common methods

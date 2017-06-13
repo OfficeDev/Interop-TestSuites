@@ -101,7 +101,8 @@ clean and virus-free.
 
 	-   Microsoft SharePoint Foundation 2013 Service Pack (SP1)
 	-   Microsoft SharePoint Server 2013 Service Pack (SP1)
-    -	Microsoft SharePoint Server 2016
+  -	  Microsoft SharePoint Server 2016
+
 **Note**   The anti-virus software should implement [Virus Scan Engine
 API](http://go.microsoft.com/fwlink/?LinkId=518352). A number of ISVs
 ship AV scanners (Symantec, Norton, etc.) integrate with
