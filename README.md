@@ -1,5 +1,5 @@
-
-#Interop SharePoint and Exchange Protocol Test Suites
+﻿
+# Interop SharePoint and Exchange Protocol Test Suites
 
 
 Microsoft Protocol Test Suites are implemented as synthetic clients
@@ -25,7 +25,7 @@ This repository contains SharePoint and Exchange Protocol Test Suites. Inside ea
     **Note**: For the detailed guidance on how to deploy a certain
     protocol test suite, see *Deployment Guide* in the *Docs* folder of each test suite.
 
-##Overview
+## Overview
 
 Test Suites are designed to verify that the server behavior is in
 compliance with normative protocol requirements in the technical
@@ -115,13 +115,13 @@ The following table summarizes the test environment for the test suites.
 environment for Exchange and SharePoint Test Suites**
 
  
-Machine name | SharePoint test suite environment | Exchange test suite environment 
-:--- | :--- | :---
-SUT | Microsoft SharePoint Sever 2013/2010/2007  | Microsoft Exchange Server 2016/2013/2010/2007
-Client |  Microsoft Visual Studio 2013 | Microsoft Visual Studio 2013 Ultimate
-       |  [Protocol Test Framework](https://github.com/microsoft/protocoltestframework)  | [Protocol Test Framework](https://github.com/microsoft/protocoltestframework)
-                                                                                                                                                              Optional | Microsoft Network Monitor and Parsers or Message Analyzer   | Microsoft Network Monitor and Parsers or Message Analyzer																																					
-|| | [Spec Explorer 2010](https://visualstudiogallery.msdn.microsoft.com/271d0904-f178-4ce9-956b-d9bfa4902745/) 
+| Machine name | SharePoint test suite environment | Exchange test suite environment 
+| :---         | :--- 				 | :---
+| SUT          | Microsoft SharePoint Sever 2013/2010/2007  | Microsoft Exchange Server 2016/2013/2010/2007
+| Client       | Microsoft Visual Studio 2013 Ultimate  | Microsoft Visual Studio 2013 Ultimate
+|              | [Protocol Test Framework](https://github.com/microsoft/protocoltestframework)  | [Protocol Test Framework](https://github.com/microsoft/protocoltestframework)
+| Optional     | Microsoft Network Monitor and Parsers or Message Analyzer   | Microsoft Network Monitor and Parsers or Message Analyzer																										
+|              |                                                             | [Spec Explorer 2010](https://visualstudiogallery.msdn.microsoft.com/271d0904-f178-4ce9-956b-d9bfa4902745/) 
 																																							  
                                                                                                                                                                                                             
 ### Workflow
