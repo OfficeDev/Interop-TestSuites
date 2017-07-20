@@ -1548,6 +1548,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 97,
                 @"[In RopDeleteFolder ROP Response Buffer] PartialCompletion (1 byte): otherwise [if the ROP successes for a subset of targets], the value is zero (FALSE).");
 
+            // Whether a folder was hard deleted or not is unverified if implementation does not fail the ROP when client call RopOpenFolder on a hard deleted folder.
+            if (Common.IsRequirementEnabled(46201002, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R764");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R764
+                Site.CaptureRequirementIfAreNotEqual<uint>(
+                    Constants.SuccessCode,
+                    openFolderResponse.ReturnValue,
+                    764,
+                    @"[In RopDeleteFolder ROP Request Buffer] DeleteFolderFlags (1 byte): If this bit [DELETE_HARD_DELETE (0x10)] is set, the folder is hard deleted.");
+            }
             #endregion
 
             #endregion
@@ -1618,45 +1631,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             #endregion
 
             #region Step 4. The client calls RopDeleteFolder to hard-delete [MSOXCFOLDSubfolder1] under the root folder.
-
-            deleteFolderRequest.DeleteFolderFlags = (byte)DeleteFolderFlags.DelFolders | (byte)DeleteFolderFlags.DeleteHardDelete;
-            deleteFolderRequest.FolderId = subfolderId1;
-            deleteFolderResponse = this.Adapter.DeleteFolder(deleteFolderRequest, this.RootFolderHandle, ref this.responseHandles);
-
-            Site.Assert.AreEqual<uint>(
-                0,
-                deleteFolderResponse.ReturnValue,
-                "If ROP succeeds, ReturnValue of its response will be 0 (success)");
-
-            #endregion
-
-            #region Step 5. The client calls RopOpenFolder to open [MSOXCFOLDSubfolder1] which was hard-deleted in step 4.
-
-            openFolderRequest = new RopOpenFolderRequest
+            if (Common.IsRequirementEnabled(814, this.Site))
             {
-                RopId = (byte)RopId.RopOpenFolder,
-                LogonId = Constants.CommonLogonId,
-                InputHandleIndex = Constants.CommonInputHandleIndex,
-                OutputHandleIndex = Constants.CommonOutputHandleIndex,
-                FolderId = subfolderId1,
-                OpenModeFlags = (byte)FolderOpenModeFlags.OpenSoftDeleted
-            };
+                deleteFolderRequest.DeleteFolderFlags = (byte)DeleteFolderFlags.DelFolders | (byte)DeleteFolderFlags.DeleteHardDelete;
+                deleteFolderRequest.FolderId = subfolderId1;
+                deleteFolderResponse = this.Adapter.DeleteFolder(deleteFolderRequest, this.RootFolderHandle, ref this.responseHandles);
 
-            // Invoke the OpenFolder operation with OpenSoftDeleted set to open a hard-deleted folder.
-            openFolderResponse = this.Adapter.OpenFolder(openFolderRequest, this.RootFolderHandle, ref this.responseHandles);
-
-            // Whether a folder was hard deleted or not is unverified if implementation does not fail the ROP when client call RopOpenFolder on a hard deleted folder.
-            if (Common.IsRequirementEnabled(46201002, this.Site))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R764");
-
-                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R764
-                Site.CaptureRequirementIfAreNotEqual<uint>(
-                    Constants.SuccessCode,
-                    openFolderResponse.ReturnValue,
-                    764,
-                    @"[In RopDeleteFolder ROP Request Buffer] DeleteFolderFlags (1 byte): If this bit [DELETE_HARD_DELETE (0x10)] is set, the folder is hard deleted.");
+                Site.Assert.AreEqual<uint>(
+                    0,
+                    deleteFolderResponse.ReturnValue,
+                    "If ROP succeeds, ReturnValue of its response will be 0 (success)");
             }
             #endregion
         }
