@@ -535,7 +535,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                         }
                     }
                     break;
-
+                case PropertyType.PtypObject:
+                    break;
                 default:
                     throw new FormatException("Type " + type.ToString() + " not found or not support.");
             }

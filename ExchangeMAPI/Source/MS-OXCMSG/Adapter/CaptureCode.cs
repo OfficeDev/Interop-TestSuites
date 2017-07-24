@@ -1820,7 +1820,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
 
                     // Verify MS-OXCMSG requirement: MS-OXCMSG_R237
                     this.Site.CaptureRequirementIfAreEqual<PropertyType>(
-                        PropertyType.PtypComObject,
+                        PropertyType.PtypObject,
                         propertyObj.ValueType,
                         237,
                         @"[In PidTagAttachDataObject Property] Type: PtypObject ([MS-OXCDATA] section 2.11.1).");

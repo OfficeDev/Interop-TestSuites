@@ -132,7 +132,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             AddPropertyTagToDic(PropertyNames.PidTagAttachContentId, new PropertyTag(0x3712, (ushort)PropertyType.PtypString));
             AddPropertyTagToDic(PropertyNames.PidTagAttachContentLocation, new PropertyTag(0x3713, (ushort)PropertyType.PtypString));
             AddPropertyTagToDic(PropertyNames.PidTagAttachContentBase, new PropertyTag(0x3711, (ushort)PropertyType.PtypString));
-            AddPropertyTagToDic(PropertyNames.PidTagAttachDataObject, new PropertyTag(0x3701, (ushort)PropertyType.PtypComObject));
+            AddPropertyTagToDic(PropertyNames.PidTagAttachDataObject, new PropertyTag(0x3701, (ushort)PropertyType.PtypObject));
             AddPropertyTagToDic(PropertyNames.PidTagMessageFlags, new PropertyTag(0x0E07, (ushort)PropertyType.PtypInteger32));
             AddPropertyTagToDic(PropertyNames.PidTagAccessLevel, new PropertyTag(0x0FF7, (ushort)PropertyType.PtypInteger32));
             AddPropertyTagToDic(PropertyNames.PidTagDisplayBcc, new PropertyTag(0x0E02, (ushort)PropertyType.PtypString));
@@ -166,7 +166,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             AddPropertyTagToDic(PropertyNames.PidTagResponsibility, new PropertyTag(0x0E0F, (ushort)PropertyType.PtypBoolean));
             AddPropertyTagToDic(PropertyNames.PidTagPurportedSenderDomain, new PropertyTag(0x4083, (ushort)PropertyType.PtypString));
             AddPropertyTagToDic(PropertyNames.PidTagStoreEntryId, new PropertyTag(0x0FFB, (ushort)PropertyType.PtypBinary));
-            AddPropertyTagToDic(PropertyNames.PidTagMessageRecipients, new PropertyTag(0x0E12, (ushort)PropertyType.PtypComObject));
+            AddPropertyTagToDic(PropertyNames.PidTagMessageRecipients, new PropertyTag(0x0E12, (ushort)PropertyType.PtypObject));
             AddPropertyTagToDic(PropertyNames.PidTagBodyContentId, new PropertyTag(0x1015, (ushort)PropertyType.PtypString));
             AddPropertyTagToDic(PropertyNames.PidTagBodyContentLocation, new PropertyTag(0x1014, (ushort)PropertyType.PtypString));
             AddPropertyTagToDic(PropertyNames.PidTagHtml, new PropertyTag(0x1013, (ushort)PropertyType.PtypBinary));
@@ -370,7 +370,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     break;
 
                 case PropertyType.PtypBinary: 
-                case PropertyType.PtypComObject:
+                case PropertyType.PtypObject:
                     property.Value = bytes;
                     break;
 

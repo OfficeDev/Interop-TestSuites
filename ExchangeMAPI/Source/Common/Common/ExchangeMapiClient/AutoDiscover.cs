@@ -62,6 +62,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <param name="domain">Domain name.</param>
         /// <param name="requestURL">The server url address to receive the request from clien.</param>
         /// <param name="transport">The current transport used in the test suite.</param>
+        /// <param name="publicFolderUser">The name of public folder mailbox.</param>
         /// <returns>Returns the structure contains auto discover properties.</returns>
         public static AutoDiscoverProperties GetAutoDiscoverProperties(
             ITestSite site,
@@ -69,7 +70,8 @@ namespace Microsoft.Protocols.TestSuites.Common
             string userName,
             string domain,
             string requestURL,
-            string transport)
+            string transport,
+            string publicFolderMailbox)
         {
             HttpStatusCode httpStatusCode = HttpStatusCode.Unused;
             XmlDocument doc = new XmlDocument();
@@ -145,7 +147,7 @@ namespace Microsoft.Protocols.TestSuites.Common
             }
 
             // Get auto discover properties for public mailbox
-            string smtpAddress = "PublicFolderMailbox_" + server + "@" + domain;
+            string smtpAddress = publicFolderMailbox + "@" + domain;
             requestXML = "<Autodiscover xmlns=\"http://schemas.microsoft.com/exchange/autodiscover/outlook/requestschema/2006\">" +
                 "<Request><EMailAddress>" + smtpAddress + "</EMailAddress><AcceptableResponseSchema>http://schemas.microsoft.com/exchange/autodiscover/outlook/responseschema/2006a</AcceptableResponseSchema></Request></Autodiscover>";
             responseXML = string.Empty;

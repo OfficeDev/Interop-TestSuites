@@ -861,8 +861,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             string transportSequence = Common.GetConfigurationPropertyValue("TransportSeq", this.Site);
             string requestURL = Common.GetConfigurationPropertyValue("AutoDiscoverUrlFormat", this.Site);
             requestURL = Regex.Replace(requestURL, @"\[ServerName\]", originalServerName, RegexOptions.IgnoreCase);
-
-            AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.Site, originalServerName, this.userName, this.domainName, requestURL, transportSequence.ToLower());
+            string publicFolderMailbox = Common.GetConfigurationPropertyValue("PublicFolderMailbox", this.Site);
+            AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.Site, originalServerName, this.userName, this.domainName, requestURL, transportSequence.ToLower(), publicFolderMailbox);
             this.mailStoreUrl = autoDiscoverProperties.PrivateMailStoreUrl;
             this.addressBookUrl = autoDiscoverProperties.AddressBookUrl;
         }

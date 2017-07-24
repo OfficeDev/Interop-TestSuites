@@ -211,7 +211,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                             PropertyNames.PidTagAttachContentBase, 0x3711, PropertyType.PtypString
                         },
                         {
-                            PropertyNames.PidTagAttachDataObject, 0x3701, PropertyType.PtypComObject
+                            PropertyNames.PidTagAttachDataObject, 0x3701, PropertyType.PtypObject
                         },
                         {
                             PropertyNames.PidTagMessageFlags, 0x0E07, PropertyType.PtypInteger32

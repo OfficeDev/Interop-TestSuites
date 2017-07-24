@@ -86,6 +86,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             this.waitTime= int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.site));
             this.maxRetryCount = uint.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.site));
             string requestURL = Common.GetConfigurationPropertyValue("AutoDiscoverUrlFormat", this.site);
+            string publicFolderMailbox = Common.GetConfigurationPropertyValue("PublicFolderMailbox", this.site);
             requestURL = Regex.Replace(requestURL, @"\[ServerName\]", this.originalServerName, RegexOptions.IgnoreCase);
             this.transport = Common.GetConfigurationPropertyValue("TransportSeq", this.site).ToLower(System.Globalization.CultureInfo.CurrentCulture);
             AdapterHelper.Transport = this.transport;
@@ -97,7 +98,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             else
             {
                 AdapterHelper.SessionContextCookies = new CookieCollection();
-                this.autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.site, this.originalServerName, this.userName, this.domainName, requestURL, this.transport);
+                this.autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.site, this.originalServerName, this.userName, this.domainName, requestURL, this.transport, publicFolderMailbox);
                 this.site.Assert.IsNotNull(this.autoDiscoverProperties.AddressBookUrl, @"The auto discover process should return the URL to be used to connect with a NSPI server through MAPI over HTTP successfully.");
                 this.nspiMapiHttpAdapter = new NspiMapiHttpAdapter(this.site, this.userName, this.password, this.domainName, this.autoDiscoverProperties.AddressBookUrl);
             }
