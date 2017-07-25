@@ -7,5 +7,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="MS-OXCMAPIHTTP_Supported" value="true"/>
     <!-- Set R2237Enabled to true to that if the type of the returned property is PtypObject or PtypEmbeddedTable, implementation will return value 1 for the X-ResponseCode header. Set R2237Enabled to false to disable this requirement. -->
     <Property name="R2237Enabled" value="false" />
+    <!-- Set R1183Enabled to true to that the default value for the keep-alive interval is 15 seconds. Set R1183Enabled to false to disable this requirement. -->
+    <Property name="R1183Enabled" value="false" />
   </Properties>
 </TestSite>

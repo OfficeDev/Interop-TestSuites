@@ -801,6 +801,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 
             System.Net.ServicePointManager.ServerCertificateValidationCallback =
             new System.Net.Security.RemoteCertificateValidationCallback(Common.ValidateServerCertificate);
+            System.Net.ServicePointManager.Expect100Continue = false;
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
             request.CookieContainer = new CookieContainer();
             request.Method = "POST";

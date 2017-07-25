@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 {
     using System;
     using Microsoft.Protocols.TestSuites.Common;
+    using System.Collections.Generic;
 
     /// <summary>
     /// This define the base class for a property value node
@@ -380,9 +381,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     }
                     else
                     {
-                        strBytesLen = 0;
-                        isFound = false;
-
                         this.hasValue = context.PropertyBytes[context.CurIndex];
                         context.CurIndex++;
                         if (this.hasValue == (byte)0xFF)
@@ -395,30 +393,32 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                                 break;
                             }
 
-                            for (int i = context.CurIndex; i < context.PropertyBytes.Length; i += 2)
-                            {
-                                strBytesLen += 2;
-                                if ((context.PropertyBytes[i] == 0) && (context.PropertyBytes[i + 1] == 0))
-                                {
-                                    stringCount--;
-                                }
+                            List<byte> buffer = new List<byte>();
 
-                                if (stringCount == 0)
+                            for (int i = 0; i < stringCount; i++)
+                            {
+                                buffer.Add(context.PropertyBytes[context.CurIndex]);
+                                context.CurIndex++;
+
+                                for (int j = context.CurIndex; j < context.PropertyBytes.Length; j += 2)
                                 {
-                                    isFound = true;
-                                    break;
+                                    buffer.Add(context.PropertyBytes[j]);
+                                    buffer.Add(context.PropertyBytes[j + 1]);
+                                    if ((context.PropertyBytes[j] == 0) && (context.PropertyBytes[j + 1] == 0))
+                                    {
+                                        context.CurIndex = j + 2;
+                                        break;
+                                    }
                                 }
                             }
 
-                            if (!isFound)
+                            if (buffer.Count <= 0)
                             {
                                 throw new FormatException("String too long or not found");
                             }
                             else
                             {
-                                value = new byte[strBytesLen];
-                                Array.Copy(context.PropertyBytes, context.CurIndex, value, 0, strBytesLen);
-                                context.CurIndex += strBytesLen;
+                                value = buffer.ToArray();
                             }
                         }
                     }
