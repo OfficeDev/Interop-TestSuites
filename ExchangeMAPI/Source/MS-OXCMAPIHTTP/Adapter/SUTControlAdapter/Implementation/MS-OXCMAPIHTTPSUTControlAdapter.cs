@@ -35,23 +35,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 
             StringBuilder soapRequestBuilder = new StringBuilder();
             soapRequestBuilder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
-            soapRequestBuilder.AppendLine("<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:t=\"http://schemas.microsoft.com/exchange/services/2006/types\">");
+            soapRequestBuilder.AppendLine("<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">");
+            soapRequestBuilder.AppendLine("<soap:Header>");
+            soapRequestBuilder.AppendLine("<RequestServerVersion xmlns=\"http://schemas.microsoft.com/exchange/services/2006/types\" Version=\"Exchange2016\" />");
+            soapRequestBuilder.AppendLine("</soap:Header>");
             soapRequestBuilder.AppendLine("<soap:Body>");
             soapRequestBuilder.AppendLine("<CreateItem MessageDisposition=\"SendAndSaveCopy\" xmlns=\"http://schemas.microsoft.com/exchange/services/2006/messages\">");
-            soapRequestBuilder.AppendLine("<Items><t:Message>");
-            soapRequestBuilder.AppendLine("<t:ItemClass>IPM.Note</t:ItemClass>");
-            soapRequestBuilder.AppendLine("<t:Subject>This is an interval event test mail.</t:Subject>");
-            soapRequestBuilder.AppendLine("<t:Body BodyType=\"Text\">The body part is not important, these words are totally useless!</t:Body>");
-            soapRequestBuilder.AppendLine("<t:ToRecipients><t:Mailbox>");
-            soapRequestBuilder.AppendFormat("<t:EmailAddress>{0}</t:EmailAddress>", adminUserName + "@" + domainName);
-            soapRequestBuilder.AppendLine("</t:Mailbox></t:ToRecipients><t:IsRead>false</t:IsRead></t:Message></Items>");
+            soapRequestBuilder.AppendLine("<SavedItemFolderId>");
+            soapRequestBuilder.AppendLine("<DistinguishedFolderId xmlns = \"http://schemas.microsoft.com/exchange/services/2006/types\" Id = \"inbox\" />");
+            soapRequestBuilder.AppendLine("</SavedItemFolderId>");
+            soapRequestBuilder.AppendLine("<Items><Message xmlns=\"http://schemas.microsoft.com/exchange/services/2006/types\">");
+            soapRequestBuilder.AppendLine("<Subject>This is an interval event test mail.</Subject>");
+            soapRequestBuilder.AppendLine("<Body BodyType=\"Text\">The body part is not important, these words are totally useless!</Body>");          
+            soapRequestBuilder.AppendLine("<ToRecipients><Mailbox>");
+            soapRequestBuilder.AppendFormat("<EmailAddress>{0}</EmailAddress>", adminUserName + "@" + domainName);
+            soapRequestBuilder.AppendLine("</Mailbox></ToRecipients><IsRead>false</IsRead></Message></Items>");
             soapRequestBuilder.AppendLine("</CreateItem></soap:Body></soap:Envelope>");
 
             byte[] requestBytes = System.Text.Encoding.UTF8.GetBytes(soapRequestBuilder.ToString());
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(ewsUrl);
             request.Method = "POST";
-            request.ContentType = "text/xml;utf-8";
-            request.Headers.Add("Translate", "F");
+            request.ContentType = "text/xml;charset=utf-8";
+            request.Headers.Add("SOAPAction", "\"http://schemas.microsoft.com/exchange/services/2006/messages/CreateItem\"");
             request.Credentials = new NetworkCredential(adminUserName, adminUserPassword, domainName);
             request.ContentLength = requestBytes.Length;
             Stream webRequestStream = request.GetRequestStream();
