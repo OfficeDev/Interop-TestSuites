@@ -825,22 +825,25 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 foundItems,
                 1920,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] True, The operation moves the email item to the Junk Email folder. ");
-            
+
             string blockedSender = null;
             string userName = Common.GetConfigurationPropertyValue("User1Name", this.Site);
-            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(userName);
+            bool isInBlockedSender = false;
+            if (Common.IsRequirementEnabled(1839, this.Site))
+            {
+                blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(userName);
 
-            bool isInBlockedSender = blockedSender.Contains(itemSender);
+                isInBlockedSender = blockedSender.Contains(itemSender);
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1839");
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1839");
 
-            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1839
-            this.Site.CaptureRequirementIfIsTrue(
-                isInBlockedSender,
-                1839,
-                @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] True, the operation adds the sender of the email to the blocked sender list and moves the email item to the Junk Email folder.");
-
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1839
+                this.Site.CaptureRequirementIfIsTrue(
+                    isInBlockedSender,
+                    1839,
+                    @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] True, the operation adds the sender of the email to the blocked sender list and moves the email item to the Junk Email folder.");
+            }
             markAsJunkRequest.ItemIds = foundItems;
             markAsJunkRequest.IsJunk = true;
             markAsJunkRequest.MoveItem = false;
@@ -862,18 +865,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1921,
                 @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] False,The email item is not moved.");
 
-            blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(userName);
-            isInBlockedSender = blockedSender.Contains(itemSender);
+            if (Common.IsRequirementEnabled(1839, this.Site))
+            {
+                blockedSender = this.CORESUTControlAdapter.GetMailboxJunkEmailConfiguration(userName);
+                isInBlockedSender = blockedSender.Contains(itemSender);
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1840");
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1840");
 
-            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1840
-            this.Site.CaptureRequirementIfIsTrue(
-                isInBlockedSender,
-                1840,
-                @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] False, the operation adds the sender of the email to the blocked sender list.");
-
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1840
+                this.Site.CaptureRequirementIfIsTrue(
+                    isInBlockedSender,
+                    1840,
+                    @"[In m:MarkAsJunkType Complex Type] [When the value of ""IsJunk"" is] True and [the value of ""MoveItem"" is] False, the operation adds the sender of the email to the blocked sender list.");
+            }
             markAsJunkRequest.ItemIds = foundItems;
             markAsJunkRequest.IsJunk = false;
             markAsJunkRequest.MoveItem = true;

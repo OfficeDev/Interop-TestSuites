@@ -337,6 +337,8 @@
         <xs:sequence>
           <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
           <xs:element name="Type" type="t:RoleMemberTypeType" minOccurs="0"/>
+          <xs:element name="TypeString" type="xs:string" minOccurs="0"/>
+          <xs:element name="MembershipId" type="xs:string" minOccurs="0"/>
           <xs:element name="RoleMemberTypeSpecified" type="xs:boolean" minOccurs="0"/>
           <xs:element name="MemberId" type="xs:string" minOccurs="0"/>
         </xs:sequence>

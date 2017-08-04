@@ -193,5 +193,7 @@
     <Property name="R1288Enabled" value="false" />
     <!--Set R2313Enabled to true to verify that the implementation does convert the times to the specified time zone in GetItem response even if the TimeZoneContext SOAP header is set in request. Set R2313Enabled to false to disable this requirement.-->
     <Property name="R2313Enabled" value="false" />
+    <!--Set R1839Enabled to true to verify that When the value of ""IsJunk"" is True the implementation adds the sender of the email to the blocked sender list. Set R1839Enabled to false to disable this requirement.-->
+    <Property name="R1839Enabled" value="false" />
   </Properties>
 </TestSite>

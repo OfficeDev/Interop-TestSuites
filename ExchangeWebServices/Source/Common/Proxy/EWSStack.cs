@@ -10719,7 +10719,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private bool passportIdFieldSpecified;
 
-        private int personIdField;
+        private ItemIdType personIdField;
 
         private bool personIdFieldSpecified;
 
@@ -11663,7 +11663,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        public int PersonId
+        public ItemIdType PersonId
         {
             get
             {
