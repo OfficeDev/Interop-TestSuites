@@ -499,6 +499,17 @@ ModifyConfigFileNode $commonDeploymentFile "useAutodiscover"             $useAut
 ModifyConfigFileNode $commonDeploymentFile "NotificationIP"              $ipv4Address
 ModifyConfigFileNode $commonDeploymentFile "NotificationIPv6"            $ipv6Address
 
+$SessionParams = 
+@{
+   ConfigurationName = 'Microsoft.Exchange'
+   ConnectionURI     = "http://$sutComputerName/powershell/"
+   Authentication    = 'Kerberos'
+}
+$Session = New-PSSession @SessionParams
+$publicFolder=Invoke-command -ScriptBlock {get-mailbox -publicfolder -server $args[0]}-ArgumentList $sutComputerName -Session $Session
+$publicFolderMailboxName=$publicFolder.name
+ModifyConfigFileNode $commonDeploymentFile "PublicFolderMailbox"            $publicfolderMailboxName
+
 Output "Configuration for ExchangeCommonConfiguration.deployment.ptfconfig file is complete" "Green"
 
 #-------------------------------------------------------
