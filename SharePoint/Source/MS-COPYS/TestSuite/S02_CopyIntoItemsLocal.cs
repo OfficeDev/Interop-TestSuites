@@ -682,6 +682,10 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
         [TestCategory("MSCOPYS"), TestMethod()]
         public void MSCOPYS_S02_TC12_CopyIntoItemsLocal_SourceDestinationOnDifferentServer()
         {
+            if (Common.GetConfigurationPropertyValue("SourceSutComputerName", this.Site) == string.Empty)
+            {
+                Site.Assert.Inconclusive("This case runs only when the Source system under test exists.");
+            }
             string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnSourceSUT);
             string desFileUrl = this.GetDestinationFileUrl(DestinationFileUrlType.NormalDesLibraryOnDesSUT);
 
