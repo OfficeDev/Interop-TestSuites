@@ -692,20 +692,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
         public void MSOXWSSYNC_S02_TC04_SyncFolderItems_MeetingCancellationMessageType()
         {
             #region Step 1. Client invokes SyncFolderItems operation to get the initial syncState of junkemail folder.
-            DistinguishedFolderIdNameType junkeFolder = DistinguishedFolderIdNameType.junkemail;
-            SyncFolderItemsType request = this.CreateSyncFolderItemsRequestWithoutOptionalElements(junkeFolder, DefaultShapeNamesType.AllProperties);
+            DistinguishedFolderIdNameType folder = DistinguishedFolderIdNameType.sentitems;
+            SyncFolderItemsType request = this.CreateSyncFolderItemsRequestWithoutOptionalElements(folder, DefaultShapeNamesType.AllProperties);
             SyncFolderItemsResponseType response = this.SYNCAdapter.SyncFolderItems(request);
             SyncFolderItemsResponseMessageType responseMessage = TestSuiteHelper.EnsureResponse<SyncFolderItemsResponseMessageType>(response);
             #endregion
 
             #region Step 2. Client invokes CreateItem to create a MeetingCancellationMessageType item.
             // Generate the item subject
-            string itemSubject = Common.GenerateResourceName(this.Site, junkeFolder + "ItemSubject");
+            string itemSubject = Common.GenerateResourceName(this.Site, folder + "ItemSubject");
             this.CreateMeetingCancellation(itemSubject);
             #endregion
 
             #region Step 3. Client invokes SyncFolderItems operation with previous SyncState to sync the operation result in Step 2 and verify related requirements.
-            responseMessage = this.GetResponseMessage(junkeFolder, responseMessage, DefaultShapeNamesType.AllProperties);
+            responseMessage = this.GetResponseMessage(folder, responseMessage, DefaultShapeNamesType.AllProperties);
 
             // Assert the changes in response is not null
             Site.Assert.IsNotNull(responseMessage.Changes, "There is one item created on server, so the changes between server and client should not be null");
@@ -714,8 +714,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             // Assert both the Items and ItemsElementName are not null
             Site.Assert.IsNotNull(changes.ItemsElementName, "There should be changes information returned in SyncFolderItems response since there is one item created on server.");
             Site.Assert.IsNotNull(changes.Items, "There should be folders information returned in SyncFolderItems response since there is one item created on server.");
-
-            Site.Assert.AreEqual<int>(1, changes.Items.Length, "Just one MeetingCancellationMessageType item was created in previous step, so the count of Items array in responseMessage.Changes should be 1.");
 
             // If the type of item in SyncFolderItems response is MeetingCancellationMessageType, then requirement MS-OXWSSYNC_R170 can be captured.
             // Add the debug information
@@ -737,9 +735,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 ((changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item as MeetingCancellationMessageType).IsRead,
                 1951,
                 @"[In t:SyncFolderItemsReadFlagType Complex Type] [The element IsRead] True if the item has been read.");
-
-            // Assert both the length of responseMessage.Changes.ItemsElementName and responseMessage.Changes.Items are 1.
-            Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one MeetingCancellationMessageType item was created in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
 
             bool isMeetingCancellationCreated = changes.ItemsElementName[0] == ItemsChoiceType1.Create &&
                     (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item.GetType() == typeof(MeetingCancellationMessageType);
@@ -764,13 +759,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
 
             #region Step 4. Client invokes UpdateItem operation to update the item which created in Step 2.
             // Generate a new item subject
-            string newItemSubject = Common.GenerateResourceName(this.Site, junkeFolder + "NewItemSubject");
+            string newItemSubject = Common.GenerateResourceName(this.Site, folder + "NewItemSubject");
             ItemIdType[] itemId = new ItemIdType[1] { (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item.ItemId };
             this.UpdateItemSubject(itemId, newItemSubject);
             #endregion
 
             #region Step 5. Client invokes SyncFolderItems operation with previous SyncState to sync the operation result in Step 4 and verify related requirements.
-            responseMessage = this.GetResponseMessage(junkeFolder, responseMessage, DefaultShapeNamesType.AllProperties);
+            responseMessage = this.GetResponseMessage(folder, responseMessage, DefaultShapeNamesType.AllProperties);
 
             // Assert the changes in response is not null
             Site.Assert.IsNotNull(responseMessage.Changes, "There is one item updated on server, so the changes between server and client should not be null");
@@ -812,7 +807,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             #endregion
 
             #region Step 7. Client invokes SyncFolderItems operation with previous SyncState to sync the operation result in Step 6 and verify related requirements.
-            responseMessage = this.GetResponseMessage(junkeFolder, responseMessage, DefaultShapeNamesType.AllProperties);
+            responseMessage = this.GetResponseMessage(folder, responseMessage, DefaultShapeNamesType.AllProperties);
 
             // Assert the changes in response is not null
             Site.Assert.IsNotNull(responseMessage.Changes, "There is one item updated on server, so the changes between server and client should not be null");
@@ -853,14 +848,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 Common.GetConfigurationPropertyValue("User1Name", this.Site),
                 Common.GetConfigurationPropertyValue("User1Password", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
-                junkeFolder.ToString(),
+                folder.ToString(),
                 newItemSubject,
                 Item.MeetingCancellation.ToString());
-            Site.Assert.IsTrue(isDeleted, string.Format("The item named '{0}' should be deleted from '{1}' successfully.", newItemSubject, junkeFolder));
+            Site.Assert.IsTrue(isDeleted, string.Format("The item named '{0}' should be deleted from '{1}' successfully.", newItemSubject, folder));
             #endregion
 
             #region Step 9. Client invokes SyncFolderItems operation with previous SyncState to sync the operation result in Step 8 and verify related requirements.
-            responseMessage = this.GetResponseMessage(junkeFolder, responseMessage, DefaultShapeNamesType.AllProperties);
+            responseMessage = this.GetResponseMessage(folder, responseMessage, DefaultShapeNamesType.AllProperties);
 
             // Assert the changes in response is not null
             Site.Assert.IsNotNull(responseMessage.Changes, "There is one item deleted on server, so the changes between server and client should not be null");

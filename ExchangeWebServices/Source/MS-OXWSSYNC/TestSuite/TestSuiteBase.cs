@@ -269,17 +269,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             bool cancelMeeting = this.CancelMeeting(meetingRequestCalendar);
             Site.Assert.IsTrue(cancelMeeting, "The meeting named '{0}' should be cancelled successfully.", itemSubject);
 
-            #region Check the junkemail folder and deleted items folder of User1
-            // Make sure that the meeting cancellation message exists in User1's junkemail folder.
-            bool isCancellationReceived = this.SYNCSUTControlAdapter.IsItemExisting(
-                Common.GetConfigurationPropertyValue("User1Name", this.Site),
-                Common.GetConfigurationPropertyValue("User1Password", this.Site),
-                Common.GetConfigurationPropertyValue("Domain", this.Site),
-                DistinguishedFolderIdNameType.junkemail.ToString(),
-                itemSubject,
-                Item.MeetingCancellation.ToString());
-            Site.Assert.IsTrue(isCancellationReceived, "The meeting cancellation message should be received by '{0}'", Common.GetConfigurationPropertyValue("User1Name", this.Site));
-
+            #region Check the deleted items folder of User1
             // Make sure that the meeting request item exists in User1's deleted items folder.
             bool isRequestItem = this.SYNCSUTControlAdapter.IsItemExisting(
                Common.GetConfigurationPropertyValue("User1Name", this.Site),
@@ -293,7 +283,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
 
             #region Check the inbox folder, deleted items folder and calendar folder of User2
             // Make sure that the meeting cancellation message exists in User2's inbox folder
-            isCancellationReceived = this.SYNCSUTControlAdapter.IsItemExisting(
+            bool isCancellationReceived = this.SYNCSUTControlAdapter.IsItemExisting(
                 Common.GetConfigurationPropertyValue("User2Name", this.Site),
                 Common.GetConfigurationPropertyValue("User2Password", this.Site),
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
