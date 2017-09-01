@@ -27,5 +27,7 @@
     <Property name="R318009Enabled" value="false"/>
     <!-- Set R318013Enabled to true to verify that the implementation does support the FilterHtmlContent element. Set R318013Enabled to false to disable this requirement.-->
     <Property name="R318013Enabled" value="true"/>
+    <!-- Set R351Enabled to true to verify that the implementation does support the CalendarItem element. Set R351Enabled to false to disable this requirement.-->
+    <Property name="R351Enabled" value="true"/>
   </Properties>
 </TestSite>

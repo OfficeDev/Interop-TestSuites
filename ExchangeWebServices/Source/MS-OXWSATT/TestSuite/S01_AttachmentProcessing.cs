@@ -598,53 +598,54 @@ Contains the status and result of a single DeleteAttachment operation.");
             AttachmentIdType createdAttachmentId = createdAttachment.AttachmentId;
 
             #endregion
+            if (Common.IsRequirementEnabled(351, this.Site))
+            {
+                #region Step 2 Get the item attachment created in step 1 by the GetAttachment operation.
 
-            #region Step 2 Get the item attachment created in step 1 by the GetAttachment operation.
+                // Get attachment include Mime body.
+                GetAttachmentResponseType getAttachmentResponse = this.CallGetAttachmentOperation(BodyTypeResponseType.Best, true, createdAttachmentId);
+                AttachmentInfoResponseMessageType getAttachmentInfoResponse = getAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
 
-            // Get attachment include Mime body.
-            GetAttachmentResponseType getAttachmentResponse = this.CallGetAttachmentOperation(BodyTypeResponseType.Best, true, createdAttachmentId);
-            AttachmentInfoResponseMessageType getAttachmentInfoResponse = getAttachmentResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+                // Check the length.
+                this.Site.Assert.AreEqual<int>(
+                     1,
+                     getAttachmentResponse.ResponseMessages.Items.GetLength(0),
+                     "Expected Item Count: {0}, Actual Item Count: {1}",
+                     1,
+                     getAttachmentResponse.ResponseMessages.Items.GetLength(0));
 
-            // Check the length.
-            this.Site.Assert.AreEqual<int>(
-                 1,
-                 getAttachmentResponse.ResponseMessages.Items.GetLength(0),
-                 "Expected Item Count: {0}, Actual Item Count: {1}",
-                 1,
-                 getAttachmentResponse.ResponseMessages.Items.GetLength(0));
+                // Get attachment not include Mime body.
+                GetAttachmentResponseType getAttachmentWithoutMimeResponse = this.CallGetAttachmentOperation(BodyTypeResponseType.Best, false, createdAttachmentId);
+                AttachmentInfoResponseMessageType getAttachmentInfoWithoutMimeResponse = getAttachmentWithoutMimeResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
 
-            // Get attachment not include Mime body.
-            GetAttachmentResponseType getAttachmentWithoutMimeResponse = this.CallGetAttachmentOperation(BodyTypeResponseType.Best, false, createdAttachmentId);
-            AttachmentInfoResponseMessageType getAttachmentInfoWithoutMimeResponse = getAttachmentWithoutMimeResponse.ResponseMessages.Items[0] as AttachmentInfoResponseMessageType;
+                // Check the response.
+                Common.CheckOperationSuccess(getAttachmentWithoutMimeResponse, 1, this.Site);
+                #endregion
 
-            // Check the response.
-            Common.CheckOperationSuccess(getAttachmentWithoutMimeResponse, 1, this.Site);
-            #endregion
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R351");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R351");
+                // Verify MS-OXWSATT requirement: MS-OXWSATT_R351
+                // When the created attachment is returned successfully, this requirement can be captured.
+                Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                    ResponseClassType.Success,
+                    getAttachmentInfoWithoutMimeResponse.ResponseClass,
+                    351,
+                    @"[In t:ItemAttachmentType Complex Type][The type of Contact element is] t:ContactItemType ([MS-OXWSCONT] section 2.2.4.3)");
 
-            // Verify MS-OXWSATT requirement: MS-OXWSATT_R351
-            // When the created attachment is returned successfully, this requirement can be captured.
-            Site.CaptureRequirementIfAreEqual<ResponseClassType>(
-                ResponseClassType.Success,
-                getAttachmentInfoWithoutMimeResponse.ResponseClass,
-                351,
-                @"[In t:ItemAttachmentType Complex Type][The type of Contact element is] t:ContactItemType ([MS-OXWSCONT] section 2.2.4.3)");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R554");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R554");
+                // Verify MS-OXWSATT requirement: MS-OXWSATT_R554
+                // When the created attachment is returned successfully, this requirement can be captured.
+                Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                    ResponseClassType.Success,
+                    getAttachmentInfoWithoutMimeResponse.ResponseClass,
+                    554,
+                    @"[In t:ItemAttachmentType Complex Type][The Contact element] Represents a contact item.");
 
-            // Verify MS-OXWSATT requirement: MS-OXWSATT_R554
-            // When the created attachment is returned successfully, this requirement can be captured.
-            Site.CaptureRequirementIfAreEqual<ResponseClassType>(
-                ResponseClassType.Success,
-                getAttachmentInfoWithoutMimeResponse.ResponseClass,
-                554,
-                @"[In t:ItemAttachmentType Complex Type][The Contact element] Represents a contact item.");
-
-            this.VerifyGetAttachmentSuccessfulResponse(getAttachmentWithoutMimeResponse);
-
+                this.VerifyGetAttachmentSuccessfulResponse(getAttachmentWithoutMimeResponse);
+            }
             #region Step 3 Delete the item attachment created in step 1 by the DeleteAttachment operation.
 
             DeleteAttachmentResponseType deleteAttachmentResponse = this.CallDeleteAttachmentOperation(createdAttachmentId);
