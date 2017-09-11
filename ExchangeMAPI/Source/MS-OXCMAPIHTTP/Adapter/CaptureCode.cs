@@ -259,15 +259,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 157,
                 @"[In X-PendingPeriod Header Field] The X-PendingPeriod header field, returned by the server, specifies the number of milliseconds to be expected between keep-alive PENDING meta-tags in the response stream while the server is executing the request.");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R158");
+            if (Common.IsRequirementEnabled(1183, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R158");
 
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R158
-            this.Site.CaptureRequirementIfAreEqual<int>(
-                15000,
-                pendingPeriod,
-                158,
-                @"[In X-PendingPeriod Header Field] The default value of this header [X-PendingPeriod] is 15000 milliseconds (15 seconds).");
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R158
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    15000,
+                    pendingPeriod,
+                    158,
+                    @"[In X-PendingPeriod Header Field] The default value of this header [X-PendingPeriod] is 15000 milliseconds (15 seconds).");
+            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1242");
@@ -278,15 +281,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 1242,
                 @"[In Responding to All Request Type Requests] Since the keep-alive interval is configurable or auto-adjusted, the server MUST return the X-PendingPeriod header, specified in section 2.2.3.3.3, within the immediate response to tell the client the number of milliseconds to be expected between keep-alive responses from the server during the time a request is currently being executed on the server.");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1243");
+            if (Common.IsRequirementEnabled(1183, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1243");
 
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1243
-            this.Site.CaptureRequirementIfAreEqual<int>(
-                15000,
-                pendingPeriod,
-                1243,
-                @"[In Responding to All Request Type Requests] The default value of the X-PendingPeriod header is 15 seconds.");
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1243
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    15000,
+                    pendingPeriod,
+                    1243,
+                    @"[In Responding to All Request Type Requests] The default value of the X-PendingPeriod header is 15 seconds.");
+            }
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2050");

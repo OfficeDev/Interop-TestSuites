@@ -40,10 +40,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             soapRequestBuilder.AppendLine("<RequestServerVersion xmlns=\"http://schemas.microsoft.com/exchange/services/2006/types\" Version=\"Exchange2016\" />");
             soapRequestBuilder.AppendLine("</soap:Header>");
             soapRequestBuilder.AppendLine("<soap:Body>");
-            soapRequestBuilder.AppendLine("<CreateItem MessageDisposition=\"SendAndSaveCopy\" xmlns=\"http://schemas.microsoft.com/exchange/services/2006/messages\">");
-            soapRequestBuilder.AppendLine("<SavedItemFolderId>");
-            soapRequestBuilder.AppendLine("<DistinguishedFolderId xmlns = \"http://schemas.microsoft.com/exchange/services/2006/types\" Id = \"inbox\" />");
-            soapRequestBuilder.AppendLine("</SavedItemFolderId>");
+            soapRequestBuilder.AppendLine("<CreateItem MessageDisposition=\"SendOnly\" xmlns=\"http://schemas.microsoft.com/exchange/services/2006/messages\">");
             soapRequestBuilder.AppendLine("<Items><Message xmlns=\"http://schemas.microsoft.com/exchange/services/2006/types\">");
             soapRequestBuilder.AppendFormat("<Subject>{0}</Subject>", subject);
             soapRequestBuilder.AppendLine("<Body BodyType=\"Text\">The body part is not important, these words are totally useless!</Body>");
