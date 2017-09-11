@@ -284,8 +284,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                     Items = new ItemType[]
                     {
                         new MessageType()
-                        {     
-                             Subject = Common.GenerateResourceName(this.Site, "Attachment parent message  ")
+                        {
+                             Subject = Common.GenerateResourceName(this.Site, "Attachment parent message  "),
+                             Body=new BodyType()
+                             {
+                                 BodyType1=BodyTypeType.HTML,
+                                 Value="This is a test mail."
+                             }
+
                         }
                     }
                 }
