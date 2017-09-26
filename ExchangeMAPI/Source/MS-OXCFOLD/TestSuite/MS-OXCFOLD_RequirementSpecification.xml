@@ -2718,11 +2718,11 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R2715</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.8.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopCopyFolder ROP Response Buffer] PartialCompletion (1 byte): If the ROP fails for a subset of targets, the value of this field is nonzero (TRUE). (Exchange 2010, Exchange 2013 and Exchange 2016 return a zero (FALSE) value.)</ns1:Description>
+		<ns1:Description>[In RopCopyFolder ROP Response Buffer] PartialCompletion (1 byte): If the ROP fails for a subset of targets, the value of this field is nonzero (TRUE). Otherwise, the value is zero (FALSE).&lt;5&lt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R219</ns1:REQ_ID>
@@ -8700,15 +8700,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] If the server has not completed execution of the ROP, the values of the ReturnValue and the RowCount fields of the ROP response buffer, as specified in section 2.2.1.14.2, might not be accurate.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1177</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] If the ConversationMembers bit of the TableFlags field is set and any bits other than the UseUnicode bit and the DeferredErrors bit are also set, the server SHOULD fail the operation with an error code of ecInvalidParam (0x80070057)&lt;21&gt;.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
