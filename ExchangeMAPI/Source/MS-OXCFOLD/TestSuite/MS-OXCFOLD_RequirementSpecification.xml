@@ -8925,6 +8925,28 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
+  <ns1:Requirement>
+    <ns1:REQ_ID>MS-OXCFOLD_R271501</ns1:REQ_ID>
+    <ns1:Doc_Sect>6</ns1:Doc_Sect>
+    <ns1:Description>[In Appendix A: Product Behavior] If the ROP fails for a subset of targets, the value of PartialCompletion is nonzero (TRUE). (Microsoft Exchange Server 2007 follow this behavior.)</ns1:Description>
+    <ns1:Derived>MS-OXCFOLD_R2715:i</ns1:Derived>
+    <ns1:Behavior>Product</ns1:Behavior>
+    <ns1:Scope>Server</ns1:Scope>
+    <ns1:IsNormative>Normative</ns1:IsNormative>
+    <ns1:Verification>Test Case</ns1:Verification>
+    <ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+  </ns1:Requirement>
+  <ns1:Requirement>
+    <ns1:REQ_ID>MS-OXCFOLD_R271502</ns1:REQ_ID>
+    <ns1:Doc_Sect>6</ns1:Doc_Sect>
+    <ns1:Description>[In Appendix A: Product Behavior] If the ROP fails for a subset of targets, the value of PartialCompletion is zero (FALSE). (Microsoft Exchange Server 2010, Microsoft Exchange Server 2013 and Microsoft Exchange Server 2016 follow this behavior.)</ns1:Description>
+    <ns1:Derived>MS-OXCFOLD_R2715:i</ns1:Derived>
+    <ns1:Behavior>Product</ns1:Behavior>
+    <ns1:Scope>Server</ns1:Scope>
+    <ns1:IsNormative>Normative</ns1:IsNormative>
+    <ns1:Verification>Test Case</ns1:Verification>
+    <ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+  </ns1:Requirement> 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R97501001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
