@@ -2718,11 +2718,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R2715</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.8.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopCopyFolder ROP Response Buffer] PartialCompletion (1 byte): If the ROP fails for a subset of targets, the value of this field is nonzero (TRUE).</ns1:Description>
+		<ns1:Description>[In RopCopyFolder ROP Response Buffer] PartialCompletion (1 byte): If the ROP fails for a subset of targets, the value of this field is nonzero (TRUE). Otherwise, the value is zero (FALSE).&lt;5&lt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+    <ns1:VerificationComment>Verified by derived requirements: MS-OXCFOLD_R271501, MS-OXCFOLD_R271502.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R219</ns1:REQ_ID>
@@ -6477,7 +6478,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R49601</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopCreateFolder ROP Request] When the error code is ecNotSupported, it indicates the object that this ROP [RopCreateFolder ROP] was called to create a search folder on a public folders message store.&lt;12&gt;</ns1:Description>
+		<ns1:Description>[In Processing a RopCreateFolder ROP Request] When the error code is ecNotSupported, it indicates the object that this ROP [RopCreateFolder ROP] was called to create a search folder on a public folders message store.&lt;13&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6666,15 +6667,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R502</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopDeleteFolder ROP Request] When the error code is ecAccessDenied, it indicates attempt was made to delete a special folder.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R503</ns1:REQ_ID>
@@ -8713,15 +8705,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1177</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] If the ConversationMembers bit of the TableFlags field is set and any bits other than the UseUnicode bit and the DeferredErrors bit are also set, the server SHOULD fail the operation with an error code of ecInvalidParam (0x80070057)&lt;21&gt;.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R330</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
 		<ns1:Description>[In Processing a RopGetContentsTable ROP Request] If the client sets an invalid bit in the TableFlags field, the server SHOULD&lt;22&gt; fail the ROP with an error code of ecInvalidParam.</ns1:Description>
@@ -8943,6 +8926,28 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
+  <ns1:Requirement>
+    <ns1:REQ_ID>MS-OXCFOLD_R271501</ns1:REQ_ID>
+    <ns1:Doc_Sect>6</ns1:Doc_Sect>
+    <ns1:Description>[In Appendix A: Product Behavior] If the ROP fails for a subset of targets, the value of PartialCompletion is nonzero (TRUE). (Microsoft Exchange Server 2007 follow this behavior.)</ns1:Description>
+    <ns1:Derived>MS-OXCFOLD_R2715:i</ns1:Derived>
+    <ns1:Behavior>Product</ns1:Behavior>
+    <ns1:Scope>Server</ns1:Scope>
+    <ns1:IsNormative>Normative</ns1:IsNormative>
+    <ns1:Verification>Test Case</ns1:Verification>
+    <ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+  </ns1:Requirement>
+  <ns1:Requirement>
+    <ns1:REQ_ID>MS-OXCFOLD_R271502</ns1:REQ_ID>
+    <ns1:Doc_Sect>6</ns1:Doc_Sect>
+    <ns1:Description>[In Appendix A: Product Behavior] If the ROP fails for a subset of targets, the value of PartialCompletion is zero (FALSE). (Microsoft Exchange Server 2010, Microsoft Exchange Server 2013 and Microsoft Exchange Server 2016 follow this behavior.)</ns1:Description>
+    <ns1:Derived>MS-OXCFOLD_R2715:i</ns1:Derived>
+    <ns1:Behavior>Product</ns1:Behavior>
+    <ns1:Scope>Server</ns1:Scope>
+    <ns1:IsNormative>Normative</ns1:IsNormative>
+    <ns1:Verification>Test Case</ns1:Verification>
+    <ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+  </ns1:Requirement> 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R97501001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
@@ -9053,7 +9058,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10660201</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecError &lt;12&gt; Section 3.2.5.2:  Exchange 2010 and Exchange 2007 return ecError. </ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecError &lt;13&lt; Section 3.2.5.2: Exchange 2010 return ecError.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R49601:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9064,7 +9069,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10660202</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecNotSupported. &lt;12&gt; Exchange 2013 and Exchange 2016 return ecNotSupported.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecNotSupported. &lt;13&lt; Exchange 2007, Exchange 2013 and Exchange 2016 return ecNotSupported.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R49601:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9260,26 +9265,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] If the ConversationMembers bit of the TableFlags field is set, the implemetation does return a contents table that shows messages pertaining to a particular conversation. (Exchange 2010 and above follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R113:i, MS-OXCFOLD_R1174:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1177002</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the ConversationMembers bit of the TableFlags field is set and any bits other than the UseUnicode bit and the DeferredErrors bit are also set, the implemetation does fail the operation with an error code of ecInvalidParam (0x80070057).). (Exchange 2007 and Exchange 2010 follow this behavior). </ns1:Description>
-		<ns1:Derived>MS-OXCFOLD_R1177:i, MS-OXCFOLD_R113:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R1177001</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the ConversationMembers bit of the TableFlags field is set and any bits other than the UseUnicode bit and the DeferredErrors bit are also set, the implemetation does not fail the operation. &lt;21&gt; Section 3.2.5.14:  Exchange 2013 and Exchange 2016 do not fail the operation and allow the setting of this combination of TableFlags.</ns1:Description>
-		<ns1:Derived>MS-OXCFOLD_R1177:i, MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

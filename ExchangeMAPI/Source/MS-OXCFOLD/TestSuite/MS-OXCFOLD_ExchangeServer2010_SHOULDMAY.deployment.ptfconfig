@@ -95,5 +95,9 @@
     <Property name="R1238002Enabled" value="false"/>
     <!-- Set R350002Enabled to true to verify that The implementation does support the PidTagAddressBookEntryId property. Set R350002Enabled to false to disable this requirement.-->
     <Property name="R350002Enabled" value="true"/>
+    <!-- Set R271501Enabled to true to verify that for ROP RopCopyFolder the implementation sets nonzero value to PartialCompletion field of the ROP response, if the ROP fails for a subset of targets, as specified in section 2.2.1.8.2. Set R271501Enabled to false to disable this requirement.-->
+    <Property name="R271501Enabled" value="false"/>
+    <!-- Set R271502Enabled to true to verify that for ROP RopCopyFolder the implementation sets zero value to PartialCompletion field of the ROP response, if the ROP fails for a subset of targets, as specified in section 2.2.1.8.2. Set R271502Enabled to false to disable this requirement.-->
+    <Property name="R271502Enabled" value="true"/>
   </Properties>
 </TestSite>
