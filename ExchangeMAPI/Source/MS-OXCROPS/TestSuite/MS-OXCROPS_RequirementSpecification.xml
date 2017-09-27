@@ -36036,7 +36036,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R3708017</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.12.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP response buffer] The following descriptions define valid fields for the RopFastTransferDestinationPutBuffer ROP response buffer.</ns1:Description>
+		<ns1:Description>[In RopFastTransferDestinationPutBufferExtended ROP response buffer] The following descriptions define valid fields for the RopFastTransferDestinationPutBufferExtended ROP response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -44166,7 +44166,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4572</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Processing the RopRelease ROP Request] The server MUST not return any response for a RopRelease ROP request.</ns1:Description>
+		<ns1:Description>[In Processing the RopRelease ROP Request] The server MUST NOT return any response for a RopRelease ROP request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
