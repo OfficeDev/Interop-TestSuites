@@ -2177,15 +2177,31 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 212,
                 @"[In RopCopyFolder ROP Request Buffer] UseUnicode (1 byte): A Boolean value that is nonzero (TRUE) if the value of the NewFolderName field is formatted in Unicode.");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R19701");
+            if (Common.IsRequirementEnabled(271501, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R271501");
 
-            // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R19701
-            Site.CaptureRequirementIfAreEqual<byte>(
-                0x00,
-                copyFolderResponse.PartialCompletion,
-                19701,
-                @"[In RopCopyFolder ROP] The operation can be performed within a private mailbox [or a public folder, or between a private mailbox and a public folder].");
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R271501
+                Site.CaptureRequirementIfAreEqual<byte>(
+                    0x00,
+                    copyFolderResponse.PartialCompletion,
+                    271501,
+                    @"[In Appendix A: Product Behavior] If the ROP fails for a subset of targets, the value of PartialCompletion is nonzero (TRUE). (Microsoft Exchange Server 2007 follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(271502, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R271502");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R271502
+                Site.CaptureRequirementIfAreNotEqual<byte>(
+                    0x00,
+                    copyFolderResponse.PartialCompletion,
+                    271502,
+                    @"[In Appendix A: Product Behavior] If the ROP fails for a subset of targets, the value of PartialCompletion is zero (FALSE). (Microsoft Exchange Server 2010, Microsoft Exchange Server 2013 and Microsoft Exchange Server 2016 follow this behavior.)");
+            }
             #endregion
 
             #region Step 7. The client calls RopGetHierarchyTable to retrieve the hierarchy table for the destination folder [MSOXCFOLDSubfolder1] after copying operation completed.
