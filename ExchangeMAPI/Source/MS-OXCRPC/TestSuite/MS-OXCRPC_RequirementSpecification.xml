@@ -2435,7 +2435,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R283</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In AUX_EXORGINFO Auxiliary Block Structure] [OrgFlags (4 bytes)] The following table [table in section 2.2.2.19] specifies the valid values [PUBLIC_FOLDERS_ENABLED 0x00000001].</ns1:Description>
+		<ns1:Description>[In AUX_EXORGINFO Auxiliary Block Structure] [OrgFlags (4 bytes)] The following table [table in section 2.2.2.19] specifies the valid values [PUBLIC_FOLDERS_ENABLED 0x00000001, USE_AUTODISCOVER_FOR_PUBLIC_FOLDER_CONFIGURATION 0x00000002].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2454,7 +2454,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1852</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In AUX_EXORGINFO Auxiliary Block Structure] The client SHOULD&lt;3&gt; configure public folders using the Autodiscover Publishing and Lookup Protocol, as specified in [MS-OXDSCLI].</ns1:Description>
+		<ns1:Description>[In AUX_EXORGINFO Auxiliary Block Structure] [OrgFlags (4 bytes)] Flag USE_AUTODISCOVER_FOR_PUBLIC_FOLDER_CONFIGURATION 0x00000002 means the client SHOULD&lt;3&gt; configure public folders using the Autodiscover Publishing and Lookup Protocol, as specified in [MS-OXDSCLI].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6936,7 +6936,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1108</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Server Versions] [Server version "6.0.6755.0":] The server supports passing the sentinel value 0xBABE in the BufferSize field of a RopFastTransferSourceGetBuffer ROP request ([MS-OXCROPS] section 2.2.12.3).</ns1:Description>
+		<ns1:Description>[In Server Versions] [Server version "6.0.6755.0":] The server supports passing the sentinel value 0xBABE in the BufferSize field of a RopFastTransferSourceGetBuffer ROP request ([MS-OXCROPS] section 2.2.12.4).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8341,7 +8341,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R960</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In rgbOut Output Buffer] The ROP commands that support packing are the RopQueryRows ROP ([MS-OXCROPS] section 2.2.5.4), the RopReadStream ROP ([MS-OXCROPS] section 2.2.9.2), and the RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.3).</ns1:Description>
+		<ns1:Description>[In rgbOut Output Buffer] The ROP commands that support packing are the RopQueryRows ROP ([MS-OXCROPS] section 2.2.5.4), the RopReadStream ROP ([MS-OXCROPS] section 2.2.9.2), and the RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.4).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8360,7 +8360,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R962</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In rgbOut Output Buffer] However, when the server finishes processing a RopQueryRows ROP ([MS-OXCROPS] section 2.2.5.4), RopReadStream ROP ([MS-OXCROPS] section 2.2.9.2), or RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.3) from the rgbIn request buffer and it [actual ROP request] was the last ROP command in the request and the client has requested packing through the Chain flag and there is residual room in the rgbOut response buffer, the server can add additional data to the rgbOut parameter response, each with its own RPC_HEADER_EXT header.</ns1:Description>
+		<ns1:Description>[In rgbOut Output Buffer] However, when the server finishes processing a RopQueryRows ROP ([MS-OXCROPS] section 2.2.5.4), RopReadStream ROP ([MS-OXCROPS] section 2.2.9.2), or RopFastTransferSourceGetBuffer ROP ([MS-OXCROPS] section 2.2.12.4) from the rgbIn request buffer and it [actual ROP request] was the last ROP command in the request and the client has requested packing through the Chain flag and there is residual room in the rgbOut response buffer, the server can add additional data to the rgbOut parameter response, each with its own RPC_HEADER_EXT header.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8495,7 +8495,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1776</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In rgbOut Output Buffer] For details about how to properly format the RopFastTransferSourceGetBuffer ROP in this way, see [MS-OXCROPS] section 2.2.12.3.</ns1:Description>
+		<ns1:Description>[In rgbOut Output Buffer] For details about how to properly format the RopFastTransferSourceGetBuffer ROP in this way, see [MS-OXCROPS] section 2.2.12.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10692,7 +10692,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1118</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Client Versions] [Client version "11.00.0000.4920"] The client supports receiving ecServerBusy (0x00000480) in the ReturnValue field of the RopFastTransferSourceGetBuffer ROP response ([MS-OXCROPS] section 2.2.12.3).</ns1:Description>
+		<ns1:Description>[In Client Versions] [Client version "11.00.0000.4920"] The client supports receiving ecServerBusy (0x00000480) in the ReturnValue field of the RopFastTransferSourceGetBuffer ROP response ([MS-OXCROPS] section 2.2.12.4).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
