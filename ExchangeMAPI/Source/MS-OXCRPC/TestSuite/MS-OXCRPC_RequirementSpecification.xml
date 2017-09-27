@@ -2430,7 +2430,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-OXCRPC_R283.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirement: MS-OXCRPC_R284.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R283</ns1:REQ_ID>
@@ -2438,8 +2438,8 @@
 		<ns1:Description>[In AUX_EXORGINFO Auxiliary Block Structure] [OrgFlags (4 bytes)] The following table [table in section 2.2.2.19] specifies the valid values [PUBLIC_FOLDERS_ENABLED 0x00000001, USE_AUTODISCOVER_FOR_PUBLIC_FOLDER_CONFIGURATION 0x00000002].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R284</ns1:REQ_ID>
@@ -2448,8 +2448,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-OXCRPC_R283.</ns1:VerificationComment>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1852</ns1:REQ_ID>
