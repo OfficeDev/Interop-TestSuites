@@ -507,7 +507,7 @@ $SessionParams =
 }
 $Session = New-PSSession @SessionParams
 $publicFolder=Invoke-command -ScriptBlock {get-mailbox -publicfolder -server $args[0]}-ArgumentList $sutComputerName -Session $Session
-$publicFolderMailboxName=$publicFolder.name
+$publicFolderMailboxName=$publicFolder[0].name
 ModifyConfigFileNode $commonDeploymentFile "PublicFolderMailbox"            $publicfolderMailboxName
 
 Output "Configuration for ExchangeCommonConfiguration.deployment.ptfconfig file is complete" "Green"
