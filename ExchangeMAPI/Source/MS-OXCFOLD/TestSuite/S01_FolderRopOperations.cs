@@ -2196,7 +2196,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R271502");
 
                 // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R271502
-                Site.CaptureRequirementIfAreNotEqual<byte>(
+                Site.CaptureRequirementIfAreEqual<byte>(
                     0x00,
                     copyFolderResponse.PartialCompletion,
                     271502,
