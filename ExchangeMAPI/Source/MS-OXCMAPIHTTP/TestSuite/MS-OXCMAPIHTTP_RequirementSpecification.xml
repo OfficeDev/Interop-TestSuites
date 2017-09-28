@@ -2566,8 +2566,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMAPIHTTP_R2070001, MS-OXCMAPIHTTP_R2070002.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R226</ns1:REQ_ID>
@@ -2982,8 +2981,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMAPIHTTP_R2082001, MS-OXCMAPIHTTP_R2082002.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R304</ns1:REQ_ID>
@@ -3182,8 +3180,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMAPIHTTP_R291001, MS-OXCMAPIHTTP_R291002.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R308</ns1:REQ_ID>
@@ -3481,8 +3478,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMAPIHTTP_R299001, MS-OXCMAPIHTTP_R299002.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R319</ns1:REQ_ID>
@@ -11821,72 +11817,6 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2070001</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation support that an RPC_HEADER_EXT header ([MS-OXCRPC] section 2.2.2.1) is not included before the auxiliary data is returned in the AuxiliaryBuffer in a failure response.(Exchange 2013 SP1 and Exchange 2016 follow this behavior)</ns1:Description>
-		<ns1:Derived>MS-OXCMAPIHTTP_R2070:i,MS-OXCMAPIHTTP_R1341:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2070002</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation support that an RPC_HEADER_EXT header ([MS-OXCRPC] section 2.2.2.1) is not included before the auxiliary data is returned in the AuxiliaryBuffer in a failure response.(Exchange 2016 SP1 and above follow this behavior)</ns1:Description>
-		<ns1:Derived>MS-OXCMAPIHTTP_R2070:i,MS-OXCMAPIHTTP_R1341:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2082001</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation support that an RPC_HEADER_EXT header ([MS-OXCRPC] section 2.2.2.1) is not included before the auxiliary data is returned in the AuxiliaryBuffer in a failure response.(Exchange 2013 SP1 and Exchange 2016 follow this behavior)</ns1:Description>
-		<ns1:Derived>MS-OXCMAPIHTTP_R2082:i,MS-OXCMAPIHTTP_R1341:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2082002</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation support that an RPC_HEADER_EXT header ([MS-OXCRPC] section 2.2.2.1) is not included before the auxiliary data is returned in the AuxiliaryBuffer in a failure response.(Exchange 2016 SP1 and above follow this behavior)</ns1:Description>
-		<ns1:Derived>MS-OXCMAPIHTTP_R2082:i,MS-OXCMAPIHTTP_R1341:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMAPIHTTP_R299001</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation support that an RPC_HEADER_EXT header ([MS-OXCRPC] section 2.2.2.1) is not included before the auxiliary data is returned in the AuxiliaryBuffer in a failure response.(Exchange 2013 SP1 and Exchange 2016 follow this behavior)</ns1:Description>
-		<ns1:Derived>MS-OXCMAPIHTTP_R299:i,MS-OXCMAPIHTTP_R1341:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMAPIHTTP_R299002</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation support that an RPC_HEADER_EXT header ([MS-OXCRPC] section 2.2.2.1) is not included before the auxiliary data is returned in the AuxiliaryBuffer in a failure response.(Exchange 2016 SP1 and above follow this behavior)</ns1:Description>
-		<ns1:Derived>MS-OXCMAPIHTTP_R299:i,MS-OXCMAPIHTTP_R1341:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
