@@ -8789,7 +8789,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R751</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (&lt;16&gt; Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.10).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopUnlockRegionStream ROP. (&lt;16&gt; Section 3.2.5.22: Exchange 2003 and Exchange 2007 implement the RopUnlockRegionStream ROP ([MS-OXCROPS] section 2.2.9.11).)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R620:i,MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8810,7 +8810,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R752</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (&lt;17&gt; Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.11.))</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopWriteAndCommitStream ROP. (&lt;17&gt; Section 3.2.5.23: Exchange 2003 and Exchange 2007 implement the RopWriteAndCommitStream ROP ([MS-OXCROPS] section 2.2.9.12.))</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R80506:i,MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8831,7 +8831,7 @@ if this lock is granted, reading and writing to the specified range of bytes is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R753</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (&lt;18&gt; Section 3.2.5.24: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (&lt;18&gt; Section 3.2.5.24: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.13).)</ns1:Description>
 		<ns1:Derived>MS-OXCPRPT_R75606:i,MS-OXCPRPT_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
