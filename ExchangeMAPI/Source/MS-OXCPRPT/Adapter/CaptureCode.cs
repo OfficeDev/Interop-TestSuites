@@ -2534,7 +2534,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                 // Since the RopGetStreamSize ROP response is performed successfully, MS-OXCPRPT_R57502 can be captured directly.
                 Site.CaptureRequirement(
                     308,
-                    @"[In RopGetStreamSize ROP] The RopGetStreamSize ROP ([MS-OXCROPS] section 2.2.9.5) retrieves the size of the stream.");
+                    @"[In RopGetStreamSize ROP] The RopGetStreamSize ROP ([MS-OXCROPS] section 2.2.9.6) retrieves the size of the stream.");
 
                 // If this operation is performed successfully, that means this operation is valid on Stream objects.
                 Site.CaptureRequirement(
@@ -2867,7 +2867,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                     // If this operation is performed successfully, the following requirement can be captured.
                     Site.CaptureRequirement(
                        753,
-                       @"[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (<18> Section 3.2.5.24: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.12).)");
+                       @"[In Appendix A: Product Behavior] Implementation does implement the RopCloneStream ROP. (<18> Section 3.2.5.24: Exchange 2003 and Exchange 2007 implement the RopCloneStream ROP ([MS-OXCROPS] section 2.2.9.13).)");
 
                     // If this operation is performed successfully, that means this operation is valid on Stream objects.
                     Site.CaptureRequirement(
