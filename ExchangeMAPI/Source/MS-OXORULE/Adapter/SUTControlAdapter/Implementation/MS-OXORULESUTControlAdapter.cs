@@ -37,7 +37,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             soapRequestBuilder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             soapRequestBuilder.AppendLine("<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">");
             soapRequestBuilder.AppendLine("<soap:Header>");
-            soapRequestBuilder.AppendLine("<RequestServerVersion xmlns=\"http://schemas.microsoft.com/exchange/services/2006/types\" Version=\"Exchange2016\" />");
             soapRequestBuilder.AppendLine("</soap:Header>");
             soapRequestBuilder.AppendLine("<soap:Body>");
             soapRequestBuilder.AppendLine("<CreateItem MessageDisposition=\"SendOnly\" xmlns=\"http://schemas.microsoft.com/exchange/services/2006/messages\">");
