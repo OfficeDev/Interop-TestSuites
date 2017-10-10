@@ -498,7 +498,8 @@ ModifyConfigFileNode $commonDeploymentFile "XorRpcRequest"               $xorRpc
 ModifyConfigFileNode $commonDeploymentFile "useAutodiscover"             $useAutodiscover
 ModifyConfigFileNode $commonDeploymentFile "NotificationIP"              $ipv4Address
 ModifyConfigFileNode $commonDeploymentFile "NotificationIPv6"            $ipv6Address
-
+if ($sutVersion -ge $global:Exchange2013)
+{
 $SessionParams = 
 @{
    ConfigurationName = 'Microsoft.Exchange'
@@ -509,7 +510,7 @@ $Session = New-PSSession @SessionParams
 $publicFolder=Invoke-command -ScriptBlock {get-mailbox -publicfolder -server $args[0]}-ArgumentList $sutComputerName -Session $Session
 $publicFolderMailboxName=$publicFolder[0].name
 ModifyConfigFileNode $commonDeploymentFile "PublicFolderMailbox"            $publicfolderMailboxName
-
+}
 Output "Configuration for ExchangeCommonConfiguration.deployment.ptfconfig file is complete" "Green"
 
 #-------------------------------------------------------
