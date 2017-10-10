@@ -502,7 +502,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     0x00000001,
                     fastTransferDestinationPutBufferExtenedResponse.TotalStepCount,
                     318302601,
-                    @"[In Appendix A: Product Behavior] Implementation does set this value to 0x00000001. [<14> Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 set the value of the TotalStepCount field to 0x0001.]");
+                    @"[In Appendix A: Product Behavior] Implementation does set this value to 0x00000001. [<14> Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 set the value of the TotalStepCount field to 0x00000001.]");
             }
 
             if (fastTransferDestinationPutBufferExtenedResponse.ReturnValue == (uint)RopResult.Success)
