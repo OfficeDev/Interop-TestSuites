@@ -391,29 +391,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R96</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Request Buffer] [OpenFlags] The description of flag NO_MAIL: A request for a nonmessaging logon session.</ns1:Description>
+		<ns1:Description>[In RopLogon ROP Request Buffer] [OpenFlags] The description of flag NO_MAIL: This flag is ignored.&lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R97</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Request Buffer] [OpenFlags] The description of flag NO_MAIL: A request for a nonmessaging sessions allow clients to access the message store.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R98</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Request Buffer] [OpenFlags] The description of flag NO_MAIL: Nonmessaging sessions do not allow messages to be sent or received.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXCSTOR_R96001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R99</ns1:REQ_ID>
@@ -427,7 +410,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R353</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Request Buffer] [OpenFlags] The description of flag USE_PER_MDB_REPLID_MAPPING: For a private-mailbox logon. This flag SHOULD&lt;4&gt; be set.</ns1:Description>
+		<ns1:Description>[In RopLogon ROP Request Buffer] [OpenFlags] The description of flag USE_PER_MDB_REPLID_MAPPING: For a private-mailbox logon. This flag SHOULD&lt;5&gt; be set.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -465,7 +448,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1059</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Request Buffer] [OpenFlags] The description of flag SUPPORT_PROGRESS: Indicates that the client supports asynchronous processing of RopSetReadFlags, as specified in [MS-OXCMSG] section 2.2.3.10.1.&lt;5&gt;</ns1:Description>
+		<ns1:Description>[In RopLogon ROP Request Buffer] [OpenFlags] The description of flag SUPPORT_PROGRESS: Indicates that the client supports asynchronous processing of RopSetReadFlags, as specified in [MS-OXCMSG] section 2.2.3.10.1.&lt;6&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -882,7 +865,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R141</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Success Response Buffer for Private Mailbox] StoreState: This field MUST be set to 0x00000000 by the server. &lt;7&gt;</ns1:Description>
+		<ns1:Description>[In RopLogon ROP Success Response Buffer for Private Mailbox] StoreState: This field MUST be set to 0x00000000 by the server. &lt;8&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -956,7 +939,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R59793</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] FolderIds: This field contains the Folder ID of the following folders: &lt;8&gt; Public Folders Root Folder (All other folders listed here are direct or indirect children of this folder), Interpersonal messages subtree, Non-interpersonal messages subtree, EForms Registry, Free/Busy Data, Offline address book Data, EForms Registry for the user's locale, Local Site's Free/Busy Data, Local Site's Offline Address, Book Data, NNTP Article Index, Empty, Empty, Empty.</ns1:Description>
+		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] FolderIds: This field contains the Folder ID of the following folders: &lt;9&gt; Public Folders Root Folder (All other folders listed here are direct or indirect children of this folder), Interpersonal messages subtree, Non-interpersonal messages subtree, EForms Registry, Free/Busy Data, Offline address book Data, EForms Registry for the user's locale, Local Site's Free/Busy Data, Local Site's Offline Address, Book Data, NNTP Article Index, Empty, Empty, Empty.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1029,7 +1012,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R162</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] PerUserGuid: The server SHOULD set this field to an empty GUID (all zeroes).&lt;9&gt;</ns1:Description>
+		<ns1:Description>[In RopLogon ROP Success Response Buffer for Public Folders] PerUserGuid: The server SHOULD set this field to an empty GUID (all zeroes).&lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1615,7 +1598,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R303</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer] 	[Rows] PidTagFolderId property ([MS-OXPROPS] section 2.691): A PtypInteger64 value that specifies the folder ID (FID) ([MS-OXCDATA] section 2.2.1.1) of the Receive folder, which is the folder to which messages of the specified message class will be delivered.</ns1:Description>
+		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer] 	[Rows] PidTagFolderId property ([MS-OXPROPS] section 2.694): A PtypInteger64 value that specifies the folder ID (FID) ([MS-OXCDATA] section 2.2.1.1) of the Receive folder, which is the folder to which messages of the specified message class will be delivered.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1633,7 +1616,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R305</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer] [Rows] PidTagMessageClass property ([MS-OXPROPS] section 2.778): A PtypString8 value.</ns1:Description>
+		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer] [Rows] PidTagMessageClass property ([MS-OXPROPS] section 2.781): A PtypString8 value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1723,7 +1706,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R314</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer]  [Rows] PidTagLastModificationTime property: PidTagLastModificationTime property ([MS-OXPROPS] section 2.755) -- A PtypTime value that specifies the time, in Coordinated Universal Time (UTC), when the server created or last modified the row in the Receive folder table.</ns1:Description>
+		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer]  [Rows] PidTagLastModificationTime property: PidTagLastModificationTime property ([MS-OXPROPS] section 2.758) -- A PtypTime value that specifies the time, in Coordinated Universal Time (UTC), when the server created or last modified the row in the Receive folder table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1750,7 +1733,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R327</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetStoreState ROP] The RopGetStoreState ROP ([MS-OXCROPS] section 2.2.3.5) is used to obtain state information about the current mailbox.&lt;10&gt;</ns1:Description>
+		<ns1:Description>[In RopGetStoreState ROP] The RopGetStoreState ROP ([MS-OXCROPS] section 2.2.3.5) is used to obtain state information about the current mailbox.&lt;11&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1904,7 +1887,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R349</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.6.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetOwningServers ROP Request Buffer] This operation [RopGetOwningServers] SHOULD be issued against a public folders logon.&lt;11&gt;</ns1:Description>
+		<ns1:Description>[In RopGetOwningServers ROP Request Buffer] This operation [RopGetOwningServers] SHOULD be issued against a public folders logon.&lt;12&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2040,11 +2023,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R397</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In RopPublicFolderIsGhosted ROP] Folders can exist in one of several replica states, but all states except the Active state are implementation-specific.&lt;12&gt;</ns1:Description>
+		<ns1:Description>[In RopPublicFolderIsGhosted ROP] Folders can exist in one of several replica states, but all states except the Active state are implementation-specific.&lt;13&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCSTOR_R39701.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R59706</ns1:REQ_ID>
@@ -3366,7 +3350,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3055</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Read-Only Properties] The read-only properties that are available on a private mailbox logon are specified in section 2.2.2.1.1.1 through section 2.2.2.1.1.14.</ns1:Description>
+		<ns1:Description>[In Read-Only Properties] The read-only properties that are available on a private mailbox logon are specified in section 2.2.2.1.1.1 through section 2.2.2.1.1.15.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3504,7 +3488,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R643</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagExtendedRuleSizeLimit Property] The PidTagExtendedRuleSizeLimit property ([MS-OXPROPS] section 2.685) contains the Maximum size, in bytes, the user is allowed to accumulate for a single "extended" rule.</ns1:Description>
+		<ns1:Description>[In PidTagExtendedRuleSizeLimit Property] The PidTagExtendedRuleSizeLimit property ([MS-OXPROPS] section 2.688) contains the Maximum size, in bytes, the user is allowed to accumulate for a single "extended" rule.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3531,7 +3515,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R644</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMaximumSubmitMessageSize Property] The PidTagMaximumSubmitMessageSize property ([MS-OXPROPS] section 2.772) contains the maximum size, in kilobytes, of a message a user is allowed to submit for transmission to another user.</ns1:Description>
+		<ns1:Description>[In PidTagMaximumSubmitMessageSize Property] The PidTagMaximumSubmitMessageSize property ([MS-OXPROPS] section 2.775) contains the maximum size, in kilobytes, of a message a user is allowed to submit for transmission to another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3558,7 +3542,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R646</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagProhibitReceiveQuota Property] The PidTagProhibitReceiveQuota property ([MS-OXPROPS] section 2.865) contains the maximum size, in kilobytes, a user is allowed to accumulate in their mailbox, before no further mail will be delivered.</ns1:Description>
+		<ns1:Description>[In PidTagProhibitReceiveQuota Property] The PidTagProhibitReceiveQuota property ([MS-OXPROPS] section 2.868) contains the maximum size, in kilobytes, a user is allowed to accumulate in their mailbox, before no further mail will be delivered.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3585,7 +3569,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R648</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagProhibitSendQuota Property] The PidTagProhibitSendQuota property ([MS-OXPROPS] section 2.866) contains the maximum size, in kilobytes, a user is allowed to accumulate in their mailbox, before the user can no longer submit any more mail.</ns1:Description>
+		<ns1:Description>[In PidTagProhibitSendQuota Property] The PidTagProhibitSendQuota property ([MS-OXPROPS] section 2.869) contains the maximum size, in kilobytes, a user is allowed to accumulate in their mailbox, before the user can no longer submit any more mail.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3612,7 +3596,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1140</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagStoreState Property] The PidTagStoreState property ([MS-OXPROPS] section 2.1019) indicates whether the mailbox has any active search folders.</ns1:Description>
+		<ns1:Description>[In PidTagStoreState Property] The PidTagStoreState property ([MS-OXPROPS] section 2.1023) indicates whether the mailbox has any active search folders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3639,7 +3623,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R651</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.637) contains the cumulative count of non-folder associated information (FAI) messages in the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.640) contains the cumulative count of non-folder associated information (FAI) messages in the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3657,7 +3641,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R656</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMailboxOwnerEntryId Property] The PidTagMailboxOwnerEntryId property ([MS-OXPROPS] section 2.768) contains the EntryID in the Global Address List (GAL) of the owner of the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagMailboxOwnerEntryId Property] The PidTagMailboxOwnerEntryId property ([MS-OXPROPS] section 2.771) contains the EntryID in the Global Address List (GAL) of the owner of the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3675,7 +3659,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R657</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMailboxOwnerName Property] The PidTagMailboxOwnerName property ([MS-OXPROPS] section 2.769) contains the display name of the owner of the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagMailboxOwnerName Property] The PidTagMailboxOwnerName property ([MS-OXPROPS] section 2.772) contains the display name of the owner of the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3693,7 +3677,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R658</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.787) contains the cumulative size, in bytes, of all content in the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.790) contains the cumulative size, in bytes, of all content in the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3720,7 +3704,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R660</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.788) contains the cumulative size, in bytes, of all content in the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.791) contains the cumulative size, in bytes, of all content in the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3738,7 +3722,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R664</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.11</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagUserEntryId Property] The PidTagUserEntryId property ([MS-OXPROPS] section 2.1043) contains the Address book EntryID of the user logged on to the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagUserEntryId Property] The PidTagUserEntryId property ([MS-OXPROPS] section 2.1047) contains the Address book EntryID of the user logged on to the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3756,15 +3740,78 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R4003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.12</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLocaleId Property] The PidTagLocaleId property ([MS-OXPROPS] section 2.765) establishes the language locale for translating system-generated messages, such as delivery reports. For more details, see [MS-LCID].</ns1:Description>
+		<ns1:Description>[In PidTagLocaleId Property] The PidTagLocaleId property ([MS-OXPROPS] section 2.768) establishes the language locale for translating system-generated messages, such as delivery reports. For more details, see [MS-LCID].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R4004</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCSTOR_R4003001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.13</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagSerializedReplidGuidMap Property] Type of PidTagSerializedReplidGuidMap: PtypBinary ([MS-OXCDATA] section 2.11.1)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R4003002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1.13</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagSerializedReplidGuidMap Property] The PidTagSerializedReplidGuidMap property ([MS-OXPROPS] section 2.1013) contains a serialized list of REPLID and REPLGUID pairs which represents all or part of the REPLID /REPLGUID mapping of the associated Logon object. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R4003003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1.13</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagSerializedReplidGuidMap Property] This property [PidTagSerializedReplidGuidMap] allows a client to more efficiently seed a local cache of the REPLID /REPLGUID mapping without having to issue separate remote operations RopLongTermIdFromId ([MS-OXCROPS] section 2.2.3.8) or RopIdFromLongTermId ([MS-OXCROPS] section 2.2.3.9). </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R4003004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1.13</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagSerializedReplidGuidMap Property] The binary property, if returned, is made up of a combination of 18-byte pairs where each pair consists of a 2-byte REPLID followed by a 16-byte REPLGUID. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R4003005</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1.13</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagSerializedReplidGuidMap Property] The value when returned from the server contains as much of the mapping that can be returned, but not necessarily the entire mapping.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R4003006</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1.13</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagSerializedReplidGuidMap Property] Any residual data less than 18 bytes in size can be ignored.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R4003007</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1.13</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagSerializedReplidGuidMap Property] For additional information on REPLID and REPLGUID mapping, please see section 3.2.5.8 and section 3.2.5.9.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R4004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1.14</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagSortLocaleId Property] Type of PidTagSortLocaleId: PtypInteger32 ([MS-OXCDATA] section 2.11.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -3773,8 +3820,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R4005</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.1.1.13</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSortLocaleId Property] The PidTagSortLocaleId property ([MS-OXPROPS] section 2.1011) establishes the language locale for sorting the contents of tables. For more details, see [MS-LCID].</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.1.1.14</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagSortLocaleId Property] The PidTagSortLocaleId property ([MS-OXPROPS] section 2.1015) establishes the language locale for sorting the contents of tables. For more details, see [MS-LCID].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3782,7 +3829,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R4006</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.1.1.13</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.1.1.14</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagSortLocaleId Property] For additional information about this property, see section 3.2.5.1.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -3791,7 +3838,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3067</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.1.1.14</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.1.1.15</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagCodePageId Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -3800,8 +3847,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R667</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.1.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagCodePageId Property] The PidTagCodePageId property ([MS-OXPROPS] section 2.627) establishes the client code page for Unicode to double-byte character set (DBCS) string conversion. For details, see [MS-UCODEREF].</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.1.1.15</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagCodePageId Property] The PidTagCodePageId property ([MS-OXPROPS] section 2.630) establishes the client code page for Unicode to double-byte character set (DBCS) string conversion. For details, see [MS-UCODEREF].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3810,7 +3857,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3068</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Read/Write Properties] The read/write properties that are available on a private mailbox logon are specified in section 2.2.2.1.2.1 through section 2.2.2.1.1.13.</ns1:Description>
+		<ns1:Description>[In Read/Write Properties] The read/write properties that are available on a private mailbox logon are specified in section 2.2.2.1.2.1 through section 2.2.2.1.1.14.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3819,7 +3866,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R6280</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Read/Write Properties] The PidTagComment property is read/write. &lt;13&gt;</ns1:Description>
+		<ns1:Description>[In Read/Write Properties] The PidTagComment property is read/write. &lt;14&gt;</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3068:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -3840,7 +3887,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3068002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Read/Write Properties] The PidTagDeleteAfterSubmit property is writable.&lt;14&gt;</ns1:Description>
+		<ns1:Description>[In Read/Write Properties] The PidTagDeleteAfterSubmit property is writable.&lt;15&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3850,7 +3897,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3068003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Read/Write Properties] The PidTagDisplayName property is read/write.&lt;15&gt;</ns1:Description>
+		<ns1:Description>[In Read/Write Properties] The PidTagDisplayName property is read/write.&lt;16&gt;</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3068:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -3910,7 +3957,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R650</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.628) contains a mailbox comment.</ns1:Description>
+		<ns1:Description>[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.631) contains a mailbox comment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3928,7 +3975,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R653</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDeleteAfterSubmit Property] The PidTagDeleteAfterSubmit property ([MS-OXPROPS] section 2.659) indicates whether a transport deletes all submitted mail after transmission.</ns1:Description>
+		<ns1:Description>[In PidTagDeleteAfterSubmit Property] The PidTagDeleteAfterSubmit property ([MS-OXPROPS] section 2.662) indicates whether a transport deletes all submitted mail after transmission.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3982,7 +4029,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R661</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagOutOfOfficeState Property] The PidTagOutOfOfficeState property ([MS-OXPROPS] section 2.846) indicates whether the user is Out of Office (OOF).</ns1:Description>
+		<ns1:Description>[In PidTagOutOfOfficeState Property] The PidTagOutOfOfficeState property ([MS-OXPROPS] section 2.849) indicates whether the user is Out of Office (OOF).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4027,7 +4074,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R665</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSentMailSvrEID Property] The PidTagSentMailSvrEID property ([MS-OXPROPS] section 2.1002) contains the structure identifying the Sent Items folder.</ns1:Description>
+		<ns1:Description>[In PidTagSentMailSvrEID Property] The PidTagSentMailSvrEID property ([MS-OXPROPS] section 2.1005) contains the structure identifying the Sent Items folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4102,7 +4149,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R673</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagUserEntryId Property] The PidTagUserEntryId property ([MS-OXPROPS] section 2.1043) contains the Address book EntryID of the user logged on to the public folder.</ns1:Description>
+		<ns1:Description>[In PidTagUserEntryId Property] The PidTagUserEntryId property ([MS-OXPROPS] section 2.1047) contains the Address book EntryID of the user logged on to the public folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4129,7 +4176,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R674</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAddressBookMessageId Property] The PidTagAddressBookMessageId property ([MS-OXPROPS] section 2.542) contains the short-term MID of the first message in the local site's offline address book public folder, if it exists and has a local replica.</ns1:Description>
+		<ns1:Description>[In PidTagAddressBookMessageId Property] The PidTagAddressBookMessageId property ([MS-OXPROPS] section 2.545) contains the short-term MID of the first message in the local site's offline address book public folder, if it exists and has a local replica.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4210,7 +4257,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R6871</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Logging on to a Store] When the user opens the client application, the client establishes a Session Context with the server by using the Connect request type&lt;16&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.1.</ns1:Description>
+		<ns1:Description>[In Logging on to a Store] When the user opens the client application, the client establishes a Session Context with the server by using the Connect request type &lt;17&gt;, as specified in [MS-OXCMAPIHTTP] section 2.2.4.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5137,7 +5184,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R781</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Initialization] These steps [to ensure that the server does not re-issue a REPLGUID that was issued prior to the restoration] are implementation-specific. &lt;17&gt;</ns1:Description>
+		<ns1:Description>[In Initialization] These steps [to ensure that the server does not re-issue a REPLGUID that was issued prior to the restoration] are implementation-specific. &lt;18&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5173,11 +5220,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R7841</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] RopLogon requires that the client has successfully connected to the server by establishing a Session Context (using the Connect request type &lt;18&gt; ([MS-OXCMAPIHTTP] section 2.2.4.1)).</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] RopLogon requires that the client has successfully connected to the server by establishing a Session Context (using the Connect request type &lt;19&gt; ([MS-OXCMAPIHTTP] section 2.2.4.1)).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCSTOR_R140001</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R785</ns1:REQ_ID>
@@ -5236,7 +5284,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R59747</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[in Private Mailbox Logon] If the database indicated by the user's configured mailbox database is currently offline, the operation SHOULD &lt;19&gt; fail with a ReturnValue of ecLoginFailure.</ns1:Description>
+		<ns1:Description>[in Private Mailbox Logon] If the database indicated by the user's configured mailbox database is currently offline, the operation SHOULD &lt;20&gt; fail with a ReturnValue of ecLoginFailure.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5255,12 +5303,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R794</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Private Mailbox Logon] If the client attempts to log on to a mailbox that is disabled, the server SHOULD&lt;20&gt; fail the operation with ecMailboxDisabled, as specified in section 3.2.5.1.3; ecLoginFailure; or ecUnknownUser in the ReturnValue field.</ns1:Description>
+		<ns1:Description>[In Private Mailbox Logon] If the client attempts to log on to a mailbox that is disabled, the server SHOULD&lt;21&gt; fail the operation with ecUnknownUser in the ReturnValue field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCSTOR_R193, MS-OXCSTOR_R794001.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCSTOR_R193, MS-OXCSTOR_R1268001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R790</ns1:REQ_ID>
@@ -5293,21 +5341,21 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3102</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Private Mailbox Logon] If the client specified an invalid code page for a string or a Server object, the server SHOULD&lt;21&gt; fail the operation with ecUnknownCodePage, as specified in section 3.2.5.1.3, in the ReturnValue field.</ns1:Description>
+		<ns1:Description>[In Private Mailbox Logon] If the client specified an invalid code page for a string or a Server object, when establishing the connection to the server, the server SHOULD &lt;22&gt; fail the operation with ecUnknownCodePage, as specified in section 3.2.5.1.3, in the ReturnValue field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXCSTOR_R1329, MS-OXCSTOR_R3102001. </ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3103</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Private Mailbox Logon] If the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the server SHOULD &lt;22&gt; fail the operation with ecServerPaused, as specified in section 3.2.5.1.3, in the ReturnValue field.</ns1:Description>
+		<ns1:Description>[In Private Mailbox Logon] If the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the server MUST fail the operation with ecServerPaused, as specified in section 3.2.5.1.3, in the ReturnValue field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCSTOR_R3103001, MS-OXCSTOR_R3103002.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1202</ns1:REQ_ID>
@@ -5354,7 +5402,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCSTOR_R3145, MS-OXCSTOR_R1046001.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCSTOR_R3145, MS-OXCSTOR_R1046001, MS-OXCSTOR_R1046002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R802</ns1:REQ_ID>
@@ -5811,7 +5859,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R176</ns1:REQ_ID>
@@ -5820,7 +5868,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R177</ns1:REQ_ID>
@@ -6374,7 +6422,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R870</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Folder ID" column (PidTagFolderId property ([MS-OXPROPS] section 2.691)) - Contains the Folder ID, as specified in [MS-OXCDATA] section 2.2.1.1, of the Receive folder, which is the folder to which messages of the specified message class will be delivered.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Folder ID" column (PidTagFolderId property ([MS-OXPROPS] section 2.694)) - Contains the Folder ID, as specified in [MS-OXCDATA] section 2.2.1.1, of the Receive folder, which is the folder to which messages of the specified message class will be delivered.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6392,7 +6440,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R872</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Message Class" column (PidTagMessageClass property ([MS-OXPROPS] section 2.778)) - Contains a string that specifies the message class that is configured for the Receive folder.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Message Class" column (PidTagMessageClass property ([MS-OXPROPS] section 2.781)) - Contains a string that specifies the message class that is configured for the Receive folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6401,7 +6449,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R873</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Last-modification Time" column (PidTagLastModificationTime property ([MS-OXPROPS] section 2.755)) - Contains the current system-time, in UTC, when the entry was created or last modified.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Last-modification Time" column (PidTagLastModificationTime property ([MS-OXPROPS] section 2.758)) - Contains the current system-time, in UTC, when the entry was created or last modified.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7821,11 +7869,11 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1121</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopIdFromLongTermId ROP Request] The error code ecInvalidParam: The LongTermId field of the request contained zeros for either the replica GUID component. &lt;45&gt;</ns1:Description>
+		<ns1:Description>[In Receiving a RopIdFromLongTermId ROP Request] The error code ecInvalidParam: The LongTermId field of the request contained zeros for either the replica GUID component. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1122</ns1:REQ_ID>
@@ -8109,7 +8157,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3123</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.12.1</ns1:Doc_Sect>
-		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] If the user marks a message as read, the current value of that message's PidTagChangeNumber property ([MS-OXPROPS] section 2.623) is added to the change number set (CNSET).</ns1:Description>
+		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] If the user marks a message as read, the current value of that message's PidTagChangeNumber property ([MS-OXPROPS] section 2.626) is added to the change number set (CNSET).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8253,7 +8301,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1259</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.12.1</ns1:Doc_Sect>
-		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] If the value of the DataOffset field is less than zero, the server SHOULD&lt;46&gt; fail the operation with 0x80004005 (ecError) in the ReturnValue field.</ns1:Description>
+		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] If the value of the DataOffset field is less than zero, the server SHOULD&lt;45&gt; fail the operation with 0x80004005 (ecError) in the ReturnValue field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8317,7 +8365,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R992</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.12.1</ns1:Doc_Sect>
-		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value, which is determined by the implementation.&lt;47&gt;</ns1:Description>
+		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value, which is determined by the implementation.&lt;46&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8337,7 +8385,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R998</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.12.1</ns1:Doc_Sect>
-		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] If MaxDataSize &gt; [server's suitable maximum], then the server SHOULD adjust the value of MaxDataSize to the suitable maximum value. &lt;48&gt;</ns1:Description>
+		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] If MaxDataSize &gt; [server's suitable maximum], then the server SHOULD adjust the value of MaxDataSize to the suitable maximum value. &lt;47&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8707,11 +8755,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1021</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.13.1</ns1:Doc_Sect>
-		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] If the data is not properly formed, the ROP [RopWritePerUserInformation] SHOULD &lt;49&gt; fail with a ReturnValue of 0x000004ED.</ns1:Description>
+		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] If the data is not properly formed, the ROP [RopWritePerUserInformation] SHOULD &lt;48&gt; fail with a ReturnValue of 0x8004011B.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCSTOR_R1021001, MS-OXCSTOR_R1021002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1022</ns1:REQ_ID>
@@ -8725,7 +8774,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R596</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.13.1</ns1:Doc_Sect>
-		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] The following specific error codes [0x00000000, 0x80004005, 0x000004ED, 0x8004010F] apply to this ROP.</ns1:Description>
+		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] The following specific error codes [0x00000000, 0x80004005, 0x8004011B] apply to this ROP.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8788,20 +8837,20 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R602</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.13.1</ns1:Doc_Sect>
-		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] The error code ecFmtError: Its value is 0x000004ED.</ns1:Description>
+		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] The error code ecCorruptData: Its value is 0x8004011B.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R603</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.13.1</ns1:Doc_Sect>
-		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] The error code ecFmtError: The data cumulatively written could not be parsed as a proper serialized IDSET with REPLGUIDs, as specified in [MS-OXCFXICS] section 2.2.2.4.2.&lt;50&gt;</ns1:Description>
+		<ns1:Description>[In Behavior Common to Both Private Mailbox and Public Folder Logon] The error code ecCorruptData: The data cumulatively written could not be parsed as a proper serialized IDSET with REPLGUIDs, as specified in [MS-OXCFXICS] section 2.2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1023</ns1:REQ_ID>
@@ -8994,9 +9043,29 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R96001</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] if the flag NO_MAIL is set, the implementation take the full resposibility for transmission of submietted mails. (&lt;4&gt; Section 2.2.1.1.1:  Exchange 2003, Exchange 2007, and Exchange 2010 use the NO_MAIL flag as follows: If set, the client expects the server to take full responsibility for transmission of submitted mails. Exchamnge)</ns1:Description>
+		<ns1:Derived>MS-OXCSTOR_R96:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R96002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;4&gt; Section 2.2.1.1.1:  Exchange 2003, Exchange 2007, and Exchange 2010 use the NO_MAIL flag as follows: If this flag is not set, the client attempts to act as a transport agent to handle submitted mails.</ns1:Description>
+		<ns1:Derived>MS-OXCSTOR_R96:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1340</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;4&gt; Section 2.2.1.1.1: Office Outlook 2003 does not set this flag [USE_PER_MDB_REPLID_MAPPING].</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.1.1.1: Office Outlook 2003 does not set this flag [USE_PER_MDB_REPLID_MAPPING].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9005,7 +9074,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;4&gt; Section 2.2.1.1.1: Office Outlook 2007 uses this flag [USE_PER_MDB_REPLID_MAPPING] to control whether the server maintains one REPLID-to-REPLGUID mapping and one named property-to-property ID mapping for all logon sessions.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.1.1.1: Office Outlook 2007 uses this flag [USE_PER_MDB_REPLID_MAPPING] to control whether the server maintains one REPLID-to-REPLGUID mapping and one named property-to-property ID mapping for all logon sessions.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9014,7 +9083,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R102</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement SUPPORT_PROGRESS flag. ( &lt;5&gt; Section 2.2.1.1.1: Microsoft Exchange Server 2010 Service Pack 1 (SP1), Exchange 2013, Exchange 2016 implement this flag [SUPPORT_PROGRESS].)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement SUPPORT_PROGRESS flag. ( &lt;6&gt; Section 2.2.1.1.1: Microsoft Exchange Server 2010 Service Pack 1 (SP1), Exchange 2013, Exchange 2016 implement this flag [SUPPORT_PROGRESS].)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9024,7 +9093,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R10201</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.1.1.1: Microsoft Outlook 2010 Service Pack 1 (SP1), Outlook 2013, and Outlook 2016 implement this flag [SUPPORT_PROGRESS].</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;6&gt; Section 2.2.1.1.1: Microsoft Outlook 2010 Service Pack 1 (SP1), Outlook 2013, and Outlook 2016 implement this flag [SUPPORT_PROGRESS].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9033,7 +9102,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R693</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement SUPPORT_PROGRESS flag. (&lt;5&gt; Section 2.2.1.1.1: Exchange 2003, Exchange 2007, Exchange 2010 do not implement this flag [SUPPORT_PROGRESS].)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not implement SUPPORT_PROGRESS flag. (&lt;6&gt; Section 2.2.1.1.1: Exchange 2003, Exchange 2007, Exchange 2010 do not implement this flag [SUPPORT_PROGRESS].)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1059:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9043,7 +9112,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R69301</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.1.1.1: Office Outlook 2003, Office Outlook 2007, and Outlook 2010 do not implement this flag [SUPPORT_PROGRESS].</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;6&gt; Section 2.2.1.1.1: Office Outlook 2003, Office Outlook 2007, and Outlook 2010 do not implement this flag [SUPPORT_PROGRESS].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9052,7 +9121,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1266</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;6&gt; Section 2.2.1.1.1: Office Outlook 2003, Office Outlook 2007, and Outlook 2010 require passing 0x00 in the EssdnSize field for public folder logon and that the Essdn field be empty.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;7&gt; Section 2.2.1.1.1: Office Outlook 2003, Office Outlook 2007, and Outlook 2010 require passing 0x00 in the EssdnSize field for public folder logon and that the Essdn field be empty.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9061,7 +9130,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1266001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation requires passing 0x00 in the EssdnSize field for public folder logon and that the Essdn field be empty. (&lt;6&gt; Section 2.2.1.1.1: Exchange 2003, Exchange 2007, and Exchange 2010 require passing 0x00 in the EssdnSize field for public folder logon and that the Essdn field be empty.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation requires passing 0x00 in the EssdnSize field for public folder logon and that the Essdn field be empty. (&lt;7&gt; Section 2.2.1.1.1: Exchange 2003, Exchange 2007, and Exchange 2010 require passing 0x00 in the EssdnSize field for public folder logon and that the Essdn field be empty.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R107:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9083,7 +9152,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R59781</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the mailbox currently has any active search folders, then the implementation sets this field [StoreState] to 0x01000000. (&lt;7&gt; Section 2.2.1.1.3: If the mailbox currently has any active search folders, then Exchange 2003 and Exchange 2007 set this field [StoreState] to 0x01000000.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the mailbox currently has any active search folders, then the implementation sets this field [StoreState] to 0x01000000. (&lt;8&gt; Section 2.2.1.1.3: If the mailbox currently has any active search folders, then Exchange 2003 and Exchange 2007 set this field [StoreState] to 0x01000000.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R141:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9105,7 +9174,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R155</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index. (&lt;8&gt; Section 2.2.1.1.4: Exchange 2013 and Exchange 2016 returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index. (&lt;9&gt; Section 2.2.1.1.4: Exchange 2013 and Exchange 2016 returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R59793:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9127,7 +9196,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1332</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not set the PerUserGuid field to an empty GUID. (&lt;9&gt; Section 2.2.1.1.4: Exchange 2007 does not set the PerUserGuid field to an empty GUID.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not set the PerUserGuid field to an empty GUID. (&lt;10&gt; Section 2.2.1.1.4: Exchange 2007 does not set the PerUserGuid field to an empty GUID.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R162:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9149,7 +9218,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3125</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not implement the RopGetStoreState remote operation (ROP). (&lt;10&gt; Section 2.2.1.5: Exchange 2010  Exchange 2013 and Exchange 2016 does not implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not implement the RopGetStoreState remote operation (ROP). (&lt;11&gt; Section 2.2.1.5: Exchange 2010  Exchange 2013 and Exchange 2016 does not implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R327:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9160,7 +9229,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3126</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does implement the RopGetStoreState remote operation (ROP). (&lt;10&gt; Section 2.2.1.5: Exchange 2003 and Exchange 2007 does implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does implement the RopGetStoreState remote operation (ROP). (&lt;11&gt; Section 2.2.1.5: Exchange 2003 and Exchange 2007 does implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R327:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9171,7 +9240,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3127</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation successfully completes a RopGetOwningServers ROP when issued against a private mailbox logon, but the results are undefined. (&lt;11&gt; Section 2.2.1.6.1: Exchange 2003, Exchange 2007, and Exchange 2010 successfully complete a RopGetOwningServers ROP ([MS-OXCROPS] section 2.2.3.6) when issued against a private mailbox logon, but the results are undefined.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation successfully completes a RopGetOwningServers ROP when issued against a private mailbox logon, but the results are undefined. (&lt;12&gt; Section 2.2.1.6.1: Exchange 2003, Exchange 2007, and Exchange 2010 successfully complete a RopGetOwningServers ROP ([MS-OXCROPS] section 2.2.3.6) when issued against a private mailbox logon, but the results are undefined.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R349:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9201,7 +9270,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R6280001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-only. &lt;13&gt; Section 2.2.2.1.2.1:  The PidTagComment property is read-only in Microsoft Exchange Server 2013 Service Pack 1 (SP1).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-only. &lt;14&gt; Section 2.2.2.1.2.1:  The PidTagComment property is read-only in Microsoft Exchange Server 2013 Service Pack 1 (SP1).</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R6280:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9223,7 +9292,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3128</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns 0x80070005 (ecAccessDenied) when the client attempts to set PidTagDeleteAfterSubmit property by using the RopSetProperties ROP. (&lt;14&gt; Section 2.2.2.1.2.2: In Exchange 2013 and Exchange 2016 the server returns 0x80070005 (ecAccessDenied) when the client attempts to set this property [PidTagDeleteAfterSubmit] by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns 0x80070005 (ecAccessDenied) when the client attempts to set PidTagDeleteAfterSubmit property by using the RopSetProperties ROP. (&lt;15&gt; Section 2.2.2.1.2.2: In Exchange 2013 and Exchange 2016 the server returns 0x80070005 (ecAccessDenied) when the client attempts to set this property [PidTagDeleteAfterSubmit] by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3068002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9245,7 +9314,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R306800301</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-only. &lt;15&gt; Section 2.2.2.1.2.3:  In Exchange 2013 SP1  this property is read-only.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-only. &lt;16&gt; Section 2.2.2.1.2.3:  In Exchange 2013 SP1  this property is read-only.</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3068003:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9267,7 +9336,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R140001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Connect request type. (&lt;18&gt; Section 3.1.4.1:  Exchange 2003, Exchange 2007, Exchange 2010, the initial release version of Exchange 2013, Office Outlook 2003, Office Outlook 2007, Outlook 2010, and the initial release version of Outlook 2013 do not support the Connect request type.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Connect request type. (&lt;19&gt; Section 3.1.4.1:  Exchange 2003, Exchange 2007, Exchange 2010, the initial release version of Exchange 2013, Office Outlook 2003, Office Outlook 2007, Outlook 2010, and the initial release version of Outlook 2013 do not support the Connect request type.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R7841:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9288,7 +9357,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3129</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] When a database is restored from backup, the implementation assigns a new randomly-generated REPLGUID to the database and then adds this new REPLGUID, along with a new REPLID, to the REPLID and REPLGUID to-and-from mapping table. (&lt;17&gt; Section 3.2.3: When a database is restored from backup, Exchange 2003 and Exchange 2007 assign a new randomly-generated REPLGUID to the database and then add this new REPLGUID, along with a new REPLID, to the REPLID and REPLGUID to-and-from mapping table.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] When a database is restored from backup, the implementation assigns a new randomly-generated REPLGUID to the database and then adds this new REPLGUID, along with a new REPLID, to the REPLID and REPLGUID to-and-from mapping table. (&lt;18&gt; Section 3.2.3: When a database is restored from backup, Exchange 2003 and Exchange 2007 assign a new randomly-generated REPLGUID to the database and then add this new REPLGUID, along with a new REPLID, to the REPLID and REPLGUID to-and-from mapping table.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R781:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9308,7 +9377,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R59747002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  If the database indicated by the user's configured mailbox database is currently offline, the implementation does return RPC fault 0x6ba. &lt;19&gt; Section 3.2.5.1.1:  Exchange 2010 and Exchange 2013 return RPC fault 0x6ba.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  If the database indicated by the user's configured mailbox database is currently offline, the implementation does return RPC fault 0x6ba. &lt;20&gt; Section 3.2.5.1.1:  Exchange 2010 and Exchange 2013 return RPC fault 0x6ba.</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R59747:I, MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9318,7 +9387,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1268</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns ecMailboxDisabled [if the client attempts to log on to a mailbox that is disabled]. (&lt;20&gt; Section 3.2.5.1.1: Exchange 2003 returns ecMailboxDisabled.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns ecMailboxDisabled [if the client attempts to log on to a mailbox that is disabled]. (&lt;21&gt; Section 3.2.5.1.1: Exchange 2003 returns ecMailboxDisabled.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R794:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9328,7 +9397,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1268001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns ecLoginFailure [if the client attempts to log on to a mailbox that is disabled]. (&lt;20&gt; Section 3.2.5.1.1: Exchange 2007 returns ecLoginFailure, then, after 5 minutes, the server returns ecUnknownUser.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns ecLoginFailure [if the client attempts to log on to a mailbox that is disabled]. (&lt;21&gt; Section 3.2.5.1.1: Exchange 2007 returns ecLoginFailure, then, after 5 minutes, the server returns ecUnknownUser.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R794:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9339,65 +9408,45 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R193</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns ecUnknownUser [if the client attempts to log on to a mailbox that is disabled]. (&lt;20&gt; Section 3.2.5.1.1: Exchange 2010, Exchange 2013 and Exchange 2016 return ecUnknownUser.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns ecUnknownUser [if the client attempts to log on to a mailbox that is disabled]. (&lt;21&gt; Section 3.2.5.1.1: Exchange 2010, Exchange 2013 and Exchange 2016 return ecUnknownUser.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R794:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R794001</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does fail with RPC fault (0x000006BA). &lt;20&gt; Section 3.2.5.1.1: Microsoft Exchange Server 2010 Service Pack 3 (SP3) fails with RPC fault (0x000006BA). </ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R794:i,MS-OXCSTOR_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1329</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not return ecUnknownCodePage [if the client specified an invalid code page for a string or a Server object]. (&lt;21&gt; Section 3.2.5.1.1: Exchange 2010 does not return ecUnknownCodePage.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not return ecUnknownCodePage [if the client specified an invalid code page for a string or a Server object]. (&lt;22&gt; Section 3.2.5.1.1: Exchange 2010 does not return ecUnknownCodePage.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3102:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3102001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client specified an invalid code page for a string or a Server object [In Private Mailbox Logon], the implementation does fail the operation with ecUnknownCodePage in the ReturnValue field. (Exchange 2003, Exchange 2007 and Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client specified an invalid code page for a string or a Server object [In Private Mailbox Logon], the implementation does fail the operation with ecUnknownCodePage in the ReturnValue field. (Exchange 2007, Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCSTOR_R3102:i,MS-OXCSTOR_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R3102002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client specified an invalid code page for a string or a Server object [In Private Mailbox Logon], the implementation does fail the operation with ecUnknownCodePage in the ReturnValue field. (Exchange 2003 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3102:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R3103001</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does Success the operation with ecServerPaused in the ReturnValue field. &lt;22&gt; Section 3.2.5.1.1:  Exchange 2010 and Exchange 2013 return Success with ecServerPaused.</ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R3103:I, MS-OXCSTOR_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R3103002</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does fail the operation with ecServerPaused in the ReturnValue field. (Exchange 2007 and Exchange 2016 follow this behavior).</ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R3103:I, MS-OXCSTOR_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R694</ns1:REQ_ID>
@@ -9471,12 +9520,24 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1046001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the logon is the first on the RPC session, or if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the implementation does fail with an RPC fault. &lt;27&gt; Section 3.2.5.1.1:  In Exchange 2013, if the logon is the first on the RPC session, or if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the server fails with an RPC fault.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the logon is the first on the RPC session, then the implementation does fail with an RPC fault. (&lt;27&gt; Section 3.2.5.1.1: In Exchange 2013 and Exchange 2016, if the logon is the first on the RPC session, then the server fails with an RPC fault; if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the server returns ecInvalidParameter.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1046:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R1046002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the implementation does return ecInvalidParameter. (&lt;27&gt; Section 3.2.5.1.1: In Exchange 2013 and Exchange 2016, if the logon is the first on the RPC session, then the server fails with an RPC fault; if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the server returns ecInvalidParameter.)</ns1:Description>
+		<ns1:Derived>MS-OXCSTOR_R1046:i,MS-OXCSTOR_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3145</ns1:REQ_ID>
@@ -9618,6 +9679,7 @@
 		<ns1:REQ_ID>MS-OXCSTOR_R1801</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] &lt;34&gt; Section 3.2.5.1.2: Office Outlook 2003, Office Outlook 2007, and Outlook 2010 ignore the USE_AUTODISCOVER_FOR_PUBLIC_FOLDER_CONFIGURATION flag.</ns1:Description>
+		<ns1:Derived>MS-OXCSTOR_R8320001:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9759,7 +9821,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R94801001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does return 0 in the ReturnValue field.  &lt;44&gt; Section 3.2.5.9:  Exchange 2010 returns 0 for this condition.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does return ecNone in the ReturnValue field.  &lt;44&gt; Section 3.2.5.9:  Exchange 2007 returns ecNone if the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component..</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R94801:I, MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9770,7 +9832,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R94801002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does fail the operation with 0x80070057 (ecInvalidParam) in the ReturnValue field.  (Exchange 2007, Exchange 2013 and above follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does fail the operation with 0x80070057 (ecInvalidParam) in the ReturnValue field.  (Exchange 2010, Exchange 2013 and above follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R94801:I, MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9779,31 +9841,9 @@
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R1121001</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The error code ecInvalidParam [0x80070057]: The LongTermId field of the request contained zeros for either the replica GUID component. (Exchange 2007, Exchange 2013 and above follow this behavior)</ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R1121:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-OXCSTOR_R94801002.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R1121002</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does return 0. &lt;45&gt; Section 3.2.5.9:  Exchange 2010 returns 0 for this condition. </ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R1121:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-OXCSTOR_R94801001.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1007</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does fail the operation with 0x000004B6 (ecRpcFormat) in the ReturnValue field, if the value of the DataOffset field is less than zero. (&lt;46&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, and Exchange 2010 fail the operation with 0x000004B6 (ecRpcFormat).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does fail the operation with 0x000004B6 (ecRpcFormat) in the ReturnValue field, if the value of the DataOffset field is less than zero. (&lt;45&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, and Exchange 2010 fail the operation with 0x000004B6 (ecRpcFormat).)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1259:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9825,7 +9865,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1356</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). &lt;47&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 use 4096 for the default value.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). &lt;46&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 use 4096 for the default value.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R992:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9847,7 +9887,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R999</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation's maximum value of MaxDataSize is 4096. (If MaxDataSize &gt; [server's suitable maximum (4096)], then Implementation does adjust the value of MaxDataSize to the suitable maximum value (4096) in Microsoft Exchanges. &lt;48&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 use 4096 for the maximum value.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation's maximum value of MaxDataSize is 4096. (If MaxDataSize &gt; [server's suitable maximum (4096)], then Implementation does adjust the value of MaxDataSize to the suitable maximum value (4096) in Microsoft Exchanges. &lt;47&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 use 4096 for the maximum value.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R998:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9858,52 +9898,24 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1021001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x000004ED.(Exchange 2007 and Exchange 2016 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x000004ED. &lt;48&gt; Section 3.2.5.13.1:  Exchange 2007 and Exchange 2010 fail the operation with 0x000004ED (ecFmtError) if the data is not properly formed. ((Exchange 2007 and Exchange 2010 follow this behavior.))</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1021:I, MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1021002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x80070057. &lt;49&gt; Section 3.2.5.13.1:  Exchange 2010 returns 0x80070057.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x8004011B.(Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1021:I, MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R1021003</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x00000000. &lt;49&gt; Section 3.2.5.13.1: Exchange 2013  returns 0x00000000.</ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R1021:I, MS-OXCSTOR_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R603001</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does fail with "0x000004ED" when the client sends a RopWritePerUserInformation ROP request with invalid value set in Data field. &lt;50&gt; Section 3.2.5.13.1:  Returned in Exchange 2007 only.</ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R603:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCSTOR_R603002</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not fail with "0x000004ED" when the client sends a RopWritePerUserInformation ROP request with invalid value set in Data field. (Exchange 2010 and above follow this behavior).</ns1:Description>
-		<ns1:Derived>MS-OXCSTOR_R603:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R884</ns1:REQ_ID>
