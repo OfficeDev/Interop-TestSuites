@@ -117,7 +117,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     logonResponse1.ReturnValue,
                     155,
-                    @"[In Appendix A: Product Behavior] The implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index. (<8> Section 2.2.1.1.4: Exchange 2013 and Exchange 2016 returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index.)");
+                    @"[In Appendix A: Product Behavior] The implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index. (<9> Section 2.2.1.1.4: Exchange 2013 and Exchange 2016 returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index.)");
             }
 
             // Add the debug information
@@ -140,7 +140,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     logonResponse1.ReturnValue,
                     1266001,
-                    @"[In Appendix A: Product Behavior] The implementation requires passing 0x00 in the EssdnSize field for public folder logon and that the Essdn field be empty. (<6> Section 2.2.1.1.1: Exchange 2003, Exchange 2007, and Exchange 2010 require passing 0x00 in the EssdnSize field for public folder logon and that the Essdn field be empty.)");
+                    @"[In Appendix A: Product Behavior] The implementation requires passing 0x00 in the EssdnSize field for public folder logon and that the Essdn field be empty. (<7> Section 2.2.1.1.1: Exchange 2003, Exchange 2007, and Exchange 2010 require passing 0x00 in the EssdnSize field for public folder logon and that the Essdn field be empty.)");
             }
 
             // Add the debug information

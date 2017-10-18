@@ -298,7 +298,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x000004B6,
                     this.readPerUserInformationResponse.ReturnValue,
                     1007,
-                    @"[In Appendix A: Product Behavior] The implementation does fail the operation with 0x000004B6 (ecRpcFormat) in the ReturnValue field, if the value of the DataOffset field is less than zero. (<46> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, and Exchange 2010 fail the operation with 0x000004B6 (ecRpcFormat).)");
+                    @"[In Appendix A: Product Behavior] The implementation does fail the operation with 0x000004B6 (ecRpcFormat) in the ReturnValue field, if the value of the DataOffset field is less than zero. (<45> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, and Exchange 2010 fail the operation with 0x000004B6 (ecRpcFormat).)");
             }
             #endregion
             #endregion
@@ -1151,7 +1151,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x000004B6,
                     this.readPerUserInformationResponse.ReturnValue,
                     1007,
-                    @"[In Appendix A: Product Behavior] The implementation does fail the operation with 0x000004B6 (ecRpcFormat) in the ReturnValue field, if the value of the DataOffset field is less than zero. (<46> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, and Exchange 2010 fail the operation with 0x000004B6 (ecRpcFormat).)");
+                    @"[In Appendix A: Product Behavior] The implementation does fail the operation with 0x000004B6 (ecRpcFormat) in the ReturnValue field, if the value of the DataOffset field is less than zero. (<45> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, and Exchange 2010 fail the operation with 0x000004B6 (ecRpcFormat).)");
             }
             #endregion
             #endregion
@@ -1516,7 +1516,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     maxDataSize,
                     this.readPerUserInformationResponse.DataSize,
                     999,
-                    @"[In Appendix A: Product Behavior] Implementation's maximum value of MaxDataSize is 4096. (If MaxDataSize > [server's suitable maximum (4096)], then Implementation does adjust the value of MaxDataSize to the suitable maximum value (4096) in Microsoft Exchanges. <48> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 use 4096 for the maximum value.)");
+                    @"[In Appendix A: Product Behavior] Implementation's maximum value of MaxDataSize is 4096. (If MaxDataSize > [server's suitable maximum (4096)], then Implementation does adjust the value of MaxDataSize to the suitable maximum value (4096) in Microsoft Exchanges. <47> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 use 4096 for the maximum value.)");
             }
             #endregion
 
@@ -1620,7 +1620,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     defaultDataSize,
                     this.readPerUserInformationResponse.DataSize,
                     1356,
-                    @"[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). <47> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 use 4096 for the default value.)");
+                    @"[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). <46> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 use 4096 for the default value.)");
             }
             #endregion
 

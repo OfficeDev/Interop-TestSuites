@@ -35,10 +35,6 @@
     <Property name="R3145Enabled" value="true"/>
     <!-- Set R790Enabled to true to verify that for RopLogon ROP if the user's configured mailbox is not hosted by this server, fail the ROP with a ReturnValue of ecWrongServer. Set R790Enabled to false to disable this requirement.-->
     <Property name="R790Enabled" value="false"/>
-    <!-- Set R3103001Enabled to true to verify that for RopLogon ROP if the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does Success the operation with ecServerPaused in the ReturnValue field. Set R3103001Enabled to false to disable this requirement.-->
-    <Property name="R3103001Enabled" value="true"/>
-    <!-- Set R3103002Enabled to true to verify that for RopLogon ROP if the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does fail the operation with ecServerPaused in the ReturnValue field. Set R3103002Enabled to false to disable this requirement.-->
-    <Property name="R3103002Enabled" value="false"/>
     <!-- Set R1410001Enabled to true to verify that for RopLogon ROP implementation set this field [StoreState] to 0x00000000 if the mailbox currently has any active search folders. Set R1410001Enabled to false to disable this requirement.-->
     <Property name="R1410001Enabled" value="true"/>
     <!-- Set R59781Enabled to true to verify that for RopLogon ROP implementation set this field [StoreState] to 0x01000000 if the mailbox currently has any active search folders. Set R59781Enabled to false to disable this requirement.-->
