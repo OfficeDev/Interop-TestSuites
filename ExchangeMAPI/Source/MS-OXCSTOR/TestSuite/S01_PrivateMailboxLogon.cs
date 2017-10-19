@@ -3085,13 +3085,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     returnValue,
                     6280002,
                     @"[In Appendix A: Product Behavior] Implementation don't return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Exchange 2007 and Exchange 2010 follow this behavior).");
-
-                Site.CaptureRequirementIfAreEqual<string>(
-                    tagCommentValue,
-                    tagCurrentCommentValue,
-                    6280002,
-                    @"[In Appendix A: Product Behavior] Implementation don't return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Exchange 2007 and Exchange 2010 follow this behavior).");
-
+                
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R650");
 
@@ -3227,29 +3221,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             uint responseDisplayName;
             this.TryGetFlagLogonProperty(propertTagDisplayName, out responseDisplayName);
 
-            if (Common.IsRequirementEnabled(306800301, this.Site))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R306800301");
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3071");
 
-                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R306800301
-                Site.CaptureRequirementIfAreEqual<uint>(
-                    0,
-                    responseDisplayName,
-                    306800301,
-                    @"[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 follow this behavior)");
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3071");
-
-                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3071
-                // The value responseDisplayName indicates the ROP RopGetPropertiesSpecific is implemented successfully.
-                Site.CaptureRequirementIfAreEqual<uint>(
-                    0,
-                    responseDisplayName,
-                    3071,
-                    @"[In PidTagDisplayName Property] Type: PtypString ([MS-OXCDATA] section 2.11.1)");
-            }
+            // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3071
+            // The value responseDisplayName indicates the ROP RopGetPropertiesSpecific is implemented successfully.
+            Site.CaptureRequirementIfAreEqual<uint>(
+                0,
+                responseDisplayName,
+                3071,
+                @"[In PidTagDisplayName Property] Type: PtypString ([MS-OXCDATA] section 2.11.1)");
             #endregion
 
             #region RopSetProperties ROP to write a writable property PidTagDisplayName
@@ -3277,18 +3258,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R306800302");
 
                 // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R306800302
-                // The value of responseDisplayName is 0 indicates the ROPGetPropertiesSpecific ROP is implemented successfully.
-                // When the value of strSetDisplayName is the same as newDisplayName, it indicates that the ROPSetProperties ROP is implemented successfully.
-                // So the MS-OXCSTOR_R3068003 is verified.
                 Site.CaptureRequirementIfAreNotEqual<uint>(0x80070005,
                     retValue,
                     306800302,
                     @"[In Appendix A: Product Behavior] Implementation does not return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Exchange 2007, Exchange 2010 follow this behavior)");
 
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3068003");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3068003
+                // When the value of strSetDisplayName is the same as newDisplayName, it indicates that the ROPSetProperties ROP is implemented successfully.
                 Site.CaptureRequirementIfIsTrue(
                     newDisplayName.Equals(strSetDisplayName),
-                    306800302,
-                    @"[In Appendix A: Product Behavior] Implementation does not return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Exchange 2007, Exchange 2010 follow this behavior)");
+                    3068003,
+                    @"[In Read/Write Properties] The PidTagDisplayName property is read/write.<16>");
             }
             #endregion
 
