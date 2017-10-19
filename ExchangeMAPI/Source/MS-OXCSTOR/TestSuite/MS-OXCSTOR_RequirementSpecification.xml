@@ -9270,7 +9270,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R6280001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-only. &lt;14&gt; Section 2.2.2.1.2.1:  The PidTagComment property is read-only in Microsoft Exchange Server 2013 Service Pack 1 (SP1).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-only. &lt;14&gt; Section 2.2.2.1.2.1:  The PidTagComment property is read-only in Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016.</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R6280:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9281,7 +9281,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R6280002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-write. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-write. (Exchange 2007, Exchange 2010 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R6280:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9314,7 +9314,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R306800301</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-only. &lt;16&gt; Section 2.2.2.1.2.3:  In Exchange 2013 SP1  this property is read-only.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-only. &lt;16&gt; Section 2.2.2.1.2.3:  In Exchange 2013 SP1 and Exchange 2016 this property is read-only.</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3068003:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9325,7 +9325,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R306800302</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-write. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-write. (Exchange 2007, Exchange 2010 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3068003:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

@@ -3032,27 +3032,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             taggedTagComment.PropertyTag = propertyTagComment;
             string tagCommentValue = "PidTagCommentSample";
             taggedTagComment.Value = Encoding.Unicode.GetBytes(tagCommentValue + "\0");
-            this.TrySetLogonProperty(taggedTagComment);
-
-            byte[] valueTagComment;
-            uint responseFlagForGetVauleTagComment;
-            string tagCurrentCommentValue;
-            this.GetPropertyValue(propertyTagComment, out responseFlagForGetVauleTagComment, out valueTagComment);
-
-            // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
-            if (0 == responseFlagForGetVauleTagComment)
-            {
-                tagCurrentCommentValue = System.Text.Encoding.Unicode.GetString(valueTagComment);
-                int lastIndex = tagCurrentCommentValue.Length - 1;
-                if (tagCurrentCommentValue[lastIndex] == '\0')
-                {
-                    tagCurrentCommentValue = tagCurrentCommentValue.Remove(lastIndex);
-                }
-            }
-            else
-            {
-                tagCurrentCommentValue = string.Empty;
-            }
+            uint returnValue = this.TrySetLogonProperty(taggedTagComment);
 
             #endregion
 
@@ -3066,14 +3046,34 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R6280001
                 // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
                 Site.CaptureRequirementIfAreEqual<uint>(
-                    0,
-                    responseFlagForGetVauleTagComment,
+                    0x80070005,
+                    returnValue,
                     6280001,
-                    @"[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-only. <14> Section 2.2.2.1.2.1:  The PidTagComment property is read-only in Microsoft Exchange Server 2013 Service Pack 1 (SP1).");
+                    @"[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-only. <13> Section 2.2.2.1.2.1:  The PidTagComment property is read-only in Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016.");
             }
 
             if (Common.IsRequirementEnabled(6280002, this.Site))
             {
+                byte[] valueTagComment;
+                uint responseFlagForGetVauleTagComment;
+                string tagCurrentCommentValue;
+                this.GetPropertyValue(propertyTagComment, out responseFlagForGetVauleTagComment, out valueTagComment);
+
+                // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
+                if (0 == responseFlagForGetVauleTagComment)
+                {
+                    tagCurrentCommentValue = System.Text.Encoding.Unicode.GetString(valueTagComment);
+                    int lastIndex = tagCurrentCommentValue.Length - 1;
+                    if (tagCurrentCommentValue[lastIndex] == '\0')
+                    {
+                        tagCurrentCommentValue = tagCurrentCommentValue.Remove(lastIndex);
+                    }
+                }
+                else
+                {
+                    tagCurrentCommentValue = string.Empty;
+                }
+
                 // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
                 Site.Assert.AreEqual<uint>(0, responseFlagForGetVauleTagComment, "Read property PidTagComment with RopGetPropertiesSpecific should be successful.");
 
@@ -3085,7 +3085,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     tagCommentValue,
                     tagCurrentCommentValue,
                     6280002,
-                    @"[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-write. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior).");
+                    @"[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-write. (Exchange 2007, Exchange 2010 follow this behavior).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R650");
@@ -3095,7 +3095,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     tagCommentValue,
                     tagCurrentCommentValue,
                     650,
-                    @"[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.631) contains a mailbox comment.");
+                    @"[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.628) contains a mailbox comment.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3069");
@@ -3232,7 +3232,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     responseDisplayName,
                     306800301,
-                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-only. <16> Section 2.2.2.1.2.3:  In Exchange 2013 SP1  this property is read-only.");
+                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-only. <16> Section 2.2.2.1.2.3:  In Exchange 2013 SP1 and Exchange 2016 this property is read-only.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3071");
@@ -3251,11 +3251,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             taggedDisplayName.PropertyTag = propertTagDisplayName;
             string strSetDisplayName = "MailboxDisplayName\0";
             taggedDisplayName.Value = Encoding.Unicode.GetBytes(strSetDisplayName);
-            this.TrySetLogonProperty(taggedDisplayName);
-            string newDisplayName = Encoding.Unicode.GetString(this.TryGetLogonPropertyValue(propertTagDisplayName));
+            uint retValue = this.TrySetLogonProperty(taggedDisplayName);
+
+            if (Common.IsRequirementEnabled(306800301, this.Site))
+            {
+                Site.CaptureRequirementIfAreEqual<uint>(0x80070005,
+                    retValue,
+                    306800301,
+                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-only. <16> Section 2.2.2.1.2.3:  In Exchange 2013 SP1 and Exchange 2016 this property is read-only.");
+            }
 
             if (Common.IsRequirementEnabled(306800302, this.Site))
             {
+                string newDisplayName = Encoding.Unicode.GetString(this.TryGetLogonPropertyValue(propertTagDisplayName));
+
                 // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
                 Site.Assert.AreEqual<uint>(0, responseDisplayName, "Read property PidTagComment with RopGetPropertiesSpecific should be successful.");
 
@@ -3269,7 +3278,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.CaptureRequirementIfIsTrue(
                     newDisplayName.Equals(strSetDisplayName),
                     306800302,
-                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-write. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior).");
+                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-write. (Exchange 2007, Exchange 2010 follow this behavior).");
             }
             #endregion
 
