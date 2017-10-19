@@ -3044,12 +3044,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R6280001");
 
                 // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R6280001
-                // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
                 Site.CaptureRequirementIfAreEqual<uint>(
                     0x80070005,
                     returnValue,
                     6280001,
-                    @"[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-only. <13> Section 2.2.2.1.2.1:  The PidTagComment property is read-only in Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016.");
+                    @"[In Appendix A: Product Behavior] Implementation return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 follow this behavior).");
             }
 
             if (Common.IsRequirementEnabled(6280002, this.Site))
@@ -3081,11 +3080,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R6280002");
 
                 // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R6280002
+                Site.CaptureRequirementIfAreNotEqual<uint>(
+                    0x80070005,
+                    returnValue,
+                    6280002,
+                    @"[In Appendix A: Product Behavior] Implementation don't return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Exchange 2007 and Exchange 2010 follow this behavior).");
+
                 Site.CaptureRequirementIfAreEqual<string>(
                     tagCommentValue,
                     tagCurrentCommentValue,
                     6280002,
-                    @"[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-write. (Exchange 2007, Exchange 2010 follow this behavior).");
+                    @"[In Appendix A: Product Behavior] Implementation don't return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Exchange 2007 and Exchange 2010 follow this behavior).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R650");
@@ -3232,7 +3237,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     responseDisplayName,
                     306800301,
-                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-only. <16> Section 2.2.2.1.2.3:  In Exchange 2013 SP1 and Exchange 2016 this property is read-only.");
+                    @"[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 follow this behavior)");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3071");
@@ -3258,7 +3263,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.CaptureRequirementIfAreEqual<uint>(0x80070005,
                     retValue,
                     306800301,
-                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-only. <16> Section 2.2.2.1.2.3:  In Exchange 2013 SP1 and Exchange 2016 this property is read-only.");
+                    @"[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 follow this behavior)");
             }
 
             if (Common.IsRequirementEnabled(306800302, this.Site))
@@ -3275,10 +3280,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 // The value of responseDisplayName is 0 indicates the ROPGetPropertiesSpecific ROP is implemented successfully.
                 // When the value of strSetDisplayName is the same as newDisplayName, it indicates that the ROPSetProperties ROP is implemented successfully.
                 // So the MS-OXCSTOR_R3068003 is verified.
+                Site.CaptureRequirementIfAreNotEqual<uint>(0x80070005,
+                    retValue,
+                    306800302,
+                    @"[In Appendix A: Product Behavior] Implementation does not return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Exchange 2007, Exchange 2010 follow this behavior)");
+
                 Site.CaptureRequirementIfIsTrue(
                     newDisplayName.Equals(strSetDisplayName),
                     306800302,
-                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-write. (Exchange 2007, Exchange 2010 follow this behavior).");
+                    @"[In Appendix A: Product Behavior] Implementation does not return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Exchange 2007, Exchange 2010 follow this behavior)");
             }
             #endregion
 

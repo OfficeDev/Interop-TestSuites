@@ -830,13 +830,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
 
             #region Step 11: Call WritePerUserInformationRequest to write invalid data with HasFinished field set to true.
 
-            byte[] data = new byte[5000];
-            this.writePerUserInformationRequest.FolderId = longTermIdForInValidData;
-            this.writePerUserInformationRequest.DataSize = (ushort)data.Length;
-            this.writePerUserInformationRequest.Data = data;
+            dataForWrite = validIdset.Serialize();
+            dataHasBeenWritten = new byte[dataForWrite.Length - 1];
+            Array.Copy(dataForWrite, dataHasBeenWritten, dataHasBeenWritten.Length);
+
+            this.writePerUserInformationRequest.FolderId = longTermIdForValidData;
+            this.writePerUserInformationRequest.Data = dataHasBeenWritten;
+            this.writePerUserInformationRequest.DataSize = (ushort)(dataHasBeenWritten.Length);
             this.writePerUserInformationRequest.ReplGuid = null;
-            this.writePerUserInformationRequest.HasFinished = 0x01;
             this.writePerUserInformationRequest.DataOffset = 0;
+            this.writePerUserInformationRequest.HasFinished = 0x01;
 
             this.oxcstorAdapter.DoRopCall(this.writePerUserInformationRequest, this.outObjHandle, ROPCommandType.RopWritePerUserInformation, out this.outputBuffer);
             this.writePerUserInformationResponse = (RopWritePerUserInformationResponse)this.outputBuffer.RopsList[0];
