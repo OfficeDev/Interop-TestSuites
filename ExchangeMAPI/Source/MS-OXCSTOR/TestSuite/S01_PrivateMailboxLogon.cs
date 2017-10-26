@@ -3553,7 +3553,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             Site.Assert.IsTrue(this.returnStatus, "Disconnection  is successful");
             #endregion Step6
 
-            if (this.secondSUTExistOrNot)
+            if (this.secondSUTExistOrNot && Common.IsRequirementEnabled(790, this.Site))
             {
                 #region Step7: Connect to server
                 this.returnStatus = this.oxcstorAdapter.ConnectEx(ConnectionType.PrivateMailboxServer);
@@ -3569,38 +3569,35 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 this.logonResponse = (RopLogonResponse)this.outputBuffer.RopsList[0];
 
                 #region Capture
-                if (Common.IsRequirementEnabled(790, this.Site))
-                {
-                    // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R182");
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R182");
 
-                    // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R182
-                    this.Site.CaptureRequirementIfAreEqual<uint>(
-                        0x00000478,
-                        this.logonResponse.ReturnValue,
-                        182,
-                        @"[In RopLogon ROP Common Return Codes] The value of return code ecWrongServer: 0x00000478.");
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R182
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                    0x00000478,
+                    this.logonResponse.ReturnValue,
+                    182,
+                    @"[In RopLogon ROP Common Return Codes] The value of return code ecWrongServer: 0x00000478.");
 
-                    // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R183");
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R183");
 
-                    // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R183
-                    this.Site.CaptureRequirementIfAreEqual<uint>(
-                        0x00000478,
-                        this.logonResponse.ReturnValue,
-                        183,
-                        @"[In RopLogon ROP Common Return Codes] The meaning of return code ecWrongServer: The requested message store for logon is not the user's home message store.");
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R183
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                    0x00000478,
+                    this.logonResponse.ReturnValue,
+                    183,
+                    @"[In RopLogon ROP Common Return Codes] The meaning of return code ecWrongServer: The requested message store for logon is not the user's home message store.");
 
-                    // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R790");
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R790");
 
-                    // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R790
-                    this.Site.CaptureRequirementIfAreEqual<uint>(
-                        0x00000478,
-                        this.logonResponse.ReturnValue,
-                        790,
-                        @"[In Private Mailbox Logon] If the user's configured mailbox is not hosted by this server, the server determines the name of the correct server hosting the user's mailbox and fail the ROP with a ReturnValue of ecWrongServer, as specified in section 3.2.5.1.3");
-                }
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R790
+                this.Site.CaptureRequirementIfAreEqual<uint>(
+                    0x00000478,
+                    this.logonResponse.ReturnValue,
+                    790,
+                    @"[In Private Mailbox Logon] If the user's configured mailbox is not hosted by this server, the server determines the name of the correct server hosting the user's mailbox and fail the ROP with a ReturnValue of ecWrongServer, as specified in section 3.2.5.1.3");
                 #endregion Capture
                 #endregion Step8
 
