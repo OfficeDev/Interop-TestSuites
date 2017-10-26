@@ -508,7 +508,7 @@ $SessionParams =
 }
 $Session = New-PSSession @SessionParams
 $publicFolder=Invoke-command -ScriptBlock {get-mailbox -publicfolder -server $args[0]}-ArgumentList $sutComputerName -Session $Session
-if（$sutVersion -eq "ExchangeServer2013"）
+if($sutVersion -eq "ExchangeServer2013")
 {
 $publicFolderMailboxName=$publicFolder[0].Name
 }
