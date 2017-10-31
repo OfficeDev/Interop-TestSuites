@@ -1555,12 +1555,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
 
             this.oxcstorAdapter.DoRopCall(this.writePerUserInformationRequest, this.outObjHandle, ROPCommandType.RopWritePerUserInformation, out this.outputBuffer);
             this.writePerUserInformationResponse = (RopWritePerUserInformationResponse)this.outputBuffer.RopsList[0];
-            Site.Assert.AreNotEqual<uint>(0,
+
+            //According to bug 100636, add a switch to enable and disable below verifications
+            if (Common.IsRequirementEnabled(1021001, this.Site) && Common.IsRequirementEnabled(10210010, this.Site))
+            {
+                Site.Assert.AreNotEqual<uint>(0,
                 this.writePerUserInformationResponse.ReturnValue,
                 "0 indicates the ROP succeeds, other value indicates error occurs.");
 
-            if (Common.IsRequirementEnabled(1021001, this.Site))
-            {
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021001");
 
@@ -1573,8 +1575,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     @"[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x000004ED. <48> Section 3.2.5.13.1:  Exchange 2007 and Exchange 2010 fail the operation with 0x000004ED (ecFmtError) if the data is not properly formed. ((Exchange 2007 and Exchange 2010 follow this behavior.))");
             }
 
-            if (Common.IsRequirementEnabled(1021002, this.Site))
+            //According to bug 100636, add a switch to enable and disable below verifications
+            if (Common.IsRequirementEnabled(1021002, this.Site) && Common.IsRequirementEnabled(10210010, this.Site))
             {
+                Site.Assert.AreNotEqual<uint>(0,
+                this.writePerUserInformationResponse.ReturnValue,
+                "0 indicates the ROP succeeds, other value indicates error occurs.");
+
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021002");
 

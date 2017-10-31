@@ -3634,7 +3634,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.Log.Add(LogEntryKind.Comment, "The client has made 6 attempts in a {0}-second period to log on to a mailbox that is not hosted on the server. return value: 0x{1:X}", elapsedSecond, this.logonResponse.ReturnValue);
 
                 // Call RopLogon ROP 6 times in 10 seconds
-                if (elapsedSecond < 10)
+                //According to bug 100637, add a switch to enable and disable below verifications
+                if (elapsedSecond < 10 && Common.IsRequirementEnabled(790, this.Site))
                 {
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R191");
