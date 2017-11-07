@@ -1,6 +1,6 @@
 ## [MS-OXCRPC]: Wire Format Protocol
-- [MS-OXCRPC] v20170224 is used to develop the test suite. 
-- Release date, 2/24/2017.
+- [MS-OXCRPC] v20170919 is used to develop the test suite. 
+- Release date, 9/19/2017.
 
 To find the new landing page for [MS-OXCRPC], please visit https://msdn.microsoft.com/en-us/library/cc425493(v=exchg.80).aspx
 

@@ -548,15 +548,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     int orgFlags = BitConverter.ToInt32(rgbAuxOut1.Payload, 0);
 
                     // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R283");
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCRPC_R284");
 
-                    // Verify MS-OXCRPC requirement: MS-OXCRPC_R283
+                    // Verify MS-OXCRPC requirement: MS-OXCRPC_R284
                     // Check if the OrgFlags field is PUBLIC_FOLDERS_ENABLED(0x00000001).
                     Site.CaptureRequirementIfAreEqual<int>(
                         0x00000001,
                         orgFlags & 0x00000001,
-                        283,
-                        @"[In AUX_EXORGINFO Auxiliary Block Structure] [OrgFlags (4 bytes)] The following table [table in section 2.2.2.19] specifies the valid values [PUBLIC_FOLDERS_ENABLED 0x00000001].");
+                        284,
+                        @"[In AUX_EXORGINFO Auxiliary Block Structure] [OrgFlags (4 bytes)] Flag PUBLIC_FOLDERS_ENABLED 0x00000001 means organization has public folders.");
 
                     if (Common.IsRequirementEnabled(1692, this.Site))
                     {

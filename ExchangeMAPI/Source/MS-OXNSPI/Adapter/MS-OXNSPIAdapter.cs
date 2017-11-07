@@ -97,6 +97,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 this.Site.Assume.IsNotNull(Common.GetConfigurationPropertyValue("User3Name", this.Site), "The User3Name field in the ptfconfig file should not be null.");
                 this.domainName = Common.GetConfigurationPropertyValue("Domain", this.Site);
                 this.password = Common.GetConfigurationPropertyValue("User1Password", this.Site);
+                string publicFolderMailbox = Common.GetConfigurationPropertyValue("PublicFolderMailbox", this.Site);
                 string requestURL = Common.GetConfigurationPropertyValue("AutoDiscoverUrlFormat", this.Site);
                 requestURL = Regex.Replace(requestURL, @"\[ServerName\]", this.originalServerName, RegexOptions.IgnoreCase);
                 this.transport = Common.GetConfigurationPropertyValue("TransportSeq", this.Site).ToLower(System.Globalization.CultureInfo.CurrentCulture);
@@ -112,7 +113,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 else
                 {
                     AdapterHelper.SessionContextCookies = new CookieCollection();
-                    this.autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.Site, this.originalServerName, this.userName, this.domainName, requestURL, this.transport);
+                    this.autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.Site, this.originalServerName, this.userName, this.domainName, requestURL, this.transport, publicFolderMailbox);
                     this.Site.Assert.IsNotNull(this.autoDiscoverProperties.AddressBookUrl, @"The auto discover process should return the URL to be used to connect with a NSPI server through MAPI over HTTP successfully.");
                     this.nspiMapiHttpAdapter = new NspiMapiHttpAdapter(this.Site, this.userName, this.password, this.domainName, this.autoDiscoverProperties.AddressBookUrl);
                 }

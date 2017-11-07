@@ -801,6 +801,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
 
             System.Net.ServicePointManager.ServerCertificateValidationCallback =
             new System.Net.Security.RemoteCertificateValidationCallback(Common.ValidateServerCertificate);
+            System.Net.ServicePointManager.Expect100Continue = false;
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
             request.CookieContainer = new CookieContainer();
             request.Method = "POST";
@@ -861,8 +862,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
             string transportSequence = Common.GetConfigurationPropertyValue("TransportSeq", this.Site);
             string requestURL = Common.GetConfigurationPropertyValue("AutoDiscoverUrlFormat", this.Site);
             requestURL = Regex.Replace(requestURL, @"\[ServerName\]", originalServerName, RegexOptions.IgnoreCase);
-
-            AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.Site, originalServerName, this.userName, this.domainName, requestURL, transportSequence.ToLower());
+            string publicFolderMailbox = Common.GetConfigurationPropertyValue("PublicFolderMailbox", this.Site);
+            AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.Site, originalServerName, this.userName, this.domainName, requestURL, transportSequence.ToLower(), publicFolderMailbox);
             this.mailStoreUrl = autoDiscoverProperties.PrivateMailStoreUrl;
             this.addressBookUrl = autoDiscoverProperties.AddressBookUrl;
         }

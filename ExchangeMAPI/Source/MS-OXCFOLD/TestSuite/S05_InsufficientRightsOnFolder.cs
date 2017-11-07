@@ -825,6 +825,153 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             #endregion
         }
 
+        /// <summary>
+        /// This test case is designed to validate that the RopCopyFolder operation under the condition that the user has insufficient rights to copy a folder.
+        /// </summary>
+        [TestCategory("MSOXCFOLD"), TestMethod()]
+        public void MSOXCFOLD_S05_TC06_RopCopyFolderPartialCompleteValidation()
+        {
+            if (!Common.IsRequirementEnabled(1114, this.Site))
+            {
+                this.NeedCleanup = false;
+                Site.Assert.Inconclusive("The implementation does not support to set nonzero value to PartialCompletion field of the RopMoveFolder ROP response if the server fails to move any folder, message, or subfolder by RopMoveFolder ROP.");
+            }
+
+            this.CheckWhetherSupportTransport();
+            this.Adapter.DoConnect(ConnectionType.PrivateMailboxServer);
+            uint pidTagMemberRights = 0;
+            uint logonHandle = 0;
+            this.GenericFolderInitialization();
+
+            #region Step 1. Assign access permission for common user on the inbox and the root folder.
+            uint inboxHandle = 0;
+            this.OpenFolder(this.LogonHandle, this.DefaultFolderIds[this.inboxIndex], ref inboxHandle);
+
+            // Add folder visible permission for the inbox.
+            pidTagMemberRights = (uint)PidTagMemberRightsEnum.FolderVisible | (uint)PidTagMemberRightsEnum.ReadAny;
+            this.AddPermission(this.commonUserEssdn, pidTagMemberRights, inboxHandle);
+
+            // Add folder visible permission for the root folder.
+            pidTagMemberRights = (uint)PidTagMemberRightsEnum.FolderVisible | (uint)PidTagMemberRightsEnum.EditOwned;
+            this.AddPermission(this.commonUserEssdn, pidTagMemberRights, this.RootFolderHandle);
+            #endregion
+
+            #region Step 2. Create a subfolder [MSOXCFOLDSubfolder1] in the root folder and assign FolderVisible permission for common user on the new folder.
+            uint adminSubfolderHandle1 = 0;
+            ulong adminSubfolderId1 = 0;
+            this.CreateFolder(this.RootFolderHandle, Constants.Subfolder1, ref adminSubfolderId1, ref adminSubfolderHandle1);
+
+            pidTagMemberRights = (uint)PidTagMemberRightsEnum.FolderVisible | (uint)PidTagMemberRightsEnum.ReadAny;
+            this.AddPermission(this.commonUserEssdn, pidTagMemberRights, adminSubfolderHandle1);
+            #endregion
+
+            #region Step 3. Create a subfolder [MSOXCFOLDSubfolder2] in the root folder and assign full permission for common user on the new folder.
+            uint adminSubfolderHandle2 = 0;
+            ulong adminSubfolderId2 = 0;
+            this.CreateFolder(this.RootFolderHandle, Constants.Subfolder2, ref adminSubfolderId2, ref adminSubfolderHandle2);
+
+            pidTagMemberRights = (uint)PidTagMemberRightsEnum.FullPermission;
+            this.AddPermission(this.commonUserEssdn, pidTagMemberRights, adminSubfolderHandle2);
+            #endregion
+
+            #region Step 4. Create a subfolder [MSOXCFOLDSubfolder3] in the [MSOXCFOLDSubfolder1] and assign full permission for common user on the new folder.
+            uint adminSubfolderHandle3 = 0;
+            ulong adminSubfolderId3 = 0;
+            this.CreateFolder(adminSubfolderHandle1, Constants.Subfolder3, ref adminSubfolderId3, ref adminSubfolderHandle3);
+
+            pidTagMemberRights = (uint)PidTagMemberRightsEnum.FolderVisible;
+            this.AddPermission(this.commonUserEssdn, pidTagMemberRights, adminSubfolderHandle3);
+            #endregion
+
+            #region Step 5. Create a subfolder [MSOXCFOLDSubfolder4] in the root folder.
+            uint adminSubfolderHandle4 = 0;
+            ulong adminSubfolderId4 = 0;
+            this.CreateFolder(adminSubfolderHandle3, Constants.Subfolder4, ref adminSubfolderId4, ref adminSubfolderHandle4);
+
+            pidTagMemberRights = (uint)PidTagMemberRightsEnum.None;
+            this.AddPermission(this.commonUserEssdn, pidTagMemberRights, adminSubfolderHandle4);
+            #endregion
+
+            #region Step 6. Logon to the private mailbox use common user.
+            this.Adapter.DoDisconnect();
+            this.Adapter.DoConnect(this.sutServer, ConnectionType.PrivateMailboxServer, this.commonUserEssdn, this.domain, this.commonUser, this.commonUserPassword);
+            RopLogonResponse logonResponse = this.Logon(LogonFlags.Private, out logonHandle, (uint)OpenFlags.UsePerMDBReplipMapping);
+            #endregion
+
+            #region Step 7. The common user open the root folder, [MSOXCFOLDSubfolder1], [MSOXCFOLDSubfolder2] and [MSOXCFOLDSubfolder3].
+
+            // Find and open the root folder.
+            ulong commonUserRootFolderId = this.GetSubfolderIDByName(logonResponse.FolderIds[this.inboxIndex], logonHandle, this.RootFolder);
+            uint commonUserRootFolderHandle = 0;
+            this.OpenFolder(logonHandle, commonUserRootFolderId, ref commonUserRootFolderHandle);
+
+            // Find and open the folder named [MSOXCFOLDSubfolder1].
+            ulong commonUserSubfolderId1 = this.GetSubfolderIDByName(commonUserRootFolderId, commonUserRootFolderHandle, Constants.Subfolder1);
+            uint commonUserRootSubfolderHandle1 = 0;
+            this.OpenFolder(logonHandle, commonUserSubfolderId1, ref commonUserRootSubfolderHandle1);
+
+            // Find and open the folder named [MSOXCFOLDSubfolder2].
+            ulong commonUserSubfolderId2 = this.GetSubfolderIDByName(commonUserRootFolderId, commonUserRootFolderHandle, Constants.Subfolder2);
+            uint commonUserRootSubfolderHandle2 = 0;
+            this.OpenFolder(logonHandle, commonUserSubfolderId2, ref commonUserRootSubfolderHandle2);
+            #endregion
+
+            #region Step 8. The client calls RopCopyFolder to copy target folder [MSOXCFOLDSubfolder1] from the root folder to destination folder [MSOXCFOLDSubfolder2].
+
+            // Initialize a server object handle table.
+            List<uint> handleList = new List<uint>
+            {
+                commonUserRootFolderHandle, commonUserRootSubfolderHandle2
+            };
+
+            // Call the RopCopyFolder operation to copy the folder.
+            RopCopyFolderRequest copyFolderRequest = new RopCopyFolderRequest
+            {
+                RopId = (byte)RopId.RopCopyFolder,
+                LogonId = Constants.CommonLogonId,
+                SourceHandleIndex = 0x00,
+                DestHandleIndex = 0x01,
+                WantAsynchronous = 0x00,
+                WantRecursive = 0xFF,
+                FolderId = commonUserSubfolderId1,
+                UseUnicode = 0x01,
+                NewFolderName = Encoding.Unicode.GetBytes(Constants.Subfolder5)
+            };
+            RopCopyFolderResponse copyFolderResponse = this.Adapter.CopyFolder(copyFolderRequest, handleList, ref this.responseHandles);
+            Site.Assert.AreNotEqual<uint>(Constants.SuccessCode, copyFolderResponse.ReturnValue, "RopCopyFolder ROP operation fails!");
+
+            #region Verify RopCopyFolder PartialCompletion
+
+            if (Common.IsRequirementEnabled(271501, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R271501");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R271501
+                Site.CaptureRequirementIfAreNotEqual<byte>(
+                    0x00,
+                    copyFolderResponse.PartialCompletion,
+                    271501,
+                    @"[In Appendix A: Product Behavior] If the ROP fails for a subset of targets, the value of PartialCompletion is nonzero (TRUE). (Microsoft Exchange Server 2007 follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(271502, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R271502");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R271502
+                Site.CaptureRequirementIfAreEqual<byte>(
+                    0x00,
+                    copyFolderResponse.PartialCompletion,
+                    271502,
+                    @"[In Appendix A: Product Behavior] If the ROP fails for a subset of targets, the value of PartialCompletion is zero (FALSE). (Microsoft Exchange Server 2010, Microsoft Exchange Server 2013 and Microsoft Exchange Server 2016 follow this behavior.)");
+            }
+            #endregion
+
+            #endregion
+        }
+
         #region Test Case Initialization
         /// <summary>
         /// Test initialize. Overrides the method TestInitialize defined in base class.

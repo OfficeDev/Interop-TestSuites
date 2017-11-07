@@ -1,4 +1,4 @@
-#-------------------------------------------------------------------------
+﻿#-------------------------------------------------------------------------
 # Configuration script exit code definition:
 # 1. A normal termination will set the exit code to 0
 # 2. An uncaught THROW will set the exit code to 1
@@ -498,7 +498,32 @@ ModifyConfigFileNode $commonDeploymentFile "XorRpcRequest"               $xorRpc
 ModifyConfigFileNode $commonDeploymentFile "useAutodiscover"             $useAutodiscover
 ModifyConfigFileNode $commonDeploymentFile "NotificationIP"              $ipv4Address
 ModifyConfigFileNode $commonDeploymentFile "NotificationIPv6"            $ipv6Address
-
+if ($sutVersion -ge "ExchangeServer2013")
+{
+$SessionParams = 
+@{
+   ConfigurationName = 'Microsoft.Exchange'
+   ConnectionURI     = "http://$sutComputerName/powershell/"
+   Authentication    = 'Kerberos'
+}
+$Session = New-PSSession @SessionParams
+$publicFolder=Invoke-command -ScriptBlock {get-mailbox -publicfolder -server $args[0]}-ArgumentList $sutComputerName -Session $Session
+if($sutVersion -eq "ExchangeServer2013")
+{
+$publicFolderMailboxName=$publicFolder[0].Name
+}
+else 
+{
+for($i=0;$i -lt $publicFolder.Length;$i++)
+{
+    if($publicFolder[$i].IsRootPublicFolderMailbox -eq $true)
+    {
+        $publicFolderMailboxName=$publicFolder[$i].Name
+    }
+}
+}
+ModifyConfigFileNode $commonDeploymentFile "PublicFolderMailbox"            $publicfolderMailboxName
+}
 Output "Configuration for ExchangeCommonConfiguration.deployment.ptfconfig file is complete" "Green"
 
 #-------------------------------------------------------

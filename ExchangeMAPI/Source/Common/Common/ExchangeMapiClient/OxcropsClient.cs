@@ -249,7 +249,8 @@ namespace Microsoft.Protocols.TestSuites.Common
             {
                 string requestURL = Common.GetConfigurationPropertyValue("AutoDiscoverUrlFormat", this.site);
                 requestURL = Regex.Replace(requestURL, @"\[ServerName\]", this.originalServerName, RegexOptions.IgnoreCase);
-                AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.site, this.originalServerName, this.userName, this.domainName, requestURL, this.MapiContext.TransportSequence.ToLower());
+                string publicFolderMailbox = Common.GetConfigurationPropertyValue("PublicFolderMailbox", this.site);
+                AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.site, this.originalServerName, this.userName, this.domainName, requestURL, this.MapiContext.TransportSequence.ToLower(), publicFolderMailbox);
 
                 this.privateMailboxServer = autoDiscoverProperties.PrivateMailboxServer;
                 this.privateMailboxProxyServer = autoDiscoverProperties.PrivateMailboxProxy;
@@ -476,7 +477,8 @@ namespace Microsoft.Protocols.TestSuites.Common
 
                         string requestURL = Common.GetConfigurationPropertyValue("AutoDiscoverUrlFormat", this.site);                        
                         requestURL = Regex.Replace(requestURL, @"\[ServerName\]", this.originalServerName, RegexOptions.IgnoreCase);
-                        AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.site, this.originalServerName, mailBoxUserName, this.domainName, requestURL, this.MapiContext.TransportSequence.ToLower());
+                        string publicFolderMailbox = Common.GetConfigurationPropertyValue("PublicFolderMailbox", this.site);
+                        AutoDiscoverProperties autoDiscoverProperties = AutoDiscover.GetAutoDiscoverProperties(this.site, this.originalServerName, mailBoxUserName, this.domainName, requestURL, this.MapiContext.TransportSequence.ToLower(), publicFolderMailbox);
 
                         this.privateMailboxServer = autoDiscoverProperties.PrivateMailboxServer;
                         this.privateMailboxProxyServer = autoDiscoverProperties.PrivateMailboxProxy;

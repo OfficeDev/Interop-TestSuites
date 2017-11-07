@@ -253,7 +253,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         Guid.Empty,
                         perUserGuid,
                         1332,
-                        @"[In Appendix A: Product Behavior] The implementation does not set the PerUserGuid field to an empty GUID. (<9> Section 2.2.1.1.4: Exchange 2007 does not set the PerUserGuid field to an empty GUID.)");
+                        @"[In Appendix A: Product Behavior] The implementation does not set the PerUserGuid field to an empty GUID. (<10> Section 2.2.1.1.4: Exchange 2007 does not set the PerUserGuid field to an empty GUID.)");
                 }
 
                 if (Common.IsRequirementEnabled(163, this.Site))
@@ -597,7 +597,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                             this.Site.CaptureRequirementIfIsNotNull(
                                 messageClass,
                                 305,
-                                @"[In RopGetReceiveFolderTable ROP Success Response Buffer] [Rows] PidTagMessageClass property ([MS-OXPROPS] section 2.778): A PtypString8 value.");
+                                @"[In RopGetReceiveFolderTable ROP Success Response Buffer] [Rows] PidTagMessageClass property ([MS-OXPROPS] section 2.781): A PtypString8 value.");
 
                             // Add the debug information
                             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R307");

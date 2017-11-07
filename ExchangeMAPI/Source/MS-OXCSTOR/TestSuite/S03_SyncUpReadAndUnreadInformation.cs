@@ -298,7 +298,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x000004B6,
                     this.readPerUserInformationResponse.ReturnValue,
                     1007,
-                    @"[In Appendix A: Product Behavior] The implementation does fail the operation with 0x000004B6 (ecRpcFormat) in the ReturnValue field, if the value of the DataOffset field is less than zero. (<46> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, and Exchange 2010 fail the operation with 0x000004B6 (ecRpcFormat).)");
+                    @"[In Appendix A: Product Behavior] The implementation does fail the operation with 0x000004B6 (ecRpcFormat) in the ReturnValue field, if the value of the DataOffset field is less than zero. (<45> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, and Exchange 2010 fail the operation with 0x000004B6 (ecRpcFormat).)");
             }
             #endregion
             #endregion
@@ -827,6 +827,54 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 1016,
                 @"[In Behavior Common to Both Private Mailbox and Public Folder Logon] The server determines whether the current invocation is a continuation of a previous invocation by examining the FolderId and DataOffset fields.");
             #endregion
+
+            #region Step 11: Call WritePerUserInformationRequest to write invalid data with HasFinished field set to true.
+
+            dataForWrite = validIdset.Serialize();
+            dataHasBeenWritten = new byte[dataForWrite.Length - 1];
+            Array.Copy(dataForWrite, dataHasBeenWritten, dataHasBeenWritten.Length);
+
+            this.writePerUserInformationRequest.FolderId = longTermIdForValidData;
+            this.writePerUserInformationRequest.Data = dataHasBeenWritten;
+            this.writePerUserInformationRequest.DataSize = (ushort)(dataHasBeenWritten.Length);
+            this.writePerUserInformationRequest.ReplGuid = null;
+            this.writePerUserInformationRequest.DataOffset = 0;
+            this.writePerUserInformationRequest.HasFinished = 0x01;
+
+            this.oxcstorAdapter.DoRopCall(this.writePerUserInformationRequest, this.outObjHandle, ROPCommandType.RopWritePerUserInformation, out this.outputBuffer);
+            this.writePerUserInformationResponse = (RopWritePerUserInformationResponse)this.outputBuffer.RopsList[0];
+            Site.Assert.AreNotEqual<uint>(0,
+                this.writePerUserInformationResponse.ReturnValue,
+                "0 indicates the ROP succeeds, other value indicates error occurs.");
+
+            if (Common.IsRequirementEnabled(1021001, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021001");
+
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021001.
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x000004ED,
+                    this.writePerUserInformationResponse.ReturnValue,
+                    1021001,
+                    @"[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x000004ED. <48> Section 3.2.5.13.1:  Exchange 2007 and Exchange 2010 fail the operation with 0x000004ED (ecFmtError) if the data is not properly formed. ((Exchange 2007 and Exchange 2010 follow this behavior.))");
+            }
+
+            if (Common.IsRequirementEnabled(1021002, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021002");
+
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021002.
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x8004011B,
+                    this.writePerUserInformationResponse.ReturnValue,
+                    1021002,
+                    @"[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x8004011B.(Exchange 2013 and above follow this behavior.)");
+            }
+            #endregion
         }
 
         /// <summary>
@@ -1151,7 +1199,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x000004B6,
                     this.readPerUserInformationResponse.ReturnValue,
                     1007,
-                    @"[In Appendix A: Product Behavior] The implementation does fail the operation with 0x000004B6 (ecRpcFormat) in the ReturnValue field, if the value of the DataOffset field is less than zero. (<46> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, and Exchange 2010 fail the operation with 0x000004B6 (ecRpcFormat).)");
+                    @"[In Appendix A: Product Behavior] The implementation does fail the operation with 0x000004B6 (ecRpcFormat) in the ReturnValue field, if the value of the DataOffset field is less than zero. (<45> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, and Exchange 2010 fail the operation with 0x000004B6 (ecRpcFormat).)");
             }
             #endregion
             #endregion
@@ -1497,7 +1545,57 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 "0 indicates the ROP succeeds, other value indicates error occurs.");
             #endregion
 
-            #region Step 5: Call RopReadPerUserInformation with MaxDataSize set to 4097.
+            #region Step 5: Call WritePerUserInformationRequest to write invalid data with HasFinished field set to true.
+            this.writePerUserInformationRequest.FolderId = longTermIdForInValidData;
+            this.writePerUserInformationRequest.DataSize = (ushort)data.Length;
+            this.writePerUserInformationRequest.Data = data;
+            this.writePerUserInformationRequest.ReplGuid = this.logonResponse.ReplGuid;
+            this.writePerUserInformationRequest.HasFinished = 0x01;
+            this.writePerUserInformationRequest.DataOffset = 0;
+
+            this.oxcstorAdapter.DoRopCall(this.writePerUserInformationRequest, this.outObjHandle, ROPCommandType.RopWritePerUserInformation, out this.outputBuffer);
+            this.writePerUserInformationResponse = (RopWritePerUserInformationResponse)this.outputBuffer.RopsList[0];
+
+            //According to bug 100636, add a switch to enable and disable below verifications
+            if (Common.IsRequirementEnabled(1021001, this.Site) && Common.IsRequirementEnabled(10210010, this.Site))
+            {
+                Site.Assert.AreNotEqual<uint>(0,
+                this.writePerUserInformationResponse.ReturnValue,
+                "0 indicates the ROP succeeds, other value indicates error occurs.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021001");
+
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021001.
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x000004ED,
+                    this.writePerUserInformationResponse.ReturnValue,
+                    1021001,
+                    @"[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x000004ED. <48> Section 3.2.5.13.1:  Exchange 2007 and Exchange 2010 fail the operation with 0x000004ED (ecFmtError) if the data is not properly formed. ((Exchange 2007 and Exchange 2010 follow this behavior.))");
+            }
+
+            //According to bug 100636, add a switch to enable and disable below verifications
+            if (Common.IsRequirementEnabled(1021002, this.Site) && Common.IsRequirementEnabled(10210010, this.Site))
+            {
+                Site.Assert.AreNotEqual<uint>(0,
+                this.writePerUserInformationResponse.ReturnValue,
+                "0 indicates the ROP succeeds, other value indicates error occurs.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021002");
+
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021002.
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x8004011B,
+                    this.writePerUserInformationResponse.ReturnValue,
+                    1021002,
+                    @"[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x8004011B.(Exchange 2013 and above follow this behavior.)");
+            }
+            #endregion
+
+            #region Step 6: Call RopReadPerUserInformation with MaxDataSize set to 4097.
             ushort bigerMaxDateSize = (ushort)(maxDataSize + 1);
             this.readPerUserInformationRequest.Reserved = 0x00;
             this.readPerUserInformationRequest.FolderId = longTermIdForInValidData;
@@ -1516,7 +1614,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     maxDataSize,
                     this.readPerUserInformationResponse.DataSize,
                     999,
-                    @"[In Appendix A: Product Behavior] Implementation's maximum value of MaxDataSize is 4096. (If MaxDataSize > [server's suitable maximum (4096)], then Implementation does adjust the value of MaxDataSize to the suitable maximum value (4096) in Microsoft Exchanges. <48> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 use 4096 for the maximum value.)");
+                    @"[In Appendix A: Product Behavior] Implementation's maximum value of MaxDataSize is 4096. (If MaxDataSize > [server's suitable maximum (4096)], then Implementation does adjust the value of MaxDataSize to the suitable maximum value (4096) in Microsoft Exchanges. <47> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 use 4096 for the maximum value.)");
             }
             #endregion
 
@@ -1603,7 +1701,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             #endregion
             #endregion
 
-            #region Step 6: Call RopReadPerUserInformation with MaxDataSize set to 0.
+            #region Step 7: Call RopReadPerUserInformation with MaxDataSize set to 0.
             this.readPerUserInformationRequest.MaxDataSize = 0;
             this.oxcstorAdapter.DoRopCall(this.readPerUserInformationRequest, this.outObjHandle, ROPCommandType.RopReadPerUserInformation, out this.outputBuffer);
             this.readPerUserInformationResponse = (RopReadPerUserInformationResponse)this.outputBuffer.RopsList[0];
@@ -1620,7 +1718,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     defaultDataSize,
                     this.readPerUserInformationResponse.DataSize,
                     1356,
-                    @"[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). <47> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 use 4096 for the default value.)");
+                    @"[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). <46> Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 use 4096 for the default value.)");
             }
             #endregion
 
@@ -1684,7 +1782,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
 
             #endregion
 
-            #region Step 7: Call RopReadPerUserInformation with DataOffset field based on the number of bytes received in the previous response and MaxDataSize field set to zero.
+            #region Step 8: Call RopReadPerUserInformation with DataOffset field based on the number of bytes received in the previous response and MaxDataSize field set to zero.
             this.readPerUserInformationRequest.MaxDataSize = 0;
             this.readPerUserInformationRequest.DataOffset = (uint)userInformation1.Length;
             this.oxcstorAdapter.DoRopCall(this.readPerUserInformationRequest, this.outObjHandle, ROPCommandType.RopReadPerUserInformation, out this.outputBuffer);
@@ -1721,7 +1819,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 @"[In Behavior Common to Both Private Mailbox and Public Folder Logon] In other words, the value of DataOffset specifies the position within the BLOB of the first byte of data to be returned to the client.");
             #endregion
 
-            #region Step 8: Call RopWritePerUserInformation to write subpart user information (all the data of user information except the last byte).
+            #region Step 9: Call RopWritePerUserInformation to write subpart user information (all the data of user information except the last byte).
             byte[] dataForWrite = validIdset.Serialize();
             this.writePerUserInformationRequest.FolderId = longTermIdForValidData;
             this.writePerUserInformationRequest.Data = dataForWrite;
@@ -1756,7 +1854,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 @"[In Behavior Common to Both Private Mailbox and Public Folder Logon] The error code ecNone: Success.");
             #endregion
 
-            #region Step 9: Call RopWritePerUserInformation to write the last byte of the user information to another public folder.
+            #region Step 10: Call RopWritePerUserInformation to write the last byte of the user information to another public folder.
             // Get the last byte for write. This is the next write-ROP which will write the last byte of data
             // (the former part of  data has been written at former write-ROP at step16
             byte[] lastByteForWrite = new byte[1];
@@ -1781,7 +1879,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 @"[In Behavior Common to Both Private Mailbox and Public Folder Logon] The error code ecError: The FolderId didn't match the value on the previous call, AND THEN DataOffset wasn't zero.");
             #endregion
 
-            #region Step 10: Call RopWritePerUserInformation with the wrong DataOffset to write the last byte of the user information.
+            #region Step 11: Call RopWritePerUserInformation with the wrong DataOffset to write the last byte of the user information.
 
             this.writePerUserInformationRequest.FolderId = longTermIdForValidData;
             this.writePerUserInformationRequest.Data = dataForWrite;
@@ -1824,7 +1922,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             #endregion
             #endregion
 
-            #region Step 11: Write the last byte of the user information with the proper DataOffset and folder ID, the ROP expect to be failed because the server assume the previous operation was aborted.
+            #region Step 12: Write the last byte of the user information with the proper DataOffset and folder ID, the ROP expect to be failed because the server assume the previous operation was aborted.
             lastByteForWrite = new byte[1];
             lastByteForWrite[0] = dataForWrite[dataForWrite.Length - 1];
             this.writePerUserInformationRequest.Data = lastByteForWrite;
@@ -1847,7 +1945,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 @"[In Behavior Common to Both Private Mailbox and Public Folder Logon] If the DataOffset value does not equal the amount of data already written, the server MUST assume the previous operation was aborted.");
             #endregion
 
-            #region Step 12: Rewrite sub-part user information again (all the data of user information except the last byte).
+            #region Step 13: Rewrite sub-part user information again (all the data of user information except the last byte).
             dataForWrite = validIdset.Serialize();
             this.writePerUserInformationRequest.FolderId = longTermIdForValidData;
             this.writePerUserInformationRequest.Data = dataForWrite;
@@ -1863,7 +1961,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             Site.Assert.AreEqual<uint>(0, this.writePerUserInformationResponse.ReturnValue, "0 indicates the ROP succeeds, other value indicates error occurs.");
             #endregion
 
-            #region Step 13: Continue to write the last byte.
+            #region Step 14: Continue to write the last byte.
             lastByteForWrite = new byte[1];
             lastByteForWrite[0] = dataForWrite[dataForWrite.Length - 1];
             this.writePerUserInformationRequest.Data = lastByteForWrite;
@@ -1876,7 +1974,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             Site.Assert.AreEqual<uint>(0, this.writePerUserInformationResponse.ReturnValue, "0 indicates the ROP succeeds, other value indicates error occurs.");
             #endregion
 
-            #region Step 14: Call ReadPerUserInformationRequest to verify the sub-part data saved successfully.
+            #region Step 15: Call ReadPerUserInformationRequest to verify the sub-part data saved successfully.
             this.readPerUserInformationRequest.FolderId = longTermIdForValidData;
             this.readPerUserInformationRequest.DataOffset = 0;
             this.readPerUserInformationRequest.MaxDataSize = 0;

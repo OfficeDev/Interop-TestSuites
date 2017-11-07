@@ -737,7 +737,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <summary>
         /// Special type ID for OBJECT
         /// </summary>
-        PtypComObject = 0x000D,
+        PtypObject = 0x000D,
 
         /// <summary>
         /// Special type ID for Int64

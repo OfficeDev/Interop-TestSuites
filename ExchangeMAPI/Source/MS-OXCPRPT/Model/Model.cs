@@ -1150,13 +1150,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                 isPropertyValueChanged = true;
                 ModelHelper.CaptureRequirement(
                     305,
-                    @"[In RopCommitStream ROP] The RopCommitStream ROP ([MS-OXCROPS] section 2.2.9.4) ensures that any changes made to a Stream object are persisted in storage.");
+                    @"[In RopCommitStream ROP] The RopCommitStream ROP ([MS-OXCROPS] section 2.2.9.5) ensures that any changes made to a Stream object are persisted in storage.");
 
                 if (globalObj == ServerObjectType.Folder)
                 {
                     ModelHelper.CaptureRequirement(
                        56405,
-                       @"[In Processing RopWriteStream] For a Folder object, the value is persisted when the RopCommitStream ROP ([MS-OXCROPS] section 2.2.9.4) is issued on the Stream object or the Stream object is closed with a RopRelease ROP ([MS-OXCROPS] section 2.2.15.3).");
+                       @"[In Processing RopWriteStream] For a Folder object, the value is persisted when the RopCommitStream ROP ([MS-OXCROPS] section 2.2.9.5) is issued on the Stream object or the Stream object is closed with a RopRelease ROP ([MS-OXCROPS] section 2.2.15.3).");
                 }
             }
             else
@@ -1337,7 +1337,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
 
                 ModelHelper.CaptureRequirement(
                    322,
-                   "[In RopSetStreamSize ROP] The RopSetStreamSize ROP ([MS-OXCROPS] section 2.2.9.6) sets the size of a stream. ");
+                   "[In RopSetStreamSize ROP] The RopSetStreamSize ROP ([MS-OXCROPS] section 2.2.9.7) sets the size of a stream. ");
 
                 ModelHelper.CaptureRequirement(
                 32801,

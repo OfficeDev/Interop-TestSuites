@@ -35,10 +35,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R3145Enabled" value="false"/>
     <!-- Set R790Enabled to true to verify that for RopLogon ROP if the user's configured mailbox is not hosted by this server, fail the ROP with a ReturnValue of ecWrongServer. Set R790Enabled to false to disable this requirement.-->
     <Property name="R790Enabled" value="false"/>
-    <!-- Set R3103001Enabled to true to verify that for RopLogon ROP if the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does Success the operation with ecServerPaused in the ReturnValue field. Set R3103001Enabled to false to disable this requirement.-->
-    <Property name="R3103001Enabled" value="true"/>
-    <!-- Set R3103002Enabled to true to verify that for RopLogon ROP if the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does fail the operation with ecServerPaused in the ReturnValue field. Set R3103002Enabled to false to disable this requirement.-->
-    <Property name="R3103002Enabled" value="false"/>
     <!-- Set R1410001Enabled to true to verify that for RopLogon ROP implementation set this field [StoreState] to 0x00000000 if the mailbox currently has any active search folders. Set R1410001Enabled to false to disable this requirement.-->
     <Property name="R1410001Enabled" value="true"/>
     <!-- Set R59781Enabled to true to verify that for RopLogon ROP implementation set this field [StoreState] to 0x01000000 if the mailbox currently has any active search folders. Set R59781Enabled to false to disable this requirement.-->
@@ -93,5 +89,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="R155Enabled" value="true"/>
     <!-- Set R3905001Enabled to true to verify that implementation does not fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. Set R3905001Enabled to false to disable this requirement.-->
     <Property name="R3905001Enabled" value="true"/>
+    <!-- Set R1021001Enabled to true to verify that the implementation does fail with a ReturnValue of 0x000004ED if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation . Set R1021001Enabled to false to disable this requirement.-->
+    <Property name="R1021001Enabled" value="false"/>
+    <!-- Set R1021002Enabled to true to verify that the implementation does fail with a ReturnValue of 0x8004011B if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation . Set R1021002Enabled to false to disable this requirement.-->
+    <Property name="R1021002Enabled" value="true"/>
+    <!-- Set R10210010Enabled to true to verify RS1021001 and RS1021002 if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation when log on to private mailbox. Set R10210010Enabled to false to disable this requirement.-->
+    <Property name="R10210010Enabled" value="false"/>
   </Properties>
 </TestSite>

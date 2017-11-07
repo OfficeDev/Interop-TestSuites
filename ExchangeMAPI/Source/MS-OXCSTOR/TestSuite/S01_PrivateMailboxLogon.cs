@@ -1004,7 +1004,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         Site.CaptureRequirementIfIsTrue(
                             isEqual,
                             314,
-                            @"[In RopGetReceiveFolderTable ROP Success Response Buffer]  [Rows] PidTagLastModificationTime property: PidTagLastModificationTime property ([MS-OXPROPS] section 2.755) -- A PtypTime value that specifies the time, in Coordinated Universal Time (UTC), when the server created or last modified the row in the Receive folder table.");
+                            @"[In RopGetReceiveFolderTable ROP Success Response Buffer]  [Rows] PidTagLastModificationTime property: PidTagLastModificationTime property ([MS-OXPROPS] section 2.758) -- A PtypTime value that specifies the time, in Coordinated Universal Time (UTC), when the server created or last modified the row in the Receive folder table.");
                     }
                 }
                 else
@@ -1066,7 +1066,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR872,
                 872,
-                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Message Class"" column (PidTagMessageClass property ([MS-OXPROPS] section 2.778)) - Contains a string that specifies the message class that is configured for the Receive folder.");
+                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Message Class"" column (PidTagMessageClass property ([MS-OXPROPS] section 2.781)) - Contains a string that specifies the message class that is configured for the Receive folder.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R59801, The MessageClass calling RopGetReceiveFolderTable ROP: {0}", returnedMyClass.Replace("\0", string.Empty));
@@ -1087,7 +1087,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 folderIdForMyClass,
                 BitConverter.ToUInt64(this.getReceiveFolderTableResponse.Rows.PropertyRows[createdClassIndex].PropertyValues[0].Value, 0),
                 870,
-                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Folder ID"" column (PidTagFolderId property ([MS-OXPROPS] section 2.691)) - Contains the Folder ID, as specified in [MS-OXCDATA] section 2.2.1.1, of the Receive folder, which is the folder to which messages of the specified message class will be delivered.");
+                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Folder ID"" column (PidTagFolderId property ([MS-OXPROPS] section 2.694)) - Contains the Folder ID, as specified in [MS-OXCDATA] section 2.2.1.1, of the Receive folder, which is the folder to which messages of the specified message class will be delivered.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R866, The MessageClass calling RopGetReceiveFolderTable ROP: {0}", returnedMyClass.Replace("\0", string.Empty));
@@ -1215,7 +1215,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x01000000,
                     this.logonResponse.StoreState,
                     59781,
-                    @"[In Appendix A: Product Behavior] If the mailbox currently has any active search folders, then the implementation sets this field [StoreState] to 0x01000000. (<7> Section 2.2.1.1.3: If the mailbox currently has any active search folders, then Exchange 2003 and Exchange 2007 set this field [StoreState] to 0x01000000.)");
+                    @"[In Appendix A: Product Behavior] If the mailbox currently has any active search folders, then the implementation sets this field [StoreState] to 0x01000000. (<8> Section 2.2.1.1.3: If the mailbox currently has any active search folders, then Exchange 2003 and Exchange 2007 set this field [StoreState] to 0x01000000.)");
             }
             #endregion
 
@@ -1236,7 +1236,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     this.getStoreStateResponse.ReturnValue,
                     3126,
-                    @"[In Appendix A: Product Behavior] The implementation does implement the RopGetStoreState remote operation (ROP). (<10> Section 2.2.1.5: Exchange 2003 and Exchange 2007 does implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))");
+                    @"[In Appendix A: Product Behavior] The implementation does implement the RopGetStoreState remote operation (ROP). (<11> Section 2.2.1.5: Exchange 2003 and Exchange 2007 does implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R339");
@@ -1441,7 +1441,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     this.getStoreStateResponse.ReturnValue,
                     3125,
-                    @"[In Appendix A: Product Behavior] The implementation does not implement the RopGetStoreState remote operation (ROP). (<10> Section 2.2.1.5: Exchange 2010  Exchange 2013 and Exchange 2016 does not implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))");
+                    @"[In Appendix A: Product Behavior] The implementation does not implement the RopGetStoreState remote operation (ROP). (<11> Section 2.2.1.5: Exchange 2010  Exchange 2013 and Exchange 2016 does not implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))");
                 #endregion
             }
 
@@ -3032,27 +3032,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             taggedTagComment.PropertyTag = propertyTagComment;
             string tagCommentValue = "PidTagCommentSample";
             taggedTagComment.Value = Encoding.Unicode.GetBytes(tagCommentValue + "\0");
-            this.TrySetLogonProperty(taggedTagComment);
-
-            byte[] valueTagComment;
-            uint responseFlagForGetVauleTagComment;
-            string tagCurrentCommentValue;
-            this.GetPropertyValue(propertyTagComment, out responseFlagForGetVauleTagComment, out valueTagComment);
-
-            // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
-            if (0 == responseFlagForGetVauleTagComment)
-            {
-                tagCurrentCommentValue = System.Text.Encoding.Unicode.GetString(valueTagComment);
-                int lastIndex = tagCurrentCommentValue.Length - 1;
-                if (tagCurrentCommentValue[lastIndex] == '\0')
-                {
-                    tagCurrentCommentValue = tagCurrentCommentValue.Remove(lastIndex);
-                }
-            }
-            else
-            {
-                tagCurrentCommentValue = string.Empty;
-            }
+            uint returnValue = this.TrySetLogonProperty(taggedTagComment);
 
             #endregion
 
@@ -3064,16 +3044,35 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R6280001");
 
                 // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R6280001
-                // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
                 Site.CaptureRequirementIfAreEqual<uint>(
-                    0,
-                    responseFlagForGetVauleTagComment,
+                    0x80070005,
+                    returnValue,
                     6280001,
-                    @"[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-only. <13> Section 2.2.2.1.2.1:  The PidTagComment property is read-only in Microsoft Exchange Server 2013 Service Pack 1 (SP1).");
+                    @"[In Appendix A: Product Behavior] Implementation return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 follow this behavior).");
             }
 
             if (Common.IsRequirementEnabled(6280002, this.Site))
             {
+                byte[] valueTagComment;
+                uint responseFlagForGetVauleTagComment;
+                string tagCurrentCommentValue;
+                this.GetPropertyValue(propertyTagComment, out responseFlagForGetVauleTagComment, out valueTagComment);
+
+                // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
+                if (0 == responseFlagForGetVauleTagComment)
+                {
+                    tagCurrentCommentValue = System.Text.Encoding.Unicode.GetString(valueTagComment);
+                    int lastIndex = tagCurrentCommentValue.Length - 1;
+                    if (tagCurrentCommentValue[lastIndex] == '\0')
+                    {
+                        tagCurrentCommentValue = tagCurrentCommentValue.Remove(lastIndex);
+                    }
+                }
+                else
+                {
+                    tagCurrentCommentValue = string.Empty;
+                }
+
                 // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
                 Site.Assert.AreEqual<uint>(0, responseFlagForGetVauleTagComment, "Read property PidTagComment with RopGetPropertiesSpecific should be successful.");
 
@@ -3081,12 +3080,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R6280002");
 
                 // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R6280002
-                Site.CaptureRequirementIfAreEqual<string>(
-                    tagCommentValue,
-                    tagCurrentCommentValue,
+                Site.CaptureRequirementIfAreNotEqual<uint>(
+                    0x80070005,
+                    returnValue,
                     6280002,
-                    @"[In Appendix A: Product Behavior] Implementation does support the PidTagComment property as read-write. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior).");
-
+                    @"[In Appendix A: Product Behavior] Implementation don't return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Exchange 2007 and Exchange 2010 follow this behavior).");
+                
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R650");
 
@@ -3160,7 +3159,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x80070005,
                     resultSetDeleteAfterSubmit,
                     3128,
-                    @"[In Appendix A: Product Behavior] The implementation returns 0x80070005 (ecAccessDenied) when the client attempts to set PidTagDeleteAfterSubmit property by using the RopSetProperties ROP. (<14> Section 2.2.2.1.2.2: In Exchange 2013 and Exchange 2016 the server returns 0x80070005 (ecAccessDenied) when the client attempts to set this property [PidTagDeleteAfterSubmit] by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).)");
+                    @"[In Appendix A: Product Behavior] The implementation returns 0x80070005 (ecAccessDenied) when the client attempts to set PidTagDeleteAfterSubmit property by using the RopSetProperties ROP. (<15> Section 2.2.2.1.2.2: In Exchange 2013 and Exchange 2016 the server returns 0x80070005 (ecAccessDenied) when the client attempts to set this property [PidTagDeleteAfterSubmit] by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).)");
             }
             #endregion
 
@@ -3222,40 +3221,36 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             uint responseDisplayName;
             this.TryGetFlagLogonProperty(propertTagDisplayName, out responseDisplayName);
 
-            if (Common.IsRequirementEnabled(306800301, this.Site))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R306800301");
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3071");
 
-                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R306800301
-                Site.CaptureRequirementIfAreEqual<uint>(
-                    0,
-                    responseDisplayName,
-                    306800301,
-                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-only. <15> Section 2.2.2.1.2.3:  In Exchange 2013 SP1  this property is read-only.");
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3071");
-
-                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3071
-                // The value responseDisplayName indicates the ROP RopGetPropertiesSpecific is implemented successfully.
-                Site.CaptureRequirementIfAreEqual<uint>(
-                    0,
-                    responseDisplayName,
-                    3071,
-                    @"[In PidTagDisplayName Property] Type: PtypString ([MS-OXCDATA] section 2.11.1)");
-            }
+            // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3071
+            // The value responseDisplayName indicates the ROP RopGetPropertiesSpecific is implemented successfully.
+            Site.CaptureRequirementIfAreEqual<uint>(
+                0,
+                responseDisplayName,
+                3071,
+                @"[In PidTagDisplayName Property] Type: PtypString ([MS-OXCDATA] section 2.11.1)");
             #endregion
 
             #region RopSetProperties ROP to write a writable property PidTagDisplayName
             taggedDisplayName.PropertyTag = propertTagDisplayName;
             string strSetDisplayName = "MailboxDisplayName\0";
             taggedDisplayName.Value = Encoding.Unicode.GetBytes(strSetDisplayName);
-            this.TrySetLogonProperty(taggedDisplayName);
-            string newDisplayName = Encoding.Unicode.GetString(this.TryGetLogonPropertyValue(propertTagDisplayName));
+            uint retValue = this.TrySetLogonProperty(taggedDisplayName);
+
+            if (Common.IsRequirementEnabled(306800301, this.Site))
+            {
+                Site.CaptureRequirementIfAreEqual<uint>(0x80070005,
+                    retValue,
+                    306800301,
+                    @"[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 follow this behavior)");
+            }
 
             if (Common.IsRequirementEnabled(306800302, this.Site))
             {
+                string newDisplayName = Encoding.Unicode.GetString(this.TryGetLogonPropertyValue(propertTagDisplayName));
+
                 // The value responseFlagForGetVauleTagComment is 0 indicates the RopGetPropertiesSpecific ROP is implemented successfully.
                 Site.Assert.AreEqual<uint>(0, responseDisplayName, "Read property PidTagComment with RopGetPropertiesSpecific should be successful.");
 
@@ -3263,13 +3258,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R306800302");
 
                 // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R306800302
-                // The value of responseDisplayName is 0 indicates the ROPGetPropertiesSpecific ROP is implemented successfully.
+                Site.CaptureRequirementIfAreNotEqual<uint>(0x80070005,
+                    retValue,
+                    306800302,
+                    @"[In Appendix A: Product Behavior] Implementation does not return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Exchange 2007, Exchange 2010 follow this behavior)");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3068003");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3068003
                 // When the value of strSetDisplayName is the same as newDisplayName, it indicates that the ROPSetProperties ROP is implemented successfully.
-                // So the MS-OXCSTOR_R3068003 is verified.
                 Site.CaptureRequirementIfIsTrue(
                     newDisplayName.Equals(strSetDisplayName),
-                    306800302,
-                    @"[In Appendix A: Product Behavior] Implementation does support PidTagDisplayName  property as read-write. (Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior).");
+                    3068003,
+                    @"[In Read/Write Properties] The PidTagDisplayName property is read/write.<16>");
             }
             #endregion
 
@@ -3632,23 +3634,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.Log.Add(LogEntryKind.Comment, "The client has made 6 attempts in a {0}-second period to log on to a mailbox that is not hosted on the server. return value: 0x{1:X}", elapsedSecond, this.logonResponse.ReturnValue);
 
                 // Call RopLogon ROP 6 times in 10 seconds
-                if (elapsedSecond < 10)
+                //According to bug 100637, add a switch to enable and disable below verifications
+                if (elapsedSecond < 10 && Common.IsRequirementEnabled(790, this.Site))
                 {
-                    if (Common.IsRequirementEnabled(3103001, this.Site))
-                    {
-                        // Add the debug information
-                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3103001");
-
-                        // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3103001
-                        this.Site.CaptureRequirementIfAreEqual<uint>(
-                            0,
-                            this.logonResponse.ReturnValue,
-                            3103001,
-                            @"[In Appendix A: Product Behavior] If the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does Success the operation with ecServerPaused in the ReturnValue field. <22> Section 3.2.5.1.1:  Exchange 2010 and Exchange 2013 return Success with ecServerPaused.");
-                    }
-
-                    if (Common.IsRequirementEnabled(3103002, this.Site))
-                    {
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R191");
 
@@ -3668,17 +3656,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                             this.logonResponse.ReturnValue,
                             192,
                             @"[In RopLogon ROP Common Return Codes] The meaning of return code ecServerPaused: The client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server.");
-
                         // Add the debug information
-                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3103002");
+                        this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3103");
 
-                        // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3103002
+                        // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R3103
                         this.Site.CaptureRequirementIfAreEqual<uint>(
                             0x0000047F,
                             this.logonResponse.ReturnValue,
-                            3103002,
-                            @"[In Appendix A: Product Behavior] If the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the implementation does fail the operation with ecServerPaused in the ReturnValue field. (Exchange 2007 and Exchange 2016 follow this behavior).");
-                    }
+                            3103,
+                            @"[In Private Mailbox Logon] If the client has made more than five attempts within a 10-second period to log on to a mailbox that is not hosted on the server, the server MUST fail the operation with ecServerPaused, as specified in section 3.2.5.1.3, in the ReturnValue field.");
                 }
                 #endregion Step11
 
@@ -3741,7 +3727,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         0x000003EB,
                         this.logonResponse.ReturnValue,
                         193,
-                        @"[In Appendix A: Product Behavior] The implementation returns ecUnknownUser [if the client attempts to log on to a mailbox that is disabled]. (<20> Section 3.2.5.1.1: Exchange 2010, Exchange 2013 and Exchange 2016 return ecUnknownUser.)");
+                        @"[In Appendix A: Product Behavior] The implementation returns ecUnknownUser [if the client attempts to log on to a mailbox that is disabled]. (<21> Section 3.2.5.1.1: Exchange 2010, Exchange 2013 and Exchange 2016 return ecUnknownUser.)");
                 }
 
                 if (Common.IsRequirementEnabled(1268001, this.Site))
@@ -3754,7 +3740,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         0x80040111,
                         this.logonResponse.ReturnValue,
                         1268001,
-                        @"[In Appendix A: Product Behavior] The implementation returns ecLoginFailure [if the client attempts to log on to a mailbox that is disabled]. (<20> Section 3.2.5.1.1: Exchange 2007 returns ecLoginFailure, then, after 5 minutes, the server returns ecUnknownUser.)");
+                        @"[In Appendix A: Product Behavior] The implementation returns ecLoginFailure [if the client attempts to log on to a mailbox that is disabled]. (<21> Section 3.2.5.1.1: Exchange 2007 returns ecLoginFailure, then, after 5 minutes, the server returns ecUnknownUser.)");
 
                     // Sleep 5 minutes
                     System.Threading.Thread.Sleep(300 * 1000);
@@ -3770,7 +3756,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         0x000003EB,
                         this.logonResponse.ReturnValue,
                         1268001,
-                        @"[In Appendix A: Product Behavior] The implementation returns ecLoginFailure [if the client attempts to log on to a mailbox that is disabled]. (<20> Section 3.2.5.1.1: Exchange 2007 returns ecLoginFailure, then, after 5 minutes, the server returns ecUnknownUser.)");
+                        @"[In Appendix A: Product Behavior] The implementation returns ecLoginFailure [if the client attempts to log on to a mailbox that is disabled]. (<21> Section 3.2.5.1.1: Exchange 2007 returns ecLoginFailure, then, after 5 minutes, the server returns ecUnknownUser.)");
                 }
             }
                 #endregion Capture
@@ -4544,7 +4530,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     this.getIdFromLongTermIdResponse.ReturnValue,
                     94801001,
-                    @"[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does return 0 in the ReturnValue field.  <44> Section 3.2.5.9:  Exchange 2010 returns 0 for this condition.");
+                    @"[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does return ecNone in the ReturnValue field.  <44> Section 3.2.5.9:  Exchange 2007 returns ecNone if the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component.");
             }
 
             if (Common.IsRequirementEnabled(94801002, this.Site))
@@ -4557,7 +4543,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x80070057,
                     this.getIdFromLongTermIdResponse.ReturnValue,
                     94801002,
-                    @"[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does fail the operation with 0x80070057 (ecInvalidParam) in the ReturnValue field.  (Exchange 2007, Exchange 2013 and above follow this behavior).");
+                    @"[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does fail the operation with 0x80070057 (ecInvalidParam) in the ReturnValue field.  (Exchange 2010, Exchange 2013 and above follow this behavior).");
 
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1120");
 

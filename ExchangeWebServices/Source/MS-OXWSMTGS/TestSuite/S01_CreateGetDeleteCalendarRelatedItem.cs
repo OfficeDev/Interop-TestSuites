@@ -2201,9 +2201,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R902");
 
                 // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R902
-                this.Site.CaptureRequirementIfAreEqual<string>(
-                    meeting.Location.ToLower(),
-                    meetingResponse.Location.ToLower(),
+                this.Site.CaptureRequirementIfIsFalse(
+                    string.IsNullOrEmpty(meetingResponse.Location),
                     902,
                     @"[In Appendix C: Product Behavior] Implementation does support Location which is a string element that represents the location of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }

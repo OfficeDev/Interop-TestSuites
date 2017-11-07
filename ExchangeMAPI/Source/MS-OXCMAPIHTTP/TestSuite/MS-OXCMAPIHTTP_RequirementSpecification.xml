@@ -1849,11 +1849,12 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R158</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In X-PendingPeriod Header Field] The default value of this header [X-PendingPeriod] is 15000 milliseconds (15 seconds).</ns1:Description>
+		<ns1:Description>[In X-PendingPeriod Header Field] The default value of this header [X-PendingPeriod] is 30000 milliseconds (30 seconds).&lt;1&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMAPIHTTP_R158001, MS-OXCMAPIHTTP_R158002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R159</ns1:REQ_ID>
@@ -2561,10 +2562,10 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2070</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Connect Request Type Failure Response Body] [AuxiliaryBuffer] This field is equivalent to the rgbAuxOut output parameter, as specified in [MS-OXCRPC] section 3.1.4.1.</ns1:Description>
+		<ns1:Description>[In Connect Request Type Failure Response Body] [AuxiliaryBuffer] This field is equivalent to the rgbAuxOut output parameter, as specified in [MS-OXCRPC] section 3.1.4.1.&lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -2976,10 +2977,10 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2082</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Execute Request Type Failed Response Body] [AuxiliaryBuffer] This field is equivalent to the rgbAuxOut output parameter, as specified in [MS-OXCRPC] section 3.1.4.2.</ns1:Description>
+		<ns1:Description>[In Execute Request Type Failed Response Body] [AuxiliaryBuffer] This field is equivalent to the rgbAuxOut output parameter, as specified in [MS-OXCRPC] section 3.1.4.2.&lt;3&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -3175,10 +3176,10 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R291</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In Disconnect Request Type Failure Response Body] [AuxiliaryBuffer] For details about extended buffers and auxiliary payloads, see [MS-OXCRPC] section 3.1.4.1.1 and section 3.1.4.1.2.</ns1:Description>
+		<ns1:Description>[In Disconnect Request Type Failure Response Body] [AuxiliaryBuffer] For details about extended buffers and auxiliary payloads, see [MS-OXCRPC] section 3.1.4.1.1 and section 3.1.4.1.2.&lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -3473,10 +3474,10 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R299</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In NotificationWait Request Type Failed Response Body] [AuxiliaryBuffer] For details about extended buffers and auxiliary payloads, see [MS-OXCRPC] section 3.1.4.2.1 and section 3.1.4.2.2.</ns1:Description>
+		<ns1:Description>[In NotificationWait Request Type Failed Response Body] [AuxiliaryBuffer] For details about extended buffers and auxiliary payloads, see [MS-OXCRPC] section 3.1.4.2.1 and section 3.1.4.2.2.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -10837,15 +10838,6 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMAPIHTTP_R1183</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In Handling a Chunked Response] The default value for the keep-alive interval is 15 seconds, until the request is done.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R1184</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.6</ns1:Doc_Sect>
 		<ns1:Description>[In Handling a Chunked Response] The client MUST be able to receive a "chunked" response for any request and know how to parse the chunked transfer encoding and work with the inner response stream (the response body) as if the chunked transfer encoding wasn’t present.</ns1:Description>
@@ -11434,15 +11426,6 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMAPIHTTP_R1243</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Responding to All Request Type Requests] The default value of the X-PendingPeriod header is 15 seconds.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R1244</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
 		<ns1:Description>[In Responding to All Request Type Requests] After the server finishes processing the request it finishes with the DONE meta-tag, as specified in section 2.2.7; followed by any additional response headers.</ns1:Description>
@@ -11812,6 +11795,29 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R158001</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation set the default value of the X-PendingPeriod header to 15000 milliseconds (15 seconds).(Exchange 2013 SP1 and only the initial release version of Exchange 2016 follow this behavior)
+</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R158:i,MS-OXCMAPIHTTP_R1341:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMAPIHTTP_R158002</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation set the default value of the X-PendingPeriod header to 30000 milliseconds (30 seconds).(Exchange 2016 SP1 and above follow this behavior)</ns1:Description>
+		<ns1:Derived>MS-OXCMAPIHTTP_R158:i,MS-OXCMAPIHTTP_R1341:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2237</ns1:REQ_ID>

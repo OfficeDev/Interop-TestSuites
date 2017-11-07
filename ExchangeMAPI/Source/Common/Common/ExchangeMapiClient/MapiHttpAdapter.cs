@@ -69,6 +69,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
             System.Net.ServicePointManager.ServerCertificateValidationCallback =
             new System.Net.Security.RemoteCertificateValidationCallback(Common.ValidateServerCertificate);
+            System.Net.ServicePointManager.Expect100Continue = false;
             HttpWebRequest request = WebRequest.Create(mailStoreUrl) as HttpWebRequest;
             request.KeepAlive = true;
             request.CookieContainer = new CookieContainer();

@@ -2052,7 +2052,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCROPS
             InitDictionary(PropertyNames.PidTagAttachContentId, 0x3712, PropertyType.PtypString, ref dic);
             InitDictionary(PropertyNames.PidTagAttachContentLocation, 0x3713, PropertyType.PtypString, ref dic);
             InitDictionary(PropertyNames.PidTagAttachContentBase, 0x3711, PropertyType.PtypString, ref dic);
-            InitDictionary(PropertyNames.PidTagAttachDataObject, 0x3701, PropertyType.PtypComObject, ref dic);
+            InitDictionary(PropertyNames.PidTagAttachDataObject, 0x3701, PropertyType.PtypObject, ref dic);
             InitDictionary(PropertyNames.PidTagMessageFlags, 0x0E07, PropertyType.PtypInteger32, ref dic);
             InitDictionary(PropertyNames.PidTagAccessLevel, 0x0FF7, PropertyType.PtypInteger32, ref dic);
             InitDictionary(PropertyNames.PidTagDisplayBcc, 0x0E02, PropertyType.PtypString, ref dic);

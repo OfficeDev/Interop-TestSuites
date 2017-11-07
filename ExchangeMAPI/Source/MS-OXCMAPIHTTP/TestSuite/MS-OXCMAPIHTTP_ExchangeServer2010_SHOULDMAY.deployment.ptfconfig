@@ -7,5 +7,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="MS-OXCMAPIHTTP_Supported" value="false"/>
     <!-- Set R2237Enabled to true to that if the type of the returned property is PtypObject or PtypEmbeddedTable, implementation will return value 1 for the X-ResponseCode header. Set R2237Enabled to false to disable this requirement. -->
     <Property name="R2237Enabled" value="false" />
+    <!-- Set R158001Enabled to true to that implementation set the default value of the X-PendingPeriod header to 15000 milliseconds (15 seconds). Set R158001Enabled to false to disable this requirement. -->
+    <Property name="R158001Enabled" value="false" />
+    <!-- Set R158002Enabled to true to that implementation set the default value of the X-PendingPeriod header to 30000 milliseconds (30 seconds). Set R158002Enabled to false to disable this requirement. -->
+    <Property name="R158002Enabled" value="false" />
   </Properties>
 </TestSite>

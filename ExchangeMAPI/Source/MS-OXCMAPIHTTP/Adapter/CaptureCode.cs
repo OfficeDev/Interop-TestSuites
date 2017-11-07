@@ -259,16 +259,31 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 157,
                 @"[In X-PendingPeriod Header Field] The X-PendingPeriod header field, returned by the server, specifies the number of milliseconds to be expected between keep-alive PENDING meta-tags in the response stream while the server is executing the request.");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R158");
+            if (Common.IsRequirementEnabled(158001, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R158001");
 
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R158
-            this.Site.CaptureRequirementIfAreEqual<int>(
-                15000,
-                pendingPeriod,
-                158,
-                @"[In X-PendingPeriod Header Field] The default value of this header [X-PendingPeriod] is 15000 milliseconds (15 seconds).");
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R158001
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    15000,
+                    pendingPeriod,
+                    158001,
+                    @"[In Appendix A: Product Behavior] Implementation set the default value of the X-PendingPeriod header to 15000 milliseconds (15 seconds).(Exchange 2013 SP1 and only the initial release version of Exchange 2016 follow this behavior)");
+            }
 
+            if(Common.IsRequirementEnabled(158002,this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R158002");
+
+                // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R158002
+                this.Site.CaptureRequirementIfAreEqual<int>(
+                    30000,
+                    pendingPeriod,
+                    158002,
+                    @"[In Appendix A: Product Behavior] Implementation set the default value of the X-PendingPeriod header to 30000 milliseconds (30 seconds).(Exchange 2016 SP1 and above follow this behavior)");
+            }
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1242");
 
@@ -277,16 +292,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                 pendingPeriodHeader != null && int.TryParse(pendingPeriodHeader, out pendingPeriod),
                 1242,
                 @"[In Responding to All Request Type Requests] Since the keep-alive interval is configurable or auto-adjusted, the server MUST return the X-PendingPeriod header, specified in section 2.2.3.3.3, within the immediate response to tell the client the number of milliseconds to be expected between keep-alive responses from the server during the time a request is currently being executed on the server.");
-
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R1243");
-
-            // Verify MS-OXCMAPIHTTP requirement: MS-OXCMAPIHTTP_R1243
-            this.Site.CaptureRequirementIfAreEqual<int>(
-                15000,
-                pendingPeriod,
-                1243,
-                @"[In Responding to All Request Type Requests] The default value of the X-PendingPeriod header is 15 seconds.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMAPIHTTP_R2050");
