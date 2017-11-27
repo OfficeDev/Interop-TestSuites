@@ -314,21 +314,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                                 || Common.IsRequirementEnabled(1268001, this.Site))
                             {
                                 string userForDisableMailbox = Common.GetConfigurationPropertyValue(ConstValues.UserForDisableMailbox, this.Site);
-                                string essdn = this.sutControlAdapter.GetUserDN(this.server1Name, userForDisableMailbox);
 
-                                // Enable the disabled mailbox
-                                if (string.IsNullOrEmpty(essdn))
+                                string status = this.sutControlAdapter.EnableMailbox(userForDisableMailbox);
+                                if (status.Equals("success", StringComparison.OrdinalIgnoreCase))
                                 {
-                                    string status = this.sutControlAdapter.EnableMailbox(userForDisableMailbox);
-                                    if (status.Equals("success", StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        int sleepSeconds = int.Parse(Common.GetConfigurationPropertyValue(ConstValues.SleepSecondsAfterEnableMailbox, this.Site));
-                                        Thread.Sleep(sleepSeconds * 1000);
-                                    }
-                                    else
-                                    {
-                                        Site.Assert.Fail("The mailbox of {0} is not enabled. Error: {1}.", userForDisableMailbox, status);
-                                    }
+                                    int sleepSeconds = int.Parse(Common.GetConfigurationPropertyValue(ConstValues.SleepSecondsAfterEnableMailbox, this.Site));
+                                    Thread.Sleep(sleepSeconds * 1000);
+                                }
+                                else
+                                {
+                                    Site.Assert.Fail("The mailbox of {0} is not enabled. Error: {1}.", userForDisableMailbox, status);
                                 }
                             }
                         }
