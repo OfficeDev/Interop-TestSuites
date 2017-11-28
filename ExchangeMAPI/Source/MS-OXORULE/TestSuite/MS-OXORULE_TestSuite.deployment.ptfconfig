@@ -31,7 +31,7 @@
       <!-- The WaitForSetOOFComplete property specifies the number of milliseconds to wait until the Out of Office (OOF) state is active. -->
       <Property name="WaitForSetOOFComplete" value="5000"/>
       <!-- The GetMessageRepeatTime property specifies the retry count for the client to retrieve a message. If the client is still unable to retrieve the expected message by the maximum retry count, the operation is considered as failed. -->
-      <Property name="GetMessageRepeatTime" value="60"/>
+      <Property name="GetMessageRepeatTime" value="150"/>
      <!-- Test suite client section ends. -->
   </Properties>
 </TestSite>
