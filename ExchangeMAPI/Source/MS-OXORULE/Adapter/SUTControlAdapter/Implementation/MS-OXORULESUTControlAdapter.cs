@@ -47,7 +47,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             soapRequestBuilder.AppendFormat("<EmailAddress>{0}</EmailAddress>", senderUserName + "@" + domainName);
             soapRequestBuilder.AppendLine("</Mailbox></Sender><ToRecipients><Mailbox>");
             soapRequestBuilder.AppendFormat("<EmailAddress>{0}</EmailAddress>", recipientUserName + "@" + domainName);
-            soapRequestBuilder.AppendLine("</Mailbox></ToRecipients><IsRead>false</IsRead></Message></Items>");
+            soapRequestBuilder.AppendLine("</Mailbox></ToRecipients></Message></Items>");
             soapRequestBuilder.AppendLine("</CreateItem></soap:Body></soap:Envelope>");
 
             byte[] requestBytes = System.Text.Encoding.UTF8.GetBytes(soapRequestBuilder.ToString());
