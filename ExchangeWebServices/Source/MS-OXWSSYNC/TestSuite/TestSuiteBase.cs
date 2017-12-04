@@ -317,7 +317,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
                 DistinguishedFolderIdNameType.calendar.ToString(),
                 itemSubject,
-                Item.MeetingCancellation.ToString());
+                Item.CalendarItem.ToString());
             Site.Assert.IsTrue(isCancellationReceived, "The meeting cancellation item should exist in calendar folder of '{0}'", Common.GetConfigurationPropertyValue("User2Name", this.Site));
             #endregion
         }
