@@ -130,7 +130,7 @@
     <!--Set R1623Enabled to true to verify that the implementation does support element name "HasBlockedImages" with type "xs:boolean" which is false indicating the item has not blocked images, as specified in section 2.2.4.8. Set R1623Enabled to false to disable this requirement.-->
     <Property name="R1623Enabled" value="true" />
     <!--Set R2149906Enabled to true to verify that the implementation does use the element "BlockExternalImages" which specifies whether external images are blocked, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149906Enabled to false to disable this requirement.-->
-    <Property name="R2149906Enabled" value="true" />
+    <Property name="R2149906Enabled" value="false" />
     <!--Set R2149909Enabled to true to verify that the implementation does use the element "AddBlankTargetToLinks" which specifies whether the target attribute is set to a value of blank, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149909Enabled to false to disable this requirement.-->
     <Property name="R2149909Enabled" value="true" />
     <!--Set R1502Enabled to true to verify that the implementation does support FlagType complex type which specifies a flag indicating status, start date, due date or completion date for an item, as specified in section 2.2.4. Set R1502Enabled to false to disable this requirement.-->
