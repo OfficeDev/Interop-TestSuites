@@ -215,7 +215,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
 
             for (int i = 0; i < result.AddElements.Count; i++)
             {
-                if (addResult.AddElements != null)
+                if (addResult.AddElements != null && addResult.AddElements.Count > 0)
                 {
                     if (result.AddElements[i].ServerId.Equals(addResult.AddElements[0].ServerId))
                     {
@@ -223,9 +223,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
                         break;
                     }
                 }
-                else if(addResult.AddResponses!=null)
+                else if(addResult.AddResponses!=null && addResult.AddResponses.Count > 0)
                 {
-                    if (result.AddElements[i].ServerId.Equals(addResult.AddElements[0].ServerId))
+                    if (result.AddElements[i].ServerId.Equals(addResult.AddResponses[0].ServerId))
                     {
                         note = result.AddElements[i].Note;
                         break;
