@@ -145,6 +145,39 @@ OutputQuestion "Enter the domain name of SUT(for example: contoso.com):"
 $domainInVM = Read-Host
 OutputText "The domain name you entered: $domainInVM"
 
+if($env:USERDNSDOMAIN -ne $null)
+{
+    Output "Current logon user:" "Cyan"    
+    Output "Domain: $env:USERDOMAIN" "Cyan"    
+    Output "Name:   $env:USERNAME" "Cyan"    
+    Output "Would you like to use this user? (Y/N)" "Cyan"
+    $useCurrentUserChoices = @("Y","N")
+    $useCurrentUser = ReadUserChoice $useCurrentUserChoices "useCurrentUser"   
+    if($useCurrentUser -eq "Y")
+    {
+        $dnsDomain = $ENV:USERDNSDOMAIN
+        $userName = $ENV:USERNAME
+        $useCurrentUser = $true
+    }
+    else
+    {
+        $useCurrentUser = $false
+    }
+}
+if(!$useCurrentUser)
+{
+    Output "Enter the name of DNS domain where the SUT belongs to (for example: contoso.com):" "Cyan"
+    [String]$dnsDomain = CheckForEmptyUserInput "Domain name" "dnsDomain"
+    Output "The DNS Domain name you entered: $dnsDomain" "White"
+    Output "Enter the user name. It must be the SUT administrator." "Cyan"
+    $userName = CheckForEmptyUserInput "User name" "userName"
+    Output "The user name you entered: $userName" "White"
+}
+
+Output "Enter password:" "Cyan"    
+$password = CheckForEmptyUserInput "Password" "password"
+Output "Password you entered: $password" "White"
+
 OutputQuestion "Select the Exchange Server version"
 OutputQuestion "1: Microsoft Exchange Server 2007"
 OutputQuestion "2: Microsoft Exchange Server 2010"
@@ -197,6 +230,10 @@ OutputWarning "$step.Find the property `"SutComputerName`", and set the value as
 $step++
 OutputWarning "$step.Find the property `"Domain`", and set the value as $domainInVM"
 $step++
+OutputWarning "$step.Find the property `"UserName`", and set the value as $userName"
+$step++
+OutputWarning "$step.Find the property `"Password`", and set the value as $password"
+$step++
 OutputWarning "$step.Find the property `"SutVersion`", and set the value as $serverVersion"
 $step++
 OutputWarning "$step.Find the property `"TransportType`", and set the value as $transportType"
@@ -207,6 +244,8 @@ OutputWarning "$step.Find the property `"AppendingURL`", and set the value as $a
 
 ModifyConfigFileNode $commonDeploymentFile "SutComputerName"       $sutcomputerName
 ModifyConfigFileNode $commonDeploymentFile "Domain"                $domainInVM
+ModifyConfigFileNode $commonDeploymentFile "UserName"              $userName
+ModifyConfigFileNode $commonDeploymentFile "Password"              $password
 ModifyConfigFileNode $commonDeploymentFile "SutVersion"            $serverVersion
 ModifyConfigFileNode $commonDeploymentFile "TransportType"         $transportType
 ModifyConfigFileNode $commonDeploymentFile "ServiceUrl"            $serviceUrl
