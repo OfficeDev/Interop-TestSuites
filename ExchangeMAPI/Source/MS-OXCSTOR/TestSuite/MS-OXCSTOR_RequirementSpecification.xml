@@ -9269,7 +9269,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R6280001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R6280:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9280,7 +9280,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R6280002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation don't return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Exchange 2007 and Exchange 2010 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Exchange 2007 and Exchange 2010 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R6280:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
