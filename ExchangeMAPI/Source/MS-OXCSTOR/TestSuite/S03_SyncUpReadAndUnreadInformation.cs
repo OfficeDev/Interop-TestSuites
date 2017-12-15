@@ -847,32 +847,43 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 this.writePerUserInformationResponse.ReturnValue,
                 "0 indicates the ROP succeeds, other value indicates error occurs.");
 
-            if (Common.IsRequirementEnabled(1021001, this.Site))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021001");
-
-
-                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021001.
-                Site.CaptureRequirementIfAreEqual<uint>(
-                    0x000004ED,
-                    this.writePerUserInformationResponse.ReturnValue,
-                    1021001,
-                    @"[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x000004ED. <48> Section 3.2.5.13.1:  Exchange 2007 and Exchange 2010 fail the operation with 0x000004ED (ecFmtError) if the data is not properly formed. ((Exchange 2007 and Exchange 2010 follow this behavior.))");
-            }
-
             if (Common.IsRequirementEnabled(1021002, this.Site))
             {
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021002");
-
 
                 // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021002.
                 Site.CaptureRequirementIfAreEqual<uint>(
                     0x8004011B,
                     this.writePerUserInformationResponse.ReturnValue,
                     1021002,
-                    @"[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x8004011B.(Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] For public folder logon, if the data is not properly formed,  the implementation does fail with a ReturnValue of 0x8004011B. <48> Section 3.2.5.13.1: For public folder logon, Exchange 2013 fails the operation with 0x8004011B. (Exchange 2013 follows this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1021003, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021003");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021003.
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x000004ED,
+                    this.writePerUserInformationResponse.ReturnValue,
+                    1021003,
+                    @"[In Appendix A: Product Behavior]  For public folder logon, if the data is not properly formed,  the implementation does fail with a ReturnValue of 0x000004ED. <48> Section 3.2.5.13.1: For public folder logon, Exchange 2010 fails the operation with 0x000004ED. (Exchange 2010 follows this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1021006, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021006");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021006.
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x8004011B,
+                    this.writePerUserInformationResponse.ReturnValue,
+                    1021006,
+                    @"[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x8004011B. (Exchange 2016 follows this behavior.)");
             }
             #endregion
         }
@@ -1556,42 +1567,43 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             this.oxcstorAdapter.DoRopCall(this.writePerUserInformationRequest, this.outObjHandle, ROPCommandType.RopWritePerUserInformation, out this.outputBuffer);
             this.writePerUserInformationResponse = (RopWritePerUserInformationResponse)this.outputBuffer.RopsList[0];
 
-            //According to bug 100636, add a switch to enable and disable below verifications
-            if (Common.IsRequirementEnabled(1021001, this.Site) && Common.IsRequirementEnabled(10210010, this.Site))
-            {
-                Site.Assert.AreNotEqual<uint>(0,
-                this.writePerUserInformationResponse.ReturnValue,
-                "0 indicates the ROP succeeds, other value indicates error occurs.");
-
+            if (Common.IsRequirementEnabled(1021004, this.Site))
+            {               
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021001");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021004");
 
-
-                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021001.
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021004.
                 Site.CaptureRequirementIfAreEqual<uint>(
-                    0x000004ED,
+                    0x00000000,
                     this.writePerUserInformationResponse.ReturnValue,
-                    1021001,
-                    @"[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x000004ED. <48> Section 3.2.5.13.1:  Exchange 2007 and Exchange 2010 fail the operation with 0x000004ED (ecFmtError) if the data is not properly formed. ((Exchange 2007 and Exchange 2010 follow this behavior.))");
+                    1021004,
+                    @"[In Appendix A: Product Behavior] For private mailbox logon, if the data is not properly formed, the implementation does returns 0x00000000. <48> Section 3.2.5.13.1: For private mailbox logon, Exchange 2013 returns 0x00000000. (Exchange 2013 follows this behavior.)");
             }
 
-            //According to bug 100636, add a switch to enable and disable below verifications
-            if (Common.IsRequirementEnabled(1021002, this.Site) && Common.IsRequirementEnabled(10210010, this.Site))
+            if (Common.IsRequirementEnabled(1021005, this.Site))
             {
-                Site.Assert.AreNotEqual<uint>(0,
-                this.writePerUserInformationResponse.ReturnValue,
-                "0 indicates the ROP succeeds, other value indicates error occurs.");
-
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021002");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021005");
 
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021005.
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    0x80070057,
+                    this.writePerUserInformationResponse.ReturnValue,
+                    1021005,
+                    @"[In Appendix A: Product Behavior] For private mailbox logon, if the data is not properly formed, the implementation does fail with a ReturnValue of 0x80070057. <48> Section 3.2.5.13.1: For private mailbox logon, Exchange 2010 fails the operation with 0x80070057. (Exchange 2010 follows this behavior.)");
+            }
 
-                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021002.
+            if (Common.IsRequirementEnabled(1021006, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R1021006");
+
+                // Verify MS-OXCSTOR requirement: MS-OXCSTOR_R1021006.
                 Site.CaptureRequirementIfAreEqual<uint>(
                     0x8004011B,
                     this.writePerUserInformationResponse.ReturnValue,
-                    1021002,
-                    @"[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x8004011B.(Exchange 2013 and above follow this behavior.)");
+                    1021006,
+                    @"[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x8004011B. (Exchange 2016 follows this behavior.)");
             }
             #endregion
 

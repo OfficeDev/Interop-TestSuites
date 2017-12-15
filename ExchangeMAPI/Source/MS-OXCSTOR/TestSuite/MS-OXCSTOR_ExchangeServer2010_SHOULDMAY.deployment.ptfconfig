@@ -89,11 +89,17 @@
     <Property name="R155Enabled" value="false"/>
     <!-- Set R3905001Enabled to true to verify that implementation does not fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. Set R3905001Enabled to false to disable this requirement.-->
     <Property name="R3905001Enabled" value="false"/>
-    <!-- Set R1021001Enabled to true to verify that the implementation does fail with a ReturnValue of 0x000004ED if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation . Set R1021001Enabled to false to disable this requirement.-->
-    <Property name="R1021001Enabled" value="true"/>
-    <!-- Set R1021002Enabled to true to verify that the implementation does fail with a ReturnValue of 0x8004011B if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation . Set R1021002Enabled to false to disable this requirement.-->
+    <!-- Set R1021001Enabled to true to verify that the implementation does fail with a ReturnValue of 0x000004ED if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation for Exchange 2007. Set R1021001Enabled to false to disable this requirement.-->
+    <Property name="R1021001Enabled" value="false"/>
+    <!-- Set R1021002Enabled to true to verify that the implementation does fail with a ReturnValue of 0x000004ED if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation for Exchange 2010 with public folder logon. Set R1021002Enabled to false to disable this requirement.-->
     <Property name="R1021002Enabled" value="false"/>
-    <!-- Set R10210010Enabled to true to verify RS1021001 and RS1021002 if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation when log on to private mailbox. Set R10210010Enabled to false to disable this requirement.-->
-    <Property name="R10210010Enabled" value="false"/>
+    <!-- Set R1021003Enabled to true to verify that the implementation does fail with a ReturnValue of 0x8004011B if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation for Exchange 2013 with public folder logon. Set R1021003Enabled to false to disable this requirement.-->
+    <Property name="R1021003Enabled" value="true"/>
+    <!-- Set R1021004Enabled to true to verify that the implementation does fail with a ReturnValue of 0x80070057 if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation for Exchange 2010 with private folder logon. Set R1021004Enabled to false to disable this requirement.-->
+    <Property name="R1021004Enabled" value="false"/>
+    <!-- Set R1021005Enabled to true to verify that the implementation does fail with a ReturnValue of 0x00000000 if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation for Exchange 2013 with private folder logon. Set R1021005Enabled to false to disable this requirement.-->
+    <Property name="R1021005Enabled" value="true"/>
+    <!-- Set R1021006Enabled to true to verify that the implementation does fail with a ReturnValue of 0x8004011B if the data is not properly formed and HasFinished is true in calling RopWritePerUserInformation for Exchange 2016. Set R1021006Enabled to false to disable this requirement.-->
+    <Property name="R1021006Enabled" value="false"/>
   </Properties>
 </TestSite>
