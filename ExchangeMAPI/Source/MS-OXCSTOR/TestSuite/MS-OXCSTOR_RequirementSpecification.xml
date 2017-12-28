@@ -8759,7 +8759,7 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCSTOR_R1021001, MS-OXCSTOR_R1021002.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCSTOR_R1021001, MS-OXCSTOR_R1021002,MS-OXCSTOR_R1021003,MS-OXCSTOR_R1021004,MS-OXCSTOR_R1021005,MS-OXCSTOR_R1021006.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1022</ns1:REQ_ID>
@@ -9897,7 +9897,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1021001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x000004ED. &lt;48&gt; Section 3.2.5.13.1:  Exchange 2007 and Exchange 2010 fail the operation with 0x000004ED (ecFmtError) if the data is not properly formed. ((Exchange 2007 and Exchange 2010 follow this behavior.))</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x000004ED. &lt;48&gt; Section 3.2.5.13.1: If the data is not properly formed, Exchange 2007 fails the operation with 0x000004ED (ecFmtError)  ((Exchange 2007 follows this behavior.))</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1021:I, MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9908,7 +9908,51 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1021002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x8004011B.(Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] For public folder logon, if the data is not properly formed,  the implementation does fail with a ReturnValue of 0x8004011B. &lt;48&gt; Section 3.2.5.13.1: For public folder logon, Exchange 2013 fails the operation with 0x8004011B. (Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCSTOR_R1021:I, MS-OXCSTOR_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R1021003</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior]  For public folder logon, if the data is not properly formed,  the implementation does fail with a ReturnValue of 0x000004ED. &lt;48&gt; Section 3.2.5.13.1: For public folder logon, Exchange 2010 fails the operation with 0x000004ED. (Exchange 2010 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCSTOR_R1021:I, MS-OXCSTOR_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R1021004</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] For private mailbox logon, if the data is not properly formed, the implementation does returns 0x00000000. &lt;48&gt; Section 3.2.5.13.1: For private mailbox logon, Exchange 2013 returns 0x00000000. (Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCSTOR_R1021:I, MS-OXCSTOR_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R1021005</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] For private mailbox logon, if the data is not properly formed, the implementation does fail with a ReturnValue of 0x80070057. &lt;48&gt; Section 3.2.5.13.1: For private mailbox logon, Exchange 2010 fails the operation with 0x80070057. (Exchange 2010 follows this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCSTOR_R1021:I, MS-OXCSTOR_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R1021006</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] If the data is not properly formed, the implementation does fail with a ReturnValue of 0x8004011B. (Exchange 2016 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1021:I, MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

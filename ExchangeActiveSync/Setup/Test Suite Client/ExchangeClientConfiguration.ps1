@@ -57,6 +57,7 @@ $MSASCALUser02                       = ReadConfigFileNode "$environmentResourceF
 $MSASCMDUser01                       = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser01"
 $MSASCMDUser02                       = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser02"
 $MSASCMDUser03                       = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser03"
+$MSASCMDUser04                       = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser04"
 $MSASCMDUser07                       = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser07"
 $MSASCMDUser08                       = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser08"
 $MSASCMDUser09                       = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser09"
@@ -374,6 +375,10 @@ OutputWarning "$step.Find the property `"User3Name`", and set the value as $MSAS
 $step++
 OutputWarning "$step.Find the property `"User3Password`", and set the value as $userPassword" 
 $step++
+OutputWarning "$step.Find the property `"User4Name`", and set the value as $MSASCMDUser04" 
+$step++
+OutputWarning "$step.Find the property `"User4Password`", and set the value as $userPassword" 
+$step++
 OutputWarning "$step.Find the property `"User7Name`", and set the value as $MSASCMDUser07" 
 $step++
 OutputWarning "$step.Find the property `"User7Password`", and set the value as $userPassword" 
@@ -404,6 +409,8 @@ ModifyConfigFileNode $MSASCMDDeploymentFile    "User2Name"                    "$
 ModifyConfigFileNode $MSASCMDDeploymentFile    "User2Password"                "$userPassword"
 ModifyConfigFileNode $MSASCMDDeploymentFile    "User3Name"                    "$MSASCMDUser03"
 ModifyConfigFileNode $MSASCMDDeploymentFile    "User3Password"                "$userPassword"
+ModifyConfigFileNode $MSASCMDDeploymentFile    "User4Name"                    "$MSASCMDUser04"
+ModifyConfigFileNode $MSASCMDDeploymentFile    "User4Password"                "$userPassword"
 ModifyConfigFileNode $MSASCMDDeploymentFile    "User7Name"                    "$MSASCMDUser07"
 ModifyConfigFileNode $MSASCMDDeploymentFile    "User7Password"                "$userPassword"
 ModifyConfigFileNode $MSASCMDDeploymentFile    "User8Name"                    "$MSASCMDUser08"

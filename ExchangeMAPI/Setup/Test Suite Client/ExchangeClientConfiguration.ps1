@@ -508,19 +508,12 @@ $SessionParams =
 }
 $Session = New-PSSession @SessionParams
 $publicFolder=Invoke-command -ScriptBlock {get-mailbox -publicfolder -server $args[0]}-ArgumentList $sutComputerName -Session $Session
-if($sutVersion -eq "ExchangeServer2013")
+foreach ($publicfoldermailbox in $publicFolder)
 {
-$publicFolderMailboxName=$publicFolder[0].Name
-}
-else 
-{
-for($i=0;$i -lt $publicFolder.Length;$i++)
-{
-    if($publicFolder[$i].IsRootPublicFolderMailbox -eq $true)
+    if ($publicfoldermailbox.IsRootPublicfolderMailbox)
     {
-        $publicFolderMailboxName=$publicFolder[$i].Name
+    $publicfolderMailboxName=$publicFoldermailbox.Name
     }
-}
 }
 ModifyConfigFileNode $commonDeploymentFile "PublicFolderMailbox"            $publicfolderMailboxName
 }

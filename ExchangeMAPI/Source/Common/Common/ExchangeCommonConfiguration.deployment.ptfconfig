@@ -111,7 +111,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="NotificationIPv6" value="fe80::589d:6885:1235:b406%11" />
     <!--The PublicFolderMailbox property is a string that indicates the names of Public Folder mailbox. -->
     <Property name="PublicFolderMailbox" value="MSOXWSCORE_PublicFolderMailbox" />
-    PublicFolderMailbox
     <!-- Test suite client section ends. -->
   </Properties>
 </TestSite>

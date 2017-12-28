@@ -290,7 +290,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 DistinguishedFolderIdNameType.inbox.ToString(),
                 itemSubject,
                 Item.MeetingCancellation.ToString());
-            Site.Assert.IsTrue(isCancellationReceived, "The meeting cancellation message should be received by '{0}'", Common.GetConfigurationPropertyValue("User1Name", this.Site));
+            Site.Assert.IsTrue(isCancellationReceived, "The meeting cancellation message should be received by '{0}'", Common.GetConfigurationPropertyValue("User2Name", this.Site));
 
             // Make sure that the meeting request message exists in User2's inbox folder or deleted items folder
             bool isRequestMessageInDeletedItems = this.SYNCSUTControlAdapter.IsItemExisting(
@@ -455,11 +455,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             cancelItem.ReferenceItemId = itemId;
             createItemRequest.Items.Items = new ItemType[] { cancelItem };
 
-            // Set the saved folder to the junkemail folder.
+            // Set the saved folder to the sentitems folder.
             createItemRequest.SavedItemFolderId = new TargetFolderIdType();
             DistinguishedFolderIdType folder;
             folder = new DistinguishedFolderIdType();
-            folder.Id = DistinguishedFolderIdNameType.junkemail;
+            folder.Id = DistinguishedFolderIdNameType.sentitems;
             createItemRequest.SavedItemFolderId.Item = folder;
 
             // Set the MessageDisposition property to SendAndSaveCopy.
