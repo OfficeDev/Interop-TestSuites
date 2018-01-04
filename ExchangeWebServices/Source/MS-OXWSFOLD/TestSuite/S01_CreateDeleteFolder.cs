@@ -1690,7 +1690,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
         {
             #region Create a new managed folder
 
-            CreateManagedFolderRequestType createManagedFolderRequest = this.GetCreateManagedFolderRequest(Common.GetConfigurationPropertyValue("ManagedFolderName1", this.Site));
+            CreateManagedFolderRequestType createManagedFolderRequest = this.GetCreateManagedFolderRequest(Common.GetConfigurationPropertyValue("ManagedFolderName2", this.Site));
 
             // Add an email address into request.
             EmailAddressType mailBox = new EmailAddressType()
