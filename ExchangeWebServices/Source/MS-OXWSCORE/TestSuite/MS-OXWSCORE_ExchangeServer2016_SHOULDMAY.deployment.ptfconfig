@@ -22,7 +22,7 @@
     <!--Set R2149904Enabled to true to verify that the implementation does use the element "InlineImageUrlTemplate" which specifies the name of the template for the inline image URL, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149904Enabled to false to disable this requirement.-->
     <Property name="R2149904Enabled" value="true" />
     <!--Set R2149905Enabled to true to verify that the implementation does use the element "BlockExternalImages" which specifies whether external images are blocked, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149905Enabled to false to disable this requirement.-->
-    <Property name="R2149905Enabled" value="true" />
+    <Property name="R2149905Enabled" value="false" />
     <!--Set R2149908Enabled to true to verify that the implementation does use the element "AddBlankTargetToLinks" which specifies whether the target attribute is set to a value of blank, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149908Enabled to false to disable this requirement.-->
     <Property name="R2149908Enabled" value="true" />
     <!--Set R1772Enabled to true to verify that the implementation does use the ArrayOfUrlEntitiesType complex type which specifies an array of URL entities, as specified in section 2.2.4.45. Set R1772Enabled to false to disable this requirement.-->

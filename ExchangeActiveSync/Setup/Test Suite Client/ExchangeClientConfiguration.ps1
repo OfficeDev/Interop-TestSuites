@@ -85,6 +85,8 @@ $MSASDOCHiddenDocument               = ReadConfigFileNode "$environmentResourceF
 $MSASEMAILUser01                     = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser01"
 $MSASEMAILUser02                     = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser02"
 $MSASEMAILUser03                     = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser03"
+$MSASEMAILUser04                     = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser04"
+$MSASEMAILUser05                     = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser05"
 
 $MSASHTTPUser01                      = ReadConfigFileNode "$environmentResourceFile" "MSASHTTPUser01"
 $MSASHTTPUser02                      = ReadConfigFileNode "$environmentResourceFile" "MSASHTTPUser02"
@@ -535,7 +537,15 @@ OutputWarning "$step.Find the property `"User2Password`", and set the value as $
 $step++
 OutputWarning "$step.Find the property `"User3Name`", and set the value as $MSASEMAILUser03" 
 $step++
-OutputWarning "$step.Find the property `"User3Password`", and set the value as $userPassword" 
+OutputWarning "$step.Find the property `"User3Password`", and set the value as $userPassword"
+$step++
+OutputWarning "$step.Find the property `"User4Name`", and set the value as $MSASEMAILUser04" 
+$step++
+OutputWarning "$step.Find the property `"User4Password`", and set the value as $userPassword" 
+$step++
+OutputWarning "$step.Find the property `"User5Name`", and set the value as $MSASEMAILUser05" 
+$step++
+OutputWarning "$step.Find the property `"User5Password`", and set the value as $userPassword" 
 
 ModifyConfigFileNode $MSASEMAILDeploymentFile "User1Name"                   $MSASEMAILUser01
 ModifyConfigFileNode $MSASEMAILDeploymentFile "User1Password"               $userPassword
@@ -543,6 +553,10 @@ ModifyConfigFileNode $MSASEMAILDeploymentFile "User2Name"                   $MSA
 ModifyConfigFileNode $MSASEMAILDeploymentFile "User2Password"               $userPassword
 ModifyConfigFileNode $MSASEMAILDeploymentFile "User3Name"                   $MSASEMAILUser03
 ModifyConfigFileNode $MSASEMAILDeploymentFile "User3Password"               $userPassword
+ModifyConfigFileNode $MSASEMAILDeploymentFile "User4Name"                   $MSASEMAILUser04
+ModifyConfigFileNode $MSASEMAILDeploymentFile "User4Password"               $userPassword
+ModifyConfigFileNode $MSASEMAILDeploymentFile "User5Name"                   $MSASEMAILUser05
+ModifyConfigFileNode $MSASEMAILDeploymentFile "User5Password"               $userPassword
 
 OutputSuccess "Configuration for the MS-ASEMAIL_TestSuite.deployment.ptfconfig file is complete." 
 
