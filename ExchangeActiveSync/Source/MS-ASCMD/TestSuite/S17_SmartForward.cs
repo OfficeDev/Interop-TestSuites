@@ -400,6 +400,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             string meetingRequestSubject = Common.GenerateResourceName(Site, "subject");
             string attendeeEmailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
             this.SendWeeklyRecurrenceMeetingRequest(meetingRequestSubject, attendeeEmailAddress);
+
+            // Record relative items for clean up
+            TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.InboxCollectionId, meetingRequestSubject);
+            TestSuiteBase.RecordCaseRelativeItems(this.User1Information, this.User1Information.CalendarCollectionId, meetingRequestSubject);
             #endregion
 
             #region User2 calls Sync command to sync user2 mailbox changes
@@ -433,11 +437,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             this.SwitchUser(this.User3Information);
             SyncResponse syncForwardResult = this.GetMailItem(this.User3Information.InboxCollectionId, forwardSubject);
             string forwardItemServerID = TestSuiteBase.FindServerId(syncForwardResult, "Subject", forwardSubject);
-
-            // Sync user3 Calendar folder 
-            SyncResponse syncUser3CalendarFolder = this.GetMailItem(this.User3Information.CalendarCollectionId, forwardSubject);
-            string user3CalendarItemID = TestSuiteBase.FindServerId(syncUser3CalendarFolder, "Subject", forwardSubject);
-            Response.Recurrence user3CalendarRecurrence = (Response.Recurrence)TestSuiteBase.GetElementValueFromSyncResponse(syncUser3CalendarFolder, user3CalendarItemID, Response.ItemsChoiceType8.Recurrence);
+            Response.MeetingRequest user3Meeting = (Response.MeetingRequest)TestSuiteBase.GetElementValueFromSyncResponse(syncForwardResult, forwardItemServerID, Response.ItemsChoiceType8.MeetingRequest);
 
             // Record email items for clean up
             TestSuiteBase.RecordCaseRelativeItems(this.User3Information, this.User2Information.InboxCollectionId, forwardSubject);
@@ -456,7 +456,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Verify MS-ASCMD requirement: MS-ASCMD_R5834
             // If the calendar item with specified subject contains Recurrence element, which indicates user3 received the entire meeting request.
             Site.CaptureRequirementIfIsTrue(
-                user3CalendarRecurrence != null && forwardItemServerID != null,
+                user3Meeting.Recurrences != null && forwardItemServerID != null,
                 5834,
                 @"[In Appendix A: Product Behavior] If SmartForward is applied to a recurring meeting and the InstanceId element is absent, the implementation does forward the entire recurring meeting. (Exchange 2007 and above follow this behavior.)");
         }

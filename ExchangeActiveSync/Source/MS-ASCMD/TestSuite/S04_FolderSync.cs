@@ -169,6 +169,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         public void MSASCMD_S04_TC03_FolderSync_Changed()
         {
             #region Change a new DeviceID and call FolderSync command.
+            this.CMDAdapter.ChangeDeviceID(Common.GetConfigurationPropertyValue("DeviceID", this.Site));
+            FolderSyncResponse folderSyncResponseForDefaultDeviceID = this.FolderSync(); 
+            #endregion
+
+            #region Change a new DeviceID and call FolderSync command.
             this.CMDAdapter.ChangeDeviceID("NewDeviceID");
             this.RecordDeviceInfoChanged();
             string folderName = Common.GenerateResourceName(Site, "FolderSync");
