@@ -26,6 +26,7 @@ AddTimesStampsToLogFile "Start" "$logFile"
 #----------------------------------------------------------------------------
 # Default Variables for Configuration 
 #----------------------------------------------------------------------------
+$sutComputerName                    = $env:ComputerName
 $environmentResourceFile            = "$commonScriptDirectory\ExchangeTestSuite.config"
 
 $MSOXWSATTUser01              = ReadConfigFileNode "$environmentResourceFile" "MSOXWSATTUser01"
@@ -37,7 +38,8 @@ $MSOXWSBTRFUser01Password     = ReadConfigFileNode "$environmentResourceFile" "M
 $MSOXWSCONTUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCONTUser01"
 $MSOXWSCONTUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCONTUser01Password"
 
-$MSOXWSCOREPublicFolderMailbox= ReadConfigFileNode "$environmentResourceFile" "MSOXWSCOREPublicFolderMailbox"
+$MSOXWSCOREPublicFolderMailboxPrefix = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCOREPublicFolderMailboxPrefix"
+$MSOXWSCOREPublicFolderMailbox = $MSOXWSCOREPublicFolderMailboxPrefix + $sutComputerName
 $MSOXWSCOREPublicFolder       = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCOREPublicFolder"
 $MSOXWSCOREUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCOREUser01"
 $MSOXWSCOREUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCOREUser01Password"
