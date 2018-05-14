@@ -3097,7 +3097,9 @@ function CreateSecureStoreServiceApplication
         Get-SPServiceApplication | ?{$_.GetType().Equals([Microsoft.Office.SecureStoreService.Server.SecureStoreServiceApplication])}|New-SPSecureStoreServiceApplicationProxy -Name $secureStoreApplicationProxyName -DefaultProxyGroup
         $secureStore = Get-SPServiceApplicationProxy | where { $_.GetType().Name -eq $secureStoreApplicationProxyName }
     }
-    Update-SPSecureStoreMasterKey -ServiceApplicationProxy $secureStore.Id -Passphrase $password    
+    Update-SPSecureStoreMasterKey -ServiceApplicationProxy $secureStore.Id -Passphrase $password
+    Start-Sleep -Seconds 60   
+    
     $i = 0
     while($i++ -le 3)
     {
@@ -3130,7 +3132,7 @@ function CreateSecureStoreServiceApplication
         
     #Set the group claim and admin principals.
     $targetAppAdminAccount = New-SPClaimsPrincipal -Identity $poolAccount -IdentityType WindowsSamAccountName 
-        
+
     $i = 0
     while($i++ -le 3)
     {
@@ -3298,54 +3300,6 @@ function CheckServerInstallationMode
     }
     return $isStandaloneInstallation  
  }
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #-----------------------------------------------------------------------------------
 # <summary>
 # Get the language code identifier (LCID) installed on the Web server in the farm and the LCID with which the server was originally installed.
