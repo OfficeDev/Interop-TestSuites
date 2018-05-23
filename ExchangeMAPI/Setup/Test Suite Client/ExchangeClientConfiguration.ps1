@@ -498,25 +498,9 @@ ModifyConfigFileNode $commonDeploymentFile "XorRpcRequest"               $xorRpc
 ModifyConfigFileNode $commonDeploymentFile "useAutodiscover"             $useAutodiscover
 ModifyConfigFileNode $commonDeploymentFile "NotificationIP"              $ipv4Address
 ModifyConfigFileNode $commonDeploymentFile "NotificationIPv6"            $ipv6Address
-if ($sutVersion -ge "ExchangeServer2013")
-{
-$SessionParams = 
-@{
-   ConfigurationName = 'Microsoft.Exchange'
-   ConnectionURI     = "http://$sutComputerName/powershell/"
-   Authentication    = 'Kerberos'
-}
-$Session = New-PSSession @SessionParams
-$publicFolder=Invoke-command -ScriptBlock {get-mailbox -publicfolder -server $args[0]}-ArgumentList $sutComputerName -Session $Session
-foreach ($publicfoldermailbox in $publicFolder)
-{
-    if ($publicfoldermailbox.IsRootPublicfolderMailbox)
-    {
-    $publicfolderMailboxName=$publicFoldermailbox.Name
-    }
-}
-ModifyConfigFileNode $commonDeploymentFile "PublicFolderMailbox"            $publicfolderMailboxName
-}
+$defaultPublicFolderMailboxPrefix   = ReadConfigFileNode "$environmentResourceFile" "defaultPublicFolderMailboxPrefixOnPrimarySUT"
+$defaultPublicFolderMailbox         = $defaultPublicFolderMailboxPrefix + $sutComputerName
+ModifyConfigFileNode $commonDeploymentFile "PublicFolderMailbox"            $defaultPublicFolderMailbox
 Output "Configuration for ExchangeCommonConfiguration.deployment.ptfconfig file is complete" "Green"
 
 #-------------------------------------------------------

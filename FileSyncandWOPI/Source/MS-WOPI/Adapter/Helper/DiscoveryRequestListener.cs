@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
 {
     using System;
     using System.Net;
+    using System.Net.Sockets;
     using System.Text;
     using System.Threading;
     using System.Xml;
@@ -67,9 +68,11 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             this.ResponseDiscovery = responseXmlForDiscovery;
             if (null == ListenInstance)
             {
-                ListenInstance = new HttpListener();
+                IPAddress iPAddress = IPAddress.Any;
+                IPEndPoint endPoint = new IPEndPoint(iPAddress, 80);
+                ListenInstance = new TcpListener(endPoint);
             }
-           
+
             this.IsRequiredStop = false;
             this.IsDisposed = false;
         }
@@ -78,13 +81,13 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         /// Finalizes an instance of the <see cref="DiscoveryRequestListener"/> class. This method will be invoked by .net GC collector automatically.
         /// </summary>
         ~DiscoveryRequestListener()
-        {  
+        {
             lock (threadLockStaticObjectForVisitThread)
             {
                 this.Dispose(false);
             }
         }
- 
+
         #region properties
 
         /// <summary>
@@ -104,7 +107,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         /// <summary>
         /// Gets or sets the HttpListener type instance.
         /// </summary>
-        protected static HttpListener ListenInstance { get; set; }
+        protected static TcpListener ListenInstance { get; set; }
 
         /// <summary>
         /// Gets or sets the host name which will listen and response for the discovery request.
@@ -156,7 +159,9 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
 
                 if (null == ListenInstance)
                 {
-                    ListenInstance = new HttpListener();
+                    IPAddress iPAddress = IPAddress.Any;
+                    IPEndPoint endPoint = new IPEndPoint(iPAddress, 80);
+                    ListenInstance = new TcpListener(endPoint);
                 }
 
                 if (hasStartListenThread)
@@ -167,17 +172,6 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                     }
 
                     return listenThreadHandle;
-                }
-
-                if (!ListenInstance.IsListening)
-                {
-                    this.SetPrefixForListener(ListenInstance);
-                }
-
-                while (!ListenInstance.IsListening)
-                {
-                    // Sleep 1 second to wait until the status is stable, and allow other threads get the control to update the status.
-                    Thread.Sleep(1000);
                 }
 
                 listenThreadHandle = new Thread(this.ListenToRequest);
@@ -201,7 +195,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         public void StopListen()
         {
             lock (threadLockStaticObjectForVisitThread)
-            {   
+            {
                 // If the listen thread has not been start, skip the stop operation.
                 if (!hasStartListenThread)
                 {
@@ -221,8 +215,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                     lock (threadLockObjectForAppendLog)
                     {
                         // Close the http listener and release the resource used by listener. This might cause the thread generate exception and then the thread will be expected to end and join to the main thread.
-                        ListenInstance.Abort();
-                        ((IDisposable)ListenInstance).Dispose();
+                        ListenInstance.Stop();
+                        hasStartListenThread = false;
                         DiscoveryProcessHelper.AppendLogs(currentHelperType, DateTime.Now, string.Format("Release the Httplistener resource. The listening thread managed Id[{0}]", listenThreadHandle.ManagedThreadId));
                     }
 
@@ -244,8 +238,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                     }
 
                     // Set the static status to tell other instance, the listen thread has been abort.
-                    hasStartListenThread = false;
-                    listenThreadHandle = null;
+                     listenThreadHandle = null;
                 }
             }
         }
@@ -279,88 +272,91 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         /// </summary>
         protected void ListenToRequest()
         {
-            // If the listener is listening, just keep on execute below code.
-            while (ListenInstance.IsListening)
-            {
-                // if the calling thread requires stopping the listening mission, just return and exit the loop. This value of "IsrequireStop" property is managed by "StopListen" method.
-                if (this.IsRequiredStop)
-                {
-                    break;
-                }
+            ListenInstance.Start();
 
-                lock (threadLockStaticObjectForVisitThread)
+            // If the listener is listening, just keep on execute below code.
+            while (hasStartListenThread)
+            {
+                try
                 {
-                    // Double check the "IsrequireStop" status.
+                    TcpClient client = ListenInstance.AcceptTcpClient();
+                    if (client.Connected == true)
+                    {
+                        Console.WriteLine("Created connection");
+                    }
+                    // if the calling thread requires stopping the listening mission, just return and exit the loop. This value of "IsrequireStop" property is managed by "StopListen" method.
                     if (this.IsRequiredStop)
                     {
                         break;
                     }
-                }
-
-                lock (threadLockObjectForAppendLog)
-                {
-                    string logMsg = string.Format("Listening............ The listen thread: managed id[{0}].", Thread.CurrentThread.ManagedThreadId);
-                    DiscoveryProcessHelper.AppendLogs(currentHelperType, DateTime.Now, logMsg);
-                }
-
-                // Get an incoming request.
-                HttpListenerContext listenContext = null;
-                HttpListenerResponse responseOfCurrentRequest = null;
-                HttpListenerRequest currentRequest = null;
-
-                try
-                {
-                    listenContext = ListenInstance.GetContext();
-                    currentRequest = listenContext.Request as HttpListenerRequest;
-                    responseOfCurrentRequest = listenContext.Response as HttpListenerResponse;
-
-                    if (!currentRequest.RawUrl.Equals(@"/hosting/discovery", StringComparison.OrdinalIgnoreCase))
-                    {
-                        break;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    lock (threadLockObjectForAppendLog)
-                    {
-                        DiscoveryProcessHelper.AppendLogs(currentHelperType, DateTime.Now, string.Format("The listen thread catches an [{0}] exception:[{1}].", ex.GetType().Name, ex.Message));
-                    }
 
                     lock (threadLockStaticObjectForVisitThread)
                     {
+                        // Double check the "IsrequireStop" status.
                         if (this.IsRequiredStop)
                         {
-                            lock (threadLockObjectForAppendLog)
-                            {
-                                DiscoveryProcessHelper.AppendLogs(currentHelperType, DateTime.Now, "Requires stopping the Httplistener.");
-                            }
-
-                            return;
-                        }
-                        else
-                        {
-                            this.RestartListener();
+                            break;
                         }
                     }
-                }
 
-                if (responseOfCurrentRequest != null)
-                {
-                    responseOfCurrentRequest.ContentType = "text/xml";
-                    responseOfCurrentRequest.ContentEncoding = Encoding.UTF8;
-                    responseOfCurrentRequest.StatusCode = 200;
+                    lock (threadLockObjectForAppendLog)
+                    {
+                        string logMsg = string.Format("Listening............ The listen thread: managed id[{0}].", Thread.CurrentThread.ManagedThreadId);
+                        DiscoveryProcessHelper.AppendLogs(currentHelperType, DateTime.Now, logMsg);
+                    }
+                    NetworkStream netstream = client.GetStream();
+                    try
+                    {
+                        byte[] buffer = new byte[2048];
 
-                    // Get the xml response.
-                    XmlDocument reponseXml = new XmlDocument();
-                    reponseXml.LoadXml(this.ResponseDiscovery);
+                        int receivelength = netstream.Read(buffer, 0, 2048);
+                        string requeststring = Encoding.UTF8.GetString(buffer, 0, receivelength);
+
+                        if (!requeststring.StartsWith(@"GET /hosting/discovery", StringComparison.OrdinalIgnoreCase))
+                        {
+                            break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        lock (threadLockObjectForAppendLog)
+                        {
+                            DiscoveryProcessHelper.AppendLogs(currentHelperType, DateTime.Now, string.Format("The listen thread catches an [{0}] exception:[{1}].", ex.GetType().Name, ex.Message));
+                        }
+
+                        lock (threadLockStaticObjectForVisitThread)
+                        {
+                            if (this.IsRequiredStop)
+                            {
+                                lock (threadLockObjectForAppendLog)
+                                {
+                                    DiscoveryProcessHelper.AppendLogs(currentHelperType, DateTime.Now, "Requires stopping the Httplistener.");
+                                }
+
+                                return;
+                            }
+                            else
+                            {
+                                this.RestartListener();
+                            }
+                        }
+                    }
                     bool writeResponseSucceed = false;
                     try
                     {
-                        using (XmlTextWriter xmlWriter = new XmlTextWriter(responseOfCurrentRequest.OutputStream, Encoding.UTF8))
-                        {
-                            reponseXml.Save(xmlWriter);
-                            writeResponseSucceed = true;
-                        }
+                        string statusLine = "HTTP/1.1 200 OK\r\n";
+                        byte[] responseStatusLineBytes = Encoding.UTF8.GetBytes(statusLine);
+                        string responseHeader =
+                            string.Format(
+                                "Content-Type: text/xml; charset=UTf-8\r\nContent-Length: {0}\r\n", this.ResponseDiscovery.Length);
+                        byte[] responseHeaderBytes = Encoding.UTF8.GetBytes(responseHeader);
+                        byte[] responseBodyBytes = Encoding.UTF8.GetBytes(this.ResponseDiscovery);
+                        writeResponseSucceed = true;
+                        netstream.Write(responseStatusLineBytes, 0, responseStatusLineBytes.Length);
+                        netstream.Write(responseHeaderBytes, 0, responseHeaderBytes.Length);
+                        netstream.Write(new byte[] { 13, 10 }, 0, 2);
+                        netstream.Write(responseBodyBytes, 0, responseBodyBytes.Length);
+                        client.Close();
                     }
                     catch (Exception ex)
                     {
@@ -390,7 +386,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                     if (writeResponseSucceed)
                     {
                         lock (threadLockStaticObjectForVisitThread)
-                        {   
+                        {
                             // Setting the status.
                             if (!hasResponseDiscoveryRequestSucceed)
                             {
@@ -404,41 +400,18 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                                       currentHelperType,
                                       DateTime.Now,
                                       string.Format(
-                                                "Response the discovery request from [{0}] succeed! The listen thread managedId[{1}]",
-                                                 currentRequest.UserHostName,
+                                                "Response the discovery requestsucceed! The listen thread managedId[{0}]",
                                                  Thread.CurrentThread.ManagedThreadId));
                         }
                     }
                 }
-            }
-        }
-
-        /// <summary>
-        /// A method is used to set the prefix for listener.
-        /// </summary>
-        /// <param name="listenerInstance">A parameter represents the HttpListener instance which will be set the listened prefix.</param>
-        protected void SetPrefixForListener(HttpListener listenerInstance)
-        {
-            if (null == listenerInstance)
-            {
-                throw new ArgumentNullException("listenerInstance");
-            }
-
-            if (listenerInstance.IsListening)
-            {
-                throw new InvalidOperationException("The listener has been started, could not set listened prefix for it when it is in started status.");
-            }
-
-            // The discovery request must send to "http://{0}/hosting/discovery" URL, and the listener's prefix should append the "/" after the url.
-            string listenedprefix = string.Format(@"http://{0}/hosting/discovery/", this.HostNameOfDiscoveryService);
-            Uri uri = new Uri(listenedprefix);
-            listenedprefix = uri.GetComponents(UriComponents.SchemeAndServer, UriFormat.SafeUnescaped);
-            ListenInstance.Prefixes.Add(listenedprefix + "/");
-            ListenInstance.Start();
-            
-            lock (threadLockObjectForAppendLog)
-            {
-                DiscoveryProcessHelper.AppendLogs(currentHelperType, DateTime.Now, string.Format("Start the HttpListener [{0}] succeed.", Thread.CurrentThread.ManagedThreadId));
+                catch(SocketException ee)
+                {
+                    DiscoveryProcessHelper.AppendLogs(
+                                      currentHelperType,
+                                      DateTime.Now, 
+                                      string.Format("SocketException: {0}", ee.Message));
+                }
             }
         }
 
@@ -451,27 +424,14 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
             {
                 DiscoveryProcessHelper.AppendLogs(currentHelperType, DateTime.Now, "Try to restart the Httplistener.");
             }
-
-            // If it is not in "stop" status, try to restart the Httplistener.
-            if (ListenInstance.IsListening)
-            {
-                ListenInstance.Stop();
-            }
-
-            while (ListenInstance.IsListening)
-            {
-                // sleep zero, so that other thread can get the CPU timespan in a valid 
-                Thread.Sleep(0);
-            }
-
             // Release the original HttpListener resource.
-            ListenInstance.Abort();
-            ((IDisposable)ListenInstance).Dispose();
+            ListenInstance.Stop();
             ListenInstance = null;
 
-            // Restart a new HttpListener instance.
-            ListenInstance = new HttpListener();
-            this.SetPrefixForListener(ListenInstance);
+            // Restart a new TcpListener instance.
+            IPAddress iPAddress = IPAddress.Any;
+            IPEndPoint endPoint = new IPEndPoint(iPAddress, 80);
+            ListenInstance = new TcpListener(endPoint);
         }
 
         #endregion 

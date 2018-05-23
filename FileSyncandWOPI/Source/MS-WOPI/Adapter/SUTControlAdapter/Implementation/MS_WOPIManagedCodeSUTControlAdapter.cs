@@ -120,6 +120,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
                     userName);
 
                 string triggerWOPIViewUrl = this.GenerateRequestWOPIViewUrl(absoluteUrlOfResource, rootResourceType);
+                System.Threading.Thread.Sleep(10000);
                 string htmlReponseOfViewFile = this.TriggerRequestViewByUrl(triggerWOPIViewUrl, userName, password, domain);
 
                 // Get the token
