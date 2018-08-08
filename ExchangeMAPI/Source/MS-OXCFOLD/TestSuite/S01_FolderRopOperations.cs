@@ -925,7 +925,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0,
                 pidTagMessageSizeExtended,
                 10345,
-                @"[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.637) specifies the number of messages in a folder, as computed by the message store.");
+                @"[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.640) specifies the number of messages in a folder, as computed by the message store.");
             #endregion
             #endregion
         }
@@ -1549,17 +1549,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 @"[In RopDeleteFolder ROP Response Buffer] PartialCompletion (1 byte): otherwise [if the ROP successes for a subset of targets], the value is zero (FALSE).");
 
             // Whether a folder was hard deleted or not is unverified if implementation does not fail the ROP when client call RopOpenFolder on a hard deleted folder.
-            if (Common.IsRequirementEnabled(46201002, this.Site))
+            if(Common.IsRequirementEnabled(764001,this.Site))
             {
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R764");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R764001");
 
-                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R764
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R764001
+                Site.CaptureRequirementIfAreEqual<uint>(
+                    Constants.SuccessCode,
+                    openFolderResponse.ReturnValue,
+                    764001,
+                    @"[In Appendix A: Product Behavior] If this bit [DELETE_HARD_DELETE] is set, implement does not hard delete the folder. (Microsoft Exchange server 2013 and above follow this behavior).");
+            }
+
+            if (Common.IsRequirementEnabled(764002, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R764002");
+
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R764002
                 Site.CaptureRequirementIfAreNotEqual<uint>(
                     Constants.SuccessCode,
                     openFolderResponse.ReturnValue,
-                    764,
-                    @"[In RopDeleteFolder ROP Request Buffer] DeleteFolderFlags (1 byte): If this bit [DELETE_HARD_DELETE (0x10)] is set, the folder MAY <4> be hard deleted.");
+                    764002,
+                    @"[In Appendix A: Product Behavior] If this bit [DELETE_HARD_DELETE] is set, implement does hard delete the folder. &lt;4&gt; Section 2.2.1.3.1:  For Exchange 2003, Exchange 2007 and Exchange 2010, if DELETE_HARD_DELETE is set, the folder is hard deleted.");
             }
             #endregion
 
