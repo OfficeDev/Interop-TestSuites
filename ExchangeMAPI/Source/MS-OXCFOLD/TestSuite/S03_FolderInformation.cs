@@ -1771,7 +1771,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0,
                 pidTagMessageSize,
                 10353,
-                @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.787) specifies the aggregate size of messages in the folder.");
+                @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.790) specifies the aggregate size of messages in the folder.");
             ulong pidTagMessageSizeExtended = BitConverter.ToUInt64(getPropertiesSpecificResponse1.RowData.PropertyValues[8].Value, 0);
             
             // Add the debug information
@@ -1782,7 +1782,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 (ulong)pidTagMessageSize,
                 pidTagMessageSizeExtended,
                 10354,
-                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.788) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
+                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.791) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R354");
@@ -1819,7 +1819,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 unreadMessagesCountExpect,
                 unreadMessagesCountActual,
                 10347,
-                @"[In PidTagContentUnreadCount Property] The PidTagContentUnreadCount property ([MS-OXPROPS] section 2.639) specifies the number of unread messages in a folder, as computed by the message store.");
+                @"[In PidTagContentUnreadCount Property] The PidTagContentUnreadCount property ([MS-OXPROPS] section 2.642) specifies the number of unread messages in a folder, as computed by the message store.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R10345");
@@ -1829,7 +1829,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 1,
                 BitConverter.ToInt32(getPropertiesSpecificResponse1.RowData.PropertyValues[0].Value, 0),
                 10345,
-                @"[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.637) specifies the number of messages in a folder, as computed by the message store.");
+                @"[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.640) specifies the number of messages in a folder, as computed by the message store.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R346");
@@ -1849,7 +1849,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 subfolderId1,
                 BitConverter.ToUInt64(getPropertiesSpecificResponse1.RowData.PropertyValues[3].Value, 0),
                 10351,
-                @"[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.691) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.");
+                @"[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.694) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1030");
@@ -1872,7 +1872,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0,
                 pidTagDeletedCountTotal,
                 3006,
-                @"[In PidTagDeletedCountTotal Property] The PidTagDeletedCountTotal property ([MS-OXPROPS] section 2.660) specifies the total number of messages that have been deleted from a folder, excluding messages that have been deleted from the folder's subfolders.");
+                @"[In PidTagDeletedCountTotal Property] The PidTagDeletedCountTotal property ([MS-OXPROPS] section 2.663) specifies the total number of messages that have been deleted from a folder, excluding messages that have been deleted from the folder's subfolders.");
  
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R352001");
@@ -1892,7 +1892,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 getPropertiesSpecificResponse1.RowData.PropertyValues[10].Value.Length > 0,
                 352002,
-                @"[In PidTagHierRev Property] The PidTagHierRev property ([MS-OXPROPS] section 2.712) specifies the time, in Coordinated Universal Time (UTC), to trigger the client in cached mode to synchronize the folder hierarchy.");
+                @"[In PidTagHierRev Property] The PidTagHierRev property ([MS-OXPROPS] section 2.715) specifies the time, in Coordinated Universal Time (UTC), to trigger the client in cached mode to synchronize the folder hierarchy.");
             #endregion
 
             #region Step 5. The client calls RopCreateFolder to create [MSOXCFOLDSubfolder2] under [MSOXCFOLDSubfolder1].
@@ -1928,7 +1928,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             // MS-OXCFOLD_R1029 and MS-OXCFOLD_R1030 is verified, MS-OXCFOLD_R10355 can be verified directly.
             Site.CaptureRequirement(
                 10355,
-                @"[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1022) specifies whether the folder has any subfolders.");
+                @"[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1026) specifies whether the folder has any subfolders.");
 
             #endregion
 
@@ -1964,7 +1964,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsTrue(
                 changeNumberIncreased,
                 10028,
-                @"[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.711) specifies the number of subfolders in the folder.");
+                @"[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.714) specifies the number of subfolders in the folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R352, the value of property PidTagHierarchyChangeNumber after getting the read-only properties from [MSOXCFOLDSubfolder1] is {0}, the value of property PidTagHierarchyChangeNumber after getting the read-only properties from [MSOXCFOLDSubfolder1] after creating [MSOXCFOLDSubfolder2] under [MSOXCFOLDSubfolder1] is {1}, the value of property PidTagHierarchyChangeNumber after getting the read-only properties from [MSOXCFOLDSubfolder1] after deleting [MSOXCFOLDSubfolder2] under [MSOXCFOLDSubfolder1] is {2}.", getPropertiesSpecificResponse1.RowData.PropertyValues[5].Value, getPropertiesSpecificResponse2.RowData.PropertyValues[5].Value, getPropertiesSpecificResponse.RowData.PropertyValues[5].Value);
@@ -2106,7 +2106,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 Constants.Subfolder1,
                 Encoding.Unicode.GetString(getPropertiesSpecificResponse.RowData.PropertyValues[1].Value),
                 10359,
-                @"[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.628) contains a comment about the purpose or content of the folder.");
+                @"[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.631) contains a comment about the purpose or content of the folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R811");
@@ -2212,7 +2212,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             // MS-OXCFOLD_R1032 and MS-OXCFOLD_R1033 were verified, MS-OXCFOLD_R10356 can be verified directly.
             Site.CaptureRequirement(
                 10356,
-                @"[In PidTagAttributeHidden Property] The PidTagAttributeHidden property ([MS-OXPROPS] section 2.602) specifies whether the folder is hidden.");
+                @"[In PidTagAttributeHidden Property] The PidTagAttributeHidden property ([MS-OXPROPS] section 2.605) specifies whether the folder is hidden.");
 
             string pidTagContainerClass = System.Text.Encoding.Unicode.GetString(getPropertiesSpecificResponse.RowData.PropertyValues[2].Value);
             
@@ -2470,7 +2470,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                    Constants.SuccessCode,
                     getHierarchyTableResponse.ReturnValue,
                     314001,
-                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP[RopGetHierarchyTable]. <19> Section 3.2.5.13:  Exchange 2007 ignores invalid bits instead of failing the ROP.");
+                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP[RopGetHierarchyTable]. <21> Section 3.2.5.13:  Exchange 2007 ignores invalid bits instead of failing the ROP.");
             }
 
             #endregion
@@ -2597,7 +2597,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     Constants.SuccessCode,
                     getContentsTableResponse.ReturnValue,
                     330001,
-                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP [RopGetContentsTable]. <22> Section 3.2.5.14:  Exchange 2007 ignores invalid bits instead of failing the ROP.");
+                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the TableFlags field, implementation does not fail the ROP [RopGetContentsTable]. <23> Section 3.2.5.14:  Exchange 2007 ignores invalid bits instead of failing the ROP.");
             }
 
             #endregion
@@ -2792,7 +2792,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x80070057,
                     setSearchCriteriaResponse.ReturnValue,
                     116002,
-                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the SearchFlags field, implementation does not fail the RopSetSearchCriteria ROP operation with ecInvalidParam (0x80070057). <17> Section 3.2.5.4: Exchange 2007 silently ignores invalid bits and does not return the ecInvalidParam error code.");
+                    @"[In Appendix A: Product Behavior] If the client sets an invalid bit in the SearchFlags field, implementation does not fail the RopSetSearchCriteria ROP operation with ecInvalidParam (0x80070057). <19> Section 3.2.5.4: Exchange 2007 silently ignores invalid bits and does not return the ecInvalidParam error code.");
             }
 
             #endregion
@@ -2908,7 +2908,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0,
                     setSearchCriteriaResponse.ReturnValue,
                     124202,
-                    @"[In Appendix A: Product Behavior] Implementation does not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope. <16> Section 3.2.5.4:  Exchange 2007, and Exchange 2010 do not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope.");
+                    @"[In Appendix A: Product Behavior] Implementation does not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope. <18> Section 3.2.5.4:  Exchange 2007, and Exchange 2010 do not fail the RopSetSearchCriteria ROP when the search folder is included in its own search scope.");
             }
             #endregion
             #endregion
@@ -3884,7 +3884,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
 
             #region Verify MS-OXCFOLD_R1035110, MS-OXCFOLD_R1035111, MS-OXCFOLD_R1035103 and MS-OXCFOLD_R1035107
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, @"Verify MS-OXCFOLD_R1035110: [In PidTagFolderFlags Property] The PidTagFolderId property ([MS-OXPROPS] section 2.692) contains a computed value that specifies the type or state of a folder.");
+            Site.Log.Add(LogEntryKind.Debug, @"Verify MS-OXCFOLD_R1035110: [In PidTagFolderFlags Property] The PidTagFolderId property ([MS-OXPROPS] section 2.695) contains a computed value that specifies the type or state of a folder.");
 
             // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R1035110
             Site.CaptureRequirement(
@@ -4043,7 +4043,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     (uint)GetSearchFlags.Static,
                     getSearchCriteriaResponse.SearchFlags & (uint)GetSearchFlags.Static,
                     1238001,
-                    @"[In Appendix A: Product Behavior] Implementation does be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request. <14> Section 3.2.5.4:  A content-indexed search is always static on the initial release version of Exchange 2010 and Exchange 2007 regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria request.");
+                    @"[In Appendix A: Product Behavior] Implementation does be regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria ROP request. <16> Section 3.2.5.4:  A content-indexed search is always static on the initial release version of Exchange 2010 and Exchange 2007 regardless of the value of the STATIC_SEARCH bit in the RopSetSearchCriteria request.");
             }
 
             if (Common.IsRequirementEnabled(1238002, this.Site))
