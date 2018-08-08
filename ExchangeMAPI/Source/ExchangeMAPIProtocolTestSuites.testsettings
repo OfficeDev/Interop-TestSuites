@@ -34,6 +34,7 @@
     <DeploymentItem filename="MS-OXCRPC\Adapter\SUTControlAdapter\Implementation\DisableAsyncRPCNotification.ps1" />
     <DeploymentItem filename="MS-OXCPERM\TestSuite\MS-OXCPERM_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCFOLD\TestSuite\MS-OXCFOLD_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCFOLD\TestSuite\MS-OXCFOLD_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCPRPT\TestSuite\MS-OXCPRPT_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-OXCMSG\TestSuite\MS-OXCMSG_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCRPC\TestSuite\MS-OXCRPC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
@@ -77,6 +78,7 @@
     <DeploymentItem filename="MS-OXORULE\TestSuite\MS-OXORULE_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCFXICS\TestSuite\MS-OXCFXICS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCFXICS\TestSuite\MS-OXCFXICS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCFXICS\TestSuite\MS-OXCFXICS_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCROPS\TestSuite\MS-OXCROPS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-OXCRPC\TestSuite\MS-OXCRPC_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCMSG\TestSuite\MS-OXCMSG_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
