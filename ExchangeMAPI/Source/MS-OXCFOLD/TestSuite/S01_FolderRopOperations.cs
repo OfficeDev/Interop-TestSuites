@@ -167,7 +167,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsTrue(
                 isEqual,
                 10027,
-                @"[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.849) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.");
+                @"[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.852) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.");
 
             #endregion
 
@@ -256,7 +256,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0,
                     openFolderResponse.HasRules,
                     25001,
-                    @"[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a zero value to HasRules field. <2> Section 2.2.1.1.2: Exchange 2003 and Exchange 2007 return zero (FALSE) in the HasRules field, even when there are rules on the Inbox folder.");
+                    @"[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a zero value to HasRules field. <2> Section 2.2.1.1.2: Exchange 2003 and Exchange 2007, Exchange 2016 and Exchange 2019 Preview return zero (FALSE) in the HasRules field, even when there are rules on the Inbox folder.");
             }
 
             // Add the debug information
@@ -291,7 +291,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x00,
                     openFolderResponse.HasRules,
                     25002,
-                    @"[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a nonzero value to HasRules field. (Microsoft Exchange Server 2010 and above follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a nonzero value to HasRules field. (Microsoft Exchange Server 2010 follows this behavior.)");
             }
 
             #endregion
@@ -428,7 +428,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 this.Site.CaptureRequirementIfIsTrue(
                     getPropertiesSpecificResponse.RowData.PropertyValues[0].Value.Length > 0,
                     10348,
-                    @"[In PidTagDeletedOn Property] The PidTagDeletedOn property ([MS-OXPROPS] section 2.661) specifies the time when the folder was soft deleted.");
+                    @"[In PidTagDeletedOn Property] The PidTagDeletedOn property ([MS-OXPROPS] section 2.664) specifies the time when the folder was soft deleted.");
                 #endregion
             }
 
@@ -1145,7 +1145,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 // [In Processing a RopDeleteFolder ROP Request] The server ignored the invalid bits [0x02, 0x08, 0x20, 0x40, and 0x80], MS-OXCFOLD_R103402 can be verified.
                 Site.CaptureRequirement(
                     123402,
-                    @"[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. <13> Section 3.2.5.3:  Exchange 2010, Exchange 2013 and Exchange 2016 ignore invalid bits instead of failing the ROP.");
+                    @"[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. <15> Section 3.2.5.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview ignore invalid bits instead of failing the ROP.");
             }
 
             if (Common.IsRequirementEnabled(123401, this.Site))
@@ -1512,7 +1512,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     Constants.SuccessCode,
                     openFolderResponse.ReturnValue,
                     46201001,
-                    @"[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. <10> Section 3.2.5.1: If the specified folder has been hard deleted, Exchange 2007 does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened.");
+                    @"[In Appendix A: Product Behavior] If the specified folder has been hard deleted, implementation does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened. <12> Section 3.2.5.1: If the specified folder has been hard deleted, Exchange 2007 does not fail the RopOpenFolder ROP ([MS-OXCROPS] section 2.2.4.1), but no folder is opened.");
             }
        
             if (Common.IsRequirementEnabled(46201002, this.Site))
@@ -1559,7 +1559,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     Constants.SuccessCode,
                     openFolderResponse.ReturnValue,
                     764,
-                    @"[In RopDeleteFolder ROP Request Buffer] DeleteFolderFlags (1 byte): If this bit [DELETE_HARD_DELETE (0x10)] is set, the folder is hard deleted.");
+                    @"[In RopDeleteFolder ROP Request Buffer] DeleteFolderFlags (1 byte): If this bit [DELETE_HARD_DELETE (0x10)] is set, the folder MAY <4> be hard deleted.");
             }
             #endregion
 
