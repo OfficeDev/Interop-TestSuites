@@ -267,7 +267,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2010</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In AddressBookPropertyValue Structure] [PropertyValue] This field is always present when HasValue is not present.</ns1:Description>
+		<ns1:Description>[In AddressBookPropertyValue Structure] [PropertyValue] This field is present when HasValue is not present.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10975,7 +10975,7 @@ X-RequestId, specified in section 2.2.3.3.2</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R1199</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In Reconnecting and Establishing a New Session Context] Before the client attempts to reconnect, the client SHOULD always assume the Session Context is still valid.</ns1:Description>
+		<ns1:Description>[In Reconnecting and Establishing a New Session Context] Before the client attempts to reconnect, the client SHOULD assume the Session Context is still valid.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
