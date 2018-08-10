@@ -1772,8 +1772,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 pidTagMessageSize,
                 10353,
                 @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.790) specifies the aggregate size of messages in the folder.");
-            ulong pidTagMessageSizeExtended = BitConverter.ToUInt64(getPropertiesSpecificResponse1.RowData.PropertyValues[8].Value, 0);
-            
+
+            ulong pidTagMessageSizeExtended = BitConverter.ToUInt64(getPropertiesSpecificResponse1.RowData.PropertyValues[8].Value, 0);       
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R10354: the 64 bit value of the pidTagMessageSize property is {0}, and the value of the pidTagMessageSizeExtended is {1}", pidTagMessageSize, pidTagMessageSizeExtended);
 
