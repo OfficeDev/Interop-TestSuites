@@ -4604,9 +4604,9 @@
 		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
 		<ns1:Description>[In PidNameAttachmentProviderType Property] [PidNameAttachmentOriginalPermissionType (0) measns] None. User has no permissions to share.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R128011</ns1:REQ_ID>
@@ -4622,9 +4622,9 @@
 		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
 		<ns1:Description>[In PidNameAttachmentOriginalPermissionType Property]  PidNameAttachmentOriginalPermissionType (1) measns] View. User can only read the web reference attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R128013</ns1:REQ_ID>
@@ -4640,9 +4640,9 @@
 		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
 		<ns1:Description>[In PidNameAttachmentOriginalPermissionType Property]  [PidNameAttachmentOriginalPermissionType (2) measns] Edit. User can edit the web reference attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R128015</ns1:REQ_ID>
@@ -4694,9 +4694,9 @@
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
 		<ns1:Description>[In PidNameAttachmentPermissionType Property]  [PidNameAttachmentPermissionType (1) measns] View. User can only read the web reference attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R128021</ns1:REQ_ID>
@@ -4712,9 +4712,9 @@
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
 		<ns1:Description>[In PidNameAttachmentPermissionType Property]  [PidNameAttachmentPermissionType (2) measns] Edit. User can edit the web reference attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R641</ns1:REQ_ID>
@@ -10562,7 +10562,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R164101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2: Exchange 2016 and Exchange 2019 Preview do not initialize the following properties: PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2: Implementation does not initialize the following properties: PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R340:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
