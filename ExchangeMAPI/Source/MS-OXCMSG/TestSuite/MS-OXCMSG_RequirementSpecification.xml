@@ -249,7 +249,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R498</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHasAttachments Property] The PidTagHasAttachments property ([MS-OXPROPS] section 2.706) indicates whether the Message object contains at least one attachment.</ns1:Description>
+		<ns1:Description>[In PidTagHasAttachments Property] The PidTagHasAttachments property ([MS-OXPROPS] section 2.710) indicates whether the Message object contains at least one attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -276,7 +276,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R16</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHasAttachments Property] The server computes this property [PidTagHasAttachments] from the mfHasAttach flag of the PidTagMessageFlags property ([MS-OXPROPS] section 2.780).</ns1:Description>
+		<ns1:Description>[In PidTagHasAttachments Property] The server computes this property [PidTagHasAttachments] from the mfHasAttach flag of the PidTagMessageFlags property ([MS-OXPROPS] section 2.785).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -294,7 +294,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R500</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageClass Property] The PidTagMessageClass property ([MS-OXPROPS] section 2.776) denotes the specific type of the Message object.</ns1:Description>
+		<ns1:Description>[In PidTagMessageClass Property] The PidTagMessageClass property ([MS-OXPROPS] section 2.781) denotes the specific type of the Message object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -394,7 +394,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R504</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageCodepage Property] The PidTagMessageCodepage property ([MS-OXPROPS] section 2.777) specifies the code page used to encode the non-Unicode string properties on this Message object.</ns1:Description>
+		<ns1:Description>[In PidTagMessageCodepage Property] The PidTagMessageCodepage property ([MS-OXPROPS] section 2.782) specifies the code page used to encode the non-Unicode string properties on this Message object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -448,7 +448,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R508</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageFlags Property] The PidTagMessageFlags property ([MS-OXPROPS] section 2.780) specifies the status of the Message object.</ns1:Description>
+		<ns1:Description>[In PidTagMessageFlags Property] The PidTagMessageFlags property ([MS-OXPROPS] section 2.785) specifies the status of the Message object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -821,7 +821,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R58</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSubjectPrefix Property] The PidTagSubjectPrefix property ([MS-OXPROPS] section 2.1096) contains the prefix for the subject of the message.</ns1:Description>
+		<ns1:Description>[In PidTagSubjectPrefix Property] The PidTagSubjectPrefix property ([MS-OXPROPS] section 2.1027) contains the prefix for the subject of the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -866,7 +866,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R64</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagNormalizedSubject Property] The PidTagNormalizedSubject property ([MS-OXPROPS] section 2.877) contains the normalized subject of the message, as specified in [MS-OXCMAIL] section 2.2.3.2.6.1.</ns1:Description>
+		<ns1:Description>[In PidTagNormalizedSubject Property] The PidTagNormalizedSubject property ([MS-OXPROPS] section 2.806) contains the normalized subject of the message, as specified in [MS-OXCMAIL] section 2.2.3.2.6.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -911,7 +911,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R70</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.11</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagImportance Property] The PidTagImportance property ([MS-OXPROPS] section 2.805) indicates the level of importance assigned by the end user to the Message object.</ns1:Description>
+		<ns1:Description>[In PidTagImportance Property] The PidTagImportance property ([MS-OXPROPS] section 2.732) indicates the level of importance assigned by the end user to the Message object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -966,7 +966,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R76</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagPriority Property] The PidTagPriority property ([MS-OXPROPS] section 2.937) indicates the client's request for the priority at which the message is to be sent by the messaging system.</ns1:Description>
+		<ns1:Description>[In PidTagPriority Property] The PidTagPriority property ([MS-OXPROPS] section 2.865) indicates the client's request for the priority at which the message is to be sent by the messaging system.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1021,7 +1021,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R82</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.13</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSensitivity Property] The PidTagSensitivity property ([MS-OXPROPS] section 2.1074) indicates the sender's assessment of the sensitivity of the Message object.</ns1:Description>
+		<ns1:Description>[In PidTagSensitivity Property] The PidTagSensitivity property ([MS-OXPROPS] section 2.1004) indicates the sender's assessment of the sensitivity of the Message object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1392,7 +1392,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R109</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.17</ns1:Doc_Sect>
-		<ns1:Description>[In PidNameKeywords Property] The PidNameKeywords property ([MS-OXPROPS] section 2.444) contains keywords or categories (3) for the Message object.</ns1:Description>
+		<ns1:Description>[In PidNameKeywords Property] The PidNameKeywords property ([MS-OXPROPS] section 2.447) contains keywords or categories (3) for the Message object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1491,7 +1491,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1107</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.20</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAutoForwarded Property] The PidTagAutoForwarded property ([MS-OXPROPS] section 2.683) indicates that this message has been automatically generated or automatically forwarded.</ns1:Description>
+		<ns1:Description>[In PidTagAutoForwarded Property] The PidTagAutoForwarded property ([MS-OXPROPS] section 2.608) indicates that this message has been automatically generated or automatically forwarded.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1518,7 +1518,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1110</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.21</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAutoForwardComment Property] The PidTagAutoForwardComment property ([MS-OXPROPS] section 2.604) contains a comment added by the autoforwarding agent.</ns1:Description>
+		<ns1:Description>[In PidTagAutoForwardComment Property] The PidTagAutoForwardComment property ([MS-OXPROPS] section 2.607) contains a comment added by the autoforwarding agent.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1608,7 +1608,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1162</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.26</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagInternetReferences Property] The PidTagInternetReferences property ([MS-OXPROPS] section 2.738) contains a list of message IDs (MIDs), as specified in [MS-OXCDATA] section 2.2.1.2, that specify the messages to which this reply is related.</ns1:Description>
+		<ns1:Description>[In PidTagInternetReferences Property] The PidTagInternetReferences property ([MS-OXPROPS] section 2.743) contains a list of message IDs (MIDs), as specified in [MS-OXCDATA] section 2.2.1.2, that specify the messages to which this reply is related.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1663,7 +1663,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1169</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.28</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMimeSkeleton Property] The PidTagMimeSkeleton property ([MS-OXPROPS] section 2.792) contains all the top level MIME message headers (2), all MIME message body part headers (2), and body part content that is not already converted to Message object properties, including attachments.</ns1:Description>
+		<ns1:Description>[In PidTagMimeSkeleton Property] The PidTagMimeSkeleton property ([MS-OXPROPS] section 2.797) contains all the top level MIME message headers (2), all MIME message body part headers (2), and body part content that is not already converted to Message object properties, including attachments.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1690,7 +1690,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1176</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.29</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagTnefCorrelationKey Property] The PidTagTnefCorrelationKey property ([MS-OXPROPS] section 2.1035) contains a value that correlates a Transport Neutral Encapsulation Format (TNEF) attachment with a message.</ns1:Description>
+		<ns1:Description>[In PidTagTnefCorrelationKey Property] The PidTagTnefCorrelationKey property ([MS-OXPROPS] section 2.1041) contains a value that correlates a Transport Neutral Encapsulation Format (TNEF) attachment with a message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1726,7 +1726,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1180</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.30</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAddressBookDisplayNamePrintable Property] The PidTagAddressBookDisplayNamePrintable property ([MS-OXPROPS] section 2.505) contains the printable string version of the display name.</ns1:Description>
+		<ns1:Description>[In PidTagAddressBookDisplayNamePrintable Property] The PidTagAddressBookDisplayNamePrintable property ([MS-OXPROPS] section 2.508) contains the printable string version of the display name.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1744,7 +1744,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1182</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.31</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagCreatorEntryId Property] The PidTagCreatorEntryId property ([MS-OXPROPS] section 2.646) specifies the original author of the message according to their address book EntryID.</ns1:Description>
+		<ns1:Description>[In PidTagCreatorEntryId Property] The PidTagCreatorEntryId property ([MS-OXPROPS] section 2.649) specifies the original author of the message according to their address book EntryID.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1772,7 +1772,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1185</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.32</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLastModifierEntryId Property] The PidTagLastModifierEntryId property ([MS-OXPROPS] section 2.754) specifies the last user to modify the contents of the message according to their address book EntryID.</ns1:Description>
+		<ns1:Description>[In PidTagLastModifierEntryId Property] The PidTagLastModifierEntryId property ([MS-OXPROPS] section 2.759) specifies the last user to modify the contents of the message according to their address book EntryID.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1872,7 +1872,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1796</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.36</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAlternateRecipientAllowed Property] The PidTagAlternateRecipientAllowed property ([MS-OXPROPS] section 2.568) specifies whether the sender permits the message to be autoforwarded.</ns1:Description>
+		<ns1:Description>[In PidTagAlternateRecipientAllowed Property] The PidTagAlternateRecipientAllowed property ([MS-OXPROPS] section 2.571) specifies whether the sender permits the message to be autoforwarded.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1900,7 +1900,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1197</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.37</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagResponsibility Property] The PidTagResponsibility property ([MS-OXPROPS] section 2.920) specifies whether another mail agent has ensured that the message will be delivered.</ns1:Description>
+		<ns1:Description>[In PidTagResponsibility Property] The PidTagResponsibility property ([MS-OXPROPS] section 2.925) specifies whether another mail agent has ensured that the message will be delivered.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1937,7 +1937,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1201</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.38</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRowid Property] The PidTagRowid property ([MS-OXPROPS] section 2.928) contains a unique identifier for a recipient (2) in the message's recipient table.</ns1:Description>
+		<ns1:Description>[In PidTagRowid Property] The PidTagRowid property ([MS-OXPROPS] section 2.933) contains a unique identifier for a recipient (2) in the message's recipient table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1964,7 +1964,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1204</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.39</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHasNamedProperties Property] The PidTagHasNamedProperties property ([MS-OXPROPS] section 2.708) specifies whether this Message object supports named properties.</ns1:Description>
+		<ns1:Description>[In PidTagHasNamedProperties Property] The PidTagHasNamedProperties property ([MS-OXPROPS] section 2.712) specifies whether this Message object supports named properties.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2002,7 +2002,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1206</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.40</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRecipientOrder Property] The PidTagRecipientOrder property ([MS-OXPROPS] section 2.891) specifies the location of the current recipient (2) in the recipient table.</ns1:Description>
+		<ns1:Description>[In PidTagRecipientOrder Property] The PidTagRecipientOrder property ([MS-OXPROPS] section 2.896) specifies the location of the current recipient (2) in the recipient table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2074,7 +2074,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1214</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.43</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagPurportedSenderDomain Property] The PidTagPurportedSenderDomain property ([MS-OXPROPS] section 2.865) contains the domain name of the last sender responsible for transmitting the current message.</ns1:Description>
+		<ns1:Description>[In PidTagPurportedSenderDomain Property] The PidTagPurportedSenderDomain property ([MS-OXPROPS] section 2.870) contains the domain name of the last sender responsible for transmitting the current message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2092,7 +2092,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1216</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.44</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagStoreEntryId Property] The PidTagStoreEntryId property ([MS-OXPROPS] section 2.1016) contains the unique EntryID of the message store where an object resides.</ns1:Description>
+		<ns1:Description>[In PidTagStoreEntryId Property] The PidTagStoreEntryId property ([MS-OXPROPS] section 2.1022) contains the unique EntryID of the message store where an object resides.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2119,7 +2119,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1219</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.45</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagTrustSender] The PidTagTrustSender property ([MS-OXPROPS] section 2.1039) specifies whether the message was delivered through a trusted transport channel.&lt;5&gt;</ns1:Description>
+		<ns1:Description>[In PidTagTrustSender] The PidTagTrustSender property ([MS-OXPROPS] section 2.1045) specifies whether the message was delivered through a trusted transport channel.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2174,7 +2174,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1238</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.46</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSubject Property] The PidTagSubject property ([MS-OXPROPS] section 2.1021) contains the full subject of an e-mail message.</ns1:Description>
+		<ns1:Description>[In PidTagSubject Property] The PidTagSubject property ([MS-OXPROPS] section 2.1027) contains the full subject of an e-mail message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2219,7 +2219,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1245</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.47</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageRecipients Property] The PidTagMessageRecipients property ([MS-OXPROPS] section 2.784) contains a restriction (2) table that can be used to find all messages containing the recipients (2) in a contents table.</ns1:Description>
+		<ns1:Description>[In PidTagMessageRecipients Property] The PidTagMessageRecipients property ([MS-OXPROPS] section 2.789) contains a restriction (2) table that can be used to find all messages containing the recipients (2) in a contents table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2255,7 +2255,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1249</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.48</ns1:Doc_Sect>
-		<ns1:Description>[In PidNameContentClass Property] The PidNameContentClass property ([MS-OXPROPS] section 2.407) contains a string that identifies the type of content of a Message object.</ns1:Description>
+		<ns1:Description>[In PidNameContentClass Property] The PidNameContentClass property ([MS-OXPROPS] section 2.410) contains a string that identifies the type of content of a Message object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2300,7 +2300,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1888</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.49</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLocalCommitTime Property] The PidTagLocalCommitTime property ([MS-OXPROPS] section 2.761) specifies the time, in UTC, that the message was last changed.</ns1:Description>
+		<ns1:Description>[In PidTagLocalCommitTime Property] The PidTagLocalCommitTime property ([MS-OXPROPS] section 2.766) specifies the time, in UTC, that the message was last changed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2328,7 +2328,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2038</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.50</ns1:Doc_Sect>
-		<ns1:Description>[In PidNameContentType Property] The PidNameContentType property ([MS-OXPROPS] section 2.408) contains the value of the Content-Type header (2), which defines the type of the body part's content.</ns1:Description>
+		<ns1:Description>[In PidNameContentType Property] The PidNameContentType property ([MS-OXPROPS] section 2.411) contains the value of the Content-Type header (2), which defines the type of the body part's content.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2355,7 +2355,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2041</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.51</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagCreatorName Property] The PidTagCreatorName property ([MS-OXPROPS] section 2.647) specifies the name of the Message object's creator.</ns1:Description>
+		<ns1:Description>[In PidTagCreatorName Property] The PidTagCreatorName property ([MS-OXPROPS] section 2.650) specifies the name of the Message object's creator.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2373,7 +2373,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2043</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.52</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageAttachments Property] The PidTagMessageAttachments property ([MS-OXPROPS] section 2.774) contains identifiers that correspond to a message's attachments.</ns1:Description>
+		<ns1:Description>[In PidTagMessageAttachments Property] The PidTagMessageAttachments property ([MS-OXPROPS] section 2.779) contains identifiers that correspond to a message's attachments.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2391,7 +2391,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2045</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.53</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRead Property] The PidTagRead property ([MS-OXPROPS] section 2.867) indicates whether a message has been read.</ns1:Description>
+		<ns1:Description>[In PidTagRead Property] The PidTagRead property ([MS-OXPROPS] section 2.872) indicates whether a message has been read.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2409,7 +2409,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2047</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.54</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRecipientDisplayName Property] The PidTagRecipientDisplayName property ([MS-OXPROPS] section 2.888) specifies the display name of a recipient (2).</ns1:Description>
+		<ns1:Description>[In PidTagRecipientDisplayName Property] The PidTagRecipientDisplayName property ([MS-OXPROPS] section 2.893) specifies the display name of a recipient (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2427,7 +2427,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2049</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.55</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRecipientEntryId Property] The PidTagRecipientEntryId property ([MS-OXPROPS] section 2.889) contains an EntryID that identifies the Address Book object associated with a recipient (2).</ns1:Description>
+		<ns1:Description>[In PidTagRecipientEntryId Property] The PidTagRecipientEntryId property ([MS-OXPROPS] section 2.894) contains an EntryID that identifies the Address Book object associated with a recipient (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2465,7 +2465,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2053</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.56.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagBody Property] The PidTagBody property ([MS-OXPROPS] section 2.609) contains unformatted text, which is the text/plain MIME format as specified in [RFC1521] section 7.1.2.</ns1:Description>
+		<ns1:Description>[In PidTagBody Property] The PidTagBody property ([MS-OXPROPS] section 2.612) contains unformatted text, which is the text/plain MIME format as specified in [RFC1521] section 7.1.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2493,7 +2493,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2056</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.56.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagNativeBody Property] The PidTagNativeBody property ([MS-OXPROPS] section 2.794) indicates the best available format for storing the message body&lt;6&gt;.</ns1:Description>
+		<ns1:Description>[In PidTagNativeBody Property] The PidTagNativeBody property ([MS-OXPROPS] section 2.799) indicates the best available format for storing the message body&lt;6&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2566,7 +2566,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2064</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.56.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagBodyHtml Property] The PidTagBodyHtml property ([MS-OXPROPS] section 2.612) contains the HTML body as specified in [RFC2822] section 2.3.</ns1:Description>
+		<ns1:Description>[In PidTagBodyHtml Property] The PidTagBodyHtml property ([MS-OXPROPS] section 2.615) contains the HTML body as specified in [RFC2822] section 2.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2584,7 +2584,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2066</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.56.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRtfCompressed Property] The PidTagRtfCompressed property ([MS-OXPROPS] section 2.930) contains an RTF body compressed as specified in [MS-OXRTFCP].</ns1:Description>
+		<ns1:Description>[In PidTagRtfCompressed Property] The PidTagRtfCompressed property ([MS-OXPROPS] section 2.935) contains an RTF body compressed as specified in [MS-OXRTFCP].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2602,7 +2602,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2068</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.56.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRtfInSync Property] The PidTagRtfInSync property ([MS-OXPROPS] section 2.931) is set to "TRUE" (0x01) if the RTF body has been synchronized with the contents in the PidTagBody property (section 2.2.1.56.1).</ns1:Description>
+		<ns1:Description>[In PidTagRtfInSync Property] The PidTagRtfInSync property ([MS-OXPROPS] section 2.936) is set to "TRUE" (0x01) if the RTF body has been synchronized with the contents in the PidTagBody property (section 2.2.1.56.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2620,7 +2620,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2070</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.56.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagInternetCodepage Property] The PidTagInternetCodepage property ([MS-OXPROPS] section 2.735) indicates the code page used for the PidTagBody property (section 2.2.1.56.1) or the PidTagBodyHtml property (section 2.2.1.56.3).</ns1:Description>
+		<ns1:Description>[In PidTagInternetCodepage Property] The PidTagInternetCodepage property ([MS-OXPROPS] section 2.740) indicates the code page used for the PidTagBody property (section 2.2.1.56.1) or the PidTagBodyHtml property (section 2.2.1.56.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2638,7 +2638,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2072</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.56.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagBodyContentId Property] The PidTagBodyContentId property ([MS-OXPROPS] section 2.610) contains a GUID corresponding to the current message body.</ns1:Description>
+		<ns1:Description>[In PidTagBodyContentId Property] The PidTagBodyContentId property ([MS-OXPROPS] section 2.613) contains a GUID corresponding to the current message body.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2674,7 +2674,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2076</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.56.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagBodyContentLocation Property] The PidTagBodyContentLocation property ([MS-OXPROPS] section 2.611) contains a globally unique URI that serves as a label for the current message body.</ns1:Description>
+		<ns1:Description>[In PidTagBodyContentLocation Property] The PidTagBodyContentLocation property ([MS-OXPROPS] section 2.614) contains a globally unique URI that serves as a label for the current message body.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2729,7 +2729,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2082</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.56.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHtml Property] [Type] The PidTagHtml property ([MS-OXPROPS] section 2.722) contains the message body text in HTML format.</ns1:Description>
+		<ns1:Description>[In PidTagHtml Property] [Type] The PidTagHtml property ([MS-OXPROPS] section 2.727) contains the message body text in HTML format.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2981,7 +2981,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2110</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.58.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagArchiveTag Property] The PidTagArchiveTag property ([MS-OXPROPS] section 2.852) specifies the GUID of an archive tag. The PidTagArchiveTag property can be present on both Message objects and folders and can be set by both client and server.</ns1:Description>
+		<ns1:Description>[In PidTagArchiveTag Property] The PidTagArchiveTag property ([MS-OXPROPS] section 2.857) specifies the GUID of an archive tag. The PidTagArchiveTag property can be present on both Message objects and folders and can be set by both client and server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3026,7 +3026,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2112</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.58.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagPolicyTag Property] The PidTagPolicyTag property ([MS-OXPROPS] section 2.852) specifies the GUID of a retention tag.</ns1:Description>
+		<ns1:Description>[In PidTagPolicyTag Property] The PidTagPolicyTag property ([MS-OXPROPS] section 2.857) specifies the GUID of a retention tag.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3071,7 +3071,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2117</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.58.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRetentionPeriod Property] The PidTagRetentionPeriod property ([MS-OXPROPS] section 2.923) specifies the number of days that a Message object can be retained.</ns1:Description>
+		<ns1:Description>[In PidTagRetentionPeriod Property] The PidTagRetentionPeriod property ([MS-OXPROPS] section 2.928) specifies the number of days that a Message object can be retained.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3143,7 +3143,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2126</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.58.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagStartDateEtc Property] The PidTagStartDateEtc property ([MS-OXPROPS] section 2.1014) has the following structure [Default retention period, Start date].</ns1:Description>
+		<ns1:Description>[In PidTagStartDateEtc Property] The PidTagStartDateEtc property ([MS-OXPROPS] section 2.1020) has the following structure [Default retention period, Start date].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3216,7 +3216,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2135</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.58.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRetentionDate Property] The PidTagRetentionDate property ([MS-OXPROPS] section 2.921) specifies the date, in UTC, after which a Message object is expired by the server.</ns1:Description>
+		<ns1:Description>[In PidTagRetentionDate Property] The PidTagRetentionDate property ([MS-OXPROPS] section 2.926) specifies the date, in UTC, after which a Message object is expired by the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3336,7 +3336,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2148</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.58.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRetentionFlags Property] The PidTagRetentionFlags property ([MS-OXPROPS] section 2.922) contains flags that specify the status or nature of an item's retention tag or archive tag.</ns1:Description>
+		<ns1:Description>[In PidTagRetentionFlags Property] The PidTagRetentionFlags property ([MS-OXPROPS] section 2.927) contains flags that specify the status or nature of an item's retention tag or archive tag.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3483,7 +3483,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2164</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.58.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagArchivePeriod Property] The PidTagArchivePeriod property ([MS-OXPROPS] section 2.571) specifies the number of days that a Message object can remain unarchived.</ns1:Description>
+		<ns1:Description>[In PidTagArchivePeriod Property] The PidTagArchivePeriod property ([MS-OXPROPS] section 2.574) specifies the number of days that a Message object can remain unarchived.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3564,7 +3564,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2173</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.58.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagArchiveDate Property] The PidTagArchiveDate property ([MS-OXPROPS] section 2.570) specifies the date, in UTC, after which a Message object is archived by the server.</ns1:Description>
+		<ns1:Description>[In PidTagArchiveDate Property] The PidTagArchiveDate property ([MS-OXPROPS] section 2.570) spec3fies the date, in UTC, after which a Message object is archived by the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3713,7 +3713,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R223</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLastModificationTime Property] The PidTagLastModificationTime property ([MS-OXPROPS] section 2.753) indicates the last time the file referenced by the Attachment object was modified.</ns1:Description>
+		<ns1:Description>[In PidTagLastModificationTime Property] The PidTagLastModificationTime property ([MS-OXPROPS] section 2.758) indicates the last time the file referenced by the Attachment object was modified.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3758,7 +3758,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R227</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDisplayName Property] The PidTagDisplayName property ([MS-OXPROPS] section 2.667) contains the name of the attachment as input by the end user.</ns1:Description>
+		<ns1:Description>[In PidTagDisplayName Property] The PidTagDisplayName property ([MS-OXPROPS] section 2.670) contains the name of the attachment as input by the end user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3785,7 +3785,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R230</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachSize Property] The PidTagAttachSize property ([MS-OXPROPS] section 2.599) contains the size in bytes consumed by the Attachment object on the server.</ns1:Description>
+		<ns1:Description>[In PidTagAttachSize Property] The PidTagAttachSize property ([MS-OXPROPS] section 2.602) contains the size in bytes consumed by the Attachment object on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3812,7 +3812,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R233</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachNumber Property] The PidTagAttachNumber property ([MS-OXPROPS] section 2.594) identifies the Attachment object within its Message object.</ns1:Description>
+		<ns1:Description>[In PidTagAttachNumber Property] The PidTagAttachNumber property ([MS-OXPROPS] section 2.597) identifies the Attachment object within its Message object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3850,7 +3850,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R236</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachDataBinary Property] The PidTagAttachDataBinary property ([MS-OXPROPS] section 2.580) contains the contents of the file to be attached.</ns1:Description>
+		<ns1:Description>[In PidTagAttachDataBinary Property] The PidTagAttachDataBinary property ([MS-OXPROPS] section 2.583) contains the contents of the file to be attached.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3868,7 +3868,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R238</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachDataObject Property] The PidTagAttachDataObject property ([MS-OXPROPS] section 2.581) contains the binary representation of the Attachment object in an application-specific format.</ns1:Description>
+		<ns1:Description>[In PidTagAttachDataObject Property] The PidTagAttachDataObject property ([MS-OXPROPS] section 2.584) contains the binary representation of the Attachment object in an application-specific format.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3886,7 +3886,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R240</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachMethod Property] The PidTagAttachMethod property ([MS-OXPROPS] section 2.592) represents the way the contents of an attachment are accessed.</ns1:Description>
+		<ns1:Description>[In PidTagAttachMethod Property] The PidTagAttachMethod property ([MS-OXPROPS] section 2.595) represents the way the contents of an attachment are accessed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3896,7 +3896,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R241</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachMethod Property] This property [PidTagAttachMethod] is set to one of the following values [0x00000000, 0x00000001, 0x00000002, 0x00000004, 0x00000005, 0x00000006].</ns1:Description>
+		<ns1:Description>[In PidTagAttachMethod Property] This property [PidTagAttachMethod] is set to one of the following values [0x00000000, 0x00000001, 0x00000002, 0x00000004, 0x00000005, 0x00000006,0x00000007].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3957,6 +3957,24 @@
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R59801</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagAttachMethod Property] [afByWebReference (0x00000007)] The PidTagAttachLongPathname property contains a fully qualified path identifying the attachment. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R59802</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In PidTagAttachMethod Property] [afByWebReference (0x00000007)] The PidNameAttachmentProviderType defines the web service API manipulating the attachment. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R599</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagAttachLongFilename Property] Type: PtypString ([MS-OXCDATA] section 2.11.1).</ns1:Description>
@@ -3968,7 +3986,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R600</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachLongFilename Property] The PidTagAttachLongFilename property ([MS-OXPROPS] section 2.586) contains the full file name and extension of the Attachment object.</ns1:Description>
+		<ns1:Description>[In PidTagAttachLongFilename Property] The PidTagAttachLongFilename property ([MS-OXPROPS] section 2.589) contains the full file name and extension of the Attachment object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3986,7 +4004,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R602</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachFilename Property] The PidTagAttachFilename property ([MS-OXPROPS] section 2.584) contains the 8.3 name of the value of the PidTagAttachLongFilename property (section 2.2.2.10).</ns1:Description>
+		<ns1:Description>[In PidTagAttachFilename Property] The PidTagAttachFilename property ([MS-OXPROPS] section 2.587) contains the 8.3 name of the value of the PidTagAttachLongFilename property (section 2.2.2.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4004,7 +4022,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R604</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachExtension Property] The PidTagAttachExtension property ([MS-OXPROPS] section 2.583) contains a file name extension that indicates the document type of an attachment.</ns1:Description>
+		<ns1:Description>[In PidTagAttachExtension Property] The PidTagAttachExtension property ([MS-OXPROPS] section 2.586) contains a file name extension that indicates the document type of an attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4022,7 +4040,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R606</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachLongPathname Property] The PidTagAttachLongPathname property ([MS-OXPROPS] section 2.587) contains the fully qualified path and file name with extension.</ns1:Description>
+		<ns1:Description>[In PidTagAttachLongPathname Property] The PidTagAttachLongPathname property ([MS-OXPROPS] section 2.590) contains the fully qualified path and file name with extension.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4040,7 +4058,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R608</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachPathname Property] The PidTagAttachPathname property ([MS-OXPROPS] section 2.595) contains the 8.3 name of the value of the PidTagAttachLongPathname property (section 2.2.2.13).</ns1:Description>
+		<ns1:Description>[In PidTagAttachPathname Property] The PidTagAttachPathname property ([MS-OXPROPS] section 2.598) contains the 8.3 name of the value of the PidTagAttachLongPathname property (section 2.2.2.13).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4058,7 +4076,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachTag Property] The PidTagAttachTag property ([MS-OXPROPS] section 2.600) contains the identifier information for the application that supplied the Attachment object's data.</ns1:Description>
+		<ns1:Description>[In PidTagAttachTag Property] The PidTagAttachTag property ([MS-OXPROPS] section 2.603) contains the identifier information for the application that supplied the Attachment object's data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4140,7 +4158,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R614</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRenderingPosition Property] The PidTagRenderingPosition property ([MS-OXPROPS] section 2.903) represents an offset, in rendered characters, to use when rendering an attachment within the main message text.</ns1:Description>
+		<ns1:Description>[In PidTagRenderingPosition Property] The PidTagRenderingPosition property ([MS-OXPROPS] section 2.908) represents an offset, in rendered characters, to use when rendering an attachment within the main message text.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4194,7 +4212,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R617</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachRendering Property] The PidTagAttachRendering property ([MS-OXPROPS] section 2.598) contains a Windows Metafile Format (WMF) metafile as specified in [MS-WMF] for the Attachment object.</ns1:Description>
+		<ns1:Description>[In PidTagAttachRendering Property] The PidTagAttachRendering property ([MS-OXPROPS] section 2.601) contains a Windows Metafile Format (WMF) metafile as specified in [MS-WMF] for the Attachment object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4212,7 +4230,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R619</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachFlags Property] The PidTagAttachFlags property ([MS-OXPROPS] section 2.585) indicates which body formats might reference this attachment when rendering data.</ns1:Description>
+		<ns1:Description>[In PidTagAttachFlags Property] The PidTagAttachFlags property ([MS-OXPROPS] section 2.588) indicates which body formats might reference this attachment when rendering data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4312,7 +4330,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R623</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachTransportName Property] The PidTagAttachTransportName property ([MS-OXPROPS] section 2.601) contains the name of an attachment file, modified so that it can be correlated with TNEF messages, as specified in [MS-OXTNEF].</ns1:Description>
+		<ns1:Description>[In PidTagAttachTransportName Property] The PidTagAttachTransportName property ([MS-OXPROPS] section 2.604) contains the name of an attachment file, modified so that it can be correlated with TNEF messages, as specified in [MS-OXTNEF].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4330,7 +4348,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R625</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachEncoding Property] The PidTagAttachEncoding property ([MS-OXPROPS] section 2.582) contains encoding information about the Attachment object.</ns1:Description>
+		<ns1:Description>[In PidTagAttachEncoding Property] The PidTagAttachEncoding property ([MS-OXPROPS] section 2.585) contains encoding information about the Attachment object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4384,7 +4402,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R630</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachAdditionalInformation Property] The PidTagAttachAdditionalInformation property ([MS-OXPROPS] section 2.576) MUST be set to an empty string if the PidTagAttachEncoding property (section 2.2.2.20) is unset.</ns1:Description>
+		<ns1:Description>[In PidTagAttachAdditionalInformation Property] The PidTagAttachAdditionalInformation property ([MS-OXPROPS] section 2.579) MUST be set to an empty string if the PidTagAttachEncoding property (section 2.2.2.20) is unset.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4411,7 +4429,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R633</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.22</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachmentLinkId Property] The PidTagAttachmentLinkId property ([MS-OXPROPS] section 2.591) is the type of Message object to which this attachment is linked.</ns1:Description>
+		<ns1:Description>[In PidTagAttachmentLinkId Property] The PidTagAttachmentLinkId property ([MS-OXPROPS] section 2.594) is the type of Message object to which this attachment is linked.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4439,7 +4457,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R636</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.23</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachmentFlags Property] The PidTagAttachmentFlags property ([MS-OXPROPS] section 2.589) indicates special handling for this Attachment object.</ns1:Description>
+		<ns1:Description>[In PidTagAttachmentFlags Property] The PidTagAttachmentFlags property ([MS-OXPROPS] section 2.592) indicates special handling for this Attachment object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4467,7 +4485,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R639</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.24</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttachmentHidden Property] The PidTagAttachmentHidden property ([MS-OXPROPS] section 2.590) is set to TRUE (0x01) if this Attachment object is hidden from the end user.</ns1:Description>
+		<ns1:Description>[In PidTagAttachmentHidden Property] The PidTagAttachmentHidden property ([MS-OXPROPS] section 2.593) is set to TRUE (0x01) if this Attachment object is hidden from the end user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4501,8 +4519,206 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCMSG_R641</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXCMSG_R128001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentProviderType Property] Type: PtypString ([MS-OXCDATA] section 2.11.1)</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentProviderType Property] The PidNameAttachmentProviderType property ([MS-OXPROPS] section 2.372) contains the type of web service manipulating the attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentProviderType Property] [The value of PidNameAttachmentProviderType is] OneDrivePro.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentProviderType Property] [PidNameAttachmentProviderType (OneDrivePro) measns] The web reference attachment belongs to a OneDrive for Business service.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128005</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentProviderType Property] [The value of PidNameAttachmentProviderType is] OneDriveConsumer.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128006</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentProviderType Property]  [PidNameAttachmentProviderType (OneDriveConsumer) measns] The web reference attachment belongs to a OneDrive Consumer service.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128007</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentOriginalPermissionType Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128008</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentOriginalPermissionType Property] The PidNameAttachmentOriginalPermissionType property ([MS-OXPROPS] section 2.370) contains the original permission type data associated with a web reference attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128009</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentOriginalPermissionType Property] [The value of PidNameAttachmentOriginalPermissionType is] 0.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128010</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentProviderType Property] [PidNameAttachmentOriginalPermissionType (0) measns] None. User has no permissions to share.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128011</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentOriginalPermissionType Property] [The value of PidNameAttachmentOriginalPermissionType is] 1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128012</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentOriginalPermissionType Property]  PidNameAttachmentOriginalPermissionType (1) measns] View. User can only read the web reference attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128013</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentOriginalPermissionType Property] [The value of PidNameAttachmentOriginalPermissionType is] 2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128014</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentOriginalPermissionType Property]  [PidNameAttachmentOriginalPermissionType (2) measns] Edit. User can edit the web reference attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128015</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentPermissionType Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128016</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentPermissionType Property] The PidNameAttachmentPermissionType property ([MS-OXPROPS] section 2.371) contains the permission type data [0,1,2]associated with a web reference attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128017</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentPermissionType Property] [The value of PidNameAttachmentPermissionType is] 0.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128018</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentPermissionType Property] [PidNameAttachmentPermissionType (0) measns] None. User has no permissions to share.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128019</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentPermissionType Property] [The value of PidNameAttachmentProviderType is] 1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128020</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentPermissionType Property]  [PidNameAttachmentPermissionType (1) measns] View. User can only read the web reference attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128021</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentPermissionType Property] [The value of PidNameAttachmentPermissionType is] 2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R128022</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In PidNameAttachmentPermissionType Property]  [PidNameAttachmentPermissionType (2) measns] Edit. User can edit the web reference attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R641</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME properties] The following properties [PidTagAttachMimeTag, PidTagAttachContentId, PidTagAttachContentLocation, PidTagAttachContentBase, PidTagAttachPayloadClass, PidTagAttachPayloadProviderGuidString, PidNameAttachmentMacContentType and PidNameAttachmentMacInfo] can be left unset.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4511,7 +4727,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1837</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME Properties] The following properties [PidTagAttachMimeTag, PidTagAttachContentId, PidTagAttachContentLocation, PidTagAttachContentBase, PidTagAttachPayloadClass, PidTagAttachPayloadProviderGuidString, PidNameAttachmentMacContentType and PidNameAttachmentMacInfo] contain MIME information.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4521,7 +4737,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R642</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME properties] For details about MIME specifications, see [RFC2045].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4530,7 +4746,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R643</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME properties] For the specification on mapping these properties [PidTagAttachMimeTag, PidTagAttachContentId, PidTagAttachContentLocation, PidTagAttachContentBase, PidTagAttachPayloadClass, PidTagAttachPayloadProviderGuidString, PidNameAttachmentMacContentType and PidNameAttachmentMacInfo], see [MS-OXCMAIL].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4539,7 +4755,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1281</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME Properties] The types [PtypString and PtypBinary] in the following table are specified in [MS-OXCDATA] section 2.11.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4548,8 +4764,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R959</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
-		<ns1:Description>[In MIME properties] The type of PidTagAttachMimeTag ([MS-OXPROPS] section 2.593) is PtypString.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
+		<ns1:Description>[In MIME properties] The type of PidTagAttachMimeTag ([MS-OXPROPS] section 2.596) is PtypString.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4557,7 +4773,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R963</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME Properties] PidTagAttachMimeTag: The Content-Type header (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4566,8 +4782,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R960</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
-		<ns1:Description>[In MIME Properties] The type of PidTagAttachContentId ([MS-OXPROPS] section 2.578) is PtypString.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
+		<ns1:Description>[In MIME Properties] The type of PidTagAttachContentId ([MS-OXPROPS] section 2.581) is PtypString.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4575,7 +4791,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R964</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME properties] PidTagAttachContentId: A content identifier unique to this Message object that matches a corresponding "cid:" URI scheme reference in the HTML body of the Message object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4584,8 +4800,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R961</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
-		<ns1:Description>[In MIME Properties] The type of PidTagAttachContentLocation ([MS-OXPROPS] section 2.579) is PtypString.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
+		<ns1:Description>[In MIME Properties] The type of PidTagAttachContentLocation ([MS-OXPROPS] section 2.582) is PtypString.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4593,7 +4809,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R965</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME properties] PidTagAttachContentLocation: A relative or full URI that matches a corresponding reference in the HTML body of the Message object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4602,7 +4818,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R966</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME properties] PtypString: The base of a relative URI.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4611,8 +4827,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R962</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
-		<ns1:Description>[In MIME Properties] The type of PidTagAttachContentBase ([MS-OXPROPS] section 2.577) is PtypString.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
+		<ns1:Description>[In MIME Properties] The type of PidTagAttachContentBase ([MS-OXPROPS] section 2.580) is PtypString.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4620,7 +4836,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1283</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME Properties] PidTagAttachContentBase: The base of a relative URI.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4629,7 +4845,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R967</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME properties] [PidTagAttachContentBase] MUST be set if the PidTagAttachContentLocation property contains a relative URI.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4638,8 +4854,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1554</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
-		<ns1:Description>[In MIME Properties] The type of PidTagAttachPayloadClass ([MS-OXPROPS] section 2.596) is PtypString.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
+		<ns1:Description>[In MIME Properties] The type of PidTagAttachPayloadClass ([MS-OXPROPS] section 2.599) is PtypString.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4647,7 +4863,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1284</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME Properties] PidTagAttachPayloadClass: The class name of an object that can display the contents of the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4656,8 +4872,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1553</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
-		<ns1:Description>[In MIME Properties] The type of PidTagAttachPayloadProviderGuidString ([MS-OXPROPS] section 2.597) is PtypString.</ns1:Description>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
+		<ns1:Description>[In MIME Properties] The type of PidTagAttachPayloadProviderGuidString ([MS-OXPROPS] section 2.560) is PtypString.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4665,7 +4881,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1286</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME Properties] PidTagAttachPayloadProviderGuidString: The GUID of the software application that can display the contents of the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4674,7 +4890,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1552</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME Properties] The type of PidNameAttachmentMacContentType ([MS-OXPROPS] section 2.368) is PtypString.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4683,7 +4899,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1287</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME Properties] PidNameAttachmentMacContentType: The Content-Type header (2) of the Macintosh attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4692,7 +4908,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1551</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME Properties] The type of PtypBinary PidNameAttachmentMacInfo ([MS-OXPROPS] section 2.369) is PtypBinary.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4701,7 +4917,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1288</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In MIME Properties] PidNameAttachmentMacInfo: The headers (2) and resource fork data associated with the Macintosh attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5904,7 +6120,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R773</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.8</ns1:Doc_Sect>
-		<ns1:Description>[In RopSetMessageStatus ROP] The RopSetMessageStatus ROP ([MS-OXCROPS] section 2.2.6.8) sets the PidTagMessageStatus property ([MS-OXPROPS] section 2.787) on a message in a folder without the need to open or save the Message object.</ns1:Description>
+		<ns1:Description>[In RopSetMessageStatus ROP] The RopSetMessageStatus ROP ([MS-OXCROPS] section 2.2.6.8) sets the PidTagMessageStatus property ([MS-OXPROPS] section 2.792) on a message in a folder without the need to open or save the Message object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7899,7 +8115,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R286</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.8</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a RopGetMessageStatus ROP Request] [To retrieve the status of a header message object, clients: 2. Send the RopGetMessageStatus ROP request;] if the request succeeds, the value of the header message object's PidTagMessageStatus property ([MS-OXPROPS] section 2.787) is returned in the response buffer.</ns1:Description>
+		<ns1:Description>[In Sending a RopGetMessageStatus ROP Request] [To retrieve the status of a header message object, clients: 2. Send the RopGetMessageStatus ROP request;] if the request succeeds, the value of the header message object's PidTagMessageStatus property ([MS-OXPROPS] section 2.792) is returned in the response buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8540,7 +8756,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMSG_R1912.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXCMSG_R1912,MS-OXCMSG_R164101,MS-OXCMSG_R164102.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R341</ns1:REQ_ID>
@@ -10207,7 +10423,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R2192</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.(&lt;13&gt; Section 2.2.3.3.1: Exchange 2010, Exchange 2013, and Exchange 2016 ignore the KeepOpenReadOnly flag.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.(&lt;13&gt; Section 2.2.3.3.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 20162019 Preview ignore the KeepOpenReadOnly flag.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1671:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10251,7 +10467,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R3012</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] [PartialCompletion] A nonzero value indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field. (&lt;15&gt; Section 2.2.3.10.2:  ex14 and ex15 return a zero value.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] [PartialCompletion] A nonzero value indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field. (&lt;15&gt; Section 2.2.3.10.2:  Exchange 2010, Exchange 2013 Exchange 2016, and Exchange 2019 Preview return a zero value.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1674:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10282,7 +10498,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R3013</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read/write. (&lt;17&gt; Section 2.2.3.16.1:  Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read/write. (&lt;17&gt; Section 2.2.3.16.1:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview  follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R911:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10336,12 +10552,32 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1641</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2: Implementation does not initialize the following properties: PidTagCreatorName ([MS-OXPROPS] section 2.647), PidTagCreatorEntryId (section 2.2.1.31), PidTagLastModifierName ([MS-OXCPRPT] section 2.2.1.5), PidTagLastModifierEntryId (section 2.2.1.32), PidTagLastModificationTime (section 2.2.2.2), PidTagMessageLocaleId (section 2.2.1.5) and PidTagLocaleId ([MS-OXPROPS] section 2.873). (Exchange 2013 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2: Implementation does not initialize the following properties: PidTagCreatorName ([MS-OXPROPS] section 2.650), PidTagCreatorEntryId (section 2.2.1.31), PidTagLastModifierName ([MS-OXCPRPT] section 2.2.1.5), PidTagLastModifierEntryId (section 2.2.1.32), PidTagLastModificationTime (section 2.2.2.2), PidTagMessageLocaleId (section 2.2.1.5) and PidTagLocaleId ([MS-OXPROPS] section 2.873). (Exchange 2013 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R340:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R164101</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2: Implementation does not initialize the following properties: PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R340:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCMSG_R164102</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2:  Implementation does initialize the following properties:PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2010 and Exchange 2013 followin this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R340:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R3015</ns1:REQ_ID>
@@ -10445,7 +10681,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R3019</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (&lt;27&gt; Section 3.2.5.3: Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (&lt;27&gt; Section 3.2.5.3: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1699:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10686,7 +10922,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R1719</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Outlook 2010 SP1 and Outlook 2013 support this behavior [disable asynchronous processing of the RopSetReadFlags ROP and return the RopProgress ROP whether or not the WantAsynchronous flag is set].</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Outlook 2010 SP1, Outlook 2013, Outlook 2016 and Outlook 2019 Preivew support this behavior [disable asynchronous processing of the RopSetReadFlags ROP and return the RopProgress ROP whether or not the WantAsynchronous flag is set].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11140,7 +11376,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCDATA_R2722</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.11.1</ns1:Doc_Sect>
-		<ns1:Description>[In Property Value Types] PtypObject or PtypEmbeddedTable (PT_OBJECT) is  that  the property value is a COM object, as specified in section 2.11.1.5 with Property Type Value 0x000D,%x0D.00.</ns1:Description>
+		<ns1:Description>[In Property Value Types] PtypObject or PtypEmbeddedTable (PT_OBJECT) is  that  the property value is a Component Object Model (COM) object, as specified in section 2.11.1.5. with Property Type Value 0x000D,%x0D.00.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
