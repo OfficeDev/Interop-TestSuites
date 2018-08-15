@@ -365,7 +365,7 @@
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
                 pidTagPurportedSenderDomain.Value.ToString(),
                 1214,
-                @"[In PidTagPurportedSenderDomain Property] The PidTagPurportedSenderDomain property ([MS-OXPROPS] section 2.865) contains the domain name of the last sender responsible for transmitting the current message.");
+                @"[In PidTagPurportedSenderDomain Property] The PidTagPurportedSenderDomain property ([MS-OXPROPS] section 2.870) contains the domain name of the last sender responsible for transmitting the current message.");
 
             PropertyObj pidTagAlternateRecipientAllowed = PropertyHelper.GetPropertyByName(propertyValues, PropertyNames.PidTagAlternateRecipientAllowed);
 
@@ -423,7 +423,7 @@
                 TestDataOfPidTagSubjectPrefix,
                 pidTagSubjectPrefix.Value.ToString(),
                 58,
-                @"[In PidTagSubjectPrefix Property] The PidTagSubjectPrefix property ([MS-OXPROPS] section 2.1096) contains the prefix for the subject of the message.");
+                @"[In PidTagSubjectPrefix Property] The PidTagSubjectPrefix property ([MS-OXPROPS] section 2.1027) contains the prefix for the subject of the message.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R64");
@@ -433,7 +433,7 @@
                 TestSuiteBase.TestDataOfPidTagNormalizedSubject,
                 pidTagNormalizedSubject.Value.ToString(),
                 64,
-                @"[In PidTagNormalizedSubject Property] The PidTagNormalizedSubject property ([MS-OXPROPS] section 2.877) contains the normalized subject of the message, as specified in [MS-OXCMAIL] section 2.2.3.2.6.1.");
+                @"[In PidTagNormalizedSubject Property] The PidTagNormalizedSubject property ([MS-OXPROPS] section 2.806) contains the normalized subject of the message, as specified in [MS-OXCMAIL] section 2.2.3.2.6.1.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1238");
@@ -477,7 +477,7 @@
                 Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 pidTagRecipientDisplayName.Value.ToString(),
                 2047,
-                @"[In PidTagRecipientDisplayName Property] The PidTagRecipientDisplayName property ([MS-OXPROPS] section 2.888) specifies the display name of a recipient (2).");
+                @"[In PidTagRecipientDisplayName Property] The PidTagRecipientDisplayName property ([MS-OXPROPS] section 2.893) specifies the display name of a recipient (2).");
             #endregion
             #endregion
 
@@ -680,7 +680,7 @@
             this.Site.CaptureRequirementIfIsNotNull(
                 pidTagHtml.Value,
                 2082,
-                @"[In PidTagHtml Property] [Type] The PidTagHtml property ([MS-OXPROPS] section 2.722) contains the message body text in HTML format.");
+                @"[In PidTagHtml Property] [Type] The PidTagHtml property ([MS-OXPROPS] section 2.727) contains the message body text in HTML format.");
 
             PropertyObj pidTagBodyContentLocation = PropertyHelper.GetPropertyByName(propertyValues, PropertyNames.PidTagBodyContentLocation);
 
@@ -693,7 +693,7 @@
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR2076,
                 2076,
-                @"[In PidTagBodyContentLocation Property] The PidTagBodyContentLocation property ([MS-OXPROPS] section 2.611) contains a globally unique URI that serves as a label for the current message body.");
+                @"[In PidTagBodyContentLocation Property] The PidTagBodyContentLocation property ([MS-OXPROPS] section 2.614) contains a globally unique URI that serves as a label for the current message body.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R2077, the value of PidTagBodyContentLocation is {0}.", pidTagBodyContentLocation.Value.ToString());
@@ -898,7 +898,7 @@
             this.Site.CaptureRequirementIfIsTrue(
                 Convert.ToBoolean(pidTagRtfInSync.Value),
                 2068,
-                @"[In PidTagRtfInSync Property] The PidTagRtfInSync property ([MS-OXPROPS] section 2.931) is set to ""TRUE"" (0x01) if the RTF body has been synchronized with the contents in the PidTagBody property (section 2.2.1.56.1).");
+                @"[In PidTagRtfInSync Property] The PidTagRtfInSync property ([MS-OXPROPS] section 2.936) is set to ""TRUE"" (0x01) if the RTF body has been synchronized with the contents in the PidTagBody property (section 2.2.1.56.1).");
             #endregion
             #endregion
 
@@ -1943,7 +1943,7 @@
                 TestDataOfPidNameContentType,
                 contentTypeValue,
                 2038,
-                @"[In PidNameContentType Property] The PidNameContentType property ([MS-OXPROPS] section 2.408) contains the value of the Content-Type header (2), which defines the type of the body part's content.");           
+                @"[In PidNameContentType Property] The PidNameContentType property ([MS-OXPROPS] section 2.411) contains the value of the Content-Type header (2), which defines the type of the body part's content.");           
         
             #endregion
 
