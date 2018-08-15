@@ -1834,7 +1834,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         isVerifiedR2722,
                         CdataShortName,
                         2722,
-                        @">[In Property Value Types] PtypObject or PtypEmbeddedTable (PT_OBJECT) is  that  the property value is a Component Object Model (COM) object, as specified in section 2.11.1.5. with Property Type Value 0x000D,%x0D.00.");
+                        @"[In Property Value Types] PtypObject or PtypEmbeddedTable (PT_OBJECT) is  that  the property value is a Component Object Model (COM) object, as specified in section 2.11.1.5. with Property Type Value 0x000D,%x0D.00.");
                     break;
 
                 case PropertyNames.PidTagTextAttachmentCharset:
