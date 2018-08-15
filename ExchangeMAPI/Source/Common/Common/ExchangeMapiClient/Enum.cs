@@ -1647,7 +1647,22 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <summary>
         /// PidTagRead property.
         /// </summary>
-        PidTagRead
+        PidTagRead,
+
+        /// <summary>
+        /// The PidNameAttachmentProviderType property contains the type of web service manipulating the attachment.
+        /// </summary>
+        PidNameAttachmentProviderType,
+
+        /// <summary>
+        /// The PidNameAttachmentOriginalPermissionType property contains the original permission type data associated with a web reference attachment.
+        /// </summary>
+        PidNameAttachmentOriginalPermissionType,
+
+        /// <summary>
+        /// The PidNameAttachmentPermissionType property contains the permission type data associated with a web reference attachment.
+        /// </summary>
+        PidNameAttachmentPermissionType
     }
     #endregion
     #endregion

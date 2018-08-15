@@ -427,6 +427,38 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
 
 
             #region Verify requirements
+            if(Common.IsRequirementEnabled(164101,this.Site))
+            {
+                bool isR16401Verifed = Convert.ToUInt32(pidTagDisplayBcc.Value) == 0x8004010F
+                    && Convert.ToUInt32(pidTagDisplayCc.Value) == 0x8004010F
+                    && Convert.ToUInt32(pidTagDisplayTo.Value) == 0x8004010F;
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R164101");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R164101
+                this.Site.CaptureRequirementIfIsTrue(
+                    isR16401Verifed,
+                    164101,
+                    @"[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2: Implementation does not initialize the following properties: PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(164102, this.Site))
+            {
+                bool isR16402Verifed = Convert.ToString(pidTagDisplayBcc.Value) == ""
+                    && Convert.ToString(pidTagDisplayCc.Value) == ""
+                    && Convert.ToString(pidTagDisplayTo.Value) == "";
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R164102");
+
+                // Verify MS-OXCMSG requirement: MS-OXCMSG_R164102
+                this.Site.CaptureRequirementIfIsTrue(
+                    isR16402Verifed,
+                    164102,
+                    @"[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2:  Implementation does initialize the following properties:PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2010 and Exchange 2013 followin this behavior.)");
+            }
+
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R987");
 

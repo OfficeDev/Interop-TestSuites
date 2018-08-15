@@ -819,7 +819,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
 
                     bool isVerifyR241 = false;
                     int valueOfPidTagAttachMethod = (int)propertyObj.Value;
-                    if (valueOfPidTagAttachMethod == 0x00000000 || valueOfPidTagAttachMethod == 0x00000001 || valueOfPidTagAttachMethod == 0x00000002 || valueOfPidTagAttachMethod == 0x00000004 || valueOfPidTagAttachMethod == 0x00000005 || valueOfPidTagAttachMethod == 0x00000006)
+                    if (valueOfPidTagAttachMethod == 0x00000000 || valueOfPidTagAttachMethod == 0x00000001 || valueOfPidTagAttachMethod == 0x00000002 || valueOfPidTagAttachMethod == 0x00000004 || valueOfPidTagAttachMethod == 0x00000005 || valueOfPidTagAttachMethod == 0x00000006 || valueOfPidTagAttachMethod == 0x00000007)
                     {
                         isVerifyR241 = true;
                     }
@@ -1975,6 +1975,47 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                          @"[In PidNameKeywords Property] The length of each string within the multivalue string is less than 256 characters.");
 
                     break;
+
+                case PropertyNames.PidNameAttachmentOriginalPermissionType:
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128007");
+
+
+                    // Verify MS-OXCMSG requirement: MS-OXCMSG_R128007
+                    Site.CaptureRequirementIfAreEqual<PropertyType>(
+                         PropertyType.PtypInteger32,
+                         propertyObj.ValueType,
+                         128007,
+                         @"[In PidNameAttachmentOriginalPermissionType Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1).");
+                    break;
+
+                case PropertyNames.PidNameAttachmentPermissionType:
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128015");
+
+
+                    // Verify MS-OXCMSG requirement: MS-OXCMSG_R128015
+                    Site.CaptureRequirementIfAreEqual<PropertyType>(
+                         PropertyType.PtypInteger32,
+                         propertyObj.ValueType,
+                         128015,
+                         @"[In PidNameAttachmentPermissionType Property] Type: PtypInteger32 ([MS-OXCDATA] section 2.11.1).");
+                    break;
+
+                case PropertyNames.PidNameAttachmentProviderType:
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128001");
+
+
+                    // Verify MS-OXCMSG requirement: MS-OXCMSG_R128001
+                    Site.CaptureRequirementIfAreEqual<PropertyType>(
+                         PropertyType.PtypString,
+                         propertyObj.ValueType,
+                         128001,
+                         @"[In PidNameAttachmentProviderType Property] Type: PtypString ([MS-OXCDATA] section 2.11.1)");
+
+                    break;
+
                 default:
                     break;
             }

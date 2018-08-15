@@ -95,5 +95,9 @@
     <Property name="R3022Enabled" value="true"/>
     <!-- Set R10000Enabled to true to verify that the implementation does support MAPIHTTP transport. Set R10000Enabled to false to disable this requirement.-->
     <Property name="R10000Enabled" value="true"/>
+    <!-- Set R164101Enabled to true to verify that the implementation does not initialize the following properties: PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). Set R164101Enabled to false to disable this requirement.-->
+    <Property name="R164101Enabled" value="true"/>
+    <!-- Set R164102Enabled to true to verify that the implementation does initialize the following properties: PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). Set R164102Enabled to false to disable this requirement.-->
+    <Property name="R164102Enabled" value="false"/>
   </Properties>
 </TestSite>
