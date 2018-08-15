@@ -764,6 +764,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     result[0].Value = BitConverter.GetBytes(0x00000006); // 0x00000006 means the PidTagAttachDataObject contains data in an application-specific format
                     break;
 
+                case 0x00000007:
+                    result[0].Value = BitConverter.GetBytes(0x00000007); // 0x00000007 means the PidTagAttachLongPathname property contains a fully qualified path identifying the attachment. The PidNameAttachmentProviderType defines the web service API manipulating the attachment. 
+                    break;
+
                 default:
                     break;
             }
@@ -1012,6 +1016,65 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             return ropIdFromLongTermIdResponse.ObjectId;
         }
 
+        /// <summary>
+        /// Set the value of properties identified by long ID or name in message.
+        /// </summary>
+        /// <param name="objectHandle">The specified message handle.</param>
+        /// <param name="property">The PropertyName of specified property.</param>
+        /// <param name="value">The value of specified property.</param>
+        protected void SetNamedProperty(uint objectHandle, PropertyNameObject property, byte[] value)
+        {
+            #region Call RopGetPropertyIdsFromNames to get property ID.
+            PropertyName[] propertyNames = new PropertyName[1];
+            propertyNames[0] = property.PropertyName;
+
+            RopGetPropertyIdsFromNamesRequest getPropertyIdsFromNamesRequest = new RopGetPropertyIdsFromNamesRequest()
+            {
+                RopId = (byte)RopId.RopGetPropertyIdsFromNames,
+                LogonId = CommonLogonId,
+                InputHandleIndex = CommonInputHandleIndex,
+                Flags = (byte)GetPropertyIdsFromNamesFlags.Create,
+                PropertyNameCount = (ushort)propertyNames.Length,
+                PropertyNames = propertyNames,
+            };
+            this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(getPropertyIdsFromNamesRequest, objectHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+            RopGetPropertyIdsFromNamesResponse getPropertyIdsFromNamesResponse = (RopGetPropertyIdsFromNamesResponse)this.response;
+            Site.Assert.AreEqual<uint>(TestSuiteBase.Success, getPropertyIdsFromNamesResponse.ReturnValue, "Call RopGetPropertyIdsFromNames should success.");
+            #endregion
+
+            #region Set property value.
+
+            List<TaggedPropertyValue> taggedPropertyValues = new List<TaggedPropertyValue>();
+
+            int valueSize = 0;
+            PropertyTag propertyTag = new PropertyTag
+            {
+                PropertyId = getPropertyIdsFromNamesResponse.PropertyIds[0].ID,
+                PropertyType = (ushort)property.PropertyType
+            };
+            TaggedPropertyValue taggedPropertyValue = new TaggedPropertyValue
+            {
+                PropertyTag = propertyTag,
+                Value = value
+            };
+            valueSize += taggedPropertyValue.Size();
+            taggedPropertyValues.Add(taggedPropertyValue);
+
+            RopSetPropertiesRequest rpmSetRequest = new RopSetPropertiesRequest()
+            {
+                RopId = (byte)RopId.RopSetProperties,
+                LogonId = CommonLogonId,
+                InputHandleIndex = CommonInputHandleIndex,
+                PropertyValueCount = (ushort)taggedPropertyValues.Count,
+                PropertyValueSize = (ushort)(valueSize + 2),
+                PropertyValues = taggedPropertyValues.ToArray()
+            };
+            this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(rpmSetRequest, objectHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
+
+            RopSetPropertiesResponse rpmSetResponse = (RopSetPropertiesResponse)this.response;
+            Site.Assert.AreEqual<uint>(TestSuiteBase.Success, rpmSetResponse.PropertyProblemCount, "If ROP succeeds, the PropertyProblemCount of its response is 0(success).");
+            #endregion
+        }
         #endregion
 
         #region Private methods for modify permission.
