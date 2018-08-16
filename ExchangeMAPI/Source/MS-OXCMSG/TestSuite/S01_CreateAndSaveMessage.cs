@@ -429,9 +429,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             #region Verify requirements
             if(Common.IsRequirementEnabled(164101,this.Site))
             {
-                bool isR16401Verifed = Convert.ToUInt32(pidTagDisplayBcc.Value) == 0x8004010F
-                    && Convert.ToUInt32(pidTagDisplayCc.Value) == 0x8004010F
-                    && Convert.ToUInt32(pidTagDisplayTo.Value) == 0x8004010F;
+                bool isR16401Verifed = BitConverter.ToUInt32((byte[])pidTagDisplayBcc.Value, 0) == 0x8004010F
+                     && BitConverter.ToUInt32((byte[])pidTagDisplayCc.Value, 0) == 0x8004010F
+                     && BitConverter.ToUInt32((byte[])pidTagDisplayTo.Value, 0) == 0x8004010F;
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R164101");
