@@ -1286,7 +1286,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
                             messageFlagsFromTable,
                             notifyResponse.NotificationData.MessageFlags,
                             214001,
-                            @"[In Appendix A: Product Behavior] MessageFlags does specify the message flags of new mail that has been received.(Exchange 2007, Exchange 2010 and Exchange 2016 follow this behavior.)");
+                            @"[In Appendix A: Product Behavior] MessageFlags does specify the message flags of new mail that has been received.(Exchange 2007, Exchange 2010, Exchange 2016 and above follow this behavior.)");
                     }
 
                     if(Common.IsRequirementEnabled(214002,this.Site))
