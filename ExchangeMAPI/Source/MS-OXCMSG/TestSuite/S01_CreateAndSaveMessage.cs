@@ -718,7 +718,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                      creatorEntryId,
                      typeof(AddressBookEntryID),
                     1182,
-                    @"[In PidTagCreatorEntryId Property] The PidTagCreatorEntryId property ([MS-OXPROPS] section 2.646) specifies the original author of the message according to their address book EntryID.");
+                    @"[In PidTagCreatorEntryId Property] The PidTagCreatorEntryId property ([MS-OXPROPS] section 2.649) specifies the original author of the message according to their address book EntryID.");
 
                 AddressBookEntryID modifierEntryId = new AddressBookEntryID();
                 modifierEntryId.Deserialize((byte[])pidTagLastModifierEntryId.Value, 0);
@@ -741,7 +741,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     modifierEntryId,
                     typeof(AddressBookEntryID),
                     1185,
-                    @"[In PidTagLastModifierEntryId Property] The PidTagLastModifierEntryId property ([MS-OXPROPS] section 2.754) specifies the last user to modify the contents of the message according to their address book EntryID.");
+                    @"[In PidTagLastModifierEntryId Property] The PidTagLastModifierEntryId property ([MS-OXPROPS] section 2.759) specifies the last user to modify the contents of the message according to their address book EntryID.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R359");
@@ -1837,7 +1837,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     Convert.ToInt32(accesssLevelBeforeSave.Value),
                     Convert.ToInt32(accesssLevelAfterReadOnlySuccess.Value),
                     2192,
-                    @"[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.(<13> Section 2.2.3.3.1: Exchange 2010, Exchange 2013, and Exchange 2016 ignore the KeepOpenReadOnly flag.)");
+                    @"[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.(&lt;13&gt; Section 2.2.3.3.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 20162019 Preview ignore the KeepOpenReadOnly flag.)");
             }
 
             if (Common.IsRequirementEnabled(2193, this.Site))

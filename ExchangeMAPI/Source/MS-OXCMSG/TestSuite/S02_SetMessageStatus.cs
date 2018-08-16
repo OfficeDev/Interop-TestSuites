@@ -98,7 +98,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 TestSuiteBase.Success,
                 setMessageStatusResponse.ReturnValue,
                 773,
-                @"[In RopSetMessageStatus ROP] The RopSetMessageStatus ROP ([MS-OXCROPS] section 2.2.6.8) sets the PidTagMessageStatus property ([MS-OXPROPS] section 2.787) on a message in a folder without the need to open or save the Message object.");
+                @"[In RopSetMessageStatus ROP] The RopSetMessageStatus ROP ([MS-OXCROPS] section 2.2.6.8) sets the PidTagMessageStatus property ([MS-OXPROPS] section 2.792) on a message in a folder without the need to open or save the Message object.");
 
             // Because the MS-OXCMSG_R773 has been captured and verify that the RopSetMessthatageStatus ROP sets the PidTagMessageStatus property.
             // So MS-OXCMSG_R549 can be captured directly.

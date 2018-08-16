@@ -198,7 +198,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     TestSuiteBase.Success,
                     modifyRecipientsResponse.ReturnValue,
                     3013,
-                    @"[In Appendix A: Product Behavior]  [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read/write. (<17> Section 2.2.3.16.1:  Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)");
+                    @"[In Appendix A: Product Behavior]  [OpenModeFlags] [ReadOnly (0x00)] Message will be opened as read/write. (&lt;17&gt; Section 2.2.3.16.1:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview  follow this behavior.)");
             }
 
             #region Call RopRelease to release the embedded message.
