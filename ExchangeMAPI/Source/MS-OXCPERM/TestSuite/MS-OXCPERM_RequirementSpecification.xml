@@ -619,7 +619,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R1062</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAccessControlListData Property] The PidTagAccessControlListData property ([MS-OXPROPS] section 2.497) contains a variable-length binary large object (BLOB) that constitutes a permissions list for a folder.</ns1:Description>
+		<ns1:Description>[In PidTagAccessControlListData Property] The PidTagAccessControlListData property ([MS-OXPROPS] section 2.500) contains a variable-length binary large object (BLOB) that constitutes a permissions list for a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -664,7 +664,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R70</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagEntryId Property] The PidTagEntryId property ([MS-OXPROPS] section 2.674) identifies the Address Book object that specifies a user.</ns1:Description>
+		<ns1:Description>[In PidTagEntryId Property] The PidTagEntryId property ([MS-OXPROPS] section 2.677) identifies the Address Book object that specifies a user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -709,7 +709,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R74</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberId Property] The PidTagMemberId property ([MS-OXPROPS] section 2.773) specifies the unique identifier that the server generates for each user.</ns1:Description>
+		<ns1:Description>[In PidTagMemberId Property] The PidTagMemberId property ([MS-OXPROPS] section 2.776) specifies the unique identifier that the server generates for each user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -754,7 +754,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R81</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberName Property] The PidTagMemberName property ([MS-OXPROPS] section 2.774) specifies the user-readable name of the user.</ns1:Description>
+		<ns1:Description>[In PidTagMemberName Property] The PidTagMemberName property ([MS-OXPROPS] section 2.777) specifies the user-readable name of the user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -808,7 +808,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R87</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberRights Property] The PidTagMemberRights property ([MS-OXPROPS] section 2.775) specifies the folder permissions that are granted to the specified user.</ns1:Description>
+		<ns1:Description>[In PidTagMemberRights Property] The PidTagMemberRights property ([MS-OXPROPS] section 2.778) specifies the folder permissions that are granted to the specified user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1701,7 +1701,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R1180</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.3: Outlook 2010 and Outlook 2013 do not use the PidTagAccessControlListData property (section 2.2.3).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.3: Outlook 2010, Outlook 2013, Outlook 2016, Outlook 2019 Preview  do not use the PidTagAccessControlListData property (section 2.2.3).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1753,7 +1753,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R1182</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.7: Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 include the FreeBusySimple flag by default on the Calendar folder for any entry in the permissions list except the anonymous user and add the FreeBusyDetailed flag to any entries that have the ReadAny flag set. Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 use these defaults until the client modifies the permissions list with the IncludeFreeBusy flag set in the RopModifyPermissions ROP request to override the default value.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.7: Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview include the FreeBusySimple flag by default on the Calendar folder for any entry in the permissions list except the anonymous user and add the FreeBusyDetailed flag to any entries that have the ReadAny flag set. Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview use these defaults until the client modifies the permissions list with the IncludeFreeBusy flag set in the RopModifyPermissions ROP request to override the default value.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
