@@ -301,7 +301,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             this.Site.CaptureRequirementIfIsTrue(
                 permissionList.Contains(PermissionTypeEnum.ReadAny),
                 87,
-                @"[In PidTagMemberRights Property] The PidTagMemberRights property ([MS-OXPROPS] section 2.775) specifies the folder permissions that are granted to the specified user.");
+                @"[In PidTagMemberRights Property] The PidTagMemberRights property ([MS-OXPROPS] section 2.778) specifies the folder permissions that are granted to the specified user.");
 
             // Verify MS-OXCPERM requirement: MS-OXCPERM_R182
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCPERM_R182: When the ReadAny is disabled, the ReadAny flag can{0} be retrieved.", permissionList.Contains(PermissionTypeEnum.ReadAny) ? string.Empty : " not");
