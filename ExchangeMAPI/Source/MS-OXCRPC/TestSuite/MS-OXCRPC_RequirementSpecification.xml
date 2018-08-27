@@ -5775,7 +5775,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1877</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Bitmask] The final end bit is always necessary, even if an additional bitmask has to be allocated.</ns1:Description>
+		<ns1:Description>[In Bitmask] The final end bit is necessary, even if an additional bitmask has to be allocated.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9388,7 +9388,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R810</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In EcDummyRpc Method (opnum 6)] Return Values: The function MUST always succeed and return 0.</ns1:Description>
+		<ns1:Description>[In EcDummyRpc Method (opnum 6)] Return Values: The function MUST succeed and return 0.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9758,7 +9758,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1151</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Sending the EcDoConnectEx Method] [ulConMod] The client ensures that for a particular DN passed in field szUserDN parameter, the hash value is always the same.</ns1:Description>
+		<ns1:Description>[In Sending the EcDoConnectEx Method] [ulConMod] The client ensures that for a particular DN passed in field szUserDN parameter, the hash value is the same.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11644,7 +11644,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1727</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In Handling Endpoint Consolidation] There is always a one reconnection lag until the client connects in the most optimal way.</ns1:Description>
+		<ns1:Description>[In Handling Endpoint Consolidation] There is a one reconnection lag until the client connects in the most optimal way.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12485,7 +12485,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R506</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support Session Context linking. &lt;8&gt; Section 3.1.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support Session Context linking.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support Session Context linking. &lt;8&gt; Section 3.1.4.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support Session Context linking.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R505:i,MS-OXCRPC_R1002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12506,7 +12506,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R507</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the same value in the pulTimeStamp that was passed in. [In Appendix B: Product Behavior] [&lt;8&gt; Section 3.1.4.1] [in Exchange 2010, Exchange 2013, and Exchange 2016] If ulIcxrLink is not 0xFFFFFFFF, the server will not attempt to search for a session with the same Session Context and link to them.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the same value in the pulTimeStamp that was passed in. [In Appendix B: Product Behavior] [&lt;8&gt; Section 3.1.4.1] [in Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview] If ulIcxrLink is not 0xFFFFFFFF, the server will not attempt to search for a session with the same Session Context and link to them.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R505:i,MS-OXCRPC_R1002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12516,7 +12516,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R508</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the same value in the pulTimeStamp that was passed in. [In Appendix B: Product Behavior] [&lt;8&gt; Section 3.1.4.1] [In Exchange 2010, Exchange 2013 and Exchange 2016, if ulIcxrLink is not 0xFFFFFFFF, then the server will not attempt to search for a session with the same Session Context and link to them,] it [method EcDoConnectEx] will then return the same value in the pulTimeStamp that was passed in.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the same value in the pulTimeStamp that was passed in. [In Appendix B: Product Behavior] [&lt;8&gt; Section 3.1.4.1] [In Exchange 2010, Exchange 2013 Exchange 2016 and Exchcange 2019 Preview, if ulIcxrLink is not 0xFFFFFFFF, then the server will not attempt to search for a session with the same Session Context and link to them,] it [method EcDoConnectEx] will then return the same value in the pulTimeStamp that was passed in.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R505:i,MS-OXCRPC_R1002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12536,7 +12536,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1431</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support Session Context linking. &lt;10&gt; Section 3.1.4.1: Exchange 2010, Exchange 2013 and Exchange 2016 do not support Session Context linking.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support Session Context linking. &lt;10&gt; Section 3.1.4.1: Exchange 2010, Exchange 2013 Exchange 2016 and Exchange 2019 Preview do not support Session Context linking.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R534:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12682,7 +12682,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1438</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't support sending the AUX_OSVERSIONINFO block. &lt;16&gt; Section 3.1.4.1.2.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support sending the AUX_OSVERSIONINFO block.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't support sending the AUX_OSVERSIONINFO block. &lt;16&gt; Section 3.1.4.1.2.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support sending the AUX_OSVERSIONINFO block.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R1066:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12962,7 +12962,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R4881</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;27&gt; Section 3.1.4.5: The initial release version of Exchange 2010 and Exchange 2010 SP1 do not support the EcRRegisterPushNotification method and always return ecNotSupported.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;27&gt; Section 3.1.4.5: The initial release version of Exchange 2010 and Exchange 2010 SP1 do not support the EcRRegisterPushNotification method and return ecNotSupported.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R1555:i,MS-OXCRPC_R1002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12982,7 +12982,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1558</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the EcRRegisterPushNotification method call. &lt;27&gt; Section 3.1.4.5: Exchange 2013 and Exchange 2016 do not support the EcRRegisterPushNotification RPC and always returns ecNotSupported.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the EcRRegisterPushNotification method call. &lt;27&gt; Section 3.1.4.5: Exchange 2013 and Exchange 2016 do not support the EcRRegisterPushNotification RPC and returns ecNotSupported.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R1555:i,MS-OXCRPC_R1002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
