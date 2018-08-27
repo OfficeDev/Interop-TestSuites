@@ -401,7 +401,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     firstPulTimeStamp,
                     this.pulTimeStamp,
                     508,
-                    @"[In Appendix B: Product Behavior] Implementation does return the same value in the pulTimeStamp that was passed in. [In Appendix B: Product Behavior] [<8> Section 3.1.4.1] [In Exchange 2010, Exchange 2013 and Exchange 2016, if ulIcxrLink is not 0xFFFFFFFF, then the server will not attempt to search for a session with the same Session Context and link to them,] it [method EcDoConnectEx] will then return the same value in the pulTimeStamp that was passed in.");
+                    @"[In Appendix B: Product Behavior] Implementation does return the same value in the pulTimeStamp that was passed in. [In Appendix B: Product Behavior] [<8> Section 3.1.4.1] [In Exchange 2010, Exchange 2013 Exchange 2016 and Exchcange 2019 Preview, if ulIcxrLink is not 0xFFFFFFFF, then the server will not attempt to search for a session with the same Session Context and link to them,] it [method EcDoConnectEx] will then return the same value in the pulTimeStamp that was passed in.");
             }
 
             if (Common.IsRequirementEnabled(1435, this.Site))
@@ -2969,7 +2969,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     0x80040102,
                     this.returnValue,
                     1558,
-                    @"[In Appendix B: Product Behavior] Implementation does not support the EcRRegisterPushNotification method call. <27> Section 3.1.4.5: Exchange 2013 and Exchange 2016 do not support the EcRRegisterPushNotification RPC and always returns ecNotSupported.");
+                    @"[In Appendix B: Product Behavior] Implementation does not support the EcRRegisterPushNotification method call. <27> Section 3.1.4.5: Exchange 2013 and Exchange 2016 do not support the EcRRegisterPushNotification RPC and returns ecNotSupported.");
             }
 
             if (Common.IsRequirementEnabled(1845, this.Site))

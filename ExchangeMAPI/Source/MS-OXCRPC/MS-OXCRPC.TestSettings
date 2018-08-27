@@ -16,6 +16,7 @@
     <DeploymentItem filename="TestSuite\MS-OXCRPC_TestSuite.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXCRPC_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-OXCRPC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXCRPC_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
