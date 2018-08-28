@@ -600,7 +600,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     Site.CaptureRequirementIfIsFalse(
                         isAuxOsVersionInFo,
                         1438,
-                        @"[In Appendix B: Product Behavior] Implementation doesn't support sending the AUX_OSVERSIONINFO block. <16> Section 3.1.4.1.2.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support sending the AUX_OSVERSIONINFO block.");
+                        @"[In Appendix B: Product Behavior] Implementation doesn't support sending the AUX_OSVERSIONINFO block. <16> Section 3.1.4.1.2.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support sending the AUX_OSVERSIONINFO block.");
                 }
 
                 // Check whether block AUX_TYPE_SERVER_CAPABILITIES exists in the rgbAuxOut
@@ -1663,7 +1663,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
             this.Site.CaptureRequirementIfIsTrue(
                 isDirect2Encoding,
                 1877,
-                @"[In Bitmask] The final end bit is always necessary, even if an additional bitmask has to be allocated.");
+                @"[In Bitmask] The final end bit is necessary, even if an additional bitmask has to be allocated.");
         }
 
         /// <summary>
