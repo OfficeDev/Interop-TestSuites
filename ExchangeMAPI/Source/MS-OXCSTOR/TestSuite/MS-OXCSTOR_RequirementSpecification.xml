@@ -3605,11 +3605,20 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1141</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagStoreState Property] PidTagStoreState ([MS-OXPROPS] section 2.1017): The value FALSE indicates that the mailbox does not have active search folders.</ns1:Description>
+		<ns1:Description>[In PidTagStoreState Property] PidTagStoreState ([MS-OXPROPS] section 2.1017): The value 0x00000000 indicates that the mailbox does not have active search folders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCSTOR_R1141001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1.5</ns1:Doc_Sect>
+		<ns1:Description>The value 0x01000000 indicates that one or more active search folders have been created.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3061</ns1:REQ_ID>
@@ -3857,7 +3866,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3068</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Read/Write Properties] The read/write properties that are available on a private mailbox logon are specified in section 2.2.2.1.2.1 through section 2.2.2.1.1.14.</ns1:Description>
+		<ns1:Description>[In Read/Write Properties] The read/write properties that are available on a private mailbox logon are specified in section 2.2.2.1.2.1 through section 2.2.2.1.2.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8983,7 +8992,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R20027</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Ghosted flag.  (&lt;1&gt; Section 2.2.1.1.1: Exchange 2013 and Exchange 2016 follows this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Ghosted flag.  (&lt;1&gt; Section 2.2.1.1.1: Exchange 2013, Exchange 2016 and Exchange 2019 Preview follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R2001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9082,7 +9091,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R102</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement SUPPORT_PROGRESS flag. ( &lt;6&gt; Section 2.2.1.1.1: Microsoft Exchange Server 2010 Service Pack 1 (SP1), Exchange 2013, Exchange 2016 implement this flag [SUPPORT_PROGRESS].)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does implement SUPPORT_PROGRESS flag. ( &lt;6&gt; Section 2.2.1.1.1: Microsoft Exchange Server 2010 Service Pack 1 (SP1), Exchange 2013, Exchange 2016 and Exchange 2019 Preview implement this flag [SUPPORT_PROGRESS].)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9092,7 +9101,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R10201</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;6&gt; Section 2.2.1.1.1: Microsoft Outlook 2010 Service Pack 1 (SP1), Outlook 2013, and Outlook 2016 implement this flag [SUPPORT_PROGRESS].</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;6&gt; Section 2.2.1.1.1: Microsoft Outlook 2010 Service Pack 1 (SP1), Outlook 2013, and Outlook 2016 and outlook 2019 Preview implement this flag [SUPPORT_PROGRESS].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9173,7 +9182,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R155</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index. (&lt;9&gt; Section 2.2.1.1.4: Exchange 2013 and Exchange 2016 returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index. (&lt;9&gt; Section 2.2.1.1.4: Exchange 2013 Exchange 2016 and Exchange 2019 Preview returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R59793:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9217,7 +9226,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3125</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not implement the RopGetStoreState remote operation (ROP). (&lt;11&gt; Section 2.2.1.5: Exchange 2010  Exchange 2013 and Exchange 2016 does not implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not implement the RopGetStoreState remote operation (ROP). (&lt;11&gt; Section 2.2.1.5: Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview does not implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R327:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9260,7 +9269,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R39701</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support each public folder has exactly one replica, the folder's content mailbox. (Exchange 2013 and Exchange 16 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support each public folder has exactly one replica, the folder's content mailbox. (Exchange 2013, Exchange 16 and Exchange 2019 Preview follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9269,7 +9278,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R6280001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Microsoft Exchange Server 2013 Service Pack 1 (SP1), Exchange 2016 and Exchange 2019 Preview follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R6280:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9291,7 +9300,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3128</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns 0x80070005 (ecAccessDenied) when the client attempts to set PidTagDeleteAfterSubmit property by using the RopSetProperties ROP. (&lt;15&gt; Section 2.2.2.1.2.2: In Exchange 2013 and Exchange 2016 the server returns 0x80070005 (ecAccessDenied) when the client attempts to set this property [PidTagDeleteAfterSubmit] by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation returns 0x80070005 (ecAccessDenied) when the client attempts to set PidTagDeleteAfterSubmit property by using the RopSetProperties ROP. (&lt;15&gt; Section 2.2.2.1.2.2: In Exchange 2013, Exchange 2016 and Exchange 2019 Preview the server returns 0x80070005 (ecAccessDenied) when the client attempts to set this property [PidTagDeleteAfterSubmit] by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3068002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9313,7 +9322,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R306800301</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 follow this behavior)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Microsoft Exchange Server 2013 Service Pack 1 (SP1), Exchange 2016 and Exchange 2019 Preview follow this behavior)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3068003:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9450,7 +9459,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R694</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The behavior of the implementation is undefined if the client sets an undefined flag in either the LogonFlags field or the OpenFlags field. (&lt;23&gt; Section 3.2.5.1.1: The behavior of Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 is undefined if the client sets an undefined flag in either the LogonFlags field or the OpenFlags field.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The behavior of the implementation is undefined if the client sets an undefined flag in either the LogonFlags field or the OpenFlags field. (&lt;23&gt; Section 3.2.5.1.1: The behavior of Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview is undefined if the client sets an undefined flag in either the LogonFlags field or the OpenFlags field.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1202:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9460,7 +9469,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1344</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does implement the SUPPORT_PROGRESS flag. (&lt;24&gt; Section 3.2.5.1.1: Exchange 2010 SP1, Exchange 2013 and Exchange 2016 implement the SUPPORT_PROGRESS flag.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does implement the SUPPORT_PROGRESS flag. (&lt;24&gt; Section 3.2.5.1.1: Exchange 2010 SP1, Exchange 2013, Exchange 2016 and Exchange 2019 Preview implement the SUPPORT_PROGRESS flag.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9489,7 +9498,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3130</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does support the GET/read operation for the PidTagSortLocaleId property.(&lt;25&gt; Section 3.2.5.1.1: Exchange 2010, Exchange 2013 and Exchange 2016 support the GET/read operation for the PidTagSortLocaleId property.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does support the GET/read operation for the PidTagSortLocaleId property.(&lt;25&gt; Section 3.2.5.1.1: Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview support the GET/read operation for the PidTagSortLocaleId property.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3104:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9519,7 +9528,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1046001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the logon is the first on the RPC session, then the implementation does fail with an RPC fault. (&lt;27&gt; Section 3.2.5.1.1: In Exchange 2013 and Exchange 2016, if the logon is the first on the RPC session, then the server fails with an RPC fault; if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the server returns ecInvalidParameter.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the logon is the first on the RPC session, then the implementation does fail with an RPC fault. (&lt;27&gt; Section 3.2.5.1.1: In Exchange 2013, Exchange 2016 and Exchange 2019 Preview, if the logon is the first on the RPC session, then the server fails with an RPC fault; if the logon is additional on the RPC session and it is to the same mailbox that is associated with the first logon, then the server returns ecInvalidParameter.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1046:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9626,7 +9635,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R3905001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does not fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. (&lt;31&gt; Section 3.2.5.1.1: Exchange 2016 and Exchange 2013 return ecNone.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does not fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. (&lt;31&gt; Section 3.2.5.1.1: Exchange 2016, Exchange 2013 and Exchange 2019 Preview return ecNone.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3905:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9657,7 +9666,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1271</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the USE_AUTODISCOVER_FOR_PUBLIC_FOLDER_CONFIGURATION flag. (&lt;34&gt; Section 3.2.5.1.2: Exchange 2013 and Exchange 2016 always set the USE_AUTODISCOVER_FOR_PUBLIC_FOLDER_CONFIGURATION flag.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the USE_AUTODISCOVER_FOR_PUBLIC_FOLDER_CONFIGURATION flag. (&lt;34&gt; Section 3.2.5.1.2: Exchange 2013, Exchange 2016 and Exchange 2019 Preview always set the USE_AUTODISCOVER_FOR_PUBLIC_FOLDER_CONFIGURATION flag.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R8320001:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9687,7 +9696,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1272</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;35&gt; Section 3.2.5.1.2: The behavior of Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 is undefined if the client sets an undefined flag in either the LogonFlags field or the OpenFlags field.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;35&gt; Section 3.2.5.1.2: The behavior of Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview is undefined if the client sets an undefined flag in either the LogonFlags field or the OpenFlags field.</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R3109:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9748,7 +9757,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1276</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]&lt;39&gt; Section 3.2.5.6: Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 remove servers that have a connection cost greater than 500.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]&lt;39&gt; Section 3.2.5.6: Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview remove servers that have a connection cost greater than 500.</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1233:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9768,7 +9777,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R382</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]&lt;41&gt; Section 3.2.5.7: Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 query Active Directory for cost information.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]&lt;41&gt; Section 3.2.5.7: Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview query Active Directory for cost information.</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1238:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9788,7 +9797,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1278</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]&lt;42&gt; Section 3.2.5.7: Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 remove servers that have a connection cost greater than 500.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]&lt;42&gt; Section 3.2.5.7: Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview remove servers that have a connection cost greater than 500.</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R1240:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9798,7 +9807,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1337</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not fail the operation [RopLongTermIdFromId] with 0x8004010F, but ecNone. &lt;43&gt; Section 3.2.5.8: If the ObjectId field is set to zero, Exchange 2013 and Exchange 2016 returns ecNone.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not fail the operation [RopLongTermIdFromId] with 0x8004010F, but ecNone. &lt;43&gt; Section 3.2.5.8: If the ObjectId field is set to zero, Exchange 2013, Exchange 2016 and Exchange 2019 Preview returns ecNone.</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R946:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9864,7 +9873,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1356</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). &lt;46&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 use 4096 for the default value.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). &lt;46&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview use 4096 for the default value.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R992:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9886,7 +9895,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R999</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation's maximum value of MaxDataSize is 4096. (If MaxDataSize &gt; [server's suitable maximum (4096)], then Implementation does adjust the value of MaxDataSize to the suitable maximum value (4096) in Microsoft Exchanges. &lt;47&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 use 4096 for the maximum value.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation's maximum value of MaxDataSize is 4096. (If MaxDataSize &gt; [server's suitable maximum (4096)], then Implementation does adjust the value of MaxDataSize to the suitable maximum value (4096) in Microsoft Exchanges. &lt;47&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview use 4096 for the maximum value.)</ns1:Description>
 		<ns1:Derived>MS-OXCSTOR_R998:i,MS-OXCSTOR_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
