@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R508Enabled to true to verify that for EcDoConnectEx, implementation does not support Session Context linking. Set R508Enabled to false to disable this requirement.-->
+    <Property name="R508Enabled" value="true"/>
+    <!-- Set R4875Enabled to true to verify that for EcDoConnectEx, implementation MUST fail with the RPC status code RPC_X_BAD_STUB_DATA (0x000006F7), if value cbAuxIn on input is larger than 0x00001008 bytes in size. Set R4875Enabled to false to disable this requirement.-->
+    <Property name="R4875Enabled" value="true"/>
+    <!-- Set R664Enabled to true to verify that for EcDoRpcExt2, implementation does fail with error code ecRpcFailed (0x80040115) if the value in pcbOut on input is less than 0x00000008. Set R664Enabled to false to disable this requirement.-->
+    <Property name="R664Enabled" value="false"/>
+    <!-- Set R4877Enabled to true to verify that for EcDoRpcExt2, implementation MUST fail with the RPC status code RPC_X_BAD_STUB_DATA (0x000006F7) if the request buffer is larger than 0x00001008 bytes in size. Set R4877Enabled to false to disable this requirement.-->
+    <Property name="R4877Enabled" value="true"/>
+    <!-- Set R4887Enabled to true to verify that for EcDoConnectEx, implementation will fail with ecAccessDenied if the szUserDN parameter is empty. Set R4887Enabled to false to disable this requirement.-->
+    <Property name="R4887Enabled" value="true"/>
+    <!-- Set R1374Enabled to true to verify that for EcDoRpcExt2, implementation will fail with error code ecRpcFormat if the request buffer is larger than 0x00008007 bytes in size. Set R1374Enabled to false to disable this requirement.-->
+    <Property name="R1374Enabled" value="false"/>
+    <!-- Set R1381Enabled to true to verify that for EcDoRpcExt2, implementation will fail with ecRpcFailed (0x80040115) if the cbAuxIn parameter is greater than 0x00000000 and less than 0x00000008. Set R1381Enabled to false to disable this requirement.-->
+    <Property name="R1381Enabled" value="false"/>
+    <!-- Set R1403Enabled to true to verify that for EcDoRpcExt2, implementation does return auxiliary payload data to the client. Set R1403Enabled to false to disable this requirement.-->
+    <Property name="R1403Enabled" value="true"/>
+    <!-- Set R1435Enabled to true to verify that for EcDoConnectEx, implementation does not support Session Context linking. Set R1435Enabled to false to disable this requirement.-->
+    <Property name="R1435Enabled" value="true"/>
+    <!-- Set R1436Enabled to true to verify that for EcDoConnectEx, implementation does not fail if cbAuxIn is greater than 0x00000000 and less than 0x00000008. Set R1436Enabled to false to disable this requirement.-->
+    <Property name="R1436Enabled" value="false"/>
+    <!-- Set R1437Enabled to true to verify that for EcDoConnectEx, implementation return ecNone (0x00000000) if the szUserDN parameter is empty. Set R1437Enabled to false to disable this requirement.-->
+    <Property name="R1437Enabled" value="false"/>
+    <!-- Set R1438Enabled to true to verify that the implementation doesn't support sending the AUX_OSVERSIONINFO block. Set R1438Enabled to false to disable this requirement.-->
+    <Property name="R1438Enabled" value="true"/>
+    <!-- Set R1508Enabled to true to verify that for EcDoRpcExt2, implementation will fail with error code ecRpcFailed if the request buffer is smaller than the size of RPC_HEADER_EXT (0x00000008 bytes). Set R1508Enabled to false to disable this requirement.-->
+    <Property name="R1508Enabled" value="true"/>
+    <!-- Set R1550Enabled to true to verify that implementation supports the RPC_C_AUTHN_NONE authentication method. Set R1550Enabled to false to disable this requirement.-->
+    <Property name="R1550Enabled" value="true"/>
+    <!-- Set R1558Enabled to true to verify that the implementation does not support EcRRegisterPushNotification, and the returned value will always be ecNotSupported. Set R1558Enabled to false to disable this requirement.-->
+    <Property name="R1558Enabled" value="true"/>
+    <!-- Set R1692Enabled to true to verify that the implementation return the AUX_EXORGINFO block in the rgbAuxOut buffer on the EcDoConnectEx call. Set R1692Enabled to false to disable this requirement.-->
+    <Property name="R1692Enabled" value="true"/>
+    <!-- Set R1739Enabled to true to verify that for EcDoConnectEx , implementation does not support the AUX_ENDPOINT_CAPABILITIES auxiliary buffer. Set R1739Enabled to false to disable this requirement.-->
+    <Property name="R1739Enabled" value="false"/>
+    <!-- Set R1749Enabled to true to verify that implementation supports the RPC_C_AUTHN_WINNT authentication method. Set R1749Enabled to false to disable this requirement.-->
+    <Property name="R1749Enabled" value="true"/>
+    <!-- Set R1750Enabled to true to verify that implementation supports the RPC_C_AUTHN_GSS_KERBEROS authentication method. Set R1750Enabled to false to disable this requirement.-->
+    <Property name="R1750Enabled" value="true"/>
+    <!-- Set R1751Enabled to true to verify that implementation supports the RPC_C_AUTHN_GSS_NEGOTIATE authentication method. Set R1751Enabled to false to disable this requirement.-->
+    <Property name="R1751Enabled" value="true"/>
+    <!-- Set R1757Enabled to true to verify that for EcDoAsyncConnectEx, implementation doesn't return the ecRejected error code when the server has asynchronous RPC notifications disabled. Set R1757Enabled to false to disable this requirement.-->
+    <Property name="R1757Enabled" value="true"/>
+    <!-- Set R1812Enabled to true to verify that the implementation return the ecRejected error code when the server has asynchronous RPC notifications disabled. Set R1812Enabled to false to disable this requirement.-->
+    <Property name="R1812Enabled" value="false"/>
+    <!-- Set R1839Enabled to true to verify that the implementation supports the AUX_ENDPOINT_CAPABILITIES auxiliary buffer. Set R1839Enabled to false to disable this requirement.-->
+    <Property name="R1839Enabled" value="true"/>
+    <!-- Set R1845Enabled to true to verify that for EcRRegisterPushNotification, implementation does support this method. Set R1845Enabled to false to disable this requirement.-->
+    <Property name="R1845Enabled" value="false"/>
+    <!-- Set R1850Enabled to true to verify that for EcDoConnectEx, implementation link the Session Context created by this call with the one found, if a session is found. Set R1850Enabled to false to disable this requirement.-->
+    <Property name="R1850Enabled" value="false"/>
+    <!-- Set R1889Enabled to true to verify that the implementation does support this given protocol sequence [ncacn_ip_tcp]. Set R1889Enabled to false to disable this requirement.-->
+    <Property name="R1889Enabled" value="false"/>
+    <!-- Set R1899Enabled to true to verify that for EcDoRpcExt2, implementation will return the same value for pulFlags on output as was input, not 0x00000000. Set R1899Enabled to false to disable this requirement.-->
+    <Property name="R1899Enabled" value="false"/>
+    <!-- Set R1900Enabled to true to verify that for EcDoRpcExt2, implementation will fail with error code ecRpcFormat if the request buffer is smaller than the size of RPC_HEADER_EXT (0x00000008 bytes). Set R1900Enabled to false to disable this requirement.-->
+    <Property name="R1900Enabled" value="false"/>
+    <!-- Set R1907Enabled to true to verify that for EcDoAsyncWaitEx, implementation complete the call every 5 minutes regardless of the client's last activity time. Set R1907Enabled to false to disable this requirement.-->
+    <Property name="R1907Enabled" value="false"/>
+    <!-- Set R1908Enabled to true to verify that for EcDoAsyncWaitEx, implementation reject the request if the asynchronous context handle is invalid. Set R1908Enabled to false to disable this requirement.-->
+    <Property name="R1908Enabled" value="false"/>
+    <!-- Set R1915Enabled to true to verify that the implementation use "exchangeMDB/<Mailbox server FQDN>" as the service principal name (SPN) for the Kerberos authentication method. Set R1915Enabled to false to disable this requirement.-->
+    <Property name="R1915Enabled" value="true"/>
+    <!-- Set R1918Enabled to true to verify the implementation does return the data of the servers operating system version and operating system service pack information in AUX_OSVERSIONINFO. Set R1918Enabled to false to disable this requirement.-->
+    <Property name="R1918Enabled" value="false"/>
+    <!-- Set R1922Enabled to true to verify that for EcDoAsyncWaitEx, implementation does support AsyncEMSMDB method EcDoAsyncWaitEx. Set R1922Enabled to false to disable this requirement.-->
+    <Property name="R1922Enabled" value="true"/>
+    <!-- Set R1924Enabled to true to verify that for EcDoRpcExt2, implementation will fail with ecRpcFormat (0x000004B6) if the output buffer is less than 0x00008007. Set R1924Enabled to false to disable this requirement.-->
+    <Property name="R1924Enabled" value="false"/>
+    <!-- Set R1926Enabled to true to verify that for EcDoRpcExt2, implementation dones't return data in rgbAuxOut. Set R1926Enabled to false to disable this requirement.-->
+    <Property name="R1926Enabled" value="false"/>
+    <!-- Set R1930Enabled to true to verify that for EcDoAsyncWaitEx, implementation will return the call and will not set the NotificationPending flag in the pulFlagsOut field, if no events are available within five minutes of the time that the client last accessed the server through a call to EcDoRpcExt2. Set R1930Enabled to false to disable this requirement.-->
+    <Property name="R1930Enabled" value="true"/>
+    <!-- Set R1934Enabled to true to verify that for EcDoRpcExt2, implementation will return pulFlags 0x00000000. Set R1934Enabled to false to disable this requirement.-->
+    <Property name="R1934Enabled" value="true"/>
+    <!-- Set R1936Enabled to true to verify that the implementation does support this given protocol sequence [ncacn_http]. Set R1936Enabled to false to disable this requirement.-->
+    <Property name="R1936Enabled" value="true"/>
+    <!-- Set R1939Enabled to true to verify that for EcDoRpcExt2, implementation will fail with the RPC status code of RPC_X_BAD_STUB_DATA (0x000006F7) if the request buffer is larger than 0x00040000 bytes in size. Set R1939Enabled to false to disable this requirement.-->
+    <Property name="R1939Enabled" value="true"/>
+    <!-- Set R1940Enabled to true to verify that for EcDoConnectEx, implementation will fail with ecRpcFailed (0x80040115) if cbAuxIn is greater than 0x00000000 and less than 0x00000008. Set R1940Enabled to false to disable this requirement.-->
+    <Property name="R1940Enabled" value="true"/>
+    <!-- Set R1941Enabled to true to verify that for EcDoAsyncConnectEx, implementation does not return [ecRejected (0x000007EE)] when Client either polls for notifications or calls EcRRegisterPushNotifications. Set R1941Enabled to false to disable this requirement.-->
+    <Property name="R1941Enabled" value="true"/>
+    <!-- Set R1942Enabled to true to verify that for EcDoAsyncConnectEx, implementation does return [ecRejected (0x000007EE)] when Client either polls for notifications or calls EcRRegisterPushNotifications. Set R1942Enabled to false to disable this requirement.-->
+    <Property name="R1942Enabled" value="false"/>
+    <!-- Set R1943Enabled to true to verify that the implementation does not assign two active Session Contexts the same session index value. Set R1943Enabled to false to disable this requirement.-->
+    <Property name="R1943Enabled" value="false"/>
+    <!-- Set R1944Enabled to true to verify that for EcDoAsyncConnectEx, if no such Session Context state is found, the implementation does not fail the EcDoConnectEx call, but simply does not do linking. Set R1944Enabled to false to disable this requirement.-->
+    <Property name="R1944Enabled" value="false"/>
+    <!-- Set R2001Enabled to true to verify that for EcDoRpcExt2, implementation will fail with error code ecRpcFailed if the request buffer is larger than 0x00008007 bytes in size. Set R2001Enabled to false to disable this requirement.-->
+    <Property name="R2001Enabled" value="true"/>
+    <!-- Set R2002Enabled to true to verify that for EcDoRpcExt2, implementation does succeed if the value in pcbOut on input is less than 0x00000008. Set R2002Enabled to false to disable this requirement.-->
+    <Property name="R2002Enabled" value="true"/>
+  </Properties>
+</TestSite>
