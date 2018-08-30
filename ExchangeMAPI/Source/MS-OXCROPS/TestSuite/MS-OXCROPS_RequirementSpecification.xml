@@ -43611,7 +43611,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4610</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page for Strings,The code page for a Server object is determined as follows:] The message's properties and the Server objects owned by the message always use the same code page that the message uses.</ns1:Description>
+		<ns1:Description>[In Code Page for Strings,The code page for a Server object is determined as follows:] The message's properties and the Server objects owned by the message use the same code page that the message uses.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44503,7 +44503,7 @@ This index MUST be set to the value specified in the InputHandleIndex field in t
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCROPS_R4649</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;10&gt; Section 2.2.9.6.1: Exchange 2003 and Exchange 2007 always limit the maximum size of the stream to 231 bytes.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;10&gt; Section 2.2.9.6.1: Exchange 2003 and Exchange 2007 limit the maximum size of the stream to 231 bytes.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
