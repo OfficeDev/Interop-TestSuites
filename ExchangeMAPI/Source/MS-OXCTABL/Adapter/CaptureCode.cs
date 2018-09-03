@@ -156,7 +156,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                         0x00,
                         setColumnsResponse.TableStatus,
                         796,
-                        @"[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopSetColumns ([MS-OXCROPS] section 2.2.5.1) ROP request asynchronously, it does perform the operation synchronously and return ""TBLSTAT_COMPLETE"" in the TableStatus field of the ROP response buffer. ( <20> Section 3.2.5.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)");
+                        @"[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopSetColumns ([MS-OXCROPS] section 2.2.5.1) ROP request asynchronously, it does perform the operation synchronously and return ""TBLSTAT_COMPLETE"" in the TableStatus field of the ROP response buffer. ( <20> Section 3.2.5.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 PReview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)");
                 }
 
                 // If the TBL_ASYNC bit of the SetColumnsFlags field is set, the server can execute the ROP as a table-asynchronous ROP
@@ -314,7 +314,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                         0x00,
                         sortTableResponse.TableStatus,
                         800,
-                        @"[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request asynchronously, it does perform the operation synchronously and return ""TBLSTAT_COMPLETE"" in the TableStatus field of the ROP response buffer. ( <20> Section 3.2.5.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)");
+                        @"[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request asynchronously, it does perform the operation synchronously and return ""TBLSTAT_COMPLETE"" in the TableStatus field of the ROP response buffer. ( <20> Section 3.2.5.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 PReview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)");
                 }
 
                 // If the TBL_ASYNC bit of the SortTableFlags field is set, the server can execute the ROP as a table-asynchronous ROP
@@ -343,7 +343,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                         0x00,
                         sortTableResponse.TableStatus,
                         772,
-                        @"[In Appendix A: Product Behavior] Implementation does return Table Status ""TBLSTAT_COMPLETE"" with value 0x00 when asynchronous flags is set to 0x01 in a RopSortTable ROP on tables. (<5> Section 2.2.2.3.1: Exchange 2010, Exchange 2013, and Exchange 2016 will return Table Status ""TBLSTAT_COMPLETE"" with value 0x00 when asynchronous flags is set to 0x01 in a RopSortTable ROP on tables.)");
+                        @"[In Appendix A: Product Behavior] Implementation does return Table Status ""TBLSTAT_COMPLETE"" with value 0x00 when asynchronous flags is set to 0x01 in a RopSortTable ROP on tables. (<5> Section 2.2.2.3.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview will return Table Status ""TBLSTAT_COMPLETE"" with value 0x00 when asynchronous flags is set to 0x01 in a RopSortTable ROP on tables.)");
                 }
 
                 // Here it can partially verify MS-OXCTABL requirement: MS-OXCTABL_418
@@ -486,7 +486,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                         0x00,
                         restrictResponse.TableStatus,
                         802,
-                        @"[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request asynchronously, it does perform the operation synchronously and return ""TBLSTAT_COMPLETE"" in the TableStatus field of the ROP response buffer. ( <20> Section 3.2.5.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)");
+                        @"[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request asynchronously, it does perform the operation synchronously and return ""TBLSTAT_COMPLETE"" in the TableStatus field of the ROP response buffer. ( <20> Section 3.2.5.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)");
                 }
 
                 // In the environments that cannot support asynchronous, it will ignore the asynchronous flags, and return Table Status "TBLSTAT_COMPLETE" with value 0x00 when asynchronous flags is set to 0x01 in a RopRestrict ROP.
@@ -500,7 +500,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                         0x00,
                         restrictResponse.TableStatus,
                         774,
-                        @"[In Appendix A: Product Behavior] Implementation does return Table Status ""TBLSTAT_COMPLETE"" with value 0x00 when asynchronous flags is set to 0x01 in a RopRestrict ROP on tables. (<7> Section 2.2.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 will return Table Status ""TBLSTAT_COMPLETE"" with value 0x00 when asynchronous flags is set to 0x01 in a RopRestrict ROP on tables.)");
+                        @"[In Appendix A: Product Behavior] Implementation does return Table Status ""TBLSTAT_COMPLETE"" with value 0x00 when asynchronous flags is set to 0x01 in a RopRestrict ROP on tables. (<7> Section 2.2.2.4.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 PReview will return Table Status ""TBLSTAT_COMPLETE"" with value 0x00 when asynchronous flags is set to 0x01 in a RopRestrict ROP on tables.)");
                 }
 
                 // Here it can partially verify MS-OXCTABL requirement: MS-OXCTABL_418
@@ -529,7 +529,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                         0x00,
                         restrictResponse.TableStatus,
                         810,
-                        @"[In Appendix A: Product Behavior] If the TBL_ASYNC bit of the RestrictFlags field is set, the implementation does not execute the ROP as a table-asynchronous ROP, as specified in section 3.2.5.1. (<24> Section 3.2.5.4: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)");
+                        @"[In Appendix A: Product Behavior] If the TBL_ASYNC bit of the RestrictFlags field is set, the implementation does not execute the ROP as a table-asynchronous ROP, as specified in section 3.2.5.1. (<24> Section 3.2.5.4: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)");
                 }
             }
         }
@@ -675,7 +675,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     // Verify MS-OXCTABL requirement: MS-OXCTABL_R13
                     Site.CaptureRequirement(
                         13,
-                        @"[In PidTagRowType] The PidTagRowType property ([MS-OXPROPS] section 2.931) identifies the type of the row.");
+                        @"[In PidTagRowType] The PidTagRowType property ([MS-OXPROPS] section 2.93) identifies the type of the row.");
 
                     if (this.areMultipleSortOrders && this.areAllSortOrdersUsedAsCategory && this.areAllCategoryExpanded)
                     {
@@ -704,7 +704,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                         Site.CaptureRequirementIfIsTrue(
                             isCorrectDepth,
                             19,
-                            @"[In PidTagDepth] The PidTagDepth property ([MS-OXPROPS] section 2.664) specifies the number of nested categories in which a given row is contained.");
+                            @"[In PidTagDepth] The PidTagDepth property ([MS-OXPROPS] section 2.667) specifies the number of nested categories in which a given row is contained.");
                     }
                 }
             }
