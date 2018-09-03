@@ -57,7 +57,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R6</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagInstID] The PidTagInstID property ([MS-OXPROPS] section 2.736) is an identifier for all instances of a row in the table.</ns1:Description>
+		<ns1:Description>[In PidTagInstID] The PidTagInstID property ([MS-OXPROPS] section 2.739) is an identifier for all instances of a row in the table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -93,7 +93,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R10</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagInstanceNum] The PidTagInstanceNum property ([MS-OXPROPS] section 2.735) is an identifier for a single instance of a row in the table.</ns1:Description>
+		<ns1:Description>[In PidTagInstanceNum] The PidTagInstanceNum property ([MS-OXPROPS] section 2.738) is an identifier for a single instance of a row in the table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -129,7 +129,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R13</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRowType] The PidTagRowType property ([MS-OXPROPS] section 2.931) identifies the type of the row.</ns1:Description>
+		<ns1:Description>[In PidTagRowType] The PidTagRowType property ([MS-OXPROPS] section 2.934) identifies the type of the row.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -192,7 +192,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R19</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDepth] The PidTagDepth property ([MS-OXPROPS] section 2.664) specifies the number of nested categories in which a given row is contained.</ns1:Description>
+		<ns1:Description>[In PidTagDepth] The PidTagDepth property ([MS-OXPROPS] section 2.667) specifies the number of nested categories in which a given row is contained.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -255,7 +255,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R22</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagContentUnreadCount] The PidTagContentUnreadCount property ([MS-OXCFOLD] section 2.2.2.2.1.2) specifies the number of rows under the header row that have the PidTagRead property ([MS-OXPROPS] section 2.869) set to "FALSE" (0x00).</ns1:Description>
+		<ns1:Description>[In PidTagContentUnreadCount] The PidTagContentUnreadCount property ([MS-OXCFOLD] section 2.2.2.2.1.2) specifies the number of rows under the header row that have the PidTagRead property ([MS-OXPROPS] section 2.872) set to "FALSE" (0x00).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2839,7 +2839,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R2481</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
-		<ns1:Description>[In RopFreeBookmark ROP] If the bookmark is released by the RopFreeBookmark ROP, the server will return the ecInvalidBookmark error code when it is used.</ns1:Description>
+		<ns1:Description>[In RopFreeBookmark ROP] If the bookmark is released (throught the RopFreeBookmark ROP), and an attempt is made to use it again, the server will return the ecInvalidBookmark error code when it is used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4544,16 +4544,6 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXCTABL_R8271.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCTABL_R8262</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopSetColumns] If a RopCreateBookmark ROP is sent before a successful RopSetColumns ROP, then the server fails that ROP with a ecNullObject.&lt;21&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-OXCTABL_R8272.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R8263</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
 		<ns1:Description>[In Processing RopSetColumns] If a RopExpandRow ROP is sent before a successful RopSetColumns ROP, then the server fails that ROP with a ecNullObject.&lt;21&gt;</ns1:Description>
@@ -5904,18 +5894,9 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCTABL_R735</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.12</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCreateBookmark] Before sending a RopCreateBookmark ROP request, a client SHOULD send a RopSetColumns ROP request ([MS-OXCROPS] section 2.2.5.1).&lt;31&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R525</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.12</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopCreateBookmark] The server MUST complete all asynchronous table ROPs prior to executing this ROP or fail the ROP with "ecBusy",&lt;32&gt; as specified in section 3.2.5.1.</ns1:Description>
+		<ns1:Description>[In Processing RopCreateBookmark] The server MUST complete all asynchronous table ROPs prior to executing this ROP or fail the ROP with "ecBusy",&lt;31&gt; as specified in section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6091,7 +6072,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R537</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopFindRow] If the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request, then the server SHOULD&lt;33&gt; set the ReturnValue field to "ecInvalidBookmark".</ns1:Description>
+		<ns1:Description>[In Processing RopFindRow] If the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request, then the server SHOULD&lt;32&gt; set the ReturnValue field to "ecInvalidBookmark".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6101,7 +6082,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R868</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopFindRow] If the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request, then the server SHOULD&lt;33&gt; set the ReturnValue field to "ecInvalidBookmark".</ns1:Description>
+		<ns1:Description>[In Processing RopFindRow] If the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request, then the server SHOULD&lt;32&gt; set the ReturnValue field to "ecInvalidBookmark".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6111,7 +6092,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R869</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopFindRow] If the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request, then the server SHOULD&lt;33&gt; set the ReturnValue field to "ecInvalidBookmark".</ns1:Description>
+		<ns1:Description>[In Processing RopFindRow] If the client requested that the find be performed from a custom bookmark, as specified in section 2.2.2.1.2, but the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request, then the server SHOULD&lt;32&gt; set the ReturnValue field to "ecInvalidBookmark".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6250,7 +6231,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R548</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopFreeBookmark] The RopFreeBookmark ROP SHOULD be supported by contents tables.&lt;35&gt;</ns1:Description>
+		<ns1:Description>[In Processing RopFreeBookmark] The RopFreeBookmark ROP SHOULD be supported by contents tables.&lt;34&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6287,7 +6268,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R552</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopFreeBookmark] The error code ecNullObiect will be returned with value 0x000004B9 %xB9.04.00.00 means attempted to use the bookmark after it was released by the ROPRelease ROP ([MS-OXCROPS] section 2.2.15.3).</ns1:Description>
+		<ns1:Description>[In Processing RopFreeBookmark] The error code ecNullObiect will be returned with value 0x000004B9 %xB9.04.00.00 means attempted to use a server object (such as a Message)   after it was released by the ROPRelease ROP ([MS-OXCROPS] section 2.2.15.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6296,7 +6277,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R5521</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.15</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopFreeBookmark] The error code ecInvalidBookmark will be returned with value 0x80040405 %x05.04.04.80 means attempted to use the bookmark after it was released by the RopFreeBookmark ROP (section 2.2.2.15).</ns1:Description>
+		<ns1:Description>[In Processing RopFreeBookmark] The error code ecInvalidBookmark will be returned with value 0x80040405 %x05.04.04.80 means attempted to use the bookmark after it was released through  the RopFreeBookmark ROP (section 2.2.2.15).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6395,7 +6376,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R563</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.16</ns1:Doc_Sect>
-		<ns1:Description>[In Processing RopResetTable] The server MUST complete all asynchronous table ROPs prior to executing this ROP or fail the ROP with "ecBusy",&lt;36&gt; as specified in section 3.2.5.1.</ns1:Description>
+		<ns1:Description>[In Processing RopResetTable] The server MUST complete all asynchronous table ROPs prior to executing this ROP or fail the ROP with "ecBusy",&lt;35&gt; as specified in section 3.2.5.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6710,7 +6691,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R878</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;1&gt; Section 2.2.2.1.3: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;1&gt; Section 2.2.2.1.3: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R34:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -6753,7 +6734,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R881</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;2&gt; Section 2.2.2.1.4: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;2&gt; Section 2.2.2.1.4: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R41:i,MS-OXCTABL_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6785,7 +6766,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R595</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;3&gt; Section 2.2.2.2.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;3&gt; Section 2.2.2.2.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6806,7 +6787,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R596</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;4&gt; Section 2.2.2.2.2: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;4&gt; Section 2.2.2.2.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6816,7 +6797,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R597</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;5&gt; Section 2.2.2.3.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;5&gt; Section 2.2.2.3.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6826,7 +6807,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R772</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return Table Status "TBLSTAT_COMPLETE" with value 0x00 when asynchronous flags is set to 0x01 in a RopSortTable ROP on tables. (&lt;5&gt; Section 2.2.2.3.1: Exchange 2010, Exchange 2013, and Exchange 2016 will return Table Status "TBLSTAT_COMPLETE" with value 0x00 when asynchronous flags is set to 0x01 in a RopSortTable ROP on tables.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return Table Status "TBLSTAT_COMPLETE" with value 0x00 when asynchronous flags is set to 0x01 in a RopSortTable ROP on tables. (&lt;5&gt; Section 2.2.2.3.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview will return Table Status "TBLSTAT_COMPLETE" with value 0x00 when asynchronous flags is set to 0x01 in a RopSortTable ROP on tables.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R597:p</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6837,7 +6818,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R598</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;6&gt; Section 2.2.2.3.2: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;6&gt; Section 2.2.2.3.2: Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6847,7 +6828,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R600</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;7&gt; Section 2.2.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;7&gt; Section 2.2.2.4.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 PReview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6857,7 +6838,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R774</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return Table Status "TBLSTAT_COMPLETE" with value 0x00 when asynchronous flags is set to 0x01 in a RopRestrict ROP on tables. (&lt;7&gt; Section 2.2.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 will return Table Status "TBLSTAT_COMPLETE" with value 0x00 when asynchronous flags is set to 0x01 in a RopRestrict ROP on tables.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return Table Status "TBLSTAT_COMPLETE" with value 0x00 when asynchronous flags is set to 0x01 in a RopRestrict ROP on tables. (&lt;7&gt; Section 2.2.2.4.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview will return Table Status "TBLSTAT_COMPLETE" with value 0x00 when asynchronous flags is set to 0x01 in a RopRestrict ROP on tables.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R600:p</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6868,7 +6849,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R822</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;8&gt; Section 2.2.2.4.2: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;8&gt; Section 2.2.2.4.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6887,7 +6868,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R602</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;10&gt; Section 2.2.2.6: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;10&gt; Section 2.2.2.6: Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6896,7 +6877,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R882</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;11&gt; Section 2.2.2.6.2: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;11&gt; Section 2.2.2.6.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R126:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6917,7 +6898,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R604</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;12&gt; Section 2.2.2.7: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;12&gt; Section 2.2.2.7: Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6926,7 +6907,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R883</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. ( &lt;13&gt; Section 2.2.2.7.2: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. ( &lt;13&gt; Section 2.2.2.7.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R131:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6956,7 +6937,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R910</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (&lt;14&gt; Section 2.2.2.11: Exchange 2010 SP1 and Exchange 2013, and Exchange 2016 do implement the RopSeekRowFractional ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (&lt;14&gt; Section 2.2.2.11: Exchange 2010 SP1 and Exchange 2013, Exchange 2016 and Exchange 2019 Preview do implement the RopSeekRowFractional ROP.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6987,7 +6968,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R748</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (&lt;16&gt; Section 2.2.2.17.1: Exchange 2013 and Exchange 2016 do not support a value greater than 0 for the MaxRowCount field.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (&lt;16&gt; Section 2.2.2.17.1: Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support a value greater than 0 for the MaxRowCount field.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7006,7 +6987,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R749</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does never honor requests to perform asynchronous table ROPs. (&lt;17&gt; Section 3.1.4.1.1: Exchange 2010 and Exchange 2013, and Exchange 2016 never honor requests to perform asynchronous table ROPs.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  Implementation does never honor requests to perform asynchronous table ROPs. (&lt;17&gt; Section 3.1.4.1.1: Exchange 2010 and Exchange 2013, Exchange 2016 and Exchange 2019 Preview never honor requests to perform asynchronous table ROPs.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7025,7 +7006,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R912</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (&lt;18&gt; Section 3.1.4.3: Exchange 2010 SP1, Exchange 2013, and Exchange 2016 do support the RopSeekRowFractional ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (&lt;18&gt; Section 3.1.4.3: Exchange 2010 SP1, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do support the RopSeekRowFractional ROP.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7035,7 +7016,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R751</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;19&gt; Section 3.1.5: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;19&gt; Section 3.1.5: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7045,7 +7026,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R796</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopSetColumns ([MS-OXCROPS] section 2.2.5.1) ROP request asynchronously, it does perform the operation synchronously and return "TBLSTAT_COMPLETE" in the TableStatus field of the ROP response buffer. ( &lt;20&gt; Section 3.2.5.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopSetColumns ([MS-OXCROPS] section 2.2.5.1) ROP request asynchronously, it does perform the operation synchronously and return "TBLSTAT_COMPLETE" in the TableStatus field of the ROP response buffer. ( &lt;20&gt; Section 3.2.5.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R416:i,MS-OXCTABL_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7078,7 +7059,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R800</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request asynchronously, it does perform the operation synchronously and return "TBLSTAT_COMPLETE" in the TableStatus field of the ROP response buffer. ( &lt;20&gt; Section 3.2.5.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopSortTable ([MS-OXCROPS] section 2.2.5.2) ROP request asynchronously, it does perform the operation synchronously and return "TBLSTAT_COMPLETE" in the TableStatus field of the ROP response buffer. ( &lt;20&gt; Section 3.2.5.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R797:i,MS-OXCTABL_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7100,7 +7081,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R802</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request asynchronously, it does perform the operation synchronously and return "TBLSTAT_COMPLETE" in the TableStatus field of the ROP response buffer. ( &lt;20&gt; Section 3.2.5.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client requests that the implementation perform a RopRestrict ([MS-OXCROPS] section 2.2.5.3) ROP request asynchronously, it does perform the operation synchronously and return "TBLSTAT_COMPLETE" in the TableStatus field of the ROP response buffer. ( &lt;20&gt; Section 3.2.5.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R798:i,MS-OXCTABL_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7219,7 +7200,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R885</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;22&gt; Section 3.2.5.2: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;22&gt; Section 3.2.5.2: Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R431:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7240,7 +7221,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R886</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;23&gt; Section 3.2.5.3: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;23&gt; Section 3.2.5.3: Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R446:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7261,7 +7242,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R810</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the TBL_ASYNC bit of the RestrictFlags field is set, the implementation does not execute the ROP as a table-asynchronous ROP, as specified in section 3.2.5.1. (&lt;24&gt; Section 3.2.5.4: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the TBL_ASYNC bit of the RestrictFlags field is set, the implementation does not execute the ROP as a table-asynchronous ROP, as specified in section 3.2.5.1. (&lt;24&gt; Section 3.2.5.4: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R458:i,MS-OXCTABL_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7294,7 +7275,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R897</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the Origin field to "BOOKMARK_END", if there are no more rows to return and the ForwardRead field in the ROP request is set to "FALSE". (&lt;25&gt; Section 3.2.5.5: Exchange 2010, Exchange 2013, and Exchange 2016 set the Origin field to "BOOKMARK_END".)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the Origin field to "BOOKMARK_END", if there are no more rows to return and the ForwardRead field in the ROP request is set to "FALSE". (&lt;25&gt; Section 3.2.5.5: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview set the Origin field to "BOOKMARK_END".)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R784:i,MS-OXCTABL_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7305,7 +7286,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R889</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;26&gt; Section 3.2.5.7: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;26&gt; Section 3.2.5.7: Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Derived>MS-OXCTABL_R487:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -7325,7 +7306,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R758</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;27&gt; Section 3.2.5.9: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;27&gt; Section 3.2.5.9: Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7408,7 +7389,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R914</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (&lt;29&gt; Section 3.2.5.11: Exchange 2010 SP1, Exchange 2013, and Exchange 2016 do support the RopSeekRowFractional ROP.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (&lt;29&gt; Section 3.2.5.11: Exchange 2010 SP1, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do support the RopSeekRowFractional ROP.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7418,45 +7399,16 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R760</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;30&gt; Section 3.2.5.11: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;30&gt; Section 3.2.5.11: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCTABL_R915</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not require that a RopSetColumns ROP request be sent before sending a RopCreateBookmark ROP request. (&lt;31&gt; Section 3.2.5.12: Exchange 2003 does not require that a RopSetColumns ROP request ([MS-OXCROPS] section 2.2.5.1) be sent before sending a RopCreateBookmark ROP request ([MS-OXCROPS] section 2.2.5.11). )</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCTABL_R872</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not require that a RopSetColumns ROP request be sent before sending a RopCreateBookmark ROP request. (&lt;31&gt; Section 3.2.5.12: Exchange 2007 does not require that a RopSetColumns ROP request ([MS-OXCROPS] section 2.2.5.1) be sent before sending a RopCreateBookmark ROP request ([MS-OXCROPS] section 2.2.5.11). )</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCTABL_R761</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does require that a RopSetColumns ROP request be sent before sending a RopCreateBookmark ROP request. (Exchange 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXCTABL_R872:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-OXCTABL_R8272.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R762</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;32&gt; Section 3.2.5.12: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;31&gt; Section 3.2.5.12: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7560,7 +7512,7 @@ the value of the ExpandedRowCount field in the ROP response buffer.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R766</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;36&gt; Section 3.2.5.16: Exchange 2010, Exchange 2013, and Exchange 2016 do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support asynchronous operations on tables and ignore the TABL_ASYNC flags. (&lt;36&gt; Section 3.2.5.16: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support asynchronous operations on tables and ignore the TABL_ASYNC flags, as described in section 2.2.2.1.4.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

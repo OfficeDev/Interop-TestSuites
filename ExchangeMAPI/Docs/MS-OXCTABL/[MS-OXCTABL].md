@@ -1,6 +1,6 @@
 ## [MS-OXCTABL]: Table Object Protocol
-- [MS-OXCTABL] v20160613 is used to develop the test suite. 
-- Release date, 6/13/2016.
+- [MS-OXCTABL] v20180724 is used to develop the test suite. 
+- Release date, 7/24/2018.
 
 To find the new landing page for [MS-OXCTABL], please visit https://msdn.microsoft.com/en-us/library/cc433478(v=exchg.80).aspx
 
