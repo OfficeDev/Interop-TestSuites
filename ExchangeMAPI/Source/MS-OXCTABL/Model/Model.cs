@@ -430,7 +430,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     if (requirementContainer[897] && isRequestCountTooLarger)
                     {
                         Condition.IsTrue(queryRowOrigin == BookmarkType.BOOKMARK_END);
-                        ModelHelper.CaptureRequirement(897, @"[In Appendix A: Product Behavior] Implementation does set the Origin field to ""BOOKMARK_END"", if there are no more rows to return and the ForwardRead field in the ROP request is set to ""FALSE"". (<25> Section 3.2.5.5: Exchange 2010, Exchange 2013, and Exchange 2016 set the Origin field to ""BOOKMARK_END"".)");
+                        ModelHelper.CaptureRequirement(897, @"[In Appendix A: Product Behavior] Implementation does set the Origin field to ""BOOKMARK_END"", if there are no more rows to return and the ForwardRead field in the ROP request is set to ""FALSE"". (<25> Section 3.2.5.5: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview set the Origin field to ""BOOKMARK_END"".)");
                     }
 
                     // When ForwardRead in request is false, if the correct row count is returned, this requirement can be verified.
@@ -692,7 +692,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             if (ropReleaseDone)
             {
                 ModelHelper.CaptureRequirement(248, @"[In RopFreeBookmark ROP] If the bookmark has been released by the ROPRelease ROP ([MS-OXCROPS] section 2.2.15.3), attempts to use the bookmark will fail with the ecNullObject error code.");
-                ModelHelper.CaptureRequirement(552, @"[In Processing RopFreeBookmark] The error code ecNullObiect will be returned with value 0x000004B9 %xB9.04.00.00 means attempted to use the bookmark after it was released by the ROPRelease ROP ([MS-OXCROPS] section 2.2.15.3).");
+                ModelHelper.CaptureRequirement(552, @"[In Processing RopFreeBookmark] The error code ecNullObiect will be returned with value 0x000004B9 %xB9.04.00.00 means attempted to use a server object (such as a Message) after it was released by the ROPRelease ROP ([MS-OXCROPS] section 2.2.15.3).");
                 return TableRopReturnValues.ecNullObject;
             }
 
@@ -702,8 +702,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 {
                     // The error code ecInvalidBookmark will be returned if the bookmark (2) sent in the request is no longer valid.
                     ModelHelper.CaptureRequirement(511, "[In Processing RopSeekRowBookmark] The error code ecInvalidBookmark will be returned with value 0x80040405,%x05.04.04.80 means if the bookmark sent in the request is no longer valid.");
-                    ModelHelper.CaptureRequirement(2481, "[In RopFreeBookmark ROP] If the bookmark is released by the RopFreeBookmark ROP, the server will return the ecInvalidBookmark error code when it is used.");
-                    ModelHelper.CaptureRequirement(5521, "[In Processing RopFreeBookmark] The error code ecInvalidBookmark will be returned with value 0x80040405 %x05.04.04.80 means attempted to use the bookmark after it was released by the RopFreeBookmark ROP (section 2.2.2.15).");
+                    ModelHelper.CaptureRequirement(2481, "[In RopFreeBookmark ROP] If the bookmark is released (throught the RopFreeBookmark ROP), and an attempt is made to use it again, the server will return the ecInvalidBookmark error code when it is used.");
+                    ModelHelper.CaptureRequirement(5521, "[In Processing RopFreeBookmark] The error code ecInvalidBookmark will be returned with value 0x80040405 %x05.04.04.80 means attempted to use the bookmark after it was released through the RopFreeBookmark ROP (section 2.2.2.15).");
                     return TableRopReturnValues.ecInvalidBookmark;
                 }
 
@@ -838,7 +838,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             }
 
             // Exchange 2010 SP1 and above implement the RopSeekRowFractional ROP.
-            ModelHelper.CaptureRequirement(910, @"[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (<14> Section 2.2.2.11: Exchange 2010 SP1 and Exchange 2013, and Exchange 2016 do implement the RopSeekRowFractional ROP.)");
+            ModelHelper.CaptureRequirement(910, @"[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (<14> Section 2.2.2.11: Exchange 2010 SP1 and Exchange 2013, Exchange 2016 and Exchange 2019 Preview do implement the RopSeekRowFractional ROP.)");
                 
             return TableRopReturnValues.success;
         }
@@ -1291,7 +1291,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             {
                 if (requirementContainer[748])
                 {
-                    ModelHelper.CaptureRequirement(748, @"[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (<16> Section 2.2.2.17.1: Exchange 2013 and Exchange 2016 do not support a value greater than 0 for the MaxRowCount field.)");
+                    ModelHelper.CaptureRequirement(748, @"[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (<16> Section 2.2.2.17.1: Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support a value greater than 0 for the MaxRowCount field.)");
                     return TableRopReturnValues.ecNotSupported;
                 }
             }
