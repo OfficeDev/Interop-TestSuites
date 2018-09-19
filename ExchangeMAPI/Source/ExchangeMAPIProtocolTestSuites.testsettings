@@ -113,6 +113,7 @@
     <DeploymentItem filename="MS-OXCPERM\TestSuite\MS-OXCPERM_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCRPC\TestSuite\MS-OXCRPC_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCROPS\TestSuite\MS-OXCROPS_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCSTOR\TestSuite\MS-OXCSTOR_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
