@@ -1471,12 +1471,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 this.Site.CaptureRequirement(
                     1863,
                     @"[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The server MUST return the following properties for each container in the hierarchy, in the order listed: PidTagEntryId ([MS-OXPROPS] section 2.674)
-                    PidTagContainerFlags ([MS-OXPROPS] section 2.635)
-                    PidTagDepth ([MS-OXPROPS] section 2.664)
-                    PidTagAddressBookContainerId ([MS-OXPROPS] section 2.503)
+                    PidTagContainerFlags ([MS-OXPROPS] section 2.638)
+                    PidTagDepth ([MS-OXPROPS] section 2.670)
+                    PidTagAddressBookContainerId ([MS-OXPROPS] section 2.506)
                     PidTagDisplayName ([MS-OXPROPS] section 2.667)
-                    PidTagAddressBookIsMaster ([MS-OXPROPS] section 2.536)
-                    PidTagAddressBookParentEntryId ([MS-OXPROPS] section 2.550) (optional, and MUST be the seventh column if it [property PidTagAddressBookParentEntryId] is included)");
+                    PidTagAddressBookIsMaster ([MS-OXPROPS] section 2.539)
+                    PidTagAddressBookParentEntryId ([MS-OXPROPS] section 2.553) (optional, and MUST be the seventh column if it [property PidTagAddressBookParentEntryId] is included)");
 
                 // The property must have a value according to the above asserts, so MS-OXNSPI_R1864 can be captured directly.
                 this.Site.CaptureRequirement(
