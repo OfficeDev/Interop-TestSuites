@@ -654,7 +654,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     0x0,
                     ropGetRulesTableResponse.ReturnValue,
                     836,
-                    @"[In Appendix A: Product Behavior] Implementation does ignore the x bits and returns ecSuccess in this case [One or more of the x bits on the TableFlags field of RopGetRulesTable ROP Request is set to a nonzero value.]. [<23> Section 3.2.5.3: Exchange 2007 ignores the x bits and returns ecSuccess in this case.]");
+                    @"[In Appendix A: Product Behavior] Implementation does ignore the x bits and returns ecSuccess in this case [One or more of the x bits on the TableFlags field of RopGetRulesTable ROP Request is set to a nonzero value.]. [<22> Section 3.2.5.3: Exchange 2007 ignores the x bits and returns ecSuccess in this case.]");
             }
 
             if (Common.IsRequirementEnabled(920, this.Site))
@@ -1484,7 +1484,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR727,
                 727,
-                @"[In PidTagReplyTemplateId Property] The PidTagReplyTemplateId property ([MS-OXPROPS] section 2.909) specifies the GUID for the reply template.");
+                @"[In PidTagReplyTemplateId Property] The PidTagReplyTemplateId property ([MS-OXPROPS] section 2.912) specifies the GUID for the reply template.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R928: the actual value of PidTagReplyTemplateId property is {0}", BitConverter.ToString(actionDataForOOFReply.ReplyTemplateGUID));
@@ -1731,7 +1731,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR646,
                 646,
-                @"[In Appendix A: Product Behavior] Implementation does process the standard rule for a message but does only process the first two extended rules it encounters per folder. [<15> Section 3.2.4.1: Exchange 2007 by default will process the standard rule for a message but will only process the first two extended rules it encounters per folder.]");
+                @"[In Appendix A: Product Behavior] Implementation does process the standard rule for a message but does only process the first two extended rules it encounters per folder. [<14> Section 3.2.4.1: Exchange 2007 by default will process the standard rule for a message but will only process the first two extended rules it encounters per folder.]");
             #endregion
         }
 

@@ -956,7 +956,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR551,
                 551,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_MARK_AS_READ"": the server MUST set the MSGFLAG_READ flag (0x00000001) in the PidTagMessageFlags property ([MS-OXPROPS] section 2.782) on the message.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_MARK_AS_READ"": the server MUST set the MSGFLAG_READ flag (0x00000001) in the PidTagMessageFlags property ([MS-OXPROPS] section 2.785) on the message.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R902, the value of PidTagMessageFlags is {0}", messageFlag);
@@ -1169,7 +1169,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     2,
                     countOfExepctedMessage,
                     799,
-                    @"[In Appendix A: Product Behavior] Implementation does forward messages that have been forwarded to the sender. [<17> Section 3.2.5.1: Exchange 2007 forwards messages that have been forwarded to the sender.]");
+                    @"[In Appendix A: Product Behavior] Implementation does forward messages that have been forwarded to the sender. [<16> Section 3.2.5.1: Exchange 2007 forwards messages that have been forwarded to the sender.]");
             }
 
             if (Common.IsRequirementEnabled(907, this.Site))
