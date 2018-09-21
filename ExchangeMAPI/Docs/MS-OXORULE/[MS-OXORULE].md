@@ -1,6 +1,6 @@
 ## [MS-OXORULE]: Email Rules Protocol
-- [MS-OXORULE] v20160613 is used to develop the test suite.  
-- Release date, 6/13/2016.
+- [MS-OXORULE] v20180724 is used to develop the test suite.  
+- Release date, 7/24/2018.
 
 To find the new landing page for [MS-OXORULE], please visit https://msdn.microsoft.com/en-us/library/cc463893(v=exchg.80).aspx 
 

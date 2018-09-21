@@ -454,7 +454,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R52</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleId Property] The PidTagRuleId property ([MS-OXPROPS] section 2.940) specifies a unique identifier the messaging server generates for each rule (2) when the rule (2) is first created.</ns1:Description>
+		<ns1:Description>[In PidTagRuleId Property] The PidTagRuleId property ([MS-OXPROPS] section 2.943) specifies a unique identifier the messaging server generates for each rule (2) when the rule (2) is first created.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -490,7 +490,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R56</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleSequence Property] The PidTagRuleSequence property ([MS-OXPROPS] section 2.953) contains a value used to determine the order in which rules (2) are evaluated and executed.</ns1:Description>
+		<ns1:Description>[In PidTagRuleSequence Property] The PidTagRuleSequence property ([MS-OXPROPS] section 2.956) contains a value used to determine the order in which rules (2) are evaluated and executed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -527,7 +527,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R60</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleState Property] The PidTagRuleState property ([MS-OXPROPS] section 2.954) contains a value interpreted as a Bitmask combination of flags that specify the state of the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleState Property] The PidTagRuleState property ([MS-OXPROPS] section 2.957) contains a value interpreted as a Bitmask combination of flags that specify the state of the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -673,7 +673,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R74</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleState Property] SCL (ST_SKIP_IF_SCL_IS_SAFE, Bitmask 0x00000020): Evaluation of this rule (2) MAY be skipped if the delivered message's PidTagContentFilterSpamConfidenceLevel property ([MS-OXPROPS] section 2.638) has a value of 0xFFFFFFFF.</ns1:Description>
+		<ns1:Description>[In PidTagRuleState Property] SCL (ST_SKIP_IF_SCL_IS_SAFE, Bitmask 0x00000020): Evaluation of this rule (2) MAY be skipped if the delivered message's PidTagContentFilterSpamConfidenceLevel property ([MS-OXPROPS] section 2.641) has a value of 0xFFFFFFFF.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -767,7 +767,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R83</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleName Property] The PidTagRuleName property ([MS-OXPROPS] section 2.950) specifies the name of the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleName Property] The PidTagRuleName property ([MS-OXPROPS] section 2.953) specifies the name of the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -785,7 +785,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R85</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleProvider Property] The PidTagRuleProvider property ([MS-OXPROPS] section 2.951) identifies the client application that owns the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleProvider Property] The PidTagRuleProvider property ([MS-OXPROPS] section 2.954) identifies the client application that owns the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -848,7 +848,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R92</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleLevel Property] The PidTagRuleLevel property ([MS-OXPROPS] section 2.942) is not used.</ns1:Description>
+		<ns1:Description>[In PidTagRuleLevel Property] The PidTagRuleLevel property ([MS-OXPROPS] section 2.945) is not used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -875,7 +875,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R95</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleUserFlags Property] The PidTagRuleUserFlags property ([MS-OXPROPS] section 2.955) is an opaque property that the client sets for the exclusive use of the client.</ns1:Description>
+		<ns1:Description>[In PidTagRuleUserFlags Property] The PidTagRuleUserFlags property ([MS-OXPROPS] section 2.958) is an opaque property that the client sets for the exclusive use of the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -911,7 +911,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R99</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleProviderData Property] The PidTagRuleProviderData property ([MS-OXPROPS] section 2.952) is an opaque property that the client sets for the exclusive use of the client.</ns1:Description>
+		<ns1:Description>[In PidTagRuleProviderData Property] The PidTagRuleProviderData property ([MS-OXPROPS] section 2.955) is an opaque property that the client sets for the exclusive use of the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -947,7 +947,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R103</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleCondition Property] The PidTagRuleCondition property ([MS-OXPROPS] section 2.937) sets the condition used when evaluating the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleCondition Property] The PidTagRuleCondition property ([MS-OXPROPS] section 2.940) sets the condition used when evaluating the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -974,7 +974,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R106</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleActions Property] The PidTagRuleActions property ([MS-OXPROPS] section 2.935) contains the set of actions (2) associated with the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleActions Property] The PidTagRuleActions property ([MS-OXPROPS] section 2.938) contains the set of actions (2) associated with the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1412,7 +1412,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R162</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageName Property] The PidTagRuleMessageName property ([MS-OXPROPS] section 2.944) SHOULD be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageName Property] The PidTagRuleMessageName property ([MS-OXPROPS] section 2.947) SHOULD be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1467,7 +1467,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R169</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageSequence Property] The PidTagRuleMessageSequence property ([MS-OXPROPS] section 2.947) MUST be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageSequence Property] The PidTagRuleMessageSequence property ([MS-OXPROPS] section 2.950) MUST be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1494,7 +1494,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R172</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageState Property] The PidTagRuleMessageState property ([MS-OXPROPS] section 2.948) MUST be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageState Property] The PidTagRuleMessageState property ([MS-OXPROPS] section 2.951) MUST be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1600,7 +1600,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R175</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageUserFlags Property] This PidTagRuleMessageUserFlags property ([MS-OXPROPS] section 2.949) MAY be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageUserFlags Property] This PidTagRuleMessageUserFlags property ([MS-OXPROPS] section 2.952) MAY be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1628,7 +1628,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R179</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageLevel Property] The PidTagRuleMessageLevel property ([MS-OXPROPS] section 2.943) SHOULD be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageLevel Property] The PidTagRuleMessageLevel property ([MS-OXPROPS] section 2.946) SHOULD be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1656,7 +1656,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R183</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageProvider Property] The PidTagRuleMessageProvider property ([MS-OXPROPS] section 2.945) MUST be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageProvider Property] The PidTagRuleMessageProvider property ([MS-OXPROPS] section 2.948) MUST be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1683,7 +1683,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R186</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageProviderData Property] The PidTagRuleMessageProviderData property ([MS-OXPROPS] section 2.946) MAY be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageProviderData Property] The PidTagRuleMessageProviderData property ([MS-OXPROPS] section 2.949) MAY be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1711,7 +1711,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R190</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagExtendedRuleMessageActions Property] The PidTagExtendedRuleMessageActions property ([MS-OXPROPS] section 2.683) MUST be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagExtendedRuleMessageActions Property] The PidTagExtendedRuleMessageActions property ([MS-OXPROPS] section 2.686) MUST be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1806,7 +1806,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R196</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagExtendedRuleMessageCondition Property] The PidTagExtendedRuleMessageCondition property ([MS-OXPROPS] section 2.684) MUST be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagExtendedRuleMessageCondition Property] The PidTagExtendedRuleMessageCondition property ([MS-OXPROPS] section 2.687) MUST be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2647,7 +2647,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R1020</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Action Flavors] NS (Bitmask 0x00000001): [OP_OOF_REPLY ActionType] [The server SHOULD&lt;6&gt; not send the message to the message sender]The reply template MUST contain recipients (2) in this case [if the NS flag is set].</ns1:Description>
+		<ns1:Description>[In Action Flavors] NS (Bitmask 0x00000001): [OP_OOF_REPLY ActionType] [The server SHOULD NOT &lt;6&gt; send the message to the message sender]The reply template MUST contain recipients (2) in this case [if the NS flag is set].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2823,7 +2823,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R703</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In OP_MOVE and OP_COPY ActionData Structure] [Buffer Format for Standard Rules] FolderInThisStore (1 byte): This field SHOULD&lt;7&gt; be set to 0x01, if the destination folder is in the user's mailbox,</ns1:Description>
+		<ns1:Description>[In OP_MOVE and OP_COPY ActionData Structure] [Buffer Format for Standard Rules] FolderInThisStore (1 byte): This field MUST be set to 0x01a nonzero (TRUE) value, if the destination folder is in the user's mailbox,</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2889,7 +2889,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R963</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In OP_MOVE and OP_COPY ActionData Structure] [Buffer Format for Standard Rules] If the FolderInThisStore field is set to 0x01, the following applies to the StoreEID field for the server: The StoreEID field can be set to any non-null value.</ns1:Description>
+		<ns1:Description>[In OP_MOVE and OP_COPY ActionData Structure] [Buffer Format for Standard Rules] If the FolderInThisStore field is set to 0x01, the following applies to the StoreEID field for the server: The StoreEID field can be set to any non-null value in request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3397,7 +3397,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R335</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RecipientBlockData Structure] Some rules (2) MAY&lt;8&gt; require more [specify values for more properties besides the PidTagDisplayName, PidTagEmailAddress, and PidTagRecipientType in the forward/delegate ActionData buffer].</ns1:Description>
+		<ns1:Description>[In RecipientBlockData Structure] Some rules (2) MAY&lt;7&gt; require more [specify values for more properties besides the PidTagDisplayName, PidTagEmailAddress, and PidTagRecipientType in the forward/delegate ActionData buffer].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3417,7 +3417,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R329</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In RecipientBlockData Structure] Reserved (1 byte): This value is implementation-specific and not required for interoperability.&lt;9&gt;</ns1:Description>
+		<ns1:Description>[In RecipientBlockData Structure] Reserved (1 byte): This value is implementation-specific and not required for interoperability.&lt;8&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3529,7 +3529,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R345</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In OP_DELETE or OP_MARK_AS_READ ActionData Structure] For the OP_DELETE action type, the incoming messages are deleted&lt;10&gt;.</ns1:Description>
+		<ns1:Description>[In OP_DELETE or OP_MARK_AS_READ ActionData Structure] For the OP_DELETE action type, the incoming messages are deleted&lt;9&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3620,7 +3620,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R354</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDamBackPatched property] The PidTagDamBackPatched property ([MS-OXPROPS] section 2.649) MUST be set to "FALSE" when the DAM is generated.</ns1:Description>
+		<ns1:Description>[In PidTagDamBackPatched property] The PidTagDamBackPatched property ([MS-OXPROPS] section 2.652) MUST be set to "FALSE" when the DAM is generated.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3647,7 +3647,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R740</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDamOriginalEntryId Property] This PidTagDamOriginalEntryId property ([MS-OXPROPS] section 2.650) MUST be set to the EntryID of the delivered (target) message that the client has to process.</ns1:Description>
+		<ns1:Description>[In PidTagDamOriginalEntryId Property] This PidTagDamOriginalEntryId property ([MS-OXPROPS] section 2.653) MUST be set to the EntryID of the delivered (target) message that the client has to process.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3666,7 +3666,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R359</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleProvider] The PidTagRuleProvider property ([MS-OXPROPS] section 2.951) MUST be set to the same value as the PidTagRuleProvider property on the rule or rules that have generated the DAM.</ns1:Description>
+		<ns1:Description>[In PidTagRuleProvider] The PidTagRuleProvider property ([MS-OXPROPS] section 2.954) MUST be set to the same value as the PidTagRuleProvider property on the rule or rules that have generated the DAM.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3684,7 +3684,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R741</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property ([MS-OXPROPS] section 2.939) MUST be set to the EntryID of the folder where the rule (2) that triggered the generation of this DAM is stored.</ns1:Description>
+		<ns1:Description>[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property ([MS-OXPROPS] section 2.942) MUST be set to the EntryID of the folder where the rule (2) that triggered the generation of this DAM is stored.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3703,7 +3703,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R363</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagClientActions] The PidTagClientActions property ([MS-OXPROPS] section 2.625) is a binary buffer specifying the actions (2) the client is required to take on the message.</ns1:Description>
+		<ns1:Description>[In PidTagClientActions] The PidTagClientActions property ([MS-OXPROPS] section 2.628) is a binary buffer specifying the actions (2) the client is required to take on the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3758,7 +3758,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R368</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleIds] The PidTagRuleIds property ([MS-OXPROPS] section 2.941) is a buffer contains the PidTagRuleId (section 2.2.1.3.1.1) value (8 bytes) from the first rules (2) that contributed actions (2) in the PidTagClientActions property (section 2.2.6.6), and repeats that value once for each rule (2) that contributed actions (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleIds] The PidTagRuleIds property ([MS-OXPROPS] section 2.944) is a buffer contains the PidTagRuleId (section 2.2.1.3.1.1) value (8 bytes) from the first rules (2) that contributed actions (2) in the PidTagClientActions property (section 2.2.6.6), and repeats that value once for each rule (2) that contributed actions (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3785,7 +3785,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R371</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDeferredActionMessageOriginalEntryId Property] The PidTagDeferredActionMessageOriginalEntryId property ([MS-OXPROPS] section 2.652) contains the server EntryID for the DAM message on the server.</ns1:Description>
+		<ns1:Description>[In PidTagDeferredActionMessageOriginalEntryId Property] The PidTagDeferredActionMessageOriginalEntryId property ([MS-OXPROPS] section 2.655) contains the server EntryID for the DAM message on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3867,7 +3867,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R748</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleError Property] The PidTagRuleError property ([MS-OXPROPS] section 2.938) MUST be set to one of the following values [0x00000001, 0x00000002, 0x00000003, 0x00000004, 0x00000005, 0x00000006, 0x00000007, 0x00000008, 0x00000009, 0x0000000a, 0x0000000b, 0x0000000c, 0x0000000d, and 0x0000000e], indicating the cause of the error encountered during the execution of the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleError Property] The PidTagRuleError property ([MS-OXPROPS] section 2.941) MUST be set to one of the following values [0x00000001, 0x00000002, 0x00000003, 0x00000004, 0x00000005, 0x00000006, 0x00000007, 0x00000008, 0x00000009, 0x0000000a, 0x0000000b, 0x0000000c, 0x0000000d, and 0x0000000e], indicating the cause of the error encountered during the execution of the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4056,7 +4056,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R707</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleActionNumber Property] The PidTagRuleActionNumber property ([MS-OXPROPS] section 2.934) MUST be set to the zero-based index of the action (2) that failed. (For example, if specific to an action (2), a property value of 0x00000000 means that the first action (2) failed, 0x00000001 means that the second action (2) failed.)</ns1:Description>
+		<ns1:Description>[In PidTagRuleActionNumber Property] The PidTagRuleActionNumber property ([MS-OXPROPS] section 2.937) MUST be set to the zero-based index of the action (2) that failed. (For example, if specific to an action (2), a property value of 0x00000000 means that the first action (2) failed, 0x00000001 means that the second action (2) failed.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4110,7 +4110,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R713</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDamOriginalEntryId Property] The PidTagDamOriginalEntryId property (section 2.2.6.3) SHOULD&lt;11&gt; be set to the EntryID of the message that was being processed by the server when this error was encountered (that is, the "delivered message").</ns1:Description>
+		<ns1:Description>[In PidTagDamOriginalEntryId Property] The PidTagDamOriginalEntryId property (section 2.2.6.3) SHOULD&lt;10&gt; be set to the EntryID of the message that was being processed by the server when this error was encountered (that is, the "delivered message").</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4129,7 +4129,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R715</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property (section 2.2.6.5) SHOULD&lt;12&gt; be set to the EntryID of the folder where the rule (2) that triggered the generation of this DEM is stored.</ns1:Description>
+		<ns1:Description>[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property (section 2.2.6.5) SHOULD&lt;11&gt; be set to the EntryID of the folder where the rule (2) that triggered the generation of this DEM is stored.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4166,7 +4166,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R719</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.8.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHasRules Property] The PidTagHasRules property ([MS-OXPROPS] section 2.710) specifies whether rules (2) are set on a folder.</ns1:Description>
+		<ns1:Description>[In PidTagHasRules Property] The PidTagHasRules property ([MS-OXPROPS] section 2.713) specifies whether rules (2) are set on a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4176,7 +4176,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R720</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.8.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHasRules Property] This property SHOULD&lt;13&gt; be set to "TRUE" if any rules (2) are set on a folder.</ns1:Description>
+		<ns1:Description>[In PidTagHasRules Property] This property SHOULD&lt;12&gt; be set to "TRUE" if any rules (2) are set on a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4186,7 +4186,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R885</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.8.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHasRules Property] This property SHOULD&lt;13&gt; be set to "FALSE" if no rules (2) are set on a folder.</ns1:Description>
+		<ns1:Description>[In PidTagHasRules Property] This property SHOULD&lt;12&gt; be set to "FALSE" if no rules (2) are set on a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4260,7 +4260,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R727</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.9.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagReplyTemplateId Property] The PidTagReplyTemplateId property ([MS-OXPROPS] section 2.909) specifies the GUID for the reply template.</ns1:Description>
+		<ns1:Description>[In PidTagReplyTemplateId Property] The PidTagReplyTemplateId property ([MS-OXPROPS] section 2.912) specifies the GUID for the reply template.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4278,7 +4278,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R1011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.9.3</ns1:Doc_Sect>
-		<ns1:Description>[PidTagRwRulesStream Property] The PidTagRwRulesStream property ([MS-OXPROPS] section 2.956) contains client-specific data about the Rule FAI message.</ns1:Description>
+		<ns1:Description>[PidTagRwRulesStream Property] The PidTagRwRulesStream property ([MS-OXPROPS] section 2.959) contains client-specific data about the Rule FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4432,7 +4432,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R455</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Adding, Modifying or Deleting Standard Rules] When the client modifies standard rules as a result of user interaction, it MUST do so using a RopModifyRules ROP request ([MS-OXCROPS] section 2.2.11.1), as specified in section 2.2.1.&lt;14&gt;</ns1:Description>
+		<ns1:Description>[In Adding, Modifying or Deleting Standard Rules] When the client modifies standard rules as a result of user interaction, it MUST do so using a RopModifyRules ROP request ([MS-OXCROPS] section 2.2.11.1), as specified in section 2.2.1.&lt;13&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4531,7 +4531,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R467</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Adding, Modifying or Deleting Extended Rules] The client MAY set values for the PidTagRuleMessageUserFlags (section 2.2.4.1.5) and PidTagRuleMessageProviderData ([MS-OXPROPS] section 2.946) properties for storing additional data.</ns1:Description>
+		<ns1:Description>[In Adding, Modifying or Deleting Extended Rules] The client MAY set values for the PidTagRuleMessageUserFlags (section 2.2.4.1.5) and PidTagRuleMessageProviderData ([MS-OXPROPS] section 2.949) properties for storing additional data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5362,7 +5362,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R789</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Incoming Messages to a Folder] A server can restrict the number of extended rules it executes on a folder.&lt;15&gt;</ns1:Description>
+		<ns1:Description>[In Processing Incoming Messages to a Folder] A server can restrict the number of extended rules it executes on a folder.&lt;14&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5550,7 +5550,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R797</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_OOF_REPLY": This message class value is a prefix, and the client can append a client-specific value at the end. For example, a client can instead request that the server set the value of the PidTagMessageClass property in this circumstance to "IPM.Note.rules.OOFTemplate.Microsoft".&lt;16&gt;</ns1:Description>
+		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_OOF_REPLY": This message class value is a prefix, and the client can append a client-specific value at the end. For example, a client can instead request that the server set the value of the PidTagMessageClass property in this circumstance to "IPM.Note.rules.OOFTemplate.Microsoft".&lt;15&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5604,7 +5604,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R798</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_FORWARD": The server SHOULD NOT&lt;17&gt; forward messages that were forwarded to the sender.</ns1:Description>
+		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_FORWARD": The server SHOULD NOT&lt;16&gt; forward messages that were forwarded to the sender.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5677,7 +5677,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R546</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_BOUNCE": The server SHOULD&lt;18&gt; send a reply message to the sender detailing why the sender's message couldn't be delivered to the user's mailbox.</ns1:Description>
+		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_BOUNCE": The server SHOULD&lt;17&gt; send a reply message to the sender detailing why the sender's message couldn't be delivered to the user's mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5687,7 +5687,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R547</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_BOUNCE": The original message SHOULD NOT&lt;19&gt; appear in the user's mailbox.</ns1:Description>
+		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_BOUNCE": The original message SHOULD NOT&lt;18&gt; appear in the user's mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5724,7 +5724,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R551</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_MARK_AS_READ": the server MUST set the MSGFLAG_READ flag (0x00000001) in the PidTagMessageFlags property ([MS-OXPROPS] section 2.782) on the message.</ns1:Description>
+		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_MARK_AS_READ": the server MUST set the MSGFLAG_READ flag (0x00000001) in the PidTagMessageFlags property ([MS-OXPROPS] section 2.785) on the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5780,7 +5780,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R557</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Out of Office Rules] If the sender is on the list, the server SHOULD NOT&lt;20&gt; evaluate the rule (2).</ns1:Description>
+		<ns1:Description>[In Processing Out of Office Rules] If the sender is on the list, the server SHOULD NOT&lt;19&gt; evaluate the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6013,7 +6013,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R814</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopModifyRules ROP Request] The server can limit the rules (2) it allows on a folder to a certain number of rules (2) or to a total aggregate size of rules.&lt;21&gt;</ns1:Description>
+		<ns1:Description>[In Receiving a RopModifyRules ROP Request] The server can limit the rules (2) it allows on a folder to a certain number of rules (2) or to a total aggregate size of rules.&lt;20&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6031,7 +6031,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R911</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopModifyRules ROP Request] Regardless of the limit, the server SHOULD&lt;22&gt; save all changes specified by the RopModifyRules request.</ns1:Description>
+		<ns1:Description>[In Receiving a RopModifyRules ROP Request] Regardless of the limit, the server SHOULD&lt;21&gt; save all changes specified by the RopModifyRules request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6199,7 +6199,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R827</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopGetRulesTable ROP Request] The meaning of error code ecNotSupported: One or more of the x bits on the TableFlags field is set to a nonzero value.&lt;23&gt;</ns1:Description>
+		<ns1:Description>[In Receiving a RopGetRulesTable ROP Request] The meaning of error code ecNotSupported: One or more of the x bits on the TableFlags field is set to a nonzero value.&lt;22&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6547,7 +6547,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R627</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation defines the following well-known rule provider strings: "MSFT: TDX Rules", which is used by public folder rules; "MSFT: TDX OOF rules", which is used by Out of Office rules in the Inbox folder; "RuleOrganizer" + user defined string, which is used for user-defined rules in the Inbox folder; "Schedule+ EMS Interface", which is used to assist with delegates; "JunkEmailRule", which is a rule that is created to help with Junk E-mail filtering; "MSFT: MR", which is a rule that assists the "Moderator" role on a public folder; "MSFT: Public.Folder.FormRestrictions", which is used by public folder rules; "ExchangeMailboxRules14", which is for rules that are specific to Exchange 2010 and Exchange 2013; rules with this provider string are not processed by Office Outlook 2003 or Office Outlook 2007. [&lt;2&gt; Section 2.2.1.3.1.5: Exchange 2003, Exchange 2007, Office Outlook 2003, and Office Outlook 2007 define the following well-known rule provider strings: "MSFT: TDX Rules", which is used by public folder rules; "MSFT: TDX OOF rules", which is used by Out of Office rules in the Inbox folder; "RuleOrganizer" + user defined string, which is used for user-defined rules in the Inbox folder; "Schedule+ EMS Interface", which is used to assist with delegates; "JunkEmailRule", which is a rule that is created to help with Junk E-mail filtering; "MSFT: MR", which is a rule that assists the "Moderator" role on a public folder; "MSFT: Public.Folder.FormRestrictions", which is used by public folder rules; "ExchangeMailboxRules14", which is for rules that are specific to Exchange 2010, Exchange 2013, and Exchange 2016; rules with this provider string are not processed by Office Outlook 2003 or Office Outlook 2007.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation defines the following well-known rule provider strings: "MSFT: TDX Rules", which is used by public folder rules; "MSFT: TDX OOF rules", which is used by Out of Office rules in the Inbox folder; "RuleOrganizer" + user defined string, which is used for user-defined rules in the Inbox folder; "Schedule+ EMS Interface", which is used to assist with delegates; "JunkEmailRule", which is a rule that is created to help with Junk E-mail filtering; "MSFT: MR", which is a rule that assists the "Moderator" role on a public folder; "MSFT: Public.Folder.FormRestrictions", which is used by public folder rules; "ExchangeMailboxRules14", which is for rules that are specific to Exchange 2010 and Exchange 2013; rules with this provider string are not processed by Office Outlook 2003 or Office Outlook 2007. [&lt;2&gt; Section 2.2.1.3.1.5: Exchange 2003, Exchange 2007, Office Outlook 2003, and Office Outlook 2007 define the following well-known rule provider strings: "MSFT: TDX Rules", which is used by public folder rules; "MSFT: TDX OOF rules", which is used by Out of Office rules in the Inbox folder; "RuleOrganizer" + user defined string, which is used for user-defined rules in the Inbox folder; "Schedule+ EMS Interface", which is used to assist with delegates; "JunkEmailRule", which is a rule that is created to help with Junk E-mail filtering; "MSFT: MR", which is a rule that assists the "Moderator" role on a public folder; "MSFT: Public.Folder.FormRestrictions", which is used by public folder rules; "ExchangeMailboxRules14", which is for rules that are specific to Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview; rules with this provider string are not processed by Office Outlook 2003 or Office Outlook 2007.]</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6578,7 +6578,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R630</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the ActionFlags field to 0x00000000. [&lt;4&gt; Section 2.2.5.1: Office Outlook 2003, Office Outlook 2007, Outlook2010,  Outlook 2013, Outlook 2016 set the ActionFlags field to 0x00000000.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set the ActionFlags field to 0x00000000. [&lt;4&gt; Section 2.2.5.1: Office Outlook 2003, Office Outlook 2007, Outlook2010,  Outlook 2013, Outlook 2016  and Outlook 2019 Preview set the ActionFlags field to 0x00000000.]</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6609,7 +6609,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R10191</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does send a reply message if the ActionType is "OP_OOF_REPLY" if action flavor is NS. (&lt;6&gt; Section 2.2.5.1.1:  Exchange 2007, Exchange 2010, and Exchange 2013 send a reply message if the ActionType is "OP_OOF_REPLY".)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does send a reply message if the ActionType is "OP_OOF_REPLY" if action flavor is NS. (&lt;6&gt; Section 2.2.5.1.1:  Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview send a reply message if the ActionType is "OP_OOF_REPLY".)</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R1019:i,MS-OXORULE_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6628,30 +6628,9 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXORULE_R7031</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this field (FolderInThisStore) to 0xFF if the destination folder is in the user's mailbox. (&lt;7&gt; Section 2.2.5.1.2.1:  Microsoft Exchange Server 2010 Service Pack 3 (SP3) and Microsoft Exchange Server 2013 Service Pack 1 (SP1) set this field to 0xFF.)</ns1:Description>
-		<ns1:Derived>MS-OXORULE_R703:i,MS-OXORULE_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXORULE_R7032</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this field (FolderInThisStore) to 0x01 if the destination folder is in the user's mailbox. (Exchange 2007 and Exchange 2016 follow this behavior).</ns1:Description>
-		<ns1:Derived>MS-OXORULE_R703:i,MS-OXORULE_R1:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R636</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does require the PidTagEntryId property for action "OP_FORWARD". [&lt;8&gt; Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 also require the PidTagEntryId property for action "OP_FORWARD".]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does require the PidTagEntryId property for action "OP_FORWARD". [&lt;7&gt; Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 also require the PidTagEntryId property for action "OP_FORWARD".]</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R335:i,MS-OXORULE_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -6673,7 +6652,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R632</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x01. [&lt;9&gt; Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 set this value to 0x01.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x01. [&lt;8&gt; Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 set this value to 0x01.]</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R329:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -6684,7 +6663,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R633</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x00. [&lt;9&gt; Section 2.2.5.1.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 set this value to 0x00.]</ns1:Description>
+		<ns1:Description>[[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x00. [&lt;8&gt; Section 2.2.5.1.2.4.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview set this value to 0x00.]</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R329:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -6695,7 +6674,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R637</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does perform a hard delete, as described in [MS-OXCFOLD], but this is not required for the protocol. [&lt;10&gt; Section 2.2.5.1.2.7: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 perform a hard delete, as described in [MS-OXCFOLD], but this is not required for the protocol.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does perform a hard delete, as described in [MS-OXCFOLD], but this is not required for the protocol. [&lt;9&gt; Section 2.2.5.1.2.7: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview  perform a hard delete, as described in [MS-OXCFOLD], but this is not required for the protocol.]</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -6716,7 +6695,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R7131</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[[In Appendix A: Product Behavior] Implementation does set PidTagDamOriginalEntryId  to "ecNotFound" when this error was encountered (this is, the "delivered message"). (&lt;11&gt; Section 2.2.7.6:  Exchange 2007 returns "ecNotFound")</ns1:Description>
+		<ns1:Description>[[In Appendix A: Product Behavior] Implementation does set PidTagDamOriginalEntryId  to "ecNotFound" when this error was encountered (this is, the "delivered message"). (&lt;10&gt; Section 2.2.7.6:  Exchange 2007 returns "ecNotFound")</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R713:i,MS-OXORULE_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6737,7 +6716,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R7151</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[[In Appendix A: Product Behavior] Implementation does set PidTagRuleFolderEntryId   to "ecNotFound" when this error was encountered (this is, the "delivered message"). (&lt;12&gt; Section 2.2.7.7:  Exchange 2007 returns "ecNotFound".)</ns1:Description>
+		<ns1:Description>[[In Appendix A: Product Behavior] Implementation does set PidTagRuleFolderEntryId   to "ecNotFound" when this error was encountered (this is, the "delivered message"). (&lt;11&gt; Section 2.2.7.7:  Exchange 2007 returns "ecNotFound".)</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R715:i,MS-OXORULE_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6758,7 +6737,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R7201</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[[In Appendix A: Product Behavior] Implementation does not define the behavior for PidTagHasRules. (&lt;13&gt; Section 2.2.8.1:  The server behavior is undefined in Exchange 2013 SP1.)</ns1:Description>
+		<ns1:Description>[[In Appendix A: Product Behavior] Implementation does not define the behavior for PidTagHasRules. (&lt;12&gt; Section 2.2.8.1:  The server behavior is undefined in Microsoft Exchange Server 2013 Service Pack 1 (SP1.).)</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R720:i,MS-OXORULE_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6799,7 +6778,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R647</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]&lt;15&gt; Section 3.2.5.1: These settings are configurable by the administrator.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]&lt;14&gt; Section 3.2.5.1: These settings are configurable by the administrator.</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R789:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -6809,7 +6788,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R644</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation by default does only process the first extended rule it encounters per folder. Other extended rules are ignored. [&lt;15&gt; Section 3.2.5.1: Exchange 2003 by default will only process the first extended rule it encounters per folder. Other extended rules are ignored.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation by default does only process the first extended rule it encounters per folder. Other extended rules are ignored. [&lt;14&gt; Section 3.2.5.1: Exchange 2003 by default will only process the first extended rule it encounters per folder. Other extended rules are ignored.]</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R789:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -6819,7 +6798,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R646</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does process the standard rule for a message but does only process the first two extended rules it encounters per folder. [&lt;15&gt; Section 3.2.4.1: Exchange 2007 by default will process the standard rule for a message but will only process the first two extended rules it encounters per folder.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does process the standard rule for a message but does only process the first two extended rules it encounters per folder. [&lt;14&gt; Section 3.2.4.1: Exchange 2007 by default will process the standard rule for a message but will only process the first two extended rules it encounters per folder.]</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R789:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -6830,7 +6809,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R648</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;16&gt; Section 3.2.5.1: When Office Outlook 2007 creates a Reply template, it requests that the server set the prefix to "IPM.Note.rules.OofTemplate.Microsoft".</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;15&gt; Section 3.2.5.1: When Office Outlook 2007 creates a Reply template, it requests that the server set the prefix to "IPM.Note.rules.OofTemplate.Microsoft".</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6839,7 +6818,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R799</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does forward messages that have been forwarded to the sender. [&lt;17&gt; Section 3.2.5.1: Exchange 2007 forwards messages that have been forwarded to the sender.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does forward messages that have been forwarded to the sender. [&lt;16&gt; Section 3.2.5.1: Exchange 2007 forwards messages that have been forwarded to the sender.]</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R798:i,MS-OXORULE_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6861,7 +6840,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R5461</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] ["OP_BOUNCE"]Implementation does not send a reply message to the sender detailing why the sender's message couldn't be delivered to the user's mailbox. (&lt;18&gt; Section 3.2.5.1:  Microsoft Exchange Server 2007 Service Pack 3 (SP3) does not send a reply message.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] ["OP_BOUNCE"]Implementation does not send a reply message to the sender detailing why the sender's message couldn't be delivered to the user's mailbox. (&lt;17&gt; Section 3.2.5.1:  Microsoft Exchange Server 2007 Service Pack 3 (SP3) does not send a reply message.)</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R546:i,MS-OXORULE_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6882,7 +6861,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R5471</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] ["OP_BOUNCE"]Implementation does support the original message appears in the user's mailbox (&lt;19&gt; Section 3.2.5.1:  In Exchange 2007 SP3, the message appears in the user's mailbox.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] ["OP_BOUNCE"]Implementation does support the original message appears in the user's mailbox (&lt;18&gt; Section 3.2.5.1:  In Exchange 2007 SP3, the message appears in the user's mailbox.)</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R547:i,MS-OXORULE_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6903,7 +6882,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R5571</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does evaluate the rule (2) if the sender is on the list. (&lt;20&gt; Section 3.2.5.1.1:  Exchange 2013 SP1 evaluates the rule if the sender is on the list of recipients.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does evaluate the rule (2) if the sender is on the list. (&lt;19&gt; Section 3.2.5.1.1:  Exchange 2013 SP1 evaluates the rule if the sender is on the list of recipients.)</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R557:i,MS-OXORULE_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6924,7 +6903,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R8141</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2:  Exchange 2007, Exchange 2010, Exchange 2013, and Exchange 2016 limit the total aggregate size of standard rules (2) stored by a user to between 32 kilobytes (KB) and 256 KB; the exact limit is configured by the server administrator. Exchange 2007 and Exchange 2010 also enforce a limit of 500 disabled rules. Exchange 2013 and Exchange 2016 do not enforce a limit on disabled rules. Exchange 2003 limits the total aggregate size of all rules to 32 KB.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;20&gt; Section 3.2.5.2:  Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview limit the total aggregate size of standard rules (2) stored by a user to between 32 kilobytes (KB) and 256 KB; the exact limit is configured by the server administrator. Exchange 2007 and Exchange 2010 also enforce a limit of 500 disabled rules. Exchange 2013, Exchange 2016 and Exchange 2019 PReview do not enforce a limit on disabled rules. Exchange 2003 limits the total aggregate size of all rules to 32 KB.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6933,7 +6912,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R9111</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;22&gt; Section 3.2.5.2:  Exchange 2003, Exchange 2007, and Exchange 2010 do not save any of the changes when the changes push the rules (2) beyond the limit.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2:  Exchange 2003, Exchange 2007, and Exchange 2010 do not save any of the changes when the changes push the rules (2) beyond the limit.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6942,7 +6921,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R836</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does ignore the x bits and returns ecSuccess in this case [One or more of the x bits on the TableFlags field of RopGetRulesTable ROP Request is set to a nonzero value.]. [&lt;23&gt; Section 3.2.5.3: Exchange 2007 ignores the x bits and returns ecSuccess in this case.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does ignore the x bits and returns ecSuccess in this case [One or more of the x bits on the TableFlags field of RopGetRulesTable ROP Request is set to a nonzero value.]. [&lt;22&gt; Section 3.2.5.3: Exchange 2007 ignores the x bits and returns ecSuccess in this case.]</ns1:Description>
 		<ns1:Derived>MS-OXORULE_R827:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
