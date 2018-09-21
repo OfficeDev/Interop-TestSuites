@@ -1120,7 +1120,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.NotFound,
                 this.Result,
                 1048,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 13] If no such row [the first row in the specified table that has a value equal to or greater than the value specified in the input parameter pTarget] exists, the server MUST return the value NotFound.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 11] If no such row [the first row in the specified table that has a value equal to or greater than the value specified in the input parameter pTarget] exists, the server MUST return the value NotFound.");
 
             #endregion Capture
             #endregion
@@ -1205,7 +1205,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.GeneralFailure,
                 this.Result,
                 1039,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If the server does not support the SortTypePhoneticDisplayName and the SortType field of the input parameter pStat has the value SortTypePhoneticDisplayName, the server MUST return the value GeneralFailure.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If the SortType field in the input parameter pStat has any value other than SortTypeDisplayName, the server MUST return the value GeneralFailure.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R899");
@@ -1281,8 +1281,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.GeneralFailure,
                 this.Result,
                 1043,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 11] If the SortType field in the input parameter pStat is SortTypeDisplayName and the property specified in the input parameter pTarget is anything other than PidTagDisplayName (with either the Property Type PtypString8 or PtypString), the server MUST return the value GeneralFailure.");
-
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 10] If the SortType field in the input parameter pStat is SortTypeDisplayName and the property specified in the input parameter pTarget is anything other than PidTagDisplayName (with either the Property Type PtypString8 or PtypString), the server MUST return the value GeneralFailure.");
             #endregion Capture
             #endregion
 
@@ -2624,7 +2623,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.GeneralFailure,
                 this.Result,
                 1194,
-                @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the server does not support the SortTypePhoneticDisplayName and the SortType field of the input parameter pStat has the value ""SortTypePhoneticDisplayName"", the server MUST return the value ""GeneralFailure"".");
+                @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the SortType field in the input parameter pStat has any value other than SortTypeDisplayName the server MUST return the value ""GeneralFailure"".");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1189");
@@ -2985,7 +2984,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 AdapterHelper.AreTwoPropertyRowSetEqual(rows, rows1),
                 750001,
-                @"[In NspiGetSpecialTable] The Exchange server behavior is considered special as the Ipversion here does not impact any search results. ");
+                @"[In Appendix A: Product Behavior] Implementation does not set the output parameter lpVersion to the version of the server's address book hierarchy table.<4> Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016, and Exchange 2019 Preview do not set the output parameter lpVersion to the version of the server's address book hierarchy table.");
             #endregion
             #endregion
 
@@ -3549,7 +3548,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 isR2003005Verified,
                 2003005,
-                @"[In Appendix A: Product Behavior] Implementation does return the value ""ErrorsReturned"" (0x00040380). <4> Section 3.1.4.1.7:  Exchange 2010 SP3, Exchange 2013, and Exchange 2016 return ""ErrorsReturned"" (0x00040380).");
+                @"[In Appendix A: Product Behavior] Implementation does return the value ""ErrorsReturned"" (0x00040380). <5> Section 3.1.4.1.7:  Microsoft Exchange Server 2010 Service Pack 3 (SP3), Exchange 2013, Exchange 2016, and Exchange 2019 Preview return ""ErrorsReturned"" (0x00040380).");
             #endregion
 
             #region Call NspiUpdateStat to update the STAT block to make CurrentRec point to the first row of the table.

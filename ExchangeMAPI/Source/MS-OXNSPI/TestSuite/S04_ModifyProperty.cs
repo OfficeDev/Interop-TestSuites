@@ -205,7 +205,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.Success,
                 this.Result,
                 1268,
-                @"[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1044) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.566) properties.");
+                @"[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1048) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.569) properties.");
 
             bool isR1289Verified = reservedOfModProps != 0 && ErrorCodeValue.Success == this.Result;
 
@@ -420,7 +420,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                     ErrorCodeValue.GeneralFailure,
                     result1,
                     2003009,
-                    @"[In Appendix A: Product Behavior] Implementation does return ""GeneralFailure"" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. <6> Section 3.1.4.1.15:  Exchange 2013 and Exchange 2016 return ""GeneralFailure"" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.");
+                    @"[In Appendix A: Product Behavior] Implementation does return ""GeneralFailure"" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. <7> Section 3.1.4.1.15:  Exchange 2013  Exchange 2016 and Exchange 2019 PReview return ""GeneralFailure"" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.");
             }
 
             this.IsRequireToDeleteAddressBookMember = true;

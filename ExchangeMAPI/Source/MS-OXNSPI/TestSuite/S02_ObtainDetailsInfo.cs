@@ -1606,7 +1606,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             this.Site.CaptureRequirementIfIsTrue(
                 rowsOfSeekEntries != null && stat.CurrentRec != beforePosition,
                 1050,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] If a qualifying row was found, the server MUST update the position information in the parameter pStat.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] If a qualifying row was found, the server MUST update the position information in the parameter pStat.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1076");
@@ -1616,7 +1616,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.Success,
                 this.Result,
                 1076,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 16] If no other return values have been specified by these constraints [constraints 1-15], the server MUST return the return value ""Success"".");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] If no other return values have been specified by these constraints [constraints 1-15], the server MUST return the return value ""Success"".");
 
             #endregion Capture
             #endregion
@@ -1639,7 +1639,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 AdapterHelper.AreTwoPropertyRowSetEqual(rowsOfSeekEntries, rowsOfQueryRows1),
                 1695,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [constraint 15] This PropertyRowSet_r MUST be exactly the same PropertyRowSet_r that would be returned in the ppRows parameter of a call to the NspiQueryRows method with the following parameters:
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [constraint 13] This PropertyRowSet_r MUST be exactly the same PropertyRowSet_r that would be returned in the ppRows parameter of a call to the NspiQueryRows method with the following parameters:
                 The NspiSeekEntries parameter hRpc is used as the NspiQueryRows parameter hRpc.
                 The value fEphID is used as the NspiQueryRows parameter dwFlags.
                 The NspiSeekEntries output parameter pStat (as modified by the prior constraints) is used as the NspiQueryRows parameter pStat.
@@ -1754,7 +1754,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR1055,
                 1055,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The server MUST NOT modify any other fields [CodePage, ContainerID, Delta, SortLocale, SortType, TemplateLocale] of the parameter pStat.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] The server MUST NOT modify any other fields [CodePage, ContainerID, Delta, SortLocale, SortType, TemplateLocale] of the parameter pStat.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1051, the CurrentRec of stat is {0}", stat.CurrentRec);
@@ -1765,7 +1765,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 stat.CurrentRec >= 0x10,
                 1051,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] [If a qualifying row was found,] The server MUST set CurrentRec field of the parameter pStat to the Minimal Entry ID of the qualifying row.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] [If a qualifying row was found,] The server MUST set CurrentRec field of the parameter pStat to the Minimal Entry ID of the qualifying row.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1054");
@@ -1777,7 +1777,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 objectNum,
                 stat.TotalRecs,
                 1054,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The TotalRecs field of the parameter pStat MUST be set to the accurate number of records in the table used.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] The TotalRecs field of the parameter pStat MUST be set to the accurate number of records in the table used.");
 
             #endregion
             #endregion
@@ -6166,7 +6166,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 position,
                 stat.NumPos,
                 1052,
-                "[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] If the server is using the table specified by the input parameter lpETable, the server MUST set the NumPos field of the parameter pStat to the accurate numeric position of the qualifying row in the table.");
+                "[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] If the server is using the table specified by the input parameter lpETable, the server MUST set the NumPos field of the parameter pStat to the accurate numeric position of the qualifying row in the table.");
 
             #endregion
 
@@ -6203,7 +6203,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             // All the property tag returned in ppRows were checked and same as specified by the client, MS-OXNSPI_R1058 can be verified directly.
             Site.CaptureRequirement(
                 1058,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 15] Subject to the prior constraints [If the input parameter pPropTags is not NULL], the server MUST construct an PropertyRowSet_r to return to the client in the output parameter ppRows.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 13] Subject to the prior constraints [If the input parameter pPropTags is not NULL], the server MUST construct an PropertyRowSet_r to return to the client in the output parameter ppRows.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1755");
