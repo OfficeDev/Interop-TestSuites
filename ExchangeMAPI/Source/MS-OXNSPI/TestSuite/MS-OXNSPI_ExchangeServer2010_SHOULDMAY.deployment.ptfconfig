@@ -21,5 +21,9 @@
     <Property name="R2003009Enabled" value="false" />
     <!-- Set R2003010Enabled to true to verify that the implementation does not modify any properties of any objects in the address book. Set R2003010Enabled to false to disable this requirement.-->
     <Property name="R2003010Enabled" value="true" />
+    <!-- Set R748001Enabled to true to verify that the input parameter lpVersion does not impact the search results. SetR748001Enabled to false to disable this requirement.-->
+    <Property name="R748001Enabled" value="true" />
+    <!-- Set R1194Enabled to true to verify that if the SortType field in the input parameter pStat has any value other than SortTypeDisplayName, the implementation return the value "GeneralFailure". SetR1194Enabled to false to disable this requirement.-->
+    <Property name="R1194Enabled" value="true" />
   </Properties>
 </TestSite>

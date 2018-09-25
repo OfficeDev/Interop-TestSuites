@@ -6220,6 +6220,12 @@ If the NspiSeekEntries input parameter lpETable is not NULL, the server construc
 The list of Minimal Entry IDs in the input parameter lpETable starting with the qualifying row is used as the NspiQueryRows parameter lpETable. These Minimal Entry IDs [the list of Minimal Entry IDs in the input parameter lpETable] are expressed as a simple array of DWORD values rather than as a PropertyTagArray_r value. Note that the qualifying row is included in this list, and that the order of the Minimal Entry IDs from the input parameter lpETable is preserved in this list.
 If the NspiSeekEntries input parameter lpETable is not NULL, the value used for the NspiQueryRows parameter dwETableCount is used for the NspiQueryRows parameter Count.
 The NspiSeekEntries parameter pPropTags is used as the NspiQueryRows parameter pPropTags.");
+
+            // Verify MS-OXNSPI requirement: MS-OXNSPI_R105801
+            // The PropertyRowSet_r for the NspiSeekEntries method is verified same with the NspiQueryRows method by above step, MS-OXNSPI_R105801 can be verified directly.
+            Site.CaptureRequirement(
+                105801,
+                "[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 13]The server MUST return the same PropertyRowSet_r for the NspiSeekEntries method after the NspiQueryRows method is called using the input parameters. ");
             #endregion Capture
             #endregion
 
