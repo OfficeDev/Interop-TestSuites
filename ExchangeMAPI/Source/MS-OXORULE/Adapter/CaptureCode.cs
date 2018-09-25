@@ -107,7 +107,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                             Site.CaptureRequirementIfIsTrue(
                                 isVerifyR748,
                                 748,
-                                @"[In PidTagRuleError Property] The PidTagRuleError property ([MS-OXPROPS] section 2.938) MUST be set to one of the following values [0x00000001, 0x00000002, 0x00000003, 0x00000004, 0x00000005, 0x00000006, 0x00000007, 0x00000008, 0x00000009, 0x0000000a, 0x0000000b, 0x0000000c, 0x0000000d, and 0x0000000e], indicating the cause of the error encountered during the execution of the rule (2).");
+                                @"[In PidTagRuleError Property] The PidTagRuleError property ([MS-OXPROPS] section 2.941) MUST be set to one of the following values [0x00000001, 0x00000002, 0x00000003, 0x00000004, 0x00000005, 0x00000006, 0x00000007, 0x00000008, 0x00000009, 0x0000000a, 0x0000000b, 0x0000000c, 0x0000000d, and 0x0000000e], indicating the cause of the error encountered during the execution of the rule (2).");
 
                             if (propertyValue != null)
                             {
@@ -563,7 +563,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagRuleMessageSequenceValue,
                     169,
-                    @"[In PidTagRuleMessageSequence Property] The PidTagRuleMessageSequence property ([MS-OXPROPS] section 2.947) MUST be set on the FAI message.");
+                    @"[In PidTagRuleMessageSequence Property] The PidTagRuleMessageSequence property ([MS-OXPROPS] section 2.950) MUST be set on the FAI message.");
 
                 // Add the debug information.
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R172.");
@@ -573,7 +573,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagRuleMessageStateValue,
                     172,
-                    @"[In PidTagRuleMessageState Property] The PidTagRuleMessageState property ([MS-OXPROPS] section 2.948) MUST be set on the FAI message.");
+                    @"[In PidTagRuleMessageState Property] The PidTagRuleMessageState property ([MS-OXPROPS] section 2.951) MUST be set on the FAI message.");
 
                 if (Common.IsRequirementEnabled(891, this.Site))
                 {
@@ -608,7 +608,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagRuleMessageProviderValue,
                     183,
-                    @"[In PidTagRuleMessageProvider Property] The PidTagRuleMessageProvider property ([MS-OXPROPS] section 2.945) MUST be set on the FAI message.");
+                    @"[In PidTagRuleMessageProvider Property] The PidTagRuleMessageProvider property ([MS-OXPROPS] section 2.948) MUST be set on the FAI message.");
 
                 if (Common.IsRequirementEnabled(893, this.Site))
                 {
@@ -631,7 +631,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagExtendedRuleMessageActionsValue,
                     190,
-                    @"[In PidTagExtendedRuleMessageActions Property] The PidTagExtendedRuleMessageActions property ([MS-OXPROPS] section 2.683) MUST be set on the FAI message.");
+                    @"[In PidTagExtendedRuleMessageActions Property] The PidTagExtendedRuleMessageActions property ([MS-OXPROPS] section 2.686) MUST be set on the FAI message.");
 
                 // Add the debug information.
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R196");
@@ -641,7 +641,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagExtendedRuleMessageConditionValue,
                     196,
-                    @"[In PidTagExtendedRuleMessageCondition Property] The PidTagExtendedRuleMessageCondition property ([MS-OXPROPS] section 2.684) MUST be set on the FAI message.");
+                    @"[In PidTagExtendedRuleMessageCondition Property] The PidTagExtendedRuleMessageCondition property ([MS-OXPROPS] section 2.687) MUST be set on the FAI message.");
             }
         }
 
@@ -1461,7 +1461,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     Site.CaptureRequirementIfIsTrue(
                         isVerifyR636,
                         636,
-                        @"[In Appendix A: Product Behavior] Implementation does require the PidTagEntryId property for action ""OP_FORWARD"". [<8> Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 also require the PidTagEntryId property for action ""OP_FORWARD"".]");
+                        @"[In Appendix A: Product Behavior] Implementation does require the PidTagEntryId property for action ""OP_FORWARD"". [<7> Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 also require the PidTagEntryId property for action ""OP_FORWARD"".]");
                 }
 
                 if ((actionBlock.ActionType == ActionType.OP_FORWARD) || (actionBlock.ActionType == ActionType.OP_DELEGATE))
@@ -1588,7 +1588,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR633,
                             633,
-                            @"[[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x00. [<9> Section 2.2.5.1.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 set this value to 0x00.]");
+                            @"[[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x00. [<8> Section 2.2.5.1.2.4.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview set this value to 0x00.]");
                     }
 
                     if (Common.IsRequirementEnabled(632, this.Site))
@@ -1599,7 +1599,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR632,
                             632,
-                            @"[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x01. [<9> Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 set this value to 0x01.]");
+                            @"[In Appendix A: Product Behavior] Implementation does set this value [Reserved (1 byte)] to 0x01. [<8> Section 2.2.5.1.2.4.1: Exchange 2003 and Exchange 2007 set this value to 0x01.]");
                     }
 
                     // Add the debug information.
