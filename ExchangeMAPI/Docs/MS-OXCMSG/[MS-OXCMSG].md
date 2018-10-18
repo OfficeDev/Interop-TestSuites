@@ -1,6 +1,6 @@
 ## [MS-OXCMSG]: Message and Attachment Object Protocol 
-- [MS-OXCMSG] v20180724 is used to develop the test suite.
-- Release date, 7/24/2018.
+- [MS-OXCMSG] v20181001 is used to develop the test suite.
+- Release date, 10/1/2018.
 
 To find the new landing page for [MS-OXCMSG], please visit https://msdn.microsoft.com/en-us/library/cc463900(v=exchg.80).aspx
 

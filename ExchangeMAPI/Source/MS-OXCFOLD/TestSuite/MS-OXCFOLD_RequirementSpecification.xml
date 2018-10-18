@@ -4400,7 +4400,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10345</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.640) specifies the number of messages in a folder, as computed by the message store.</ns1:Description>
+		<ns1:Description>[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.642) specifies the number of messages in a folder, as computed by the message store.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4427,7 +4427,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10347</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagContentUnreadCount Property] The PidTagContentUnreadCount property ([MS-OXPROPS] section 2.642) specifies the number of unread messages in a folder, as computed by the message store.</ns1:Description>
+		<ns1:Description>[In PidTagContentUnreadCount Property] The PidTagContentUnreadCount property ([MS-OXPROPS] section 2.644) specifies the number of unread messages in a folder, as computed by the message store.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4445,7 +4445,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10348</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDeletedOn Property] The PidTagDeletedOn property ([MS-OXPROPS] section 2.664) specifies the time when the folder was soft deleted.</ns1:Description>
+		<ns1:Description>[In PidTagDeletedOn Property] The PidTagDeletedOn property ([MS-OXPROPS] section 2.666) specifies the time when the folder was soft deleted.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4463,7 +4463,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10349</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAddressBookEntryId Property] The PidTagAddressBookEntryId property ([MS-OXPROPS] section 2.515) contains an Address Book EntryID structure, as specified in [MS-OXCDATA] section 2.2.5.2, that specifies the name-service entry ID of a directory object that refers to a public folder. &lt;10&gt; </ns1:Description>
+		<ns1:Description>[In PidTagAddressBookEntryId Property] The PidTagAddressBookEntryId property ([MS-OXPROPS] section 2.517) contains an Address Book EntryID structure, as specified in [MS-OXCDATA] section 2.2.5.2, that specifies the name-service entry ID of a directory object that refers to a public folder. &lt;10&gt; </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4500,7 +4500,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1035110</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderFlags Property] The PidTagFolderId property ([MS-OXPROPS] section 2.695) contains a computed value that specifies the type or state of a folder.</ns1:Description>
+		<ns1:Description>[In PidTagFolderFlags Property] The PidTagFolderId property ([MS-OXPROPS] section 2.697) contains a computed value that specifies the type or state of a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4563,7 +4563,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10351</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.694) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.</ns1:Description>
+		<ns1:Description>[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.696) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4581,7 +4581,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10027</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.852) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.</ns1:Description>
+		<ns1:Description>[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.854) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4599,7 +4599,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10028</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.714) specifies the number of subfolders in the folder.</ns1:Description>
+		<ns1:Description>[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.716) specifies the number of subfolders in the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4626,7 +4626,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R352002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHierRev Property] The PidTagHierRev property ([MS-OXPROPS] section 2.715) specifies the time, in Coordinated Universal Time (UTC), to trigger the client in cached mode to synchronize the folder hierarchy.</ns1:Description>
+		<ns1:Description>[In PidTagHierRev Property] The PidTagHierRev property ([MS-OXPROPS] section 2.717) specifies the time, in Coordinated Universal Time (UTC), to trigger the client in cached mode to synchronize the folder hierarchy.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4644,7 +4644,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10353</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.790) specifies the aggregate size of messages in the folder.</ns1:Description>
+		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.792) specifies the aggregate size of messages in the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4662,7 +4662,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10354</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.11</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.791) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).</ns1:Description>
+		<ns1:Description>[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.793) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4680,7 +4680,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10355</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.12</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1026) specifies whether the folder has any subfolders.</ns1:Description>
+		<ns1:Description>[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1028) specifies whether the folder has any subfolders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4716,7 +4716,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.13</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLocalCommitTime Property] The PidTagLocalCommitTime property ([MS-OXPROPS] section 2.766) specifies the time, in Coordinated Universal Time (UTC), that the folder was last changed.</ns1:Description>
+		<ns1:Description>[In PidTagLocalCommitTime Property] The PidTagLocalCommitTime property ([MS-OXPROPS] section 2.768) specifies the time, in Coordinated Universal Time (UTC), that the folder was last changed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4734,7 +4734,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLocalCommitTimeMax Property] The PidTagLocalCommitTimeMax property ([MS-OXPROPS] section 2.767) specifies the most recent time that a top level object within a folder was changed.</ns1:Description>
+		<ns1:Description>[In PidTagLocalCommitTimeMax Property] The PidTagLocalCommitTimeMax property ([MS-OXPROPS] section 2.769) specifies the most recent time that a top level object within a folder was changed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4761,7 +4761,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3006</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.15</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDeletedCountTotal Property] The PidTagDeletedCountTotal property ([MS-OXPROPS] section 2.663) specifies the total number of messages that have been deleted from a folder, excluding messages that have been deleted from the folder's subfolders.</ns1:Description>
+		<ns1:Description>[In PidTagDeletedCountTotal Property] The PidTagDeletedCountTotal property ([MS-OXPROPS] section 2.665) specifies the total number of messages that have been deleted from a folder, excluding messages that have been deleted from the folder's subfolders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4779,7 +4779,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10356</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttributeHidden Property] The PidTagAttributeHidden property ([MS-OXPROPS] section 2.605) specifies whether the folder is hidden.</ns1:Description>
+		<ns1:Description>[In PidTagAttributeHidden Property] The PidTagAttributeHidden property ([MS-OXPROPS] section 2.607) specifies whether the folder is hidden.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4815,7 +4815,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10359</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.631) contains a comment about the purpose or content of the folder.</ns1:Description>
+		<ns1:Description>[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.633) contains a comment about the purpose or content of the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4851,7 +4851,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10036</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagContainerClass Property] The PidTagContainerClass property ([MS-OXPROPS] section 2.636) specifies the type of Message object that the folder contains.</ns1:Description>
+		<ns1:Description>[In PidTagContainerClass Property] The PidTagContainerClass property ([MS-OXPROPS] section 2.638) specifies the type of Message object that the folder contains.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4878,7 +4878,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1228</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[PidTagContainerHierarchy Property] The PidTagContainerHierarchy property ([MS-OXPROPS] section 2.639) contains identifiers of the subfolders that are contained in the folder.</ns1:Description>
+		<ns1:Description>[PidTagContainerHierarchy Property] The PidTagContainerHierarchy property ([MS-OXPROPS] section 2.641) contains identifiers of the subfolders that are contained in the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4905,7 +4905,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10360</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDisplayName Property] The PidTagDisplayName property ([MS-OXPROPS] section 2.670) specifies the display name of the folder.</ns1:Description>
+		<ns1:Description>[In PidTagDisplayName Property] The PidTagDisplayName property ([MS-OXPROPS] section 2.672) specifies the display name of the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4933,7 +4933,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1231</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[PidTagFolderAssociatedContents Property] The PidTagFolderAssociatedContents property ([MS-OXPROPS] section 2.693) contains identifiers of the FAI messages that are contained in the folder.</ns1:Description>
+		<ns1:Description>[PidTagFolderAssociatedContents Property] The PidTagFolderAssociatedContents property ([MS-OXPROPS] section 2.695) contains identifiers of the FAI messages that are contained in the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4960,7 +4960,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10362</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderType Property] The PidTagFolderType property ([MS-OXPROPS] section 2.696) specifies the type of the folder.</ns1:Description>
+		<ns1:Description>[In PidTagFolderType Property] The PidTagFolderType property ([MS-OXPROPS] section 2.698) specifies the type of the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5024,7 +5024,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10367</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRights Property] The PidTagRights property ([MS-OXPROPS] section 2.929) specifies the client's folder permissions.</ns1:Description>
+		<ns1:Description>[In PidTagRights Property] The PidTagRights property ([MS-OXPROPS] section 2.931) specifies the client's folder permissions.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8813,7 +8813,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R22002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not provide access to soft-deleted folders. &lt;1&gt; Section 2.2.1.1.1: Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not provide access to soft-deleted folders.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not provide access to soft-deleted folders. &lt;1&gt; Section 2.2.1.1.1: Exchange 2013, Exchange 2016 and Exchange 2019 do not provide access to soft-deleted folders.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R22:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8845,7 +8845,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R25001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a zero value to HasRules field. &lt;2&gt; Section 2.2.1.1.2: Exchange 2003 and Exchange 2007, Exchange 2016 and Exchange 2019 Preview return zero (FALSE) in the HasRules field, even when there are rules on the Inbox folder.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a zero value to HasRules field. &lt;2&gt; Section 2.2.1.1.2: Exchange 2003 and Exchange 2007, Exchange 2016 and Exchange 2019 return zero (FALSE) in the HasRules field, even when there are rules on the Inbox folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R25:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8867,7 +8867,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R60001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. &lt;3&gt; Section 2.2.1.2.2: Exchange 2010 Exchange 2013, Exchange 2016 and Exchange 2019 Preview return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. &lt;3&gt; Section 2.2.1.2.2: Exchange 2010 Exchange 2013, Exchange 2016 and Exchange 2019 return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R60:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8910,7 +8910,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R19702001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders. &lt;5&gt; Section 2.2.1.8: Exchange 2013 Exchange 2016 and Exchange 2019 Preview do not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders. &lt;5&gt; Section 2.2.1.8: Exchange 2013 Exchange 2016 and Exchange 2019 do not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R19702:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8931,7 +8931,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R19703001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) between public folder and private mailbox. &lt;5&gt; Section 2.2.1.8: Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) between public folder and private mailbox. &lt;5&gt; Section 2.2.1.8: Exchange 2013, Exchange 2016 and Exchange 2019 do not support the RopCopyFolder ROP ([MS-OXCROPS] section 2.2.4.8) for public folders.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R19703:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8963,7 +8963,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R271502</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the ROP fails for a subset of targets, the value of PartialCompletion is zero (FALSE).  (Exchange  2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the ROP fails for a subset of targets, the value of PartialCompletion is zero (FALSE).  (Exchange  2010, Exchange 2013, Exchange 2016 and Exchange 2019 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R2715:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8974,7 +8974,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R97501001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) for public folders. &lt;7&gt; Section 2.2.1.9: Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) for public folders.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) for public folders. &lt;7&gt; Section 2.2.1.9: Exchange 2013, Exchange 2016 and Exchange 2019 do not support the RopEmptyFolder ROP ([MS-OXCROPS] section 2.2.4.9) for public folders.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R97501:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8995,7 +8995,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R98301001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopHardDeleteMessagesAndSubfolders ROP ([MS-OXCROPS] section 2.2.4.10) for public folders. &lt;8&gt; Section 2.2.1.10: Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support the RopHardDeleteMessagesAndSubfolders ROP ([MS-OXCROPS] section 2.2.4.10) for public folders.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the RopHardDeleteMessagesAndSubfolders ROP ([MS-OXCROPS] section 2.2.4.10) for public folders. &lt;8&gt; Section 2.2.1.10: Exchange 2013, Exchange 2016 and Exchange 2019 do not support the RopHardDeleteMessagesAndSubfolders ROP ([MS-OXCROPS] section 2.2.4.10) for public folders.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R98301:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9016,7 +9016,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R350001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not support the PidTagAddressBookEntryId property. &lt;10&gt; Section 2.2.2.2.1.4:  Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support the PidTagAddressBookEntryId property.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not support the PidTagAddressBookEntryId property. &lt;10&gt; Section 2.2.2.2.1.4:  Exchange 2013, Exchange 2016 and Exchange 2019 do not support the PidTagAddressBookEntryId property.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R350:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9059,7 +9059,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R106601</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation returns ecAccessdenied if the client does not have permissions to create the folder. &lt;13&gt; Section 3.2.5.2: Exchange 2007, Exchange 2013, Exchange 2016 and Exchange 2019 Preview return ecAccessdenied.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation returns ecAccessdenied if the client does not have permissions to create the folder. &lt;13&gt; Section 3.2.5.2: Exchange 2007, Exchange 2013, Exchange 2016 and Exchange 2019 return ecAccessdenied.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1066:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9092,7 +9092,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10660202</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecNotSupported. &lt;14&gt; Exchange 2007, Exchange 2013, Exchange 2016 and Exchange 2019 Preview return ecNotSupported.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecNotSupported. &lt;14&gt; Exchange 2007, Exchange 2013, Exchange 2016 and Exchange 2019 return ecNotSupported.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R49601:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9114,7 +9114,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R123402</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. &lt;15&gt; Section 3.2.5.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview ignore invalid bits instead of failing the ROP.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. &lt;15&gt; Section 3.2.5.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 ignore invalid bits instead of failing the ROP.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1234:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9179,7 +9179,17 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R116001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the SearchFlags field, implementation does fail the RopSetSearchCriteria ROP operation with ecInvalidParam (0x80070057). (Microsoft Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the SearchFlags field, implementation does fail the RopSetSearchCriteria ROP operation with ecInvalidParam (0x80070057). (Microsoft Exchange 2010, Microsoft Exchange 2013 and Microsoft Exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXCFOLD_R116:i,MS-OXCFOLD_R113:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXCFOLD_R116003</ns1:REQ_ID>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the SearchFlags field, implementation does fail the RopSetSearchCriteria ROP operation with a ecNotSupported error code. (&lt;19&gt; Section 3.2.5.4: Exchange 2019 returns a ecNotSupported error code.)</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R116:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9212,7 +9222,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R124802</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. &lt;20&gt; Section 3.2.5.9: Update Rollup 4 for Exchange Server 2010 Service Pack 2 (SP2), Exchange 2013, Exchange 2016 and Exchange 2019 Preview return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. &lt;20&gt; Section 3.2.5.9: Update Rollup 4 for Exchange Server 2010 Service Pack 2 (SP2), Exchange 2013, Exchange 2016 and Exchange 2019 return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1248:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
