@@ -117,7 +117,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     logonResponse1.ReturnValue,
                     155,
-                    @"[In Appendix A: Product Behavior] The implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index. (&lt;9&gt; Section 2.2.1.1.4: Exchange 2013 Exchange 2016 and Exchange 2019 Preview returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index.)");
+                    @"[In Appendix A: Product Behavior] The implementation returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index. (&lt;9&gt; Section 2.2.1.1.4: Exchange 2013 Exchange 2016 and Exchange 2019 returns the empty Folder ID structures for the following folders: Free/Busy Data, Offline Address Book Data, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, and NNTP Article Index.)");
             }
 
             // Add the debug information
