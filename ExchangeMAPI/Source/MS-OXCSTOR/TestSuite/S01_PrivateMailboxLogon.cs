@@ -1004,7 +1004,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         Site.CaptureRequirementIfIsTrue(
                             isEqual,
                             314,
-                            @"[In RopGetReceiveFolderTable ROP Success Response Buffer]  [Rows] PidTagLastModificationTime property: PidTagLastModificationTime property ([MS-OXPROPS] section 2.758) -- A PtypTime value that specifies the time, in Coordinated Universal Time (UTC), when the server created or last modified the row in the Receive folder table.");
+                            @"[In RopGetReceiveFolderTable ROP Success Response Buffer]  [Rows] PidTagLastModificationTime property: PidTagLastModificationTime property ([MS-OXPROPS] section 2.760) -- A PtypTime value that specifies the time, in Coordinated Universal Time (UTC), when the server created or last modified the row in the Receive folder table.");
                     }
                 }
                 else
@@ -1066,7 +1066,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR872,
                 872,
-                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Message Class"" column (PidTagMessageClass property ([MS-OXPROPS] section 2.781)) - Contains a string that specifies the message class that is configured for the Receive folder.");
+                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Message Class"" column (PidTagMessageClass property ([MS-OXPROPS] section 2.783)) - Contains a string that specifies the message class that is configured for the Receive folder.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R59801, The MessageClass calling RopGetReceiveFolderTable ROP: {0}", returnedMyClass.Replace("\0", string.Empty));
@@ -1087,7 +1087,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 folderIdForMyClass,
                 BitConverter.ToUInt64(this.getReceiveFolderTableResponse.Rows.PropertyRows[createdClassIndex].PropertyValues[0].Value, 0),
                 870,
-                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Folder ID"" column (PidTagFolderId property ([MS-OXPROPS] section 2.694)) - Contains the Folder ID, as specified in [MS-OXCDATA] section 2.2.1.1, of the Receive folder, which is the folder to which messages of the specified message class will be delivered.");
+                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Folder ID"" column (PidTagFolderId property ([MS-OXPROPS] section 2.696)) - Contains the Folder ID, as specified in [MS-OXCDATA] section 2.2.1.1, of the Receive folder, which is the folder to which messages of the specified message class will be delivered.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R866, The MessageClass calling RopGetReceiveFolderTable ROP: {0}", returnedMyClass.Replace("\0", string.Empty));
@@ -1441,7 +1441,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     this.getStoreStateResponse.ReturnValue,
                     3125,
-                    @"[In Appendix A: Product Behavior] The implementation does not implement the RopGetStoreState remote operation (ROP). (&lt;11&gt; Section 2.2.1.5: Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 Preview does not implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))");
+                    @"[In Appendix A: Product Behavior] The implementation does not implement the RopGetStoreState remote operation (ROP). (&lt;11&gt; Section 2.2.1.5: Exchange 2010, Exchange 2013,  Exchange 2016 and Exchange 2019 does not implement the RopGetStoreState remote operation (ROP) ([MS-OXCROPS] section 2.2.3.5))");
                 #endregion
             }
 
@@ -1947,7 +1947,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     this.longTermIdFromIdResponse.ReturnValue,
                     1337,
-                    @"[In Appendix A: Product Behavior] Implementation does not fail the operation [RopLongTermIdFromId] with 0x8004010F, but ecNone. &lt;43&gt; Section 3.2.5.8: If the ObjectId field is set to zero, Exchange 2013, Exchange 2016 and Exchange 2019 Preview returns ecNone.");
+                    @"[In Appendix A: Product Behavior] Implementation does not fail the operation [RopLongTermIdFromId] with 0x8004010F, but ecNone. &lt;43&gt; Section 3.2.5.8: If the ObjectId field is set to zero, Exchange 2013, Exchange 2016 and Exchange 2019 returns ecNone.");
             }
 
             if (Common.IsRequirementEnabled(1355, this.Site))
@@ -3048,7 +3048,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x80070005,
                     returnValue,
                     6280001,
-                    @"[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Microsoft Exchange Server 2013 Service Pack 1 (SP1), Exchange 2016 and Exchange 2019 Preview follow this behavior).");
+                    @"[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagComment property by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).(Microsoft Exchange Server 2013 Service Pack 1 (SP1), Exchange 2016 and Exchange 2019 follow this behavior).");
             }
 
             if (Common.IsRequirementEnabled(6280002, this.Site))
@@ -3094,7 +3094,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     tagCommentValue,
                     tagCurrentCommentValue,
                     650,
-                    @"[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.628) contains a mailbox comment.");
+                    @"[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.633) contains a mailbox comment.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R3069");
@@ -3159,7 +3159,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0x80070005,
                     resultSetDeleteAfterSubmit,
                     3128,
-                    @"[In Appendix A: Product Behavior] The implementation returns 0x80070005 (ecAccessDenied) when the client attempts to set PidTagDeleteAfterSubmit property by using the RopSetProperties ROP. (&lt;15&gt; Section 2.2.2.1.2.2: In Exchange 2013, Exchange 2016 and Exchange 2019 Preview the server returns 0x80070005 (ecAccessDenied) when the client attempts to set this property [PidTagDeleteAfterSubmit] by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).)");
+                    @"[In Appendix A: Product Behavior] The implementation returns 0x80070005 (ecAccessDenied) when the client attempts to set PidTagDeleteAfterSubmit property by using the RopSetProperties ROP. (&lt;15&gt; Section 2.2.2.1.2.2: In Exchange 2013, Exchange 2016 and Exchange 2019 the server returns 0x80070005 (ecAccessDenied) when the client attempts to set this property [PidTagDeleteAfterSubmit] by using the RopSetProperties ROP ([MS-OXCROPS] section 2.2.8.6).)");
             }
             #endregion
 
@@ -3244,7 +3244,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                 Site.CaptureRequirementIfAreEqual<uint>(0x80070005,
                     retValue,
                     306800301,
-                    @"[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Microsoft Exchange Server 2013 Service Pack 1 (SP1), Exchange 2016 and Exchange 2019 Preview follow this behavior)");
+                    @"[In Appendix A: Product Behavior] Implementation does return 0x80070005 (ecAccessDenied) when the client attempts to set the PidTagDisplayName property by using the RopSetProperties ROP.(Microsoft Exchange Server 2013 Service Pack 1 (SP1), Exchange 2016 and Exchange 2019 follow this behavior)");
             }
 
             if (Common.IsRequirementEnabled(306800302, this.Site))
@@ -3542,7 +3542,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         0x00000000,
                         this.logonResponse.ReturnValue,
                         3905001,
-                        @"[In Appendix A: Product Behavior]  Implementation does not fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. (&lt;31&gt; Section 3.2.5.1.1: Exchange 2016, Exchange 2013 and Exchange 2019 Preview return ecNone.)");
+                        @"[In Appendix A: Product Behavior]  Implementation does not fail the operation [RopLogon] with ecAccessDenied [if the user does not match the owner of the mailbox]. (&lt;31&gt; Section 3.2.5.1.1: Exchange 2016, Exchange 2013 and Exchange 2019 return ecNone.)");
                 }
                 #endregion Capture
                 #endregion Step5

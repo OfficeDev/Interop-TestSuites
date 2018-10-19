@@ -1626,7 +1626,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     maxDataSize,
                     this.readPerUserInformationResponse.DataSize,
                     999,
-                    @"[In Appendix A: Product Behavior] Implementation's maximum value of MaxDataSize is 4096. (If MaxDataSize &gt; [server's suitable maximum (4096)], then Implementation does adjust the value of MaxDataSize to the suitable maximum value (4096) in Microsoft Exchanges. &lt;47&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview use 4096 for the maximum value.)");
+                    @"[In Appendix A: Product Behavior] Implementation's maximum value of MaxDataSize is 4096. (If MaxDataSize &gt; [server's suitable maximum (4096)], then Implementation does adjust the value of MaxDataSize to the suitable maximum value (4096) in Microsoft Exchanges. &lt;47&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 use 4096 for the maximum value.)");
             }
             #endregion
 
@@ -1730,7 +1730,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     defaultDataSize,
                     this.readPerUserInformationResponse.DataSize,
                     1356,
-                    @"[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). &lt;46&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview use 4096 for the default value.)<");
+                    @"[In Appendix A: Product Behavior] Implementation's default value of MaxDataSize is 4096. (If MaxDataSize equals 0, then the server MUST adjust the value of MaxDataSize to a suitable default value (4096). &lt;46&gt; Section 3.2.5.12.1: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 use 4096 for the default value.)<");
             }
             #endregion
 
