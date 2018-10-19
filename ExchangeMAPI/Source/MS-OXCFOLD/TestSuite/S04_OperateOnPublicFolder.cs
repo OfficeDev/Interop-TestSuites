@@ -120,7 +120,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x80040102,
                     createFolderResponse.ReturnValue,
                     10660202,
-                    @"[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecNotSupported. <14> Exchange 2007, Exchange 2013, Exchange 2016 and Exchange 2019 Preview return ecNotSupported.");
+                    @"[In Appendix A: Product Behavior] If the ROP was called to create a search folder on a public folders message store, the implemetation does return ecNotSupported. <14> Exchange 2007, Exchange 2013, Exchange 2016 and Exchange 2019 return ecNotSupported.");
             }
             #endregion
 
@@ -233,7 +233,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 Site.CaptureRequirementIfIsTrue(
                     isR60001Verified,
                     60001,
-                    @"[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. <3> Section 2.2.1.2.2: Exchange 2010 Exchange 2013, Exchange 2016 and Exchange 2019 Preview return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.");
+                    @"[In Appendix A: Product Behavior] Implementation does return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder. <3> Section 2.2.1.2.2: Exchange 2010 Exchange 2013, Exchange 2016 and Exchange 2019 return zero (FALSE) in the IsExistingFolder field regardless of the existence of the named public folder.");
             }
 
             if (Common.IsRequirementEnabled(60002, this.Site))
