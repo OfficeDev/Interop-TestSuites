@@ -1186,7 +1186,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0x80040102,
                     emptyFolderResponse.ReturnValue,
                     124802,
-                    @"[In Appendix A: Product Behavior] Implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. <20> Section 3.2.5.9: Update Rollup 4 for Exchange Server 2010 Service Pack 2 (SP2), Exchange 2013, Exchange 2016 and Exchange 2019 Preview return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder.");
+                    @"[In Appendix A: Product Behavior] Implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. <20> Section 3.2.5.9: Update Rollup 4 for Exchange Server 2010 Service Pack 2 (SP2), Exchange 2013, Exchange 2016 and Exchange 2019 return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder.");
             }
             #endregion
         }

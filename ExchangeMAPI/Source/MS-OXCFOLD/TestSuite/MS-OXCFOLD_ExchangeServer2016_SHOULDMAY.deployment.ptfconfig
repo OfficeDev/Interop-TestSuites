@@ -35,6 +35,8 @@
     <Property name="R116001Enabled" value="true" />
     <!-- Set R116002Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does not fail the operation, if the client sets an invalid bit in the SearchFlags field, as specified in section 3.2.5.4. Set R116002Enabled to false to disable this requirement. -->
     <Property name="R116002Enabled" value="false" />
+    <!-- Set R116003Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does fail the operation with ecNotSupported in the ReturnValue of the ROP response, if the client sets an invalid bit in the SearchFlags field, as specified in section 3.2.5.4. Set R116003Enabled to false to disable this requirement. -->
+    <Property name="R116003Enabled" value="false" />
     <!-- Set R314001Enabled to true to verify that for ROP RopGetHierarchyTable the implementation does not fail the operation, if the client sets an invalid bit in the TableFlags field, as specified in section 3.2.5.13. Set R314001Enabled to false to disable this requirement. -->
     <Property name="R314001Enabled" value="false" />
     <!-- Set R314002Enabled to true to verify that for ROP RopGetHierarchyTable the implementation does fail the operation with ecNotSupported in the ReturnValue of the ROP response, if the client sets an invalid bit in the TableFlags field, as specified in section 3.2.5.13. Set R314002Enabled to false to disable this requirement. -->

@@ -167,7 +167,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsTrue(
                 isEqual,
                 10027,
-                @"[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.852) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.");
+                @"[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.854) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.");
 
             #endregion
 
@@ -256,7 +256,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                     0,
                     openFolderResponse.HasRules,
                     25001,
-                    @"[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a zero value to HasRules field. <2> Section 2.2.1.1.2: Exchange 2003 and Exchange 2007, Exchange 2016 and Exchange 2019 Preview return zero (FALSE) in the HasRules field, even when there are rules on the Inbox folder.");
+                    @"[In Appendix A: Product Behavior] If rules are associated with the folder, implementation does set a zero value to HasRules field. <2> Section 2.2.1.1.2: Exchange 2003 and Exchange 2007, Exchange 2016 and Exchange 2019 return zero (FALSE) in the HasRules field, even when there are rules on the Inbox folder.");
             }
 
             // Add the debug information
@@ -428,7 +428,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 this.Site.CaptureRequirementIfIsTrue(
                     getPropertiesSpecificResponse.RowData.PropertyValues[0].Value.Length > 0,
                     10348,
-                    @"[In PidTagDeletedOn Property] The PidTagDeletedOn property ([MS-OXPROPS] section 2.664) specifies the time when the folder was soft deleted.");
+                    @"[In PidTagDeletedOn Property] The PidTagDeletedOn property ([MS-OXPROPS] section 2.666) specifies the time when the folder was soft deleted.");
                 #endregion
             }
 
@@ -925,7 +925,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0,
                 pidTagMessageSizeExtended,
                 10345,
-                @"[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.640) specifies the number of messages in a folder, as computed by the message store.");
+                @"[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.642) specifies the number of messages in a folder, as computed by the message store.");
             #endregion
             #endregion
         }
@@ -1145,7 +1145,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 // [In Processing a RopDeleteFolder ROP Request] The server ignored the invalid bits [0x02, 0x08, 0x20, 0x40, and 0x80], MS-OXCFOLD_R103402 can be verified.
                 Site.CaptureRequirement(
                     123402,
-                    @"[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. <15> Section 3.2.5.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview ignore invalid bits instead of failing the ROP.");
+                    @"[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. <15> Section 3.2.5.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 ignore invalid bits instead of failing the ROP.");
             }
 
             if (Common.IsRequirementEnabled(123401, this.Site))
