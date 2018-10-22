@@ -220,7 +220,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             this.Site.CaptureRequirementIfIsTrue(
                 Convert.ToBoolean(pidTagRead.Value),
                 2045,
-                @"[In PidTagRead Property] The PidTagRead property ([MS-OXPROPS] section 2.872) indicates whether a message has been read.");    
+                @"[In PidTagRead Property] The PidTagRead property ([MS-OXPROPS] section 2.874) indicates whether a message has been read.");    
             #endregion
 
             #region Call RopSetReadFlags to change the state of the PidTagMessageFlags property to rfClearReadFlag on Message object within inbox Folder.

@@ -440,7 +440,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 this.Site.CaptureRequirementIfIsTrue(
                     isR16401Verifed,
                     164101,
-                    @"[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2: Implementation does not initialize the following properties: PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2016 and above follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2: Implementation does not initialize the following properties: PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2016 follows this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(164102, this.Site))
@@ -718,7 +718,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                      creatorEntryId,
                      typeof(AddressBookEntryID),
                     1182,
-                    @"[In PidTagCreatorEntryId Property] The PidTagCreatorEntryId property ([MS-OXPROPS] section 2.649) specifies the original author of the message according to their address book EntryID.");
+                    @"[In PidTagCreatorEntryId Property] The PidTagCreatorEntryId property ([MS-OXPROPS] section 2.651) specifies the original author of the message according to their address book EntryID.");
 
                 AddressBookEntryID modifierEntryId = new AddressBookEntryID();
                 modifierEntryId.Deserialize((byte[])pidTagLastModifierEntryId.Value, 0);
@@ -741,7 +741,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     modifierEntryId,
                     typeof(AddressBookEntryID),
                     1185,
-                    @"[In PidTagLastModifierEntryId Property] The PidTagLastModifierEntryId property ([MS-OXPROPS] section 2.759) specifies the last user to modify the contents of the message according to their address book EntryID.");
+                    @"[In PidTagLastModifierEntryId Property] The PidTagLastModifierEntryId property ([MS-OXPROPS] section 2.761) specifies the last user to modify the contents of the message according to their address book EntryID.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R359");
@@ -1837,7 +1837,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     Convert.ToInt32(accesssLevelBeforeSave.Value),
                     Convert.ToInt32(accesssLevelAfterReadOnlySuccess.Value),
                     2192,
-                    @"[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.(&lt;13&gt; Section 2.2.3.3.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 20162019 Preview ignore the KeepOpenReadOnly flag.)");
+                    @"[In Appendix B: Product Behavior] Implementation returns a success code and keeps the Message object open with read-only access.(&lt;13&gt; Section 2.2.3.3.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 ignore the KeepOpenReadOnly flag.)");
             }
 
             if (Common.IsRequirementEnabled(2193, this.Site))
@@ -2390,7 +2390,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 this.Site.CaptureRequirementIfIsTrue(
                     isR3019Verifed,
                     3019,
-                    @"[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (<27> Section 3.2.5.3: Exchange 2010, Exchange 2013, and Exchange 2016 follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (&lt;27&gt; Section 3.2.5.3: Exchange 2010, Exchange 2013 and Exchange 2016 follow this behavior.)");
 
             }
             #endregion

@@ -174,7 +174,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     TestSuiteBase.Success,
                     saveChangesMessageResponse.ReturnValue,
                     1643,
-                    @"[In Appendix A: Product Behavior] Implementation does return Success for RopSaveChangesMessage ROP requests ([MS-OXCROPS] section 2.2.6.3) when a previous request has already been committed against the Message object, even though the changes to the object are not actually committed to the server message store. (Exchange 2010 and above follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] Implementation does return Success for RopSaveChangesMessage ROP requests ([MS-OXCROPS] section 2.2.6.3) when a previous request has already been committed against the Message object, even though the changes to the object are not actually committed to the server message store. (Exchange 2010, Exchange 2013 and Exchange 2016 follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(1916, this.Site))
