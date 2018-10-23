@@ -1886,6 +1886,8 @@
             this.ReleaseRop(targetMessageHandle);
 
             propertyNameList = new List<PropertyNameObject>();
+            PropertyNameObject MSIPLabels = new PropertyNameObject(PropertyNames.PidNameMSIPLabels, "msip_labels", PropertySet.PSINTERNETHEADERS, PropertyType.PtypString);
+            propertyNameList.Add(MSIPLabels);
             PropertyNameObject contentBaseName = new PropertyNameObject(PropertyNames.PidNameContentBase, "Content-Base", PropertySet.PSINTERNETHEADERS, PropertyType.PtypString);
             propertyNameList.Add(contentBaseName);
             PropertyNameObject acceptLanguageName = new PropertyNameObject(PropertyNames.PidNameAcceptLanguage, "Accept-Language", PropertySet.PSINTERNETHEADERS, PropertyType.PtypString);
@@ -1896,9 +1898,6 @@
             propertyNameList.Add(contentType);
             PropertyNameObject keywords = new PropertyNameObject(PropertyNames.PidNameKeywords, "Keywords", PropertySet.PSPUBLICSTRINGS, PropertyType.PtypMultipleString);
             propertyNameList.Add(keywords);
-            PropertyNameObject MSIPLabels = new PropertyNameObject(PropertyNames.PidNameMSIPLabels, "msip_labels", PropertySet.PSINTERNETHEADERS, PropertyType.PtypString);
-            propertyNameList.Add(MSIPLabels);
-
 
             #region Call RopCreateMessage to create Message object.
             targetMessageHandle = this.CreatedMessage(logonResponse.FolderIds[4], this.insideObjHandle);

@@ -2801,7 +2801,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R116003");
 
                 // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R116002
-                Site.CaptureRequirementIfAreNotEqual<uint>(
+                Site.CaptureRequirementIfAreEqual<uint>(
                     0x80040102,
                     setSearchCriteriaResponse.ReturnValue,
                     116003,
