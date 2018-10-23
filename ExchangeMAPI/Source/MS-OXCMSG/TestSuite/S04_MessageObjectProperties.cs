@@ -88,7 +88,10 @@
         /// Constant string for the test data of PidTagInternetReferences.
         /// </summary>
         private const string TestDataOfPidTagInternetReferences = "a375a61600000001, a375a61600000002";
-
+        /// <summary>
+        ///  Constant string for the test data of PidNameMSIPLabels.
+        /// </summary>
+        private const string TestDataOfPidNameMSIPLabels = "TestDataOfPidNameMSIPLabels";
         /// <summary>
         /// The priority of message is un-urgent
         /// </summary>
@@ -365,7 +368,7 @@
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
                 pidTagPurportedSenderDomain.Value.ToString(),
                 1214,
-                @"[In PidTagPurportedSenderDomain Property] The PidTagPurportedSenderDomain property ([MS-OXPROPS] section 2.870) contains the domain name of the last sender responsible for transmitting the current message.");
+                @"[In PidTagPurportedSenderDomain Property] The PidTagPurportedSenderDomain property ([MS-OXPROPS] section 2.872) contains the domain name of the last sender responsible for transmitting the current message.");
 
             PropertyObj pidTagAlternateRecipientAllowed = PropertyHelper.GetPropertyByName(propertyValues, PropertyNames.PidTagAlternateRecipientAllowed);
 
@@ -423,7 +426,7 @@
                 TestDataOfPidTagSubjectPrefix,
                 pidTagSubjectPrefix.Value.ToString(),
                 58,
-                @"[In PidTagSubjectPrefix Property] The PidTagSubjectPrefix property ([MS-OXPROPS] section 2.1027) contains the prefix for the subject of the message.");
+                @"[In PidTagSubjectPrefix Property] The PidTagSubjectPrefix property ([MS-OXPROPS] section 2.1029) contains the prefix for the subject of the message.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R64");
@@ -433,7 +436,7 @@
                 TestSuiteBase.TestDataOfPidTagNormalizedSubject,
                 pidTagNormalizedSubject.Value.ToString(),
                 64,
-                @"[In PidTagNormalizedSubject Property] The PidTagNormalizedSubject property ([MS-OXPROPS] section 2.806) contains the normalized subject of the message, as specified in [MS-OXCMAIL] section 2.2.3.2.6.1.");
+                @"[In PidTagNormalizedSubject Property] The PidTagNormalizedSubject property ([MS-OXPROPS] section 2.808) contains the normalized subject of the message, as specified in [MS-OXCMAIL] section 2.2.3.2.6.1.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1238");
@@ -445,7 +448,7 @@
                 mailSubject,
                 pidTagSubject.Value.ToString(),
                 1238,
-                @"[In PidTagSubject Property] The PidTagSubject property ([MS-OXPROPS] section 2.1021) contains the full subject of an e-mail message.");
+                @"[In PidTagSubject Property] The PidTagSubject property ([MS-OXPROPS] section 2.1029) contains the full subject of an e-mail message.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1239");
@@ -477,7 +480,7 @@
                 Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 pidTagRecipientDisplayName.Value.ToString(),
                 2047,
-                @"[In PidTagRecipientDisplayName Property] The PidTagRecipientDisplayName property ([MS-OXPROPS] section 2.893) specifies the display name of a recipient (2).");
+                @"[In PidTagRecipientDisplayName Property] The PidTagRecipientDisplayName property ([MS-OXPROPS] section 2.895) specifies the display name of a recipient (2).");
             #endregion
             #endregion
 
@@ -680,7 +683,7 @@
             this.Site.CaptureRequirementIfIsNotNull(
                 pidTagHtml.Value,
                 2082,
-                @"[In PidTagHtml Property] [Type] The PidTagHtml property ([MS-OXPROPS] section 2.727) contains the message body text in HTML format.");
+                @"[In PidTagHtml Property] [Type] The PidTagHtml property ([MS-OXPROPS] section 2.729) contains the message body text in HTML format.");
 
             PropertyObj pidTagBodyContentLocation = PropertyHelper.GetPropertyByName(propertyValues, PropertyNames.PidTagBodyContentLocation);
 
@@ -693,7 +696,7 @@
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR2076,
                 2076,
-                @"[In PidTagBodyContentLocation Property] The PidTagBodyContentLocation property ([MS-OXPROPS] section 2.614) contains a globally unique URI that serves as a label for the current message body.");
+                @"[In PidTagBodyContentLocation Property] The PidTagBodyContentLocation property ([MS-OXPROPS] section 2.616) contains a globally unique URI that serves as a label for the current message body.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R2077, the value of PidTagBodyContentLocation is {0}.", pidTagBodyContentLocation.Value.ToString());
@@ -1893,6 +1896,9 @@
             propertyNameList.Add(contentType);
             PropertyNameObject keywords = new PropertyNameObject(PropertyNames.PidNameKeywords, "Keywords", PropertySet.PSPUBLICSTRINGS, PropertyType.PtypMultipleString);
             propertyNameList.Add(keywords);
+            PropertyNameObject MSIPLabels = new PropertyNameObject(PropertyNames.PidNameMSIPLabels, "msip_labels", PropertySet.PSINTERNETHEADERS, PropertyType.PtypString);
+            propertyNameList.Add(MSIPLabels);
+
 
             #region Call RopCreateMessage to create Message object.
             targetMessageHandle = this.CreatedMessage(logonResponse.FolderIds[4], this.insideObjHandle);
@@ -1904,6 +1910,8 @@
             this.SetNamedProperty(targetMessageHandle, contentClassName, Common.GetBytesFromUnicodeString(TestDataOfPidNameContentClass));
             this.SetNamedProperty(targetMessageHandle, contentType, Common.GetBytesFromUnicodeString(TestDataOfPidNameContentType));
             this.SetNamedProperty(targetMessageHandle, keywords, Common.GetBytesFromMutiUnicodeString(new string[] { TestDataOfPidNameKeywords }));
+            this.SetNamedProperty(targetMessageHandle, MSIPLabels, Common.GetBytesFromUnicodeString(TestDataOfPidNameMSIPLabels));
+
             #endregion
 
             #region Get properties value in message
@@ -1919,7 +1927,7 @@
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR1208,
                 1208,
-                @"[In PidNameContentBase Property] The PidNameContentBase property ([MS-OXPROPS] section 2.406) specifies the value of the Content-Base header (2), which defines the base Uniform Resource Identifier (URI) for resolving relative URLs contained within the message body.");
+                @"[In PidNameContentBase Property] The PidNameContentBase property ([MS-OXPROPS] section 2.410) specifies the value of the Content-Base header (2), which defines the base Uniform Resource Identifier (URI) for resolving relative URLs contained within the message body.");
 
             string acceptLanguageValue = Encoding.Unicode.GetString(propertyValues[PropertyNames.PidNameAcceptLanguage], 0, propertyValues[PropertyNames.PidNameAcceptLanguage].Length - 2);
 
@@ -1931,7 +1939,7 @@
                 TestDataOfPidNameAcceptLanguage,
                 acceptLanguageValue,
                 1210,
-                @"[In PidNameAcceptLanguage Property] The PidNameAcceptLanguage property ([MS-OXPROPS] section 2.366) contains the value of the Accept-Language header (2), which defines the natural languages in which the sender prefers to receive a response.");
+                @"[In PidNameAcceptLanguage Property] The PidNameAcceptLanguage property ([MS-OXPROPS] section 2.367) contains the value of the Accept-Language header (2), which defines the natural languages in which the sender prefers to receive a response.");
 
             string contentTypeValue = Encoding.Unicode.GetString(propertyValues[PropertyNames.PidNameContentType], 0, propertyValues[PropertyNames.PidNameContentType].Length - 2);
 
@@ -1943,8 +1951,19 @@
                 TestDataOfPidNameContentType,
                 contentTypeValue,
                 2038,
-                @"[In PidNameContentType Property] The PidNameContentType property ([MS-OXPROPS] section 2.411) contains the value of the Content-Type header (2), which defines the type of the body part's content.");           
-        
+                @"[In PidNameContentType Property] The PidNameContentType property ([MS-OXPROPS] section 2.412) contains the value of the Content-Type header (2), which defines the type of the body part's content.");
+
+            string clpLablesValue = Encoding.Unicode.GetString(propertyValues[PropertyNames.PidNameMSIPLabels], 0, propertyValues[PropertyNames.PidNameMSIPLabels].Length - 2);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R218102");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R2038
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                TestDataOfPidNameMSIPLabels,
+                clpLablesValue,
+                218102,
+                @"[In PidNameMSIPLabels Property] The PidNameMSIPLabels property ([MS-OXPROPS] section 2.456) contains the string that specifies the CLP Labels information.");
             #endregion
 
             #region Call RopSaveMessage to commit the message changes
