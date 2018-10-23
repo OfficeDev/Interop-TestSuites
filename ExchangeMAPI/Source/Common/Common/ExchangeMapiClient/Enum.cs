@@ -1662,7 +1662,11 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <summary>
         /// The PidNameAttachmentPermissionType property contains the permission type data associated with a web reference attachment.
         /// </summary>
-        PidNameAttachmentPermissionType
+        PidNameAttachmentPermissionType,
+        /// <summary>
+        /// The PidNameMSIPLabels contains the string that specifies the CLP label information.
+        /// </summary>
+        PidNameMSIPLabels
     }
     #endregion
     #endregion
