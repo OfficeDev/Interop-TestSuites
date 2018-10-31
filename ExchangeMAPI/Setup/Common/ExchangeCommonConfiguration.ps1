@@ -100,6 +100,7 @@ function GetExchangeServerVersion
     $ExchangeServer2010             = "$global:Exchange2010",   "14.3.123.4",    "SP3"
     $ExchangeServer2013             = "$global:Exchange2013",   "15.0.847.32",   "SP1"
     $ExchangeServer2016             = "$global:Exchange2016",   "15.1.280.0",   "0"
+    $ExchangeServer2019             = "$global:Exchange2019",   "15.2.196.0",   "0"
     $ExchangeVersion                = "Unknown Version"
     
     Output "Trying to get the Exchange server version; please wait ..." "White"
@@ -147,6 +148,15 @@ function GetExchangeServerVersion
             $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
             break
         }    
+        if($item.DisplayName.StartsWith($ExchangeServer2019[0]))
+        {
+            $version = $item.DisplayVersion
+            $ExchangeVersion = $ExchangeServer2019[0]
+            $recommendVersion = $ExchangeServer2019[1]
+            $recommendMinorVersion = $ExchangeServer2019[2]
+            $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
+            break
+        }
     }
     if ($ExchangeVersion -eq "Unknown Version")
     {
@@ -1034,7 +1044,8 @@ function GetExchangeServerVersionOnSUT
         $Exchange2007 = "Microsoft Exchange Server 2007", "ExchangeServer2007"
         $Exchange2010 = "Microsoft Exchange Server 2010", "ExchangeServer2010"
         $Exchange2013 = "Microsoft Exchange Server 2013", "ExchangeServer2013"
-        $Exchange2016 = "Microsoft Exchange Server 2016", "ExchangeServer2016"   
+        $Exchange2016 = "Microsoft Exchange Server 2016", "ExchangeServer2016"
+        $Exchange2016 = "Microsoft Exchange Server 2019", "ExchangeServer2019"   
         $ExchangeVersion  = "Unknown Version"
         $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
         $items = $keys | foreach-object {Get-ItemProperty $_.PsPath}    
@@ -1063,24 +1074,31 @@ function GetExchangeServerVersionOnSUT
             {
                 $ExchangeVersion = $Exchange2016[1]
                 break
-            }        
+            }   
+            if($item.DisplayName.StartsWith($Exchange2019[0]))
+            {
+                $ExchangeVersion = $Exchange2019[1]
+                break
+            }     
         }    
         return $ExchangeVersion
     }
 
-    $ExchangeVersions = @("ExchangeServer2007","ExchangeServer2010","ExchangeServer2013","ExchangeServer2016")
+    $ExchangeVersions = @("ExchangeServer2007","ExchangeServer2010","ExchangeServer2013","ExchangeServer2016","Exchangeserver2019")
     if($ExchangeVersions -notcontains $sutVersion )
     {
         Output "Cannot get the Exchange version automatically." "Yellow"
         $sutVersionChoices = @('1: Microsoft Exchange Server 2007',
                                '2: Microsoft Exchange Server 2010',
                                '3: Microsoft Exchange Server 2013',
-                               '4: Microsoft Exchange Server 2016')   
+                               '4: Microsoft Exchange Server 2016',
+                               '5: Microsoft Exchange Server 2019')   
         Output "Select the Exchange version: " "Cyan"
         Output ($sutVersionChoices[0]) "Cyan"    
         Output ($sutVersionChoices[1]) "Cyan"    
         Output ($sutVersionChoices[2]) "Cyan"
         Output ($sutVersionChoices[3]) "Cyan"
+        Output ($sutVersionChoices[4]) "Cyan"
             
         $sutVersion = ReadUserChoice $sutVersionChoices "sutVersion"
         Switch ($sutVersion)
@@ -1089,6 +1107,7 @@ function GetExchangeServerVersionOnSUT
             "2" { $sutVersion = $ExchangeVersions[1]; break }
             "3" { $sutVersion = $ExchangeVersions[2]; break }
             "4" { $sutVersion = $ExchangeVersions[3]; break }
+            "5" { $sutVersion = $ExchangeVersions[4]; break }
         }
     }
     else
@@ -1102,4 +1121,5 @@ $global:Exchange2007 = "Microsoft Exchange Server 2007"
 $global:Exchange2010 = "Microsoft Exchange Server 2010"
 $global:Exchange2013 = "Microsoft Exchange Server 2013"
 $global:Exchange2016 = "Microsoft Exchange Server 2016"
+$global:Exchange2019 = "Microsoft Exchange Server 2019"
 [void][System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.AccountManagement")

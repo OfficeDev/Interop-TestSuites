@@ -22,6 +22,7 @@
     <DeploymentItem filename="MS-OXCSTOR\TestSuite\MS-OXCSTOR_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXCRPC\TestSuite\MS-OXCRPC_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXCTABL\TestSuite\MS-OXCTABL_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCTABL\TestSuite\MS-OXCTABL_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCFXICS\TestSuite\MS-OXCFXICS_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCFXICS\TestSuite\MS-OXCFXICS_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCSTOR\TestSuite\MS-OXCSTOR_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
@@ -34,13 +35,16 @@
     <DeploymentItem filename="MS-OXCRPC\Adapter\SUTControlAdapter\Implementation\DisableAsyncRPCNotification.ps1" />
     <DeploymentItem filename="MS-OXCPERM\TestSuite\MS-OXCPERM_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCFOLD\TestSuite\MS-OXCFOLD_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCFOLD\TestSuite\MS-OXCFOLD_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCPRPT\TestSuite\MS-OXCPRPT_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-OXCMSG\TestSuite\MS-OXCMSG_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCMSG\TestSuite\MS-OXCMSG_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCRPC\TestSuite\MS-OXCRPC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCROPS\TestSuite\MS-OXCROPS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCROPS\TestSuite\MS-OXCROPS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCPERM\TestSuite\MS-OXCPERM_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXNSPI\TestSuite\MS-OXNSPI_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXNSPI\TestSuite\MS-OXNSPI_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCFXICS\TestSuite\MS-OXCFXICS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCRPC\TestSuite\MS-OXCRPC_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-OXCPRPT\TestSuite\MS-OXCPRPT_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
@@ -55,7 +59,9 @@
     <DeploymentItem filename="MS-OXCFOLD\TestSuite\MS-OXCFOLD_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXORULE\TestSuite\MS-OXORULE_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCMAPIHTTP\TestSuite\MS-OXCMAPIHTTP_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCMAPIHTTP\TestSuite\MS-OXCMAPIHTTP_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCPRPT\TestSuite\MS-OXCPRPT_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCPRPT\TestSuite\MS-OXCPRPT_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCNOTIF\TestSuite\MS-OXCNOTIF_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXORULE\TestSuite\MS-OXORULE_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXNSPI\TestSuite\MS-OXNSPI_TestSuite.deployment.ptfconfig" />
@@ -75,8 +81,10 @@
     <DeploymentItem filename="MS-OXCFXICS\TestSuite\MS-OXCFXICS_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXCSTOR\TestSuite\MS-OXCSTOR_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXORULE\TestSuite\MS-OXORULE_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXORULE\TestSuite\MS-OXORULE_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCFXICS\TestSuite\MS-OXCFXICS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCFXICS\TestSuite\MS-OXCFXICS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCFXICS\TestSuite\MS-OXCFXICS_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCROPS\TestSuite\MS-OXCROPS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-OXCRPC\TestSuite\MS-OXCRPC_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCMSG\TestSuite\MS-OXCMSG_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
@@ -103,6 +111,11 @@
     <DeploymentItem filename="MS-OXCRPC\TestSuite\MS-OXCRPC_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXCMSG\TestSuite\MS-OXCMSG_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXCNOTIF\TestSuite\MS-OXCNOTIF_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCNOTIF\TestSuite\MS-OXCNOTIF_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCPERM\TestSuite\MS-OXCPERM_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCRPC\TestSuite\MS-OXCRPC_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCROPS\TestSuite\MS-OXCROPS_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXCSTOR\TestSuite\MS-OXCSTOR_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

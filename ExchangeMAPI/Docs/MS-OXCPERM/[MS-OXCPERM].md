@@ -1,6 +1,6 @@
 ## [MS-OXCPERM]: Exchange Access and Operation Permissions Protocol
-- [MS-OXCPERM] v20160614 is used to develop the test suite. 
-- Release date, 6/14/2016.
+- [MS-OXCPERM] v20180724 is used to develop the test suite. 
+- Release date, 7/24/2018.
 
 To find the new landing page for [MS-OXCPERM], please visit https://msdn.microsoft.com/en-us/library/cc463904(v=exchg.80).aspx
 

@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
 {
     using System;
     using System.Collections.Generic;
+    using System.Text;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -820,7 +821,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             this.Site.CaptureRequirementIfIsTrue(
                 isVerfiedR236,
                 236,
-                @"[In PidTagAttachDataBinary Property] The PidTagAttachDataBinary property ([MS-OXPROPS] section 2.580) contains the contents of the file to be attached.");
+                @"[In PidTagAttachDataBinary Property] The PidTagAttachDataBinary property ([MS-OXPROPS] section 2.585) contains the contents of the file to be attached.");
 
             if (Convert.ToInt32(pidTagAttachMethod.Value) == 0x00000001)
             {
@@ -955,7 +956,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 isHasAttachmentSecond,
                 Convert.ToBoolean(pidTagHasAttachmentsSecond.Value),
                 16,
-                @"[In PidTagHasAttachments Property] The server computes this property [PidTagHasAttachments] from the mfHasAttach flag of the PidTagMessageFlags property ([MS-OXPROPS] section 2.780).");
+                @"[In PidTagHasAttachments Property] The server computes this property [PidTagHasAttachments] from the mfHasAttach flag of the PidTagMessageFlags property ([MS-OXPROPS] section 2.787).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R498. The value of PidTagHasAttachments before creating the attachment is {0}, the value of PidTagHasAttachments after creating the attachment is {1}.", pidTagHasAttachmentsFirst.Value, pidTagHasAttachmentsSecond.Value);
@@ -967,7 +968,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR498,
                 498,
-                @"[In PidTagHasAttachments Property] The PidTagHasAttachments property ([MS-OXPROPS] section 2.706) indicates whether the Message object contains at least one attachment.");
+                @"[In PidTagHasAttachments Property] The PidTagHasAttachments property ([MS-OXPROPS] section 2.712) indicates whether the Message object contains at least one attachment.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R875. The value of PidTagHasAttachments before creating the attachment is {0}, the value of PidTagHasAttachments after creating the attachment is {1}.", pidTagHasAttachmentsFirst.Value, pidTagHasAttachmentsSecond.Value);
@@ -1234,7 +1235,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 fileNameExtension,
                 Convert.ToString(pidTagAttachExtension.Value),
                 604,
-                @"[In PidTagAttachExtension Property] The PidTagAttachExtension property ([MS-OXPROPS] section 2.583) contains a file name extension that indicates the document type of an attachment.");
+                @"[In PidTagAttachExtension Property] The PidTagAttachExtension property ([MS-OXPROPS] section 2.588) contains a file name extension that indicates the document type of an attachment.");
             #endregion
 
             #region Call RopRelease to release the created message and the created attachment
@@ -1408,6 +1409,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             uint attachmentHandle = this.CreateAttachment(openedMessageHandle, out createAttachmentResponse, out attachmentId);
             #endregion
 
+            #region Call RopSetProperties to set PidTagAttachMethod to afNone.
+            int size;
+            TaggedPropertyValue[] taggedPropertyValueArray = this.CreateMessageTaggedPropertyValueArrays(out size, PidTagAttachMethodFlags.afNone);
+            this.SetFlagsOfPidTagAttachMethod(taggedPropertyValueArray, attachmentHandle, size);
+            #endregion
+
             #region Call RopGetPropertiesSpecific to get property PidTagAttachMethod of created Attachment
             List<PropertyTag> tagArray = new List<PropertyTag>
             {
@@ -1462,8 +1469,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             #endregion
 
             #region Call RopSetProperties to set PidTagAttachMethod to afByReference.
-            int size;
-            TaggedPropertyValue[] taggedPropertyValueArray = this.CreateMessageTaggedPropertyValueArrays(out size, PidTagAttachMethodFlags.afByReference);
+            taggedPropertyValueArray = this.CreateMessageTaggedPropertyValueArrays(out size, PidTagAttachMethodFlags.afByReference);
             this.SetFlagsOfPidTagAttachMethod(taggedPropertyValueArray, openedAttachmentHandle, size);
             #endregion
 
@@ -1536,7 +1542,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             #endregion
 
             #region Call RopSetProperties to set PidTagAttachFlags to attInvisibleInHtml (0x00000001)
-            List<PropertyObj> pidTagAttachFlags = new List<PropertyObj>
+            List< PropertyObj> pidTagAttachFlags = new List<PropertyObj>
             {
                 new PropertyObj(PropertyNames.PidTagAttachFlags, BitConverter.GetBytes(0x00000001))
             };
@@ -1695,6 +1701,253 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 isVerifiedR955,
                 955,
                 @"[In PidTagAttachTag Property] The data of MIME is {0x2A,86,48,86,F7,14,03,0A,04}.");
+            #endregion
+
+            #region Call RopSetProperties to set PidTagAttachMethod to afByWebReference
+            taggedPropertyValueArray = this.CreateMessageTaggedPropertyValueArrays(out size, PidTagAttachMethodFlags.afByWebReference);
+            this.SetFlagsOfPidTagAttachMethod(taggedPropertyValueArray, openedAttachmentHandle, size);
+
+            List<PropertyNameObject> propertyNameList = new List<PropertyNameObject>();
+            PropertyNameObject attachmentPermissionType = new PropertyNameObject(PropertyNames.PidNameAttachmentPermissionType, "AttachmentPermissionType", PropertySet.PSETIDATTACHMENT, PropertyType.PtypInteger32);
+            propertyNameList.Add(attachmentPermissionType);
+            PropertyNameObject attachmentOriginalPermissionType = new PropertyNameObject(PropertyNames.PidNameAttachmentOriginalPermissionType, "AttachmentOriginalPermissionType", PropertySet.PSETIDATTACHMENT, PropertyType.PtypInteger32);
+            propertyNameList.Add(attachmentOriginalPermissionType);
+            PropertyNameObject attachmentProviderType = new PropertyNameObject(PropertyNames.PidNameAttachmentProviderType, "AttachmentProviderType", PropertySet.PSETIDATTACHMENT, PropertyType.PtypString);
+            propertyNameList.Add(attachmentProviderType);
+            this.SetNamedProperty(openedAttachmentHandle, attachmentPermissionType, BitConverter.GetBytes(0));
+            this.SetNamedProperty(openedAttachmentHandle, attachmentOriginalPermissionType, BitConverter.GetBytes(0));
+            this.SetNamedProperty(openedAttachmentHandle, attachmentProviderType, Common.GetBytesFromUnicodeString("OneDrivePro"));
+            #endregion
+
+            #region Call RopGetPropertiesSpecific to get property PidTagAttachMethod of created Attachment.
+            tagArray.Add(PropertyHelper.PropertyTagDic[PropertyNames.PidTagAttachMethod]);
+
+            getPropertiesSpecificResponse = this.GetSpecificPropertiesOfMessage(openedAttachmentHandle, tagArray);
+            pts = PropertyHelper.GetPropertyObjFromBuffer(tagArray.ToArray(), getPropertiesSpecificResponse);
+
+            // Parse property response to get Property Value to verify test case requirement
+            pidTagAttachMethod = PropertyHelper.GetPropertyByName(pts, PropertyNames.PidTagAttachMethod);
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R59801");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R59801
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                TestDataOfPidTagAttachLongPathname,
+                Convert.ToString(pidTagAttachLongPathname.Value),
+                59801,
+                @"[In PidTagAttachMethod Property] [afByWebReference (0x00000007)] The PidTagAttachLongPathname property contains a fully qualified path identifying the attachment.");
+
+            Dictionary<PropertyNames, byte[]> propertyValues = this.MSOXCMSGAdapter.GetNamedPropertyValues(propertyNameList, openedAttachmentHandle);
+            string attachmentProviderTypeValue = Encoding.Unicode.GetString(propertyValues[PropertyNames.PidNameAttachmentProviderType], 0, propertyValues[PropertyNames.PidNameAttachmentProviderType].Length - 2);
+            int attachmentPermissionTypeValue = BitConverter.ToInt32(propertyValues[PropertyNames.PidNameAttachmentPermissionType], 0);
+            int attachmentOriginalPermissionTypeValue = BitConverter.ToInt32(propertyValues[PropertyNames.PidNameAttachmentOriginalPermissionType], 0);
+
+            #region Verify requirements
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R59802");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R59802
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "OneDrivePro",
+                attachmentProviderTypeValue,
+                59802,
+                @"[In PidTagAttachMethod Property] [afByWebReference (0x00000007)] The PidNameAttachmentProviderType defines the web service API manipulating the attachment.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128003");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128003
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "OneDrivePro",
+                attachmentProviderTypeValue,
+                128003,
+                @"[In PidNameAttachmentProviderType Property] [The value of PidNameAttachmentProviderType is] OneDrivePro.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128004");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128004
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "OneDrivePro",
+                attachmentProviderTypeValue,
+                128004,
+                @"[In PidNameAttachmentProviderType Property] [PidNameAttachmentProviderType (OneDrivePro) measns] The web reference attachment belongs to a OneDrive for Business service.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128009");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128009
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                0,
+                attachmentOriginalPermissionTypeValue,
+                128009,
+                @"[In PidNameAttachmentOriginalPermissionType Property] [The value of PidNameAttachmentOriginalPermissionType is] 0.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128010");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128010
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                0,
+                attachmentOriginalPermissionTypeValue,
+                128010,
+                @"[In PidNameAttachmentProviderType Property] [PidNameAttachmentOriginalPermissionType (0) measns] None. User has no permissions to share.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128017");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128017
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                0,
+                attachmentPermissionTypeValue,
+                128017,
+                @"[In PidNameAttachmentPermissionType Property] [The value of PidNameAttachmentPermissionType is] 0.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128018");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128018
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                0,
+                attachmentPermissionTypeValue,
+                128018,
+                @"[In PidNameAttachmentPermissionType Property] [PidNameAttachmentPermissionType (0) measns] None. User has no permissions to share.");
+            #endregion
+            #endregion
+
+            #region RopSetProperties to set PidNameAttachmentProviderType to OneDriveConsumer
+            this.SetNamedProperty(openedAttachmentHandle, attachmentPermissionType, BitConverter.GetBytes(1));
+            this.SetNamedProperty(openedAttachmentHandle, attachmentOriginalPermissionType, BitConverter.GetBytes(1));
+            this.SetNamedProperty(openedAttachmentHandle, attachmentProviderType, Common.GetBytesFromUnicodeString("OneDriveConsumer"));
+            #endregion
+
+            #region Call RopGetPropertiesSpecific to get property PidTagAttachMethod of created Attachment.
+            tagArray.Add(PropertyHelper.PropertyTagDic[PropertyNames.PidTagAttachMethod]);
+
+            getPropertiesSpecificResponse = this.GetSpecificPropertiesOfMessage(openedAttachmentHandle, tagArray);
+            propertyValues = this.MSOXCMSGAdapter.GetNamedPropertyValues(propertyNameList, openedAttachmentHandle);
+            attachmentProviderTypeValue = Encoding.Unicode.GetString(propertyValues[PropertyNames.PidNameAttachmentProviderType], 0, propertyValues[PropertyNames.PidNameAttachmentProviderType].Length - 2);
+            attachmentPermissionTypeValue = BitConverter.ToInt32(propertyValues[PropertyNames.PidNameAttachmentPermissionType], 0);
+            attachmentOriginalPermissionTypeValue = BitConverter.ToInt32(propertyValues[PropertyNames.PidNameAttachmentOriginalPermissionType], 0);
+
+            #region Verify requirements
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128005");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128005
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "OneDriveConsumer",
+                attachmentProviderTypeValue,
+                128005,
+                @"[In PidNameAttachmentProviderType Property] [The value of PidNameAttachmentProviderType is] OneDriveConsumer.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128006");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128006
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                "OneDriveConsumer",
+                attachmentProviderTypeValue,
+                128006,
+                @"[In PidNameAttachmentProviderType Property]  [PidNameAttachmentProviderType (OneDriveConsumer) measns] The web reference attachment belongs to a OneDrive Consumer service.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128011");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128011
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                attachmentOriginalPermissionTypeValue,
+                128011,
+                @"[In PidNameAttachmentOriginalPermissionType Property] [The value of PidNameAttachmentOriginalPermissionType is] 1.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128012");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128012
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                attachmentOriginalPermissionTypeValue,
+                128012,
+                @"[In PidNameAttachmentOriginalPermissionType Property]  PidNameAttachmentOriginalPermissionType (1) measns] View. User can only read the web reference attachment.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128019");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128019
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                attachmentPermissionTypeValue,
+                128019,
+                @"[In PidNameAttachmentPermissionType Property] [The value of PidNameAttachmentProviderType is] 1.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128020");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128020
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                attachmentPermissionTypeValue,
+                128020,
+                @"[In PidNameAttachmentPermissionType Property]  [PidNameAttachmentPermissionType (1) measns] View. User can only read the web reference attachment.");
+            #endregion
+            #endregion
+
+            #region RopSetProperties to set PidNameAttachmentPermissionType to 2
+            this.SetNamedProperty(openedAttachmentHandle, attachmentPermissionType, BitConverter.GetBytes(2));
+            this.SetNamedProperty(openedAttachmentHandle, attachmentOriginalPermissionType, BitConverter.GetBytes(2));
+            #endregion
+
+            #region Call RopGetPropertiesSpecific to get property PidTagAttachMethod of created Attachment.
+            tagArray.Add(PropertyHelper.PropertyTagDic[PropertyNames.PidTagAttachMethod]);
+
+            getPropertiesSpecificResponse = this.GetSpecificPropertiesOfMessage(openedAttachmentHandle, tagArray);
+            propertyValues = this.MSOXCMSGAdapter.GetNamedPropertyValues(propertyNameList, openedAttachmentHandle);
+            attachmentPermissionTypeValue = BitConverter.ToInt32(propertyValues[PropertyNames.PidNameAttachmentPermissionType], 0);
+            attachmentOriginalPermissionTypeValue = BitConverter.ToInt32(propertyValues[PropertyNames.PidNameAttachmentOriginalPermissionType], 0);
+
+            #region Verify requirements
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128013");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128013
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                attachmentOriginalPermissionTypeValue,
+                128013,
+                @"[In PidNameAttachmentOriginalPermissionType Property] [The value of PidNameAttachmentOriginalPermissionType is] 2.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128014");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128014
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                attachmentOriginalPermissionTypeValue,
+                128014,
+                @"[In PidNameAttachmentOriginalPermissionType Property]  [PidNameAttachmentOriginalPermissionType (2) measns] Edit. User can edit the web reference attachment.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128021");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128021
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                attachmentPermissionTypeValue,
+                128021,
+                @"[In PidNameAttachmentPermissionType Property] [The value of PidNameAttachmentPermissionType is] 2.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R128022");
+
+            // Verify MS-OXCMSG requirement: MS-OXCMSG_R128022
+            this.Site.CaptureRequirementIfAreEqual<int>(
+                2,
+                attachmentPermissionTypeValue,
+                128022,
+                @"[In PidNameAttachmentPermissionType Property]  [PidNameAttachmentPermissionType (2) measns] Edit. User can edit the web reference attachment.");
+            #endregion
             #endregion
 
             #region Call RopRelease to release the created message and the created attachment

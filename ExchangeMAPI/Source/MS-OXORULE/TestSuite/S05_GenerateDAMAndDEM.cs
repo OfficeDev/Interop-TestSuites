@@ -206,7 +206,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 Common.CompareByteArray(temp.ToArray(), pidTagRuleIds),
                 368,
-                @"[In PidTagRuleIds] The PidTagRuleIds property ([MS-OXPROPS] section 2.941) is a buffer contains the PidTagRuleId (section 2.2.1.3.1.1) value (8 bytes) from the first rules (2) that contributed actions (2) in the PidTagClientActions property (section 2.2.6.6), and repeats that value once for each rule (2) that contributed actions (2).");
+                @"[In PidTagRuleIds] The PidTagRuleIds property ([MS-OXPROPS] section 2.944) is a buffer contains the PidTagRuleId (section 2.2.1.3.1.1) value (8 bytes) from the first rules (2) that contributed actions (2) in the PidTagClientActions property (section 2.2.6.6), and repeats that value once for each rule (2) that contributed actions (2).");
             #endregion
             #endregion
         }
@@ -514,7 +514,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR371,
                 371,
-                "[In PidTagDeferredActionMessageOriginalEntryId Property] The PidTagDeferredActionMessageOriginalEntryId property ([MS-OXPROPS] section 2.652) contains the server EntryID for the DAM message on the server.");
+                "[In PidTagDeferredActionMessageOriginalEntryId Property] The PidTagDeferredActionMessageOriginalEntryId property ([MS-OXPROPS] section 2.655) contains the server EntryID for the DAM message on the server.");
             #endregion
 
             #region TestUser1 verifies whether the associated properties on each DAM are changed after updating.
@@ -564,32 +564,35 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             #endregion
 
             #region Capture Code
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R618: the PidTagDeferredActionMessageOriginalEntryId on the two generated DAMs are {0}, {1}, and the clientEntryId is {2}", pidTagDeferredActionMessageOriginalEntryIdOneAfterUpdate, pidTagDeferredActionMessageOriginalEntryIdTwoAfterUpdate, clientEntryId);
+            if (Common.IsRequirementEnabled(618, this.Site))
+            {
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R618: the PidTagDeferredActionMessageOriginalEntryId on the two generated DAMs are {0}, {1}, and the clientEntryId is {2}", pidTagDeferredActionMessageOriginalEntryIdOneAfterUpdate, pidTagDeferredActionMessageOriginalEntryIdTwoAfterUpdate, clientEntryId);
 
-            // Verify MS-OXORULE requirement: MS-OXORULE_R618.
-            // If the PidTagDeferredActionMessageOriginalEntryId on the two generated DAMs are both changed to the value of clientEntryId set on RopUpdateDeferredActionMessages operation, it means server has found all DAMs that 
-            // have the value of the PidTagDeferredActionMessageOriginalEntryId property that are equal to the value in the ServerEntryId field of the RopUpdateDeferredActionMessages ROP request buffer
-            bool isVerifyR618 = Common.CompareByteArray(pidTagDeferredActionMessageOriginalEntryIdOneAfterUpdate, clientEntryId) &&
-                Common.CompareByteArray(pidTagDeferredActionMessageOriginalEntryIdTwoAfterUpdate, clientEntryId);
+                // Verify MS-OXORULE requirement: MS-OXORULE_R618.
+                // If the PidTagDeferredActionMessageOriginalEntryId on the two generated DAMs are both changed to the value of clientEntryId set on RopUpdateDeferredActionMessages operation, it means server has found all DAMs that 
+                // have the value of the PidTagDeferredActionMessageOriginalEntryId property that are equal to the value in the ServerEntryId field of the RopUpdateDeferredActionMessages ROP request buffer
+                bool isVerifyR618 = Common.CompareByteArray(pidTagDeferredActionMessageOriginalEntryIdOneAfterUpdate, clientEntryId) &&
+                    Common.CompareByteArray(pidTagDeferredActionMessageOriginalEntryIdTwoAfterUpdate, clientEntryId);
 
-            Site.CaptureRequirementIfIsTrue(
-                isVerifyR618,
-                618,
-                @"[In Receiving a RopUpdateDeferredActionMessages ROP Request] The server also MUST find all DAMs that have the value of the PidTagDeferredActionMessageOriginalEntryId property (section 2.2.6.8) equal to the value in the ServerEntryId field of the RopUpdateDeferredActionMessages ROP request buffer, as specified in section 2.2.3.");
+                Site.CaptureRequirementIfIsTrue(
+                    isVerifyR618,
+                    618,
+                    @"[In Receiving a RopUpdateDeferredActionMessages ROP Request] The server also MUST find all DAMs that have the value of the PidTagDeferredActionMessageOriginalEntryId property (section 2.2.6.8) equal to the value in the ServerEntryId field of the RopUpdateDeferredActionMessages ROP request buffer, as specified in section 2.2.3.");
 
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R619 , pidTagDeferredActionMessageOriginalEntryIdOneAfterUpdate is {0}, pidTagDeferredActionMessageOriginalEntryIdTwoAfterUpdate is {1}", pidTagDeferredActionMessageOriginalEntryIdOneAfterUpdate, pidTagDeferredActionMessageOriginalEntryIdTwoAfterUpdate);
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R619 , pidTagDeferredActionMessageOriginalEntryIdOneAfterUpdate is {0}, pidTagDeferredActionMessageOriginalEntryIdTwoAfterUpdate is {1}", pidTagDeferredActionMessageOriginalEntryIdOneAfterUpdate, pidTagDeferredActionMessageOriginalEntryIdTwoAfterUpdate);
 
-            // Verify MS-OXORULE requirement: MS-OXORULE_R619.
-            // If the PidTagDeferredActionMessageOriginalEntryId on the two generated DAMs are both changed to the clientEntryId, it means the server has changed PidTagDamOriginalEntryId on each DAM.
-            bool isVerifyR619 = Common.CompareByteArray(pidTagDeferredActionMessageOriginalEntryIdOneAfterUpdate, clientEntryId) &&
-                Common.CompareByteArray(pidTagDeferredActionMessageOriginalEntryIdTwoAfterUpdate, clientEntryId);
+                // Verify MS-OXORULE requirement: MS-OXORULE_R619.
+                // If the PidTagDeferredActionMessageOriginalEntryId on the two generated DAMs are both changed to the clientEntryId, it means the server has changed PidTagDamOriginalEntryId on each DAM.
+                bool isVerifyR619 = Common.CompareByteArray(pidTagDeferredActionMessageOriginalEntryIdOneAfterUpdate, clientEntryId) &&
+                    Common.CompareByteArray(pidTagDeferredActionMessageOriginalEntryIdTwoAfterUpdate, clientEntryId);
 
-            Site.CaptureRequirementIfIsTrue(
-                isVerifyR619,
-                619,
-                @"[In Receiving a RopUpdateDeferredActionMessages ROP Request] The server MUST then change the value of the PidTagDeferredActionMessageOriginalEntryId property on each DAM it finds to the value passed in the ClientEntryId field of the same ROP request buffer.");
+                Site.CaptureRequirementIfIsTrue(
+                    isVerifyR619,
+                    619,
+                    @"[In Receiving a RopUpdateDeferredActionMessages ROP Request] The server MUST then change the value of the PidTagDeferredActionMessageOriginalEntryId property on each DAM it finds to the value passed in the ClientEntryId field of the same ROP request buffer.");
+            }
             #endregion
 
             #endregion
@@ -1082,7 +1085,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 1,
                 ruleActionNumber,
                 707,
-                @"[In PidTagRuleActionNumber Property] The PidTagRuleActionNumber property ([MS-OXPROPS] section 2.934) MUST be set to the zero-based index of the action (2) that failed. (For example, if specific to an action (2), a property value of 0x00000000 means that the first action (2) failed, 0x00000001 means that the second action (2) failed.)");
+                @"[In PidTagRuleActionNumber Property] The PidTagRuleActionNumber property ([MS-OXPROPS] section 2.937) MUST be set to the zero-based index of the action (2) that failed. (For example, if specific to an action (2), a property value of 0x00000000 means that the first action (2) failed, 0x00000001 means that the second action (2) failed.)");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R709");
@@ -1473,7 +1476,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR740,
                     740,
-                    @"[In PidTagDamOriginalEntryId Property] This PidTagDamOriginalEntryId property ([MS-OXPROPS] section 2.650) MUST be set to the EntryID of the delivered (target) message that the client has to process.");
+                    @"[In PidTagDamOriginalEntryId Property] This PidTagDamOriginalEntryId property ([MS-OXPROPS] section 2.653) MUST be set to the EntryID of the delivered (target) message that the client has to process.");
             }
 
             if (Common.IsRequirementEnabled(741, this.Site))
@@ -1506,7 +1509,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR741,
                     741,
-                    @"[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property ([MS-OXPROPS] section 2.939) MUST be set to the EntryID of the folder where the rule (2) that triggered the generation of this DAM is stored.");
+                    @"[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property ([MS-OXPROPS] section 2.942) MUST be set to the EntryID of the folder where the rule (2) that triggered the generation of this DAM is stored.");
             }
 
             RuleAction pidTagClientActionsOfDAM = AdapterHelper.PropertyValueConvertToRuleAction(pidTagClientActionsOfDAMOfBytes);
@@ -1540,7 +1543,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 ruleProperties.Provider,
                 pidTagRuleProviderOfDAM,
                 359,
-                @"[In PidTagRuleProvider] The PidTagRuleProvider property ([MS-OXPROPS] section 2.951) MUST be set to the same value as the PidTagRuleProvider property on the rule or rules that have generated the DAM.");
+                @"[In PidTagRuleProvider] The PidTagRuleProvider property ([MS-OXPROPS] section 2.954) MUST be set to the same value as the PidTagRuleProvider property on the rule or rules that have generated the DAM.");
 
             // Add the debug information.
             string pidTagMessageClassOfDAM = AdapterHelper.PropertyValueConvertToString(pidTagMessageClassOfDAMOfBytes);
@@ -1627,7 +1630,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR354,
                 354,
-                @"[In PidTagDamBackPatched property] The PidTagDamBackPatched property ([MS-OXPROPS] section 2.649) MUST be set to ""FALSE"" when the DAM is generated.");
+                @"[In PidTagDamBackPatched property] The PidTagDamBackPatched property ([MS-OXPROPS] section 2.652) MUST be set to ""FALSE"" when the DAM is generated.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R565: there is {0} DAM generated, PidTagMessageClass is {1}, PidTagRuleProvider is {2}, and is DAM under DAF folder is {3}", ropQueryRowsResponseOfDAM.RowCount, pidTagMessageClassOfDAM, pidTagRuleProviderOfDAM, isDAMUnderDAFFolder);
@@ -1844,40 +1847,43 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             #endregion
 
             #region Capture Code
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R136");
+            if (Common.IsRequirementEnabled(618, this.Site))
+            {
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R136");
 
-            // Verify MS-OXORULE requirement: MS-OXORULE_R136.
-            // PidTagDamUpdatedEntryIdOfDAMOfBytes represents the value of PidTagDamOriginalEntryId property on changed DAM, if it does not equal the original one, 
-            // it means it is updated by the server as a result of a RopUpdateDeferredActionMessages request.
-            bool isVerifyR136 = pidTagDamUpdatedEntryIdOfDAMOfBytes != pidTagDamOriginalEntryIdOfDAMOfBytes;
+                // Verify MS-OXORULE requirement: MS-OXORULE_R136.
+                // PidTagDamUpdatedEntryIdOfDAMOfBytes represents the value of PidTagDamOriginalEntryId property on changed DAM, if it does not equal the original one, 
+                // it means it is updated by the server as a result of a RopUpdateDeferredActionMessages request.
+                bool isVerifyR136 = pidTagDamUpdatedEntryIdOfDAMOfBytes != pidTagDamOriginalEntryIdOfDAMOfBytes;
 
-            Site.CaptureRequirementIfIsTrue(
-                isVerifyR136,
-                136,
-                @"[In RopUpdateDeferredActionMessages ROP] The RopUpdateDeferredActionMessages ROP instructs the server to update the PidTagDamOriginalEntryId property (section 2.2.6.3) on one or more DAMs.");
+                Site.CaptureRequirementIfIsTrue(
+                    isVerifyR136,
+                    136,
+                    @"[In RopUpdateDeferredActionMessages ROP] The RopUpdateDeferredActionMessages ROP instructs the server to update the PidTagDamOriginalEntryId property (section 2.2.6.3) on one or more DAMs.");
 
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R620");
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R620");
 
-            // Verify MS-OXORULE requirement: MS-OXORULE_R620.
-            // pidTagDamBackPatchedOfDAMAfterUpdate represents the value of PidTagDamBackPatched property on changed DAM, 
-            // which is updated by the server as a result of a RopUpdateDeferredActionMessages request.
-            Site.CaptureRequirementIfIsTrue(
-                pidTagDamBackPatchedOfDAMAfterUpdate,
-                620,
-                @"[In Receiving a RopUpdateDeferredActionMessages ROP Request] The server MUST also set the value of the PidTagDamBackPatched property (section 2.2.6.2) to ""TRUE"" on any DAM that it changed.");
+                // Verify MS-OXORULE requirement: MS-OXORULE_R620.
+                // pidTagDamBackPatchedOfDAMAfterUpdate represents the value of PidTagDamBackPatched property on changed DAM, 
+                // which is updated by the server as a result of a RopUpdateDeferredActionMessages request.
+                Site.CaptureRequirementIfIsTrue(
+                    pidTagDamBackPatchedOfDAMAfterUpdate,
+                    620,
+                    @"[In Receiving a RopUpdateDeferredActionMessages ROP Request] The server MUST also set the value of the PidTagDamBackPatched property (section 2.2.6.2) to ""TRUE"" on any DAM that it changed.");
 
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R355");
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R355");
 
-            // Verify MS-OXORULE requirement: MS-OXORULE_R355.
-            // pidTagDamBackPatchedOfDAMAfterUpdate represents the value of PidTagDamBackPatched property on changed DAM, 
-            // which is updated by the server as a result of a RopUpdateDeferredActionMessages request.
-            Site.CaptureRequirementIfIsTrue(
-                pidTagDamBackPatchedOfDAMAfterUpdate,
-                355,
-                @"[In PidTagDamBackPatched property] It [The PidTagDamBackPatched property] MUST be set to ""TRUE"" if the DAM was updated by the server as a result of a RopUpdateDeferredActionMessages request ([MS-OXCROPS] section 2.2.11.3).");
+                // Verify MS-OXORULE requirement: MS-OXORULE_R355.
+                // pidTagDamBackPatchedOfDAMAfterUpdate represents the value of PidTagDamBackPatched property on changed DAM, 
+                // which is updated by the server as a result of a RopUpdateDeferredActionMessages request.
+                Site.CaptureRequirementIfIsTrue(
+                    pidTagDamBackPatchedOfDAMAfterUpdate,
+                    355,
+                    @"[In PidTagDamBackPatched property] It [The PidTagDamBackPatched property] MUST be set to ""TRUE"" if the DAM was updated by the server as a result of a RopUpdateDeferredActionMessages request ([MS-OXCROPS] section 2.2.11.3).");
+            }
             #endregion
             #endregion
         }

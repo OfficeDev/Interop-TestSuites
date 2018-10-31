@@ -202,5 +202,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
         /// The PidTagAttachDataObject property contains data in an application-specific format.
         /// </summary>
         afStorage = 0x00000006,
+
+        /// <summary>
+        /// The PidTagAttachLongPathname property contains a fully qualified path identifying the attachment. 
+        /// The PidNameAttachmentProviderType defines the web service API manipulating the attachment. 
+        /// </summary>
+        afByWebReference = 0x00000007
     }
 }

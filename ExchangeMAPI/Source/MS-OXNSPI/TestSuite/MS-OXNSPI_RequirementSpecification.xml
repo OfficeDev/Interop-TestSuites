@@ -1939,7 +1939,7 @@ SORT_STRINGSORT)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R96</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In Table Sort Orders] [SortTypePhoneticDisplayName] Exchange NSPI servers SHOULD &lt;2&gt; support this sort order [ascending on the PidTagAddressBookPhoneticDisplayName property].</ns1:Description>
+		<ns1:Description>[In Table Sort Orders] [SortTypePhoneticDisplayName] Exchange NSPI servers SHOULD support this sort order [ascending on the PidTagAddressBookPhoneticDisplayName property].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2184,15 +2184,6 @@ SORT_STRINGSORT)</ns1:Description>
 		<ns1:REQ_ID>MS-OXNSPI_R124</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.14</ns1:Doc_Sect>
 		<ns1:Description>[In NspiGetTemplateInfo Flags] TI_HELPFILE_CONTENTS (0x00000040): Specifies that the server is to return the contents of the help file that is associated with a template.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXNSPI_R124001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetTemplateInfo Flags] These flags have no effect on the result of the NspiGetTemplateInfo function</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5226,7 +5217,7 @@ typedef DWORD MinEntryID;</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R412</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.9.3</ns1:Doc_Sect>
-		<ns1:Description>[In PermanentEntryID] [Distinguished Name] The value is expressed as a DN, as specified in [MS-OXOABK] section 2.2.1.1.&lt;3&gt;</ns1:Description>
+		<ns1:Description>[In PermanentEntryID] [Distinguished Name] The value is expressed as a DN, as specified in [MS-OXOABK] section 2.2.1.1.&lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6398,29 +6389,22 @@ long NspiGetSpecialTable (
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R748</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 7] If the version number of the address book hierarchy table the server is holding matches this version number [the version number specified by lpVersion], the server MUST proceed as if the address book hierarchy table had no rows.</ns1:Description>
+		<ns1:Description>[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 7] If the version number of the address book hierarchy table the server is holding matches this version number [the version number specified by lpVersion], the server MUST proceed as if the address book hierarchy table had no rows. &lt;3&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement:MS-OXNSPI_R748001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R750</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If the client is requesting the rows of the server's address book hierarchy table and the server returns the value "Success", the server MUST set the output parameter lpVersion to the version of the server's address book hierarchy table.</ns1:Description>
+		<ns1:Description>[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 8] If the client is requesting the rows of the server's address book hierarchy table and the server returns the value "Success", the server MUST set the output parameter lpVersion to the version of the server's address book hierarchy table. &lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXNSPI_R750001</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetSpecialTable] The Exchange server behavior is considered special as the Ipversion here does not impact any search results. </ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement:MS-OXNSPI_R750001.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R752</ns1:REQ_ID>
@@ -6497,13 +6481,13 @@ long NspiGetSpecialTable (
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1863</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The server MUST return the following properties for each container in the hierarchy, in the order listed: PidTagEntryId ([MS-OXPROPS] section 2.674)
-PidTagContainerFlags ([MS-OXPROPS] section 2.635)
-PidTagDepth ([MS-OXPROPS] section 2.664)
-PidTagAddressBookContainerId ([MS-OXPROPS] section 2.503)
+		<ns1:Description>[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The server MUST return the following properties for each container in the hierarchy, in the order listed: PidTagEntryId ([MS-OXPROPS] section 2.677)
+PidTagContainerFlags ([MS-OXPROPS] section 2.638)
+PidTagDepth ([MS-OXPROPS] section 2.670)
+PidTagAddressBookContainerId ([MS-OXPROPS] section 2.506)
 PidTagDisplayName ([MS-OXPROPS] section 2.667)
-PidTagAddressBookIsMaster ([MS-OXPROPS] section 2.536)
-PidTagAddressBookParentEntryId ([MS-OXPROPS] section 2.550) (optional, and MUST be the seventh column if it [property PidTagAddressBookParentEntryId] is included)</ns1:Description>
+PidTagAddressBookIsMaster ([MS-OXPROPS] section 2.539)
+PidTagAddressBookParentEntryId ([MS-OXPROPS] section 2.553) (optional, and MUST be the seventh column if it [property PidTagAddressBookParentEntryId] is included)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7454,7 +7438,7 @@ long NspiGetProps(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R882</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 4] If the server is unable to locate the address book container specified by the ContainerID field in the input parameter pStat, the server MUST return the value "InvalidBookmark" (0x80040405).&lt;4&gt;.</ns1:Description>
+		<ns1:Description>[In NspiGetProps] [Server Processing Rules: Upon receiving message NspiGetProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 4] If the server is unable to locate the address book container specified by the ContainerID field in the input parameter pStat, the server MUST return the value "InvalidBookmark" (0x80040405).&lt;5&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8463,16 +8447,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1039</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If the server does not support the SortTypePhoneticDisplayName and the SortType field of the input parameter pStat has the value SortTypePhoneticDisplayName, the server MUST return the value GeneralFailure.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXNSPI_R1041</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 10] If the SortType field in the input parameter pStat has any value other than SortTypeDisplayName or SortTypePhoneticDisplayName, the server MUST return the value GeneralFailure.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If the SortType field in the input parameter pStat has any value other than SortTypeDisplayName, the server MUST return the value GeneralFailure.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8481,16 +8456,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1043</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 11] If the SortType field in the input parameter pStat is SortTypeDisplayName and the property specified in the input parameter pTarget is anything other than PidTagDisplayName (with either the Property Type PtypString8 or PtypString), the server MUST return the value GeneralFailure.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXNSPI_R1045</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] If the SortType field in the input parameter pStat is SortTypePhoneticDisplayName and the property specified in the input parameter pTarget is anything other than PidTagAddressBookPhoneticDisplayName (with either the Property Type PtypString8 or PtypString), the server MUST return the value GeneralFailure.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 10] If the SortType field in the input parameter pStat is SortTypeDisplayName and the property specified in the input parameter pTarget is anything other than PidTagDisplayName (with either the Property Type PtypString8 or PtypString), the server MUST return the value GeneralFailure.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8499,7 +8465,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1047</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 13] The server MUST locate the first row in the specified table that has a value equal to or greater than the value specified in the input parameter pTarget.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 11] The server MUST locate the first row in the specified table that has a value equal to or greater than the value specified in the input parameter pTarget.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8508,7 +8474,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1048</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 13] If no such row [the first row in the specified table that has a value equal to or greater than the value specified in the input parameter pTarget] exists, the server MUST return the value NotFound.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 11] If no such row [the first row in the specified table that has a value equal to or greater than the value specified in the input parameter pTarget] exists, the server MUST return the value NotFound.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8517,7 +8483,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1050</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] If a qualifying row was found, the server MUST update the position information in the parameter pStat.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] If a qualifying row was found, the server MUST update the position information in the parameter pStat.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8526,7 +8492,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1051</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] [If a qualifying row was found,] The server MUST set CurrentRec field of the parameter pStat to the Minimal Entry ID of the qualifying row.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] [If a qualifying row was found,] The server MUST set CurrentRec field of the parameter pStat to the Minimal Entry ID of the qualifying row.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8535,7 +8501,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1052</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] If the server is using the table specified by the input parameter lpETable, the server MUST set the NumPos field of the parameter pStat to the accurate numeric position of the qualifying row in the table.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] If the server is using the table specified by the input parameter lpETable, the server MUST set the NumPos field of the parameter pStat to the accurate numeric position of the qualifying row in the table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8544,7 +8510,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1053</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] If the server is using the table specified by the input parameter pStat, the server MUST set the NumPos field of the parameter pStat to the approximate numeric position of the qualifying row in the table.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] If the server is using the table specified by the input parameter pStat, the server MUST set the NumPos field of the parameter pStat to the approximate numeric position of the qualifying row in the table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8553,7 +8519,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1054</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The TotalRecs field of the parameter pStat MUST be set to the accurate number of records in the table used.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] The TotalRecs field of the parameter pStat MUST be set to the accurate number of records in the table used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8562,7 +8528,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1055</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The server MUST NOT modify any other fields [CodePage, ContainerID, Delta, SortLocale, SortType, TemplateLocale] of the parameter pStat.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 12] The server MUST NOT modify any other fields [CodePage, ContainerID, Delta, SortLocale, SortType, TemplateLocale] of the parameter pStat.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8571,7 +8537,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1057</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 15] If the input parameter pPropTags is not NULL, the client is requesting the server to return an PropertyRowSet_r.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 13] If the input parameter pPropTags is not NULL, the client is requesting the server to return an PropertyRowSet_r.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8581,7 +8547,16 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1058</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 15] Subject to the prior constraints [If the input parameter pPropTags is not NULL], the server MUST construct an PropertyRowSet_r to return to the client in the output parameter ppRows.</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 13] Subject to the prior constraints [If the input parameter pPropTags is not NULL], the server MUST construct an PropertyRowSet_r to return to the client in the output parameter ppRows.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXNSPI_R105801</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 13]The server MUST return the same PropertyRowSet_r for the NspiSeekEntries method after the NspiQueryRows method is called using the input parameters. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8590,7 +8565,7 @@ long NspiSeekEntries(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1695</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [constraint 15] This PropertyRowSet_r MUST be exactly the same PropertyRowSet_r that would be returned in the ppRows parameter of a call to the NspiQueryRows method with the following parameters:
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [constraint 13] This PropertyRowSet_r MUST be exactly the same PropertyRowSet_r that would be returned in the ppRows parameter of a call to the NspiQueryRows method with the following parameters:
 The NspiSeekEntries parameter hRpc is used as the NspiQueryRows parameter hRpc.
 The value fEphID is used as the NspiQueryRows parameter dwFlags.
 The NspiSeekEntries output parameter pStat (as modified by the prior constraints) is used as the NspiQueryRows parameter pStat.
@@ -8630,7 +8605,7 @@ The NspiSeekEntries parameter pPropTags is used as the NspiQueryRows parameter p
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1076</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 16] If no other return values have been specified by these constraints [constraints 1-15], the server MUST return the return value "Success".</ns1:Description>
+		<ns1:Description>[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] If no other return values have been specified by these constraints [constraints 1-13], the server MUST return the return value "Success".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9064,15 +9039,6 @@ long NspiGetMatches(
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXNSPI_R1120</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetMatches] [Server Processing Rules: Upon receiving message NspiGetMatches, the server MUST process the data from the message subject to the following constraints:] [Constraint 6] If the input parameter pStat has the value "SortTypePhoneticDisplayName" and the server does not support sorting by phonetic display name, the server sorts by display name.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1122</ns1:REQ_ID>
@@ -9631,7 +9597,7 @@ long NspiResortRestriction(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1194</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.11</ns1:Doc_Sect>
-		<ns1:Description>[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the server does not support the SortTypePhoneticDisplayName and the SortType field of the input parameter pStat has the value "SortTypePhoneticDisplayName", the server MUST return the value "GeneralFailure".</ns1:Description>
+		<ns1:Description>[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the SortType field in the input parameter pStat has any value other than SortTypeDisplayName the server MUST return the value "GeneralFailure".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10173,7 +10139,7 @@ long NspiDNToMId(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1268</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1044) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.566) properties.</ns1:Description>
+		<ns1:Description>[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1048) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.569) properties.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10387,7 +10353,7 @@ long NspiModProps(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1301</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In NspiModProps] [Server Processing Rules: Upon receiving message NspiModProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 10] The server SHOULD&lt;5&gt; add all values for all properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat.</ns1:Description>
+		<ns1:Description>[In NspiModProps] [Server Processing Rules: Upon receiving message NspiModProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 10] The server SHOULD&lt;6&gt; add all values for all properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10582,7 +10548,7 @@ long NspiModLinkAtt(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1321</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.15</ns1:Doc_Sect>
-		<ns1:Description>[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the server returns any return value other than "Success" (0x00000000), , the server MUST NOT modify any properties of any objects in the address book.&lt;6&gt;</ns1:Description>
+		<ns1:Description>[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the server returns any return value other than "Success" (0x00000000), , the server MUST NOT modify any properties of any objects in the address book.&lt;7&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14076,7 +14042,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1878</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support RPC over TCP. &lt;1&gt; Section 2.1: Exchange 2013 NSPI server and  Exchange 2016 NSPI server does not using RPC over TCP.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support RPC over TCP. &lt;1&gt; Section 2.1: Exchange 2013 NSPI server and  Exchange 2016 and Exchange 2019 Preview NSPI server does not using RPC over TCP.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1989:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14084,51 +14050,9 @@ long NspiGetTemplateInfo(
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXNSPI_R1751</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this sort order [ascending on the PidTagAddressBookPhoneticDisplayName property]. (&lt;2&gt; Section 2.2.1.10:  Microsoft Exchange Server 2010 Service Pack 3 (SP3), Exchange 2013, and Exchange 2016 do not support the SortTypePhoneticDisplayName sort order.)</ns1:Description>
-		<ns1:Derived>MS-OXNSPI_R96:i,MS-OXNSPI_R1527:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXNSPI_R1613</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not ignore this request [a value of "fAnonymousLogin" in the input parameter dwFlags]. (Exchange 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXNSPI_R690:i,MS-OXNSPI_R1528:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXNSPI_R1992</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation doesn't report an approximate value for the Numeric Position. (Exchange server 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXNSPI_R562:i,MS-OXNSPI_R1528:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXNSPI_R2003</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does support this specification [MS-OXCMAPIHTTP]. (Exchange Server 2013 Service Pack 1 (SP1) follows this behavior.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003003</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not follow the ABNF format. &lt;3&gt; Section 2.2.9.3:  Exchange 2013 and Exchange 2016 do not follow the ABNF format that is specified in [MS-OXOABK] section 2.2.1.1.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not follow the ABNF format. &lt;2&gt; Section 2.2.9.3:  Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not follow the ABNF format that is specified in [MS-OXOABK] section 2.2.1.1.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R412:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14147,9 +14071,29 @@ long NspiGetTemplateInfo(
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXNSPI_R748001</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does proceed as if the address book hierarchy table had no rows wheather the version number of the address book hierarchy table  matches this version number specified by lpVersion. &lt;3&gt; Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview: the input parameter lpVersion does not impact the search results.</ns1:Description>
+		<ns1:Derived>MS-OXNSPI_R748:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXNSPI_R750001</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not set the output parameter lpVersion to the version of the server's address book hierarchy table.&lt;4&gt; Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016, and Exchange 2019 Preview do not set the output parameter lpVersion to the version of the server's address book hierarchy table.</ns1:Description>
+		<ns1:Derived>MS-OXNSPI_R750:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003005</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the value "ErrorsReturned" (0x00040380). &lt;4&gt; Section 3.1.4.1.7:  Exchange 2010 SP3, Exchange 2013, and Exchange 2016 return "ErrorsReturned" (0x00040380).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the value "ErrorsReturned" (0x00040380). &lt;5&gt; Section 3.1.4.1.7:  Microsoft Exchange Server 2010 Service Pack 3 (SP3), Exchange 2013, Exchange 2016, and Exchange 2019 Preview return "ErrorsReturned" (0x00040380).</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R882:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14160,7 +14104,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003007</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not add the values for PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat.&lt;5&gt; Section 3.1.4.1.14:  Exchange 2010 SP3, Exchange 2013, and Exchange 2016 do not add values for the PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not add the values for PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat.&lt;6&gt; Section 3.1.4.1.14:  Exchange 2010 SP3, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not add values for the PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1527:i, MS-OXNSPI_R1301:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14170,7 +14114,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003009</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return "GeneralFailure" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. &lt;6&gt; Section 3.1.4.1.15:  Exchange 2013 and Exchange 2016 return "GeneralFailure" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return "GeneralFailure" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. &lt;7&gt; Section 3.1.4.1.15:  Exchange 2013  Exchange 2016 and Exchange 2019 PReview return "GeneralFailure" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1321:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14776,7 +14720,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R4969</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.503</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.507</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagAddressBookContainerId] Property ID: 0xFFFD.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14785,7 +14729,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R4970</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.503</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.507</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagAddressBookContainerId] Data type: PtypInteger32, 0x0003.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14794,7 +14738,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R4981</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.505</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.509</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagAddressBookDisplayNamePrintable] Property ID: 0x39FF.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14803,7 +14747,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R4982</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.505</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.509</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagAddressBookDisplayNamePrintable] Data type: PtypString, 0x001F.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14812,7 +14756,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5163</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.545</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.549</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagAddressBookObjectDistinguishedName] Property ID: 0x803C.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14821,7 +14765,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5164</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.545</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.549</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagAddressBookObjectDistinguishedName] Data type: PtypString, 0x001F.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14830,7 +14774,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5309</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.566</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.570</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagAddressBookX509Certificate] Property ID: 0x8C6A.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14839,7 +14783,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5310</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.566</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.570</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagAddressBookX509Certificate] Data type: PtypMultipleBinary, 0x1102.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14848,7 +14792,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5316</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.567</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.571</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagAddressType] Property ID: 0x3002</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14857,7 +14801,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5317</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.567</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.571</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagAddressType] Data type: PtypString, 0x001F</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14866,7 +14810,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5798</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.634</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.638</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagContainerContents] Description: Always empty. An NSPI server defines this value for distribution lists and it is not present for other objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14875,7 +14819,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5799</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.634</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.638</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagContainerContents] Property ID: 0x360F.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14884,7 +14828,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5800</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.634</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.638</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagContainerContents] Data type: PtypEmbeddedTable, 0x000D</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14893,7 +14837,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5806</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.635</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.639</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagContainerFlags] Property ID: 0x3600.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14902,7 +14846,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5807</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.635</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.639</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagContainerFlags] Data type: PtypInteger32, 0x0003.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14911,7 +14855,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R5986</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.663</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.667</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagDepartmentName] Property ID: 0x3A18.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14920,7 +14864,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6014</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.667</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.671</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagDisplayName] Property ID: 0x3001.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14929,7 +14873,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6015</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.667</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.671</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagDisplayName] Data type: PtypString, 0x001F.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14938,7 +14882,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6035</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.670</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.674</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagDisplayType] Property ID: 0x3900.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14947,7 +14891,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6036</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.670</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.674</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagDisplayType] Data type: PtypInteger32, 0x0003.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14956,7 +14900,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6056</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.672</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.676</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagEmailAddress] Property ID: 0x3003</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14965,7 +14909,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6057</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.672</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.676</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagEmailAddress] Data type: PtypString, 0x001F</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14974,7 +14918,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6100</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.674</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.678</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagEntryId] Property ID: 0x0FFF.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14983,7 +14927,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6101</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.674</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.678</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagEntryId] Data type: PtypBinary, 0x0102.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -14992,7 +14936,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6605</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.729</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.735</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagInitialDetailsPane] Property ID: 0x3F08.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15001,7 +14945,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6606</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.729</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.735</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagInitialDetailsPane] Data type: PtypInteger32, 0x0003.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15010,7 +14954,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6626</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.732</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.738</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagInstanceKey] Property ID: 0x0FF6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15019,7 +14963,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6627</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.732</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.738</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagInstanceKey] Data type: PtypBinary, 0x0102.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15028,7 +14972,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6889</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.769</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.775</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagMappingSignature] Description: A 16-byte constant that is present on all Address Book objects.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15037,7 +14981,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6890</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.769</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.775</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagMappingSignature] Property ID: 0x0FF8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15046,7 +14990,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R6891</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.769</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.775</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagMappingSignature] Data type: PtypBinary, 0x0102.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15055,7 +14999,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R7109</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.802</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.808</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagObjectType] Property ID: 0x0FFE.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15064,7 +15008,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R7110</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.802</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.808</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagObjectType] Data type: PtypInteger32, 0x0003.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15073,7 +15017,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R7116</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.803</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.809</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagOfficeLocation] Property ID: 0x3A19.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15082,7 +15026,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R7545</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.859</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.865</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagPrimaryTelephoneNumber] Property ID: 0x3A1A.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15091,7 +15035,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R7825</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.899</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.905</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagRecordKey] Property ID: 0x0FF9.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15100,7 +15044,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R7826</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.899</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.905</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagRecordKey] Data type: PtypBinary, 0x0102.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15109,7 +15053,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R8385</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.986</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.992</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagSearchKey] Property ID: 0x300B</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15118,7 +15062,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R8386</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.986</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.992</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagSearchKey] Data type: PtypBinary, 0x0102.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15127,7 +15071,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R8770</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1031</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.1038</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagTemplateid] Property ID: 0x3902.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15136,7 +15080,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R8771</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1031</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.1038</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagTemplateid] Data type: PtypBinary, 0x0102.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15145,7 +15089,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R8815</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1037</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.1044</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagTransmittableDisplayName] Property ID: 0x3A20.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15154,7 +15098,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R8816</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1037</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.1044</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagTransmittableDisplayName] Data type: PtypString, 0x001F.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15163,7 +15107,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R8875</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1042</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.1049</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagUserX509Certificate] Property ID: 0x3A70.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15172,7 +15116,7 @@ long NspiGetTemplateInfo(
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXPROPS_R8876</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1042</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.1049</ns1:Doc_Sect>
 		<ns1:Description>[In PidTagUserX509Certificate] Data type: PtypMultipleBinary, 0x1102.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

@@ -35,6 +35,8 @@
     <Property name="R116001Enabled" value="true" />
     <!-- Set R116002Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does not fail the operation, if the client sets an invalid bit in the SearchFlags field, as specified in section 3.2.5.4. Set R116002Enabled to false to disable this requirement. -->
     <Property name="R116002Enabled" value="false" />
+    <!-- Set R116003Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does fail the operation with ecNotSupported in the ReturnValue of the ROP response, if the client sets an invalid bit in the SearchFlags field, as specified in section 3.2.5.4. Set R116003Enabled to false to disable this requirement. -->
+    <Property name="R116003Enabled" value="false" />
     <!-- Set R314001Enabled to true to verify that for ROP RopGetHierarchyTable the implementation does not fail the operation, if the client sets an invalid bit in the TableFlags field, as specified in section 3.2.5.13. Set R314001Enabled to false to disable this requirement. -->
     <Property name="R314001Enabled" value="false" />
     <!-- Set R314002Enabled to true to verify that for ROP RopGetHierarchyTable the implementation does fail the operation with ecNotSupported in the ReturnValue of the ROP response, if the client sets an invalid bit in the TableFlags field, as specified in section 3.2.5.13. Set R314002Enabled to false to disable this requirement. -->
@@ -99,5 +101,9 @@
     <Property name="R271501Enabled" value="false"/>
     <!-- Set R271502Enabled to true to verify that for ROP RopCopyFolder the implementation sets zero value to PartialCompletion field of the ROP response, if the ROP fails for a subset of targets, as specified in section 2.2.1.8.2. Set R271502Enabled to false to disable this requirement.-->
     <Property name="R271502Enabled" value="true"/>
+    <!-- Set R764001Enabled to true to verify that if this bit DELETE_HARD_DELETE is set, implement does not hard delete the folder. Set R764001Enabled to false to disable this requirement.-->
+    <Property name="R764001Enabled" value="false"/>
+    <!-- Set R764002Enabled to true to verify that if this bit DELETE_HARD_DELETE is set, implement does hard delete the folder. Set R764002Enabled to false to disable this requirement.-->
+    <Property name="R764002Enabled" value="true"/>
   </Properties>
 </TestSite>

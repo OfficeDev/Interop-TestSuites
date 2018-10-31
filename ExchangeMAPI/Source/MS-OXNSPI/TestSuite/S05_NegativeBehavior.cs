@@ -1120,7 +1120,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.NotFound,
                 this.Result,
                 1048,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 13] If no such row [the first row in the specified table that has a value equal to or greater than the value specified in the input parameter pTarget] exists, the server MUST return the value NotFound.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 11] If no such row [the first row in the specified table that has a value equal to or greater than the value specified in the input parameter pTarget] exists, the server MUST return the value NotFound.");
 
             #endregion Capture
             #endregion
@@ -1205,7 +1205,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.GeneralFailure,
                 this.Result,
                 1039,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If the server does not support the SortTypePhoneticDisplayName and the SortType field of the input parameter pStat has the value SortTypePhoneticDisplayName, the server MUST return the value GeneralFailure.");
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 9] If the SortType field in the input parameter pStat has any value other than SortTypeDisplayName, the server MUST return the value GeneralFailure.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R899");
@@ -1281,8 +1281,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.GeneralFailure,
                 this.Result,
                 1043,
-                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 11] If the SortType field in the input parameter pStat is SortTypeDisplayName and the property specified in the input parameter pTarget is anything other than PidTagDisplayName (with either the Property Type PtypString8 or PtypString), the server MUST return the value GeneralFailure.");
-
+                @"[In NspiSeekEntries] [Server Processing Rules: Upon receiving message NspiSeekEntries, the server MUST process the data from the message subject to the following constraints:] [Constraint 10] If the SortType field in the input parameter pStat is SortTypeDisplayName and the property specified in the input parameter pTarget is anything other than PidTagDisplayName (with either the Property Type PtypString8 or PtypString), the server MUST return the value GeneralFailure.");
             #endregion Capture
             #endregion
 
@@ -2616,66 +2615,68 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             this.Result = this.ProtocolAdatper.NspiResortRestriction(reservedOfResortRestriction, ref stat, inmids, ref outMIds, false);
 
             #region Capture
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1194");
+            if (Common.IsRequirementEnabled(1194, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1194");
 
-            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1194
-            Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
-                ErrorCodeValue.GeneralFailure,
-                this.Result,
-                1194,
-                @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the server does not support the SortTypePhoneticDisplayName and the SortType field of the input parameter pStat has the value ""SortTypePhoneticDisplayName"", the server MUST return the value ""GeneralFailure"".");
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R1194
+                Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
+                    ErrorCodeValue.GeneralFailure,
+                    this.Result,
+                    1194,
+                    @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the SortType field in the input parameter pStat has any value other than SortTypeDisplayName the server MUST return the value ""GeneralFailure"".");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1189");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1189");
 
-            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1189
-            // When test code reaches here, server returns a value that is not "Success". So only whether outMIds is null or not needs to be determined.
-            Site.CaptureRequirementIfIsNull(
-                outMIds,
-                1189,
-                @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 3] If the server returns any return values other than ""Success"", the server MUST return a NULL for the output parameter ppOutMIds.");
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R1189
+                // When test code reaches here, server returns a value that is not "Success". So only whether outMIds is null or not needs to be determined.
+                Site.CaptureRequirementIfIsNull(
+                    outMIds,
+                    1189,
+                    @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 3] If the server returns any return values other than ""Success"", the server MUST return a NULL for the output parameter ppOutMIds.");
 
-            // Add the debug information
-            Site.Log.Add(
-                LogEntryKind.Debug,
-                "Verify MS-OXNSPI_R1757: the SortType of output stat is {0}, the ContainerID of output stat is {1}, the CurrentRec of output stat is {2}, the Delta of output stat is {3}, the NumPos of output stat is {4}, the TotalRecs of output stat is {5}, the CodePage of output stat is {6}, the TemplateLocale of output stat is {7}, the SortLocale of output stat is {8};" +
-                "the SortType of inputStat is {9}, the ContainerID of inputStat is {10}, the CurrentRec of inputStat is {11}, the Delta of inputStat is {12}, the NumPos of inputStat is {13}, the TotalRecs of inputStat is {13}, the CodePage of inputStat is {14}, the TemplateLocale of inputStat is {15}, the SortLocale of inputStat is {16}",
-                stat.SortType,
-                stat.ContainerID,
-                stat.CurrentRec,
-                stat.Delta,
-                stat.NumPos,
-                stat.TotalRecs,
-                stat.CodePage,
-                stat.TemplateLocale,
-                stat.SortLocale,
-                inputStat.SortType,
-                inputStat.ContainerID,
-                inputStat.CurrentRec,
-                inputStat.Delta,
-                inputStat.NumPos,
-                inputStat.TotalRecs,
-                inputStat.CodePage,
-                inputStat.TemplateLocale,
-                inputStat.SortLocale);
+                // Add the debug information
+                Site.Log.Add(
+                    LogEntryKind.Debug,
+                    "Verify MS-OXNSPI_R1757: the SortType of output stat is {0}, the ContainerID of output stat is {1}, the CurrentRec of output stat is {2}, the Delta of output stat is {3}, the NumPos of output stat is {4}, the TotalRecs of output stat is {5}, the CodePage of output stat is {6}, the TemplateLocale of output stat is {7}, the SortLocale of output stat is {8};" +
+                    "the SortType of inputStat is {9}, the ContainerID of inputStat is {10}, the CurrentRec of inputStat is {11}, the Delta of inputStat is {12}, the NumPos of inputStat is {13}, the TotalRecs of inputStat is {13}, the CodePage of inputStat is {14}, the TemplateLocale of inputStat is {15}, the SortLocale of inputStat is {16}",
+                    stat.SortType,
+                    stat.ContainerID,
+                    stat.CurrentRec,
+                    stat.Delta,
+                    stat.NumPos,
+                    stat.TotalRecs,
+                    stat.CodePage,
+                    stat.TemplateLocale,
+                    stat.SortLocale,
+                    inputStat.SortType,
+                    inputStat.ContainerID,
+                    inputStat.CurrentRec,
+                    inputStat.Delta,
+                    inputStat.NumPos,
+                    inputStat.TotalRecs,
+                    inputStat.CodePage,
+                    inputStat.TemplateLocale,
+                    inputStat.SortLocale);
 
-            // Verify MS-OXNSPI requirement: MS-OXNSPI_R1757
-            bool isVerifyR1757 = (stat.SortType == inputStat.SortType)
-                                && (stat.ContainerID == inputStat.ContainerID)
-                                && (stat.CurrentRec == inputStat.CurrentRec)
-                                && (stat.Delta == inputStat.Delta)
-                                && (stat.NumPos == inputStat.NumPos)
-                                && (stat.TotalRecs == inputStat.TotalRecs)
-                                && (stat.CodePage == inputStat.CodePage)
-                                && (stat.TemplateLocale == inputStat.TemplateLocale)
-                                && (stat.SortLocale == inputStat.SortLocale);
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R1757
+                bool isVerifyR1757 = (stat.SortType == inputStat.SortType)
+                                    && (stat.ContainerID == inputStat.ContainerID)
+                                    && (stat.CurrentRec == inputStat.CurrentRec)
+                                    && (stat.Delta == inputStat.Delta)
+                                    && (stat.NumPos == inputStat.NumPos)
+                                    && (stat.TotalRecs == inputStat.TotalRecs)
+                                    && (stat.CodePage == inputStat.CodePage)
+                                    && (stat.TemplateLocale == inputStat.TemplateLocale)
+                                    && (stat.SortLocale == inputStat.SortLocale);
 
-            Site.CaptureRequirementIfIsTrue(
-                isVerifyR1757,
-                1757,
-                @"[In NspiResortRestriction] If the server returns any return values other than ""Success"", the server MUST NOT modify the value of the parameter pStat.");
-
+                Site.CaptureRequirementIfIsTrue(
+                    isVerifyR1757,
+                    1757,
+                    @"[In NspiResortRestriction] If the server returns any return values other than ""Success"", the server MUST NOT modify the value of the parameter pStat.");
+            }
             #endregion
             #endregion
 
@@ -2985,7 +2986,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 AdapterHelper.AreTwoPropertyRowSetEqual(rows, rows1),
                 750001,
-                @"[In NspiGetSpecialTable] The Exchange server behavior is considered special as the Ipversion here does not impact any search results. ");
+                @"[In Appendix A: Product Behavior] Implementation does not set the output parameter lpVersion to the version of the server's address book hierarchy table.<4> Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016, and Exchange 2019 Preview do not set the output parameter lpVersion to the version of the server's address book hierarchy table.");
+
+            if(Common.IsRequirementEnabled(748001,this.Site))
+            {
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R750001
+                // If the input parameter lpVersion does not impact the search results, the result should be same with the result that is returned by above step.
+                Site.CaptureRequirementIfIsTrue(
+                    AdapterHelper.AreTwoPropertyRowSetEqual(rows, rows1),
+                    748001,
+                    @"[In Appendix A: Product Behavior] Implementation does proceed as if the address book hierarchy table had no rows wheather the version number of the address book hierarchy table  matches this version number specified by lpVersion. &lt;3&gt; Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview: the input parameter lpVersion does not impact the search results.");
+
+            }
             #endregion
             #endregion
 
@@ -3549,7 +3561,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 isR2003005Verified,
                 2003005,
-                @"[In Appendix A: Product Behavior] Implementation does return the value ""ErrorsReturned"" (0x00040380). <4> Section 3.1.4.1.7:  Exchange 2010 SP3, Exchange 2013, and Exchange 2016 return ""ErrorsReturned"" (0x00040380).");
+                @"[In Appendix A: Product Behavior] Implementation does return the value ""ErrorsReturned"" (0x00040380). <5> Section 3.1.4.1.7:  Microsoft Exchange Server 2010 Service Pack 3 (SP3), Exchange 2013, Exchange 2016, and Exchange 2019 Preview return ""ErrorsReturned"" (0x00040380).");
             #endregion
 
             #region Call NspiUpdateStat to update the STAT block to make CurrentRec point to the first row of the table.

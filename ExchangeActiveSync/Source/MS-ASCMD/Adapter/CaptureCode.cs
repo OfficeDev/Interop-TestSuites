@@ -9499,7 +9499,6 @@ OofMessage (section 2.2.3.117)");
                 @"[In Type(GetHierarchy)] The following table lists the valid values [1-6] for this element. ");
         }
         #endregion
-        #endregion
 
         #region Capture DTD [MS-ASTYPE]
 

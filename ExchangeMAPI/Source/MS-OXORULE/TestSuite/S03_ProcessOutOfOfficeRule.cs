@@ -1259,7 +1259,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR10191,
                     10191,
-                    @"[In Appendix A: Product Behavior] Implementation does send a reply message if the ActionType is ""OP_OOF_REPLY"" if action flavor is NS. (<6> Section 2.2.5.1.1:  Exchange 2007, Exchange 2010, and Exchange 2013 send a reply message if the ActionType is ""OP_OOF_REPLY"".)");
+                    @"[In Appendix A: Product Behavior] Implementation does send a reply message if the ActionType is ""OP_OOF_REPLY"" if action flavor is NS. (<6> Section 2.2.5.1.1:  Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview send a reply message if the ActionType is ""OP_OOF_REPLY"".)");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R1020");
@@ -1268,7 +1268,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 // The recipients information is added in the reply template when it is created. Since the rule works as expected, this requirement can be captured.
                 Site.CaptureRequirement(
                     1020,
-                    @"[In Action Flavors] NS (Bitmask 0x00000001): [OP_OOF_REPLY ActionType] [The server SHOULD<6> not send the message to the message sender]The reply template MUST contain recipients (2) in this case [if the NS flag is set].");
+                    @"[In Action Flavors] NS (Bitmask 0x00000001): [OP_OOF_REPLY ActionType] [The server SHOULD NOT <6> send the message to the message sender]The reply template MUST contain recipients (2) in this case [if the NS flag is set].");
             }
 
             #endregion

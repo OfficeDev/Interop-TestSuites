@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R810Enabled to true to verify that for ROP RopRestrict the implementation does not support asynchronous operations as specified in section 3.2.5.4. Set R810Enabled to false to disable this requirement.-->
+    <Property name="R810Enabled" value="true"/>
+    <!-- Set R812Enabled to true to verify that for ROPs RopRestrict,RopSortTable and RopSetColumns the implementation does not support asynchronous operations as specified in section 2.2.2.1.4. Set R812Enabled to false to disable this requirement.-->
+    <Property name="R812Enabled" value="true"/>
+    <!-- Set R815Enabled to true to verify that for ROP RopSortTable the implementation does support asynchronous operations as specified in section 2.2.2.1.3. Set R815Enabled to false to disable this requirement.-->
+    <Property name="R815Enabled" value="false"/>
+    <!-- Set R817Enabled to true to verify that for ROP RopSetColumns the implementation does support asynchronous operations as specified in section 2.2.2.1.3. Set R817Enabled to false to disable this requirement.-->
+    <Property name="R817Enabled" value="false"/>
+    <!-- Set R819Enabled to true to verify that for ROP RopRestrict the implementation does support asynchronous operations as specified in section 2.2.2.1.3. Set R819Enabled to false to disable this requirement.-->
+    <Property name="R819Enabled" value="false"/>
+    <!-- Set R795Enabled to true to verify that for ROP RopSetColumns the implementation does support asynchronous operations as specified in section 3.2.5.1. Set R795Enabled to false to disable this requirement.-->
+    <Property name="R795Enabled" value="false"/>
+    <!-- Set R796Enabled to true to verify that for ROP RopSetColumns the implementation does not support asynchronous operations as specified in section 3.2.5.1. Set R796Enabled to false to disable this requirement.-->
+    <Property name="R796Enabled" value="true"/>
+    <!-- Set R799Enabled to true to verify that for ROP RopSortTable the implementation does support asynchronous operations as specified in section 3.2.5.1. Set R799Enabled to false to disable this requirement.-->
+    <Property name="R799Enabled" value="false"/>
+    <!-- Set R800Enabled to true to verify that for ROP RopSortTable the implementation does not support asynchronous operations as specified in section 3.2.5.1. Set R800Enabled to false to disable this requirement.-->
+    <Property name="R800Enabled" value="true"/>
+    <!-- Set R801Enabled to true to verify that for ROP RopRestrict the implementation does support asynchronous operations as specified in section 3.2.5.1. Set R801Enabled to false to disable this requirement.-->
+    <Property name="R801Enabled" value="false"/>
+    <!-- Set R802Enabled to true to verify that for ROP RopRestrict the implementation does not support asynchronous operations as specified in section 3.2.5.1. Set R802Enabled to false to disable this requirement.-->
+    <Property name="R802Enabled" value="true"/>
+    <!-- Set R418Enabled to true to verify that for ROP RopRestrict the implementation does support asynchronous operations as specified in section 3.2.5.1. Set R418Enabled to false to disable this requirement.-->
+    <Property name="R418Enabled" value="false"/>
+    <!-- Set R793Enabled to true to verify that for ROP RopSetColumns the implementation does support asynchronous operations as specified in section 3.2.5.2. Set R793Enabled to false to disable this requirement.-->
+    <Property name="R793Enabled" value="false"/>
+    <!-- Set R794Enabled to true to verify that for ROP RopSortTable the implementation does support asynchronous operations as specified in section 3.2.5.3. Set R794Enabled to false to disable this requirement.-->
+    <Property name="R794Enabled" value="false"/>
+    <!-- Set R811Enabled to true to verify that for ROP RopRestrict the implementation does support asynchronous operations as specified in section 3.2.5.3. Set R811Enabled to false to disable this requirement.-->
+    <Property name="R811Enabled" value="false"/>
+    <!-- Set R770Enabled to true to verify that for ROP RopSetColumns the implementation does not support asynchronous operations as specified in section 6. Set R770Enabled to false to disable this requirement.-->
+    <Property name="R770Enabled" value="true"/>
+    <!-- Set R772Enabled to true to verify that for ROP RopSortTable the implementation does not support asynchronous operations as specified in section 6. Set R772Enabled to false to disable this requirement.-->
+    <Property name="R772Enabled" value="true"/>
+    <!-- Set R774Enabled to true to verify that for ROP RopRestrict the implementation does not support asynchronous operations as specified in section 6. Set R774Enabled to false to disable this requirement.-->
+    <Property name="R774Enabled" value="true"/>
+    <!-- Set R443Enabled to true to verify that for ROP RopSortTable the implementation invalidate the table sort order until a successful RopSortTable ROP is made if the RopSortTable ROP fails as specified in section 3.2.5.3. Set R443Enabled to false to disable this requirement.-->
+    <Property name="R443Enabled" value="true"/>
+    <!-- Set R768Enabled to true to verify that for ROP RopQueryRows before RopSetColumns the implementation does fails the ROP with "ecNullObject" as specified in section 3.2.5.2. Set R768Enabled to false to disable this requirement.-->
+    <Property name="R768Enabled" value="true"/>
+    <!-- Set R866Enabled to true to verify that for ROP RopQueryRows the implementation must sent RopSetColumns on the table before sending a RopQueryRows ROP request as specified in section 3.2.5.5. Set R866Enabled to false to disable this requirement.-->
+    <Property name="R866Enabled" value="true"/>
+    <!-- Set R867Enabled to true to verify that for ROP RopQueryRows the implementation does fails the ROP with "ecNullObject",if RopSetColumns has not been sent on this table as specified in section 3.2.5.5. Set R867Enabled to false to disable this requirement.-->
+    <Property name="R867Enabled" value="true"/>
+    <!-- Set R827Enabled to true to verify that for ROP RopFindRow the implementation fails the ROP with "ecNullObject" if a RopFindRow ROP is sent before a successful RopSetColumns ROP. Set R827Enabled to false to disable this requirement.-->
+    <Property name="R827Enabled" value="true"/>
+    <!-- Set R608Enabled to true to verify that for ROP RopFindRow the implementation does always set RowNoLongerVisible to "FALSE" (0x00) for hierarchy tables as specified in section 6. Set R608Enabled to false to disable this requirement.-->
+    <Property name="R608Enabled" value="false"/>
+    <!-- Set R549Enabled to true to verify that for ROP RopFreeBookmark the implementation does support contents tables as specified in section 3.2.5.15. Set R549Enabled to false to disable this requirement.-->
+    <Property name="R549Enabled" value="true"/>
+    <!-- Set R748Enabled to true to verify that for ROP RopExpandRow the implementation does not support a value greater than 0 for the MaxRowCount field in RopExpendRow as specified in section 6. Set R748Enabled to false to disable this requirement.-->
+    <Property name="R748Enabled" value="true"/>
+    <!-- Set R791Enabled to true to verify that for ROP RopAbort the implementation does support asynchronous operations as specified in section 3.2.5.6. Set R791Enabled to false to disable this requirement.-->
+    <Property name="R791Enabled" value="false"/>
+    <!-- Set R792Enabled to true to verify that for ROP RopGetStatus the implementation does support asynchronous operations as specified in section 3.2.5.7. Set R792Enabled to false to disable this requirement.-->
+    <Property name="R792Enabled" value="false"/>
+    <!-- Set R42Enabled to true to verify that for ROPs RopRestrict, RopSortTable and RopSetColumns the implementation does perform the ROPs asynchronously when TBL_ASYNC value is 0x01 as specified in section 2.2.2.1.4. Set R42Enabled to false to disable this requirement.-->
+    <Property name="R42Enabled" value="false"/>
+    <!-- Set R891Enabled to true to verify that for ROP RopGetStatus the implementation does send the status of the current asynchronous execution being performed on the table in the response as specified in section 3.2.5.7. Set R891Enabled to false to disable this requirement.-->
+    <Property name="R891Enabled" value="false"/>
+    <!-- Set R610Enabled to true to verify that for ROP RopSetColumns the implementation does invalidate the table column set until a successful RopSetColumns ROP request is made if a RopSetColumns ROP fails, as specified in section 3.2.5.2. Set R610Enabled to false to disable this requirement.-->
+    <Property name="R610Enabled" value="true"/>
+    <!-- Set R456Enabled to true to verify that for ROP RopRestrict the implementation does invalidate the table restriction (2) until a successful RopRestrict ROP request is made if a RopRestrict ROP fails, as specified in section 3.2.5.4. Set R456Enabled to false to disable this requirement.-->
+    <Property name="R456Enabled" value="true"/>
+    <!-- Set R910Enabled to true to verify that for ROP RopSeekRowFractional the implementation does support this ROP as specified in section 6. Set R910Enabled to false to disable this requirement.-->
+    <Property name="R910Enabled" value="true"/>
+    <!-- Set R896Enabled to true to verify that for ROP RopQueryRows the implementation does set the Origin field to "BOOKMARK_BEGINNING", if there are no more rows to return and the ForwardRead field in the ROP request is set to "FALSE", as specified in section 3.2.5.5. Set R896Enabled to false to disable this requirement.-->
+    <Property name="R896Enabled" value="false"/>
+    <!-- Set R897Enabled to true to verify that for ROP RopQueryRows the implementation does set the Origin field to "BOOKMARK_END", if there are no more rows to return and the ForwardRead field in the ROP request is set to "FALSE", as specified in section 6. Set R897Enabled to false to disable this requirement.-->
+    <Property name="R897Enabled" value="true"/>
+    <!-- Set R898Enabled to true to verify that for ROP RopFindRow the implementation does set the return value field to "ecInvalidBookmark", if the client requested that the find be performed from a custom bookmark, but the bookmark has become invalid because of a RopSortTable ROP, as specified in section 3.2.5.14. Set R898Enabled to false to disable this requirement.-->
+    <Property name="R898Enabled" value="true"/>
+    <!-- Set R899Enabled to true to verify that for ROP RopFindRow the implementation does set the return value field to "ecSuccess", if the client requested that the find be performed from a custom bookmark, but the bookmark has become invalid because of a RopSortTable ROP, as specified in section 6. Set R899Enabled to false to disable this requirement.-->
+    <Property name="R899Enabled" value="false"/>
+    <!-- Set R900Enabled to true to verify that for ROP RopFindRow the implementation does set the return value field to "ecInvalidBookmark", if the client requested that the find be performed from a custom bookmark, but the bookmark has become invalid because of a RopRestrict ROP, as specified in section 3.2.5.14. Set R900Enabled to false to disable this requirement.-->
+    <Property name="R900Enabled" value="true"/>
+    <!-- Set R902Enabled to true to verify that for ROP RopFindRow the implementation does set the return value field to "ecInvalidBookmark", if the client requested that the find be performed from a custom bookmark, but the bookmark has become invalid because of a RopResetTable ROP, as specified in section 3.2.5.14. Set R902Enabled to false to disable this requirement.-->
+    <Property name="R902Enabled" value="true"/>
+    <!-- Set R903Enabled to true to verify that for ROP RopFindRow the implementation does set the return value field to "ecSuccess", if the client requested that the find be performed from a custom bookmark, but the bookmark has become invalid because of a RopResetTable ROP, as specified in section 6. Set R903Enabled to false to disable this requirement.-->
+    <Property name="R903Enabled" value="false"/>
+    <!-- Set R904Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the return value field to "ecInvalidBookmark", if the bookmark has become invalid because of a RopSortTable ROP, as specified in section 3.2.5.10. Set R904Enabled to false to disable this requirement.-->
+    <Property name="R904Enabled" value="true"/>
+    <!-- Set R905Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the return value field to "ecSuccess", if the bookmark has become invalid because of a RopSortTable ROP, as specified in section 6. Set R905Enabled to false to disable this requirement.-->
+    <Property name="R905Enabled" value="false"/>
+    <!-- Set R906Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the return value field to "ecInvalidBookmark", if the bookmark has become invalid because of a RopRestrict ROP, as specified in section 3.2.5.10. Set R906Enabled to false to disable this requirement.-->
+    <Property name="R906Enabled" value="true"/>
+    <!-- Set R908Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the ReturnValue field to "ecInvalidBookmark" [for RopSeekRowBookmark], if the bookmark has become invalid because of a RopResetTable ([MS-OXCROPS] section 2.2.5.15) ROP request. Set R908Enabled to false to disable this requirement.-->
+    <Property name="R908Enabled" value="true"/>
+    <!-- Set R909Enabled to true to verify that for ROP RopSeekRowBookmark the implementation does set the return value field to "ecSuccess", if the bookmark has become invalid because of a RopResetTable ROP, as specified in section 6. Set R909Enabled to false to disable this requirement.-->
+    <Property name="R909Enabled" value="false"/>
+    <!-- Set R1340Enabled to true to verify that the implementation does support an MAPIHTTP transport. Set R1340Enabled to false to disable this requirement.-->
+    <Property name="R1340Enabled" value="true"/>
+    <!-- Set R8276Enabled to true to verify that the if a RopSeekRowBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8276Enabled to false to disable this requirement.-->
+    <Property name="R8276Enabled" value="true"/>
+    <!-- Set R8274Enabled to true to verify that the if a RopFreeBookmark ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8274Enabled to false to disable this requirement.-->
+    <Property name="R8274Enabled" value="true"/>
+    <!-- Set R8271Enabled to true to verify that the if a RopCollapseRow ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8271Enabled to false to disable this requirement.-->
+    <Property name="R8271Enabled" value="true"/>
+    <!-- Set R8273Enabled to true to verify that the if a RopExpandRow ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8273Enabled to false to disable this requirement.-->
+    <Property name="R8273Enabled" value="true"/>
+    <!-- Set R8275Enabled to true to verify that the if a RopGetCollapseState ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8275Enabled to false to disable this requirement.-->
+    <Property name="R8275Enabled" value="true"/>
+    <!-- Set R8277Enabled to true to verify that the if a RopSetCollapseState ROP is sent before a successful RopSetColumns ROP, then the implementation fails the ROP with "ecNullObject". Set R8277Enabled to false to disable this requirement.-->
+    <Property name="R8277Enabled" value="true"/>
+  </Properties>
+</TestSite>
