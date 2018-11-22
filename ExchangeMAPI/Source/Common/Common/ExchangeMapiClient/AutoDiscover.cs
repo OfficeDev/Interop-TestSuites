@@ -203,6 +203,9 @@ namespace Microsoft.Protocols.TestSuites.Common
         {
             System.Net.ServicePointManager.ServerCertificateValidationCallback =
             new System.Net.Security.RemoteCertificateValidationCallback(Common.ValidateServerCertificate);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls |
+                                       SecurityProtocolType.Tls11 |
+                                       SecurityProtocolType.Tls12;
             HttpStatusCode httpStatusCode = HttpStatusCode.Created;
             responseXml = null;
 
