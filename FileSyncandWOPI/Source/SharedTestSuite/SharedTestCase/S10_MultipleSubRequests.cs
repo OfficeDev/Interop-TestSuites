@@ -67,8 +67,22 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChange.SubRequestData.Coalesce = true;
 
             CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { exclusiveLocksubRequest, putChange });
-            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
-            CellSubResponseType putChangeResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 1, this.Site);
+            int exclusiveIndex = 0;
+            int putchangeIndex = 0;
+            for (int i=0;i< response.ResponseCollection.Response[0].SubResponse.Length;i++) 
+            {
+                if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == exclusiveLocksubRequest.SubRequestToken)
+                {
+                    exclusiveIndex = i;
+                }
+                else if(response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == putChange.SubRequestToken)
+                {
+                    putchangeIndex = i;
+                }
+            }
+
+            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, exclusiveIndex, this.Site);
+            CellSubResponseType putChangeResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, putchangeIndex, this.Site);
             this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site), "Test case cannot continue unless the get lock sub request succeeds.");
             this.StatusManager.RecordExclusiveLock(this.DefaultFileUrl, exclusiveLocksubRequest.SubRequestData.ExclusiveLockID);
             this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(putChangeResponse.ErrorCode, this.Site), "Test case cannot continue unless the put changes sub request succeeds.");
@@ -120,8 +134,21 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChange.DependsOn = exclusiveLocksubRequest.SubRequestToken;
 
             CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { exclusiveLocksubRequest, putChange });
-            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
-            CellSubResponseType putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 1, this.Site);
+            int exclusiveIndex = 0;
+            int putchangeIndex = 0;
+            for (int i = 0; i < response.ResponseCollection.Response[0].SubResponse.Length; i++)
+            {
+                if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == exclusiveLocksubRequest.SubRequestToken)
+                {
+                    exclusiveIndex = i;
+                }
+                else if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == putChange.SubRequestToken)
+                {
+                    putchangeIndex = i;
+                }
+            }
+            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, exclusiveIndex, this.Site);
+            CellSubResponseType putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, putchangeIndex, this.Site);
             this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site), "Test case cannot continue unless the get lock sub request succeeds.");
             this.StatusManager.RecordExclusiveLock(this.DefaultFileUrl, exclusiveLocksubRequest.SubRequestData.ExclusiveLockID);
             this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(putChanges.ErrorCode, this.Site), "Test case cannot continue unless the put changes sub request succeeds.");
@@ -141,9 +168,21 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChange.DependsOn = exclusiveLocksubRequest.SubRequestToken;
 
             response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { exclusiveLocksubRequest, putChange });
-
-            exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
-            putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 1, this.Site);
+            exclusiveIndex = 0;
+            putchangeIndex = 0;
+            for (int i = 0; i < response.ResponseCollection.Response[0].SubResponse.Length; i++)
+            {
+                if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == exclusiveLocksubRequest.SubRequestToken)
+                {
+                    exclusiveIndex = i;
+                }
+                else if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == putChange.SubRequestToken)
+                {
+                    putchangeIndex = i;
+                }
+            }
+            exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, exclusiveIndex, this.Site);
+            putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, putchangeIndex, this.Site);
 
             this.Site.Assert.AreNotEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site), "Test case cannot continue unless the get lock sub request fails.");
 
@@ -196,12 +235,24 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChange.DependsOn = exclusiveLocksubRequest.SubRequestToken;
 
             CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { exclusiveLocksubRequest, putChange });
-
-            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
+            int exclusiveIndex = 0;
+            int putchangeIndex = 0;
+            for (int i = 0; i < response.ResponseCollection.Response[0].SubResponse.Length; i++)
+            {
+                if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == exclusiveLocksubRequest.SubRequestToken)
+                {
+                    exclusiveIndex = i;
+                }
+                else if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == putChange.SubRequestToken)
+                {
+                    putchangeIndex = i;
+                }
+            }
+            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, exclusiveIndex, this.Site);
             this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site), "Test case cannot continue unless the get lock sub request succeeds.");
             this.StatusManager.RecordExclusiveLock(this.DefaultFileUrl, exclusiveLocksubRequest.SubRequestData.ExclusiveLockID);
 
-            CellSubResponseType putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 1, this.Site);
+            CellSubResponseType putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, putchangeIndex, this.Site);
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
@@ -238,9 +289,21 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChange.DependsOn = exclusiveLocksubRequest.SubRequestToken;
 
             response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { exclusiveLocksubRequest, putChange });
-
-            exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
-            putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 1, this.Site);
+            exclusiveIndex = 0;
+            putchangeIndex = 0;
+            for (int i = 0; i < response.ResponseCollection.Response[0].SubResponse.Length; i++)
+            {
+                if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == exclusiveLocksubRequest.SubRequestToken)
+                {
+                    exclusiveIndex = i;
+                }
+                else if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == putChange.SubRequestToken)
+                {
+                    putchangeIndex = i;
+                }
+            }
+            exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, exclusiveIndex, this.Site);
+            putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, putchangeIndex, this.Site);
 
             this.Site.Assert.AreNotEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site), "Test case cannot continue unless the get lock sub request fails.");
             this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(putChanges.ErrorCode, this.Site), "Test case cannot continue unless the put changes sub request succeeds.");
@@ -286,9 +349,21 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChange.DependsOn = exclusiveLocksubRequest.SubRequestToken;
 
             CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { exclusiveLocksubRequest, putChange });
-
-            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
-            CellSubResponseType putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 1, this.Site);
+            int exclusiveIndex = 0;
+            int putchangeIndex = 0;
+            for (int i = 0; i < response.ResponseCollection.Response[0].SubResponse.Length; i++)
+            {
+                if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == exclusiveLocksubRequest.SubRequestToken)
+                {
+                    exclusiveIndex = i;
+                }
+                else if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == putChange.SubRequestToken)
+                {
+                    putchangeIndex = i;
+                }
+            }
+            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, exclusiveIndex, this.Site);
+            CellSubResponseType putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, putchangeIndex, this.Site);
 
             this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site), "Test case cannot continue unless the get lock sub request succeeds.");
             this.StatusManager.RecordExclusiveLock(this.DefaultFileUrl, exclusiveLocksubRequest.SubRequestData.ExclusiveLockID);
@@ -344,9 +419,21 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChange.DependsOn = exclusiveLocksubRequest.SubRequestToken;
 
             CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { exclusiveLocksubRequest, putChange });
-
-            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
-            CellSubResponseType putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 1, this.Site);
+            int exclusiveIndex = 0;
+            int putchangeIndex = 0;
+            for (int i = 0; i < response.ResponseCollection.Response[0].SubResponse.Length; i++)
+            {
+                if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == exclusiveLocksubRequest.SubRequestToken)
+                {
+                    exclusiveIndex = i;
+                }
+                else if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == putChange.SubRequestToken)
+                {
+                    putchangeIndex = i;
+                }
+            }
+            ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, exclusiveIndex, this.Site);
+            CellSubResponseType putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, putchangeIndex, this.Site);
 
             this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site), "Test case cannot continue unless the get lock sub request succeeds.");
             this.StatusManager.RecordExclusiveLock(this.DefaultFileUrl, exclusiveLocksubRequest.SubRequestData.ExclusiveLockID);
@@ -368,9 +455,21 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChange.DependsOn = exclusiveLocksubRequest.SubRequestToken;
 
             response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { exclusiveLocksubRequest, putChange });
-
-            exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
-            putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 1, this.Site);
+            exclusiveIndex = 0;
+            putchangeIndex = 0;
+            for (int i = 0; i < response.ResponseCollection.Response[0].SubResponse.Length; i++)
+            {
+                if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == exclusiveLocksubRequest.SubRequestToken)
+                {
+                    exclusiveIndex = i;
+                }
+                else if (response.ResponseCollection.Response[0].SubResponse[i].SubRequestToken == putChange.SubRequestToken)
+                {
+                    putchangeIndex = i;
+                }
+            }
+            exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, exclusiveIndex, this.Site);
+            putChanges = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, putchangeIndex, this.Site);
 
             this.Site.Assert.AreNotEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site), "Test case cannot continue unless the get lock sub request fails.");
 

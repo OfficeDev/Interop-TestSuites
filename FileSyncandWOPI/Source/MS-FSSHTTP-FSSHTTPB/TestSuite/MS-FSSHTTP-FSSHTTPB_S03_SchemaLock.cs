@@ -228,7 +228,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
             // Check out one file by a specified user name.
-            bool isCheckOutSuccess = SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+            bool isCheckOutSuccess = SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
             Site.Assert.AreEqual(true, isCheckOutSuccess, "Cannot change the file {0} to check out status using the user name {1} and password{2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 

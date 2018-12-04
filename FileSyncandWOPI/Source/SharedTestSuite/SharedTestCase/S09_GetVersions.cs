@@ -318,7 +318,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.InitializeContext(fileUrl, this.UserName01, this.Password01, this.Domain);
 
             // Check out one file by a specified user name.
-            if (!this.SutPowerShellAdapter.CheckOutFile(fileUrl, this.UserName01, this.Password01, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(fileUrl, this.UserName01, this.Password01, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", fileUrl, this.UserName01, this.Password01);
             }
@@ -326,7 +326,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.StatusManager.RecordFileCheckOut(fileUrl, this.UserName01, this.Password01, this.Domain);
 
             string checkInComments1 = "New Comment1 for testing purpose on the operation GetVersions.";
-            if (!SutPowerShellAdapter.CheckInFile(fileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
+            if (!SutManagedAdapter.CheckInFile(fileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check in status using the user name {1} and password {2}", fileUrl, this.UserName01, this.Password01);
             }
@@ -334,7 +334,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.StatusManager.CancelRecordCheckOut(fileUrl);
 
             // Check out one file by a specified user name again.
-            if (!this.SutPowerShellAdapter.CheckOutFile(fileUrl, this.UserName02, this.Password02, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(fileUrl, this.UserName02, this.Password02, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", fileUrl, this.UserName02, this.Password02);
             }
@@ -342,7 +342,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.StatusManager.RecordFileCheckOut(fileUrl, this.UserName02, this.Password02, this.Domain);
 
             string checkInComments2 = "New Comment2 for testing purpose on the operation GetVersions.";
-            if (!SutPowerShellAdapter.CheckInFile(fileUrl, this.UserName02, this.Password02, this.Domain, checkInComments2))
+            if (!SutManagedAdapter.CheckInFile(fileUrl, this.UserName02, this.Password02, this.Domain, checkInComments2))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check in status using the user name {1} and password {2}", fileUrl, this.UserName02, this.Password02);
             }

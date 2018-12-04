@@ -156,7 +156,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 // Here try to catch the EndpointNotFoundException due to X-WOPI-ServerError.
                 if (ex.InnerException is WebException)
                 {
-                    if ((ex.InnerException as WebException).Response.Headers.AllKeys.Contains<string>("X-WOPI-ServerError"))
+                    if(((ex.InnerException as WebException).Response as HttpWebResponse).StatusCode==HttpStatusCode.NotFound)
+                    {
+                        request.Close();
+                        return null;
+                    }
+                    else if ((ex.InnerException as WebException).Response.Headers.AllKeys.Contains<string>("X-WOPI-ServerError"))
                     {
                         throw new WOPIServerErrorException(
                             (ex.InnerException as System.Net.WebException).Response.Headers["X-WOPI-ServerError"],
@@ -167,6 +172,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 request.Close();
 
                 throw;
+            }
+            catch(ProtocolException)
+            {
+                request.Close();
+                return null;
             }
         }
 

@@ -9,6 +9,52 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
     public class MS_FSSHTTP_FSSHTTPBManagedCodeSUTControlAdapter : ManagedAdapterBase, IMS_FSSHTTP_FSSHTTPBManagedCodeSUTControlAdapter
     {
         /// <summary>
+        /// This method is used to check in the specified file using the specified credential.
+        /// </summary>
+        /// <param name="fileUrl">Specify the absolute URL of a file which needs to be checked in.</param>
+        /// <param name="userName">Specify the name of the user who checks in the file.</param>
+        /// <param name="password">Specify the password of the user.</param>
+        /// <param name="domain">Specify the domain of the user.</param>
+        /// <param name="checkInComments">Specify the checked in comments.</param>
+        /// <returns>Return true if the check in succeeds, otherwise return false.</returns>
+        public bool CheckInFile(string fileUrl, string userName, string password, string domain, string checkInComments)
+        {
+            string targetSiteCollectionUrl = Common.Common.GetConfigurationPropertyValue("TargetSiteCollectionUrl", this.Site);
+            string fullFileUri = string.Format("{0}/_vti_bin/lists.asmx", targetSiteCollectionUrl);
+            if (fullFileUri.StartsWith("HTTPS", System.StringComparison.OrdinalIgnoreCase))
+            {
+                Common.Common.AcceptServerCertificate();
+            }
+            ListsSoap listsProxy = new ListsSoap();
+            listsProxy.Url = fullFileUri;
+            listsProxy.Credentials = new NetworkCredential(userName, password, domain);
+
+            return listsProxy.CheckInFile(fileUrl, checkInComments, "1");
+        }
+
+        /// <summary>
+        /// This method is used to check out the specified file using the specified credential.
+        /// </summary>
+        /// <param name="fileUrl">Specify the absolute URL of a file which needs to be checked out.</param>
+        /// <param name="userName">Specify the name of the user who checks out the file.</param>
+        /// <param name="password">Specify the password of the user.</param>
+        /// <param name="domain">Specify the domain of the user.</param>
+        /// <returns>Return true if the check out succeeds, otherwise return false.</returns>
+        public bool CheckOutFile(string fileUrl,string userName,string password,string domain)
+        {
+            string targetSiteCollectionUrl = Common.Common.GetConfigurationPropertyValue("TargetSiteCollectionUrl", this.Site);
+            string fullFileUri = string.Format("{0}/_vti_bin/lists.asmx", targetSiteCollectionUrl);
+            if (fullFileUri.StartsWith("HTTPS", System.StringComparison.OrdinalIgnoreCase))
+            {
+                Common.Common.AcceptServerCertificate();
+            }
+            ListsSoap listsProxy = new ListsSoap();
+            listsProxy.Url = fullFileUri;
+            listsProxy.Credentials = new NetworkCredential(userName, password, domain);
+            return listsProxy.CheckOutFile(fileUrl, "False", null);
+        }
+
+        /// <summary>
         /// This method is used to remove the file from the path of file URI.
         /// </summary>
         /// <param name="fileUrl">Specify the URL in where the file will be removed.</param>

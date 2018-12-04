@@ -37,42 +37,6 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         #endregion
 
         /// <summary>
-        /// A method used to verify that only the clients which have the same schema lock identifier can lock the file.
-        /// </summary>
-        [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
-        public void MSFSSHTTP_FSSHTTPB_S02_TC04_JoinCoauthSession_FileNotExistsOrCannotBeCreated()
-        {
-            // Join a coauthoring session on a nonexistent file, expect the server returns the error code "FileNotExistsOrCannotBeCreated".
-            string fileUrlNotExit = SharedTestSuiteHelper.GenerateNonExistFileUrl(this.Site);
-
-            // Initialize the service
-            this.InitializeContext(fileUrlNotExit, this.UserName01, this.Password01, this.Domain);
-
-            // Join a Coauthoring session with the non-exist URL.
-            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, null, null, 3600);
-            CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(fileUrlNotExit, new SubRequestType[] { subRequest });
-            CoauthSubResponseType joinResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // If the ErrorCode attribute returned equals "FileNotExistsOrCannotBeCreated", MS-FSSHTTP_R4003 can be covered.
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.FileNotExistsOrCannotBeCreated,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         4003,
-                         @"[In Coauth Subrequest][The protocol server returns results based on the following conditions:] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""FileNotExistsOrCannotBeCreated"" in the ErrorCode attribute sent back in the SubResponse element.");
-            }
-            else
-            {
-                Site.Assert.AreEqual<ErrorCodeType>(
-                     ErrorCodeType.FileNotExistsOrCannotBeCreated,
-                     SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site),
-                     @"[In Coauth Subrequest][The protocol server returns results based on the following conditions:] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""FileNotExistsOrCannotBeCreated"" in the ErrorCode attribute sent back in the SubResponse element.");
-            }
-        }
-
-        /// <summary>
         /// A method used to verify the related requirements when the URL attribute of the corresponding Request element doesn't exist.
         /// </summary>
         [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
@@ -239,7 +203,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         public void MSFSSHTTP_FSSHTTPB_S02_TC03_CoauthSubRequest_FileAlreadyCheckedOutOnServer()
         {
             // Use SUT method to check out the file.
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName02, this.Password02);
             }
@@ -310,14 +274,16 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             isVerifyR385 = refreshResponse.ErrorMessage != null && refreshResponse.ErrorMessage.IndexOf(this.UserName02, StringComparison.OrdinalIgnoreCase) >= 0;
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1566
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.FileAlreadyCheckedOutOnServer,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(refreshResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         1566,
-                         @"[In Refresh Coauthoring Session][When sending Refresh Coauthoring Session subrequest] If the coauthorable file is checked out on the server and checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
-
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1566, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1566
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.FileAlreadyCheckedOutOnServer,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(refreshResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             1566,
+                             @"[In Refresh Coauthoring Session][When sending Refresh Coauthoring Session subrequest] If the coauthorable file is checked out on the server and checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                }
                 this.Site.Log.Add(
                      LogEntryKind.Debug,
                      "For the requirement MS-FSSHTTP_R385, the error message should contain the user name {0}, actual value is {1}",
@@ -332,10 +298,13 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             }
             else
             {
-                Site.Assert.AreEqual<ErrorCodeType>(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1566, this.Site))
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.FileAlreadyCheckedOutOnServer,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(refreshResponse.ErrorCode, this.Site),
                     @"[When sending Refresh Coauthoring Session subrequest]If the coauthorable file is checked out on the server and checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                }
 
                 this.Site.Log.Add(
                     LogEntryKind.Debug,
@@ -356,23 +325,61 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             // Add the log information.
             Site.Log.Add(LogEntryKind.Debug, "The errorCode for Check Lock Availability SubRequest is :{0}", checkResponse.ErrorCode);
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1082, this.Site))
+            {
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1082
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.FileAlreadyCheckedOutOnServer,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(checkResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             1082,
+                             @"[In Check Lock Availability] If the coauthorable file is checked out on the server and it is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                }
+                else
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
+                        ErrorCodeType.FileAlreadyCheckedOutOnServer,
+                        SharedTestSuiteHelper.ConvertToErrorCodeType(checkResponse.ErrorCode, this.Site),
+                        @"[When sending check lock availability subrequest]If the coauthorable file is checked out on the server and it is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                }
+            }
+        }
+        /// <summary>
+        /// A method used to verify that only the clients which have the same schema lock identifier can lock the file.
+        /// </summary>
+        [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
+        public void MSFSSHTTP_FSSHTTPB_S02_TC04_JoinCoauthSession_FileNotExistsOrCannotBeCreated()
+        {
+            // Join a coauthoring session on a nonexistent file, expect the server returns the error code "FileNotExistsOrCannotBeCreated".
+            string fileUrlNotExit = SharedTestSuiteHelper.GenerateNonExistFileUrl(this.Site);
+
+            // Initialize the service
+            this.InitializeContext(fileUrlNotExit, this.UserName01, this.Password01, this.Domain);
+
+            // Join a Coauthoring session with the non-exist URL.
+            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, null, null, 3600);
+            CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(fileUrlNotExit, new SubRequestType[] { subRequest });
+            CoauthSubResponseType joinResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1082
+                // If the ErrorCode attribute returned equals "FileNotExistsOrCannotBeCreated", MS-FSSHTTP_R4003 can be covered.
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.FileAlreadyCheckedOutOnServer,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(checkResponse.ErrorCode, this.Site),
+                         ErrorCodeType.FileNotExistsOrCannotBeCreated,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
-                         1082,
-                         @"[In Check Lock Availability] If the coauthorable file is checked out on the server and it is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                         4003,
+                         @"[In Coauth Subrequest][The protocol server returns results based on the following conditions:] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""FileNotExistsOrCannotBeCreated"" in the ErrorCode attribute sent back in the SubResponse element.");
             }
             else
             {
                 Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.FileAlreadyCheckedOutOnServer,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(checkResponse.ErrorCode, this.Site),
-                    @"[When sending check lock availability subrequest]If the coauthorable file is checked out on the server and it is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                     ErrorCodeType.FileNotExistsOrCannotBeCreated,
+                     SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site),
+                     @"[In Coauth Subrequest][The protocol server returns results based on the following conditions:] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""FileNotExistsOrCannotBeCreated"" in the ErrorCode attribute sent back in the SubResponse element.");
             }
         }
 
@@ -386,7 +393,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
             // Check out the file
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }

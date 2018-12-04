@@ -479,7 +479,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         {
             Action function = () =>
             {
-                IMS_FSSHTTP_FSSHTTPBSUTControlAdapter sutAdapter = this.site.GetAdapter<IMS_FSSHTTP_FSSHTTPBSUTControlAdapter>();
+                IMS_FSSHTTP_FSSHTTPBManagedCodeSUTControlAdapter sutAdapter = this.site.GetAdapter<IMS_FSSHTTP_FSSHTTPBManagedCodeSUTControlAdapter>();
                 if (!sutAdapter.CheckInFile(fileUrl, userName, password, domain, "Check In for test purpose."))
                 {
                     this.errorMessage.Add(string.Format("Failed to check in the file {0} using the user {1}/{2} and password: {3}", fileUrl, userName, domain, password));
@@ -572,6 +572,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     this.errorMessage.Add("Failed to enable coauthoring feature.");
                     this.isEnvironmentRollbackSuccess = false;
                 }
+                System.Threading.Thread.Sleep(30 * 1000);
             };
 
             this.AddOrUpdate(ServerStatus.DisableCoauth, function);

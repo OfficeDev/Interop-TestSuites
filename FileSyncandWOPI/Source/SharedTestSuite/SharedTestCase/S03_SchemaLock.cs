@@ -66,7 +66,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         public void TestCase_S03_TC01_CheckLockAvailability_FileAlreadyCheckedOutOnServer()
         {
             // Check out one file by a specified user name.
-            bool isCheckOutSuccess = SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
+            bool isCheckOutSuccess = SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
             Site.Assert.AreEqual(true, isCheckOutSuccess, "Cannot change the file {0} to check out status using the user name {1} and password{2}", this.DefaultFileUrl, this.UserName02, this.Password02);
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
 
@@ -81,20 +81,26 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1208
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.FileAlreadyCheckedOutOnServer,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         1208,
-                         @"[In Check Lock Availability] If the coauthorable file is checked out on the server and it is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1208, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1208
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.FileAlreadyCheckedOutOnServer,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             1208,
+                             @"[In Check Lock Availability] If the coauthorable file is checked out on the server and it is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                }
             }
             else
             {
-                Site.Assert.AreEqual<ErrorCodeType>(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1208, this.Site))
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.FileAlreadyCheckedOutOnServer,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
                     @"[In Check Lock Availability] If the coauthorable file is checked out on the server and it is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                }
             }
         }
 
@@ -265,38 +271,40 @@ The conversion to an exclusive lock failed.");
                     SharedTestSuiteHelper.DefaultClientID,
                     SharedTestSuiteHelper.ReservedSchemaLockID,
                     isInSession ? "exists" : "does not exist");
-
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1198
-                Site.CaptureRequirementIfIsFalse(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3107, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1198
+                    Site.CaptureRequirementIfIsFalse(
                          isInSession,
                          "MS-FSSHTTP",
                          1198,
                          @"[In Convert to Exclusive Lock] When the ReleaseLockOnConversionToExclusiveFailure attribute is set to true and the conversion to an exclusive lock failed, the protocol server removes the client from the coauthoring session on the file.");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R678
-                Site.CaptureRequirementIfIsFalse(
-                         isInSession,
-                         "MS-FSSHTTP",
-                         678,
-                         @"[In SchemaLockSubRequestDataType] ReleaseLockOnConversionToExclusiveFailure: A Boolean value that specifies to the protocol server whether the server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker, provided that all of the following conditions are true:
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R678
+                    Site.CaptureRequirementIfIsFalse(
+                             isInSession,
+                             "MS-FSSHTTP",
+                             678,
+                             @"[In SchemaLockSubRequestDataType] ReleaseLockOnConversionToExclusiveFailure: A Boolean value that specifies to the protocol server whether the server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker, provided that all of the following conditions are true:
 The type of the schema lock subrequest is ""Convert to an Exclusive Lock"";
 The conversion to an exclusive lock failed.");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R679
-                Site.CaptureRequirementIfIsFalse(
-                         isInSession,
-                         "MS-FSSHTTP",
-                         679,
-                         @"[In SchemaLockSubRequestDataType] When all the preceding conditions[1. The type of the schema lock subrequest is ""Convert to an Exclusive Lock"". 2. The conversion to an exclusive lock failed.] are true, the following apply:
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R679
+                    Site.CaptureRequirementIfIsFalse(
+                             isInSession,
+                             "MS-FSSHTTP",
+                             679,
+                             @"[In SchemaLockSubRequestDataType] When all the preceding conditions[1. The type of the schema lock subrequest is ""Convert to an Exclusive Lock"". 2. The conversion to an exclusive lock failed.] are true, the following apply:
 A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of true indicates that the protocol server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker.");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R445
-                Site.CaptureRequirementIfIsFalse(
-                         isInSession,
-                         "MS-FSSHTTP",
-                         445,
-                         @"[In SubRequestDataOptionalAttributes] When all the above conditions[1. The type of co-authoring sub request is ""Convert to an exclusive lock"" or the type of the schema lock sub request is ""Convert to an Exclusive Lock"" 2. The conversion to an exclusive lock failed] are true:
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R445
+                    Site.CaptureRequirementIfIsFalse(
+                             isInSession,
+                             "MS-FSSHTTP",
+                             445,
+                             @"[In SubRequestDataOptionalAttributes] When all the above conditions[1. The type of co-authoring sub request is ""Convert to an exclusive lock"" or the type of the schema lock sub request is ""Convert to an Exclusive Lock"" 2. The conversion to an exclusive lock failed] are true:
 A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of true indicates that the protocol server is allowed to remove the ClientID entry associated with the current client in the File coauthoring tracker.");
+                }
             }
             else
             {
@@ -314,10 +322,13 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of true ind
 Either the type of coauthoring subrequest is ""Convert to an exclusive lock"" or the type of the schema lock subrequest is ""Convert to an Exclusive Lock"".
 The conversion to an exclusive lock failed.");
 
-                bool isInSession = this.IsPresentInCoauthSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, this.UserName01, this.Password01, this.Domain);
-                Site.Assert.IsFalse(
-                    isInSession,
-                    @"[In Convert to Exclusive Lock] When the ReleaseLockOnConversionToExclusiveFailure attribute is set to true and the conversion to an exclusive lock failed, the protocol server removes the client from the coauthoring session on the file.");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3107, this.Site))
+                {
+                    bool isInSession = this.IsPresentInCoauthSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, this.UserName01, this.Password01, this.Domain);
+                    Site.Assert.IsFalse(
+                        isInSession,
+                        @"[In Convert to Exclusive Lock] When the ReleaseLockOnConversionToExclusiveFailure attribute is set to true and the conversion to an exclusive lock failed, the protocol server removes the client from the coauthoring session on the file.");
+                }
             }
         }
 
@@ -407,41 +418,47 @@ The conversion to an exclusive lock failed.");
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1189
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.InvalidCoauthSession,
-                         errorCode,
-                         "MS-FSSHTTP",
-                         1189,
-                         @"[In Convert to Exclusive Lock][The protocol server returns an error code value set to ""InvalidCoauthSession"" to indicate failure if any one of the following conditions is true:] There is no shared lock.");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1189, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1189
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.InvalidCoauthSession,
+                             errorCode,
+                             "MS-FSSHTTP",
+                             1189,
+                             @"[In Convert to Exclusive Lock][The protocol server returns an error code value set to ""InvalidCoauthSession"" to indicate failure if any one of the following conditions is true:] There is no shared lock.");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1190
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.InvalidCoauthSession,
-                         errorCode,
-                         "MS-FSSHTTP",
-                         1190,
-                         @"[In Convert to Exclusive Lock][The protocol server returns an error code value set to ""InvalidCoauthSession"" to indicate failure if any one of the following conditions is true:] There is no coauthoring session for the file.");
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1190
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.InvalidCoauthSession,
+                             errorCode,
+                             "MS-FSSHTTP",
+                             1190,
+                             @"[In Convert to Exclusive Lock][The protocol server returns an error code value set to ""InvalidCoauthSession"" to indicate failure if any one of the following conditions is true:] There is no coauthoring session for the file.");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2255
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.InvalidCoauthSession,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         2255,
-                         @"[In Convert to Exclusive Lock] The shared lock is not converted to an exclusive lock if no clients is currently editing the document.");
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2255
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.InvalidCoauthSession,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             2255,
+                             @"[In Convert to Exclusive Lock] The shared lock is not converted to an exclusive lock if no clients is currently editing the document.");
+                }
             }
             else
             {
-                Site.Assert.AreEqual<ErrorCodeType>(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1189, this.Site))
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.InvalidCoauthSession,
                     errorCode,
                     @"[In Convert to Exclusive Lock][The protocol server returns an error code value set to ""InvalidCoauthSession"" to indicate failure if any one of the following conditions is true:] There is no shared lock.");
 
-                Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.InvalidCoauthSession,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
-                    @"[In Convert to Exclusive Lock] The shared lock is not converted to an exclusive lock if no clients is currently editing the document.");
+                    Site.Assert.AreEqual<ErrorCodeType>(
+                        ErrorCodeType.InvalidCoauthSession,
+                        SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
+                        @"[In Convert to Exclusive Lock] The shared lock is not converted to an exclusive lock if no clients is currently editing the document.");
+                }
             }
 
             // User01 join the coauthoring session
@@ -628,7 +645,7 @@ The conversion to an exclusive lock failed.");
         public void TestCase_S03_TC11_GetLock_FileAlreadyCheckedOutOnServer()
         {
             // Check out one file by a specified user name.
-            bool isCheckOutSuccess = SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
+            bool isCheckOutSuccess = SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
             Site.Assert.AreEqual(true, isCheckOutSuccess, "Cannot change the file {0} to check out status using the user name {1} and password{2}", this.DefaultFileUrl, this.UserName02, this.Password02);
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
 
@@ -852,53 +869,56 @@ The conversion to an exclusive lock failed.");
             Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site), "Test case cannot continue unless the Get Lock of SchemaLock sub request succeeds.");
             this.StatusManager.RecordSchemaLock(this.DefaultFileUrl, subRequest2.SubRequestData.ClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
 
-            this.InitializeContext(this.DefaultFileUrl, this.UserName03, this.Password03, this.Domain);
-            int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
-            int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
-
-            // Get a schema lock with different ClientId comparing with the previous two steps, expect the server returns the error code "NumberOfCoauthorsReachedMax".
-            SchemaLockSubRequestType subRequest3 = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, false, null);
-            subRequest3.SubRequestData.ClientID = Guid.NewGuid().ToString();
-
-            while (retryCount > 0)
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3107, this.Site))
             {
-                response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest3 });
-                schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+                this.InitializeContext(this.DefaultFileUrl, this.UserName03, this.Password03, this.Domain);
+                int waitTime = Common.GetConfigurationPropertyValue<int>("WaitTime", this.Site);
+                int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
-                if (SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site) == ErrorCodeType.NumberOfCoauthorsReachedMax)
+                // Get a schema lock with different ClientId comparing with the previous two steps, expect the server returns the error code "NumberOfCoauthorsReachedMax".
+                SchemaLockSubRequestType subRequest3 = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.GetLock, false, null);
+                subRequest3.SubRequestData.ClientID = Guid.NewGuid().ToString();
+
+                while (retryCount > 0)
                 {
-                    break;
+                    response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest3 });
+                    schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
+
+                    if (SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site) == ErrorCodeType.NumberOfCoauthorsReachedMax)
+                    {
+                        break;
+                    }
+
+                    retryCount--;
+                    if (retryCount == 0)
+                    {
+                        Site.Assert.Fail("NumberOfCoauthorsReachedMax error should be returned if the maximum number of coauthorable clients allowed to join a coauthoring session to edit a coauthorable file has been reached.");
+                    }
+
+                    System.Threading.Thread.Sleep(waitTime);
                 }
 
-                retryCount--;
-                if (retryCount == 0)
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
                 {
-                    Site.Assert.Fail("NumberOfCoauthorsReachedMax error should be returned if the maximum number of coauthorable clients allowed to join a coauthoring session to edit a coauthorable file has been reached.");
-                }
-
-                System.Threading.Thread.Sleep(waitTime);
-            }
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1161
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.NumberOfCoauthorsReachedMax,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         1161,
-                         @"[In Get Lock] The protocol server returns an error code value set to ""NumberOfCoauthorsReachedMax"" when all of the following conditions are true: 
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1161
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.NumberOfCoauthorsReachedMax,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             1161,
+                             @"[In Get Lock] The protocol server returns an error code value set to ""NumberOfCoauthorsReachedMax"" when all of the following conditions are true: 
                          1.The maximum number of coauthorable clients allowed to join a coauthoring session to edit a coauthorable file has been reached;
                          2.The current client is not allowed to edit the file because the limit has been reached.");
-            }
-            else
-            {
-                Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.NumberOfCoauthorsReachedMax,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
-                    @"[In Get Lock] The protocol server returns an error code value set to ""NumberOfCoauthorsReachedMax"" when all of the following conditions are true: 
+                }
+                else
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
+                        ErrorCodeType.NumberOfCoauthorsReachedMax,
+                        SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
+                        @"[In Get Lock] The protocol server returns an error code value set to ""NumberOfCoauthorsReachedMax"" when all of the following conditions are true: 
                         1.The maximum number of coauthorable clients allowed to join a coauthoring session to edit a coauthorable file has been reached;
                         2.The current client is not allowed to edit the file because the limit has been reached.");
+                }
             }
         }
 
@@ -1509,7 +1529,7 @@ The conversion to an exclusive lock failed.");
         public void TestCase_S03_TC23_RefreshLock_FileAlreadyCheckedOutOnServer()
         {
             // Check out one file by a specified user name.
-            bool isCheckOutSuccess = SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
+            bool isCheckOutSuccess = SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
             Site.Assert.AreEqual(true, isCheckOutSuccess, "Cannot change the file {0} to check out status using the user name {1} and password{2}", this.DefaultFileUrl, this.UserName02, this.Password02);
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
 
@@ -1527,13 +1547,16 @@ The conversion to an exclusive lock failed.");
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1588
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.FileAlreadyCheckedOutOnServer,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         1588,
-                         @"[In Refresh Lock] If the coauthorable file is checked out on the server and is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1588, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1588
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.FileAlreadyCheckedOutOnServer,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             1588,
+                             @"[In Refresh Lock] If the coauthorable file is checked out on the server and is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                }
 
                 bool isVerifyR385 = schemaLockSubResponse.ErrorMessage != null && schemaLockSubResponse.ErrorMessage.IndexOf(this.UserName02, StringComparison.OrdinalIgnoreCase) >= 0;
                 this.Site.Log.Add(
@@ -1550,10 +1573,13 @@ The conversion to an exclusive lock failed.");
             }
             else
             {
-                Site.Assert.AreEqual<ErrorCodeType>(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1588, this.Site))
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.FileAlreadyCheckedOutOnServer,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
                     @"[In Refresh Lock] If the coauthorable file is checked out on the server and is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                }
 
                 bool isVerifyR385 = schemaLockSubResponse.ErrorMessage != null && schemaLockSubResponse.ErrorMessage.IndexOf(this.UserName02, StringComparison.OrdinalIgnoreCase) >= 0;
                 this.Site.Log.Add(
@@ -1873,20 +1899,26 @@ The conversion to an exclusive lock failed.");
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R158201
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.FileAlreadyLockedOnServer,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         158201,
-                         @"[In Appendix B: Product Behavior] Implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (<44> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 158201, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R158201
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.FileAlreadyLockedOnServer,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             158201,
+                             @"[In Appendix B: Product Behavior] Implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (<44> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)");
+                }
             }
             else
             {
-                Site.Assert.AreEqual<ErrorCodeType>(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 158201, this.Site))
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.FileAlreadyLockedOnServer,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
                     @"[In Appendix B: Product Behavior] Implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (<44> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)");
+                }
             }
         }
 

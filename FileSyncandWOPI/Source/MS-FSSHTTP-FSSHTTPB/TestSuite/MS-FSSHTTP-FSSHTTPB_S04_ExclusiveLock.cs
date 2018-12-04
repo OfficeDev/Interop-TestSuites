@@ -115,7 +115,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         public void MSFSSHTTP_FSSHTTPB_S04_TC02_GetExclusiveLock_CheckoutByCurrentClient()
         {
             // Check out one file by a specified user name.
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password{2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }
@@ -240,7 +240,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             }
 
             // Check out one file by a specified user name. 
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }
@@ -291,7 +291,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         public void MSFSSHTTP_FSSHTTPB_S04_TC04_ConvertToSchemaJoinCoauth_ConvertToSchemaFailedFileCheckedOutByCurrentUser()
         {
             // Check out one file by a specified user name.
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password{2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }
@@ -365,7 +365,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         public void MSFSSHTTP_FSSHTTPB_S04_TC05_ConvertToSchema_ConvertToSchemaFailedFileCheckedOutByCurrentUser()
         {
             // Check out one file by a specified user name.
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password{2}", this.DefaultFileUrl, this.UserName01, this.UserName01);
             }
@@ -440,11 +440,11 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         {
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
+            string notExistsFileUrl = this.DefaultFileUrl.Substring(0, this.DefaultFileUrl.LastIndexOf('/')) + "/noexistsFile.txt";
             ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.GetLock);
 
             // Get the exclusive lock with nonexistent file URL and expect the server returns error code "LockRequestFail" or "Unknown".
-            CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl.Substring(0, this.DefaultFileUrl.LastIndexOf('/')), new SubRequestType[] { subRequest });
+            CellStorageResponse response = this.Adapter.CellStorageRequest(notExistsFileUrl, new SubRequestType[] { subRequest });
             ExclusiveLockSubResponseType exclusiveResponse = SharedTestSuiteHelper.ExtractSubResponse<ExclusiveLockSubResponseType>(response, 0, 0, this.Site);
 
             ErrorCodeType errorType = SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site);
@@ -550,21 +550,24 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15171
-                Site.CaptureRequirementIfIsTrue(
-                         response.ResponseVersion.ErrorCodeSpecified,
-                         "MS-FSSHTTP",
-                         15171,
-                         @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if any one of the following is true.
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15171, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15171
+                    Site.CaptureRequirementIfIsTrue(
+                             response.ResponseVersion.ErrorCodeSpecified,
+                             "MS-FSSHTTP",
+                             15171,
+                             @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if any one of the following is true.
                          The user does not have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element.");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R359
-                Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
-                         GenericErrorCodeTypes.FileUnauthorizedAccess,
-                         response.ResponseVersion.ErrorCode,
-                         "MS-FSSHTTP",
-                         359,
-                         @"[In GenericErrorCodeTypes] FileUnauthorizedAccess indicates an error when the targeted URL for the file specified as part of the Request element does not have correct authorization.");
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R359
+                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                             GenericErrorCodeTypes.FileUnauthorizedAccess,
+                             response.ResponseVersion.ErrorCode,
+                             "MS-FSSHTTP",
+                             359,
+                             @"[In GenericErrorCodeTypes] FileUnauthorizedAccess indicates an error when the targeted URL for the file specified as part of the Request element does not have correct authorization.");
+                }
             }
             else
             {

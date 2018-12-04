@@ -51,5 +51,7 @@
     <Property name="R685003Enabled_MS-WOPI" value="false" />
     <!-- Set R776002002Enabled_MS-WOPI to true to verify that when the value of SupportsFileCreation is true, implementation does support creating new files using the WOPI client. Otherwise set the value to false to disable this requirement. -->
     <Property name="R776002002Enabled_MS-WOPI" value="true" />
+    <!-- Set R593Enabled_MS-WOPI to true to verify that implementation support the folder level operations. Otherwise set the value to false to disable this requirement. -->
+    <Property name="R593Enabled_MS-WOPI" value="true" />
   </Properties>
 </TestSite>

@@ -205,7 +205,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
             // Check out one file by a specified user name.
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }
@@ -213,7 +213,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
             string checkInComments1 = "New Comment1 for testing purpose on the operation Versioning.";
-            if (!SutPowerShellAdapter.CheckInFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
+            if (!SutManagedAdapter.CheckInFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check in status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }
@@ -279,7 +279,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
             // Check out one file by a specified user name.
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }
@@ -287,7 +287,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
             string checkInComments1 = "New Comment1 for testing purpose on the operation Versioning.";
-            if (!SutPowerShellAdapter.CheckInFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
+            if (!SutManagedAdapter.CheckInFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check in status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }
@@ -357,7 +357,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
             // Check out one file by a specified user name.
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }
@@ -365,7 +365,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
             string checkInComments1 = "New Comment1 for testing purpose on the operation Versioning.";
-            if (!SutPowerShellAdapter.CheckInFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
+            if (!SutManagedAdapter.CheckInFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check in status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }
@@ -406,7 +406,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11190
             Site.CaptureRequirementIfAreEqual<string>(
                 "3",
-                versioningSubResponse.SubResponseData.Versions.Version[0].Events.Event[0].Type,
+                versioningSubResponse.SubResponseData.Versions.Version[0].Events[0].Type,
                 "MS-FSSHTTP",
                 11190,
                 @"[In FileVersionEventDataType] 3 means A user restored the file content to its state at a previous version.");
@@ -424,7 +424,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             System.DateTime time = Convert.ToDateTime(lastModifiedProperty.Value);
 
-            long createTime = long.Parse(versioningSubResponse.SubResponseData.Versions.Version[0].Events.Event[0].CreateTime);
+            long createTime = long.Parse(versioningSubResponse.SubResponseData.Versions.Version[0].Events[0].CreateTime);
             bool isR11193Verified = ((System.Math.Round((double)createTime / 10000000)) == (time - new System.DateTime(1601, 1, 1, 0, 0, 0)).TotalSeconds);
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11193
@@ -444,7 +444,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11194
             Site.CaptureRequirementIfAreEqual<string>(
                 versioningSubResponse.SubResponseData.UserTable.User[0].UserId,
-                versioningSubResponse.SubResponseData.Versions.Version[0].Events.Event[0].UserId,
+                versioningSubResponse.SubResponseData.Versions.Version[0].Events[0].UserId,
                 "MS-FSSHTTP",
                 11194,
                 @"[In FileVersionEventDataType] UserId: An integer which specifies which user performed this event.");
@@ -452,7 +452,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11195
             Site.CaptureRequirementIfAreEqual<string>(
                 versioningSubResponse.SubResponseData.UserTable.User[0].UserId,
-                versioningSubResponse.SubResponseData.Versions.Version[0].Events.Event[0].UserId,
+                versioningSubResponse.SubResponseData.Versions.Version[0].Events[0].UserId,
                 "MS-FSSHTTP",
                 11195,
                 @"[In FileVersionEventDataType] The UserId MUST match the UserId attribute of a UserDataType (section 2.3.1.42) described in the VersioningUserTableType in the current VersioningSubResponseDataType.");
@@ -473,7 +473,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }
@@ -481,7 +481,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
             string checkInComments1 = "New Comment1 for testing purpose on the operation Versioning.";
-            if (!SutPowerShellAdapter.CheckInFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
+            if (!SutManagedAdapter.CheckInFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain, checkInComments1))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check in status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             }
@@ -517,7 +517,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11189
             Site.CaptureRequirementIfAreEqual<string>(
                 "2",
-                versioningSubResponse.SubResponseData.Versions.Version[0].Events.Event[0].Type,
+                versioningSubResponse.SubResponseData.Versions.Version[0].Events[0].Type,
                 "MS-FSSHTTP",
                 11189,
                 @"[In FileVersionEventDataType] 2 means A user renamed the file.");
