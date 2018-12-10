@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns1:ReqTable xmlns:ns1="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/RequirementTable">
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R1</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.8</ns1:Doc_Sect>
+		<ns1:Description>Sample normative requirement.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>implementation dependent</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R2</ns1:REQ_ID>
+		<ns1:Doc_Sect>1.8</ns1:Doc_Sect>
+		<ns1:Description>This is an informative requirement (no verification needed).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R3</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
+		<ns1:Description>Messages are padded to 4 bytes boundaries</ns1:Description>
+		<ns1:Pos>MS-xxxx_R7</ns1:Pos>
+		<ns1:Neg>MS-xxxx_R6</ns1:Neg>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R4</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>Don't have to prioritize out of scope requirements.  No verification need for out of scope requirements.</ns1:Description>
+		<ns1:Scenario>S2,S3</ns1:Scenario>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R41</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>Don't have to prioritize out of scope requirements. </ns1:Description>
+		<ns1:Derived>MS-XXXX_R4:c</ns1:Derived>
+		<ns1:Scenario>S2,S3</ns1:Scenario>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R42</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1</ns1:Doc_Sect>
+		<ns1:Description>No verification need for out of scope requirements.</ns1:Description>
+		<ns1:Derived>MS-XXXX_R4:c</ns1:Derived>
+		<ns1:Scenario>S2,S3</ns1:Scenario>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R5</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2</ns1:Doc_Sect>
+		<ns1:Description>Message not padded to 4 byte boundary is not responded to</ns1:Description>
+		<ns1:Derived>MS-xxxx_R3:i,MS-xxxx_R6:i</ns1:Derived>
+		<ns1:Scenario>S5</ns1:Scenario>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R6</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2</ns1:Doc_Sect>
+		<ns1:Description>Messages with invalid lengths are not responded to</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Take too much time for too little benefit</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R7</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2</ns1:Doc_Sect>
+		<ns1:Description>Message length MUST equal header length + body length + padding</ns1:Description>
+		<ns1:Scenario>S5</ns1:Scenario>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R8</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2</ns1:Doc_Sect>
+		<ns1:Description>Server verifies signature of the message</ns1:Description>
+		<ns1:Scenario>S2,S3</ns1:Scenario>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R9</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.1</ns1:Doc_Sect>
+		<ns1:Description>Server SHOULD do X</ns1:Description>
+		<ns1:Scenario>S3</ns1:Scenario>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R10</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>&lt;4&gt; Windows 2003 does not do X</ns1:Description>
+		<ns1:Scenario>S1, S10, S2</ns1:Scenario>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R11</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.1</ns1:Doc_Sect>
+		<ns1:Description>Windows 2008 does  X</ns1:Description>
+		<ns1:Derived>MS-xxxx_R9:i,MS-xxxx_R15:i</ns1:Derived>
+		<ns1:Scenario>S10, S9</ns1:Scenario>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R12</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.1</ns1:Doc_Sect>
+		<ns1:Description>After CloseReply the server SHOULD release resources</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Resources inadequately defined and implementation specific.  Not observable.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R13</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.2</ns1:Doc_Sect>
+		<ns1:Description>If there are no events meeting that [any events the client has not received that pass the subscription filters] criteria, the server MUST NOT complete the above operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Deleted</ns1:Verification>
+		<ns1:VerificationComment>This requirement is removed after TDI 7722 fixed.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R14</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.2</ns1:Doc_Sect>
+		<ns1:Description>otherwise [if the method call is not successful], it [EvtRpcGetEventMetadataEnum] MUST return an implementation-specific non-zero value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R15</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>Unless otherwise specified, any statement of optional behavior in this specification prescribed using the terms SHOULD or SHOULD NOT implies Windows behavior in accordance with the SHOULD or SHOULD NOT prescription. </ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Normative requirements are derived from this General requirement</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-XXXX_R16</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>Unless otherwise specified, the term MAY implies that Windows does not follow the prescription </ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Normative requirements are derived from this General requirement</ns1:VerificationComment>
+	</ns1:Requirement>
+</ns1:ReqTable>

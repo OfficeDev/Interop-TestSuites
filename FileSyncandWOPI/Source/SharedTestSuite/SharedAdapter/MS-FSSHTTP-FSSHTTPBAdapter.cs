@@ -142,7 +142,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
                 // Restore the current version type
                 SharedContext.Current.CellStorageVersionType = cellStorageResponseObjects.ResponseVersion;
-
+                SharedContext.Current.FileUrl = url;
                 // Schema Validation for the response.
                 this.ValidateGenericType(cellStorageResponseObjects, requestToken);
                 this.ValidateSpecificType(cellStorageResponseObjects);
