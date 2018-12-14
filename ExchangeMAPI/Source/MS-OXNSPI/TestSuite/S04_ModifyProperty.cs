@@ -420,7 +420,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                     ErrorCodeValue.GeneralFailure,
                     result1,
                     2003009,
-                    @"[In Appendix A: Product Behavior] Implementation does return ""GeneralFailure"" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. <7> Section 3.1.4.1.15:  Exchange 2013  Exchange 2016 and Exchange 2019 PReview return ""GeneralFailure"" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.");
+                    @"[In Appendix A: Product Behavior] Implementation does return ""GeneralFailure"" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. <8> Section 3.1.4.1.15:  Exchange 2013  Exchange 2016 and Exchange 2019 PReview return ""GeneralFailure"" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.");
             }
 
             this.IsRequireToDeleteAddressBookMember = true;

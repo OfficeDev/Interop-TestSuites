@@ -8941,7 +8941,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R717</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In EcDoAsyncConnectEx Method (opnum 14)] [Return Values] [ecRejected (0x000007EE)] The Server has asynchronous RPC notifications disabled. &lt;26&gt;</ns1:Description>
+		<ns1:Description>[In EcDoAsyncConnectEx Method (opnum 14)] [Return Values] [ecRejected (0x000007EE)] The Server has asynchronous RPC notifications disabled. &lt;25&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8951,7 +8951,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R718</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In EcDoAsyncConnectEx Method (opnum 14)] [Return Values] [ecRejected (0x000007EE)] Client either polls for notifications or calls the EcRRegisterPushNotifications method (section 3.1.4.5). &lt;27&gt;</ns1:Description>
+		<ns1:Description>[In EcDoAsyncConnectEx Method (opnum 14)] [Return Values] [ecRejected (0x000007EE)] Client either polls for notifications or calls the EcRRegisterPushNotifications method (section 3.1.4.5). &lt;25&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8979,7 +8979,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1555</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In EcRRegisterPushNotification Method (opnum 4)] The server MAY&lt;27&gt; support the EcRRegisterPushNotification method.</ns1:Description>
+		<ns1:Description>[In EcRRegisterPushNotification Method (opnum 4)] The server MAY&lt;26&gt; support the EcRRegisterPushNotification method.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9667,7 +9667,7 @@ ENDIF</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1411</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] A client SHOULD&lt;28&gt; use different RPC methods based on the product version being run on the server that it [the client] is accessing.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] A client SHOULD&lt;27&gt; use different RPC methods based on the product version being run on the server that it [the client] is accessing.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9794,7 +9794,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1154</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Sending the EcDoConnectEx Method] ulIcxrLink: This value is used to link the Session Context that is created by this call [EcDoConnectEx method] with an existing Session Context on the server that was created by a previous call to the EcDoConnectEx method.&lt;29&gt;</ns1:Description>
+		<ns1:Description>[In Sending the EcDoConnectEx Method] ulIcxrLink: This value is used to link the Session Context that is created by this call [EcDoConnectEx method] with an existing Session Context on the server that was created by a previous call to the EcDoConnectEx method.&lt;28&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9812,7 +9812,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1156</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Sending the EcDoConnectEx Method] [ulIcxrLink] [A client can link two Session Contexts for the following reasons:] This [CAL] gives a client the ability to open multiple independent connections by using more than one Session Context on the server but be seen to the server as only consuming a single CAL.&lt;30&gt;</ns1:Description>
+		<ns1:Description>[In Sending the EcDoConnectEx Method] [ulIcxrLink] [A client can link two Session Contexts for the following reasons:] This [CAL] gives a client the ability to open multiple independent connections by using more than one Session Context on the server but be seen to the server as only consuming a single CAL.&lt;29&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10037,7 +10037,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1669</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Sending the EcDoConnectEx Method] [piCxr] For details about how to link Session Contexts and the reason why a client might request to do so [the client behavior when piCxr is on success or on failure], see the ulIcxrLink parameter.&lt;31&gt;</ns1:Description>
+		<ns1:Description>[In Sending the EcDoConnectEx Method] [piCxr] For details about how to link Session Contexts and the reason why a client might request to do so [the client behavior when piCxr is on success or on failure], see the ulIcxrLink parameter.&lt;30&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10164,7 +10164,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1184</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Sending the EcDoConnectEx Method] [pulTimeStamp] If the client is not requesting to link Session Contexts, the client passes value 0x00000000.&lt;32&gt;</ns1:Description>
+		<ns1:Description>[In Sending the EcDoConnectEx Method] [pulTimeStamp] If the client is not requesting to link Session Contexts, the client passes value 0x00000000.&lt;31&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10412,7 +10412,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1000</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Client Performance Monitoring] AUX_PERF_CLIENTINFO: Sent to the server as diagnostic information about the client for more robust reporting of networking issues.&lt;33&gt;</ns1:Description>
+		<ns1:Description>[In Client Performance Monitoring] AUX_PERF_CLIENTINFO: Sent to the server as diagnostic information about the client for more robust reporting of networking issues.&lt;32&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10556,7 +10556,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1680</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Client Performance Monitoring] AUX_CLIENT_CONNECTION_INFO: Sent to the server as information about the client connection to be logged by the server.&lt;34&gt;</ns1:Description>
+		<ns1:Description>[In Client Performance Monitoring] AUX_CLIENT_CONNECTION_INFO: Sent to the server as information about the client connection to be logged by the server.&lt;33&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11626,7 +11626,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1725</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In Handling Endpoint Consolidation] If the client receives the AUX_ENDPOINT_CAPABILITIES auxiliary block structure, as specified in section 2.2.2.2.19, in the server's response to the EcDoConnectEx method, as specified in section 3.1.4.1, initiated by the client, then the client SHOULD&lt;35&gt; save the information so that on subsequent connections to that server the client can consolidate the RFRI, NSPI, and EMSMDB interfaces to a single port, such as port 6001.</ns1:Description>
+		<ns1:Description>[In Handling Endpoint Consolidation] If the client receives the AUX_ENDPOINT_CAPABILITIES auxiliary block structure, as specified in section 2.2.2.2.19, in the server's response to the EcDoConnectEx method, as specified in section 3.1.4.1, initiated by the client, then the client SHOULD&lt;34&gt; save the information so that on subsequent connections to that server the client can consolidate the RFRI, NSPI, and EMSMDB interfaces to a single port, such as port 6001.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11861,7 +11861,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1276</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] This interface [AsyncEMSMDB] includes the following method &lt;36&gt;: [EcDoAsyncWaitEx].</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] This interface [AsyncEMSMDB] includes the following method &lt;35&gt;: [EcDoAsyncWaitEx].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11908,7 +11908,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1230</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In EcDoAsyncWaitEx Method (opnum 0)] If no events are available within 5 minutes of the time that the client last accessed the server&lt;37&gt; through a call to the EcDoRpcExt2 method, as specified in section 3.1.4.2, the server returns the call and does not set the NotificationPending flag in the pulFlagsOut parameter.</ns1:Description>
+		<ns1:Description>[In EcDoAsyncWaitEx Method (opnum 0)] If no events are available within 5 minutes of the time that the client last accessed the server&lt;36&gt; through a call to the EcDoRpcExt2 method, as specified in section 3.1.4.2, the server returns the call and does not set the NotificationPending flag in the pulFlagsOut parameter.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12109,7 +12109,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1343</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In EcDoAsyncWaitEx Method (opnum 0)] [Return Values] [Rejected (0x000007EE)] An EcDoAsyncWaitEx method call is already outstanding on this asynchronous context handle.&lt;38&gt;</ns1:Description>
+		<ns1:Description>[In EcDoAsyncWaitEx Method (opnum 0)] [Return Values] [Rejected (0x000007EE)] An EcDoAsyncWaitEx method call is already outstanding on this asynchronous context handle.&lt;37&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12199,7 +12199,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1420</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] A client SHOULD&lt;39&gt; use different RPC methods based on the product version being run on the server that it is accessing.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] A client SHOULD&lt;38&gt; use different RPC methods based on the product version being run on the server that it is accessing.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12896,7 +12896,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1403</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return auxiliary payload data to the client. &lt;24&gt; Section 3.1.4.2: Exchange 2007, Exchange 2013, and Exchange 2016 support returning data in rgbAuxOut parameter.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return auxiliary payload data to the client. &lt;24&gt; Section 3.1.4.2.2.1: Exchange 2007, Exchange 2013, and Exchange 2016 support returning data in rgbAuxOut parameter.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R681:i,MS-OXCRPC_R1002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12918,7 +12918,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1757</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return the ecRejected error code, when the Server has asynchronous RPC notifications disabled. (&lt;26&gt; Section 3.1.4.4: Exchange 2010, Exchange 2013, and Exchange 2016 do not return the ecRejected error code.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return the ecRejected error code, when the Server has asynchronous RPC notifications disabled. (&lt;25&gt; Section 3.1.4.4: Exchange 2010, Exchange 2013, and Exchange 2016 do not return the ecRejected error code.)</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R717:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12929,7 +12929,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1941</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return [ecRejected (0x000007EE)] when Client either polls for notifications or calls EcRRegisterPushNotifications. [In Appendix B: Product Behavior]  &lt;26&gt; Section 3.1.4.4: Exchange 2010, Exchange 2013, and Exchange 2016 do not return the ecRejected error code.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return [ecRejected (0x000007EE)] when Client either polls for notifications or calls EcRRegisterPushNotifications. [In Appendix B: Product Behavior]  &lt;25&gt; Section 3.1.4.4: Exchange 2010, Exchange 2013, and Exchange 2016 do not return the ecRejected error code.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R718:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12951,7 +12951,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R4880</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the EcRRegisterPushNotification method. (&lt;27&gt; Section 3.1.4.5: Exchange 2007 does support this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the EcRRegisterPushNotification method. (&lt;26&gt; Section 3.1.4.5: Exchange 2007 does support this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R1555:i,MS-OXCRPC_R1002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12962,7 +12962,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R4881</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;27&gt; Section 3.1.4.5: The initial release version of Exchange 2010 and Exchange 2010 SP1 do not support the EcRRegisterPushNotification method and return ecNotSupported.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;26&gt; Section 3.1.4.5: The initial release version of Exchange 2010 and Exchange 2010 SP1 do not support the EcRRegisterPushNotification method and return ecNotSupported.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R1555:i,MS-OXCRPC_R1002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12972,7 +12972,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1557</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the EcRRegisterPushNotification method call. &lt;27&gt; Section 3.1.4.5: Exchange 2010 SP2 supports the EcRRegisterPushNotification RPC when a registry key is created to support push notifications, as described in [MSFT-ConfigStaticUDPPort].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the EcRRegisterPushNotification method call. &lt;26&gt; Section 3.1.4.5: Exchange 2010 SP2 supports the EcRRegisterPushNotification RPC when a registry key is created to support push notifications, as described in [MSFT-ConfigStaticUDPPort].</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R1555:i,MS-OXCRPC_R1002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12982,7 +12982,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1558</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the EcRRegisterPushNotification method call. &lt;27&gt; Section 3.1.4.5: Exchange 2013 and Exchange 2016 do not support the EcRRegisterPushNotification RPC and returns ecNotSupported.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the EcRRegisterPushNotification method call. &lt;26&gt; Section 3.1.4.5: Exchange 2013 Exchange 2016 and Exchange 2019 do not support the EcRRegisterPushNotification RPC and returns ecNotSupported.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R1555:i,MS-OXCRPC_R1002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -12993,7 +12993,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1787</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;28&gt; Section 3.2.4: Office Outlook 2003 and above use EMSMDB interface method EcDoDisconnect when accessing a computer that is running Exchange 2003.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;27&gt; Section 3.2.4: Office Outlook 2003 and above use EMSMDB interface method EcDoDisconnect when accessing a computer that is running Exchange 2003.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13002,7 +13002,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1788</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003, 2007 and 2010 use EMSMDB interface method EcRRegisterPushNotification when accessing a computer that is running Exchange 2003.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003, 2007 and 2010 use EMSMDB interface method EcRRegisterPushNotification when accessing a computer that is running Exchange 2003.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13011,7 +13011,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1794</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003, 2007 and 2010 use EMSMDB interface method EcRRegisterPushNotification when accessing a computer that is running Exchange 2007.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003, 2007 and 2010 use EMSMDB interface method EcRRegisterPushNotification when accessing a computer that is running Exchange 2007.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13020,7 +13020,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1789</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcDummyRpc when accessing a computer that is running Exchange 2003.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcDummyRpc when accessing a computer that is running Exchange 2003.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13029,7 +13029,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1790</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoConnectEx when accessing a computer that is running Exchange 2003.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoConnectEx when accessing a computer that is running Exchange 2003.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13038,7 +13038,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1791</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoRpcExt2 when accessing a computer that is running Exchange 2003.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoRpcExt2 when accessing a computer that is running Exchange 2003.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13047,7 +13047,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1792</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcDoAsyncConnectEx when accessing a computer that is running Exchange 2003.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcDoAsyncConnectEx when accessing a computer that is running Exchange 2003.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13056,7 +13056,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1793</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoDisconnect when accessing a computer that is running Exchange 2007.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoDisconnect when accessing a computer that is running Exchange 2007.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13065,7 +13065,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1795</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcDummyRpc when accessing a computer that is running Exchange 2007.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcDummyRpc when accessing a computer that is running Exchange 2007.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13074,7 +13074,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1797</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoRpcExt2 when accessing a computer that is running Exchange 2007.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoRpcExt2 when accessing a computer that is running Exchange 2007.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13083,7 +13083,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1798</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2007 and above use EMSMDB interface method EcDoAsyncConnectEx when accessing a computer that is running Exchange 2007.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2007 and above use EMSMDB interface method EcDoAsyncConnectEx when accessing a computer that is running Exchange 2007.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13092,7 +13092,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1799</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoDisconnect when accessing a computer that is running Exchange 2010.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoDisconnect when accessing a computer that is running Exchange 2010.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13101,7 +13101,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1800</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcRRegisterPushNotification when accessing a computer that is running Exchange 2010.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcRRegisterPushNotification when accessing a computer that is running Exchange 2010.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13110,7 +13110,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1801</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcDummyRpc when accessing a computer that is running Exchange 2010.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcDummyRpc when accessing a computer that is running Exchange 2010.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13119,7 +13119,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1796</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoConnectEx when accessing a computer that is running Exchange 2007.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoConnectEx when accessing a computer that is running Exchange 2007.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13128,7 +13128,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1802</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above follow this behavior uses EMSMDB interface method EcDoConnectEx when accessing a computer that is running Exchange 2010.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above follow this behavior uses EMSMDB interface method EcDoConnectEx when accessing a computer that is running Exchange 2010.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13137,7 +13137,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1803</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoRpcExt2 when accessing a computer that is running Exchange 2010.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoRpcExt2 when accessing a computer that is running Exchange 2010.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13146,7 +13146,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1804</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2007 and above use EMSMDB interface method EcDoAsyncConnectEx when accessing a computer that is running Exchange 2010.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2007 and above use EMSMDB interface method EcDoAsyncConnectEx when accessing a computer that is running Exchange 2010.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13155,7 +13155,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1901</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoDisconnect when accessing a computer that is running Exchange 2013.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoDisconnect when accessing a computer that is running Exchange 2013.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -13164,7 +13164,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1902</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcRRegisterPushNotification when accessing a computer that is running Exchange 2013.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcRRegisterPushNotification when accessing a computer that is running Exchange 2013.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -13173,7 +13173,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1903</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcDummyRpc when accessing a computer that is running Exchange 2013.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above don't use EMSMDB interface method EcDummyRpc when accessing a computer that is running Exchange 2013.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -13182,7 +13182,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1904</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoConnectEx when accessing a computer that is running Exchange 2013.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoConnectEx when accessing a computer that is running Exchange 2013.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -13191,7 +13191,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1905</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoRpcExt2 when accessing a computer that is running Exchange 2013.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2003 and above use EMSMDB interface method EcDoRpcExt2 when accessing a computer that is running Exchange 2013.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -13200,7 +13200,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1906</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;28&gt; Section 3.2.4] Office Outlook 2007 and above use EMSMDB interface method EcDoAsyncConnectEx when accessing a computer that is running Exchange 2013.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;27&gt; Section 3.2.4] Office Outlook 2007 and above use EMSMDB interface method EcDoAsyncConnectEx when accessing a computer that is running Exchange 2013.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -13209,7 +13209,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1412</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;29&gt; Section 3.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support Session Context linking.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;28&gt; Section 3.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support Session Context linking.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13218,7 +13218,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1413</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;30&gt; Section 3.2.4.1: In Exchange 2003 and the initial release version of Exchange 2007, the server counts individual connections for Client Access License accounting, so Session Context linking is useful in method call EcDoConnectEx on the EMSMDB interface.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;29&gt; Section 3.2.4.1: In Exchange 2003 and the initial release version of Exchange 2007, the server counts individual connections for Client Access License accounting, so Session Context linking is useful in method call EcDoConnectEx on the EMSMDB interface.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13227,7 +13227,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1414</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;31&gt; Section 3.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support Session Context linking.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;30&gt; Section 3.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support Session Context linking.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13236,7 +13236,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1415</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;32&gt; Section 3.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support Session Context linking.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;31&gt; Section 3.2.4.1: Exchange 2010, Exchange 2013, and Exchange 2016 do not support Session Context linking.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13245,7 +13245,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1003</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;33&gt; Section 3.2.4.1.2.1: Outlook 2010 by default does not populate the MachineName, UserName, ClientIP, and MacAddress fields within the AUX_PERF_CLIENTINFO structure.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;32&gt; Section 3.2.4.1.2.1: Outlook 2010 by default does not populate the MachineName, UserName, ClientIP, and MacAddress fields within the AUX_PERF_CLIENTINFO structure.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13254,7 +13254,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1761</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;34&gt; Section 3.2.4.1.2.1: Exchange 2003 does not support the AUX_CLIENT_CONNECTION_INFO auxiliary buffer.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;33&gt; Section 3.2.4.1.2.1: Exchange 2003 does not support the AUX_CLIENT_CONNECTION_INFO auxiliary buffer.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13263,7 +13263,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1762</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;34&gt; Section 3.2.4.1.2.1] Office Outlook 2003 does not support the AUX_CLIENT_CONNECTION_INFO auxiliary buffer.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;33&gt; Section 3.2.4.1.2.1] Office Outlook 2003 does not support the AUX_CLIENT_CONNECTION_INFO auxiliary buffer.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13272,7 +13272,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1763</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;35&gt; Section 3.2.4.6:  Office Outlook 2003, the initial release version of Office Outlook 2007, Office Outlook 2007 SP1, Office Outlook 2007 SP2, and Outlook 2010 do not support port consolidation.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;34&gt; Section 3.2.4.6:  Office Outlook 2003, the initial release version of Office Outlook 2007, Office Outlook 2007 SP1, Office Outlook 2007 SP2, and Outlook 2010 do not support port consolidation.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13281,7 +13281,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1764</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;35&gt; Section 3.2.4.6] Microsoft Office Outlook 2007 Service Pack 3 (SP3) supports port consolidation.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;34&gt; Section 3.2.4.6] Microsoft Office Outlook 2007 Service Pack 3 (SP3) supports port consolidation.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13290,7 +13290,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1765</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;35&gt; Section 3.2.4.6] Clients that do not support port consolidation ignore the AUX_ENDPOINT_CAPABILITIES auxiliary block structure, as described in section 2.2.2.2.19.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;34&gt; Section 3.2.4.6] Clients that do not support port consolidation ignore the AUX_ENDPOINT_CAPABILITIES auxiliary block structure, as described in section 2.2.2.2.19.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13299,7 +13299,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R4882</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;35&gt; Section 3.2.4.6: Office Outlook 2007 SP3, Outlook 2013, and Outlook 2016 support port consolidation.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;34&gt; Section 3.2.4.6: Office Outlook 2007 SP3, Outlook 2013, and Outlook 2016 support port consolidation.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13308,7 +13308,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1922</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;36&gt; Section 3.3.4: Implementation does support AsyncEMSMDB method EcDoAsyncWaitEx. (Microsoft Exchange Server 2007 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;35&gt; Section 3.3.4: Implementation does support AsyncEMSMDB method EcDoAsyncWaitEx. (Microsoft Exchange Server 2007 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R1276:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -13330,7 +13330,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1907</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does complete the call every 5 minutes regardless of the client's last activity time. [In Appendix B: Product Behavior] &lt;37&gt; Section 3.3.4.1: Exchange 2007 completes the call every 5 minutes regardless of the client's last activity time.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does complete the call every 5 minutes regardless of the client's last activity time. [In Appendix B: Product Behavior] &lt;36&gt; Section 3.3.4.1: Exchange 2007 completes the call every 5 minutes regardless of the client's last activity time.</ns1:Description>
 		<ns1:Derived>MS-OXCRPC_R1230:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -13341,7 +13341,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1908</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does reject the request if the asynchronous context handle is invalid. (&lt;38&gt; Section 3.3.4.1: Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does reject the request if the asynchronous context handle is invalid. (&lt;37&gt; Section 3.3.4.1: Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13351,7 +13351,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1807</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;39&gt; Section 3.4.4] The AsyncEMSMDB interface methods are not used by a client when accessing a computer that is running Exchange 2003.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;38&gt; Section 3.4.4] The AsyncEMSMDB interface methods are not used by a client when accessing a computer that is running Exchange 2003.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13360,7 +13360,7 @@ hBinding: A valid RPC binding handle that MUST have a server name, protocol sequ
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R1910</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;39&gt; Section 3.4.4] The AsyncEMSMDB interface method EcDoAsyncWaitEx is used by Office Outlook 2007, Outlook 2010, Outlook 2013 and Outlook 2016 when accessing a computer that is running Exchange 2007, Exchange 2010, Exchange 2013, or Exchange 2016.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;38&gt; Section 3.4.4] The AsyncEMSMDB interface method EcDoAsyncWaitEx is used by Office Outlook 2007, Outlook 2010, Outlook 2013 and Outlook 2016 when accessing a computer that is running Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 or Exchange 2019.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
