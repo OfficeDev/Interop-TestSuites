@@ -46,7 +46,6 @@ $environmentResourceFile                     = "$commonScriptDirectory\SharePoin
 
 $User1                                       = ReadConfigFileNode "$environmentResourceFile" "User1"
 $User1Password                               = ReadConfigFileNode "$environmentResourceFile" "User1Password"                 
-
 $User2                                       = ReadConfigFileNode "$environmentResourceFile" "User2"
 $User2Password                               = ReadConfigFileNode "$environmentResourceFile" "User2Password"
 $User3                                       = ReadConfigFileNode "$environmentResourceFile" "User3"
@@ -81,7 +80,6 @@ $MSWOPIUserCredentialItem                    = ReadConfigFileNode "$environmentR
 $MSWOPIPasswordCredentialItem                = ReadConfigFileNode "$environmentResourceFile" "MSWOPIPasswordCredentialItem"
 $MSWOPIFolderCreatedByUser1                  = ReadConfigFileNode "$environmentResourceFile" "MSWOPIFolderCreatedByUser1"
 $MSWOPINoUseRemotePermissionLevel            = ReadConfigFileNode "$environmentResourceFile" "MSWOPINoUseRemotePermissionLevel"
-
 
 $MSONESTORESiteCollectionName                =ReadConfigFileNode "$environmentResourceFile" "SiteCollectionName"
 $MSONESTORELibraryName                       =ReadConfigFileNode "$environmentResourceFile" "MSONESTORELibraryName"
@@ -219,7 +217,6 @@ if($useClaims)
 Output "Steps for manual configuration:" "Yellow"
 Output "Create six users on the domain controller:" "Yellow"
 Output "Name:$User1 Password:$User1Password" "Yellow"
-
 Output "Name:$User2 Password:$User2Password" "Yellow"
 Output "Name:$User3 Password:$User3Password" "Yellow"
 Output "Name:$NoUseRemoteUser Password:$NoUseRemoteUserUserPs" "Yellow"
@@ -278,7 +275,6 @@ CreateFile $FileSyncWOPIBigTestData1 1.1mb $containerPath
 #-----------------------------------------------------
 # Start to configure SUT for MS-FSSHTTP-FSSHTTPB
 #-----------------------------------------------------
-
 if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -ge $SharePointServer2013[0] )
 {
     Output "Start to run configuration for MS-FSSHTTP-FSSHTTPB ..." "White"
@@ -448,7 +444,6 @@ if($SharePointVersion -ge $SharePointServer2013[0] -or $SharePointVersion -eq $S
     #start url in IE
     StartUrlInIE $sutComputerName $web  
 }
-
 #-----------------------------------------------------
 # Start to configure SUT for MS-ONESTORE
 #-----------------------------------------------------
@@ -465,13 +460,6 @@ if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -e
     CreateListItem $MSONESTORESiteCollectionNameObject.RootWeb $MSONESTORELibraryName 101
 
  }
-#----------------------------------------------------------------------------
-# Create a test data
-#----------------------------------------------------------------------------
-Output "Steps for manual configuration:" "Yellow"
-Output "Create a 1.1MB-sized text file named $FileSyncWOPIBigTestData1." "Yellow"
-CreateFile $FileSyncWOPIBigTestData1 1.1mb $containerPath
-
 #----------------------------------------------------------------------------
 # Ending script
 #----------------------------------------------------------------------------
