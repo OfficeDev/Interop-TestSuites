@@ -2615,17 +2615,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             this.Result = this.ProtocolAdatper.NspiResortRestriction(reservedOfResortRestriction, ref stat, inmids, ref outMIds, false);
 
             #region Capture
-            if (Common.IsRequirementEnabled(1194, this.Site))
+            if (Common.IsRequirementEnabled(119401, this.Site))
             {
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1194");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R119401");
 
-                // Verify MS-OXNSPI requirement: MS-OXNSPI_R1194
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R119401
                 Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
                     ErrorCodeValue.GeneralFailure,
                     this.Result,
-                    1194,
-                    @"[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the SortType field in the input parameter pStat has any value other than SortTypeDisplayName the server MUST return the value ""GeneralFailure"".");
+                    119401,
+                    @"[In Appendix A: Product Behavior] Implementation does return the value ""GeneralFailure"" when SortType field in the input parameter pStat has any value other than SortTypeDisplayName. (Exchange Server 2010, Exchange Server 2013, Exchange Server 2016 follow this behavior.)");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1189");
@@ -2677,11 +2677,24 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                     1757,
                     @"[In NspiResortRestriction] If the server returns any return values other than ""Success"", the server MUST NOT modify the value of the parameter pStat.");
             }
-            #endregion
-            #endregion
+            if (Common.IsRequirementEnabled(119402, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R119402");
 
-            #region Call NspiUnbind to destroy the session between the client and the server.
-            uint returnValue = this.ProtocolAdatper.NspiUnbind(0);
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R119402
+                Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
+                    ErrorCodeValue.Success,
+                    this.Result,
+                    119402,
+                    @"[In Appendix A: Product Behavior] Implementation does return the value ""Success"" when SortType field in the input parameter pStat has any value other than SortTypeDisplayName. <6> Section 3.1.4.1.11:  Exchange 2019 returns ""Success"".");
+
+            }
+                #endregion
+                #endregion
+
+                #region Call NspiUnbind to destroy the session between the client and the server.
+                uint returnValue = this.ProtocolAdatper.NspiUnbind(0);
             Site.Assert.AreEqual<uint>(1, returnValue, "NspiUnbind method should return 1 (Success).");
             #endregion
         }

@@ -81,6 +81,8 @@ $MSWOPIPasswordCredentialItem                = ReadConfigFileNode "$environmentR
 $MSWOPIFolderCreatedByUser1                  = ReadConfigFileNode "$environmentResourceFile" "MSWOPIFolderCreatedByUser1"
 $MSWOPINoUseRemotePermissionLevel            = ReadConfigFileNode "$environmentResourceFile" "MSWOPINoUseRemotePermissionLevel"
 
+$MSONESTORESiteCollectionName                =ReadConfigFileNode "$environmentResourceFile" "SiteCollectionName"
+$MSONESTORELibraryName                       =ReadConfigFileNode "$environmentResourceFile" "MSONESTORELibraryName"
 #-----------------------------------------------------
 # Check whether the unattended SUT configuration XML is available if run in unattended mode.
 #-----------------------------------------------------
@@ -442,6 +444,22 @@ if($SharePointVersion -ge $SharePointServer2013[0] -or $SharePointVersion -eq $S
     #start url in IE
     StartUrlInIE $sutComputerName $web  
 }
+#-----------------------------------------------------
+# Start to configure SUT for MS-ONESTORE
+#-----------------------------------------------------
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -ge $SharePointServer2013[0] )
+{
+    Output "Start to run configuration for MS-ONESTORE ..." "White"
+    
+    Output "Steps for manual configuration:" "Yellow"
+    Output "Create a site collection with the name $MSONESTORESiteCollectionName ..." "Yellow"
+    $MSONESTORESiteCollectionNameObject = CreateSiteCollection $MSONESTORESiteCollectionName $sutComputerName "$domain\$userName" "$userName@$domain" "STS#0" 1033
+    
+    Output "Steps for manual configuration:" "Yellow"
+    Output "Create a document library $MSONESTORELibraryName in the root site $MSONESTORESiteCollectionName ..." "Yellow"
+    CreateListItem $MSONESTORESiteCollectionNameObject.RootWeb $MSONESTORELibraryName 101
+
+ }
 #----------------------------------------------------------------------------
 # Ending script
 #----------------------------------------------------------------------------
