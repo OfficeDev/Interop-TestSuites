@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 {
     using System;
     using System.Collections.Generic;
+    using Microsoft.Protocols.TestSuites.Common;
 
     /// <summary>
     /// The class is used to specify the ExGuid structure.

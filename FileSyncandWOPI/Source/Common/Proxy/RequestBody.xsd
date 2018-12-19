@@ -127,6 +127,9 @@
       <xs:enumeration value="EditorsTable" />
       <xs:enumeration value="FileOperation" />
       <xs:enumeration value="Versioning" />
+      <xs:enumeration value="AmIAlone" />
+      <xs:enumeration value="LockStatus" />
+      <xs:enumeration value="Properties" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="DependencyTypes">
@@ -166,7 +169,14 @@
       <xs:enumeration value="RestoreVersion"/>
     </xs:restriction>
   </xs:simpleType>
-
+  <xs:simpleType name="PropertiesRequestTypes">
+    <xs:restriction base="xs:string">
+      <!--Property Enumerate-->
+      <xs:enumeration value="PropertyEnumerate"/>
+      <!--Property Get-->
+      <xs:enumeration value="PropertyGet"/>
+    </xs:restriction>
+  </xs:simpleType>
   <!--definition of attributes-->
   <!--definition of attribute groups-->
   <xs:attributeGroup name="SubRequestDataOptionalAttributes">
@@ -205,7 +215,8 @@
     <xs:attribute name="Key" type="xs:string" use="optional" />
     <xs:attribute name="Value" type="xs:base64Binary" use="optional" />
     <xs:attribute name="NewFileName" type="xs:string" use="optional" />
-    <xs:attribute name="VersionNumber" type="tns:FileVersionNumberType" use="optional"/>
+    <xs:attribute name="Version" type="tns:FileVersionNumberType" use="optional"/>
+    <xs:attribute name="TransitionID" type="tns:guid" use="optional"/>
   </xs:attributeGroup>
 
   <xs:simpleType name="FileVersionNumberType">
@@ -243,10 +254,14 @@
     <xs:attribute name="EditorsTableRequestType" type="tns:EditorsTableRequestTypes" use="optional"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="FileOperationSubRequestDataOptionalAttributes">
-    <xs:attribute name="FileOperationRequestType" type="tns:FileOperationRequestTypes" use="optional"/>
+    <xs:attribute name="FileOperation" type="tns:FileOperationRequestTypes" use="optional"/>
   </xs:attributeGroup>
   <xs:attributeGroup name="VersioningSubRequestDataOptionalAttributes">
     <xs:attribute name="VersioningRequestType" type="tns:VersioningRequestTypes" use="optional"/>
+  </xs:attributeGroup>
+  
+  <xs:attributeGroup name="PropertiesSubRequestDataOptionalAttributes">
+    <xs:attribute name="Properties" type="tns:PropertiesRequestTypes" use="optional"/>
   </xs:attributeGroup>
 
   <!--definition of complex types-->
@@ -306,9 +321,10 @@
   </xs:complexType>
 
   <xs:complexType name="SubRequestDataGenericType" mixed="true">
-    <xs:choice>
+    <xs:all>
       <xs:element ref="i:Include" minOccurs="0" maxOccurs="1" />
-    </xs:choice>
+      <xs:element name="PropertyIds" minOccurs="0" maxOccurs="1" type="tns:PropertyIdsType"/>
+    </xs:all>
     <xs:attributeGroup ref="tns:SubRequestDataOptionalAttributes" />
   </xs:complexType>
 
@@ -440,7 +456,53 @@
   </xs:complexType>
   <xs:complexType name="VersioningSubRequestDataType">
     <xs:attributeGroup ref="tns:VersioningSubRequestDataOptionalAttributes"/>
-    <xs:attribute name="VersionNumber" type="tns:FileVersionNumberType" use="optional"/>
+    <xs:attribute name="Version" type="tns:FileVersionNumberType" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="AmIAloneSubRequestDataType">
+    <xs:attribute name="TransitionID" type="tns:guid" use="optional"/>
+  </xs:complexType>
+  <xs:complexType name="AmIAloneSubRequestType">
+    <xs:complexContent>
+      <xs:extension base="tns:SubRequestType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+          <xs:element name="SubRequestData" type="tns:AmIAloneSubRequestDataType" />
+        </xs:sequence>
+        <xs:attribute name="Type" type="tns:SubRequestAttributeType" use="required" fixed="AmIAlone" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LockStatusSubRequestType">
+    <xs:complexContent>
+      <xs:extension base="tns:SubRequestType">
+        <xs:attribute name="Type" type="tns:SubRequestAttributeType" use="required" fixed="LockStatus" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PropertiesSubRequestType">
+    <xs:complexContent>
+      <xs:extension base="tns:SubRequestType">
+        <xs:sequence minOccurs="1" maxOccurs="1">
+          <xs:element name="SubRequestData" type="tns:PropertiesSubRequestDataType" />
+        </xs:sequence>
+        <xs:attribute name="Type" type="tns:SubRequestAttributeType" use="required" fixed="Properties" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PropertiesSubRequestDataType">
+    <xs:sequence>
+      <xs:element name="PropertyIds" minOccurs="0" maxOccurs="1" type="tns:PropertyIdsType"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="tns:PropertiesSubRequestDataOptionalAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="PropertyIdsType">
+    <xs:sequence>
+      <xs:element name="PropertyId" minOccurs="0" maxOccurs="unbounded" type="tns:PropertyIdType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PropertyIdType">
+    <xs:attribute name="id" type="xs:string" use="required" />
   </xs:complexType>
 
   <!--definition of simple elements-->

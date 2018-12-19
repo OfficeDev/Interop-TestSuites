@@ -776,6 +776,18 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
+        /// A method used to create a LockStatusSubRequest object and initialize it.
+        /// </summary>
+        /// <param name="subRequestToken">A parameter represents the subRequest token.</param>
+        /// <returns>A return value represents the LockStatusSubRequest object.</returns>
+        public static LockStatusSubRequestType CreateLockStatusSubRequest(uint subRequestToken)
+        {
+            LockStatusSubRequestType lockStatusSubRequest = new LockStatusSubRequestType();
+            lockStatusSubRequest.SubRequestToken = subRequestToken.ToString();
+
+            return lockStatusSubRequest;
+        }
+        /// <summary>
         /// A method used to check if the specified subResponse element exists in the Response element.
         /// </summary>
         /// <param name="response">A parameter represents the response information.</param>

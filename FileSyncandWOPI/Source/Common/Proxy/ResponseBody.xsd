@@ -18,11 +18,22 @@
   </xs:simpleType>
 
   <xs:simpleType name="LockTypes">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None" />
-      <xs:enumeration value="SchemaLock" />
-      <xs:enumeration value="ExclusiveLock" />
-    </xs:restriction>
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None" />
+          <xs:enumeration value="SchemaLock" />
+          <xs:enumeration value="ExclusiveLock" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
   </xs:simpleType>
 
 
@@ -73,6 +84,8 @@
       <xs:enumeration value="FileNotExistsOrCannotBeCreated"/>
       <xs:enumeration value="FileUnauthorizedAccess"/>
       <xs:enumeration value="PathNotFound"/>
+      <xs:enumeration value="ResourceIdDoesNotExist"/>
+      <xs:enumeration value="ResourceIdDoesNotMatch"/>
       <xs:enumeration value="InvalidSubRequest"/>
       <xs:enumeration value="SubRequestFail"/>
       <xs:enumeration value="BlockedFileType"/>
@@ -185,6 +198,9 @@
     <xs:attribute name="CoauthStatus" type="tns:CoauthStatusType" use="optional"/>
     <xs:attribute name="TransitionID" type="tns:guid" use="optional"/>
     <xs:attribute name="ExclusiveLockReturnReason" type="tns:ExclusiveLockReturnReasonTypes" use="optional" />
+    <xs:attribute name="AmIAlone" type="xs:boolean" use="optional" />
+    <xs:attribute name="LockID" type="tns:guid" use="optional" />
+    <xs:attribute name="LockedBy" type="xs:string" use="optional" />
   </xs:attributeGroup>
 
   <xs:attributeGroup name="CellSubResponseDataOptionalAttributes">
@@ -279,9 +295,9 @@
 	  </xs:complexType>-->
 
   <xs:complexType name="VersioningUserTableType">
-	      <xs:sequence maxOccurs="unbounded" minOccurs="1" >
-	        <xs:element name="User" type="tns:UserDataType" />
-	      </xs:sequence>
+    <xs:sequence>
+      <xs:element name="User" maxOccurs="unbounded" minOccurs="1" type="tns:UserDataType" />
+    </xs:sequence>
 	  </xs:complexType>
 
   <!--<xs:complexType name="VersioningVersionListType">
@@ -293,8 +309,8 @@
   </xs:complexType>-->
 
   <xs:complexType name="VersioningVersionListType">
-    <xs:sequence maxOccurs="unbounded" minOccurs="1" >
-      <xs:element name="Version" type="tns:FileVersionDataType" />
+    <xs:sequence>
+      <xs:element name="Version" maxOccurs="unbounded" minOccurs="1" type="tns:FileVersionDataType" />
     </xs:sequence>
   </xs:complexType>
 
@@ -307,32 +323,60 @@
 
   <xs:complexType name="FileVersionDataType">
     <xs:sequence>
-      <xs:element name="Events" minOccurs="0" maxOccurs="1" type="tns:EventsDataType" />
+      <xs:element name="Events" minOccurs="0" maxOccurs="1" >
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Event" minOccurs="1" maxOccurs="unbounded" type="tns:FileVersionEventDataType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
     <xs:attribute name="IsCurrent" type="tns:TRUEFALSE" use="optional" />
     <xs:attribute name="Number" type="tns:FileVersionNumberType" use="required" />
     <xs:attribute name="LastModifiedTime" type="xs:positiveInteger" use="optional" />
     <xs:attribute name="UserId" type="xs:integer" use="optional" />
-    <!--<xs:element name="Events" minOccurs="0" maxOccurs="1" >
-	      <xs:complexType>
-	        <xs:element name="Event" minOccurs="1" maxOccurs="unbounded" type="tns:FileVersionEventDataType" />
-	      </xs:complexType>
-	    </xs:element>-->
   </xs:complexType>
   
-  <xs:complexType name="EventsDataType">
-    <xs:sequence minOccurs="1" maxOccurs="unbounded" >
-      <xs:element name="Event" type="tns:FileVersionEventDataType" />
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name="FileVersionEventDataType">
     <xs:attribute name="Id" type="xs:integer" use="required" />
     <xs:attribute name="Type" type="xs:integer" use="required" />
     <xs:attribute name="CreateTime" type="xs:positiveInteger" use="optional" />
     <xs:attribute name="UserId" type="xs:integer" use="optional" />
   </xs:complexType>
+  <xs:complexType name="AmIAloneSubResponseDataType">
+    <xs:attribute name="AmIAlone" type="xs:boolean" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="LockStatusSubResponseDataType">
+	  <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
+	  <xs:attribute name="LockID" type="tns:guid" use="optional" />
+	  <xs:attribute name="LockedBy" type="xs:string" use="optional" />
+	</xs:complexType>
+  <xs:complexType name="PropertiesSubResponseDataType">
+	    <xs:sequence>
+	      <xs:element name="PropertyIds" minOccurs="0" maxOccurs="1" type="tns:PropertyIdsType"/>
+	      <xs:element name="PropertyValues" minOccurs="0" maxOccurs="1" type="tns:PropertyValuesType"/>
+	    </xs:sequence>
+	  </xs:complexType>
+  <xs:complexType name="PropertyIdsType">
+	    <xs:sequence>
+	      <xs:element name="PropertyId" minOccurs="0" maxOccurs="unbounded" type="tns:PropertyIdType" />
+	    </xs:sequence>
+	  </xs:complexType>
+  <xs:complexType name="PropertyIdType">
+	    <xs:attribute name="id" type="xs:string" use="required" />
+  </xs:complexType>
+	  <xs:complexType name="PropertyValuesType">
+	    <xs:sequence>
+	      <xs:element name="PropertyValue" minOccurs="0" maxOccurs="unbounded" type="tns:PropertyValueType" />
+	    </xs:sequence>
+	  </xs:complexType>
+  	  <xs:complexType name="PropertyValueType">
+	    <xs:attribute name="id" type="xs:string" use="required" />
+	    <xs:attribute name="value" type="xs:string" use="required" />
+	  </xs:complexType>
 
+
+  
   <xs:complexType name="SubResponseDataGenericType" mixed="true">
     <xs:all>
       <xs:element ref="i:Include" minOccurs="0" maxOccurs="1" />
@@ -340,6 +384,8 @@
       <xs:element name="FolderProps" minOccurs="0" maxOccurs="1" type="tns:GetDocMetaInfoPropertySetType"/>
       <xs:element name="UserTable" minOccurs="0" maxOccurs="1" type="tns:VersioningUserTableType"/>
       <xs:element name="Versions" minOccurs="0" maxOccurs="1" type="tns:VersioningVersionListType"/>
+      <xs:element name="PropertyIds" minOccurs="0" maxOccurs="1" type="tns:PropertyIdsType"/>
+      <xs:element name="PropertyValues" minOccurs="0" maxOccurs="1" type="tns:PropertyValuesType"/>
     </xs:all>
     <xs:attributeGroup ref="tns:SubResponseDataOptionalAttributes" />
   </xs:complexType>
@@ -498,6 +544,9 @@
   <xs:complexType name="FileOperationSubResponseType">
     <xs:complexContent>
       <xs:extension base="tns:SubResponseType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element name="SubResponseData"/>          
+        </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -511,7 +560,26 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-
+ 
+<xs:complexType name="AmIAloneSubResponseType">
+   <xs:complexContent>
+     <xs:extension base="tns:SubResponseType">
+       <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element name="SubResponseData" type="tns:AmIAloneSubResponseDataType" />
+       </xs:sequence>
+     </xs:extension>
+   </xs:complexContent>
+ </xs:complexType>
+   <xs:complexType name="LockStatusSubResponseType">
+   <xs:complexContent>
+     <xs:extension base="tns:SubResponseType">
+       <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element name="SubResponseData" type="tns:LockStatusSubResponseDataType" />
+       </xs:sequence>
+     </xs:extension>
+   </xs:complexContent>
+ </xs:complexType>
+  
   <!--One SubrequestElement type that encapsulates the defintion of all Subrequest types. -->
   <xs:complexType name="SubResponseElementGenericType">
     <xs:complexContent>
@@ -524,7 +592,15 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-
+<xs:complexType name="PropertiesSubResponseType">
+   <xs:complexContent>
+     <xs:extension base="tns:SubResponseType">
+       <xs:sequence minOccurs="0" maxOccurs="1">
+          <xs:element name="SubResponseData" type="tns:PropertiesSubResponseDataType" />
+       </xs:sequence>
+     </xs:extension>
+   </xs:complexContent>
+ </xs:complexType>
 
   <!--definition of simple elements-->
 
@@ -548,13 +624,15 @@
       <xs:sequence minOccurs="1" maxOccurs="unbounded">
         <xs:element name="SubResponse" type="tns:SubResponseElementGenericType" />
       </xs:sequence>
-      <xs:attribute name="Url" type="xs:string" use="required"/>
+      <xs:attribute name="Url" type="xs:string" use="optional"/>
+      <xs:attribute name="UrlIsEncoded" type="tns:TRUEFALSE" use="optional"/>
       <xs:attribute name="RequestToken" type="xs:nonNegativeInteger" use="required" />
       <xs:attribute name="HealthScore" type="xs:integer" use="required"/>
       <xs:attribute name="ErrorCode" type="tns:GenericErrorCodeTypes" use="optional" />
       <xs:attribute name="ErrorMessage" type="xs:string" use="optional"/>
       <xs:attribute name="SuggestedFileName" type="xs:string" use="optional" />
       <xs:attribute name="ResourceID" type="xs:string" use="optional"/>
+      <xs:attribute name="IntervalOverride" type="xs:integer" use="optional"/>
     </xs:complexType>
   </xs:element>
 
@@ -563,7 +641,8 @@
       <xs:sequence minOccurs="1" maxOccurs="unbounded">
         <xs:element ref="tns:Response" />
       </xs:sequence>
-      <xs:attribute name="WebUrl" type="xs:string" use="required"/>
+      <xs:attribute name="WebUrl" type="xs:string" use="optional"/>
+      <xs:attribute name="WebUrlIsEncoded" type="tns:TRUEFALSE" use="optional"/>
     </xs:complexType>
   </xs:element>
 

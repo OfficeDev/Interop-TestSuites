@@ -189,5 +189,34 @@
     <Property name="R8211Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R15181Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the attribute ErrorCode does be present when this protocol is not enabled. Set R15181Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R15181Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1566Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that when refresh Coauthoring Session,the implementation return an error code value set to "FileAlreadyCheckedOutOnServer" if the coauthorable file is checked out on the server and checked out by a client with a different user name than the current client.Set R1566Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1566Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1082Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that when check lock availability,the implementation return an error code value set to "FileAlreadyCheckedOutOnServer" if the coauthorable file is checked out on the server and checked out by a client with a different user name than the current client.Set R1082Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1082Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R156001Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock on the file with a different schema lock identifier When sending Exit Coauthoring Session subrequest.Set R156001Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R156001Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R158201Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest.Set R158201Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R158201Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1208Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the coauthorable file is checked out on the server and it is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".Set R1208Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1208Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R15141Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that ErrorCode attribute should be present if the Version attribute of the RequestVersion element of the request message has a value that is less than 2.Set R15141Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R15141Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R350Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation return the string value ""CheckedOutByCurrentUser"", indicating that an exclusive lock is granted on the file because the file is checked out by the current user who sent the cell storage service request message.Set R350Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R350Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1064Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation return an error code value set to ""InvalidCoauthSession"", if there is no Shared lock.Set R1064Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1064Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1189Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that when call ConvertToExclusive implementation return an error code value set to ""InvalidCoauthSession"", if there is no Shared lock.Set R1189Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1189Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1738Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation not allow a user with read-only access to join the editing session.Set R1738Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1738Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1588Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the coauthorable file is checked out on the server and is checked out by a client with a different user name than the current client, the implementation returns an error code value set to ""FileAlreadyCheckedOutOnServer"".Set R1588Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1588Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1494Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation returns error codes ""FileAlreadyCheckedOutOnServer"", If the file is checked out on the server, but it is checked out by a client with a different user name than that of the current client.Enabled1494_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1494Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1253Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the protocol server encounters an error because no lock currently exists on the file, implementation returns an error code value set to ""FileNotLockedOnServer"".Enabled1253_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1253Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R15171Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the user does not have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element, implementation return ErrorCode attribute in ResponseVersion. Enabled15171_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R15171Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    
   </Properties>
 </TestSite>

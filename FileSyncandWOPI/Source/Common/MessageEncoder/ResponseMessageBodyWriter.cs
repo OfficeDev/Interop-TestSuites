@@ -3,6 +3,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     using System.IO;
     using System.ServiceModel.Channels;
     using System.Text;
+    using System.Xml;
 
     /// <summary>
     /// A class is used to construct the body of the response message.
@@ -39,7 +40,19 @@ namespace Microsoft.Protocols.TestSuites.Common
             byte[] bytes = new byte[this.stream.Length];
             this.stream.Position = 0;
             this.stream.Read(bytes, 0, bytes.Length);
-            writer.WriteRaw(this.encoding.GetString(bytes));
+            string content = this.encoding.GetString(bytes);
+
+            if (content.ToLowerInvariant().Contains("Content-Type: multipart/related".ToLowerInvariant()))
+            {
+                using (XmlDictionaryReader reader = XmlDictionaryReader.CreateMtomReader(bytes, 0, (int)bytes.Length, this.encoding, XmlDictionaryReaderQuotas.Max))
+                {
+                    XmlDocument msgDoc = new XmlDocument();
+                    msgDoc.PreserveWhitespace = true;
+                    msgDoc.Load(reader);
+                    content = msgDoc.OuterXml;
+                }   
+            }
+            writer.WriteRaw(content);
         }
     }
 }

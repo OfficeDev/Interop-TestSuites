@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 {
     using System;
     using Microsoft.Protocols.TestTools;
+    using Microsoft.Protocols.TestSuites.Common;
 
     /// <summary>
     /// This is the partial part of the class MsfsshttpbAdapterCapture for MS-FSSHTTPB transport.

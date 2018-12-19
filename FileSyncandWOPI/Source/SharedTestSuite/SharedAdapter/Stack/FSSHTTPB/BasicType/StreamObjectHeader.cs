@@ -1,5 +1,6 @@
 namespace Microsoft.Protocols.TestSuites.SharedAdapter
 {
+    using Microsoft.Protocols.TestSuites.Common;
     using System;
     using System.Collections.Generic;
 
@@ -11,12 +12,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// Specify for 16-bit stream object header start.
         /// </summary>
-        public const int StreamObjectHeaderStart16bit = 0;
+        public const int StreamObjectHeaderStart16bit = 0x0;
 
         /// <summary>
         /// Specify for 32-bit stream object header start.
         /// </summary>
-        public const int StreamObjectHeaderStart32bit = 2;
+        public const int StreamObjectHeaderStart32bit = 0x02;
 
         /// <summary>
         /// Initializes a new instance of the StreamObjectHeaderStart class.
@@ -67,7 +68,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <returns>Return true if success, otherwise returns false. </returns>
         public static int TryParse(byte[] byteArray, int startIndex, out StreamObjectHeaderStart streamObjectHeader)
         {
-            uint headerType = (uint)(byteArray[startIndex] & 0x3);
+            uint headerType = (uint)(byteArray[startIndex] & 0x03);
             if (headerType == StreamObjectHeaderStart.StreamObjectHeaderStart16bit)
             {
                 streamObjectHeader = new StreamObjectHeaderStart16bit();

@@ -150,11 +150,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             else
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11267
-                Site.Assert.AreEqual<ErrorCodeType>(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 11267, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11267
+                    Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.InvalidArgument,
                     errorCode,
                     @"[In Appendix B: Product Behavior] If the specified attributes[FileOperationRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                }
             }
         }
 

@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 {
     using System;
     using System.Collections.Generic;
+    using Microsoft.Protocols.TestSuites.Common;
 
     /// <summary>
     /// This class specifies query change sub-request.
@@ -54,7 +55,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public int AllowFragments2 { get; set; }
 
         /// <summary>
-        /// Gets or sets Round Knowledge to Whole Cell Changes (1 bit): F – Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned.
+        /// Gets or sets Round Knowledge to Whole Cell Changes (1 bit): F ?Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned.
         /// </summary>
         public int RoundKnowledgeToWholeCellChanges { get; set; }
 

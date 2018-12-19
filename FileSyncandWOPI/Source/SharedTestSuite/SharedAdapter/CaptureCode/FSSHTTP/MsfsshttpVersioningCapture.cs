@@ -250,7 +250,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 @"[In FileVersionDataType] LastModifiedTime: A positive integer that specifies the last modified time of the version of the file, which is expressed as a tick count.");
             }
 
-            if (versionList.Version[0].Events != null && versionList.Version[0].Events.Event != null)
+            if (versionList.Version[0].Events != null && versionList.Version[0].Events != null)
             {
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11182
                 site.CaptureRequirement(
@@ -277,7 +277,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 {
                     if (version.Events != null)
                     {
-                        foreach (FileVersionEventDataType eventData in version.Events.Event)
+                        foreach (FileVersionEventDataType eventData in version.Events)
                         {
                             if (!ids.Contains(eventData.Id))
                             {
@@ -315,11 +315,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 {
                     if (version.Events != null)
                     {
-                        foreach (FileVersionEventDataType eventData in version.Events.Event)
+                        foreach (FileVersionEventDataType eventData in version.Events)
                         {
-                            bool isR11187Verified = versionList.Version[0].Events.Event[0].Type.Equals("1", StringComparison.CurrentCultureIgnoreCase)
-                                || versionList.Version[0].Events.Event[0].Type.Equals("2", StringComparison.CurrentCultureIgnoreCase)
-                                || versionList.Version[0].Events.Event[0].Type.Equals("3", StringComparison.CurrentCultureIgnoreCase);
+                            bool isR11187Verified = versionList.Version[0].Events[0].Type.Equals("1", StringComparison.CurrentCultureIgnoreCase)
+                                || versionList.Version[0].Events[0].Type.Equals("2", StringComparison.CurrentCultureIgnoreCase)
+                                || versionList.Version[0].Events[0].Type.Equals("3", StringComparison.CurrentCultureIgnoreCase);
 
                             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11187
                             site.CaptureRequirementIfIsTrue(

@@ -226,22 +226,24 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     4079,
                     @"[In EditorElement] LoginName: A UserLoginType that specifies the user login alias of the client.");
 
-                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4082
-                Site.CaptureRequirementIfAreEqual<string>(
-                    (this.UserName02 + "@" + this.Domain).ToLower(),
-                    editor2.EmailAddress.ToLower(),
-                    "MS-FSSHTTPB",
-                    4082,
-                    @"[In EditorElement] EmailAddress: A string that specifies the email address associated with the client.");
+                if (!string.IsNullOrEmpty(editor2.EmailAddress))
+                {
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4082
+                    Site.CaptureRequirementIfAreEqual<string>(
+                        (this.UserName02 + "@" + this.Domain).ToLower(),
+                        editor2.EmailAddress.ToLower(),
+                        "MS-FSSHTTPB",
+                        4082,
+                        @"[In EditorElement] EmailAddress: A string that specifies the email address associated with the client.");
 
-                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4083
-                Site.CaptureRequirementIfAreEqual<string>(
-                    (this.UserName02 + "@" + this.Domain).ToLower(),
-                    editor2.EmailAddress.ToLower(),
-                    "MS-FSSHTTPB",
-                    4083,
-                    @"[In EditorElement] The format of the email address MUST be as specified in [RFC2822] section 3.4.1.");
-
+                    // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4083
+                    Site.CaptureRequirementIfAreEqual<string>(
+                        (this.UserName02 + "@" + this.Domain).ToLower(),
+                        editor2.EmailAddress.ToLower(),
+                        "MS-FSSHTTPB",
+                        4083,
+                        @"[In EditorElement] The format of the email address MUST be as specified in [RFC2822] section 3.4.1.");
+                }
                 // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4084
                 // If can fetch the editors table, then the following requirement can be directly captured.
                 Site.CaptureRequirement(
@@ -723,17 +725,15 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             Editor editor = editorsTable.Editors[0];
 
             // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4088
-            Site.CaptureRequirementIfAreEqual<int>(
-                1,
-                editorsTable.Editors[0].Metadata.Count,
+            Site.CaptureRequirementIfIsTrue(
+                editorsTable.Editors[0].Metadata.Count >= 1,
                 "MS-FSSHTTPB",
                 4088,
                 "[In EditorElement] Metadata: An element that specifies any arbitrary key-value pairs that the protocol client has provided. ");
 
             // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4089
-            Site.CaptureRequirementIfAreEqual<int>(
-                1,
-                editorsTable.Editors[0].Metadata.Count,
+            Site.CaptureRequirementIfIsTrue(
+                editorsTable.Editors[0].Metadata.Count >= 1,
                 "MS-FSSHTTPB",
                 4089,
                 "[In EditorElement] Each contained element represents one such key-value pair.");
@@ -1011,27 +1011,33 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // If the ErrorCode attribute returned does not equal "Success", then MS-FSSHTTP_R1738 and MS-FSSHTTP_R3050 can be covered.
-                Site.CaptureRequirementIfAreNotEqual<ErrorCodeType>(
-                         ErrorCodeType.Success,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(subResponseJoin.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         1738,
-                         @"[In EditorsTableSubRequestDataType][AsEditor] The server MUST NOT allow a user with read-only access to join the editing session as a reader.");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1738, this.Site))
+                {
+                    // If the ErrorCode attribute returned does not equal "Success", then MS-FSSHTTP_R1738 and MS-FSSHTTP_R3050 can be covered.
+                    Site.CaptureRequirementIfAreNotEqual<ErrorCodeType>(
+                             ErrorCodeType.Success,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(subResponseJoin.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             1738,
+                             @"[In EditorsTableSubRequestDataType][AsEditor] The server MUST NOT allow a user with read-only access to join the editing session as a reader.");
 
-                Site.CaptureRequirementIfAreNotEqual<ErrorCodeType>(
-                         ErrorCodeType.Success,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(subResponseJoin.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         3050,
-                         @"[In SubRequestDataOptionalAttributes][AsEditor] The server MUST NOT allow a user with read-only access to join the editing session as a reader.");
+                    Site.CaptureRequirementIfAreNotEqual<ErrorCodeType>(
+                             ErrorCodeType.Success,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(subResponseJoin.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             3050,
+                             @"[In SubRequestDataOptionalAttributes][AsEditor] The server MUST NOT allow a user with read-only access to join the editing session as a reader.");
+                }
             }
             else
             {
-                Site.Assert.AreNotEqual<ErrorCodeType>(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1738, this.Site))
+                {
+                    Site.Assert.AreNotEqual<ErrorCodeType>(
                     ErrorCodeType.Success,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(subResponseJoin.ErrorCode, this.Site),
                     @"[In EditorsTableSubRequestDataType][AsEditor] The server MUST NOT allow a user with read-only access to join the editing session as a reader.");
+                }
             }
         }
 

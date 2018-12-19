@@ -40,6 +40,10 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         [TestCategory("MSWOPI"), TestMethod()]
         public void MSWOPI_S18_TC01_CheckFolderInfo()
         {
+            if (!Common.IsRequirementEnabled("MS-WOPI", 593, this.Site))
+            {
+                Site.Assume.Inconclusive(@"The implementation does not support the get the folder access_token and WOPISrc. It is determined using SHOULDMAY PTFConfig property named R593Enabled_MS-WOPI.");
+            }
             // Get the folder URL.
             string folderFullUrl = Common.GetConfigurationPropertyValue("SubFolderUrl", this.Site);
 
@@ -97,6 +101,10 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         [TestCategory("MSWOPI"), TestMethod()]
         public void MSWOPI_S18_TC02_CheckFolderInfo_HostAuthenticationId()
         {
+            if (!Common.IsRequirementEnabled("MS-WOPI", 593, this.Site))
+            {
+                Site.Assume.Inconclusive(@"The implementation does not support the get the folder access_token and WOPISrc. It is determined using SHOULDMAY PTFConfig property named R593Enabled_MS-WOPI.");
+            }
             {
                 // Get the folder URL.
                 string folderFullUrl = Common.GetConfigurationPropertyValue("SubFolderUrl", this.Site);

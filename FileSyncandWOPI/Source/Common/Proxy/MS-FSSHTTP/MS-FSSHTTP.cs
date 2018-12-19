@@ -298,6 +298,8 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private Include itemField;
 
+        private PropertyIdType[] propertyIdsField;
+
         private string[] textField;
 
         private bool coalesceField;
@@ -395,6 +397,20 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.itemField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("PropertyId", IsNullable = false)]
+        public PropertyIdType[] PropertyIds
+        {
+            get
+            {
+                return this.propertyIdsField;
+            }
+            set
+            {
+                this.propertyIdsField = value;
             }
         }
 
@@ -2076,6 +2092,9 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
 
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PropertiesSubRequestType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LockStatusSubRequestType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AmIAloneSubRequestType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(VersioningSubRequestType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FileOperationSubRequestType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubRequestElementGenericType))]
@@ -2232,6 +2251,129 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
 
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class AmIAloneSubRequestType : SubRequestType
+    {
+
+        private AmIAloneSubRequestDataType subRequestDataField;
+
+        private SubRequestAttributeType typeField;
+
+        public AmIAloneSubRequestType()
+        {
+            this.typeField = SubRequestAttributeType.AmIAlone;
+        }
+
+        /// <remarks/>
+        public AmIAloneSubRequestDataType SubRequestData
+        {
+            get
+            {
+                return this.subRequestDataField;
+            }
+            set
+            {
+                this.subRequestDataField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public SubRequestAttributeType Type
+        {
+            get
+            {
+                return this.typeField;
+            }
+            set
+            {
+                this.typeField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class LockStatusSubRequestType : SubRequestType
+    {
+
+        private SubRequestAttributeType typeField;
+
+        public LockStatusSubRequestType()
+        {
+            this.typeField = SubRequestAttributeType.LockStatus;
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public SubRequestAttributeType Type
+        {
+            get
+            {
+                return this.typeField;
+            }
+            set
+            {
+                this.typeField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class PropertiesSubRequestType : SubRequestType
+    {
+
+        private PropertiesSubRequestDataType subRequestDataField;
+
+        private SubRequestAttributeType typeField;
+
+        public PropertiesSubRequestType()
+        {
+            this.typeField = SubRequestAttributeType.Properties;
+        }
+
+        /// <remarks/>
+        public PropertiesSubRequestDataType SubRequestData
+        {
+            get
+            {
+                return this.subRequestDataField;
+            }
+            set
+            {
+                this.subRequestDataField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public SubRequestAttributeType Type
+        {
+            get
+            {
+                return this.typeField;
+            }
+            set
+            {
+                this.typeField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
@@ -2270,6 +2412,29 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         Versioning,
+
+        /// <remarks/>
+        AmIAlone,
+
+        /// <remarks/>
+        LockStatus,
+
+        /// <remarks/>
+        Properties,
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public enum PropertiesRequestTypes
+    {
+
+        /// <remarks/>
+        PropertyEnumerate,
+
+        /// <remarks/>
+        PropertyGet,
     }
 
     /// <remarks/>
@@ -2280,15 +2445,14 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
     public partial class FileOperationSubRequestType : SubRequestType
     {
+        private FileOperationSubRequestDataType subRequestDataField;
+
+        private SubRequestAttributeType typeField;
 
         public FileOperationSubRequestType()
         {
             this.typeField = SubRequestAttributeType.FileOperation;
         }
-
-        private FileOperationSubRequestDataType subRequestDataField;
-
-        private SubRequestAttributeType typeField;
 
         /// <remarks/>
         public FileOperationSubRequestDataType SubRequestData
@@ -3175,6 +3339,12 @@ namespace Microsoft.Protocols.TestSuites.Common
         PathNotFound,
 
         /// <remarks/>
+        ResourceIdDoesNotExist,
+
+        /// <remarks/>
+        ResourceIdDoesNotMatch,
+
+        /// <remarks/>
         InvalidSubRequest,
 
         /// <remarks/>
@@ -3540,6 +3710,10 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private VersioningVersionListType versionsField;
 
+        private PropertyIdType[] propertyIdsField;
+
+        private PropertyValueType[] propertyValuesField;
+
         private string[] textField;
 
         private string etagField;
@@ -3652,6 +3826,33 @@ namespace Microsoft.Protocols.TestSuites.Common
             }
         }
 
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("PropertyId", IsNullable = false)]
+        public PropertyIdType[] PropertyIds
+        {
+            get
+            {
+                return this.propertyIdsField;
+            }
+            set
+            {
+                this.propertyIdsField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("PropertyValue", IsNullable = false)]
+        public PropertyValueType[] PropertyValues
+        {
+            get
+            {
+                return this.propertyValuesField;
+            }
+            set
+            {
+                this.propertyValuesField = value;
+            }
+        }
         /// <remarks/>
         [System.Xml.Serialization.XmlTextAttribute()]
         public string[] Text
@@ -4144,32 +4345,6 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
 
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.33440")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
-    public partial class EventsDataType
-    {
-
-        private FileVersionEventDataType[] eventField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Event")]
-        public FileVersionEventDataType[] Event
-        {
-            get
-            {
-                return this.eventField;
-            }
-            set
-            {
-                this.eventField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -4178,7 +4353,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     public partial class FileVersionDataType
     {
 
-        private EventsDataType eventsField;
+        private FileVersionEventDataType[] eventsField;
 
         private string isCurrentField;
 
@@ -4189,7 +4364,8 @@ namespace Microsoft.Protocols.TestSuites.Common
         private string userIdField;
 
         /// <remarks/>
-        public EventsDataType Events
+        [System.Xml.Serialization.XmlArrayItemAttribute("Event", IsNullable = false)]
+        public FileVersionEventDataType[] Events
         {
             get
             {
@@ -4254,6 +4430,215 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.userIdField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class AmIAloneSubResponseDataType
+    {
+
+        private bool amIAloneField;
+
+        private bool amIAloneFieldSpecified;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool AmIAlone
+        {
+            get
+            {
+                return this.amIAloneField;
+            }
+            set
+            {
+                this.amIAloneField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool AmIAloneSpecified
+        {
+            get
+            {
+                return this.amIAloneFieldSpecified;
+            }
+            set
+            {
+                this.amIAloneFieldSpecified = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class LockStatusSubResponseDataType
+    {
+
+        private string lockTypeField;
+
+        private string lockIDField;
+
+        private string lockedByField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string LockType
+        {
+            get
+            {
+                return this.lockTypeField;
+            }
+            set
+            {
+                this.lockTypeField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string LockID
+        {
+            get
+            {
+                return this.lockIDField;
+            }
+            set
+            {
+                this.lockIDField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string LockedBy
+        {
+            get
+            {
+                return this.lockedByField;
+            }
+            set
+            {
+                this.lockedByField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class PropertyValueType
+    {
+
+        private string idField;
+
+        private string valueField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string id
+        {
+            get
+            {
+                return this.idField;
+            }
+            set
+            {
+                this.idField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string value
+        {
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class PropertyIdType
+    {
+
+        private string idField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string id
+        {
+            get
+            {
+                return this.idField;
+            }
+            set
+            {
+                this.idField = value;
+            }
+        }
+    }
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class PropertiesSubResponseDataType
+    {
+
+        private PropertyIdType[] propertyIdsField;
+
+        private PropertyValueType[] propertyValuesField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("PropertyId", IsNullable = false)]
+        public PropertyIdType[] PropertyIds
+        {
+            get
+            {
+                return this.propertyIdsField;
+            }
+            set
+            {
+                this.propertyIdsField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("PropertyValue", IsNullable = false)]
+        public PropertyValueType[] PropertyValues
+        {
+            get
+            {
+                return this.propertyValuesField;
+            }
+            set
+            {
+                this.propertyValuesField = value;
             }
         }
     }
@@ -5052,7 +5437,10 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
 
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PropertiesSubResponseType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubResponseElementGenericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LockStatusSubResponseType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AmIAloneSubResponseType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(VersioningSubResponseType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FileOperationSubResponseType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EditorsTableSubResponseType))]
@@ -5292,6 +5680,95 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
     public partial class FileOperationSubResponseType : SubResponseType
     {
+        private object subResponseDataField;
+
+        /// <remarks/>
+        public object SubResponseData
+        {
+            get
+            {
+                return this.subResponseDataField;
+            }
+            set
+            {
+                this.subResponseDataField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class AmIAloneSubResponseType : SubResponseType
+    {
+
+        private AmIAloneSubResponseDataType subResponseDataField;
+
+        /// <remarks/>
+        public AmIAloneSubResponseDataType SubResponseData
+        {
+            get
+            {
+                return this.subResponseDataField;
+            }
+            set
+            {
+                this.subResponseDataField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class LockStatusSubResponseType : SubResponseType
+    {
+
+        private LockStatusSubResponseDataType subResponseDataField;
+
+        /// <remarks/>
+        public LockStatusSubResponseDataType SubResponseData
+        {
+            get
+            {
+                return this.subResponseDataField;
+            }
+            set
+            {
+                this.subResponseDataField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class PropertiesSubResponseType : SubResponseType
+    {
+
+        private PropertiesSubResponseDataType subResponseDataField;
+
+        /// <remarks/>
+        public PropertiesSubResponseDataType SubResponseData
+        {
+            get
+            {
+                return this.subResponseDataField;
+            }
+            set
+            {
+                this.subResponseDataField = value;
+            }
+        }
     }
 
     /// <remarks/>
@@ -5558,6 +6035,8 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private string webUrlField;
 
+        private string webUrlIsEncodedField;
+
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Response")]
         public Response[] Response
@@ -5585,6 +6064,104 @@ namespace Microsoft.Protocols.TestSuites.Common
                 this.webUrlField = value;
             }
         }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string WebUrlIsEncoded
+        {
+            get
+            {
+                return this.webUrlIsEncodedField;
+            }
+            set
+            {
+                this.webUrlIsEncodedField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class AmIAloneSubRequestDataType
+    {
+
+        private string transitionIDField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string TransitionID
+        {
+            get
+            {
+                return this.transitionIDField;
+            }
+            set
+            {
+                this.transitionIDField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
+    public partial class PropertiesSubRequestDataType
+    {
+
+        private PropertyIdType[] propertyIdsField;
+
+        private PropertiesRequestTypes propertiesField;
+
+        private bool propertiesFieldSpecified;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("PropertyId", IsNullable = false)]
+        public PropertyIdType[] PropertyIds
+        {
+            get
+            {
+                return this.propertyIdsField;
+            }
+            set
+            {
+                this.propertyIdsField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public PropertiesRequestTypes Properties
+        {
+            get
+            {
+                return this.propertiesField;
+            }
+            set
+            {
+                this.propertiesField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PropertiesSpecified
+        {
+            get
+            {
+                return this.propertiesFieldSpecified;
+            }
+            set
+            {
+                this.propertiesFieldSpecified = value;
+            }
+        }
     }
 
     /// <remarks/>
@@ -5603,6 +6180,8 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private string urlField;
 
+        private string urlIsEncodedField;
+
         private string requestTokenField;
 
         private string healthScoreField;
@@ -5616,6 +6195,8 @@ namespace Microsoft.Protocols.TestSuites.Common
         private string suggestedFileNameField;
 
         private string resourceIDField;
+
+        private string intervalOverrideField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("SubResponse")]
@@ -5656,6 +6237,20 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.urlField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string UrlIsEncoded
+        {
+            get
+            {
+                return this.urlIsEncodedField;
+            }
+            set
+            {
+                this.urlIsEncodedField = value;
             }
         }
 
@@ -5754,6 +6349,20 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.resourceIDField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string IntervalOverride
+        {
+            get
+            {
+                return this.intervalOverrideField;
+            }
+            set
+            {
+                this.intervalOverrideField = value;
             }
         }
     }

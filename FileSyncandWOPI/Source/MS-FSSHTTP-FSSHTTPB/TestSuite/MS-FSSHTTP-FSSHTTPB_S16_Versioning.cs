@@ -45,22 +45,24 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             VersioningSubRequestType versioningSubRequest = SharedTestSuiteHelper.CreateVersioningSubRequest(SequenceNumberGenerator.GetCurrentToken(), VersioningRequestTypes.GetVersionList, null, this.Site);
             CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(string.Empty, new SubRequestType[] { versioningSubRequest });
+            SubResponseType subResponse = cellStoreageResponse.ResponseCollection.Response[0].SubResponse[0];
+            ErrorCodeType errorCode = SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site);
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11151
-                Site.CaptureRequirementIfAreNotEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.Success,
-                    cellStoreageResponse.ResponseVersion.ErrorCode,
+                Site.CaptureRequirementIfAreNotEqual<ErrorCodeType>(
+                    ErrorCodeType.Success,
+                    errorCode,
                     "MS-FSSHTTP",
                     11151,
                     @"[In VersioningSubResponseType] In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.");
             }
             else
             {
-                Site.Assert.AreNotEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.Success,
-                    cellStoreageResponse.ResponseVersion.ErrorCode,
+                Site.Assert.AreNotEqual<ErrorCodeType>(
+                    ErrorCodeType.Success,
+                    errorCode,
                     "Error should occur if call versioning request with empty url.");
             }
         }

@@ -1,4 +1,4 @@
-namespace Microsoft.Protocols.TestSuites.SharedAdapter
+namespace Microsoft.Protocols.TestSuites.Common
 {
     using System;
 

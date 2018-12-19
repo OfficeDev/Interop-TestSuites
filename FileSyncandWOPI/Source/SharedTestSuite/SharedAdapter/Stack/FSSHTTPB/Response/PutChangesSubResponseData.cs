@@ -211,7 +211,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         public ExGUIDArray DataElementAdded { get; set; }
 
-        /// <summary>
+         /// <summary>
         /// Deserialize items from byte array.
         /// </summary>
         /// <param name="byteArray">The byte array which contains response message.</param>
@@ -223,12 +223,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             this.AppliedStorageIndexID = BasicObject.Parse<ExGuid>(byteArray, ref index);
             this.DataElementAdded = BasicObject.Parse<ExGUIDArray>(byteArray, ref index);
 
-            if (index - currentIndex != lengthOfItems)
-            {
-                throw new StreamObjectParseErrorException(currentIndex, "PutChangesResponse", "Stream object over-parse error", null);
-            }
-
-            currentIndex = index;
+            currentIndex = currentIndex + lengthOfItems;
         }
 
         /// <summary>
