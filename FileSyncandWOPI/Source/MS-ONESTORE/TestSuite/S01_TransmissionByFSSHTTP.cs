@@ -2,7 +2,7 @@
 {
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using SharedAdapter;
+    using Microsoft.Protocols.TestSuites.SharedAdapter;
 
     /// <summary>
     /// This scenario is designed to test the requirements related with MS-ONESTORE.
@@ -34,14 +34,24 @@
         /// The test case is validate that call QueryChange to get the specific OneNote file.
         /// </summary>
         [TestCategory("MSONESTORE"), TestMethod]
-        public void MSONESTORE_S01_TC01_QueryChange_OneNote()
+        public void MSONESTORE_S01_TC01_QueryOneFile()
         {
-            string url = Common.GetConfigurationPropertyValue("OneNoteFile", Site);
+            string url = Common.GetConfigurationPropertyValue("OneFile", Site);
             this.InitializeContext(url, this.UserName, this.Password, this.Domain);
             CellSubRequestType cellSubRequest = this.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentSerialNumber());
-            CellStorageResponse cellStorageResponse = this.Adapter.CellStorageRequest(url, new SubRequestType[] { cellSubRequest });
+            CellStorageResponse cellStorageResponse = this.SharedAdapter.CellStorageRequest(url, new SubRequestType[] { cellSubRequest });
         }
-
+        /// <summary>
+        /// The test case is validate that call QueryChange to get the specific OneNote file.
+        /// </summary>
+        [TestCategory("MSONESTORE"), TestMethod]
+        public void MSONESTORE_S01_TC02_QueryOnetocFile()
+        {
+            string url = Common.GetConfigurationPropertyValue("OnetocFile", Site);
+            this.InitializeContext(url, this.UserName, this.Password, this.Domain);
+            CellSubRequestType cellSubRequest = this.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentSerialNumber());
+            CellStorageResponse cellStorageResponse = this.SharedAdapter.CellStorageRequest(url, new SubRequestType[] { cellSubRequest });
+        }
         #endregion Test Cases
     }
 }

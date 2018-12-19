@@ -93,11 +93,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
                         if (SharedContext.Current.FileUrl.ToLowerInvariant().EndsWith(".one")
                             || SharedContext.Current.FileUrl.ToLowerInvariant().EndsWith(".onetoc2"))
-                            foreach (DataElement data in fsshttpbResponse.DataElementPackage.DataElements)
-                            {
-                                // Capture the MS-ONESTORE related requirements
-                                new MsonestoreCapture().Validate(data, site);
-                            }
+                        {
+                            MSOneStorePackage package = MSONESTOREParser.Parse(fsshttpbResponse.DataElementPackage);
+                            // Capture the MS-ONESTORE related requirements
+                            new MsonestoreCapture().Validate(package, site);
+                        }
                     }
 
                     if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)

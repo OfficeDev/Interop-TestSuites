@@ -3,6 +3,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
     using System;
     using System.Collections.Generic;
     using System.Globalization;
+    using Microsoft.Protocols.TestSuites.Common;
 
     /// <summary>
     /// Response Error

@@ -17,12 +17,19 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <!-- The SiteCollectionName property specifies the site collection name. -->
     <Property name="SiteCollectionName" value="MSONESTORE_SiteCollection" />
     <!-- The MSFSSHTTPFSSHTTPBLibraryName property specifies the name of the document library that contains test files. -->
-    <Property name="MSFSSHTTPFSSHTTPBLibraryName" value="MSONESTORE_DocumentLibrary" />
+    <Property name="MSONESTORELibraryName" value="MSONESTORE_DocumentLibrary" />
     <!--  The UserName property specifies the domain user which can be used by a client to access the SUT. This user should be an administrator on the SharePoint server. -->
     <Property name="UserName" value="User1" />
     <!-- The Password property specifies the password for the user specified in the UserName property. The property value is case-sensitive. -->
     <Property name="Password" value="Password01!"/>
-    
+    <!-- The OneFile File property specifies the URL of the file which is a OneNote notebook. -->
+    <Property name="OneFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSONESTORELibraryName]/testing.one"/>
+    <!-- The OnetocFile File property specifies the URL of the file which is a OneNote notebook. -->
+    <Property name="OnetocFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSONESTORELibraryName]/testing.onetoc2"/>
+    <!-- The OneFileLocal File property specifies the file path of the file which is a OneNote notebook. -->
+    <Property name="OneFileLocal" value="TestingWithFileData.one"/>
+    <!-- The OnetocFileLocal File property specifies the file path of the file which is a OneNote notebook. -->
+    <Property name="OnetocFileLocal" value="Testing.onetoc2"/>
     <!-- SUT section ends. -->
     <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
     <!-- The HttpEndPointName property specifies the name of the endpoint which is configured by the App.config file when the transport type is HTTP. The property value is case-sensitive. -->

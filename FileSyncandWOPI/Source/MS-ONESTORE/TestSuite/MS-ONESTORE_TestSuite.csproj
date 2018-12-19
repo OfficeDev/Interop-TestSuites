@@ -54,19 +54,31 @@
       <Project>{46573eae-e1e9-4768-b8b8-536dc678ccae}</Project>
       <Name>SharedAdapter</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Adapter\MS-ONESTORE_Adapter.csproj">
+      <Project>{4ed0b548-e7e6-477f-bb8a-7b5195a5530a}</Project>
+      <Name>MS-ONESTORE_Adapter</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" Condition="'$(BUILD_COREXT)'!='1'" />
     <Compile Include="S01_TransmissionByFSSHTTP.cs" />
+    <Compile Include="S02_OneNoteRevisionStore.cs" />
     <Compile Include="TestSuiteBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="MS-ONESTORE_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ONESTORE_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ONESTORE_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ONESTORE_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ONESTORE_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ONESTORE_TestSuite.deployment.ptfconfig">
       <SubType>Designer</SubType>
     </None>
     <None Include="MS-ONESTORE_TestSuite.ptfconfig" />
     <None Include="MS-ONESTORE_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="Resources\Testing.onetoc2" />
+    <None Include="Resources\TestingWithFileData.one" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MS-ONESTORE_RequirementSpecification.xml" />

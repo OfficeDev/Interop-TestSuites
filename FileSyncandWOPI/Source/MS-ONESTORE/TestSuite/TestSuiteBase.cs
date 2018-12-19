@@ -6,6 +6,8 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
     using System.Collections.Generic;
+    using System.IO;
+    using System.Net;
 
     /// <summary>
     /// Contain test cases designed to test [MS-ONESTORE] protocol.
@@ -16,10 +18,14 @@
         #region Variables
 
         /// <summary>
+        /// Gets or sets the shared Adapter instance.
+        /// </summary>
+        protected IMS_FSSHTTP_FSSHTTPBAdapter SharedAdapter { get; set; }
+
+        /// <summary>
         /// Gets or sets the Adapter instance.
         /// </summary>
-        protected IMS_FSSHTTP_FSSHTTPBAdapter Adapter { get; set; }
-
+        protected IMS_ONESTOREAdapter Adapter { get; set; }
         /// <summary>
         /// Gets or sets the userName.
         /// </summary>
@@ -42,6 +48,11 @@
         /// A string value represents the protocol short name for the MS-ONESTORE.
         /// </summary>
         private const string OneStoreProtocolShortName = "MS-ONESTORE";
+
+        /// <summary>
+        /// A value indicate performing the merge PTF configuration file once.
+        /// </summary>
+        private static bool isPerformMergeOperation;
         #endregion Variables
 
         #region Test Case Initialization
@@ -52,15 +63,20 @@
         protected override void TestInitialize()
         {
             base.TestInitialize();
-            this.Site.DefaultProtocolDocShortName = SharedTestCasesProtocolShortName;
-            // Get the name of common configuration file.
-            string commonConfigFileName = Common.GetConfigurationPropertyValue("CommonConfigurationFileName", this.Site);
-            // Merge the common configuration.
-            Common.MergeGlobalConfig(commonConfigFileName, this.Site);
-            Common.MergeSHOULDMAYConfig(this.Site);
-            this.Site.DefaultProtocolDocShortName = OneStoreProtocolShortName;
-            Common.MergeSHOULDMAYConfig(this.Site);
-            this.Adapter = Site.GetAdapter<IMS_FSSHTTP_FSSHTTPBAdapter>();
+            if (!isPerformMergeOperation)
+            {
+                this.Site.DefaultProtocolDocShortName = SharedTestCasesProtocolShortName;
+                // Get the name of common configuration file.
+                string commonConfigFileName = Common.GetConfigurationPropertyValue("CommonConfigurationFileName", this.Site);
+                // Merge the common configuration.
+                Common.MergeGlobalConfig(commonConfigFileName, this.Site);
+                Common.MergeSHOULDMAYConfig(this.Site);
+                this.Site.DefaultProtocolDocShortName = OneStoreProtocolShortName;
+                Common.MergeSHOULDMAYConfig(this.Site);
+                isPerformMergeOperation = true;
+            }
+            this.SharedAdapter = Site.GetAdapter<IMS_FSSHTTP_FSSHTTPBAdapter>();
+            this.Adapter = Site.GetAdapter<IMS_ONESTOREAdapter>();
             this.UserName = Common.GetConfigurationPropertyValue("UserName", this.Site);
             this.Password = Common.GetConfigurationPropertyValue("Password", this.Site);
             this.Domain = Common.GetConfigurationPropertyValue("Domain", this.Site);
@@ -239,5 +255,5 @@
             CellSubRequestType cellSubRequest = this.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
             return cellSubRequest;
         }
-    }
+	}
 }

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(EnvironmentConfig)" Condition="'$(BUILD_COREXT)'=='1'" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>12.0.21005.1</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4ED0B548-E7E6-477F-BB8A-7B5195A5530A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Protocols.TestSuites.MS_ONESTORE</RootNamespace>
+    <AssemblyName>MS-ONESTORE_Adapter</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Protocols.TestTools">
+      <HintPath>$(INETROOT)\build\external\tools\PTF\vs13\1.0.2220.0\Microsoft.Protocols.TestTools.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\AdapterHelper.cs" />
+    <Compile Include="IMS-ONESTOREAdapter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" Condition="'$(BUILD_COREXT)'!='1'" />
+    <Compile Include="MS-ONESTOREAdapter.cs" />
+    <Compile Include="CaptureCode.cs" />
+    <Compile Include="Stack\FileNodeList\FileNode.cs" />
+    <Compile Include="Stack\FileNodeList\FileNodeListFragment.cs" />
+    <Compile Include="Stack\FileNodeList\FileNodeListHeader.cs" />
+    <Compile Include="Stack\FileNodeTypes\DataSignatureGroupDefinitionFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\FileDataStoreListReferenceFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\FileDataStoreObjectReferenceFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\FileNodeBase.cs" />
+    <Compile Include="Stack\FileNodeTypes\GlobalIdTableEntry2FNDX.cs" />
+    <Compile Include="Stack\FileNodeTypes\GlobalIdTableEntry3FNDX.cs" />
+    <Compile Include="Stack\FileNodeTypes\GlobalIdTableEntryFNDX.cs" />
+    <Compile Include="Stack\FileNodeTypes\GlobalIdTableStartFNDX.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectDataEncryptionKeyV2FNDX.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectDeclaration2LargeRefCountFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectDeclaration2RefCountFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectDeclarationFileData3LargeRefCountFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectDeclarationFileData3RefCountFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectDeclarationWithRefCount2FNDX.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectDeclarationWithRefCountFNDX.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectGroupListReferenceFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectGroupStartFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectInfoDependencyOverridesFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectRevisionWithRefCount2FNDX.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectRevisionWithRefCountFNDX.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectSpaceManifestListReferenceFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectSpaceManifestListStartFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\ObjectSpaceManifestRootFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\ReadOnlyObjectDeclaration2LargeRefCountFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\ReadOnlyObjectDeclaration2RefCountFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\RevisionManifestListReferenceFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\RevisionManifestListStartFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\RevisionManifestStart4FND.cs" />
+    <Compile Include="Stack\FileNodeTypes\RevisionManifestStart6FND.cs" />
+    <Compile Include="Stack\FileNodeTypes\RevisionManifestStart7FND.cs" />
+    <Compile Include="Stack\FileNodeTypes\RevisionRoleAndContextDeclarationFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\RevisionRoleDeclarationFND.cs" />
+    <Compile Include="Stack\FileNodeTypes\RootObjectReference2FNDX.cs" />
+    <Compile Include="Stack\FileNodeTypes\RootObjectReference3FND.cs" />
+    <Compile Include="Stack\FileStructrue\FreeChunkListFragment.cs" />
+    <Compile Include="Stack\FileStructrue\HashedChunkDescriptor2FND.cs" />
+    <Compile Include="Stack\FileStructrue\Header.cs" />
+    <Compile Include="Stack\FileStructrue\OneNoteRevisionStore.cs" />
+    <Compile Include="Stack\FileStructrue\TransactionEntry.cs" />
+    <Compile Include="Stack\FileStructrue\TransactionLogFragment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Common.csproj">
+      <Project>{0CEFB8C0-114E-4936-A3C1-9CEB0ABBD92C}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(ExtendedTargetsPath)\Microsoft.CSharp.targets" Condition="'$(BUILD_COREXT)'=='1'" />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" Condition="'$(BUILD_COREXT)'!='1'" />
+</Project>

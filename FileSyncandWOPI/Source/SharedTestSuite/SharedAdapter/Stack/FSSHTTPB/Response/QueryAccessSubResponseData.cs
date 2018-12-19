@@ -1,5 +1,7 @@
 namespace Microsoft.Protocols.TestSuites.SharedAdapter
 {
+    using Microsoft.Protocols.TestSuites.Common;
+
     /// <summary>
     /// Specifies the access permissions requested for read/write to the file
     /// </summary>

@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 {
     using System;
     using System.Security.Cryptography;
+    using Microsoft.Protocols.TestSuites.Common;
 
     /// <summary>
     /// A class implements MD4 algorithm to generate RDC signature.

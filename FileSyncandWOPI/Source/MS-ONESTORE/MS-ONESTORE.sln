@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\Common\Common.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedAdapter", "..\SharedTestSuite\SharedAdapter\SharedAdapter.csproj", "{46573EAE-E1E9-4768-B8B8-536DC678CCAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MS-ONESTORE_Adapter", "Adapter\MS-ONESTORE_Adapter.csproj", "{4ED0B548-E7E6-477F-BB8A-7B5195A5530A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{46573EAE-E1E9-4768-B8B8-536DC678CCAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46573EAE-E1E9-4768-B8B8-536DC678CCAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46573EAE-E1E9-4768-B8B8-536DC678CCAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ED0B548-E7E6-477F-BB8A-7B5195A5530A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ED0B548-E7E6-477F-BB8A-7B5195A5530A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ED0B548-E7E6-477F-BB8A-7B5195A5530A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ED0B548-E7E6-477F-BB8A-7B5195A5530A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
