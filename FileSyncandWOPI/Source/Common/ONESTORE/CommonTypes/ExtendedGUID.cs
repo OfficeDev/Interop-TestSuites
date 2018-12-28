@@ -49,5 +49,23 @@
 
             return index - startIndex;
         }
+        /// <summary>
+        /// Determines whether the ExtendedGuid object is equal to the current object.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>true if the ExtendedGuid object is equal to the current object; otherwise, false.</returns>
+        public override bool Equals(object obj)
+        {
+            if(obj.GetType()!=typeof(ExtendedGUID))
+            {
+                return false;
+            } 
+            else if(((ExtendedGUID)obj).Guid!=this.Guid || ((ExtendedGUID)obj).N!=this.N)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

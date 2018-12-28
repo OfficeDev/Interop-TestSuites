@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\AdapterHelper.cs" />
+    <Compile Include="Helper\CRC32.cs" />
+    <Compile Include="Helper\Enum.cs" />
     <Compile Include="IMS-ONESTOREAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" Condition="'$(BUILD_COREXT)'!='1'" />
     <Compile Include="MS-ONESTOREAdapter.cs" />
@@ -84,7 +86,11 @@
     <Compile Include="Stack\FileStructrue\FreeChunkListFragment.cs" />
     <Compile Include="Stack\FileStructrue\HashedChunkDescriptor2FND.cs" />
     <Compile Include="Stack\FileStructrue\Header.cs" />
+    <Compile Include="Stack\FileStructrue\ObjectGroupList.cs" />
+    <Compile Include="Stack\FileStructrue\ObjectSpaceManifestList.cs" />
     <Compile Include="Stack\FileStructrue\OneNoteRevisionStore.cs" />
+    <Compile Include="Stack\FileStructrue\RevisionManifestList.cs" />
+    <Compile Include="Stack\FileStructrue\RootFileNodeList.cs" />
     <Compile Include="Stack\FileStructrue\TransactionEntry.cs" />
     <Compile Include="Stack\FileStructrue\TransactionLogFragment.cs" />
   </ItemGroup>

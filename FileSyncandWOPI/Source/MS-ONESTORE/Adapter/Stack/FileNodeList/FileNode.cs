@@ -1,6 +1,7 @@
 ﻿namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 {
     using Common;
+    using System;
     using System.Collections.Generic;
 
     /// <summary>
@@ -11,7 +12,7 @@
         /// <summary>
         /// Gets or sets the value of FileNodeID field.
         /// </summary>
-        public uint FileNodeID { get; set; }
+        public FileNodeIDValues FileNodeID { get; set; }
 
         /// <summary>
         /// Gets or sets the value of Size field.
@@ -54,7 +55,7 @@
             int index = startIndex;
             using (BitReader bitReader = new BitReader(byteArray, index))
             {
-                this.FileNodeID = bitReader.ReadUInt32(10);
+                this.FileNodeID = (FileNodeIDValues)bitReader.ReadUInt32(10);
                 this.Size = bitReader.ReadUInt32(13);
                 this.StpFormat = bitReader.ReadUInt32(2);
                 this.CbFormat = bitReader.ReadUInt32(2);
@@ -64,106 +65,106 @@
             index += 4;
             switch (this.FileNodeID)
             {
-                case 0x004:
+                case FileNodeIDValues.ObjectSpaceManifestRootFND:
                     this.fnd = new ObjectSpaceManifestRootFND();
                     break;
-                case 0x008:
+                case FileNodeIDValues.ObjectSpaceManifestListReferenceFND:
                     this.fnd = new ObjectSpaceManifestListReferenceFND(this.StpFormat, this.CbFormat);
                     break;
-                case 0x00C:
+                case FileNodeIDValues.ObjectSpaceManifestListStartFND:
                     this.fnd = new ObjectSpaceManifestListStartFND();
                     break;
-                case 0x010:
+                case FileNodeIDValues.RevisionManifestListReferenceFND:
                     this.fnd = new RevisionManifestListReferenceFND(this.StpFormat, this.CbFormat);
                     break;
-                case 0x014:
+                case FileNodeIDValues.RevisionManifestListStartFND:
                     this.fnd = new RevisionManifestListStartFND();
                     break;
-                case 0x01B:
+                case FileNodeIDValues.RevisionManifestStart4FND:
                     this.fnd = new RevisionManifestStart4FND();
                     break;
-                case 0x01E:
+                case FileNodeIDValues.RevisionManifestStart6FND:
                     this.fnd = new RevisionManifestStart6FND();
                     break;
-                case 0x01F:
+                case FileNodeIDValues.RevisionManifestStart7FND:
                     this.fnd = new RevisionManifestStart7FND();
                     break;
-                case 0x021:
+                case FileNodeIDValues.GlobalIdTableStartFNDX:
                     this.fnd = new GlobalIdTableStartFNDX();
                     break;
-                case 0x024:
+                case FileNodeIDValues.GlobalIdTableEntryFNDX:
                     this.fnd = new GlobalIdTableEntryFNDX();
                     break;
-                case 0x025:
+                case FileNodeIDValues.GlobalIdTableEntry2FNDX:
                     this.fnd = new GlobalIdTableEntry2FNDX();
                     break;
-                case 0x026:
+                case FileNodeIDValues.GlobalIdTableEntry3FNDX:
                     this.fnd = new GlobalIdTableEntry3FNDX();
                     break;
-                case 0x02D:
+                case FileNodeIDValues.ObjectDeclarationWithRefCountFNDX:
                     this.fnd = new ObjectDeclarationWithRefCountFNDX(this.StpFormat, this.CbFormat);
                     break;
-                case 0x02E:
+                case FileNodeIDValues.ObjectDeclarationWithRefCount2FNDX:
                     this.fnd = new ObjectDeclarationWithRefCount2FNDX(this.StpFormat, this.CbFormat);
                     break;
-                case 0x041:
+                case FileNodeIDValues.ObjectRevisionWithRefCountFNDX:
                     this.fnd = new ObjectRevisionWithRefCountFNDX(this.StpFormat, this.CbFormat);
                     break;
-                case 0x042:
+                case FileNodeIDValues.ObjectRevisionWithRefCount2FNDX:
                     this.fnd = new ObjectRevisionWithRefCount2FNDX(this.StpFormat, this.CbFormat);
                     break;
-                case 0x059:
+                case FileNodeIDValues.RootObjectReference2FNDX:
                     this.fnd = new RootObjectReference2FNDX();
                     break;
-                case 0x05A:
+                case FileNodeIDValues.RootObjectReference3FND:
                     this.fnd = new RootObjectReference3FND();
                     break;
-                case 0x05C:
+                case FileNodeIDValues.RevisionRoleDeclarationFND:
                     this.fnd = new RevisionRoleDeclarationFND();
                     break;
-                case 0x05D:
+                case FileNodeIDValues.RevisionRoleAndContextDeclarationFND:
                     this.fnd = new RevisionRoleAndContextDeclarationFND();
                     break;
-                case 0x072:
+                case FileNodeIDValues.ObjectDeclarationFileData3RefCountFND:
                     this.fnd = new ObjectDeclarationFileData3RefCountFND();
                     break;
-                case 0x073:
+                case FileNodeIDValues.ObjectDeclarationFileData3LargeRefCountFND:
                     this.fnd = new ObjectDeclarationFileData3LargeRefCountFND();
                     break;
-                case 0x07C:
+                case FileNodeIDValues.ObjectDataEncryptionKeyV2FNDX:
                     this.fnd = new ObjectDataEncryptionKeyV2FNDX(this.StpFormat, this.CbFormat);
                     break;
-                case 0x084:
+                case FileNodeIDValues.ObjectInfoDependencyOverridesFND:
                     this.fnd = new ObjectInfoDependencyOverridesFND(this.StpFormat, this.CbFormat);
                     break;
-                case 0x08C:
+                case FileNodeIDValues.DataSignatureGroupDefinitionFND:
                     this.fnd = new DataSignatureGroupDefinitionFND();
                     break;
-                case 0x090:
+                case FileNodeIDValues.FileDataStoreListReferenceFND:
                     this.fnd = new FileDataStoreListReferenceFND(this.StpFormat, this.CbFormat);
                     break;
-                case 0x094:
+                case FileNodeIDValues.FileDataStoreObjectReferenceFND:
                     this.fnd = new FileDataStoreObjectReferenceFND(this.StpFormat, this.CbFormat);
                     break;
-                case 0x0A4:
+                case FileNodeIDValues.ObjectDeclaration2RefCountFND:
                     this.fnd = new ObjectDeclaration2RefCountFND(this.StpFormat, this.CbFormat);
                     break;
-                case 0x0A5:
+                case FileNodeIDValues.ObjectDeclaration2LargeRefCountFND:
                     this.fnd = new ObjectDeclaration2LargeRefCountFND(this.StpFormat, this.CbFormat);
                     break;
-                case 0x0B0:
+                case FileNodeIDValues.ObjectGroupListReferenceFND:
                     this.fnd = new ObjectGroupListReferenceFND(this.StpFormat, this.CbFormat);
                     break;
-                case 0x0B4:
+                case FileNodeIDValues.ObjectGroupStartFND:
                     this.fnd = new ObjectGroupStartFND();
                     break;
-                case 0x0C2:
+                case FileNodeIDValues.HashedChunkDescriptor2FND:
                     this.fnd = new HashedChunkDescriptor2FND(this.StpFormat, this.CbFormat);
                     break;
-                case 0x0C4:
+                case FileNodeIDValues.ReadOnlyObjectDeclaration2RefCountFND:
                     this.fnd = new ReadOnlyObjectDeclaration2RefCountFND(this.StpFormat, this.CbFormat);
                     break;
-                case 0x0C5:
+                case FileNodeIDValues.ReadOnlyObjectDeclaration2LargeRefCountFND:
                     this.fnd = new ReadOnlyObjectDeclaration2LargeRefCountFND(this.StpFormat, this.CbFormat);
                     break;
                 default:
@@ -187,7 +188,7 @@
         {
             List<byte> byteList = new List<byte>();
             BitWriter bitWriter = new BitWriter(4);
-            bitWriter.AppendUInit32(this.FileNodeID, 10);
+            bitWriter.AppendUInit32((uint)this.FileNodeID, 10);
             bitWriter.AppendUInit32(this.Size, 13);
             bitWriter.AppendUInit32(this.StpFormat, 2);
             bitWriter.AppendUInit32(this.CbFormat, 2);

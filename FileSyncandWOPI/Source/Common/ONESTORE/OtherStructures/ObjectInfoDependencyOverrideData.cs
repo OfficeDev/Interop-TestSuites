@@ -28,12 +28,12 @@
         /// <summary>
         /// Gets or sets the value of Overrides1 field.
         /// </summary>
-        public ObjectInfoDependencyOverride8 Overrides1 { get; set; }
+        public ObjectInfoDependencyOverride8[] Overrides1 { get; set; }
 
         /// <summary>
         /// Gets or sets the value of Overrides2 field.
         /// </summary>
-        public ObjectInfoDependencyOverride32 Overrides2 { get; set; }
+        public ObjectInfoDependencyOverride32[] Overrides2 { get; set; }
 
         /// <summary>
         /// This method is used to deserialize the ObjectInfoDependencyOverrideData object from the specified byte array and start index.
@@ -50,12 +50,21 @@
             index += 4;
             this.crc = BitConverter.ToUInt32(byteArray, index);
             index += 4;
-            this.Overrides1 = new ObjectInfoDependencyOverride8();
-            int len = this.Overrides1.DoDeserializeFromByteArray(byteArray, index);
-            index += len;
-            this.Overrides2 = new ObjectInfoDependencyOverride32();
-            len = this.Overrides2.DoDeserializeFromByteArray(byteArray, index);
-            index += len;
+            this.Overrides1 = new ObjectInfoDependencyOverride8[this.c8BitOverrides];
+            int len = 0;
+            for(int i=0;i< this.c8BitOverrides;i++)
+            {
+                this.Overrides1[i] = new ObjectInfoDependencyOverride8();
+                len = this.Overrides1[i].DoDeserializeFromByteArray(byteArray, index);
+                index += len;
+            }
+            this.Overrides2 = new ObjectInfoDependencyOverride32[this.c32BitOverrides];
+            for (int j = 0; j < this.c32BitOverrides; j++)
+            {
+                this.Overrides2[j] = new ObjectInfoDependencyOverride32();
+                len = this.Overrides2[j].DoDeserializeFromByteArray(byteArray, index);
+                index += len;
+            }
 
             return index - startIndex;
         }
@@ -70,8 +79,14 @@
             byteList.AddRange(BitConverter.GetBytes(this.c8BitOverrides));
             byteList.AddRange(BitConverter.GetBytes(this.c32BitOverrides));
             byteList.AddRange(BitConverter.GetBytes(this.crc));
-            byteList.AddRange(this.Overrides1.SerializeToByteList());
-            byteList.AddRange(this.Overrides2.SerializeToByteList());
+            foreach(ObjectInfoDependencyOverride8 objectInfoDependencyOverride8 in this.Overrides1)
+            {
+                byteList.AddRange(objectInfoDependencyOverride8.SerializeToByteList());
+            }
+            foreach (ObjectInfoDependencyOverride32 objectInfoDependencyOverride32 in this.Overrides2)
+            {
+                byteList.AddRange(objectInfoDependencyOverride32.SerializeToByteList());
+            }
 
             return byteList;
         }

@@ -30,6 +30,7 @@
         public override int DoDeserializeFromByteArray(byte[] byteArray, int startIndex)
         {
             int index = startIndex;
+            byte[] buffer = new byte[12];
             this.Stp = BitConverter.ToUInt64(byteArray, index);
             index += 8;
             this.Cb = BitConverter.ToUInt32(byteArray, index);
