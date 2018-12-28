@@ -14,11 +14,12 @@
         /// <summary>
         /// The size of the FileNodeListFragment structure.
         /// </summary>
-        private uint size;
-        public FileNodeListFragment(uint size)
+        private ulong size;
+        public FileNodeListFragment(ulong size)
         {
             this.size = size;
         }
+
         /// <summary>
         /// Gets or sets the value of header field.
         /// </summary>
@@ -53,7 +54,7 @@
         public int DoDeserializeFromByteArray(byte[] byteArray, int startIndex)
         {
             byte[] buffer = new byte[this.size];
-            Array.Copy(byteArray, startIndex, buffer, 0, this.size);
+            Array.Copy(byteArray, (uint)startIndex, buffer, 0, (uint)this.size);
             int index = 0;
             this.Header = new FileNodeListHeader();
             int len = this.Header.DoDeserializeFromByteArray(buffer, index);
@@ -68,12 +69,15 @@
                 len = fileNode.DoDeserializeFromByteArray(buffer, index);
                 index += len;
                 fileNodeSize += len;
-                this.rgFileNodes.Add(fileNode);
+                if (fileNode.FileNodeID != 0)
+                {
+                    this.rgFileNodes.Add(fileNode);
+                }
             }
             while ((int)this.size - 36 - fileNodeSize > 4);
 
             int paddinglength = (int)this.size - 36 - fileNodeSize;
-            if (paddinglength < 4)
+            if (paddinglength <= 4)
             {
                 this.padding = new byte[paddinglength];
                 Array.Copy(buffer, index, this.padding, 0, paddinglength);

@@ -30,6 +30,14 @@
         /// Gets or sets the value of cb field.
         /// </summary>
         public byte[] Cb { get; set; }
+        /// <summary>
+        /// Gets or sets the uncompressed value of the CB.
+        /// </summary>
+        public ulong CbValue { get; private set; }
+        /// <summary>
+        /// Gets or sets the uncompressed value of stp field.
+        /// </summary>
+        public ulong StpValue { get; private set; }
 
         /// <summary>
         /// This method is used to deserialize the FileChunkReference32 object from the specified byte array and start index.
@@ -45,13 +53,27 @@
             {
                 case 0:
                     stpLen = 8;
+                    this.Stp = new byte[stpLen];
+                    Array.Copy(byteArray, index, this.Stp, 0, stpLen);
+                    this.StpValue = BitConverter.ToUInt64(this.Stp, 0);
                     break;
                 case 1:
+                    stpLen = 4;
+                    this.Stp = new byte[stpLen];
+                    Array.Copy(byteArray, index, this.Stp, 0, stpLen);
+                    this.StpValue = (ulong)BitConverter.ToUInt32(this.Stp, 0);
+                    break;
                 case 3:
                     stpLen = 4;
+                    this.Stp = new byte[stpLen];
+                    Array.Copy(byteArray, index, this.Stp, 0, stpLen);
+                    this.StpValue = (ulong)(BitConverter.ToUInt32(this.Stp, 0) * 8);
                     break;
                 case 2:
                     stpLen = 2;
+                    this.Stp = new byte[stpLen];
+                    Array.Copy(byteArray, index, this.Stp, 0, stpLen);
+                    this.StpValue = (ulong)(BitConverter.ToUInt16(this.Stp, 0) * 8);
                     break;
             }
             this.Stp = new byte[stpLen];
@@ -62,19 +84,30 @@
             {
                 case 0:
                     cbLen = 4;
+                    this.Cb = new byte[4];
+                    Array.Copy(byteArray, index, this.Cb, 0, 4);
+                    this.CbValue = (ulong)BitConverter.ToUInt32(this.Cb, 0);
                     break;
                 case 1:
                     cbLen = 8;
+                    this.Cb = new byte[8];
+                    Array.Copy(byteArray, index, this.Cb, 0, 8);
+                    this.CbValue = (ulong)BitConverter.ToUInt64(this.Cb, 0);
                     break;
                 case 2:
                     cbLen = 1;
+                    this.Cb = new byte[1];
+                    Array.Copy(byteArray, index, this.Cb, 0, 1);
+                    this.CbValue = (ulong)(this.Cb[0] * 8);
                     break;
                 case 3:
                     cbLen = 2;
+                    this.Cb = new byte[2];
+                    Array.Copy(byteArray, index, this.Cb, 0, 2);
+                    this.CbValue = (ulong)(BitConverter.ToUInt16(this.Cb, 0) * 8);
                     break;
             }
-            this.Cb = new byte[cbLen];
-            Array.Copy(byteArray, index, this.Cb, 0, cbLen);
+
             index += cbLen;
 
             return index - startIndex;

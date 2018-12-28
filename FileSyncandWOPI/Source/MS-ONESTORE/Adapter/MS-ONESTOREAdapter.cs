@@ -48,7 +48,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
             OneNoteRevisionStoreFile oneNoteFile = new OneNoteRevisionStoreFile();
             oneNoteFile.DoDeserializeFromByteArray(buffer);
 
-            this.VerifyRevisionStoreFile(oneNoteFile);
+            this.VerifyRevisionStoreFile(oneNoteFile, fileName, this.Site);
 
             return oneNoteFile;
         }
