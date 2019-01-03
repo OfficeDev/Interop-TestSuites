@@ -152,11 +152,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     244,
                     @"[In Header] fcrLegacyFreeChunkList (8 bytes): A FileChunkReference32 structure (section 2.2.4.1) that MUST have a value of ""fcrZero"" (see section 2.2.4).");
 
+            this.VerifyFileChunkReference32(header.fcrLegacyFreeChunkList, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R245
             site.CaptureRequirementIfIsTrue(
                     header.fcrLegacyTransactionLog.GetType() == typeof(FileChunkReference32) && header.fcrLegacyTransactionLog.IsfcrNil(),
                     245,
                     @"[In Header] fcrLegacyTransactionLog (8 bytes): A FileChunkReference32 structure that MUST be ""fcrNil"" (see section 2.2.4).");
+
+            this.VerifyFileChunkReference32(header.fcrLegacyTransactionLog, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R246
             site.CaptureRequirementIfIsInstanceOfType(
@@ -189,6 +193,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     header.fcrLegacyFileNodeListRoot.GetType() == typeof(FileChunkReference32) && header.fcrLegacyFileNodeListRoot.IsfcrNil(),
                     252,
                     @"[In Header] fcrLegacyFileNodeListRoot (8 bytes): A FileChunkReference32 structure that MUST be ""fcrNil"".");
+
+            this.VerifyFileChunkReference32(header.fcrLegacyFileNodeListRoot, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R253
             site.CaptureRequirementIfIsTrue(
@@ -267,12 +273,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     267,
                     @"[In Header] fcrHashedChunkList (12 bytes): A FileChunkReference64x32 structure (section 2.2.4.4) that specifies a reference to the first FileNodeListFragment in a hashed chunk list (section 2.3.4).");
 
+            this.VerifyFileChunkReference64x32(header.fcrHashedChunkList, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R270
             site.CaptureRequirementIfIsInstanceOfType(
                     header.fcrTransactionLog,
                     typeof(FileChunkReference64x32),
                     270,
                     @"[In Header] fcrTransactionLog (12 bytes): A FileChunkReference64x32 structure that specifies a reference to the first TransactionLogFragment structure (section 2.3.3.1) in a transaction log (section 2.3.3).");
+
+            this.VerifyFileChunkReference64x32(header.fcrTransactionLog, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R271
             site.CaptureRequirementIfIsTrue(
@@ -287,6 +297,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     272,
                     @"[In Header] fcrFileNodeListRoot (12 bytes): A FileChunkReference64x32 structure that specifies a reference to a root file node list (section 2.1.14).");
 
+            this.VerifyFileChunkReference64x32(header.fcrFileNodeListRoot, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R273
             site.CaptureRequirementIfIsTrue(
                     header.fcrFileNodeListRoot.IsfcrNil() == false && header.fcrFileNodeListRoot.IsfcrZero() == false,
@@ -299,6 +311,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(FileChunkReference64x32),
                     274,
                     @"[In Header] fcrFreeChunkList (12 bytes): A FileChunkReference64x32 structure that specifies a reference to the first FreeChunkListFragment structure (section 2.3.2.1).");
+
+            this.VerifyFileChunkReference64x32(header.fcrFreeChunkList, site);
 
             if (header.fcrFreeChunkList.IsfcrNil() || header.fcrFreeChunkList.IsfcrZero())
             {
@@ -351,11 +365,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     288,
                     @"[In Header] fcrDebugLog (12 bytes): A FileChunkReference64x32 structure that MUST have a value ""fcrZero"".");
 
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R188
+            site.CaptureRequirementIfIsTrue(
+                    header.fcrDebugLog.Cb==uint.MinValue && header.fcrDebugLog.Stp==ulong.MinValue,
+                    188,
+                    @"[In File Chunk Reference] fcrZero: Specifies a file chunk reference where all bits of the stp and cb fields are set to zero.");
+
+            this.VerifyFileChunkReference64x32(header.fcrDebugLog, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R290
             site.CaptureRequirementIfIsTrue(
                     header.fcrAllocVerificationFreeChunkList.GetType() == typeof(FileChunkReference64x32) && header.fcrAllocVerificationFreeChunkList.IsfcrZero(),
                     290,
                     @"[In Header] fcrAllocVerificationFreeChunkList (12 bytes): A FileChunkReference64x32 structure that MUST be ""fcrZero"".");
+
+            this.VerifyFileChunkReference64x32(header.fcrAllocVerificationFreeChunkList, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R292
             site.CaptureRequirementIfIsInstanceOfType(
@@ -585,6 +609,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         typeof(FileChunkReference64x32),
                         332,
                         @"[In TransactionLogFragment] nextFragment (12 bytes): A FileChunkReference64x32 structure (section 2.2.4.4) that specifies the location and size of the next TransactionLogFragment structure.");
+
+                this.VerifyFileChunkReference64x32(logFragment.nextFragment, site);
             }
 
             TransactionEntry lastEntry = transactionEntrys[transactionEntrys.Count - 1];
@@ -645,6 +671,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                                 354,
                                 @"[In HashedChunkDescriptor2FND] BlobRef (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies the location and size of an ObjectSpaceObjectPropSet structure.");
 
+                        this.VerifyFileNodeChunkReference(fnd.BlobRef, site);
+
                         // If the OneNote file parse successfully, this requirement will be verified.
                         // Verify MS-ONESTORE requirement: MS-ONESTORE_R355
                         site.CaptureRequirement(
@@ -693,6 +721,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     161,
                     @"[In Root File Node List] • One or more FileNode structures with FileNodeID field values equal to 0x008 (ObjectSpaceManifestListReferenceFND structure, section 2.5.2).");
 
+            // If R161 is verified, then R43 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R43
+            site.CaptureRequirement(
+                    43,
+                    @"[In Object Space] Object spaces MUST be referenced from the root file node list (section 2.1.14) by a FileNode structure (section 2.4.3) with a FileNodeID field value equal to 0x08 (ObjectSpaceManifestListReferenceFND structure, section 2.5.2).");
+
             for (int i=0;i<objectSpaceManifestListReferences.Length;i++)
             {
                 ObjectSpaceManifestListReferenceFND fnd = objectSpaceManifestListReferences[i].fnd as ObjectSpaceManifestListReferenceFND;
@@ -703,6 +737,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         502,
                         @"[In ObjectSpaceManifestListStartFND] [gosid] MUST match the ObjectSpaceManifestListReferenceFND.gosid field (section 2.5.2) of the FileNode structure that referenced this file node list (section 2.4).");
 
+                // If R502 is verified,then R44 will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R44
+                site.CaptureRequirement(
+                        44,
+                        @"[In Object Space] Object spaces MUST have a unique identifier (OSID), specified by the ObjectSpaceManifestListReferenceFND.gosid field.");
+
+                this.VerifyExtendedGUID(fnd.gosid, site);
                 this.VerifyObjectSpaceManifestListReferenceFND(fnd, site);
             }
 
@@ -776,6 +817,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     82,
                     @" [In Object Space Manifest List]2. One or more FileNode structures with FileNodeID field values equal to 0x010 (RevisionManifestListReferenceFND structure, section 2.5.4).");
 
+            // If R82 is verified,then R45 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R45
+            site.CaptureRequirement(
+                    45,
+                    @"[In Object Space] Every revision store file MUST have exactly one root object space whose OSID is specified by the ObjectSpaceManifestRootFND.gosidRoot field.");
+
             foreach (FileNode node in RevisionManifestListRefArray)
             {
                 this.VerifyRevisionManifestListReferenceFND((RevisionManifestListReferenceFND)node.fnd, site);
@@ -792,6 +839,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         ((RevisionManifestListStartFND)revisionManifestList.FileNodeSequence[0].fnd).gosid,
                         122,
                         @"[In Revision Manifest List] All of the revision manifests (section 2.1.9) for an object space MUST appear in a single revision manifest list. ");
+
+                this.VerifyExtendedGUID(gosid, site);
             }
             this.VerifyFileNodeList(instance.FileNodeListFragments, fileName, site);
         }
@@ -877,6 +926,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         ((ObjectGroupListReferenceFND)objectGroupRefArray[i].fnd).ObjectGroupID,
                         720,
                         @"[In ObjectGroupListReferenceFND] [ObjectGroupID] MUST be the same value as the ObjectGroupStartFND.oid field value of the object group that the ref field points to.");
+
             }
             this.VerifyFileNodeList(instance.FileNodeListFragments, fileName, site);
         }
@@ -1420,6 +1470,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(FileChunkReference64x32),
                     378,
                     @"[In FileNodeListFragment] nextFragment (12 bytes): A FileChunkReference64x32 structure (section 2.2.4.4) that specifies whether there are more fragments in this file node list, and if so, the location and size of the next fragment.");
+
+            this.VerifyFileChunkReference64x32(fileNodeListFragment.nextFragment, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R381
             site.CaptureRequirement(
@@ -2112,12 +2164,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     492,
                     @"[In ObjectSpaceManifestRootFND] gosidRoot (20 bytes): An ExtendedGUID structure (section 2.2.1) that specifies the identity of the root object space.");
 
+            this.VerifyExtendedGUID(fnd.gosidRoot, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R492
             site.CaptureRequirementIfAreEqual<ExtendedGUID>(
                     objectSpaceManifestListReferenceFND.gosid,
                     fnd.gosidRoot,
                     493,
                     @"[In ObjectSpaceManifestRootFND] This value MUST be equal to the ObjectSpaceManifestListReferenceFND.gosid field (section 2.5.2) of an object space within the object space manifest list (section 2.1.6).");
+
+            this.VerifyExtendedGUID(objectSpaceManifestListReferenceFND.gosid, site);
         }
         /// <summary>
         /// This method is used to verify the requirements related with ObjectSpaceManifestListReferenceFND structure.
@@ -2133,12 +2189,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     496,
                     @"[In ObjectSpaceManifestListReferenceFND] ref (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies the location and size of the first FileNodeListFragment structure (section 2.4.1) in the object space manifest list.");
 
+            this.VerifyFileNodeChunkReference(fnd.refField, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R497
             site.CaptureRequirementIfIsInstanceOfType(
                     fnd.gosid,
                     typeof(ExtendedGUID),
                     497,
                     @"[In ObjectSpaceManifestListReferenceFND] gosid (20 bytes): An ExtendedGUID structure (section 2.2.1) that specifies the identity of the object space (section 2.1.4) specified by the object space manifest list.");
+
+            this.VerifyExtendedGUID(fnd.gosid, site);
 
             ExtendedGUID zeroExtendGuid = new ExtendedGUID();
             zeroExtendGuid.Guid = Guid.Empty;
@@ -2165,6 +2225,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(ExtendedGUID),
                     501,
                     @"[In ObjectSpaceManifestListStartFND] gosid (20 bytes): An ExtendedGUID structure that specifies the identity of the object space (section 2.1.4) being specified by this object space manifest list. ");
+
+            this.VerifyExtendedGUID(fnd.gosid, site);
         }
         /// <summary>
         /// This method is used to verify the requirements related with RevisionManifestListReferenceFND structure.
@@ -2179,6 +2241,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(FileNodeChunkReference),
                     505,
                     @"[In RevisionManifestListReferenceFND] ref (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies the location and size of the first FileNodeListFragment structure (section 2.4.1) in the revision manifest list.");
+
+            this.VerifyFileNodeChunkReference(fnd.refField, site);
         }
         /// <summary>
         /// This method is used to verify the requirements related with RevisionManifestListStartFND structure.
@@ -2193,6 +2257,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(ExtendedGUID),
                     508,
                     @"[In RevisionManifestListStartFND] gosid (20 bytes): An ExtendedGUID structure (section 2.2.1) that specifies the identity of the object space (section 2.1.4) being revised by the revisions (section 2.1.8) in this list.");
+
+            this.VerifyExtendedGUID(fnd.gosid, site);
         }
         /// <summary>
         /// This method is used to verify the requirements related with RevisionManifestStart4FND structure.
@@ -2208,12 +2274,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     513,
                     @"[In RevisionManifestStart4FND] rid (20 bytes): An ExtendedGUID structure (section 2.2.1) that specifies the identity of this revision (section 2.1.8).");
 
+            this.VerifyExtendedGUID(fnd.rid, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R515
             site.CaptureRequirementIfIsInstanceOfType(
                     fnd.ridDependent,
                     typeof(ExtendedGUID),
                     515,
                     @"[In RevisionManifestStart4FND] ridDependent (20 bytes): An ExtendedGUID structure that specifies the identity of a dependency revision.");
+
+            this.VerifyExtendedGUID(fnd.ridDependent, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R519
             site.CaptureRequirementIfIsInstanceOfType(
@@ -2242,13 +2312,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(ExtendedGUID),
                     524,
                     @"[In RevisionManifestStart6FND] rid (20 bytes): An ExtendedGUID structure (section 2.2.1) that specifies the identity of this revision (section 2.1.8).");
-         
+
+            this.VerifyExtendedGUID(fnd.rid, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R526
             site.CaptureRequirementIfIsInstanceOfType(
                     fnd.ridDependent,
                     typeof(ExtendedGUID),
                     526,
                     @"[In RevisionManifestStart6FND] ridDependent (20 bytes): An ExtendedGUID structure that specifies the identity of a dependency revision.");
+
+            this.VerifyExtendedGUID(fnd.ridDependent, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R529
             site.CaptureRequirementIfIsInstanceOfType(
@@ -2291,6 +2365,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(ExtendedGUID),
                     539,
                     @"[In RevisionManifestStart7FND] gctxid (20 bytes): An ExtendedGUID structure (section 2.2.1) that specifies the context that labels this revision (section 2.1.8).");
+
+            this.VerifyExtendedGUID(fnd.gctxid, site);
+            // If R539 is verified, then R130 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R130
+            site.CaptureRequirement(
+                    130,
+                    @"[In Context] It [A Context] is specified by an ExtendedGUID (section 2.2.1).");
         }
         /// <summary>
         /// This method is used to verify the requirements related with GlobalIdTableStartFNDX structure.
@@ -2409,6 +2490,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     641,
                     @"[In ObjectDeclarationWithRefCountFNDX] ObjectRef (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies a reference to an ObjectSpaceObjectPropSet structure (section 2.6.1).");
 
+            this.VerifyFileNodeChunkReference(fnd.ObjectRef, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R642
             site.CaptureRequirementIfIsInstanceOfType(
                     fnd.body,
@@ -2438,6 +2521,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(FileNodeChunkReference),
                     647,
                     @"[In ObjectDeclarationWithRefCount2FNDX] ObjectRef (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies a reference to an ObjectSpaceObjectPropSet structure (section 2.6.1).");
+
+            this.VerifyFileNodeChunkReference(fnd.ObjectRef, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R648
             site.CaptureRequirementIfIsInstanceOfType(
@@ -2469,12 +2554,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     575,
                     @"[In ObjectRevisionWithRefCountFNDX] ref (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies a reference to an ObjectSpaceObjectPropSet structure (section 2.6.1) containing the revised data for the object referenced by the oid field.");
 
+            this.VerifyFileNodeChunkReference(fnd.Ref, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R576
             site.CaptureRequirementIfIsInstanceOfType(
                     fnd.oid,
                     typeof(CompactID),
                     576,
                     @"[In ObjectRevisionWithRefCountFNDX] oid (4 bytes): A CompactID structure (section 2.2.2) that specifies the object that has been revised.");
+
+            this.VerifyCompactID(fnd.oid, site);
 
             // If the OneNote file parse successfully, this requirement will be verified.
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R577
@@ -2509,12 +2598,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     584,
                     @"[In ObjectRevisionWithRefCount2FNDX] ref (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies a reference to an ObjectSpaceObjectPropSet structure (section 2.6.1) containing the revised data for the object referenced by the oid field.");
 
+            this.VerifyFileNodeChunkReference(fnd.Ref, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R585
             site.CaptureRequirementIfIsInstanceOfType(
                     fnd.oid,
                     typeof(CompactID),
                     585,
                     @"[In ObjectRevisionWithRefCount2FNDX] oid (4 bytes): A CompactID structure (section 2.2.2) that specifies the object that has been revised.");
+
+            this.VerifyCompactID(fnd.oid, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R586
             site.CaptureRequirementIfIsTrue(
@@ -2556,6 +2649,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     593,
                     @"[In RootObjectReference2FNDX] oidRoot (4 bytes): A CompactID structure (section 2.2.2) that specifies the identity of the root object of the containing revision for the role specified by the RootRole field.");
 
+            this.VerifyCompactID(fnd.oidRoot, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R594
             site.CaptureRequirementIfIsInstanceOfType(
                     fnd.RootRole,
@@ -2576,6 +2671,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(ExtendedGUID),
                     598,
                     @"[In RootObjectReference3FND] oidRoot (20 bytes): An ExtendedGUID (section 2.2.1) that specifies the identity of the root object of the containing revision for the role specified by the RootRole field.");
+
+            this.VerifyExtendedGUID(fnd.oidRoot, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R599
             site.CaptureRequirementIfIsInstanceOfType(
@@ -2598,12 +2695,19 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     603,
                     @"[In RevisionRoleDeclarationFND] rid (20 bytes): An ExtendedGUID structure (section 2.2.1) that specifies the identity of the revision to add the revision role to.");
 
+            this.VerifyExtendedGUID(fnd.rid, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R606
-            site.CaptureRequirementIfIsInstanceOfType(
-                    fnd.RevisionRole,
-                    typeof(byte[]),
+            site.CaptureRequirementIfIsTrue(
+                    fnd.RevisionRole.GetType() == typeof(byte[]) && fnd.RevisionRole.Length == 4,
                     606,
                     @"[In RevisionRoleDeclarationFND] RevisionRole (4 bytes): Specifies a revision role for the default context.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R141
+            site.CaptureRequirementIfIsTrue(
+                    fnd.RevisionRole[3] == 0 && fnd.RevisionRole[2] == 0,
+                    141,
+                    @"[In Revision Role] It[A revision role] is specified by a 4-byte integer where the high 2 bytes MUST be set to zero.");
         }
         /// <summary>
         /// This method is used to verify the requirements related with RevisionRoleAndContextDeclarationFND structure.
@@ -2626,6 +2730,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(ExtendedGUID),
                     610,
                     @"[In RevisionRoleAndContextDeclarationFND] gctxid (20 bytes): An ExtendedGUID structure (section 2.2.1) that specifies the context.");
+
+            this.VerifyExtendedGUID(fnd.gctxid, site);
         }
         /// <summary>
         /// This method is used to verify the requirements related with ObjectDeclarationFileData3RefCountFND structure.
@@ -2640,6 +2746,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(CompactID),
                     666,
                     @"[In ObjectDeclarationFileData3RefCountFND] oid (4 bytes): A CompactID structure (section 2.2.2) that specifies the identity of this object.");
+
+            this.VerifyCompactID(fnd.oid, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R667
             site.CaptureRequirementIfIsInstanceOfType(
@@ -2689,6 +2797,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(CompactID),
                     685,
                     @"[In ObjectDeclarationFileData3LargeRefCountFND] oid (4 bytes): A CompactID structure (section 2.2.2) that specifies the identity of this object.");
+
+            this.VerifyCompactID(fnd.oid, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R686
             site.CaptureRequirementIfIsInstanceOfType(
@@ -2752,6 +2862,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     624,
                     @"[In ObjectInfoDependencyOverridesFND] ref (variable): A FileNodeChunkReference structure that specifies the location of an ObjectInfoDependencyOverrideData structure (section 2.6.10) if the value of the ref field is not ""fcrNil"".");
 
+            this.VerifyFileNodeChunkReference(fnd.Ref, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R625
             site.CaptureRequirementIfIsInstanceOfType(
                     fnd.data,
@@ -2766,6 +2878,39 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         fnd.data,
                         626,
                         @"[In ObjectInfoDependencyOverridesFND]  [data] MUST exist if the value of the ref field is ""fcrNil"".");
+
+                bool isVaildfcrNil = false;
+
+                foreach(byte b in fnd.Ref.Stp)
+                {
+                    if(b==byte.MaxValue)
+                    {
+                        isVaildfcrNil = true;
+                    }
+                    else
+                    {
+                        isVaildfcrNil = false;
+                        break;
+                    }
+                }
+                if (isVaildfcrNil == true)
+                {
+                    foreach (byte b in fnd.Ref.Cb)
+                    {
+                        if (b != byte.MinValue)
+                        {
+                            isVaildfcrNil = false;
+                            break;
+                        }
+                    }
+                }
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R187
+                site.CaptureRequirementIfIsTrue(
+                        isVaildfcrNil,
+                        187,
+                        @"[In File Chunk Reference] Special values:
+fcrNil: Specifies a file chunk reference where all bits of the stp field are set to 1, and all bits of the cb field are set to zero.");
             }
         }
         /// <summary>
@@ -2781,6 +2926,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(ExtendedGUID),
                     727,
                     @"[In DataSignatureGroupDefinitionFND] DataSignatureGroup (20 bytes): An ExtendedGUID structure (section 2.2.1) that specifies the signature. ");
+
+            this.VerifyExtendedGUID(fnd.DataSignatureGroup, site);
         }
         /// <summary>
         /// This method is used to verify the requirements related with FileDataStoreListReferenceFND structure.
@@ -2795,6 +2942,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(FileNodeChunkReference),
                     631,
                     @"[In FileDataStoreListReferenceFND] ref (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies a reference to a FileNodeListFragment structure (section 2.4.1).");
+
+            this.VerifyFileNodeChunkReference(fnd.Ref, site);
         }
         /// <summary>
         /// This method is used to verify the requirements related with FileDataStoreObjectReferenceFND structure.
@@ -2809,6 +2958,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(FileNodeChunkReference),
                     635,
                     @"[In FileDataStoreObjectReferenceFND] ref (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies a reference to a FileDataStoreObject structure (section 2.6.13).");
+
+            this.VerifyFileNodeChunkReference((FileNodeChunkReference)fnd.Ref, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R636
             site.CaptureRequirementIfIsInstanceOfType(
@@ -2830,6 +2981,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(FileNodeChunkReference),
                     653,
                     @"[In ObjectDeclaration2RefCountFND] BlobRef (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies a reference to an ObjectSpaceObjectPropSet structure (section 2.6.1).");
+            this.VerifyFileNodeChunkReference(fnd.BlobRef, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R654
             site.CaptureRequirementIfIsInstanceOfType(
@@ -2861,6 +3013,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     659,
                     @"[In ObjectDeclaration2LargeRefCountFND] BlobRef (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies a reference to an ObjectSpaceObjectPropSet structure (section 2.6.1).");
 
+            this.VerifyFileNodeChunkReference(fnd.BlobRef, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R660
             site.CaptureRequirementIfIsInstanceOfType(
                     fnd.body,
@@ -2891,12 +3045,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     718,
                     @"[In ObjectGroupListReferenceFND] ref (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies the location and size of the first FileNodeListFragment structure (section 2.4.1) in the file node list (section 2.4) of the object group.");
 
+            this.VerifyFileNodeChunkReference(fnd.Ref, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R719
             site.CaptureRequirementIfIsInstanceOfType(
                     fnd.ObjectGroupID,
                     typeof(ExtendedGUID),
                     719,
                     @"[In ObjectGroupListReferenceFND] ObjectGroupID (20 bytes): An ExtendedGUID structure (section 2.2.1) that specifies the identity of the object group that the ref field value points to.");
+
+            this.VerifyExtendedGUID(fnd.ObjectGroupID, site);
         }
         /// <summary>
         /// This method is used to verify the requirements related with ObjectGroupStartFND structure.
@@ -2911,6 +3069,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(ExtendedGUID),
                     722,
                     @"[In ObjectGroupStartFND] oid (20 bytes): An ExtendedGUID (section 2.2.1) that specifies the identity of the object group.");
+
+            this.VerifyExtendedGUID(fnd.oid, site);
         }
         /// <summary>
         /// This method is used to verify the requirements related with HashedChunkDescriptor2FND structure.
@@ -2988,6 +3148,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     867,
                     @"[In ObjectDeclarationWithRefCountBody] oid (4 bytes): A CompactID structure (section 2.2.2) that specifies the identity of this object.");
 
+            this.VerifyCompactID(body.oid, site);
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R869
             site.CaptureRequirementIfAreEqual<uint>(
                     0x01,
@@ -3061,6 +3223,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     typeof(CompactID),
                     878,
                     @"[In ObjectDeclaration2Body] oid (4 bytes): A CompactID (section 2.2.2) that specifies the identity of this object.");
+
+            this.VerifyCompactID(body.oid, site);
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R879
             site.CaptureRequirementIfIsInstanceOfType(
@@ -3158,7 +3322,207 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
         /// <param name="site">Instance of ITestSite</param>
         private void VerifyStringInStorageBuffer(StringInStorageBuffer stringInStorageBuffer,ITestSite site)
         {
+            // If the OneNote file parse successfully, this requirement will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R177
+            site.CaptureRequirement(
+                    177,
+                    @"[In StringInStorageBuffer] The StringInStorageBuffer structure is a variable-length Unicode string.");
 
+            //  Verify MS-ONESTORE requirement: MS-ONESTORE_R179
+            site.CaptureRequirementIfIsInstanceOfType(
+                    stringInStorageBuffer.Cch,
+                    typeof(uint),
+                    179,
+                    @"[In StringInStorageBuffer] cch (4 bytes): An unsigned integer that specifies the number of characters in the string.");
+
+            // If the OneNote file parse successfully, this requirement will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R180
+            site.CaptureRequirement(
+                    180,
+                    @"[In StringInStorageBuffer] StringData (variable): An array of UTF-16 Unicode characters.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R181 
+            site.CaptureRequirementIfAreEqual<uint>(
+                    stringInStorageBuffer.Cch,
+                    (uint)stringInStorageBuffer.StringData.Length,
+                    181,
+                    @"[In StringInStorageBuffer] The length of the array MUST be equal to the value specified by the cch field.");
+        }
+        /// <summary>
+        /// This method is used to verify the requirements related with ExtendedGUID structure.
+        /// </summary>
+        /// <param name="instance">The instance of ExtendedGUID structure</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyExtendedGUID(ExtendedGUID instance,ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R165
+            site.CaptureRequirementIfIsTrue(
+                    instance.Guid.GetType()==typeof(Guid) && instance.N.GetType()==typeof(uint),
+                    165,
+                    @"[In ExtendedGUID] The ExtendedGUID structure is a combination of a GUID, as specified by [MS-DTYP], and an unsigned integer.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R168
+            site.CaptureRequirementIfIsInstanceOfType(
+                    instance.Guid,
+                    typeof(Guid),
+                    168,
+                    @"[In ExtendedGUID] guid (16 bytes): Specifies a GUID, as specified by [MS-DTYP].");
+
+            if(instance.Guid==Guid.Parse("{00000000-0000-0000-0000-000000000000}"))
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R169
+                site.CaptureRequirementIfAreEqual<uint>(
+                        0,
+                        instance.N,
+                        169,
+                        @"[In ExtendedGUID] n (4 bytes): An unsigned integer that MUST be zero when the guid field value is {00000000-0000-0000-0000-000000000000}.");
+            }
+        }
+        /// <summary>
+        /// This method is used to verify the requirements related with CompactID structure.
+        /// </summary>
+        /// <param name="instance">The instance of CompactID structure</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyCompactID(CompactID instance,ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R174
+            site.CaptureRequirementIfIsInstanceOfType(
+                    instance.N,
+                    typeof(uint),
+                    174,
+                    @"[In CompactID] n (8 bits): An unsigned integer that specifies the value of the ExtendedGUID.n field.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R175
+            site.CaptureRequirementIfIsInstanceOfType(
+                    instance.GuidIndex,
+                    typeof(uint),
+                    175,
+                    @"[In CompactID] guidIndex (24 bits): An unsigned integer that specifies the index in the global identification table. ");
+
+            // If R174 and R175 are verified, the R171 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R171
+            site.CaptureRequirement(
+                    171,
+                    @"[In CompactID] The CompactID structure is a combination of two unsigned integers.");
+        }
+        /// <summary>
+        /// This method is used to verify the requirements related with FileChunkReference32 structure.
+        /// </summary>
+        /// <param name="instance">The instance of FileChunkReference32 structure</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyFileChunkReference32(FileChunkReference32 instance,ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R191
+            site.CaptureRequirementIfIsInstanceOfType(
+                    instance.Stp,
+                    typeof(uint),
+                    191,
+                    @"[In FileChunkReference32] stp (4 bytes): An unsigned integer that specifies the location of the referenced data in the file.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R192
+            site.CaptureRequirementIfIsInstanceOfType(
+                    instance.Cb,
+                    typeof(uint),
+                    192,
+                    @"[In FileChunkReference32] cb (4 bytes): An unsigned integer that specifies the size, in bytes, of the referenced data.");
+
+            // If R191 and R192 are verified, the R189 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R171
+            site.CaptureRequirement(
+                    189,
+                    @"[In FileChunkReference32] A FileChunkReference32 structure is a file chunk reference (section 2.2.4) where both the stp field and the cb field are 4 bytes in size.");
+        }
+        /// <summary>
+        /// This method is used to verify the requirements related with FileNodeChunkReference structure.
+        /// </summary>
+        /// <param name="instance">The instance of FileNodeChunkReference structure</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyFileNodeChunkReference(FileNodeChunkReference instance, ITestSite site)
+        {
+            // If the OneNote file parse successfully, this requirement will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R194
+            site.CaptureRequirement(
+                    194,
+                    @"[In FileNodeChunkReference] The size of the file chunk reference (section 2.2.4) is specified by the FileNode.StpFormat and FileNode.CbFormat fields of the FileNode structure that contains the FileNodeChunkReference structure.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R197
+            site.CaptureRequirementIfIsTrue(
+                    instance.Stp.Length == 2 || instance.Stp.Length == 4 || instance.Stp.Length == 8,
+                    197,
+                    @"[In FileNodeChunkReference] stp (variable): An unsigned integer that specifies the location of the referenced data in the file. ");
+
+            // If the OneNote file parse successfully, this requirement will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R198
+            site.CaptureRequirement(
+                    198,
+                    @"[In FileNodeChunkReference] The size and meaning of the stp field is specified by the value of the FileNode.StpFormat field.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R199
+            site.CaptureRequirementIfIsTrue(
+                    instance.Cb.Length == 8 || instance.Cb.Length == 4 ||
+                    instance.Cb.Length == 2 || instance.Cb.Length == 1,
+                    199,
+                    @"[In FileNodeChunkReference] cb (variable): An unsigned integer that specifies the size, in bytes, of the data. ");
+
+            // If the OneNote file parse successfully, this requirement will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R200
+            site.CaptureRequirement(
+                    200,
+                    @"[In FileNodeChunkReference] The size and meaning of the cb field is specified by the value of FileNode.CbFormat field.");
+        }
+        /// <summary>
+        /// This method is used to verify the requirements related with FileChunkReference64 structure.
+        /// </summary>
+        /// <param name="instance">The instance of FileChunkReference64</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyFileChunkReference64(FileChunkReference64 instance,ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R203
+            site.CaptureRequirementIfIsInstanceOfType(
+                    instance.Stp,
+                    typeof(ulong),
+                    203,
+                    @"[In FileChunkReference64] stp (8 bytes): An unsigned integer that specifies the location of the referenced data in the file.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R204
+            site.CaptureRequirementIfIsInstanceOfType(
+                    instance.Cb,
+                    typeof(ulong),
+                    204,
+                    @"[In FileChunkReference64] cb (8 bytes): An unsigned integer that specifies the size, in bytes, of the referenced data.");
+
+            // If R203 and R204 are verified,so R201 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R201
+            site.CaptureRequirement(
+                    201,
+                    @"[In FileChunkReference64] A FileChunkReference64 structure is a file chunk reference (section 2.2.4) where both the stp field and the cb field are 8 bytes in size.");
+        }
+        /// <summary>
+        /// This method is used to verify the requirements related with FileChunkReference64x32 structure.
+        /// </summary>
+        /// <param name="instance">The instance of FileChunkReference64x32</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyFileChunkReference64x32(FileChunkReference64x32 instance,ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R207
+            site.CaptureRequirementIfIsInstanceOfType(
+                    instance.Stp,
+                    typeof(ulong),
+                    207,
+                    @"[In FileChunkReference64x32] stp (8 bytes): An unsigned integer that specifies the location of the referenced data in the file.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R208
+            site.CaptureRequirementIfIsInstanceOfType(
+                    instance.Cb,
+                    typeof(uint),
+                    208,
+                    @"[In FileChunkReference64x32] cb (4 bytes): An unsigned integer that specifies the size, in bytes, of the referenced data.");
+
+            // If R207 and R208 are verified,so R205 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R205
+            site.CaptureRequirement(
+                    205,
+                    @"[In FileChunkReference64x32] A FileChunkReference64x32 structure is a file chunk reference (section 2.2.4) where the stp field is 8 bytes in size and the cb field is 4 bytes in size.");
         }
     }
 }
