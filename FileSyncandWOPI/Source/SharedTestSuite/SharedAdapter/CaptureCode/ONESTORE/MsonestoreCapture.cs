@@ -24,8 +24,7 @@
             {
                 this.VerifyRevisionStoreObject(revisionStoreObject, site);
             }
-            this.VerifyRoot(instance.Root,site);
-            this.VerifyHeaderCell(instance.HeaderCells, site);    
+            this.VerifyRoot(instance.Root,site); 
         }
         /// <summary>
         /// This method is used to verify the requirements related with the Storage Manifest.
