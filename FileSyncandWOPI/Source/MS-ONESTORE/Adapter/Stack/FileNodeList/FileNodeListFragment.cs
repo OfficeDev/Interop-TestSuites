@@ -53,11 +53,9 @@
         /// <returns>Return the length in byte of the FileNodeListHeader object.</returns>
         public int DoDeserializeFromByteArray(byte[] byteArray, int startIndex)
         {
-            byte[] buffer = new byte[this.size];
-            Array.Copy(byteArray, (uint)startIndex, buffer, 0, (uint)this.size);
-            int index = 0;
+            int index = startIndex;
             this.Header = new FileNodeListHeader();
-            int len = this.Header.DoDeserializeFromByteArray(buffer, index);
+            int len = this.Header.DoDeserializeFromByteArray(byteArray, index);
             index += len;
 
             FileNode fileNode = null;
@@ -66,7 +64,7 @@
             do
             {
                 fileNode = new FileNode();
-                len = fileNode.DoDeserializeFromByteArray(buffer, index);
+                len = fileNode.DoDeserializeFromByteArray(byteArray, index);
                 index += len;
                 fileNodeSize += len;
                 if (fileNode.FileNodeID != 0)
@@ -80,7 +78,7 @@
             if (paddinglength <= 4)
             {
                 this.padding = new byte[paddinglength];
-                Array.Copy(buffer, index, this.padding, 0, paddinglength);
+                Array.Copy(byteArray, index, this.padding, 0, paddinglength);
                 index += paddinglength;
             }
             else
@@ -88,12 +86,12 @@
                 this.padding = new byte[0];
             }
             this.nextFragment = new FileChunkReference64x32();
-            len = this.nextFragment.DoDeserializeFromByteArray(buffer, index);
+            len = this.nextFragment.DoDeserializeFromByteArray(byteArray, index);
             index += len;
-            this.footer = BitConverter.ToUInt64(buffer, index);
+            this.footer = BitConverter.ToUInt64(byteArray, index);
             index += 8;
 
-            return index;
+            return index - startIndex;
         }
         /// <summary>
         /// This method is used to convert the element of FileNodeListHeader object into a byte List.

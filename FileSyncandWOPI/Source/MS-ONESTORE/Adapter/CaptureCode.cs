@@ -223,9 +223,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     @"[In Header] crcName (4 bytes): An unsigned integer that specifies the CRC value (section 2.1.2) of the name of this revision store file. ");
 
             byte[] bytes = System.Text.Encoding.Unicode.GetBytes(fileName + "\0");
-            CRC32 crc = new CRC32();
-            crc.ComputeHash(bytes);
-            uint crcValue = crc.CRC32Hash;
+
+            uint crcValue = CRC32.GetCrc32(bytes);
 
             if (extension == ".one")
             {

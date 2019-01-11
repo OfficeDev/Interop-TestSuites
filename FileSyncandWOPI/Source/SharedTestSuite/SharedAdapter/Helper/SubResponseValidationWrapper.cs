@@ -94,7 +94,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         if (SharedContext.Current.FileUrl.ToLowerInvariant().EndsWith(".one")
                             || SharedContext.Current.FileUrl.ToLowerInvariant().EndsWith(".onetoc2"))
                         {
-                            MSOneStorePackage package = MSONESTOREParser.Parse(fsshttpbResponse.DataElementPackage);
+                            MSONESTOREParser onenoteParser = new MSONESTOREParser();
+                            MSOneStorePackage package = onenoteParser.Parse(fsshttpbResponse.DataElementPackage);
                             // Capture the MS-ONESTORE related requirements
                             new MsonestoreCapture().Validate(package, site);
                         }

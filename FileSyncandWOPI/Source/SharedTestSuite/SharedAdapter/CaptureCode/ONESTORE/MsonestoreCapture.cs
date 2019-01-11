@@ -11,20 +11,63 @@
     /// </summary>
     public class MsonestoreCapture
     {
+        /// <summary>
+        ///  This method is used to verify the requirements related with the revision-foramt file which is transmitted using the File Synchronization via SOAP over HTTP Protocol.
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <param name="site"></param>
         public void Validate(MSOneStorePackage instance, ITestSite site)
         {
+            foreach(StorageIndexCellMapping storageIndexCellMapping in instance.StorageIndex.StorageIndexCellMappingList)
+            {
+                CellID cellId = storageIndexCellMapping.CellID;
+                if (cellId.ExtendGUID1.Equals(new ExGuid(1, Guid.Parse("84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073"))))
+                {
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R922
+                    site.CaptureRequirement(
+                        "MS-ONESTORE",
+                        922,
+                        @"[In Cells] This value is converted to ""{{ 84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073} , 1 }"" when transmitted using the File Synchronization via SOAP over HTTP Protocol.");
+
+                    // If R922 is verified, then R920 will be verified.
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R920.
+                    site.CaptureRequirement(
+                        "MS-ONESTORE",
+                        920,
+                        @"[In Cells] § EXGUID1: MUST be equal to the identity of the context (section 2.1.11) of the active revision (section 2.1.8) of this object space except for the default context. ");
+
+                    // Because the MSOneStorePackage structure is parse according to this requirement. 
+                    // So if the MSOneStorePackage structure parse successfully, then R923 will be verified.
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R923
+                    site.CaptureRequirement(
+                        "MS-ONESTORE",
+                        923,
+                        @"[In Cells] § EXGUID2: MUST be equal to the object space identifier (section 2.5.2).");
+                }
+            }
             this.VerifyStorageManifest(instance.StorageManifest, site);
-            for(int i=0;i< instance.RevisionManifests.Count;i++)
+            for (int i = 0; i < instance.RevisionManifests.Count; i++)
             {
                 RevisionManifestDataElementData revisionManifest = instance.RevisionManifests[i];
                 this.VerifyRevisions(revisionManifest, site);
             }
 
-            foreach(RevisionStoreObject revisionStoreObject in instance.RevisionStoreObjects)
+            this.VerifyHeaderCell(instance.HeaderCell, instance.HeaderCellRevisionManifest, instance.HeaderCellCellManifest, site);
+            if (instance.DataRoot != null)
             {
-                this.VerifyRevisionStoreObject(revisionStoreObject, site);
+                this.VerifyDataRoot(instance.DataRoot, site);
             }
-            this.VerifyRoot(instance.Root,site); 
+
+            if (instance.OtherFileNodeList != null)
+            {
+                foreach (RevisionStoreObjectGroup objectGroup in instance.OtherFileNodeList)
+                {
+                    foreach (RevisionStoreObject obj in objectGroup.Objects)
+                    {
+                        this.VerifyRevisionStoreObject(obj, site);
+                    }
+                }
+            }
         }
         /// <summary>
         /// This method is used to verify the requirements related with the Storage Manifest.
@@ -50,7 +93,7 @@
                              888,
                              @"[In Response Error] Error Type GUID field is set to {8454C8F2-E401-405A-A198-A10B6991B56E}[ specifies the error type is ]HRESULT Error (section 2.2.3.2.4).");
             }
-            
+
             if (SharedContext.Current.FileUrl.ToLowerInvariant().EndsWith(".onetoc2"))
             {
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R889
@@ -80,7 +123,7 @@
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R893
             site.CaptureRequirementIfAreEqual<ExGuid>(
-                new ExGuid(1,Guid.Parse("{1A5A319C-C26b-41AA-B9C5-9BD8C44E07D4}")),
+                new ExGuid(1, Guid.Parse("{1A5A319C-C26b-41AA-B9C5-9BD8C44E07D4}")),
                 instance.StorageManifestRootDeclareList[0].RootExtendedGUID,
                 "MS-ONESTORE",
                 893,
@@ -107,7 +150,7 @@
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R897
             site.CaptureRequirementIfAreEqual<ExGuid>(
-                new ExGuid(2,Guid.Parse("{84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073}")),
+                new ExGuid(2, Guid.Parse("{84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073}")),
                 instance.StorageManifestRootDeclareList[1].RootExtendedGUID,
                 "MS-ONESTORE",
                  897,
@@ -115,7 +158,7 @@
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R922
             site.CaptureRequirementIfAreEqual<ExGuid>(
-                new ExGuid(1,Guid.Parse("{84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073}")),
+                new ExGuid(1, Guid.Parse("{84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073}")),
                 instance.StorageManifestRootDeclareList[0].CellID.ExtendGUID1,
                 "MS-ONESTORE",
                 992,
@@ -128,7 +171,7 @@
         /// <param name="site">Specify the ITestSite instance.</param>
         private void VerifyRevisions(RevisionManifestDataElementData instance, ITestSite site)
         {
-            if(instance.RevisionManifestRootDeclareList.Count>0)
+            if (instance.RevisionManifestRootDeclareList.Count > 0)
             {
                 if (instance.RevisionManifestRootDeclareList[0].RootExtendedGUID.Equals(new ExGuid(1, Guid.Parse("{4A3717F8-1C14-49E7-9526-81D942DE1741}"))) &&
                    instance.RevisionManifestRootDeclareList[0].ObjectExtendedGUID.Equals(new ExGuid(1, Guid.Parse("{B4760B1A-FBDF-4AE3-9D08-53219D8A8D21}"))))
@@ -187,7 +230,7 @@
         private void VerifyRevisionStoreObject(RevisionStoreObject instance, ITestSite site)
         {
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R943
-            if ( instance.JCID.JCID.IsFileData == 0 && Convert.ToInt32(instance.JCID.ObjectDeclaration.ObjectPartitionID.DecodedValue) == 4)
+            if (instance.JCID.JCID.IsFileData == 0 && Convert.ToInt32(instance.JCID.ObjectDeclaration.ObjectPartitionID.DecodedValue) == 4)
             {
                 site.CaptureRequirementIfAreEqual<Type>(
                     typeof(JCID),
@@ -286,251 +329,118 @@
                     @"[In JCID] If the value of IsFileData is ""true"", then the values of the IsBinary, IsPropertySet, IsGraphNode, and IsReadOnly fields MUST all be false.");
             }
 
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R909
+            site.CaptureRequirementIfIsTrue(
+                  instance.PropertySet.ObjectDeclaration.ObjectPartitionID.DecodedValue == 1 &&
+                  instance.PropertySet.ObjectSpaceObjectPropSet.GetType() == typeof(ObjectSpaceObjectPropSet),
+                  "MS-ONENOTE",
+                  909,
+                  @"[In Header Cell] Object Declaration.PartitionID ""1(Object Data)"": MUST be an ObjectSpaceObjectPropSet structure (section 2.6.1) with properties specified later in this section.");
 
+            this.VerifyObjectSpaceObjectPropSet(instance.PropertySet.ObjectSpaceObjectPropSet, site);
+            if (instance.PropertySet.ObjectSpaceObjectPropSet.OSIDs != null)
+            {
+                this.VerifyObjectSpaceObjectStreamOfOSIDs(
+                    instance.PropertySet.ObjectSpaceObjectPropSet.OSIDs,
+                    instance.PropertySet.ObjectSpaceObjectPropSet.ContextIDs, site);
+            }
+            if (instance.PropertySet.ObjectSpaceObjectPropSet.ContextIDs != null)
+            {
+                this.VerifyObjectSpaceObjectStreamOfContextIDs(instance.PropertySet.ObjectSpaceObjectPropSet.ContextIDs, site);
+            }
+            this.VerifyPropertySet(
+                instance.PropertySet.ObjectSpaceObjectPropSet.Body,
+                instance.PropertySet.ObjectSpaceObjectPropSet.OIDs,
+                instance.PropertySet.ObjectSpaceObjectPropSet.OSIDs,
+                instance.PropertySet.ObjectSpaceObjectPropSet.ContextIDs,
+                site);
         }
+        /// <summary>
+        /// This method is used to verify the requirements related with the Header Cell.
+        /// </summary>
+        /// <param name="instance">The instance of the Header Cell.</param>
+        /// <param name="site">Specify the ITestSite instance.</param>
+        private void VerifyHeaderCell(HeaderCell instance, RevisionManifestDataElementData headerCellRevisionManifest, CellManifestDataElementData headerCellCellManifest, ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R908
+            site.CaptureRequirementIfIsTrue(
+                  instance.ObjectData != null && instance.ObjectDeclaration != null,
+                  "MS-ONESTORE",
+                  908,
+                  @"[In Header Cell] The root object specified by the Object Extended GUID field (described earlier) MUST be transmitted as a pair of Object Declaration and Object Data structures:");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R905
+            site.CaptureRequirementIfAreEqual<ExGuid>(
+                new ExGuid(1, Guid.Parse("4A3717F8-1C14-49E7-9526-81D942DE1741")),
+                headerCellRevisionManifest.RevisionManifestRootDeclareList[0].RootExtendedGUID,
+                "MS-ONESTORE",
+                905,
+                @"[In Header Cell] § Root Extended GUID: MUST be ""{{ 4A3717F8- 1C14-49E7-9526-81D942DE1741 },  1}"".");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R906
+            site.CaptureRequirementIfAreEqual<ExGuid>(
+                new ExGuid(1, Guid.Parse("B4760B1A-FBDF-4AE3-9D08-53219D8A8D21")),
+                headerCellRevisionManifest.RevisionManifestRootDeclareList[0].ObjectExtendedGUID,
+                "MS-ONESTORE",
+                906,
+                @"[In Header Cell] § Object Extended GUID: MUST be ""{{ B4760B1A- FBDF- 4AE3-9D08-53219D8A8D21 }, 1}"".");
+
+            for (int i = 0; i < instance.ObjectData.Body.RgPrids.Length; i++)
+            {
+                PropertyID propId = instance.ObjectData.Body.RgPrids[i];
+
+                if(propId.Value== 0x1C001D94)
+                {
+                    PrtFourBytesOfLengthFollowedByData data = instance.ObjectData.Body.RgData[i] as PrtFourBytesOfLengthFollowedByData;
+
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R911
+                    site.CaptureRequirementIfIsTrue(
+                         data.Data.Length==16,
+                          "MS-ONESTORE",
+                          911,
+                          @"[In Header Cell] FileIdentityGuid's PropertyID is 0x1C001D94 with value: A GUID, as specified by [MS-DTYP].");
+                }
+                else if(propId.Value== 0x1C001D95)
+                {
+                    PrtFourBytesOfLengthFollowedByData data = instance.ObjectData.Body.RgData[i] as PrtFourBytesOfLengthFollowedByData;
+
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R913
+                    site.CaptureRequirementIfIsTrue(
+                         data.Data.Length == 16,
+                          "MS-ONESTORE",
+                          913,
+                          @"[In Header Cell] FileAncestorIdentityGuid's PropertyID is 0x1C001D95 with value: A GUID, as specified by [MS-DTYP].");
+                }
+                else if (propId.Value == 0x14001D99)
+                {
+                    FourBytesOfData data = instance.ObjectData.Body.RgData[i] as FourBytesOfData;
+
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R915
+                    site.CaptureRequirementIfIsTrue(
+                         data.Data.Length==4,
+                         "MS-ONESTORE",
+                         915,
+                         @"[In Header Cell] FileLastCodeVersionThatWroteToIt's PropertyID is 0x14001D99 with value: An unsigned integer.");
+                }
+            }
+        }
+
         /// <summary>
         /// This method is used to verify the requirements related with the Object.
         /// </summary>
         /// <param name="instance">The instance of Object.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        private void VerifyRoot(RootObject instance, ITestSite site)
+        private void VerifyDataRoot(List<RevisionStoreObjectGroup> instance, ITestSite site)
         {
-            // Verify MS-ONESTORE requirement: MS-ONESTORE_R908
-            if (instance.ObjectData != null && instance.ObjectDeclaration != null)
-            {
-                site.CaptureRequirement(
-                    "MS-ONESTORE",
-                    908,
-                    @"[In Header Cell] The root object specified by the Object Extended GUID field (described earlier) MUST be transmitted as a pair of Object Declaration and Object Data structures:");
-            }
-
-            // Verify MS-ONESTORE requirement: MS-ONESTORE_R909
-            if (instance.ObjectDeclaration.ObjectPartitionID.DecodedValue == 1)
-            {
-                site.CaptureRequirementIfAreEqual<Type>(
-                    typeof(ObjectSpaceObjectPropSet),
-                    instance.ObjectData.GetType(),
-                    "MS-ONENOTE",
-                    909,
-                    @"[In Header Cell] Object Declaration.PartitionID ""1(Object Data)"": MUST be an ObjectSpaceObjectPropSet structure (section 2.6.1) with properties specified later in this section.");
-            }
-
-            //Verify ObjectSpaceObjectPropSet structure in section 2.6.1
-            if (instance.ObjectData != null)
-            {
-                this.VerifyObjectSpaceObjectPropSet(instance.ObjectData, site);
-            }
-
-            //verify ObjectSpaceObjectStreamOfOSIDs structure in section 2.6.3
-            if (instance.ObjectData.OSIDs != null)
-            {
-                this.VerifyObjectSpaceObjectStreamOfOSIDs(instance.ObjectData.OSIDs,instance.ObjectData.ContextIDs, site);
-            }
-
-            //verify ObjectSpaceObjectStreamOfContextIDs structure2.6.4
-            if (instance.ObjectData.ContextIDs != null)
-            {
-                this.VerifyObjectSpaceObjectStreamOfContextIDs(instance.ObjectData.ContextIDs, site);
-            }
-
-            //verify ObjectSpaceObjectStreamOfContextIDs structure in section 2.6.7
-            if (instance.ObjectData.Body != null)
-            {
-                this.VerifyPropertySet(instance.ObjectData.Body, site);
-
-                for (int i = 0; i < instance.ObjectData.Body.RgPrids.Length; i++)
-                {
-                    PropertyID propId = instance.ObjectData.Body.RgPrids[i];
-                    if (propId.Type == 0x1)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R781
-                        site.CaptureRequirementIfIsInstanceOfType(
-                          instance.ObjectData.Body.RgData[i],
-                          typeof(NoData),
-                          "MS-ONESTORE",
-                          781,
-                          @"[In PropertyID] value ""0x1"", name ""NoData"": The property contains no data.");
-                    }
-                    if (propId.Type == 0x2)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R782
-                        site.CaptureRequirementIfIsTrue(
-                            propId.BoolValue == 0 || propId.BoolValue == 1,
-                            "MS-ONESTORE",
-                            782,
-                            @"[In PropertyID] value ""0x2"", name ""Bool"": The property is a Boolean value specified by boolValue.");
-
-                        // If R782 is verified, then R799 will be verified.
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R799
-                        site.CaptureRequirement(
-                            799,
-                            @"[In PropertyID] A - boolValue (1 bit): A bit that specifies the value of a Boolean property.");
-                    }
-                    else
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R79901
-                        site.CaptureRequirementIfIsFalse(
-                            Convert.ToBoolean(instance.ObjectData.Body.RgPrids[i].BoolValue),
-                            79901,
-                            @"[In PropertyID] A - boolValue (1 bit):  MUST be false if the value of the type field is not equal to 0x2.");
-                    }
-
-                    if (propId.Type == 0x3)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R783
-                        site.CaptureRequirementIfIsInstanceOfType(
-                            instance.ObjectData.Body.RgData[i],
-                            typeof(OneByteOfData),
-                            "MS-ONESTORE",
-                            783,
-                            @"[In PropertyID] value ""0x3"", name ""OneByteOfData"": The property contains 1 byte of data in the PropertySet.rgData stream field.");
-                    }
-                    if (propId.Type == 0x4)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R784
-                        site.CaptureRequirementIfIsInstanceOfType(
-                            instance.ObjectData.Body.RgData[i],
-                            typeof(TwoBytesOfData),
-                            "MS-ONESTORE",
-                            784,
-                            @"[In PropertyID] value ""0x4"", name ""TwoBytesOfData"": The property contains 2 bytes of data in the PropertySet.rgData stream field.");
-                    }
-                    if (propId.Type == 0x5)
-                    {
-                        //Verfiy MS-ONESTORE requirement: MS-ONESTORE_R785
-                        site.CaptureRequirementIfIsInstanceOfType(
-                            instance.ObjectData.Body.RgData[i],
-                            typeof(FourBytesOfData),
-                            "MS-ONESTORE",
-                            785,
-                            @"[In PropertyID] value ""0x5"", name ""FourBytesOfData"": The property contains 4 bytes of data in the PropertySet.rgData stream field.");
-                    }
-                    if (propId.Type == 0x6)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R786
-                        site.CaptureRequirementIfIsInstanceOfType(
-                            instance.ObjectData.Body.RgData[i],
-                            typeof(EightBytesOfData),
-                            "MS-ONESTORE",
-                            786,
-                            @"[In PropertyID] value ""0x6"", name ""EightBytesOfData"": The property contains 8 bytes of data in the PropertySet.rgData stream field.");
-                    }
-                    if (propId.Type == 0x7)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R787
-                        site.CaptureRequirementIfIsInstanceOfType(
-                            instance.ObjectData.Body.RgData[i],
-                            typeof(PrtFourBytesOfLengthFollowedByData),
-                            "MS-ONESTORE",
-                            787,
-                            @"[In PropertyID] value ""0x7"", name ""FourBytesOfLengthFollowedByData"": The property contains a prtFourBytesOfLengthFollowedByData (section 2.6.8) in the PropertySet.rgData stream field.");
-
-                        this.VerifyPrtFourBytesOfLengthFollowedByData((PrtFourBytesOfLengthFollowedByData)instance.ObjectData.Body.RgData[i], site);
-                    }
-                    if (propId.Type == 0x8)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R788
-                        site.CaptureRequirementIfIsTrue(
-                            instance.ObjectData.OIDs.Body.Length==1,
-                            "MS-ONESTORE",
-                            788,
-                            @"[In PropertyID] value ""0x8"", name ""ObjectID"": The property contains one CompactID (section 2.2.2) in the ObjectSpaceObjectPropSet.OIDs.body stream field.");
-                    }
-                    if (propId.Type == 0x9)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R789
-                        site.CaptureRequirementIfIsTrue(                   
-                            instance.ObjectData.OIDs.Body.Length>1,
-                            "MS-ONESTORE",
-                            789,
-                            @"[In PropertyID] value ""0x9"", name ""ArrayOfObjectIDs"": The property contains an array of CompactID structures in the ObjectSpaceObjectPropSet.OIDs.body stream field.");
-
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R790
-                        site.CaptureRequirementIfAreEqual<uint>(
-                            (uint)instance.ObjectData.OIDs.Body.Length,
-                            ((ArrayNumber)instance.ObjectData.Body.RgData[i]).Number,
-                            "MS-ONESTORE",
-                            790,
-                            @"[In PropertyID] value ""0x9"", name ""ArrayOfObjectIDs"": The property contains an unsigned integer of size 4 bytes in the PropertySet.rgData stream field that specifies the number of CompactID structures this property contains.");
-                    }
-                    if (propId.Type == 0xA)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R791
-                        site.CaptureRequirementIfIsTrue(
-                            instance.ObjectData.OSIDs.Body.Length == 1,
-                            "MS-ONESTORE",
-                            791,
-                            @"[In PropertyID] value ""0xA"", name ""ObjectSpaceID"": The property contains one CompactID structure in the ObjectSpaceObjectPropSet.OSIDs.body stream field.");
-                    }
-                    if (propId.Type == 0xB)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R792
-                        site.CaptureRequirementIfIsTrue(
-                            instance.ObjectData.OSIDs.Body.Length > 1,
-                            "MS-ONESTORE",
-                            792,
-                            @"[In PropertyID] value ""0xB"", name ""ArrayOfObjectSpaceIDs"": The property contains an array of CompactID structures in the ObjectSpaceObjectPropSet.OSIDs.body stream field. ");
-
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R793
-                        site.CaptureRequirementIfAreEqual<uint>(
-                            (uint)instance.ObjectData.OSIDs.Body.Length,
-                            ((ArrayNumber)instance.ObjectData.Body.RgData[i]).Number,
-                            "MS-ONESTORE",
-                            793,
-                            @"[In PropertyID] value ""0xB"", name ""ArrayOfObjectSpaceIDs"": The property contains an unsigned integer of size 4 bytes in the PropertySet.rgData stream field that specifies the number of CompactID structures this property contains.");
-                    }
-                    if (propId.Type == 0xC)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R794
-                        site.CaptureRequirementIfIsTrue(
-                            instance.ObjectData.ContextIDs.Body.Length == 1,
-                            "MS-ONESTORE",
-                            794,
-                            @"[In PropertyID] value ""0xC"", name ""ContextID"": The property contains one CompactID in the ObjectSpaceObjectPropSet.ContextIDs.body stream field.");
-                    }
-                    if (propId.Type == 0xD)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R795
-                        site.CaptureRequirementIfIsTrue(
-                            instance.ObjectData.ContextIDs.Body.Length > 1,
-                            "MS-ONESTORE",
-                            795,
-                            @"[In PropertyID] value ""0xD"", name ""ArrayOfContextIDs"": The property contains an array of CompactID structures in the ObjectSpaceObjectPropSet.ContextIDs.body stream field.");
-
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R796
-                        site.CaptureRequirementIfAreEqual<uint>(
-                            (uint)instance.ObjectData.ContextIDs.Body.Length,
-                            ((ArrayNumber)instance.ObjectData.Body.RgData[i]).Number,
-                            "MS-ONESTORE",
-                            796,
-                            @"[In PropertyID] value ""0xD"", name ""ArrayOfContextIDs"": The property contains an unsigned integer of size 4 bytes in the PropertySet.rgData stream field that specifies the number of CompactID structures this property contains.");
-
-                    }
-                    if (propId.Type == 0x10)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R797
-                        site.CaptureRequirementIfIsInstanceOfType(
-                            instance.ObjectData.Body.RgData[i],
-                            typeof(PrtArrayOfPropertyValues),
-                            "MS-ONESTORE",
-                            797,
-                            @"[In PropertyID] value ""0x10"", name ""ArrayOfPropertyValues"": The property contains a prtArrayOfPropertyValues (section 2.6.9) structure in the PropertySet.rgData stream field.");
-
-                        this.VerifyPrtArrayOfPropertyValues((PrtArrayOfPropertyValues)instance.ObjectData.Body.RgData[i], site);
-                    }
-                    if (propId.Type == 0x11)
-                    {
-                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R798
-                        site.CaptureRequirementIfIsInstanceOfType(                           
-                            instance.ObjectData.Body.RgData[i],
-                            typeof(PropertySet),
-                            "MS-ONESTORE",
-                            798,
-                            @"[In PropertyID] value ""0x11"", name ""PropertySet"": The property contains a child PropertySet (section 2.6.7) structure in the PropertySet.rgData stream field of the parent PropertySet.");
-                    }
+            foreach (RevisionStoreObjectGroup objectGroup in instance)
+            { 
+                foreach (RevisionStoreObject obj in objectGroup.Objects)
+                { 
+                    this.VerifyRevisionStoreObject(obj, site);
                 }
             }
         }
+
         /// <summary>
         /// This method is used to verify the requirements related with the ObjectSpaceObjectPropSet structure.
         /// </summary>
@@ -632,19 +542,22 @@
                 745,
                 @"[In ObjectSpaceObjectPropSet] body (variable): A PropertySet structure (section 2.6.7) that specifies properties that modify this object, and how other objects relate to this object. ");
 
-            // Verify MS-ONESTORE requirement: MS-ONESTORE_R748
-            site.CaptureRequirementIfIsTrue(
-                 instance.Padding.Length < 7,
-                 "MS-ONENOTE",
-                 748,
-                 @"[In ObjectSpaceObjectPropSet] The size of the padding field MUST NOT exceed 7 bytes. ");
+            if (instance.Padding != null)
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R748
+                site.CaptureRequirementIfIsTrue(
+                     instance.Padding.Length <= 7,
+                     "MS-ONENOTE",
+                     748,
+                     @"[In ObjectSpaceObjectPropSet] The size of the padding field MUST NOT exceed 7 bytes. ");
+            }
         }
         /// <summary>
         ///  This method is used to verify the requirements related with the ObjectSpaceObjectStreamOfOIDs structure.
         /// </summary>
         /// <param name="instance">The instance of ObjectSpaceObjectStreamOfOIDs structure.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        private void VerifyObjectSpaceObjectStreamOfOIDs(ObjectSpaceObjectPropSet instance,ITestSite site)
+        private void VerifyObjectSpaceObjectStreamOfOIDs(ObjectSpaceObjectPropSet instance, ITestSite site)
         {
             //Verify MS-ONESTORE requirement: MS-ONESTORE_R751
             site.CaptureRequirementIfIsInstanceOfType(
@@ -717,7 +630,7 @@
         /// </summary>
         /// <param name="instance">The instance of ObjectSpaceObjectStreamHeader structure.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        private void VerifyObjectSpaceObjectStreamHeader(ObjectSpaceObjectStreamHeader instance,ITestSite site)
+        private void VerifyObjectSpaceObjectStreamHeader(ObjectSpaceObjectStreamHeader instance, ITestSite site)
         {
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R771
             site.CaptureRequirementIfIsInstanceOfType(
@@ -814,7 +727,7 @@
         /// </summary>
         /// <param name="instance">The instance of ObjectSpaceObjectStreamOfContextIDs structure.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        private void VerifyObjectSpaceObjectStreamOfContextIDs(ObjectSpaceObjectStreamOfContextIDs instance,ITestSite site)
+        private void VerifyObjectSpaceObjectStreamOfContextIDs(ObjectSpaceObjectStreamOfContextIDs instance, ITestSite site)
         {
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R766
             site.CaptureRequirementIfIsInstanceOfType(
@@ -826,7 +739,7 @@
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R767
             site.CaptureRequirementIfIsTrue(
-                instance.Header.OsidStreamNotPresent==0,
+                instance.Header.OsidStreamNotPresent == 0,
                 "MS-ONESTORE",
                 767,
                 @"[In ObjectSpaceObjectStreamOfContextIDs] The value of header.OsidStreamNotPresent field and header.ExtendedStreamsPresent field MUST be false.");
@@ -852,7 +765,7 @@
         /// </summary>
         /// <param name="instance">The instance of PropertySet structure.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        private void VerifyPropertySet(PropertySet instance,ITestSite site)
+        private void VerifyPropertySet(PropertySet instance, ObjectSpaceObjectStreamOfOIDs OIDs, ObjectSpaceObjectStreamOfOSIDs OSIDs, ObjectSpaceObjectStreamOfContextIDs contextIDs, ITestSite site)
         {
             // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R801
             site.CaptureRequirementIfIsInstanceOfType(
@@ -880,6 +793,183 @@
             for (int i = 0; i < instance.RgPrids.Length; i++)
             {
                 this.VerifyPropertyID(instance.RgPrids[i], site);
+                PropertyID propId = instance.RgPrids[i];
+                if (propId.Type == 0x2)
+                {
+                    // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R782
+                    site.CaptureRequirementIfIsTrue(
+                        propId.BoolValue == 0 || propId.BoolValue == 1,
+                        "MS-ONESTORE",
+                        782,
+                        @"[In PropertyID] value ""0x2"", name ""Bool"": The property is a Boolean value specified by boolValue.");
+
+                    // If R782 is verified, then R799 will be verified.
+                    // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R799
+                    site.CaptureRequirement(
+                        799,
+                        @"[In PropertyID] A - boolValue (1 bit): A bit that specifies the value of a Boolean property.");
+                }
+                else
+                {
+                    // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R79901
+                    site.CaptureRequirementIfIsFalse(
+                        Convert.ToBoolean(instance.RgPrids[i].BoolValue),
+                        79901,
+                        @"[In PropertyID] A - boolValue (1 bit):  MUST be false if the value of the type field is not equal to 0x2.");
+                }
+
+                switch (propId.Type)
+                {
+                    case 0x1:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R781
+                        site.CaptureRequirementIfIsInstanceOfType(
+                         instance.RgData[i],
+                          typeof(NoData),
+                          "MS-ONESTORE",
+                          781,
+                          @"[In PropertyID] value ""0x1"", name ""NoData"": The property contains no data.");
+                        break;
+                    case 0x3:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R783
+                        site.CaptureRequirementIfIsInstanceOfType(
+                            instance.RgData[i],
+                            typeof(OneByteOfData),
+                            "MS-ONESTORE",
+                            783,
+                            @"[In PropertyID] value ""0x3"", name ""OneByteOfData"": The property contains 1 byte of data in the PropertySet.rgData stream field.");
+                        break;
+                    case 0x4:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R784
+                        site.CaptureRequirementIfIsInstanceOfType(
+                            instance.RgData[i],
+                            typeof(TwoBytesOfData),
+                            "MS-ONESTORE",
+                            784,
+                            @"[In PropertyID] value ""0x4"", name ""TwoBytesOfData"": The property contains 2 bytes of data in the PropertySet.rgData stream field.");
+                        break;
+                    case 0x5:
+                        //Verfiy MS-ONESTORE requirement: MS-ONESTORE_R785
+                        site.CaptureRequirementIfIsInstanceOfType(
+                            instance.RgData[i],
+                            typeof(FourBytesOfData),
+                            "MS-ONESTORE",
+                            785,
+                            @"[In PropertyID] value ""0x5"", name ""FourBytesOfData"": The property contains 4 bytes of data in the PropertySet.rgData stream field.");
+                        break;
+                    case 0x6:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R786
+                        site.CaptureRequirementIfIsInstanceOfType(
+                            instance.RgData[i],
+                            typeof(EightBytesOfData),
+                            "MS-ONESTORE",
+                            786,
+                            @"[In PropertyID] value ""0x6"", name ""EightBytesOfData"": The property contains 8 bytes of data in the PropertySet.rgData stream field.");
+                        break;
+                    case 0x7:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R787
+                        site.CaptureRequirementIfIsInstanceOfType(
+                            instance.RgData[i],
+                            typeof(PrtFourBytesOfLengthFollowedByData),
+                            "MS-ONESTORE",
+                            787,
+                            @"[In PropertyID] value ""0x7"", name ""FourBytesOfLengthFollowedByData"": The property contains a prtFourBytesOfLengthFollowedByData (section 2.6.8) in the PropertySet.rgData stream field.");
+
+                        this.VerifyPrtFourBytesOfLengthFollowedByData((PrtFourBytesOfLengthFollowedByData)instance.RgData[i], site);
+                        break;
+                    case 0x8:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R788
+                        site.CaptureRequirementIfIsNotNull(
+                            OIDs.Body,
+                            "MS-ONESTORE",
+                            788,
+                            @"[In PropertyID] value ""0x8"", name ""ObjectID"": The property contains one CompactID (section 2.2.2) in the ObjectSpaceObjectPropSet.OIDs.body stream field.");
+                        break;
+                    case 0x9:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R789
+                        site.CaptureRequirementIfIsTrue(
+                            OIDs.Body.Length >= 1,
+                            "MS-ONESTORE",
+                            789,
+                            @"[In PropertyID] value ""0x9"", name ""ArrayOfObjectIDs"": The property contains an array of CompactID structures in the ObjectSpaceObjectPropSet.OIDs.body stream field.");
+
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R790
+                        site.CaptureRequirementIfIsInstanceOfType(
+                            ((ArrayNumber)instance.RgData[i]).Number,
+                            typeof(uint),
+                            "MS-ONESTORE",
+                            790,
+                            @"[In PropertyID] value ""0x9"", name ""ArrayOfObjectIDs"": The property contains an unsigned integer of size 4 bytes in the PropertySet.rgData stream field that specifies the number of CompactID structures this property contains.");
+                        break;
+                    case 0xA:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R791
+                        site.CaptureRequirementIfIsNotNull(
+                            OSIDs.Body,
+                            "MS-ONESTORE",
+                            791,
+                            @"[In PropertyID] value ""0xA"", name ""ObjectSpaceID"": The property contains one CompactID structure in the ObjectSpaceObjectPropSet.OSIDs.body stream field.");
+                        break;
+                    case 0xB:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R792
+                        site.CaptureRequirementIfIsTrue(
+                            OSIDs.Body.Length >= 1,
+                            "MS-ONESTORE",
+                            792,
+                            @"[In PropertyID] value ""0xB"", name ""ArrayOfObjectSpaceIDs"": The property contains an array of CompactID structures in the ObjectSpaceObjectPropSet.OSIDs.body stream field. ");
+
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R793
+                        site.CaptureRequirementIfIsInstanceOfType(
+                            ((ArrayNumber)instance.RgData[i]).Number,
+                            typeof(uint),
+                            "MS-ONESTORE",
+                            793,
+                            @"[In PropertyID] value ""0xB"", name ""ArrayOfObjectSpaceIDs"": The property contains an unsigned integer of size 4 bytes in the PropertySet.rgData stream field that specifies the number of CompactID structures this property contains.");
+                        break;
+                    case 0xC:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R794
+                        site.CaptureRequirementIfIsNotNull(
+                            contextIDs.Body,
+                            "MS-ONESTORE",
+                            794,
+                            @"[In PropertyID] value ""0xC"", name ""ContextID"": The property contains one CompactID in the ObjectSpaceObjectPropSet.ContextIDs.body stream field.");
+                        break;
+                    case 0xD:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R795
+                        site.CaptureRequirementIfIsTrue(
+                            contextIDs.Body.Length >= 1,
+                            "MS-ONESTORE",
+                            795,
+                            @"[In PropertyID] value ""0xD"", name ""ArrayOfContextIDs"": The property contains an array of CompactID structures in the ObjectSpaceObjectPropSet.ContextIDs.body stream field.");
+
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R796
+                        site.CaptureRequirementIfIsInstanceOfType(
+                            ((ArrayNumber)instance.RgData[i]).Number,
+                            typeof(uint),
+                            "MS-ONESTORE",
+                            796,
+                            @"[In PropertyID] value ""0xD"", name ""ArrayOfContextIDs"": The property contains an unsigned integer of size 4 bytes in the PropertySet.rgData stream field that specifies the number of CompactID structures this property contains.");
+
+                        break;
+                    case 0x10:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R797
+                        site.CaptureRequirementIfIsInstanceOfType(
+                            instance.RgData[i],
+                            typeof(PrtArrayOfPropertyValues),
+                            "MS-ONESTORE",
+                            797,
+                            @"[In PropertyID] value ""0x10"", name ""ArrayOfPropertyValues"": The property contains a prtArrayOfPropertyValues (section 2.6.9) structure in the PropertySet.rgData stream field.");
+
+                        this.VerifyPrtArrayOfPropertyValues((PrtArrayOfPropertyValues)instance.RgData[i], site);
+                        break;
+                    case 0x11:
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R798
+                        site.CaptureRequirementIfIsInstanceOfType(
+                            instance.RgData[i],
+                            typeof(PropertySet),
+                            "MS-ONESTORE",
+                            798,
+                            @"[In PropertyID] value ""0x11"", name ""PropertySet"": The property contains a child PropertySet (section 2.6.7) structure in the PropertySet.rgData stream field of the parent PropertySet.");
+                        break;
+                }
             }
 
             // If the rgData is parse successfully,then R803 and R804 will be verified.
@@ -900,7 +990,7 @@
             {
                 // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R805
                 site.CaptureRequirementIfIsTrue(
-                    instance.RgData.Count==0,
+                    instance.RgData.Count == 0,
                     "MS-ONESTORE",
                     805,
                     @"[In PropertySet] [rgData] The total size of rgData MUST be zero if no property in a rgPrids array specifies that it contains data in the rgData field.");
@@ -911,7 +1001,7 @@
         /// </summary>
         /// <param name="instance">The instance of PropertyID structure.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        private void VerifyPropertyID(PropertyID instance,ITestSite site)
+        private void VerifyPropertyID(PropertyID instance, ITestSite site)
         {
             // Verfiy MS-ONESTORE requirement: MS - ONESTORE_R777,MS - ONESTORE_R778
             site.CaptureRequirementIfIsInstanceOfType(
@@ -955,7 +1045,7 @@
 
             // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R808
             site.CaptureRequirementIfIsTrue(
-                instance.CB< 0x40000000,
+                instance.CB < 0x40000000,
                 "MS-ONESTORE",
                 808,
                 @"[In prtFourBytesOfLengthFollowedByData] cb (4 bytes): An unsigned integer that specifies the size, in bytes, of the Data field. MUST be less than 0x40000000.");
@@ -973,7 +1063,7 @@
         /// </summary>
         /// <param name="instance">The instance of prtArrayOfPropertyValues structure.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
-        private void VerifyPrtArrayOfPropertyValues(PrtArrayOfPropertyValues instance,ITestSite site)
+        private void VerifyPrtArrayOfPropertyValues(PrtArrayOfPropertyValues instance, ITestSite site)
         {
             // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R811
             site.CaptureRequirementIfIsInstanceOfType(
@@ -983,7 +1073,7 @@
                 811,
                 @"[In prtArrayOfPropertyValues] cProperties (4 bytes): An unsigned integer that specifies the number of properties in Data.");
 
-            if (instance.CProperties !=0)
+            if (instance.CProperties != 0)
             {
                 // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R812
                 site.CaptureRequirementIfIsInstanceOfType(

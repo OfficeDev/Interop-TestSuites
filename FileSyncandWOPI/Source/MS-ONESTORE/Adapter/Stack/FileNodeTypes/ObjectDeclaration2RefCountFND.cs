@@ -37,6 +37,8 @@
         /// </summary>
         public byte cRef { get; set; }
 
+        public ObjectSpaceObjectPropSet PropertySet { get; set; }
+
         /// <summary>
         /// This method is used to deserialize the ObjectDeclaration2RefCountFND object from the specified byte array and start index.
         /// </summary>
@@ -49,6 +51,8 @@
             this.BlobRef = new FileNodeChunkReference(this.stpFormat, this.cbFormat);
             int len = this.BlobRef.DoDeserializeFromByteArray(byteArray, index);
             index += len;
+            this.PropertySet = new ObjectSpaceObjectPropSet();
+            this.PropertySet.DoDeserializeFromByteArray(byteArray, (int)this.BlobRef.StpValue);
             this.body = new ObjectDeclaration2Body();
             len = this.body.DoDeserializeFromByteArray(byteArray, index);
             index += len;
