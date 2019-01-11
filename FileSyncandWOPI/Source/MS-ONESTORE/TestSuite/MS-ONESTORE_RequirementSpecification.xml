@@ -1949,7 +1949,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R214</ns1:REQ_ID>
@@ -2283,7 +2283,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R250</ns1:REQ_ID>
@@ -2337,7 +2337,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R256</ns1:REQ_ID>
@@ -2346,7 +2346,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R257</ns1:REQ_ID>
@@ -2355,7 +2355,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R258</ns1:REQ_ID>
@@ -2616,7 +2616,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R288</ns1:REQ_ID>
@@ -2634,7 +2634,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R290</ns1:REQ_ID>
@@ -2652,7 +2652,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R292</ns1:REQ_ID>
@@ -2742,7 +2742,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R302</ns1:REQ_ID>
@@ -3053,16 +3053,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R337</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In TransactionEntry] srcID (4 bytes): An unsigned integer that specifies the identity of the file node list modified by this transaction,[ or the sentinel entry for the transaction.]</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ONESTORE_R338</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.3.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In TransactionEntry] srcID (4 bytes): An unsigned integer that specifies [the identity of the file node list modified by this transaction, or] the sentinel entry for the transaction.</ns1:Description>
+		<ns1:Description>[In TransactionEntry] srcID (4 bytes): An unsigned integer that specifies the identity of the file node list modified by this transaction, or the sentinel entry for the transaction.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3401,7 +3392,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R378</ns1:REQ_ID>
