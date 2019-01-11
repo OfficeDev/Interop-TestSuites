@@ -53,6 +53,10 @@
         public uint cRef { get; set; }
 
         /// <summary>
+        /// Gets or sets the value of ObjectSpaceObjectPropSet.
+        /// </summary>
+        public ObjectSpaceObjectPropSet PropertySet { get; set; }
+        /// <summary>
         /// This method is used to deserialize the ObjectRevisionWithRefCount2FNDX object from the specified byte array and start index.
         /// </summary>
         /// <param name="byteArray">Specify the byte array.</param>
@@ -64,6 +68,8 @@
             this.Ref = new FileNodeChunkReference(this.stpFormat, this.cbFormat);
             int len = this.Ref.DoDeserializeFromByteArray(byteArray, index);
             index += len;
+            this.PropertySet = new ObjectSpaceObjectPropSet();
+            this.PropertySet.DoDeserializeFromByteArray(byteArray, (int)this.Ref.StpValue);
             this.oid = new CompactID();
             len = this.oid.DoDeserializeFromByteArray(byteArray, index);
             index += len;

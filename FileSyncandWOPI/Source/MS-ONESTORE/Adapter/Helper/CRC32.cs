@@ -10,75 +10,47 @@
     /// <summary>
     /// Computes the CRC32 hash for the input data.
     /// </summary>
-    public class CRC32 : HashAlgorithm
+    public class CRC32
     {
-        private UInt32[] crc32Table = new UInt32[256];
-        private UInt32 crc32Result;
-
         /// <summary>
-        /// Initializes a new instance of CRC32 class.
+        /// 
         /// </summary>
-        public CRC32():this(0xEDB88320)
+        private static uint[] Crc32Table;
+        /// <summary>
+        /// Generate CRC32 code table
+        /// </summary>
+        private static void GetCrc32Table()
         {
-            
-        }
-
-        public CRC32(uint polynomial) : base()
-        {
-            this.HashSizeValue = 32;
-            for (uint i = 0; i < 256; i++)
+            uint Crc;
+            Crc32Table = new uint[256];
+            int i, j;
+            for (i = 0; i < 256; i++)
             {
-                UInt32 crc32 = i;
-                for (int j = 8; j > 0; j--)
+                Crc = (uint)i;
+                for (j = 8; j > 0; j--)
                 {
-                    if ((crc32 & 1) == 1)
-                    {
-                        crc32 = (crc32 >> 1) ^ polynomial;
-                    }
+                    if ((Crc & 1) == 1)
+                        Crc = (Crc >> 1) ^ 0xEDB88320;
                     else
-                    {
-                        crc32 >>= 1;
-                    }
+                        Crc >>= 1;
                 }
-                crc32Table[i] = crc32;
+                Crc32Table[i] = Crc;
             }
-
-            Initialize();
         }
         /// <summary>
-        /// Gets the value of the computed CRC-32 hash code as unsigned 32-bit integer.
+        /// Compute the CRC32 value.
         /// </summary>
-        /// <value>The current value of the computed CRC-32 hash code.</value>
-        public UInt32 CRC32Hash { get; protected set; }
-
-        public override void Initialize()
+        /// <param name="buffer">The byte array of the input data</param>
+        /// <returns>Return the CRC value.</returns>
+        public static uint GetCrc32(byte[] buffer)
         {
-            this.crc32Result = 0xFFFFFFFF;
-        }
-        /// <summary>
-        /// Routes data written to the object into the CRC32 hash algorithm for computing the hash.
-        /// </summary>
-        /// <param name="array">The input to compute the hash code for.</param>
-        /// <param name="ibStart">The offset into the byte array from which to begin using data.</param>
-        /// <param name="cbSize">The number of bytes in the byte array to use as data.</param>
-        protected override void HashCore(byte[] array, int ibStart, int cbSize)
-        {
-            int end = ibStart + cbSize;
-            for (int i = ibStart; i < end; i++)
+            GetCrc32Table();
+            uint value = 0xffffffff;
+            for (int i = 0; i < buffer.Length; i++)
             {
-                this.crc32Result = (this.crc32Result >> 8) ^ this.crc32Table[array[i] ^ (this.crc32Result & 0x000000FF)];
+                value = ((value >> 8) & 0xffffffff) ^ Crc32Table[(value ^ buffer[i]) & 0xFF];
             }
-        }
-        /// <summary>
-        /// Finalizes the hash computation after the last data is processed by the cryptographic stream object.
-        /// </summary>
-        /// <returns>The computed hash code.</returns>
-        protected override byte[] HashFinal()
-        {
-            this.crc32Result = ~this.crc32Result;
-            this.CRC32Hash = this.crc32Result;
-            this.HashValue = BitConverter.GetBytes(this.crc32Result);
-            return this.HashValue;
+            return value ^ 0xffffffff;
         }
     }
 }

@@ -36,8 +36,10 @@
         /// Gets or sets the value of cRef field.
         /// </summary>
         public byte cRef { get; set; }
-
-
+        /// <summary>
+        /// Gets or sets the value of ObjectSpaceObjectPropSet.
+        /// </summary>
+        public ObjectSpaceObjectPropSet PropertySet { get; set; }
         /// <summary>
         /// This method is used to deserialize the ObjectDeclarationWithRefCountFNDX object from the specified byte array and start index.
         /// </summary>
@@ -50,6 +52,8 @@
             this.ObjectRef = new FileNodeChunkReference(this.stpFormat, this.cbFormat);
             int len = this.ObjectRef.DoDeserializeFromByteArray(byteArray, index);
             index += len;
+            this.PropertySet = new ObjectSpaceObjectPropSet();
+            this.PropertySet.DoDeserializeFromByteArray(byteArray, (int)this.ObjectRef.StpValue);
             this.body = new ObjectDeclarationWithRefCountBody();
             len = this.body.DoDeserializeFromByteArray(byteArray, index);
             index += len;

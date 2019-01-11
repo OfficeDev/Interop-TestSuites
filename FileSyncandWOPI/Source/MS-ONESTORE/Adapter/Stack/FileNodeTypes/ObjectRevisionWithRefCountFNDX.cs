@@ -46,7 +46,10 @@
         /// Gets or sets the value of fHasOsidReferences field.
         /// </summary>
         public int fHasOsidReferences { get; set; }
-
+        /// <summary>
+        /// Gets or sets the value of the ObjectSpaceObjectPropSet.
+        /// </summary>
+        public ObjectSpaceObjectPropSet PropertySet { get; set; }
         /// <summary>
         /// Gets or sets the value of cRef field.
         /// </summary>
@@ -64,6 +67,8 @@
             this.Ref = new FileNodeChunkReference(this.stpFormat, this.cbFormat);
             int len = this.Ref.DoDeserializeFromByteArray(byteArray, index);
             index += len;
+            this.PropertySet = new ObjectSpaceObjectPropSet();
+            this.PropertySet.DoDeserializeFromByteArray(byteArray, (int)this.Ref.StpValue);
             this.oid = new CompactID();
             len = this.oid.DoDeserializeFromByteArray(byteArray, index);
             index += len;
