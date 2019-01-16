@@ -18,16 +18,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="SiteCollectionName" value="MSONESTORE_SiteCollection" />
     <!-- The MSFSSHTTPFSSHTTPBLibraryName property specifies the name of the document library that contains test files. -->
     <Property name="MSONESTORELibraryName" value="MSONESTORE_DocumentLibrary" />
-    <!--  The UserName property specifies the domain user which can be used by a client to access the SUT. This user should be an administrator on the SharePoint server. -->
-    <Property name="UserName" value="User1" />
-    <!-- The Password property specifies the password for the user specified in the UserName property. The property value is case-sensitive. -->
-    <Property name="Password" value="Password01!"/>
-    <!-- The OneFile File property specifies the URL of the file which is a OneNote notebook. -->
-    <Property name="OneFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSONESTORELibraryName]/testing.one"/>
-    <!-- The OnetocFile File property specifies the URL of the file which is a OneNote notebook. -->
-    <Property name="OnetocFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSONESTORELibraryName]/testing.onetoc2"/>
-    <!-- The OneFileLocal File property specifies the file path of the file which is a OneNote notebook. -->
-    <Property name="OneFileLocal" value="testing Section1.one"/>
+    <!-- The OneFileWithFileData File property specifies the file path of the file which is a OneNote notebook and contains the file data. -->
+    <Property name="OneFileWithFileData" value="OneWithFileData.one"/>
+    <!-- The OneFileWithoutFileData File property specifies the file path of the file which is a OneNote notebook and does not contain the file data. -->
+    <Property name="OneFileWithoutFileData" value="OneWithoutFileData.one"/>
+    <!-- The OneFileLocal File property specifies the file path of the file which is a OneNote notebook and encryption. -->
+    <Property name="OneFileEncryption" value="Encryption.one"/>
     <!-- The OnetocFileLocal File property specifies the file path of the file which is a OneNote notebook. -->
     <Property name="OnetocFileLocal" value="Open Notebook.onetoc2"/>
     <!-- SUT section ends. -->

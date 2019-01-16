@@ -1,5 +1,8 @@
 ﻿namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 {
+    /// <summary>
+    /// The enum of the FileNodeID values.
+    /// </summary>
     public enum FileNodeIDValues : uint
     {
         /// <summary>

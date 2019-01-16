@@ -229,6 +229,7 @@
                     if (!objectDict.ContainsKey(objectDeclaration.ObjectExtendedGUID))
                     {
                         revisionObject = new RevisionStoreObject();
+                        revisionObject.ObjectGroupID = objectGroupId;
                         revisionObject.ObjectID = objectDeclaration.ObjectExtendedGUID;
                         objectDict.Add(objectDeclaration.ObjectExtendedGUID, revisionObject);
                     }
@@ -306,6 +307,10 @@
         /// Gets or sets the object identifier.
         /// </summary>
         public ExGuid ObjectID { get; set; }
+        /// <summary>
+        /// Gets or sets the object group identifier.
+        /// </summary>
+        public ExGuid ObjectGroupID { get; set; }
         /// <summary>
         /// Gets or sets the value of Object Declaration.
         /// </summary>
