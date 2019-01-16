@@ -66,6 +66,11 @@
                     {
                         this.VerifyRevisionStoreObject(obj, site);
                     }
+
+                    foreach(EncryptionObject obj in objectGroup.EncryptionObjects)
+                    {
+                        this.VerifyEncryption(obj, site);
+                    }
                 }
             }
         }
@@ -229,6 +234,14 @@
         /// <param name="site">Specify the ITestSite instance.</param>
         private void VerifyRevisionStoreObject(RevisionStoreObject instance, ITestSite site)
         {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R943 
+            site.CaptureRequirementIfIsTrue(
+                 instance.JCID.ObjectDeclaration.ObjectExtendedGUID.Equals(instance.ObjectID) && 
+                 instance.PropertySet.ObjectDeclaration.ObjectExtendedGUID.Equals(instance.ObjectID),
+                 "MS-ONESTORE",
+                 941,
+                @"[In Objects] The Object Extended GUID field in the object declaration structures MUST be equal to the object identifier of the corresponding revision store object.");
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R943
             if (instance.JCID.JCID.IsFileData == 0 && Convert.ToInt32(instance.JCID.ObjectDeclaration.ObjectPartitionID.DecodedValue) == 4)
             {
@@ -354,6 +367,11 @@
                 instance.PropertySet.ObjectSpaceObjectPropSet.OSIDs,
                 instance.PropertySet.ObjectSpaceObjectPropSet.ContextIDs,
                 site);
+
+            if (Convert.ToBoolean(instance.JCID.JCID.IsFileData))
+            {
+                this.VerifyFileData(instance, site);
+            }
         }
         /// <summary>
         /// This method is used to verify the requirements related with the Header Cell.
@@ -1059,7 +1077,7 @@
                 @"[In prtFourBytesOfLengthFollowedByData] Data (variable): A stream of bytes that specifies the data for the property.");
         }
         /// <summary>
-        ///  This method is used to verify the requirements related with the prtArrayOfPropertyValues structure.
+        /// This method is used to verify the requirements related with the prtArrayOfPropertyValues structure.
         /// </summary>
         /// <param name="instance">The instance of prtArrayOfPropertyValues structure.</param>
         /// <param name="site">Specify the ITestSite instance.</param>
@@ -1123,6 +1141,78 @@
                     "MS-ONESTORE",
                     819,
                     @"[In prtArrayOfPropertyValues] Otherwise[if prid is not present], the total size of Data is zero if cProperties is zero.");
+            }
+        }
+
+        /// <summary>
+        /// This method is used to verify the requirements related with the encryption data.
+        /// </summary>
+        /// <param name="instance">The instance of encryption object.</param>
+        /// <param name="site">Specify the ITestSite instance.</param>
+        private void VerifyEncryption(EncryptionObject instance,ITestSite site)
+        {
+            // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R961
+            site.CaptureRequirementIfAreEqual<ulong>(
+                1,
+                instance.ObjectDeclaration.ObjectPartitionID.DecodedValue,
+                "MS-ONESTORE",
+                961,
+                @"[In Encryption] Object Declaration.PartitionID: 1 (Object Data) and Object Data.Data: MUST be encryption data.");
+
+            // If the encryption object parse successfully, R962 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R962
+            site.CaptureRequirement(
+                "MS-ONESTORE",
+                962,
+                @"[In Encryption] Every transmitted base revision of a revision store MUST contain an object group (see section 2.7.5) with this object.");
+        }
+        /// <summary>
+        /// This method is used to verify the requirements related with the file data.
+        /// </summary>
+        /// <param name="instance">The instance of file data object.</param>
+        /// <param name="site">Specify the ITestSite instance.</param>
+        private void VerifyFileData(RevisionStoreObject instance, ITestSite site)
+        {
+            for (int i = 0; i < instance.PropertySet.ObjectSpaceObjectPropSet.Body.RgPrids.Length; i++)
+            {
+                PropertyID propId = instance.PropertySet.ObjectSpaceObjectPropSet.Body.RgPrids[i];
+                if(propId.Value== 0x1C00343E)
+                {
+                    PrtFourBytesOfLengthFollowedByData data = instance.PropertySet.ObjectSpaceObjectPropSet.Body.RgData[i] as PrtFourBytesOfLengthFollowedByData;
+                    Guid filedataObj_Guid = new Guid(data.Data);
+
+                    // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R950
+                    site.CaptureRequirementIfIsTrue(
+                        data.Data.Length==16,
+                        "MS-ONESTORE",
+                        950,
+                        @"[In Objects] Name: FileDataObject_GUID with PropertyID: 0x1C00343E and specifies A GUID, as specified by [MS-DTYP].");
+
+                    // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R953
+                    site.CaptureRequirementIfAreEqual<Guid>(
+                        instance.FileDataObject.ObjectDataBLOBReference.BLOBExtendedGUID.GUID,
+                        filedataObj_Guid,
+                        "MS-ONESTORE",
+                        953,
+                        @"[In Objects] This property [FileDataObject_GUID] MUST be the GUID value of the remaining part of the curly braced GUID string in the FileDataReference field.");
+                }
+                else if(propId.Value== 0x1C003424)
+                {
+                    PrtFourBytesOfLengthFollowedByData data = instance.PropertySet.ObjectSpaceObjectPropSet.Body.RgData[i] as PrtFourBytesOfLengthFollowedByData;
+                    string extension = System.Text.Encoding.Unicode.GetString(data.Data);
+
+                    // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R957
+                    site.CaptureRequirementIfIsFalse(
+                        string.IsNullOrEmpty(extension),
+                        "MS-ONESTORE",
+                        957,
+                        @"[In Objects] Name: FileDataObject_Extension with PropertyID: 0x1C003424, specifies A Unicode string that specifies the extension of the file data object.");
+                }
+                else if(propId.Value== 0x0800343D)
+                {
+
+                }
+
             }
         }
     }

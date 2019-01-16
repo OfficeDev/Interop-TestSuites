@@ -1,12 +1,5 @@
 ﻿namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Security.Cryptography;
-    using System.Text;
-    using System.Threading.Tasks;
-
     /// <summary>
     /// Computes the CRC32 hash for the input data.
     /// </summary>

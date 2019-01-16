@@ -21,12 +21,25 @@
 
             return new Guid(guidBuffer);
         }
-
-        public static uint ComputeCRC(string value)
+        /// <summary>
+        /// XOR two ExtendedGUID instances.
+        /// </summary>
+        /// <param name="exGuid1">The first ExtendedGUID instance.</param>
+        /// <param name="exGuid2">The second ExtendedGUID instance.</param>
+        /// <returns>Returns the result of XOR two ExtendedGUID instances.</returns>
+        public static ExtendedGUID XORExtendedGUID(ExtendedGUID exGuid1, ExtendedGUID exGuid2)
         {
-            uint crcValue = 0;
+            byte[] exGuid1Buffer = exGuid1.SerializeToByteList().ToArray();
+            byte[] exGuid2Buffer = exGuid2.SerializeToByteList().ToArray();
+            byte[] resultBuffer = new byte[exGuid1Buffer.Length];
 
-            return crcValue;
+            for (int i = 0; i < exGuid1Buffer.Length; i++)
+            {
+                resultBuffer[i] = (byte)(exGuid1Buffer[i] ^ exGuid2Buffer[2]);
+            }
+            ExtendedGUID resultExGuid = new ExtendedGUID();
+            resultExGuid.DoDeserializeFromByteArray(resultBuffer, 0);
+            return resultExGuid;
         }
         #endregion Methods
     }
