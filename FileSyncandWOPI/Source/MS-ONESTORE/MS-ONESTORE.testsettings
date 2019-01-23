@@ -29,6 +29,8 @@
     <DeploymentItem filename="TestSuite\Resources\OneWithFileData.one" />
     <DeploymentItem filename="TestSuite\Resources\OneWithoutFileData.one" />
     <DeploymentItem filename="TestSuite\Resources\Encryption.one" />
+    <DeploymentItem filename="TestSuite\Resources\InvalidData.one" />
+    <DeploymentItem filename="TestSuite\Resources\LargeData.one" />
     <DeploymentItem filename="TestSuite\Resources\Open Notebook.onetoc2" />
     <DeploymentItem filename="TestSuite\MS-ONESTORE_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ONESTORE_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />

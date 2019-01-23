@@ -28,6 +28,11 @@
         public FileNodeChunkReference Ref { get; set; }
 
         /// <summary>
+        /// Gets or sets the value of FileNodeListFragment that contains FileDataStoreObjectReferenceFND.
+        /// </summary>
+        public FileNodeListFragment fileNodeListFragment { get; set; }
+
+        /// <summary>
         /// This method is used to deserialize the FileDataStoreListReferenceFND object from the specified byte array and start index.
         /// </summary>
         /// <param name="byteArray">Specify the byte array.</param>
@@ -36,8 +41,11 @@
         public override int DoDeserializeFromByteArray(byte[] byteArray, int startIndex)
         {
             this.Ref = new FileNodeChunkReference(this.stpFormat, this.cbFormat);
+            int len = this.Ref.DoDeserializeFromByteArray(byteArray, startIndex);
+            this.fileNodeListFragment = new FileNodeListFragment(this.Ref.CbValue);
+            this.fileNodeListFragment.DoDeserializeFromByteArray(byteArray, (int)this.Ref.StpValue);
 
-            return this.Ref.DoDeserializeFromByteArray(byteArray, startIndex);
+            return len;
         }
 
         /// <summary>

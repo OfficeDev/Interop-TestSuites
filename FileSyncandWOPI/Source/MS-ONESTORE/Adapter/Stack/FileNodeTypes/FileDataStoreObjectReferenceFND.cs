@@ -26,12 +26,14 @@
         /// <summary>
         /// Gets or sets the value of ref field.
         /// </summary>
-        public FileChunkReference Ref { get; set; }
+        public FileNodeChunkReference Ref { get; set; }
 
         /// <summary>
         /// Gets or sets the value of guidReference field.
         /// </summary>
         public Guid guidReference { get; set; }
+
+        public FileDataStoreObject fileDataStoreObject { get; set; }
 
         /// <summary>
         /// This method is used to deserialize the FileDataStoreObjectReferenceFND object from the specified byte array and start index.
@@ -48,6 +50,9 @@
 
             this.guidReference = AdapterHelper.ReadGuid(byteArray, index);
             index += 16;
+
+            this.fileDataStoreObject = new FileDataStoreObject((uint)this.Ref.CbValue);
+            this.fileDataStoreObject.DoDeserializeFromByteArray(byteArray, (int)this.Ref.StpValue);
 
             return index - startIndex;
         }

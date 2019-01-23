@@ -54,6 +54,17 @@
 
             // Call adapter to load same file in local.
             OneNoteRevisionStoreFile file = this.Adapter.LoadOneNoteFile(resourceName);
+            int objectSpaceCount = file.RootFileNodeList.ObjectSpaceManifestList.Count;
+            List<FileNode> fileData3Refs = new List<FileNode>();
+            for (int i = 0; i < file.RootFileNodeList.ObjectSpaceManifestList.Count; i++)
+            {
+                ObjectSpaceManifestList objectSpace = file.RootFileNodeList.ObjectSpaceManifestList[i];
+                for (int j = 0; j < objectSpace.RevisionManifestList[0].ObjectGroupList.Count; j++)
+                {
+                    ObjectGroupList objectGroupList = objectSpace.RevisionManifestList[0].ObjectGroupList[j];
+                    fileData3Refs.AddRange(objectGroupList.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.ObjectDeclarationFileData3RefCountFND).ToArray());
+                }
+            }
 
             #region Capture code for Revisions
             ExGuid rootObjectId = package.DataRoot[0].ObjectGroupID;
@@ -86,40 +97,33 @@
             {
                 Guid fileDataObjectGuid = this.GetFileDataObjectGUID(obj);
                 string extension = this.GetFileDataObjectExtension(obj);
-                bool isFoundBLOB = 
+                bool isFoundBLOB =
                     objectBlOBElements.Where(b => b.DataElementExtendedGUID.Equals(obj.FileDataObject.ObjectDataBLOBReference.BLOBExtendedGUID)).ToArray().Length > 0;
 
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R948
                 Site.CaptureRequirementIfIsTrue(
-                        isFoundBLOB && obj.FileDataObject.ObjectDataBLOBDeclaration.ObjectPartitionID.DecodedValue==2,
+                        isFoundBLOB && obj.FileDataObject.ObjectDataBLOBDeclaration.ObjectPartitionID.DecodedValue == 2,
                         948,
                         @"[In Objects] Object Data BLOB Declaration.PartitionID: 2 (File Data) and Object Data BLOB Reference. BLOB Extended GUID: MUST have a reference to an Object Data BLOB Data Element structure, as specified in [MS-FSSHTTPB] section 2.2.1.12.8, used to transmit the data of the file data object.");
 
-                ObjectGroupList objectGropListByLocal = this.FindObjectGroup(file, obj.ObjectGroupID);
-
-                if (objectGropListByLocal != null)
+                foreach (FileNode fn in fileData3Refs)
                 {
-                    FileNode[] fileData3Refs = objectGropListByLocal.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.ObjectDeclarationFileData3RefCountFND).ToArray();
-
-                    foreach(FileNode fn in fileData3Refs)
+                    ObjectDeclarationFileData3RefCountFND fnd = fn.fnd as ObjectDeclarationFileData3RefCountFND;
+                    if (fnd.FileDataReference.StringData.ToLower().Contains(fileDataObjectGuid.ToString().ToLower()))
                     {
-                        ObjectDeclarationFileData3RefCountFND fnd = fn.fnd as ObjectDeclarationFileData3RefCountFND;
-                        if (fnd.FileDataReference.StringData.Contains(fileDataObjectGuid.ToString()))
-                        {
-                            // Verify MS-ONESTORE requirement: MS-ONESTORE_R951
-                            Site.CaptureRequirementIfIsTrue(
-                                    fnd.FileDataReference.StringData.StartsWith("<invfdo>"),
-                                    951,
-                                    @"[In Objects] This property MUST be set only if the prefix specified by the ObjectDeclarationFileData3RefCountFND.FileDataReference field (section 2.5.27) [or ObjectDeclarationFileData3LargeRefCountFND.FileDataReference field (section 2.5.28)] is not <invfdo>.");
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R951
+                        Site.CaptureRequirementIfIsTrue(
+                                fnd.FileDataReference.StringData.StartsWith("<invfdo>")==false,
+                                951,
+                                @"[In Objects] This property MUST be set only if the prefix specified by the ObjectDeclarationFileData3RefCountFND.FileDataReference field (section 2.5.27) [or ObjectDeclarationFileData3LargeRefCountFND.FileDataReference field (section 2.5.28)] is not <invfdo>.");
 
 
-                            Site.CaptureRequirementIfAreEqual<string>(
-                                    fnd.Extension.StringData,
-                                    extension,
-                                    958,
-                                    @"[In Objects] MUST be the value specified by the ObjectDeclarationFileData3RefCountFND.Extension field [or the ObjectDeclarationFileData3LargeRefCountFND.Extension] field.");
-                            break;
-                        }
+                        Site.CaptureRequirementIfAreEqual<string>(
+                                fnd.Extension.StringData,
+                                extension,
+                                958,
+                                @"[In Objects] MUST be the value specified by the ObjectDeclarationFileData3RefCountFND.Extension field [or the ObjectDeclarationFileData3LargeRefCountFND.Extension] field.");
+                        break;
                     }
                 }
             }
@@ -174,6 +178,7 @@
 
             // Call adapter to load same file in local.
             OneNoteRevisionStoreFile file = this.Adapter.LoadOneNoteFile(resourceName);
+
             #region Capture code for Header Cell
             for (int i = 0; i < package.HeaderCell.ObjectData.Body.RgPrids.Length; i++)
             {
@@ -279,6 +284,194 @@
                          @"[In Object Groups] The Revision Manifest Data Element structure, as specified in [MS-FSSHTTPB] section 2.2.1.12.5, that references an object group MUST specify the object group extended GUID to be equal to the revision store object group identifier.");
             }
             #endregion
+        }
+
+        /// <summary>
+        /// The test case is validate that call QueryChange to get the specific encryption OneNote file.
+        /// </summary>
+        [TestCategory("MSONESTORE"), TestMethod]
+        public void MSONESTORE_S01_TC04_QueryOneFileWithLargeReferences()
+        {
+            // Get the resource url that contains the file data.
+            string resourceName = Common.GetConfigurationPropertyValue("OneWithLarge", Site);
+            string url = this.GetResourceUrl(resourceName);
+            this.InitializeContext(url, this.UserName, this.Password, this.Domain);
+
+            // Call QueryChange to get the data that is uploaded by above step.
+            CellSubRequestType cellSubRequest = this.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentSerialNumber());
+            CellStorageResponse cellStorageResponse = this.SharedAdapter.CellStorageRequest(url, new SubRequestType[] { cellSubRequest });
+            MSOneStorePackage package = this.ConvertOneStorePackage(cellStorageResponse);
+
+            // Call adapter to load same file in local.
+            OneNoteRevisionStoreFile file = this.Adapter.LoadOneNoteFile(resourceName);
+            int objectSpaceCount = file.RootFileNodeList.ObjectSpaceManifestList.Count;
+            List<FileNode> fileData3LargeRefs = new List<FileNode>();
+            for (int i = 0; i < file.RootFileNodeList.ObjectSpaceManifestList.Count; i++)
+            {
+                ObjectSpaceManifestList objectSpace = file.RootFileNodeList.ObjectSpaceManifestList[i];
+                for (int j = 0; j < objectSpace.RevisionManifestList[0].ObjectGroupList.Count; j++)
+                {
+                    ObjectGroupList objectGroupList = objectSpace.RevisionManifestList[0].ObjectGroupList[j];
+                    fileData3LargeRefs.AddRange(objectGroupList.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.ObjectDeclarationFileData3LargeRefCountFND).ToArray());
+                }
+            }
+
+            List<RevisionStoreObject> objectsWithFileData = new List<RevisionStoreObject>();
+            foreach (RevisionStoreObjectGroup objGroup in package.DataRoot)
+            {
+                objectsWithFileData.AddRange(objGroup.Objects.Where(o => o.FileDataObject != null).ToArray());
+            }
+            foreach (RevisionStoreObjectGroup objGroup in package.OtherFileNodeList)
+            {
+                objectsWithFileData.AddRange(objGroup.Objects.Where(o => o.FileDataObject != null).ToArray());
+            }
+            foreach (RevisionStoreObject obj in objectsWithFileData)
+            {
+                Guid fileDataObjectGuid = this.GetFileDataObjectGUID(obj);
+                string extension = this.GetFileDataObjectExtension(obj);
+
+                if (extension.ToLower().Contains("xps"))
+                {
+                    foreach (FileNode fnode in fileData3LargeRefs)
+                    {
+                        ObjectDeclarationFileData3LargeRefCountFND fnd = fnode.fnd as ObjectDeclarationFileData3LargeRefCountFND;
+                        if (fnd.FileDataReference.StringData.ToLower().Contains(fileDataObjectGuid.ToString().ToLower()))
+                        {
+                            // Verify MS-ONESTORE requirement: MS-ONESTORE_R952
+                            Site.CaptureRequirementIfIsTrue(
+                                    fnd.FileDataReference.StringData.StartsWith("<invfdo>")==false,
+                                    952,
+                                    @"[In Objects] This property MUST be set only if the prefix specified by the [ObjectDeclarationFileData3RefCountFND.FileDataReference field (section 2.5.27) or] ObjectDeclarationFileData3LargeRefCountFND.FileDataReference field (section 2.5.28) is not <invfdo>.");
+
+                            // Verify MS-ONESTORE requirement: MS-ONESTORE_R959
+                            Site.CaptureRequirementIfAreEqual<string>(
+                                    fnd.Extension.StringData,
+                                    extension,
+                                    959,
+                                    @"[In Objects] MUST be the value specified by the [ObjectDeclarationFileData3RefCountFND.Extension field or] the ObjectDeclarationFileData3LargeRefCountFND.Extension field.");
+
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// The test case is validate that call QueryChange to get the specific OneNote file and test ObjectSpaceObjectPropSet structure.
+        /// </summary>
+        [TestCategory("MSONESTORE"), TestMethod]
+        public void MSONESTORE_S01_TC05_TestObjectSpaceObjectPropSet()
+        {
+            // Get the resource url that contains the file data.
+            string resourceName = Common.GetConfigurationPropertyValue("OneFileWithoutFileData", Site);
+            string url = this.GetResourceUrl(resourceName);
+            this.InitializeContext(url, this.UserName, this.Password, this.Domain);
+
+            // Call QueryChange to get the data that is uploaded by above step.
+            CellSubRequestType cellSubRequest = this.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentSerialNumber());
+            CellStorageResponse cellStorageResponse = this.SharedAdapter.CellStorageRequest(url, new SubRequestType[] { cellSubRequest });
+            MSOneStorePackage package = this.ConvertOneStorePackage(cellStorageResponse);
+
+            #region Capture code for ObjectSpaceObjectPropSet
+            foreach(RevisionStoreObjectGroup objGroup in package.DataRoot)
+            {
+                foreach(RevisionStoreObject obj in objGroup.Objects)
+                {
+                    ObjectSpaceObjectPropSet objectPropSet = obj.PropertySet.ObjectSpaceObjectPropSet;
+                    int OIDsLen = objectPropSet.OIDs.SerializeToByteList().Count;
+                    int OSIDsLen = 0;
+                    if(objectPropSet.OSIDs!=null)
+                    {
+                        OSIDsLen = objectPropSet.OSIDs.SerializeToByteList().Count;
+                    }
+                    int contextLen = 0;
+                    if (objectPropSet.ContextIDs != null)
+                    {
+                        contextLen = objectPropSet.ContextIDs.SerializeToByteList().Count;
+                    }
+                    int bodyLen = 0;
+                    if (objectPropSet.Body != null)
+                    {
+                        bodyLen = objectPropSet.Body.SerializeToByteList().Count;
+                    }
+
+                    if ((OIDsLen + OSIDsLen + contextLen + bodyLen) % 8 == 0)
+                    {
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R749
+                        Site.CaptureRequirementIfIsNull(
+                            objectPropSet.Padding,
+                            749,
+                            @"[In ObjectSpaceObjectPropSet] If the sum of the sizes of the OIDs, OSIDs, ContextIDs, and body fields is a multiple of 8, then the padding field is not present.");
+                    }
+                    else
+                    {
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R747
+                        Site.CaptureRequirementIfAreEqual<int>(
+                            0,
+                            (OIDsLen + OSIDsLen + contextLen + bodyLen + objectPropSet.Padding.Length) % 8,
+                            747,
+                            @"[In ObjectSpaceObjectPropSet] [padding] The total size, in bytes, of an ObjectSpaceObjectPropSet structure MUST be a multiple of 8; the size of the padding field is the number of bytes necessary to ensure the total size of ObjectSpaceObjectPropSet structure is a multiple of 8. ");
+                    }
+                }
+            }
+
+            foreach (RevisionStoreObjectGroup objGoup in package.OtherFileNodeList)
+            {
+                foreach(RevisionStoreObject obj in objGoup.Objects)
+                {
+                    ObjectSpaceObjectPropSet objPropSet = obj.PropertySet.ObjectSpaceObjectPropSet;
+                    if (objPropSet.OIDs.Header.Count > 0)
+                    {
+                        int number = this.GetNumberOfSpecificProperty(0x08, 0x09, objPropSet.Body);
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R730
+                        Site.CaptureRequirementIfAreEqual<uint>(
+                            objPropSet.OIDs.Header.Count,
+                            (uint)number,
+                            730,
+                            @"[In ObjectSpaceObjectPropSet] [OIDs] The count of referenced objects is calculated as the number of properties specified by the body field, with PropertyID equal to 0x8 plus the number of referenced objects specified by properties with PropertyID equal to 0x9, 0x10, and 0x11. ");
+                    }
+                    if(objPropSet.OSIDs!=null)
+                    {
+                        int number = this.GetNumberOfSpecificProperty(0x0A, 0x0B, objPropSet.Body);
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R736
+                        Site.CaptureRequirementIfAreEqual<uint>(
+                            objPropSet.OSIDs.Header.Count,
+                            (uint)number,
+                            736,
+                            @"[In ObjectSpaceObjectPropSet] [OSIDs] The count of referenced object spaces is calculated as the number of properties specified by the body field with PropertyID equal to 0xA plus the number of referenced object spaces specified by properties with PropertyID equal to 0xB, 0x10, and 0x11.");
+                    }
+                    if(objPropSet.ContextIDs!=null)
+                    {
+                        int number = this.GetNumberOfSpecificProperty(0x0C, 0x0D, objPropSet.Body);
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R742
+                        Site.CaptureRequirementIfAreEqual<uint>(
+                            objPropSet.ContextIDs.Header.Count,
+                            (uint)number,
+                            742,
+                            @"[In ObjectSpaceObjectPropSet] [ContextIDs] The count of referenced contexts is calculated as the number of properties specified by the body field with PropertyID equal to 0xC plus the number of referenced contexts specified by properties with PropertyID equal to 0xD, 0x10, and 0x11.");
+                    }
+                }
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// The test case is validate that call QueryChange to get the specific encryption OneNote file.
+        /// </summary>
+        [TestCategory("MSONESTORE"), TestMethod]
+        public void MSONESTORE_S01_TC06_QueryOneFileWithInvalidFileData()
+        {
+            // Get the resource url that contains the file data.
+            string resourceName = Common.GetConfigurationPropertyValue("OneWithInvalid", Site);
+            string url = this.GetResourceUrl(resourceName);
+            this.InitializeContext(url, this.UserName, this.Password, this.Domain);
+
+            // Call QueryChange to get the data that is uploaded by above step.
+            CellSubRequestType cellSubRequest = this.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentSerialNumber());
+            CellStorageResponse cellStorageResponse = this.SharedAdapter.CellStorageRequest(url, new SubRequestType[] { cellSubRequest });
+            MSOneStorePackage package = this.ConvertOneStorePackage(cellStorageResponse);
+
         }
         #endregion Test Cases
 
@@ -542,13 +735,52 @@
                     PrtFourBytesOfLengthFollowedByData data = objectData.PropertySet.ObjectSpaceObjectPropSet.Body.RgData[i] as PrtFourBytesOfLengthFollowedByData;
                     string extension = System.Text.Encoding.Unicode.GetString(data.Data);
 
-                    return extension;
+                    return extension.Remove(extension.Length - 1, 1);
                 }
             }
 
             return string.Empty;
         }
+        /// <summary>
+        /// Get the number of sepecific structure.
+        /// </summary>
+        /// <param name="propertyType">The property type of specific structure.</param>
+        /// <param name="arrayPropType">The property type of specific structure array.</param>
+        /// <param name="body">The body of ObjectSpaceObjectPropSet structure.</param>
+        /// <returns>Returns the number of the specififc structrue.</returns>
+        private int GetNumberOfSpecificProperty(uint propertyType, uint arrayPropType, PropertySet body)
+        {
+            int number = 0;
+            for (int i = 0; i < body.RgPrids.Length; i++)
+            {
+                PropertyID propId = body.RgPrids[i];
 
+                if (propId.Type == propertyType)
+                {
+                    number += 1;
+                }
+                else if (propId.Type == arrayPropType)
+                {
+                    ArrayNumber arrayNumber = body.RgData[i] as ArrayNumber;
+                    number += (int)arrayNumber.Number;
+                }
+                else if (propId.Type == 0x10)
+                {
+                    PrtArrayOfPropertyValues prtArrayOfPropertyValues = body.RgData[i] as PrtArrayOfPropertyValues;
+                    for (int j = 0; j < prtArrayOfPropertyValues.CProperties; j++)
+                    {
+                        number += GetNumberOfSpecificProperty(propertyType, arrayPropType, prtArrayOfPropertyValues.Data[j]);
+                    }
+                }
+                else if (propId.Type == 0x11)
+                {
+                    PropertySet propSet = body.RgData[i] as PropertySet;
+                    number += GetNumberOfSpecificProperty(propertyType, arrayPropType, propSet);
+                }
+            }
+
+            return number;
+        }
         #endregion
     }
 }

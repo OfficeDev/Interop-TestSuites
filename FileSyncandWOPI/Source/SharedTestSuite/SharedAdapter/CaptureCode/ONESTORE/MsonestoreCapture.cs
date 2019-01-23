@@ -642,6 +642,14 @@
                 "MS-ONESTORE",
                 756,
                 @"[In ObjectSpaceObjectStreamOfOIDs] body (variable): An array of CompactID structures (section 2.2.2) where each element in the array specifies the identity of an object.");
+
+
+            // If the encryption object parse successfully, R732 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R732
+            site.CaptureRequirement(
+                "MS-ONESTORE",
+                732,
+                @"[In ObjectSpaceObjectPropSet] [OIDs] Properties that reference other objects MUST be matched with the CompactID structures (section 2.2.2) from OIDs.body field in the same order as the properties are listed in the body.rgPrids field.");
         }
         /// <summary>
         ///  This method is used to verify the requirements related with the ObjectSpaceObjectStreamHeader structure.
@@ -739,6 +747,13 @@
                 "MS-ONESTORE",
                 763,
                 @"[In ObjectSpaceObjectStreamOfOSIDs] body (variable): An array of CompactID structures (section 2.2.2) where each element in the array specifies the identity of an object space.");
+
+            // If the encryption object parse successfully, R738 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R738
+            site.CaptureRequirement(
+                "MS-ONESTORE",
+                738,
+                @"[In ObjectSpaceObjectPropSet] [[OSIDs]] Properties that reference other object spaces MUST be matched with the CompactID structures from OSIDs.body field in the same order as the properties are listed in the body.rgPrids field.");
         }
         /// <summary>
         ///  This method is used to verify the requirements related with the ObjectSpaceObjectStreamOfContextIDs structure.
@@ -777,6 +792,13 @@
                  "MS-ONESTORE",
                  769,
                  @"[In ObjectSpaceObjectStreamOfContextIDs] The number of elements is equal to the value of the header.Count field.");
+
+            // If the encryption object parse successfully, R744 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R744
+            site.CaptureRequirement(
+                "MS-ONESTORE",
+                744,
+                @"[In ObjectSpaceObjectPropSet]  [ContextIDs] Properties that reference other contexts MUST be matched with the CompactID structures from ContextIDs.body field in the same order as the properties are listed in the body.rgPrids field.");
         }
         /// <summary>
         ///  This method is used to verify the requirements related with the PropertySet structure.
