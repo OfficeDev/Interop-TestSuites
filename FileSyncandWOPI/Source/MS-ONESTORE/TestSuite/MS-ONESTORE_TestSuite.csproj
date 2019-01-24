@@ -77,8 +77,12 @@
     </None>
     <None Include="MS-ONESTORE_TestSuite.ptfconfig" />
     <None Include="MS-ONESTORE_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
-    <None Include="Resources\TestingWithFileData\Open Notebook.onetoc2" />
-    <None Include="Resources\TestingWithFileData\testing Section 1.one" />
+    <None Include="Resources\Encryption.one" />
+    <None Include="Resources\InvalidData.one" />
+    <None Include="Resources\LargeData.one" />
+    <None Include="Resources\OneWithFileData.one" />
+    <None Include="Resources\OneWithoutFileData.one" />
+    <None Include="Resources\Open Notebook.onetoc2" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MS-ONESTORE_RequirementSpecification.xml" />

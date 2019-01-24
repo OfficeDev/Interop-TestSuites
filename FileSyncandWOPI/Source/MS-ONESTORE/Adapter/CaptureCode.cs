@@ -1,12 +1,4 @@
-﻿//-----------------------------------------------------------------------
-// Copyright (c) 2014 Microsoft Corporation. All rights reserved.
-// Use of this sample source code is subject to the terms of the Microsoft license 
-// agreement under which you licensed this sample source code and is provided AS-IS.
-// If you did not accept the terms of the license agreement, you are not authorized 
-// to use this sample source code. For the terms of the license, please see the 
-// license agreement between you and Microsoft.
-//-----------------------------------------------------------------------
-namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
+﻿namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 {
     using System;
     using System.IO;
@@ -28,10 +20,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
         public void VerifyRevisionStoreFile(OneNoteRevisionStoreFile file, string fileName, ITestSite site)
         {
             this.VerifyHeader(file, fileName, site);
-            this.VerifyFreeChunkList(file.FreeChunkList, site);
             this.VerifyTransactionLog(file, site);
             this.VerifyHashedChunkList(file.HashedChunkList, site);
             this.VerifyRootFileNodeList(file.RootFileNodeList, fileName, site);
+
         }
         /// <summary>
         /// This method is used to verify the requirements related with Header structure.
@@ -521,10 +513,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     243,
                     @"[In Header]  [ffvOldestCodeThatMayReadThisFile] File Format .onetoc2: 0x0000001B");
         }
-        private void VerifyFreeChunkList(List<FreeChunkListFragment> freeChunkList, ITestSite site)
-        {
-
-        }
         /// <summary>
         /// This method is used to verify the requirements related with Transaction Log structure.
         /// </summary>
@@ -570,12 +558,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                                     entry.srcID,
                                     339,
                                     @"[In TransactionEntry] A value of 0x00000001 specifies the sentinel entry. ");
-
-                        }
-                        else
-                        {
-  
-                        }
+                         }
 
                         transactionEntrys.Add(entry);
                     }
@@ -1492,6 +1475,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     @"[In FileNodeListFragment] [footer] MUST be ""0x8BC215C38233BA4B"".");
 
             this.VerifyFileNodeListHeader(fileNodeListFragment.Header, site);
+
+            foreach(FileNode fnode in fileNodeListFragment.rgFileNodes)
+            {
+                this.VerifyFileNode(fnode, extension, site);
+            }
         }
         /// <summary>
         /// This method is used to verify the requirements related with FileNodeListFragment structure.
@@ -1526,12 +1514,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     392,
                     @"[In FileNodeListHeader] nFragmentSequence (4 bytes): An unsigned integer that specifies the index of the fragment in the file node list containing the fragment.");
         }
+
         /// <summary>
         /// This method is used to verify the requirements related with FileNode structure.
         /// </summary>
         /// <param name="fileNode">The instance of FileNode structure.</param>
         /// <param name="site">Instance of ITestSite</param>
-        private void VerifyFileNode(FileNode fileNode,string extension,ITestSite site)
+        private void VerifyFileNode(FileNode fileNode,string extension, ITestSite site)
         {
             // If the OneNote file parse successfully, this requirement will be verified.
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R396 
@@ -1552,7 +1541,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     @"[In FileNode] Size (13 bits): An unsigned integer that specifies the size, in bytes, of this FileNode structure.");
 
             #region verify StpFormat and CbFormat
-            if(fileNode.BaseType==1 || fileNode.BaseType == 2)
+            if (fileNode.BaseType == 1 || fileNode.BaseType == 2)
             {
                 if (fileNode.StpFormat == 0)
                 {
@@ -1626,10 +1615,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R423
             site.CaptureRequirementIfIsTrue(
-                    fileNode.BaseType==0 || fileNode.BaseType == 1 || fileNode.BaseType == 2,
+                    fileNode.BaseType == 0 || fileNode.BaseType == 1 || fileNode.BaseType == 2,
                     423,
                     @"[In FileNode] [C - BaseType] MUST be one of the values [0,1,2] described in the following table.");
-
 
             // If the OneNote file parse successfully, this requirement will be verified.
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R434
@@ -1643,21 +1631,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     435,
                     @"[In FileNode] The type of structure is specified by the value of the FileNodeID field.");
 
-            if(fileNode.FileNodeID== FileNodeIDValues.ObjectSpaceManifestRootFND)
+            if (fileNode.FileNodeID == FileNodeIDValues.ObjectSpaceManifestRootFND)
             {
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R438
                 site.CaptureRequirementIfIsTrue(
-                        fileNode.BaseType==0 && (extension==".one" || extension==".onetoc2"),
+                        fileNode.BaseType == 0 && (extension == ".one" || extension == ".onetoc2"),
                         438,
                         @"[In FileNode] FileNodeID value 0x004 means basetype is 0, Fnd structure is ObjectSpaceManifestRootFND (section 2.5.1), allowed file format is one and onetoc2");
             }
-            if(fileNode.FileNodeID== FileNodeIDValues.ObjectSpaceManifestListReferenceFND)
+            if (fileNode.FileNodeID == FileNodeIDValues.ObjectSpaceManifestListReferenceFND)
             {
                 this.VerifyObjectSpaceManifestListReferenceFND((ObjectSpaceManifestListReferenceFND)fileNode.fnd, site);
 
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R439
                 site.CaptureRequirementIfIsTrue(
-                        fileNode.BaseType==2 && (extension == ".one" || extension == ".onetoc2"),
+                        fileNode.BaseType == 2 && (extension == ".one" || extension == ".onetoc2"),
                         439,
                         @"[In FileNode] FileNodeID value 0x008 means basetype is 2, Fnd structure is ObjectSpaceManifestListReferenceFND (section 2.5.2), allowed file format is one and onetoc2");
             }
@@ -1667,12 +1655,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R440
                 site.CaptureRequirementIfIsTrue(
-                        fileNode.BaseType==0 && (extension == ".one" || extension == ".onetoc2"),
+                        fileNode.BaseType == 0 && (extension == ".one" || extension == ".onetoc2"),
                         440,
                         @"[In FileNode] FileNodeID value 0x00C means basetype is 0, Fnd structure is ObjectSpaceManifestListStartFND (section 2.5.3), allowed file format is one and onetoc2");
             }
 
-            if(fileNode.FileNodeID == FileNodeIDValues.RevisionManifestListReferenceFND)
+            if (fileNode.FileNodeID == FileNodeIDValues.RevisionManifestListReferenceFND)
             {
                 this.VerifyRevisionManifestListReferenceFND((RevisionManifestListReferenceFND)fileNode.fnd, site);
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R441
@@ -1682,7 +1670,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         @"[In FileNode] FileNodeID value 0x010 means basetype is 2, Fnd structure is RevisionManifestListReferenceFND (section 2.5.4), allowed file format is one and onetoc2");
             }
 
-            if(fileNode.FileNodeID == FileNodeIDValues.RevisionManifestListStartFND)
+            if (fileNode.FileNodeID == FileNodeIDValues.RevisionManifestListStartFND)
             {
                 this.VerifyRevisionManifestListStartFND((RevisionManifestListStartFND)fileNode.fnd, site);
 
@@ -1693,7 +1681,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         @"[In FileNode] FileNodeID value 0x014 means basetype is 0, Fnd structure is RevisionManifestListStartFND (section 2.5.5), allowed file format is one and onetoc2.");
             }
 
-            if(fileNode.FileNodeID== FileNodeIDValues.RevisionManifestStart4FND)
+            if (fileNode.FileNodeID == FileNodeIDValues.RevisionManifestStart4FND)
             {
                 this.VerifyRevisionManifestStart4FND((RevisionManifestStart4FND)fileNode.fnd, site);
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R443
@@ -1703,7 +1691,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         @"[In FileNode] FileNodeID value 0x01B means basetype is 0, Fnd structure is RevisionManifestStart4FND (section 2.5.6), allowed file format is onetoc2.");
             }
 
-            if(fileNode.FileNodeID== FileNodeIDValues.RevisionManifestEndFND)
+            if (fileNode.FileNodeID == FileNodeIDValues.RevisionManifestEndFND)
             {
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R444
                 site.CaptureRequirementIfIsTrue(
@@ -1717,8 +1705,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         446,
                         @"[In FileNode] MUST contain no data.");
             }
-           
-            if(fileNode.FileNodeID== FileNodeIDValues.RevisionManifestStart6FND)
+
+            if (fileNode.FileNodeID == FileNodeIDValues.RevisionManifestStart6FND)
             {
                 this.VerifyRevisionManifestStart6FND((RevisionManifestStart6FND)fileNode.fnd, site);
 
@@ -1729,7 +1717,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         @"[In FileNode] FileNodeID value 0x01E means basetype is 0, Fnd structure is RevisionManifestStart6FND (section 2.5.7) allowed file format is one.");
             }
 
-            if(fileNode.FileNodeID == FileNodeIDValues.RevisionManifestStart7FND)
+            if (fileNode.FileNodeID == FileNodeIDValues.RevisionManifestStart7FND)
             {
                 this.VerifyRevisionManifestStart7FND((RevisionManifestStart7FND)fileNode.fnd, site);
 
@@ -1739,17 +1727,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         448,
                         @"[In FileNode] FileNodeID value 0x01F means basetype is 0, Fnd structure is RevisionManifestStart7FND (section 2.5.8), allowed file format is one.");
             }
-            if(fileNode.FileNodeID== FileNodeIDValues.GlobalIdTableStartFNDX)
+            if (fileNode.FileNodeID == FileNodeIDValues.GlobalIdTableStartFNDX)
             {
-                this.VerifyGlobalIdTableStartFNDX((GlobalIdTableStartFNDX)fileNode.fnd, site);
-
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R449
                 site.CaptureRequirementIfIsTrue(
                         fileNode.BaseType == 0 && extension == ".onetoc2",
                         449,
                         @"[In FileNode] FileNodeID value 0x021 means basetypeis 0, Fnd structure is GlobalIdTableStartFNDX (section 2.5.9), allowed file format is onetoc2");
             }
-            if(fileNode.FileNodeID == FileNodeIDValues.GlobalIdTableStart2FND)
+            if (fileNode.FileNodeID == FileNodeIDValues.GlobalIdTableStart2FND)
             {
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R450
                 site.CaptureRequirementIfIsTrue(
@@ -1763,13 +1749,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         452,
                         @"[In FileNode]  [FileNodeID value 0x022] MUST contain no data.");
             }
-            if(fileNode.FileNodeID== FileNodeIDValues.GlobalIdTableEntryFNDX)
+            if (fileNode.FileNodeID == FileNodeIDValues.GlobalIdTableEntryFNDX)
             {
                 this.VerifyGlobalIdTableEntryFNDX((GlobalIdTableEntryFNDX)fileNode.fnd, site);
 
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R453
                 site.CaptureRequirementIfIsTrue(
-                        fileNode.BaseType == 0 && (extension == ".one" || extension==".onetoc2"),
+                        fileNode.BaseType == 0 && (extension == ".one" || extension == ".onetoc2"),
                         453,
                         @"[In FileNode] FileNodeID value 0x024 means basetype is 0, Fnd structure is GlobalIdTableEntryFNDX (section 2.5.10), allowed file format is one and onetoc2.");
 
@@ -1781,7 +1767,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         @"[In GlobalIdTableEntryFNDX] The value of the FileNode.FileNodeID field MUST be 0x024.");
 
             }
-            if(fileNode.FileNodeID== FileNodeIDValues.GlobalIdTableEntry2FNDX)
+            if (fileNode.FileNodeID == FileNodeIDValues.GlobalIdTableEntry2FNDX)
             {
                 this.VerifyGlobalIdTableEntry2FNDX((GlobalIdTableEntry2FNDX)fileNode.fnd, site);
 
@@ -1790,7 +1776,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         fileNode.BaseType == 0 && (extension == ".onetoc2"),
                         454,
                         @"[In FileNode] FileNodeID value 0x025 means basetype is 0, Fnd structure is GlobalIdTableEntry2FNDX (section 2.5.11), allowed file format is onetoc2.");
-               
+
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R553
                 site.CaptureRequirementIfAreEqual<uint>(
                         0x025,
@@ -1798,7 +1784,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         553,
                         @"[In GlobalIdTableEntry2FNDX] The value of the FileNode.FileNodeID field MUST be 0x025.");
             }
-            if(fileNode.FileNodeID== FileNodeIDValues.GlobalIdTableEntry3FNDX)
+            if (fileNode.FileNodeID == FileNodeIDValues.GlobalIdTableEntry3FNDX)
             {
                 this.VerifyGlobalIdTableEntry3FNDX((GlobalIdTableEntry3FNDX)fileNode.fnd, site);
 
@@ -1838,7 +1824,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         fileNode.BaseType == 1 && (extension == ".onetoc2"),
                         459,
                         @"[In FileNode] FileNodeID value 0x02D means basetype is 1, Fnd structure is ObjectDeclarationWithRefCountFNDX (section 2.5.23), allowed file format is onetoc2.");
-                
+
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R639
                 site.CaptureRequirementIfAreEqual<uint>(
                         0x02D,
@@ -1846,7 +1832,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         639,
                         @"[In ObjectDeclarationWithRefCountFNDX] The value of the FileNode.FileNodeID field MUST be 0x02D.");
             }
-            if(fileNode.FileNodeID== FileNodeIDValues.ObjectDeclarationWithRefCount2FNDX)
+            if (fileNode.FileNodeID == FileNodeIDValues.ObjectDeclarationWithRefCount2FNDX)
             {
                 this.VerifyObjectDeclarationWithRefCount2FNDX((ObjectDeclarationWithRefCount2FNDX)fileNode.fnd, site);
 
@@ -1855,7 +1841,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         fileNode.BaseType == 1 && (extension == ".onetoc2"),
                         460,
                         @"[In FileNode] FileNodeID value 0x02E means basetype is 1, Fnd structure is ObjectDeclarationWithRefCount2FNDX (section 2.5.24), allowed file format is onetoc2.");
-                
+
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R645
                 site.CaptureRequirementIfAreEqual<uint>(
                         0x02E,
@@ -2035,7 +2021,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         473,
                         @"[In FileNode] FileNodeID value 0x094 means basetype is 1, Fnd structure is FileDataStoreObjectReferenceFND (section 2.5.22), allowed file format is one.");
             }
-            if(fileNode.FileNodeID== FileNodeIDValues.ObjectDeclaration2RefCountFND)
+            if (fileNode.FileNodeID == FileNodeIDValues.ObjectDeclaration2RefCountFND)
             {
                 this.VerifyObjectDeclaration2RefCountFND((ObjectDeclaration2RefCountFND)fileNode.fnd, site);
 
@@ -2103,7 +2089,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                         480,
                         @"[In FileNode]  [FileNodeID value 0x0B8] MUST contain no data.");
             }
-            if(fileNode.FileNodeID== FileNodeIDValues.HashedChunkDescriptor2FND)
+            if (fileNode.FileNodeID == FileNodeIDValues.HashedChunkDescriptor2FND)
             {
                 this.VerifyHashedChunkDescriptor2FND((HashedChunkDescriptor2FND)fileNode.fnd, site);
 
@@ -2149,6 +2135,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 
             }
         }
+
         /// <summary>
         /// This method is used to verify the requirements related with ObjectSpaceManifestRootFND structure.
         /// </summary>
@@ -2371,15 +2358,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
             site.CaptureRequirement(
                     130,
                     @"[In Context] It [A Context] is specified by an ExtendedGUID (section 2.2.1).");
-        }
-        /// <summary>
-        /// This method is used to verify the requirements related with GlobalIdTableStartFNDX structure.
-        /// </summary>
-        /// <param name="fnd">The instance of GlobalIdTableStartFNDX structure</param>
-        /// <param name="site">Instance of ITestSite</param>
-        private void VerifyGlobalIdTableStartFNDX(GlobalIdTableStartFNDX fnd,ITestSite site)
-        {
-
         }
         /// <summary>
         /// This method is used to verify the requirements related with GlobalIdTableEntryFNDX structure.
@@ -2870,7 +2848,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
                     625,
                     @"[In ObjectInfoDependencyOverridesFND] data (variable): An optional ObjectInfoDependencyOverrideData structure (section 2.6.10) that specifies the updated reference counts for objects (section 2.1.5).");
 
-            if(fnd.Ref.IsfcrNil())
+            this.VerifyObjectInfoDependencyOverrideData(fnd.data, site);
+
+            if (fnd.Ref.IsfcrNil())
             {
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R626
                 site.CaptureRequirementIfIsNotNull(
@@ -2943,6 +2923,11 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
                     @"[In FileDataStoreListReferenceFND] ref (variable): A FileNodeChunkReference structure (section 2.2.4.2) that specifies a reference to a FileNodeListFragment structure (section 2.4.1).");
 
             this.VerifyFileNodeChunkReference(fnd.Ref, site);
+            foreach(FileNode fnode in fnd.fileNodeListFragment.rgFileNodes)
+            {
+                FileDataStoreObjectReferenceFND fileRef = fnode.fnd as FileDataStoreObjectReferenceFND;
+                this.VerifyFileDataStoreObjectReferenceFND(fileRef, site);
+            }
         }
         /// <summary>
         /// This method is used to verify the requirements related with FileDataStoreObjectReferenceFND structure.
@@ -2966,6 +2951,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
                     typeof(Guid),
                     636,
                     @"[In FileDataStoreObjectReferenceFND] guidReference (16 bytes): A GUID, as specified by [MS-DTYP], that specifies the identity of this file data object.");
+
+            this.VerifyFileDataStoreObject(fnd.fileDataStoreObject, site);
         }
         /// <summary>
         /// This method is used to verify the requirements related with ObjectDeclaration2RefCountFND structure.
@@ -3522,6 +3509,173 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
             site.CaptureRequirement(
                     205,
                     @"[In FileChunkReference64x32] A FileChunkReference64x32 structure is a file chunk reference (section 2.2.4) where the stp field is 8 bytes in size and the cb field is 4 bytes in size.");
+        }
+
+        /// <summary>
+        /// This method is used to verify the requirements related with ObjectInfoDependencyOverrideData structure.
+        /// </summary>
+        /// <param name="instance">The instance of ObjectInfoDependencyOverrideData structure.</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyObjectInfoDependencyOverrideData(ObjectInfoDependencyOverrideData instance,ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R821
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.c8BitOverrides,
+                typeof(uint),
+                821,
+                @"[In ObjectInfoDependencyOverrideData] c8BitOverrides (4 bytes): An unsigned integer that specifies the number of elements in Overrides1.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R822
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.c32BitOverrides,
+                typeof(uint),
+                822,
+                @"[In ObjectInfoDependencyOverrideData] c32BitOverrides (4 bytes): An unsigned integer that specifies the number of elements in Overrides2.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R822
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.crc,
+                typeof(uint),
+                823,
+                @"[In ObjectInfoDependencyOverrideData] crc (4 bytes): An unsigned integer that specifies a CRC (section 2.1.2) of the reference counts.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R836
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.Overrides1,
+                typeof(ObjectInfoDependencyOverride8[]),
+                836,
+                @"[In ObjectInfoDependencyOverrideData] Overrides1 (variable): An array of ObjectInfoDependencyOverride8 structures (section 2.6.11) that specifies the updated reference counts for objects (section 2.1.5) if the updated reference count is less than or equal to 255.");
+
+            foreach(ObjectInfoDependencyOverride8 objectInfoDependencyOverride8 in instance.Overrides1)
+            {
+                this.VerifyObjectInfoDependencyOverride8(objectInfoDependencyOverride8, site);
+            }
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R837
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.Overrides2,
+                typeof(ObjectInfoDependencyOverride32[]),
+                837,
+                @"[In ObjectInfoDependencyOverrideData] Overrides2 (variable): An array of ObjectInfoDependencyOverride32 structures (section 2.6.12) that specifies the updated reference counts for objects if the updated reference count is greater than 255.");
+
+            foreach(ObjectInfoDependencyOverride32 objectInfoDependencyOverride32 in instance.Overrides2)
+            {
+                this.VerifyObjectInfoDependencyOverride32(objectInfoDependencyOverride32, site);
+            }
+        }
+
+        /// <summary>
+        /// This method is used to verify the requirements related with ObjectInfoDependencyOverride8 structure.
+        /// </summary>
+        /// <param name="instance">The instance of ObjectInfoDependencyOverride8 structure.</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyObjectInfoDependencyOverride8(ObjectInfoDependencyOverride8 instance,ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R839
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.oid,
+                typeof(CompactID),
+                839,
+                @"[In ObjectInfoDependencyOverride8] oid (4 bytes): A CompactID structure (section 2.2.2) that specifies the identity of the object with the updated reference count.");
+
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R841
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.cRef,
+                typeof(byte),
+                841,
+                @"[In ObjectInfoDependencyOverride8] cRef (1 byte): An unsigned integer that specifies the updated reference count for the oid field.");
+        }
+
+        /// <summary>
+        /// This method is used to verify the requirements related with ObjectInfoDependencyOverride32 structure.
+        /// </summary>
+        /// <param name="instance">The instance of ObjectInfoDependencyOverride32 structure.</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyObjectInfoDependencyOverride32(ObjectInfoDependencyOverride32 instance,ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R843
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.oid,
+                typeof(CompactID),
+                843,
+                @"[In ObjectInfoDependencyOverride32] oid (4 bytes): A CompactID structure (section 2.2.2) that specifies the identity of the object with the updated reference count.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R845
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.cRef,
+                typeof(byte),
+                845,
+                @"[In ObjectInfoDependencyOverride32] cRef (4 bytes): An unsigned integer that specifies the updated reference count for an oid field.");
+        }
+
+        /// <summary>
+        /// This method is used to verify the requirements related with ObjectInfoDependencyOverride32 structure.
+        /// </summary>
+        /// <param name="instance">The instance of ObjectInfoDependencyOverride32 structure.</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyFileDataStoreObject(FileDataStoreObject instance, ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R847
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.guidHeader,
+                typeof(Guid),
+                847,
+                @"[In FileDataStoreObject] guidHeader (16 bytes): A GUID, as specified by [MS-DTYP], that specifies the beginning of a FileDataStoreObject.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R848
+            site.CaptureRequirementIfAreEqual<Guid>(
+                Guid.Parse("BDE316E7-2665-4511-A4C4-8D4D0B7A9EAC"),
+                instance.guidHeader,
+                848,
+                @"[In FileDataStoreObject] [guidHeader] MUST be {BDE316E7-2665-4511-A4C4-8D4D0B7A9EAC}.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R849
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.cbLength,
+                typeof(ulong),
+                849,
+                @"[In FileDataStoreObject] cbLength (8 bytes): An unsigned integer that specifies the size, in bytes, of the FileData field without padding.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R850
+            site.CaptureRequirementIfAreEqual<uint>(
+                0,
+                instance.unused,
+                850,
+                @"[In FileDataStoreObject] unused (4 bytes): MUST be zero, and MUST be ignored.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R851
+            site.CaptureRequirementIfAreEqual<ulong>(
+                0,
+                instance.reserved,
+                851,
+                @"[In FileDataStoreObject] reserved (8 bytes): MUST be zero, and MUST be ignored.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R852
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.FileData,
+                typeof(byte[]),
+                852,
+                @"[In FileDataStoreObject] FileData (variable): A stream of bytes that specifies the data for the file data object. ");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R853
+            site.CaptureRequirementIfIsTrue(
+                (instance.FileData.Length + 52) % 8 == 0,
+                 853,
+                @"[In FileDataStoreObject] [FileData] Padding is added to the end of the FileData stream to ensure that the FileDataStoreObject structure ends on an 8-byte boundary.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R854
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.guidFooter,
+                typeof(Guid),
+                854,
+                @"[In FileDataStoreObject] guidFooter (16 bytes): A GUID, as specified by [MS-DTYP], that specifies the end of a FileDataStoreObject structure.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R855
+            site.CaptureRequirementIfAreEqual<Guid>(
+                Guid.Parse("71FBA722-0F79-4A0B-BB13-899256426B24"),
+                instance.guidFooter,
+                855,
+                @"[In FileDataStoreObject][guidFooter] MUST be {71FBA722-0F79-4A0B-BB13-899256426B24}.");
         }
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="ONESTORE\CommonTypes\FileChunkReference64x32.cs" />
     <Compile Include="ONESTORE\CommonTypes\FileNodeChunkReference.cs" />
     <Compile Include="ONESTORE\CommonTypes\StringInStorageBuffer.cs" />
+    <Compile Include="ONESTORE\OtherStructures\FileDataStoreObject.cs" />
     <Compile Include="ONESTORE\OtherStructures\IProperty.cs" />
     <Compile Include="ONESTORE\OtherStructures\JCID.cs" />
     <Compile Include="ONESTORE\OtherStructures\ObjectDeclaration2Body.cs" />
