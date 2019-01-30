@@ -61,6 +61,12 @@
             FileNode fileNode = null;
             this.rgFileNodes = new List<FileNode>();
             int fileNodeSize = 0;
+            uint fileNodeCount = uint.MaxValue;
+            if (OneNoteRevisionStoreFile.FileNodeCountMapping.ContainsKey(this.Header.FileNodeListID))
+            {
+                fileNodeCount = OneNoteRevisionStoreFile.FileNodeCountMapping[this.Header.FileNodeListID];
+            }
+
             do
             {
                 fileNode = new FileNode();
@@ -70,21 +76,23 @@
                 if (fileNode.FileNodeID != 0)
                 {
                     this.rgFileNodes.Add(fileNode);
+                    if (fileNode.FileNodeID != FileNodeIDValues.ChunkTerminatorFND)
+                    {
+                        fileNodeCount--;
+                    }
                 }
             }
-            while ((int)this.size - 36 - fileNodeSize > 4);
+            while ((int)this.size - 36 - fileNodeSize > 4 && fileNodeCount > 0);
+
+            if (OneNoteRevisionStoreFile.FileNodeCountMapping.ContainsKey(this.Header.FileNodeListID))
+            {
+                OneNoteRevisionStoreFile.FileNodeCountMapping[this.Header.FileNodeListID] = fileNodeCount;
+            }
 
             int paddinglength = (int)this.size - 36 - fileNodeSize;
-            if (paddinglength <= 4)
-            {
-                this.padding = new byte[paddinglength];
-                Array.Copy(byteArray, index, this.padding, 0, paddinglength);
-                index += paddinglength;
-            }
-            else
-            {
-                this.padding = new byte[0];
-            }
+            this.padding = new byte[paddinglength];
+            Array.Copy(byteArray, index, this.padding, 0, paddinglength);
+            index += paddinglength;
             this.nextFragment = new FileChunkReference64x32();
             len = this.nextFragment.DoDeserializeFromByteArray(byteArray, index);
             index += len;

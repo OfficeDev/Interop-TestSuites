@@ -12,6 +12,8 @@
     /// </summary>
     public class OneNoteRevisionStoreFile
     {
+        public static Dictionary<uint, uint> FileNodeCountMapping = new Dictionary<uint, uint>();
+
         /// <summary>
         /// Gets or sets the value of header field.
         /// </summary>
@@ -43,6 +45,8 @@
 
         public OneNoteRevisionStoreFile()
         {
+            OneNoteRevisionStoreFile.FileNodeCountMapping.Clear();
+
             this.FreeChunkList = new List<FreeChunkListFragment>();
             this.TransactionLog = new List<TransactionLogFragment>();
             this.HashedChunkList = new List<FileNodeListFragment>();
@@ -75,8 +79,22 @@
                 len = transLogFragment.DoDeserializeFromByteArray(byteArray, (int)transLogRef.Stp);
                 transLogRef = transLogFragment.nextFragment;
                 this.TransactionLog.Add(transLogFragment);
+                foreach (TransactionEntry entry in transLogFragment.sizeTable.Where(t => t.srcID != 0x00000001).ToArray())
+                {
+                    if (FileNodeCountMapping.ContainsKey(entry.srcID))
+                    {
+                        if (FileNodeCountMapping[entry.srcID] < entry.TransactionEntrySwitch)
+                        {
+                            FileNodeCountMapping[entry.srcID] = entry.TransactionEntrySwitch;
+                        }
+                    }
+                    else
+                    {
+                        FileNodeCountMapping.Add(entry.srcID, entry.TransactionEntrySwitch);
+                    }
+                }
             }
-            while (transLogRef.IsfcrNil()==false && transLogRef.IsfcrZero()==false);
+            while (transLogRef.IsfcrNil() == false && transLogRef.IsfcrZero() == false);
 
             this.HashedChunkList = new List<FileNodeListFragment>();
             FileChunkReference64x32 hashChunkRef = this.Header.fcrHashedChunkList;
@@ -89,7 +107,7 @@
                     this.HashedChunkList.Add(hashChunkList);
                     hashChunkRef = hashChunkList.nextFragment;
                 }
-                while (hashChunkRef.IsfcrNil() == false);
+                while (hashChunkRef.IsfcrNil() == false && hashChunkRef.IsfcrZero() == false);
             }
 
             this.FileNodeList = new List<FileNodeListFragment>();
