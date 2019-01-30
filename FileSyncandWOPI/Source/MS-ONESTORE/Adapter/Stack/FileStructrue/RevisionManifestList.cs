@@ -60,7 +60,7 @@
             this.FileNodeListFragments.Add(fragment);
             this.FileNodeSequence.AddRange(fragment.rgFileNodes.Where(f=>f.FileNodeID!=FileNodeIDValues.ChunkTerminatorFND).ToArray());
             FileChunkReference64x32 nextFragmentRef = fragment.nextFragment;
-            while (nextFragmentRef.IsfcrNil() == false)
+            while (nextFragmentRef.IsfcrNil() == false && nextFragmentRef.IsfcrZero() == false)
             {
                 FileNodeListFragment nextFragment = new FileNodeListFragment(nextFragmentRef.Cb);
                 nextFragment.DoDeserializeFromByteArray(byteArray, (int)nextFragmentRef.Stp);

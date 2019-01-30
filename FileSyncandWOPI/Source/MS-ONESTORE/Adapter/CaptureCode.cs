@@ -1211,14 +1211,16 @@
                     @"[In Object Group] § FileNode structure (section 2.4.3) with a FileNodeID field value equal to 0x0B4 (ObjectGroupStartFND structure, section 2.5.32).");
 
             this.VerifyObjectGroupStartFND((ObjectGroupStartFND)firstNode.fnd, site);
-
-            FileNode lastNode = instance.FileNodeSequence[instance.FileNodeSequence.Count - 1];
-            // Verify MS-ONESTORE requirement: MS-ONESTORE_R155
-            site.CaptureRequirementIfAreEqual<uint>(
-                    0x0B8,
-                    (uint)lastNode.FileNodeID,
-                    155,
-                    @"[In Object Group] § FileNode structure with a FileNodeID field value equal to 0x0B8 (ObjectGroupEndFND structure, section 2.4.3).");
+            if (OneNoteRevisionStoreFile.FileNodeCountMapping[instance.FileNodeListFragments[0].Header.FileNodeListID] == 0)
+            {
+                FileNode lastNode = instance.FileNodeSequence[instance.FileNodeSequence.Count - 1];
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R155
+                site.CaptureRequirementIfAreEqual<uint>(
+                        0x0B8,
+                        (uint)lastNode.FileNodeID,
+                        155,
+                        @"[In Object Group] § FileNode structure with a FileNodeID field value equal to 0x0B8 (ObjectGroupEndFND structure, section 2.4.3).");
+            }
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R156
             site.CaptureRequirementIfIsTrue(
@@ -1432,13 +1434,14 @@
             site.CaptureRequirement(
                     369,
                     @"[In FileNodeListFragment] rgFileNodes (variable): A stream of bytes that contains a sequence of FileNode structures (section 2.4.3).");
-            
-            // Verify MS-ONESTORE requirement: MS-ONESTORE_R371
-            site.CaptureRequirementIfIsTrue(
-                    fileNodeListFragment.padding.Length <= 4,
-                    371,
-                    @"[In FileNodeListFragment] [rgFileNodes] [The stream is terminated when any of the following conditions is met:] The number of bytes between the end of the last read FileNode and the nextFragment field is less than 4 bytes.");
 
+            if (fileNodeListFragment.padding.Length < 4)
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R371
+                site.CaptureRequirement(
+                        371,
+                        @"[In FileNodeListFragment] [rgFileNodes] [The stream is terminated when any of the following conditions is met:] The number of bytes between the end of the last read FileNode and the nextFragment field is less than 4 bytes.");
+            }
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R376
             site.CaptureRequirementIfIsInstanceOfType(
                     fileNodeListFragment.padding,
@@ -2759,7 +2762,29 @@
                     670,
                     @"[In ObjectDeclarationFileData3RefCountFND] [FileDataReference] The value of the FileDataReference.StringData field MUST begin with one of the following strings: ""<file>""; ""<ifndf>""; ""<invfdo>"".");
 
+            if (fnd.FileDataReference.StringData.StartsWith("<ifndf>"))
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R676
+                site.CaptureRequirement(
+                    676,
+                    @"[In ObjectDeclarationFileData3RefCountFND] [FileDataReference] [The value of the FileDataReference.StringData field ] Prefix <ifndf> specifies reference type is FileDataStoreObject (section 2.6.13)");
+             
+                string guidStr = fnd.FileDataReference.StringData.Remove(0, 7);
+                Guid guidValue = Guid.Empty;
 
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R677
+                site.CaptureRequirementIfIsTrue(
+                    Guid.TryParse(guidStr,out guidValue),
+                    677,
+                    @"[In ObjectDeclarationFileData3RefCountFND]  [FileDataReference] [The value of the FileDataReference.StringData field ] Prefix <ifndf>: Specifies a curly braced GUID string that MUST represent one of the FileDataStoreObjectReferenceFND.guidReference fields.");
+            }
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R681
+            site.CaptureRequirementIfIsInstanceOfType(
+                fnd.Extension,
+                typeof(StringInStorageBuffer),
+                681,
+                @"[In ObjectDeclarationFileData3RefCountFND] Extension (variable): A StringInStorageBuffer (section 2.2.3) that specifies the file extension including period.");
         }
         /// <summary>
         /// This method is used to verify the requirements related with ObjectDeclarationFileData3LargeRefCountFND structure.
@@ -2800,6 +2825,13 @@
                     688,
                     @"[In ObjectDeclarationFileData3LargeRefCountFND] FileDataReference (variable): A StringInStorageBuffer structure (section 2.2.3) that specifies the type and the target of the reference.");
 
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R701
+            site.CaptureRequirementIfIsInstanceOfType(
+                fnd.Extension,
+                typeof(StringInStorageBuffer),
+                701,
+                @"[In ObjectDeclarationFileData3LargeRefCountFND] Extension (variable): A StringInStorageBuffer (section 2.2.3) that specifies the file extension including period.");
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R689
             site.CaptureRequirementIfIsTrue(
                     fnd.FileDataReference.StringData.StartsWith("<file>") ||
@@ -2808,7 +2840,22 @@
                     689,
                     @"[In ObjectDeclarationFileData3LargeRefCountFND] [FileDataReference] The value of the FileDataReference.StringData field MUST begin with one of the following strings: [""<file>""; ""<ifndf>""; ""<invfdo>""].");
 
+            if (fnd.FileDataReference.StringData.StartsWith("<ifndf>"))
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R697
+                site.CaptureRequirement(
+                    697,
+                    @"[In ObjectDeclarationFileData3LargeRefCountFND] Prefix <ifndf> specifies reference type is FileDataStoreObject (section 2.6.13).");
 
+                string guidStr = fnd.FileDataReference.StringData.Remove(0, 7);
+                Guid guidValue = Guid.Empty;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R698
+                site.CaptureRequirementIfIsTrue(
+                    Guid.TryParse(guidStr, out guidValue),
+                    698,
+                    @"[In ObjectDeclarationFileData3LargeRefCountFND] [Prefix <ifndf> , the remaining part of string] Specifies a curly braced GUID string that MUST represent one of the FileDataStoreObjectReferenceFND.guidReference fields.");
+            }
         }
         /// <summary>
         /// This method is used to verify the requirements related with ObjectDataEncryptionKeyV2FNDX structure.
@@ -2891,6 +2938,7 @@
                         @"[In File Chunk Reference] Special values:
 fcrNil: Specifies a file chunk reference where all bits of the stp field are set to 1, and all bits of the cb field are set to zero.");
             }
+
         }
         /// <summary>
         /// This method is used to verify the requirements related with DataSignatureGroupDefinitionFND structure.
@@ -2925,8 +2973,11 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
             this.VerifyFileNodeChunkReference(fnd.Ref, site);
             foreach(FileNode fnode in fnd.fileNodeListFragment.rgFileNodes)
             {
-                FileDataStoreObjectReferenceFND fileRef = fnode.fnd as FileDataStoreObjectReferenceFND;
-                this.VerifyFileDataStoreObjectReferenceFND(fileRef, site);
+                if (fnode.FileNodeID == FileNodeIDValues.FileDataStoreObjectReferenceFND)
+                {
+                    FileDataStoreObjectReferenceFND fileRef = fnode.fnd as FileDataStoreObjectReferenceFND;
+                    this.VerifyFileDataStoreObjectReferenceFND(fileRef, site);
+                }
             }
         }
         /// <summary>
