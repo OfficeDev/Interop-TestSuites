@@ -834,6 +834,37 @@
             {
                 this.VerifyPropertyID(instance.RgPrids[i], site);
                 PropertyID propId = instance.RgPrids[i];
+                if(propId.Type!=0x1 && propId.Type != 0x8 && propId.Type != 0x9 && propId.Type != 0xA && propId.Type != 0xB && propId.Type != 0xC && propId.Type != 0xD)
+                {
+                    // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R7
+                    site.CaptureRequirementIfIsNotNull(
+                        instance.RgData[i],
+                         "MS-ONESTORE",
+                        7,
+                        @"[In Property Set] The data for a property that is not an object reference is contained in the PropertySet.rgData stream field.");
+                }
+
+                if(propId.Type == 0x9 || propId.Type == 0xB || propId.Type == 0xD)
+                {
+                    // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R12
+                    site.CaptureRequirementIfIsTrue(
+                        instance.RgData[i].GetType() == typeof(ArrayNumber) &&
+                        (OIDs.Body != null || OSIDs.Body != null || contextIDs.Body != null),
+                        "MS-ONESTORE",
+                        13,
+                        @"[In Property Set] If the PropertyID.type field specifies an array of objects (0x9, 0xB, 0xD), an unsigned integer (4 bytes) is read from the PropertySet.rgData stream and specifies the number of CompactID structures (section 2.2.2) to read from the corresponding stream in the ObjectSpaceObjectPropSet structure. ");
+                }
+
+                if (propId.Type == 0x8 || propId.Type == 0xA || propId.Type == 0xC)
+                {
+                    // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R12
+                    site.CaptureRequirementIfIsTrue(
+                        instance.RgData[i].GetType()==typeof(NoData) && 
+                        (OIDs.Body!=null || OSIDs.Body!=null || contextIDs.Body !=null),
+                        "MS-ONESTORE",
+                        12,
+                        @"[In Property Set] If the PropertyID.type field specifies a single object (0x8, 0xA, 0xC), a single CompactID (4 bytes) is read from the corresponding stream in the ObjectSpaceObjectPropSet structure.");
+                }
                 if (propId.Type == 0x2)
                 {
                     // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R782
@@ -923,6 +954,13 @@
                             "MS-ONESTORE",
                             788,
                             @"[In PropertyID] value ""0x8"", name ""ObjectID"": The property contains one CompactID (section 2.2.2) in the ObjectSpaceObjectPropSet.OIDs.body stream field.");
+
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R15
+                        site.CaptureRequirementIfIsNotNull(
+                            OIDs.Body,
+                             "MS-ONESTORE",
+                             15,
+                            @"[In Property Set] The PropertyID.type's value: 0x8 (ObjectID, section 2.6.6) specifies the stream is ObjectSpaceObjectPropSet.OIDs.body.");
                         break;
                     case 0x9:
                         // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R789
@@ -932,6 +970,13 @@
                             789,
                             @"[In PropertyID] value ""0x9"", name ""ArrayOfObjectIDs"": The property contains an array of CompactID structures in the ObjectSpaceObjectPropSet.OIDs.body stream field.");
 
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R16
+                        site.CaptureRequirementIfIsNotNull(
+                             OIDs.Body,
+                             "MS-ONESTORE",
+                             16,
+                             @"[In Property Set] The PropertyID.type's value: 0x9 (ArrayOfObjectIDs, section 2.6.6) specifies the stream is ObjectSpaceObjectPropSet.OIDs.body.");
+                         
                         // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R790
                         site.CaptureRequirementIfIsInstanceOfType(
                             ((ArrayNumber)instance.RgData[i]).Number,
@@ -947,6 +992,13 @@
                             "MS-ONESTORE",
                             791,
                             @"[In PropertyID] value ""0xA"", name ""ObjectSpaceID"": The property contains one CompactID structure in the ObjectSpaceObjectPropSet.OSIDs.body stream field.");
+
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R17
+                        site.CaptureRequirementIfIsNotNull(
+                            OSIDs.Body,
+                            "MS-ONESTORE",
+                            17,
+                            @"[In Property Set] The PropertyID.type's value: 0xA (ObjectSpaceID, section 2.6.6)  specifies the stream is ObjectSpaceObjectPropSet.OSIDs.body");
                         break;
                     case 0xB:
                         // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R792
@@ -955,6 +1007,13 @@
                             "MS-ONESTORE",
                             792,
                             @"[In PropertyID] value ""0xB"", name ""ArrayOfObjectSpaceIDs"": The property contains an array of CompactID structures in the ObjectSpaceObjectPropSet.OSIDs.body stream field. ");
+
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R18
+                        site.CaptureRequirementIfIsNotNull(
+                            OSIDs.Body,
+                            "MS-ONESTORE",
+                            18,
+                            @"[In Property Set] The PropertyID.type's value: 0xB (ArrayOfObjectSpaceIDs, section 2.6.6) specifies the stream is ObjectSpaceObjectPropSet.OSIDs.body");
 
                         // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R793
                         site.CaptureRequirementIfIsInstanceOfType(
@@ -979,6 +1038,13 @@
                             "MS-ONESTORE",
                             795,
                             @"[In PropertyID] value ""0xD"", name ""ArrayOfContextIDs"": The property contains an array of CompactID structures in the ObjectSpaceObjectPropSet.ContextIDs.body stream field.");
+
+                        // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R19
+                        site.CaptureRequirementIfIsNotNull(
+                            contextIDs.Body,
+                            "MS-ONESTORE",
+                            19,
+                            @"[In Property Set]  The PropertyID.type's value:0xC (ContextID, section 2.6.6) specifies the stream is ObjectSpaceObjectPropSet.ContextIDs.body");
 
                         // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R796
                         site.CaptureRequirementIfIsInstanceOfType(
@@ -1010,6 +1076,25 @@
                             @"[In PropertyID] value ""0x11"", name ""PropertySet"": The property contains a child PropertySet (section 2.6.7) structure in the PropertySet.rgData stream field of the parent PropertySet.");
                         break;
                 }
+
+                // If above capture is verify, R8, R11 and R9 will be verified.
+                // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R8
+                site.CaptureRequirement(
+                    "MS-ONESTORE",
+                    8,
+                    @"[In Property Set]  The rgData stream is read sequentially beginning with the first property in a PropertySet.rgPrids array until every property has been read.");
+
+                // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R11
+                site.CaptureRequirement(
+                    "MS-ONESTORE",
+                    11,
+                    @"[In Property Set] The streams are read sequentially beginning with the first property in a PropertySet.rgPrids array. ");
+
+                // Verfiy MS-ONESTORE requirement: MS-ONESTORE_R9
+                site.CaptureRequirement(
+                    "MS-ONESTORE",
+                    9,
+                    @"[In Property Set] The number of bytes read for each property is specified by the PropertyID.type field.");
             }
 
             // If the rgData is parse successfully,then R803 and R804 will be verified.
