@@ -725,6 +725,13 @@
                         44,
                         @"[In Object Space] Object spaces MUST have a unique identifier (OSID), specified by the ObjectSpaceManifestListReferenceFND.gosid field.");
 
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R48
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.gosid,
+                    typeof(ExtendedGUID),
+                    48,
+                    @"[In Object Space Object] Every object’s identity is specified by an ExtendedGUID structure (section 2.2.1).");
+
                 this.VerifyExtendedGUID(fnd.gosid, site);
                 this.VerifyObjectSpaceManifestListReferenceFND(fnd, site);
             }
@@ -772,7 +779,6 @@
             }
             this.VerifyFileNodeList(rootFileNodeList.FileNodeListFragments, fileName, site);
         }
-
         /// <summary>
         /// This method is used to verify the requirements related with Object Space Manifest List.
         /// </summary>
@@ -1180,6 +1186,11 @@
                                 @"[In Revision Manifest] [File format] .onetoc2: that MUST follow a global identification table sequence.");
                     }
                 }
+                // If above requirements are verified, then R51 will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R51
+                site.CaptureRequirement(
+                    51,
+                    @"[In Object Space Object] The identity and data for an object is specified by a FileNode structure (section 2.4.3). ");
             }
         }
         /// <summary>
@@ -1365,7 +1376,6 @@
                     39,
                     @"[In Global Identification Table] [File format] .onetoc2: Zero or more FileNode structures with FileNodeID field values equal to 0x026 (GlobalIdTableEntry3FNDX structure, section 2.5.12).");
         }
-
         /// <summary>
         /// This method is used to verify the requirements related with File Node List structure.
         /// </summary>
@@ -3199,6 +3209,12 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
             site.CaptureRequirement(
                     868,
                     @"[In ObjectDeclarationWithRefCountBody] jci (10 bits): An unsigned integer that specifies the value of the JCID.index field of the object. ");
+           
+            // If R869 is verufied then the jci is an unsigned integer, so R53 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R53
+            site.CaptureRequirement(
+                    53,
+                    @"[In Object Space Object] The data specified by the FileNode.fnd field MUST contain [a JCID (section 2.6.14) or] an unsigned integer that specifies the value of JCID.index.");
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R871
             site.CaptureRequirementIfAreEqual<uint>(
@@ -3269,6 +3285,12 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
                     typeof(JCID),
                     879,
                     @"[In ObjectDeclaration2Body] jcid (4 bytes): A JCID (section 2.6.14) that specifies the type of data this object contains.");
+
+            // if R879 is verified, then R52 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R52 
+            site.CaptureRequirement(
+                52,
+                @"[In Object Space Object] The data specified by the FileNode.fnd field MUST contain a JCID (section 2.6.14) [or an unsigned integer that specifies the value of JCID.index. ]");
 
             this.VerifyJCID(body.jcid, site);
 
@@ -3352,6 +3374,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
                     865,
                     @"[In JCID] Reserved (11 bits): MUST be zero, and MUST be ignored.");
         }
+
         /// <summary>
         /// This method is used to verify the requirements related with StringInStorageBuffer structure.
         /// </summary>
