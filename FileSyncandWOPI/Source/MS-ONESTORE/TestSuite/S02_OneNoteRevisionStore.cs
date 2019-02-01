@@ -140,6 +140,26 @@
 
             OneNoteRevisionStoreFile file = this.Adapter.LoadOneNoteFile(fileName);
         }
+
+        /// <summary>
+        /// The test case is validate that the requirements related with .onetoc2 file.
+        /// </summary>
+        [TestCategory("MSONESTORE"), TestMethod]
+        public void MSONESTORE_S02_TC03_VerifyguildFile()
+        {
+            string fileName1 = Common.GetConfigurationPropertyValue("OnetocFileLocal", Site);
+
+            OneNoteRevisionStoreFile file1 = this.Adapter.LoadOneNoteFile(fileName1);
+
+            string fileName2 = Common.GetConfigurationPropertyValue("OneFileWithFileData", Site);
+
+            OneNoteRevisionStoreFile file2 = this.Adapter.LoadOneNoteFile(fileName2);
+            Site.CaptureRequirementIfIsTrue(
+                file1.Header.guidFile != file2.Header.guidFile,
+                1421,
+                @"[In Header] [guildFile]: The guidFile in two files is different.");
+
+        }
         #endregion
     }
 }
