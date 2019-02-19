@@ -140,6 +140,59 @@
 
             OneNoteRevisionStoreFile file = this.Adapter.LoadOneNoteFile(fileName);
         }
+
+        /// <summary>
+        /// The test case is validate that the requirements related with .onetoc2 file.
+        /// </summary>
+        [TestCategory("MSONESTORE"), TestMethod]
+        public void MSONESTORE_S02_TC03_VerifyguildFile()
+        {
+            string fileName1 = Common.GetConfigurationPropertyValue("OnetocFileLocal", Site);
+
+            OneNoteRevisionStoreFile file1 = this.Adapter.LoadOneNoteFile(fileName1);
+
+            string fileName2 = Common.GetConfigurationPropertyValue("OneFileWithFileData", Site);
+
+            OneNoteRevisionStoreFile file2 = this.Adapter.LoadOneNoteFile(fileName2);
+            Site.CaptureRequirementIfIsTrue(
+                file1.Header.guidFile != file2.Header.guidFile,
+                1421,
+                @"[In Header] [guildFile]: The guidFile in two files is different.");
+
+        }
+
+        /// <summary>
+        /// The test case is validate that the requirements related with encryption .one file.
+        /// </summary>
+        [TestCategory("MSONESTORE"), TestMethod]
+        public void MSONESTORE_S02_TC04_LoadEncryptionFile()
+        {
+            string fileName = Common.GetConfigurationPropertyValue("OneFileEncryption", Site);
+
+            OneNoteRevisionStoreFile file = this.Adapter.LoadOneNoteFile(fileName);
+
+            foreach(ObjectSpaceManifestList objectSpaceManifestList in file.RootFileNodeList.ObjectSpaceManifestList)
+            {
+                foreach(RevisionManifestList revisionManifestList in objectSpaceManifestList.RevisionManifestList)
+                {
+                    foreach(RevisionManifest revisionManifest in revisionManifestList.RevisionManifests)
+                    {
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R104
+                        this.Site.CaptureRequirementIfIsTrue(
+                            revisionManifest.FileNodeSequence[1].FileNodeID == FileNodeIDValues.ObjectDataEncryptionKeyV2FNDX,
+                            104,
+                            @"[In Revision Manifest] If the object space is encrypted, then the second FileNode in the sequence MUST be a FileNode structure with a FileNodeID equal to 0x07C (ObjectDataEncryptionKeyV2FNDX structure, section 2.5.19).");
+
+                        // If R104 is verified,then R612 will be verified.
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R612
+                        this.Site.CaptureRequirement(
+                            612,
+                            @"[In ObjectDataEncryptionKeyV2FNDX] If any revision manifest (section 2.1.9) for an object space contains this FileNode structure, all other revision manifests for this object space MUST contain this FileNode structure, and these FileNode structures MUST point to structures with identical encryption data.");
+                    }
+                }
+            }
+        }
+
         #endregion
     }
 }

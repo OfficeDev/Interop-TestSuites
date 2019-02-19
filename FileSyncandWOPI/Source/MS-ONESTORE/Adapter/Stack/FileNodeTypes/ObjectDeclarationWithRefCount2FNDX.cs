@@ -54,14 +54,18 @@
             this.ObjectRef = new FileNodeChunkReference(this.stpFormat, this.cbFormat);
             int len = this.ObjectRef.DoDeserializeFromByteArray(byteArray, index);
             index += len;
-            this.PropertySet = new ObjectSpaceObjectPropSet();
-            this.PropertySet.DoDeserializeFromByteArray(byteArray, (int)this.ObjectRef.StpValue);
+
             this.body = new ObjectDeclarationWithRefCountBody();
             len = this.body.DoDeserializeFromByteArray(byteArray, index);
             index += len;
             this.cRef = BitConverter.ToUInt32(byteArray, index);
             index += 4;
 
+            if(OneNoteRevisionStoreFile.IsEncryption==false)
+            {
+                this.PropertySet = new ObjectSpaceObjectPropSet();
+                this.PropertySet.DoDeserializeFromByteArray(byteArray, (int)this.ObjectRef.StpValue);
+            }
             return index - startIndex;
         }
 
