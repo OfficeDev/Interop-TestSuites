@@ -98,6 +98,11 @@
                 else if (fileNode.FileNodeID != FileNodeIDValues.ChunkTerminatorFND &&
                     fileNode.FileNodeID != FileNodeIDValues.RevisionManifestListStartFND)
                 {
+                    if (fileNode.FileNodeID == FileNodeIDValues.ObjectDataEncryptionKeyV2FNDX)
+                    {
+                        OneNoteRevisionStoreFile.IsEncryption = true;
+                    }
+
                     revisionManifest.FileNodeSequence.Add(fileNode);
                     if (fileNode.FileNodeID == FileNodeIDValues.ObjectGroupListReferenceFND)
                     {

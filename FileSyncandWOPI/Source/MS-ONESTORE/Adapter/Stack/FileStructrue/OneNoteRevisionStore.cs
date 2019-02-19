@@ -1,11 +1,7 @@
 ﻿namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Microsoft.Protocols.TestSuites.Common;
 
     /// <summary>
     /// This class is used to represent the OneNote Revision Store file.
@@ -14,6 +10,7 @@
     {
         public static Dictionary<uint, uint> FileNodeCountMapping = new Dictionary<uint, uint>();
 
+        public static bool IsEncryption = false;
         /// <summary>
         /// Gets or sets the value of header field.
         /// </summary>
@@ -50,6 +47,8 @@
             this.FreeChunkList = new List<FreeChunkListFragment>();
             this.TransactionLog = new List<TransactionLogFragment>();
             this.HashedChunkList = new List<FileNodeListFragment>();
+            OneNoteRevisionStoreFile.IsEncryption = false;
+            OneNoteRevisionStoreFile.FileNodeCountMapping = new Dictionary<uint, uint>();
         }
         public void DoDeserializeFromByteArray(byte[] byteArray)
         {

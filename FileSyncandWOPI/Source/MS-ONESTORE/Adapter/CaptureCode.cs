@@ -22,8 +22,29 @@
             this.VerifyHeader(file, fileName, site);
             this.VerifyTransactionLog(file, site);
             this.VerifyHashedChunkList(file.HashedChunkList, site);
+            if (file.Header.fcrFreeChunkList.IsfcrNil() == false && file.Header.fcrFreeChunkList.IsfcrZero() == false)
+            {
+                this.verifyFreeChunkList(file.FreeChunkList, file.Header.fcrFreeChunkList, site);
+            }
             this.VerifyRootFileNodeList(file.RootFileNodeList, fileName, site);
 
+            // If the OneNote file parse successfully, this requirement will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R214
+            site.CaptureRequirement(
+                     214,
+                     @"[In File Structure] All structures are aligned on 1-byte boundaries.");
+
+            // If the OneNote file parse successfully, this requirement will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R217
+            site.CaptureRequirement(
+                     215,
+                     @"[In File Structure] All integers are signed unless otherwise specified.");
+
+            // If the OneNote file parse successfully, this requirement will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R217
+            site.CaptureRequirement(
+                     216,
+                     @"[In File Structure] All fields are little-endian unless otherwise specified.");
         }
         /// <summary>
         /// This method is used to verify the requirements related with Header structure.
@@ -41,6 +62,12 @@
             site.CaptureRequirement(
                      217,
                      @"[In Header] The Header structure MUST be at the beginning of the file.");
+
+            // If the OneNote file parse successfully, this requirement will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R209
+            site.CaptureRequirement(
+                     209,
+                     @"[In File Structure] A revision store file MUST begin with a Header structure (section 2.3.1).");
 
             #region Verify the guidFileType
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R219
@@ -213,6 +240,12 @@
                     typeof(uint),
                     264,
                     @"[In Header] crcName (4 bytes): An unsigned integer that specifies the CRC value (section 2.1.2) of the name of this revision store file. ");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R300
+            site.CaptureRequirementIfIsTrue(
+                    header.rgbReserved.All(b => b == 0),
+                    300,
+                    @"[In Header] rgbReserved (728 bytes): MUST be zero.");
 
             byte[] bytes = System.Text.Encoding.Unicode.GetBytes(fileName + "\0");
 
@@ -664,6 +697,84 @@
                 }
             }
         }
+
+        /// <summary>
+        /// This method is used to verify the requirements related with Free Chunk List.
+        /// </summary>
+        /// <param name="freeChunkList">The insatance of Free Chunk List.</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void verifyFreeChunkList(List<FreeChunkListFragment> freeChunkList, FileChunkReference64x32 firstFreeChunkFargment, ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R303
+            site.CaptureRequirementIfIsTrue(
+                freeChunkList.Count >= 1,
+                303,
+                @"[In Free Chunk List] The free chunk list consists of a sequence of one or more FreeChunkListFragment structures (section 2.3.2.1). ");
+
+            // If the OneNote file parse successfully, this requirement will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R304
+            site.CaptureRequirement(
+                304,
+                @"[In Free Chunk List] The location of the first FreeChunkListFragment structure is specified by a Header.fcrFreeChunkList (section 2.3.1) field.");
+
+
+            // If the OneNote file parse successfully, this requirement will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R304
+            site.CaptureRequirement(
+                304,
+                @"[In Free Chunk List] The location of the first FreeChunkListFragment structure is specified by a Header.fcrFreeChunkList (section 2.3.1) field.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R312
+            site.CaptureRequirementIfAreEqual<uint>(
+                (firstFreeChunkFargment.Cb - 16) / 16,
+                (uint)freeChunkList[0].fcrFreeChunk.Length,
+                312,
+                @"[In FreeChunkListFragment] The number of elements is given by (cb – 16) / 16 where cb is the size, in bytes, of this FreeChunkListFragment structure; cb is specified by the file chunk reference (section 2.2.4) that references this FreeChunkListFragment structure.");
+
+            foreach (FreeChunkListFragment freeChunkListFragment in freeChunkList)
+            {
+                this.VerifyFreeChunkListFragment(freeChunkListFragment, site);
+            }
+        }
+
+        /// <summary>
+        /// This method is used to verify the requirements related with FreeChunkListFragment.
+        /// </summary>
+        /// <param name="instance">The insatance of FreeChunkListFragment.</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyFreeChunkListFragment(FreeChunkListFragment instance, ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R308
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.crc,
+                typeof(uint),
+                308,
+                @"[In FreeChunkListFragment] crc (4 bytes): An unsigned integer that specifies the CRC (section 2.1.2) of a fcrFreeChunk field. ");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R309
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.fcrNextChunk,
+                typeof(FileChunkReference64x32),
+                309,
+                @"[In FreeChunkListFragment] fcrNextChunk (12 bytes): A FileChunkReference64x32 structure (section 2.2.4.4) that specifies a reference to another FreeChunkListFragment structure.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R311
+            site.CaptureRequirementIfIsInstanceOfType(
+                instance.fcrFreeChunk,
+                typeof(FileChunkReference64[]),
+                311,
+                @"[In FreeChunkListFragment] fcrFreeChunk (variable): An array of FileChunkReference64 structures (section 2.2.4.3) where each element in the array specifies a reference to unused parts of the file.");
+
+            if (instance.fcrNextChunk.IsfcrNil())
+            {
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R310
+                site.CaptureRequirement(
+                    310,
+                    @"[In FreeChunkListFragment] If the value of the fcrNextChunk field is ""fcrNil"" (see section 2.2.4), then this is the last FreeChunkListFragment structure.");
+            }
+        }
+
         /// <summary>
         /// This method is used to verify the requirements related with Root File Node List.
         /// </summary>
@@ -1021,7 +1132,7 @@
                                 i = j + 1;
                                 break;
                             }
-                            if(instance.FileNodeSequence[j].FileNodeID == FileNodeIDValues.GlobalIdTableEntryFNDX)
+                            if (instance.FileNodeSequence[j].FileNodeID == FileNodeIDValues.GlobalIdTableEntryFNDX)
                             {
                                 this.VerifyGlobalIdTableEntryFNDX((GlobalIdTableEntryFNDX)instance.FileNodeSequence[j].fnd, site);
                             }
@@ -1053,6 +1164,67 @@
 § 0x05A (RootObjectReference3FND structure section 2.5.16)
 § 0x084 (ObjectInfoDependencyOverridesFND structure, section 2.5.20)");
                 }
+
+                bool isSame = false;
+                bool isNotMoreOneRole = false;
+                FileNode[] rootObjectRefArray = instance.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.RootObjectReference3FND).ToArray();
+                if (rootObjectRefArray.Length > 1)
+                {
+                    for (int i = 0; i < rootObjectRefArray.Length - 1; i++)
+                    {
+                        for (int j = i + 1; j < rootObjectRefArray.Length; j++)
+                        {
+                            RootObjectReference3FND fRootObjectRef = rootObjectRefArray[i].fnd as RootObjectReference3FND;
+                            RootObjectReference3FND sRootObjectRef = rootObjectRefArray[j].fnd as RootObjectReference3FND;
+
+                            if (fRootObjectRef.RootRole == sRootObjectRef.RootRole)
+                            {
+                                isSame = true;
+                                break;
+                            }
+
+                        }
+
+                        if (isSame)
+                        {
+                            break;
+                        }
+                    }
+
+                    for (int i = 0; i < rootObjectRefArray.Length - 1; i++)
+                    {
+                        isNotMoreOneRole = true;
+                        for (int j = i + 1; j < rootObjectRefArray.Length; j++)
+                        {
+                            RootObjectReference3FND fRootObjectRef = rootObjectRefArray[i].fnd as RootObjectReference3FND;
+                            RootObjectReference3FND sRootObjectRef = rootObjectRefArray[j].fnd as RootObjectReference3FND;
+
+                            if (fRootObjectRef.oidRoot.Equals(sRootObjectRef.oidRoot) && fRootObjectRef.RootRole!=sRootObjectRef.RootRole)
+                            {
+                                isNotMoreOneRole = false;
+                                break;
+                            }
+
+                        }
+
+                        if (!isNotMoreOneRole)
+                        {
+                            break;
+                        }
+                    }
+
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R89
+                    site.CaptureRequirementIfIsFalse(
+                        isSame,
+                        89,
+                        @"[In Root Object] Different root objects in a revision MUST specify different values for RootRole ([MS-ONE] section 2.1.8).");
+
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R90
+                    site.CaptureRequirementIfIsTrue(
+                        isNotMoreOneRole,
+                        90,
+                        @"[In Root Object] A root object MUST NOT specify more than one RootRole.");
+                }
             }
             else if (extension == ".onetoc2")
             {
@@ -1072,10 +1244,10 @@
                         @"[In Revision Manifest] [File format] .onetoc2: Zero or more FileNode structures with FileNodeID field values equal to any of the following:
 § 0x059 (RootObjectReference2FNDX structure, section 2.5.15)
 § 0x084 (ObjectInfoDependencyOverridesFND structure)");
-                
+
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R118
                 site.CaptureRequirementIfIsTrue(
-                        instance.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.DataSignatureGroupDefinitionFND || 
+                        instance.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.DataSignatureGroupDefinitionFND ||
                         f.FileNodeID == FileNodeIDValues.ObjectDeclarationWithRefCountFNDX ||
                         f.FileNodeID == FileNodeIDValues.ObjectDeclarationWithRefCount2FNDX ||
                         f.FileNodeID == FileNodeIDValues.ObjectRevisionWithRefCountFNDX ||
@@ -1091,10 +1263,10 @@
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R120
                 site.CaptureRequirementIfAreEqual<uint>(
                         0x01C,
-                        (uint)instance.FileNodeSequence[instance.FileNodeSequence.Count-1].FileNodeID,
+                        (uint)instance.FileNodeSequence[instance.FileNodeSequence.Count - 1].FileNodeID,
                         120,
                         @"[In Revision Manifest] [File format] .onetoc2: The sequence MUST end with a FileNode structure with a FileNodeID field value equal to 0x01C (RevisionManifestEndFND structure, section 2.4.3).");
-                
+
                 int globalIdTableInde = 0;
                 for (int i = 0; i < instance.FileNodeSequence.Count; i++)
                 {
@@ -1112,7 +1284,7 @@
                                 i = j + 1;
                                 break;
                             }
-                            if(instance.FileNodeSequence[j].FileNodeID == FileNodeIDValues.GlobalIdTableEntryFNDX)
+                            if (instance.FileNodeSequence[j].FileNodeID == FileNodeIDValues.GlobalIdTableEntryFNDX)
                             {
                                 this.VerifyGlobalIdTableEntryFNDX((GlobalIdTableEntryFNDX)instance.FileNodeSequence[j].fnd, site);
                             }
@@ -1136,9 +1308,9 @@
 
                         // Verify MS-ONESTORE requirement: MS-ONESTORE_R116
                         site.CaptureRequirementIfIsTrue(
-                                globalIdTable.Where(f=>f.FileNodeID== FileNodeIDValues.GlobalIdTableEntryFNDX ||
+                                globalIdTable.Where(f => f.FileNodeID == FileNodeIDValues.GlobalIdTableEntryFNDX ||
                                 f.FileNodeID == FileNodeIDValues.GlobalIdTableEntry2FNDX ||
-                                f.FileNodeID == FileNodeIDValues.GlobalIdTableEntry3FNDX).ToArray().Length>=0,
+                                f.FileNodeID == FileNodeIDValues.GlobalIdTableEntry3FNDX).ToArray().Length >= 0,
                                 116,
                                 @"[In Revision Manifest] [File format] .onetoc2: [Zero or one sequence of global identification table FileNode structures:] § Zero or more FileNode structures with FileNodeID field values equal to one of:
 § 0x024 (GlobalIdTableEntryFNDX structure, section 2.5.10)
@@ -1148,17 +1320,17 @@
                         // Verify MS-ONESTORE requirement: MS-ONESTORE_R117
                         site.CaptureRequirementIfAreEqual<uint>(
                                 0x028,
-                                (uint)globalIdTable[globalIdTable.Count-1].FileNodeID,
+                                (uint)globalIdTable[globalIdTable.Count - 1].FileNodeID,
                                 117,
                                 @"[In Revision Manifest] [File format] .onetoc2: [Zero or one sequence of global identification table FileNode structures:]§ A FileNode structure with a FileNodeID field value equal to 0x028 (GlobalIdTableEndFNDX structure, section 2.4.3)");
                     }
-                    if(node.FileNodeID == FileNodeIDValues.DataSignatureGroupDefinitionFND ||
+                    if (node.FileNodeID == FileNodeIDValues.DataSignatureGroupDefinitionFND ||
                         node.FileNodeID == FileNodeIDValues.ObjectDeclarationWithRefCountFNDX ||
                         node.FileNodeID == FileNodeIDValues.ObjectDeclarationWithRefCount2FNDX ||
                         node.FileNodeID == FileNodeIDValues.ObjectRevisionWithRefCountFNDX ||
                         node.FileNodeID == FileNodeIDValues.ObjectRevisionWithRefCount2FNDX)
                     {
-                        if(node.FileNodeID == FileNodeIDValues.DataSignatureGroupDefinitionFND)
+                        if (node.FileNodeID == FileNodeIDValues.DataSignatureGroupDefinitionFND)
                         {
                             this.VerifyDataSignatureGroupDefinitionFND((DataSignatureGroupDefinitionFND)node.fnd, site);
                         }
@@ -1181,7 +1353,7 @@
 
                         // Verify MS-ONESTORE requirement: MS-ONESTORE_R119
                         site.CaptureRequirementIfIsTrue(
-                                i> globalIdTableInde,
+                                i > globalIdTableInde,
                                 119,
                                 @"[In Revision Manifest] [File format] .onetoc2: that MUST follow a global identification table sequence.");
                     }
@@ -1316,11 +1488,38 @@
                     32,
                     @"[In Global Identification Table] [File format] .one: A FileNode structure (section 2.4.3) with a FileNodeID field value equal to 0x022 (GlobalIdTableStart2FND structure, section 2.4.3).");
 
+            FileNode[] globalIdTableEntryFNDXArray = globalIdentificationTable.Where(f => f.FileNodeID == FileNodeIDValues.GlobalIdTableEntryFNDX).ToArray();
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R33
             site.CaptureRequirementIfIsTrue(
-                    globalIdentificationTable.Where(f=>f.FileNodeID==FileNodeIDValues.GlobalIdTableEntryFNDX).ToArray().Length>=0,
+                    globalIdTableEntryFNDXArray.Length>=0,
                     33,
                     @"[In Global Identification Table] [File format] .one: Zero or more FileNode structures with FileNodeID field value equal to 0x024 (GlobalIdTableEntryFNDX structure, section 2.5.10).");
+
+            bool isSame = false;
+            for (int i = 0; i < globalIdTableEntryFNDXArray.Length - 1; i++)
+            {
+                for (int j = i + 1; j < globalIdTableEntryFNDXArray.Length; j++)
+                {
+                    GlobalIdTableEntryFNDX fGlobalIdTableEntry = globalIdTableEntryFNDXArray[i].fnd as GlobalIdTableEntryFNDX;
+                    GlobalIdTableEntryFNDX sGlobalIdTableEntry = globalIdTableEntryFNDXArray[i].fnd as GlobalIdTableEntryFNDX;
+
+                    if (fGlobalIdTableEntry.guid == sGlobalIdTableEntry.guid)
+                    {
+                        isSame = true;
+                        break;
+                    }
+                }
+                if (isSame == true)
+                {
+                    break;
+                }
+            }
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R55101
+            site.CaptureRequirementIfIsFalse(
+                isSame,
+                55101,
+                @"[In GlobalIdTableEntryFNDX] The guid is different  to the other GlobalIDTableEntryFNDX.guid fields in this global identification table (section 2.1.3).");
 
             FileNode lastNode = globalIdentificationTable[globalIdentificationTable.Count - 1];
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R34
@@ -1351,11 +1550,38 @@
                     541,
                     @"[In GlobalIdTableStartFNDX] The value of the FileNode.FileNodeID field MUST be 0x021.");
 
+            FileNode[] globalIdTableEntryFNDXArray = globalIdentificationTable.Where(f => f.FileNodeID == FileNodeIDValues.GlobalIdTableEntryFNDX).ToArray();
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R36
             site.CaptureRequirementIfIsTrue(
-                    globalIdentificationTable.Where(f=>f.FileNodeID==FileNodeIDValues.GlobalIdTableEntryFNDX).ToArray().Length>=0,
+                    globalIdTableEntryFNDXArray.Length >= 0,
                     36,
                     @"[In Global Identification Table] [File format] .onetoc2: Zero or more FileNode structures with FileNodeID field values equal to 0x024 (GlobalIdTableEntryFNDX structure, section 2.5.10).");
+
+            bool isSame = false;
+            for (int i = 0; i < globalIdTableEntryFNDXArray.Length - 1; i++)
+            {
+                for (int j = i + 1; j < globalIdTableEntryFNDXArray.Length; j++)
+                {
+                    GlobalIdTableEntryFNDX fGlobalIdTableEntry = globalIdTableEntryFNDXArray[i].fnd as GlobalIdTableEntryFNDX;
+                    GlobalIdTableEntryFNDX sGlobalIdTableEntry = globalIdTableEntryFNDXArray[i].fnd as GlobalIdTableEntryFNDX;
+
+                    if(fGlobalIdTableEntry.guid== sGlobalIdTableEntry.guid)
+                    {
+                        isSame = true;
+                        break;
+                    }
+                }
+                if(isSame==true)
+                {
+                    break;
+                }
+            }
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R55101
+            site.CaptureRequirementIfIsFalse(
+                isSame,
+                55101,
+                @"[In GlobalIdTableEntryFNDX] The guid is different  to the other GlobalIDTableEntryFNDX.guid fields in this global identification table (section 2.1.3).");
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R37
             site.CaptureRequirementIfIsTrue(
@@ -1493,6 +1719,12 @@
             {
                 this.VerifyFileNode(fnode, extension, site);
             }
+
+            // If above RS have been verified, then R425 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R425
+            site.CaptureRequirement(
+                425,
+                @"[In FileNode] [C - BaseType] [If the value is 0] The data structure specified by fnd MUST NOT contain a FileNodeChunkReference structure.");
         }
         /// <summary>
         /// This method is used to verify the requirements related with FileNodeListFragment structure.
@@ -2314,6 +2546,12 @@
 
             this.VerifyExtendedGUID(fnd.rid, site);
 
+            // If above capture code have passed, then R92 will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R92
+            site.CaptureRequirement(
+                92,
+                @"[In Revision] A revision is identified by an ExtendedGUID structure (section 2.2.1).");
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R526
             site.CaptureRequirementIfIsInstanceOfType(
                     fnd.ridDependent,
@@ -2343,6 +2581,15 @@
                     531,
                     @"[In RevisionManifestStart6FND] [odcsDefault] MUST be one of the values described in the following table[0x0000, 0x0002].");
 
+            if (OneNoteRevisionStoreFile.IsEncryption)
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R534
+                site.CaptureRequirementIfAreEqual<ushort>(
+                        0x0002,
+                        fnd.odcsDefault,
+                        534,
+                        @"[In RevisionManifestStart6FND] [odcsDefault] Value 0x0002: Property sets within this revision manifest MUST be ignored and MUST NOT be altered.");
+            }
         }
         /// <summary>
         /// This method is used to verify the requirements related with RevisionManifestStart7FND structure.
@@ -2874,7 +3121,26 @@
         /// <param name="site">Instance of ITestSite</param>
         private void VerifyObjectDataEncryptionKeyV2FNDX(ObjectDataEncryptionKeyV2FNDX fnd,ITestSite site)
         {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R615
+            site.CaptureRequirementIfAreEqual<ulong>(
+                   0xFB6BA385DAD1A067,
+                   fnd.Header,
+                   615,
+                   @"[In ObjectDataEncryptionKeyV2FNDX] Filed Header: A 64-bit unsigned integer that MUST be 0xFB6BA385DAD1A067.");
 
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R616
+            site.CaptureRequirementIfIsInstanceOfType(
+                fnd.EncryptionData,
+                typeof(byte[]),
+                616,
+                @"[In ObjectDataEncryptionKeyV2FNDX] Filed Encryption Data: A variable sized array of bytes. MUST be ignored.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R617
+            site.CaptureRequirementIfAreEqual<ulong>(
+                   0x2649294F8E198B3C,
+                   fnd.Footer,
+                   617,
+                   @"[In ObjectDataEncryptionKeyV2FNDX] Filed Footer: A 64-bit unsigned integer that MUST be 0x2649294F8E198B3C.");
         }
         /// <summary>
         /// This method is used to verify the requirements related with ObjectInfoDependencyOverridesFND structure.
@@ -2948,7 +3214,6 @@
                         @"[In File Chunk Reference] Special values:
 fcrNil: Specifies a file chunk reference where all bits of the stp field are set to 1, and all bits of the cb field are set to zero.");
             }
-
         }
         /// <summary>
         /// This method is used to verify the requirements related with DataSignatureGroupDefinitionFND structure.
