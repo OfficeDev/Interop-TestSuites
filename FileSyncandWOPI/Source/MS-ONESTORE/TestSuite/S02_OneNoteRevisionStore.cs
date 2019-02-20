@@ -51,26 +51,21 @@
                     @"[In FileNodeListHeader] The pair of FileNodeListID and nFragmentSequence field in FileNodeListFragment structures in the file, is different.");
             }
 
-            FileChunkReference64x32 nextFragmentRef = file.RootFileNodeList.FileNodeListFragments[file.RootFileNodeList.FileNodeListFragments.Count - 1].nextFragment;
-
-            // Verify MS-ONESTORE requirement: MS-ONESTORE_R379
-            Site.CaptureRequirementIfIsTrue(
-                nextFragmentRef.IsfcrNil(),
-                379,
-                @"[In FileNodeListFragment] If this is the last fragment, the value of the nextFragment field MUST be ""fcrNil"" (see section 2.2.4). ");
-
             foreach (ObjectSpaceManifestList objectSpaceManifestList in file.RootFileNodeList.ObjectSpaceManifestList)
             {
                 foreach (RevisionManifestList revisionManifestList in objectSpaceManifestList.RevisionManifestList)
                 {
-                    for (int i = 0; i <= revisionManifestList.FileNodeListFragments.Count - 2; i++)
+                    if (revisionManifestList.FileNodeListFragments.Count > 1)
                     {
-                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R366
-                        Site.CaptureRequirementIfAreEqual<uint>(
-                            revisionManifestList.FileNodeListFragments[i].Header.FileNodeListID,
-                            revisionManifestList.FileNodeListFragments[i + 1].Header.FileNodeListID,
-                            366,
-                            @"[In FileNodeListFragment] All fragments in the same file node list MUST have the same FileNodeListFragment.header.FileNodeListID field.");
+                        for (int i = 0; i <= revisionManifestList.FileNodeListFragments.Count - 2; i++)
+                        {
+                            // Verify MS-ONESTORE requirement: MS-ONESTORE_R366
+                            Site.CaptureRequirementIfAreEqual<uint>(
+                                revisionManifestList.FileNodeListFragments[i].Header.FileNodeListID,
+                                revisionManifestList.FileNodeListFragments[i + 1].Header.FileNodeListID,
+                                366,
+                                @"[In FileNodeListFragment] All fragments in the same file node list MUST have the same FileNodeListFragment.header.FileNodeListID field.");
+                        }
                     }
 
                     foreach (FileNodeListFragment fileNodeListFragment in revisionManifestList.FileNodeListFragments)
@@ -79,20 +74,30 @@
                         if ((uint)fileNodeListFragment.rgFileNodes[fileNodeListFragment.rgFileNodes.Count - 1].FileNodeID == 0xFF)
                         {
                             // Verify MS-ONESTORE requirement: MS-ONESTORE_R373
-                            Site.CaptureRequirementIfIsFalse(
-                                nextFragment.IsfcrNil(),
+                            Site.CaptureRequirementIfIsInstanceOfType(
+                                nextFragment,
+                                typeof(FileChunkReference64x32),
                                 373,
                                 @"[In FileNodeListFragment] [rgFileNodes If a ChunkTerminatorFND structure is present, the value of the nextFragment field MUST be a valid FileChunkReference64x32 structure (section 2.2.4.4) to the next FileNodeListFragment structure.");
                         }
+
+                        if (nextFragment == revisionManifestList.FileNodeListFragments[revisionManifestList.FileNodeListFragments.Count - 1].nextFragment)
+                        {
+                            // Verify MS-ONESTORE requirement: MS-ONESTORE_R379
+                            Site.CaptureRequirementIfIsTrue(
+                                nextFragment.IsfcrNil(),
+                                379,
+                                @"[In FileNodeListFragment] If this is the last fragment, the value of the nextFragment field MUST be ""fcrNil"" (see section 2.2.4). ");
+                        }
+                        else
+                        {
+                                // Verify MS-ONESTORE requirement: MS-ONESTORE_R380
+                                Site.CaptureRequirementIfIsFalse(
+                                    nextFragment.IsfcrZero() || nextFragment.IsfcrNil(),
+                                    380,
+                                    @"[In FileNodeListFragment] Otherwise [If this is not the last fragment] the value of the nextFragment.stp field MUST specify the location of a valid FileNodeListFragment structure, and the value of the nextFragment.cb field MUST be equal to the size of the referenced fragment including the FileNodeListFragment.header field and the FileNodeListFragment.footer field.");
+                        }
                     }
-
-                    //Verify MS-ONESTORE requirement: MS-ONESTORE_R372
-                    Site.CaptureRequirementIfAreEqual<uint>(
-                    (uint)revisionManifestList.FileNodeListFragments[0].rgFileNodes[revisionManifestList.FileNodeListFragments[0].rgFileNodes.Count - 1].FileNodeID,
-                    0x0FF,
-                    372,
-                    @"[In FileNodeListFragment]  [rgFileNodes] [The stream is terminated when any of the following conditions is met:] A FileNode structure with a FileNodeID field value equal to 0x0FF (ChunkTerminatorFND structure, section 2.4.3) is read.");
-
                 }
             }
 
@@ -101,10 +106,12 @@
             for (int i = 0; i < file.RootFileNodeList.ObjectSpaceManifestList.Count; i++)
             {
                 ObjectSpaceManifestList objectSpace = file.RootFileNodeList.ObjectSpaceManifestList[i];
+
                 for (int j = 0; j < objectSpace.RevisionManifestList[0].ObjectGroupList.Count; j++)
                 {
                     ObjectGroupList objectGroupList = objectSpace.RevisionManifestList[0].ObjectGroupList[j];
                     FileNode[] fileNodes = objectGroupList.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.ReadOnlyObjectDeclaration2RefCountFND).ToArray();
+
                     foreach (FileNode node in fileNodes)
                     {
                         ReadOnlyObjectDeclaration2RefCountFND fnd = node.fnd as ReadOnlyObjectDeclaration2RefCountFND;
@@ -116,13 +123,14 @@
                                 @"[In Object Space Object] If the value of the JCID.IsReadOnly field is ""true"" then the value of the FileNode.FileNodeID field MUST be 0x0C4 (ReadOnlyObjectDeclaration2RefCountFND structure, section 2.5.29) [or 0x0C5 (ReadOnlyObjectDeclaration2LargeRefCountFND structure, section 2.5.30).]");
                     }
                     fileNodes = objectGroupList.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.ObjectDeclarationFileData3RefCountFND).ToArray();
-                    foreach(FileNode node in fileNodes)
+
+                    foreach (FileNode node in fileNodes)
                     {
                         ObjectDeclarationFileData3RefCountFND fnd = node.fnd as ObjectDeclarationFileData3RefCountFND;
 
                         // Verify MS-ONESTORE requirement: MS-ONESTORE_R71
                         Site.CaptureRequirementIfIsTrue(
-                                (uint)node.FileNodeID== 0x072 && fnd.jcid.IsFileData==1,
+                                (uint)node.FileNodeID == 0x072 && fnd.jcid.IsFileData == 1,
                                 71,
                                 @"[In Object Space Object]If the value of the JCID.IsFileData field is ""true"" then the value of the FileNode.FileNodeID field MUST be 0x072 (ObjectDeclarationFileData3RefCountFND structure, section 2.5.27) [or 0x073 (ObjectDeclarationFileData3LargeRefCountFND structure, section 2.5.28). ]");
                     }
@@ -139,6 +147,39 @@
             string fileName = Common.GetConfigurationPropertyValue("OnetocFileLocal", Site);
 
             OneNoteRevisionStoreFile file = this.Adapter.LoadOneNoteFile(fileName);
+
+            foreach (ObjectSpaceManifestList objectSpaceManifestList in file.RootFileNodeList.ObjectSpaceManifestList)
+            {
+                foreach (RevisionManifestList revisionManifestList in objectSpaceManifestList.RevisionManifestList)
+                {
+                    int j = 0;
+                    string[] count = new string[1000];
+
+                    foreach (FileNodeListFragment fileNodeListFragment in revisionManifestList.FileNodeListFragments)
+                    {
+                        for (int i = 0; i <= fileNodeListFragment.rgFileNodes.Count - 1; i++)
+                        {
+
+                            if ((uint)fileNodeListFragment.rgFileNodes[i].FileNodeID == 0x01B)
+                            {
+                                FileNode rgFileNode = fileNodeListFragment.rgFileNodes[i];
+                                RevisionManifestStart4FND fnd = fileNodeListFragment.rgFileNodes[i].fnd as RevisionManifestStart4FND;
+
+                                count[j] = fnd.rid.Guid.ToString();
+                                j++;
+                            }
+                        }
+                    }
+                    for (int n = 0; n < j; n++)
+                    {
+                        Site.CaptureRequirementIfAreNotEqual<string>(
+                            count[n],
+                            count[n + 1],
+                            51401,
+                            @"[In RevisionManifestStart4FND] The rid of two RevisionManifestStart4FND in revision manifest list is different");
+                    }
+                }
+            }
         }
 
         /// <summary>
