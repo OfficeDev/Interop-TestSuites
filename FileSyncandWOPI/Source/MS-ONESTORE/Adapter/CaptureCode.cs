@@ -1673,11 +1673,21 @@
 
             if (fileNodeListFragment.padding.Length < 4)
             {
+                // If the padding field is less than 4 bytes and the OneNote file parse successfully, then R371 will be verified.
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R371
                 site.CaptureRequirement(
                         371,
                         @"[In FileNodeListFragment] [rgFileNodes] [The stream is terminated when any of the following conditions is met:] The number of bytes between the end of the last read FileNode and the nextFragment field is less than 4 bytes.");
             }
+
+            if ((uint)fileNodeListFragment.rgFileNodes[fileNodeListFragment.rgFileNodes.Count-1].FileNodeID == 0xFF)
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R372
+                site.CaptureRequirement(
+                        372,
+                        @"[In FileNodeListFragment]  [rgFileNodes] [The stream is terminated when any of the following conditions is met:] A FileNode structure with a FileNodeID field value equal to 0x0FF (ChunkTerminatorFND structure, section 2.4.3) is read.");
+            }
+
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R376
             site.CaptureRequirementIfIsInstanceOfType(
                     fileNodeListFragment.padding,
@@ -1788,6 +1798,20 @@
             #region verify StpFormat and CbFormat
             if (fileNode.BaseType == 1 || fileNode.BaseType == 2)
             {
+			    // Verify MS-ONESTORE requirement: MS-ONESTORE_R403
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    fileNode.StpFormat,
+                    typeof(uint),
+                    403,
+                    @"[In FileNode] A - StpFormat (2 bits): An unsigned integer that specifies the size and format of the FileNodeChunkReference.stp field specified by the fnd field if this FileNode structure has a value of the BaseType field equal to 1 or 2. ");
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R413
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    fileNode.CbFormat,
+                    typeof(uint),
+                    413,
+                    @"[In FileNode] B - CbFormat (2 bits): An unsigned integer that specifies the size and format of the FileNodeChunkReference.cb field specified by the fnd field if this FileNode structure has a BaseType field value equal to 1 or 2. ");
+
                 if (fileNode.StpFormat == 0)
                 {
                     // If the OneNote file parse successfully and the StpFormat is 0, this requirement will be verified.
@@ -1893,6 +1917,21 @@
                         fileNode.BaseType == 2 && (extension == ".one" || extension == ".onetoc2"),
                         439,
                         @"[In FileNode] FileNodeID value 0x008 means basetype is 2, Fnd structure is ObjectSpaceManifestListReferenceFND (section 2.5.2), allowed file format is one and onetoc2");
+
+                ObjectSpaceManifestListReferenceFND fnd = fileNode.fnd as ObjectSpaceManifestListReferenceFND;
+                
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R431
+                site.CaptureRequirementIfIsInstanceOfType(
+                        fnd.refField,
+                        typeof(FileNodeChunkReference),
+                        431,
+                        @"[In FileNode] [C - BaseType] [If the value is 2] The first field in the data structure specified by the fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of a file node list. ");
+                
+                //If MS-ONESTORE_R431 is verified successfully, MS-ONESTORE_R432 can be verified directly.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R432
+                site.CaptureRequirement(
+                        432,
+                        @"[In FileNode] [C - BaseType] [If the value is 2] The type of the FileNodeChunkReference is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ObjectSpaceManifestListStartFND)
             {
@@ -1913,6 +1952,21 @@
                         fileNode.BaseType == 2 && (extension == ".one" || extension == ".onetoc2"),
                         441,
                         @"[In FileNode] FileNodeID value 0x010 means basetype is 2, Fnd structure is RevisionManifestListReferenceFND (section 2.5.4), allowed file format is one and onetoc2");
+
+                RevisionManifestListReferenceFND fnd = fileNode.fnd as RevisionManifestListReferenceFND;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R431
+                site.CaptureRequirementIfIsInstanceOfType(
+                        fnd.refField,
+                        typeof(FileNodeChunkReference),
+                        431,
+                        @"[In FileNode] [C - BaseType] [If the value is 2] The first field in the data structure specified by the fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of a file node list. ");
+
+                //If MS-ONESTORE_R431 is verified successfully, MS-ONESTORE_R432 can be verified directly.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R432
+                site.CaptureRequirement(
+                        432,
+                        @"[In FileNode] [C - BaseType] [If the value is 2] The type of the FileNodeChunkReference is specified by the StpFormat and CbFormat fields.");
             }
 
             if (fileNode.FileNodeID == FileNodeIDValues.RevisionManifestListStartFND)
@@ -2076,6 +2130,21 @@
                         (uint)fileNode.FileNodeID,
                         639,
                         @"[In ObjectDeclarationWithRefCountFNDX] The value of the FileNode.FileNodeID field MUST be 0x02D.");
+
+                ObjectDeclarationWithRefCountFNDX fnd = fileNode.fnd as ObjectDeclarationWithRefCountFNDX;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.ObjectRef,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ObjectDeclarationWithRefCount2FNDX)
             {
@@ -2093,6 +2162,21 @@
                         (uint)fileNode.FileNodeID,
                         645,
                         @"[In ObjectDeclarationWithRefCount2FNDX] The value of the FileNode.FileNodeID field MUST be 0x02E.");
+
+                ObjectDeclarationWithRefCount2FNDX fnd = fileNode.fnd as ObjectDeclarationWithRefCount2FNDX;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.ObjectRef,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ObjectRevisionWithRefCountFNDX)
             {
@@ -2110,6 +2194,21 @@
                         (uint)fileNode.FileNodeID,
                         572,
                         @"[In ObjectRevisionWithRefCountFNDX]  The value of the FileNode.FileNodeID field MUST be 0x041. ");
+
+                ObjectRevisionWithRefCountFNDX fnd = fileNode.fnd as ObjectRevisionWithRefCountFNDX;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.Ref,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ObjectRevisionWithRefCount2FNDX)
             {
@@ -2127,6 +2226,21 @@
                         (uint)fileNode.FileNodeID,
                         581,
                         @"[In ObjectRevisionWithRefCount2FNDX] The value of the FileNode.FileNodeID field MUST be 0x042.");
+
+                ObjectRevisionWithRefCount2FNDX fnd = fileNode.fnd as ObjectRevisionWithRefCount2FNDX;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.Ref,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.RootObjectReference2FNDX)
             {
@@ -2218,6 +2332,21 @@
                         fileNode.BaseType == 1 && (extension == ".one"),
                         469,
                         @"[In FileNode] FileNodeID value 0x07C means basetype is 1, Fnd structure is ObjectDataEncryptionKeyV2FNDX (section 2.5.19), allowed file format is one.");
+
+                ObjectDataEncryptionKeyV2FNDX fnd = fileNode.fnd as ObjectDataEncryptionKeyV2FNDX;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.Ref,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ObjectInfoDependencyOverridesFND)
             {
@@ -2228,6 +2357,21 @@
                         fileNode.BaseType == 1 && (extension == ".one" || extension == ".onetoc2"),
                         470,
                         @"[In FileNode] FileNodeID value 0x084 means basetype is 1, Fnd structure is ObjectInfoDependencyOverridesFND (section 2.5.20), allowed file format is one and onetoc2.");
+
+                ObjectInfoDependencyOverridesFND fnd = fileNode.fnd as ObjectInfoDependencyOverridesFND;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.Ref,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.DataSignatureGroupDefinitionFND)
             {
@@ -2255,6 +2399,22 @@
                         (uint)fileNode.FileNodeID,
                         629,
                         @"[In FileDataStoreListReferenceFND] The value of the FileNode.FileNodeID field MUST be 0x090.");
+
+                FileDataStoreListReferenceFND fnd = fileNode.fnd as FileDataStoreListReferenceFND;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R431
+                site.CaptureRequirementIfIsInstanceOfType(
+                        fnd.Ref,
+                        typeof(FileNodeChunkReference),
+                        431,
+                        @"[In FileNode] [C - BaseType] [If the value is 2] The first field in the data structure specified by the fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of a file node list. ");
+
+                //If MS-ONESTORE_R431 is verified successfully, MS-ONESTORE_R432 can be verified directly.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R432
+                site.CaptureRequirement(
+                        432,
+                        @"[In FileNode] [C - BaseType] [If the value is 2] The type of the FileNodeChunkReference is specified by the StpFormat and CbFormat fields.");
+
             }
             if (fileNode.FileNodeID == FileNodeIDValues.FileDataStoreObjectReferenceFND)
             {
@@ -2265,6 +2425,21 @@
                         fileNode.BaseType == 1 && (extension == ".one"),
                         473,
                         @"[In FileNode] FileNodeID value 0x094 means basetype is 1, Fnd structure is FileDataStoreObjectReferenceFND (section 2.5.22), allowed file format is one.");
+
+                FileDataStoreObjectReferenceFND fnd = fileNode.fnd as FileDataStoreObjectReferenceFND;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.Ref,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ObjectDeclaration2RefCountFND)
             {
@@ -2282,6 +2457,21 @@
                         (uint)fileNode.FileNodeID,
                         651,
                         @"[In ObjectDeclaration2RefCountFND] The value of the FileNode.FileNodeID field MUST be 0x0A4.");
+
+                ObjectDeclaration2RefCountFND fnd = fileNode.fnd as ObjectDeclaration2RefCountFND;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.BlobRef,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ObjectDeclaration2LargeRefCountFND)
             {
@@ -2299,6 +2489,21 @@
                         (uint)fileNode.FileNodeID,
                         657,
                         @"[In ObjectDeclaration2LargeRefCountFND] The value of the FileNode.FileNodeID field MUST be 0x0A5.");
+
+                ObjectDeclaration2LargeRefCountFND fnd = fileNode.fnd as ObjectDeclaration2LargeRefCountFND;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.BlobRef,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ObjectGroupListReferenceFND)
             {
@@ -2309,6 +2514,21 @@
                         fileNode.BaseType == 2 && (extension == ".one"),
                         476,
                         @"[In FileNode] FileNodeID value 0x0B0 means basetype is 2, Fnd structure is ObjectGroupListReferenceFND (section 2.5.31), allowed file format is one.");
+
+                ObjectGroupListReferenceFND fnd = fileNode.fnd as ObjectGroupListReferenceFND;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R431
+                site.CaptureRequirementIfIsInstanceOfType(
+                        fnd.Ref,
+                        typeof(FileNodeChunkReference),
+                        431,
+                        @"[In FileNode] [C - BaseType] [If the value is 2] The first field in the data structure specified by the fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of a file node list. ");
+
+                //If MS-ONESTORE_R431 is verified successfully, MS-ONESTORE_R432 can be verified directly.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R432
+                site.CaptureRequirement(
+                        432,
+                        @"[In FileNode] [C - BaseType] [If the value is 2] The type of the FileNodeChunkReference is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ObjectGroupStartFND)
             {
@@ -2343,6 +2563,21 @@
                         fileNode.BaseType == 1 && (extension == ".one"),
                         481,
                         @"[In FileNode] FileNodeID value 0x0C2 means basetype is 1, Fnd structure is HashedChunkDescriptor2FND (section 2.3.4.1), allowed file format is one.");
+
+                HashedChunkDescriptor2FND fnd = fileNode.fnd as HashedChunkDescriptor2FND;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.BlobRef,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ReadOnlyObjectDeclaration2RefCountFND)
             {
@@ -2353,6 +2588,21 @@
                         fileNode.BaseType == 1 && (extension == ".one"),
                         482,
                         @"[In FileNode] FileNodeID value 0x0C4 means basetype is 1, Fnd structure is ReadOnlyObjectDeclaration2RefCountFND (section 2.5.29), allowed file format is one.");
+
+                ReadOnlyObjectDeclaration2RefCountFND fnd = fileNode.fnd as ReadOnlyObjectDeclaration2RefCountFND;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.Base.BlobRef,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ReadOnlyObjectDeclaration2LargeRefCountFND)
             {
@@ -2363,6 +2613,21 @@
                         fileNode.BaseType == 1 && (extension == ".one"),
                         483,
                         @"[In FileNode] FileNodeID value 0x0C5 means basetype is 1, Fnd structure is ReadOnlyObjectDeclaration2LargeRefCountFND (section 2.5.30), allowed file format is one.");
+
+                ReadOnlyObjectDeclaration2LargeRefCountFND fnd = fileNode.fnd as ReadOnlyObjectDeclaration2LargeRefCountFND;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R428
+                site.CaptureRequirementIfIsInstanceOfType(
+                    fnd.Base.BlobRef,
+                    typeof(FileNodeChunkReference),
+                        428,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The first field in the data structure specified by an fnd field MUST be a FileNodeChunkReference structure that specifies the location and size of the referenced data. ");
+
+                // If the OneNote file parse successfully, this requirement will be verified.
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R429
+                site.CaptureRequirement(
+                        429,
+                        @"[In FileNode] [C - BaseType] [If the value is 1] The type of the FileNodeChunkReference structure is specified by the StpFormat and CbFormat fields.");
             }
             if (fileNode.FileNodeID == FileNodeIDValues.ChunkTerminatorFND)
             {
