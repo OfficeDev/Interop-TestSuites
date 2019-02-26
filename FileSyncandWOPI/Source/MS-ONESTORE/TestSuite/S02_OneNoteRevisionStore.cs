@@ -3,6 +3,7 @@
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System.Linq;
+    using System;
 
     /// <summary>
     /// This scenario is designed to test the requirements related with .one file.
@@ -200,6 +201,19 @@
                 1421,
                 @"[In Header] [guildFile]: The guidFile in two files is different.");
 
+
+            string fileName3 = Common.GetConfigurationPropertyValue("NoSectionFile", Site);
+
+            OneNoteRevisionStoreFile file3 = this.Adapter.LoadOneNoteFile(fileName3);
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R263
+            Site.CaptureRequirementIfAreEqual<Guid>(
+                    System.Guid.Parse("{00000000-0000-0000-0000-000000000000}"),
+                    file3.Header.guidAncestor,
+                    263,
+                    @"[In Header] If the GUID is ""{00000000-0000-0000-0000-000000000000}"", this field does not reference a table of contents file.");
+
+
         }
 
         /// <summary>
@@ -233,7 +247,40 @@
                 }
             }
         }
+        /// <summary>
+        /// The test case is validate that the requirements related with the .one file that have many large references.
+        /// </summary>
+        [TestCategory("MSONESTORE"), TestMethod]
+        public void S02_TC05_LoadOneNoteWithLargeReferences()
+        {
+            string fileName = Common.GetConfigurationPropertyValue("OneWithLarge", Site);
 
+            OneNoteRevisionStoreFile file = this.Adapter.LoadOneNoteFile(fileName);
+
+            int objectSpaceCount = file.RootFileNodeList.ObjectSpaceManifestList.Count;
+
+            for (int i = 0; i < file.RootFileNodeList.ObjectSpaceManifestList.Count; i++)
+            {
+                ObjectSpaceManifestList objectSpace = file.RootFileNodeList.ObjectSpaceManifestList[i];
+
+                for (int j = 0; j < objectSpace.RevisionManifestList[0].ObjectGroupList.Count; j++)
+                {
+                    ObjectGroupList objectGroupList = objectSpace.RevisionManifestList[0].ObjectGroupList[j];
+                    FileNode[] fileNodes = objectGroupList.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.ObjectDeclarationFileData3LargeRefCountFND).ToArray();
+
+                    foreach (FileNode node in fileNodes)
+                    {
+                        ObjectDeclarationFileData3LargeRefCountFND fnd = node.fnd as ObjectDeclarationFileData3LargeRefCountFND;
+
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R72
+                        Site.CaptureRequirementIfIsTrue(
+                                (uint)node.FileNodeID == 0x073 && fnd.jcid.IsFileData == 1,
+                                72,
+                                @"[In Object Space Object]If the value of the JCID.IsFileData field is ""true"" then the value of the FileNode.FileNodeID field MUST be [0x072 (ObjectDeclarationFileData3RefCountFND structure, section 2.5.27) or] 0x073 (ObjectDeclarationFileData3LargeRefCountFND structure, section 2.5.28).");
+                    }
+                }
+            }
+        }
         #endregion
     }
 }

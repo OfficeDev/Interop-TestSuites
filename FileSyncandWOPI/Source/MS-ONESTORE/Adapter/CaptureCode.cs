@@ -347,6 +347,15 @@
                         275,
                         @"[In Header] If the value of the FileChunkReference64x32 structure is ""fcrZero"" or ""fcrNil"", then the free chunk list (section 2.3.2) does not exist.");
             }
+            if (header.fcrFreeChunkList.IsfcrNil() || header.fcrFreeChunkList.IsfcrZero())
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R268
+                Site.CaptureRequirementIfAreEqual<int>(
+                        0,
+                        file.FreeChunkList.Count,
+                        268,
+                        @"[In Header]  If the value of the FileChunkReference64x32 structure is ""fcrZero"" or ""fcrNil"", the hashed chunk list does not exist.");
+            }
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R277
             site.CaptureRequirementIfIsInstanceOfType(

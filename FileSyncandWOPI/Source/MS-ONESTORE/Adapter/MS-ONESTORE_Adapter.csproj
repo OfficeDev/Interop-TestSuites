@@ -100,7 +100,6 @@
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(ExtendedTargetsPath)\Microsoft.CSharp.targets" Condition="'$(BUILD_COREXT)'=='1'" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" Condition="'$(BUILD_COREXT)'!='1'" />
 </Project>
