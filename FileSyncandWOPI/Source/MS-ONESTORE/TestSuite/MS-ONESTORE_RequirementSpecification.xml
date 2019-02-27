@@ -106,7 +106,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement:MS-ONESTORE_R15,MS-ONESTORE_R16,MS-ONESTORE_R17,MS-ONESTORE_R18 and MS-ONESTORE_R19</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R15</ns1:REQ_ID>
@@ -449,8 +450,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 § 0x073 (ObjectDeclarationFileData3LargeRefCountFND structure, section 2.5.28)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R51</ns1:REQ_ID>
@@ -486,7 +487,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R55</ns1:REQ_ID>
@@ -494,8 +495,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Object Space Object] The meaning of the JCID structure is specified by the property set (as defined in [MS-ONE] section 2.1.13) for objects whose data is a property set (section 2.1.1),[ or file data object (as defined in [MS-ONE] section 2.1.5) for objects whose data is a file data object. ]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R56</ns1:REQ_ID>
@@ -503,8 +504,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Object Space Object] The meaning of the JCID structure is specified by [the property set (as defined in [MS-ONE] section 2.1.13) for objects whose data is a property set (section 2.1.1), or] file data object (as defined in [MS-ONE] section 2.1.5) for objects whose data is a file data object. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R57</ns1:REQ_ID>
@@ -513,7 +514,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R58</ns1:REQ_ID>
@@ -528,7 +529,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement:MS-ONESTORE_R641,MS-ONESTORE_R647,MS-ONESTORE_R653,MS-ONESTORE_R659,MS-ONESTORE_R705 and MS-ONESTORE_R712</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R59</ns1:REQ_ID>
@@ -543,7 +545,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement:MS-ONESTORE_R641,MS-ONESTORE_R647,MS-ONESTORE_R653,MS-ONESTORE_R659,MS-ONESTORE_R705 and MS-ONESTORE_R712</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R60</ns1:REQ_ID>
@@ -553,8 +556,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R61</ns1:REQ_ID>
@@ -564,7 +567,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R62</ns1:REQ_ID>
@@ -574,8 +577,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R63</ns1:REQ_ID>
@@ -585,7 +588,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R64</ns1:REQ_ID>
@@ -595,7 +598,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R65</ns1:REQ_ID>
@@ -605,7 +608,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R66</ns1:REQ_ID>
@@ -615,7 +618,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R67</ns1:REQ_ID>
@@ -625,7 +628,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R68</ns1:REQ_ID>
@@ -643,7 +646,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R70</ns1:REQ_ID>
@@ -652,7 +655,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R71</ns1:REQ_ID>
@@ -679,7 +682,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R74</ns1:REQ_ID>
@@ -687,8 +690,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Object Space Object]All objects in a revision contain a reference count. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R75</ns1:REQ_ID>
@@ -696,8 +699,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Object Space Object]The reference count for any object that is not a root object (section 2.1.7) is the number of objects that directly reference this object, where the referencing object is reachable from a root object within the revision or is itself a root object. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R76</ns1:REQ_ID>
@@ -705,8 +708,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Object Space Object]The reference count for a root object is the count calculated by the previous algorithm for non-root objects, plus 1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R77</ns1:REQ_ID>
@@ -714,8 +717,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Object Space Object]The current reference count of an object in a revision is specified by the last FileNode structure that revised the object [or by a FileNode structure with FileNodeID equal to 0x84, (ObjectInfoDependencyOverridesFND, section 2.5.20) that updates the reference count without revising the object.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R78</ns1:REQ_ID>
@@ -724,7 +727,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R79</ns1:REQ_ID>
@@ -779,8 +782,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Root Object] A root object is an object (section 2.1.5) within an object space (section 2.1.4) that is directly referenced by a revision (section 2.1.8). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R85</ns1:REQ_ID>
@@ -799,8 +802,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R87</ns1:REQ_ID>
@@ -810,8 +813,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R88</ns1:REQ_ID>
@@ -819,8 +822,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Root Object] A revision can specify more than one root object. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R89</ns1:REQ_ID>
@@ -1133,7 +1136,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R124</ns1:REQ_ID>
@@ -1142,7 +1145,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R125</ns1:REQ_ID>
@@ -1190,8 +1193,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Context] The context with ExtendedGUID equal to {{00000000-0000-0000-0000-000000000000}, 0} is called the default context of the object space.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R132</ns1:REQ_ID>
@@ -1201,8 +1204,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R133</ns1:REQ_ID>
@@ -1210,8 +1213,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Context] [The following FileNode structures (section 2.4.3) associate a context and revision role (section 2.1.12) label pair with a specific revision:] • FileNode structures with FileNodeID field values equal to 0x01E (RevisionManifestStart6FND structure, section 2.5.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R134</ns1:REQ_ID>
@@ -1219,8 +1222,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Context] [The following FileNode structures (section 2.4.3) associate a context and revision role (section 2.1.12) label pair with a specific revision:] • FileNode structures with FileNodeID field values equal to 0x01F (RevisionManifestStart7FND structure, section 2.5.8).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R135</ns1:REQ_ID>
@@ -1228,8 +1231,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Context] [The following FileNode structures (section 2.4.3) associate a context and revision role (section 2.1.12) label pair with a specific revision:] • FileNode structures with FileNodeID field values equal to 0x05C (RevisionRoleDeclarationFND structure, section 2.5.17).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R136</ns1:REQ_ID>
@@ -1237,8 +1240,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Description>[In Context] [The following FileNode structures (section 2.4.3) associate a context and revision role (section 2.1.12) label pair with a specific revision:] • FileNode structures with FileNodeID field values equal to 0x05D (RevisionRoleAndContextDeclarationFND structure, section 2.5.18).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R137</ns1:REQ_ID>
@@ -1247,7 +1250,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R138</ns1:REQ_ID>
@@ -1256,7 +1259,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R139</ns1:REQ_ID>
@@ -1265,7 +1268,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R140</ns1:REQ_ID>
@@ -1301,8 +1304,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 • FileNode structures with FileNodeID field values equal to 0x01B (RevisionManifestStart4FND structure, section 2.5.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R144</ns1:REQ_ID>
@@ -1311,8 +1314,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 • FileNode structures with FileNodeID field values equal to 0x01E (RevisionManifestStart6FND structure, section 2.5.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R145</ns1:REQ_ID>
@@ -1322,8 +1325,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R146</ns1:REQ_ID>
@@ -1333,8 +1336,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R147</ns1:REQ_ID>
@@ -1343,8 +1346,8 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 • FileNode structures with FileNodeID field values equal to 0x05D (RevisionRoleAndContextDeclarationFND structure, section 2.5.18).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R148</ns1:REQ_ID>
@@ -1353,7 +1356,7 @@ The CRC is calculated using the algorithm specified by MsoCrc32Compute, as speci
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R149</ns1:REQ_ID>
@@ -1921,8 +1924,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Description>[In File Structure] The remainder of the file is partitioned into blocks of bytes, where the size and structure of each block is specified by the field that references it. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R211</ns1:REQ_ID>
@@ -1931,7 +1934,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R212</ns1:REQ_ID>
@@ -1940,7 +1943,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R213</ns1:REQ_ID>
@@ -2058,7 +2061,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R225</ns1:REQ_ID>
@@ -2301,7 +2304,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R252</ns1:REQ_ID>
@@ -2328,7 +2331,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R255</ns1:REQ_ID>
@@ -2391,7 +2394,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R262</ns1:REQ_ID>
@@ -2400,7 +2403,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R263</ns1:REQ_ID>
@@ -2463,7 +2466,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R270</ns1:REQ_ID>
@@ -2553,7 +2556,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R281</ns1:REQ_ID>
@@ -2562,7 +2565,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R282</ns1:REQ_ID>
@@ -2580,7 +2583,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R284</ns1:REQ_ID>
@@ -2598,7 +2601,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R286</ns1:REQ_ID>
@@ -2778,7 +2781,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R306</ns1:REQ_ID>
@@ -2858,8 +2861,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Description>[In  Transaction Log] A transaction consists of the following types of data: [the FileNode structures and file node lists, TransactionEntry structures, Header.cTransactionsInLog field.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R315</ns1:REQ_ID>
@@ -2867,8 +2870,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Description>[In  Transaction Log] The FileNode structures (section 2.4.3) and file node lists (section 2.4) that specify the actual user data. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R316</ns1:REQ_ID>
@@ -2877,7 +2880,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R317</ns1:REQ_ID>
@@ -2886,7 +2889,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R318</ns1:REQ_ID>
@@ -2895,7 +2898,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R319</ns1:REQ_ID>
@@ -2904,7 +2907,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R320</ns1:REQ_ID>
@@ -2948,8 +2951,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Description>[In  Transaction Log] The transaction’s number is defined by the order of the transaction in the transaction log.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R325</ns1:REQ_ID>
@@ -2967,7 +2970,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R327</ns1:REQ_ID>
@@ -3030,7 +3033,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R334</ns1:REQ_ID>
@@ -3075,7 +3078,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R341</ns1:REQ_ID>
@@ -3102,7 +3105,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R344</ns1:REQ_ID>
@@ -3111,7 +3114,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R345</ns1:REQ_ID>
@@ -3120,7 +3123,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R346</ns1:REQ_ID>
@@ -3129,7 +3132,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R347</ns1:REQ_ID>
@@ -3138,7 +3141,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R350</ns1:REQ_ID>
@@ -3246,7 +3249,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R362</ns1:REQ_ID>
@@ -3365,7 +3368,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R375</ns1:REQ_ID>
@@ -3374,7 +3377,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R376</ns1:REQ_ID>
@@ -3645,7 +3648,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R406</ns1:REQ_ID>
@@ -3726,7 +3729,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R415</ns1:REQ_ID>
@@ -3834,7 +3837,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R427</ns1:REQ_ID>
@@ -3842,8 +3845,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Description>[In FileNode] [C - BaseType] Value 1 means this FileNode structure contains a reference to data. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R428</ns1:REQ_ID>
@@ -3869,8 +3872,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Description>[In FileNode]  [C - BaseType] Value 2 means This FileNode structure contains a reference to a file node list. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R431</ns1:REQ_ID>
@@ -3897,7 +3900,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R434</ns1:REQ_ID>
@@ -4004,8 +4007,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Description>[In FileNode] Specifies the end of a revision manifest (section 2.1.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R446</ns1:REQ_ID>
@@ -4059,8 +4062,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Description>[In FileNode] [FileNodeID value 0x022] Specifies the beginning of the global identification table (section 2.1.3). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R452</ns1:REQ_ID>
@@ -4113,8 +4116,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Description>[In FileNode] Specifies the end of the global identification table (section 2.1.3). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R458</ns1:REQ_ID>
@@ -4312,8 +4315,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Description>[In FileNode] [FileNodeID value 0x0B8] Specifies the end of an object group (section 2.1.13).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R480</ns1:REQ_ID>
@@ -4368,8 +4371,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Description>[In FileNode] [FileNodeID value 0x0FF] Specifies the end of the stream of FileNode structures in a FileNodeListFragment structure (section 2.4.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R486</ns1:REQ_ID>
@@ -5154,7 +5157,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R568</ns1:REQ_ID>
@@ -5655,7 +5658,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R623</ns1:REQ_ID>
@@ -6037,7 +6040,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R664</ns1:REQ_ID>
@@ -6118,7 +6121,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R673</ns1:REQ_ID>
@@ -6127,7 +6130,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R674</ns1:REQ_ID>
@@ -6136,7 +6139,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R675</ns1:REQ_ID>
@@ -6145,7 +6148,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R676</ns1:REQ_ID>
@@ -6172,7 +6175,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R679</ns1:REQ_ID>
@@ -6181,7 +6184,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R680</ns1:REQ_ID>
@@ -6190,7 +6193,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R681</ns1:REQ_ID>
@@ -6217,7 +6220,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R684</ns1:REQ_ID>
@@ -6289,7 +6292,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R694</ns1:REQ_ID>
@@ -6298,7 +6301,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R695</ns1:REQ_ID>
@@ -6307,7 +6310,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R696</ns1:REQ_ID>
@@ -6316,7 +6319,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R697</ns1:REQ_ID>
@@ -6343,7 +6346,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R700</ns1:REQ_ID>
@@ -6352,7 +6355,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R701</ns1:REQ_ID>
@@ -6776,7 +6779,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R747</ns1:REQ_ID>
@@ -7488,7 +7491,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R826</ns1:REQ_ID>
@@ -7515,7 +7518,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R829</ns1:REQ_ID>
@@ -7524,7 +7527,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R830</ns1:REQ_ID>
@@ -7533,7 +7536,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R831</ns1:REQ_ID>
@@ -7542,7 +7545,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R832</ns1:REQ_ID>
@@ -7551,7 +7554,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R833</ns1:REQ_ID>
@@ -7560,7 +7563,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R834</ns1:REQ_ID>
@@ -7569,7 +7572,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R835</ns1:REQ_ID>
@@ -7578,7 +7581,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R836</ns1:REQ_ID>
@@ -7623,7 +7626,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R841</ns1:REQ_ID>
@@ -7659,7 +7662,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R845</ns1:REQ_ID>
@@ -8174,7 +8177,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R902</ns1:REQ_ID>
@@ -8183,7 +8186,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R903</ns1:REQ_ID>
@@ -8192,7 +8195,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R904</ns1:REQ_ID>
@@ -8228,7 +8231,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R908</ns1:REQ_ID>
@@ -8653,7 +8656,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R955</ns1:REQ_ID>
@@ -8662,7 +8665,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R956</ns1:REQ_ID>
@@ -8671,7 +8674,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R957</ns1:REQ_ID>
@@ -8734,7 +8737,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R964</ns1:REQ_ID>
@@ -8743,7 +8746,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R965</ns1:REQ_ID>
@@ -8824,7 +8827,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R974</ns1:REQ_ID>
@@ -8842,7 +8845,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R976</ns1:REQ_ID>
@@ -8862,7 +8865,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R977</ns1:REQ_ID>
@@ -8880,7 +8883,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R979</ns1:REQ_ID>
@@ -8889,7 +8892,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R980</ns1:REQ_ID>
@@ -8898,7 +8901,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R981</ns1:REQ_ID>
@@ -8907,7 +8910,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R982</ns1:REQ_ID>
@@ -8916,7 +8919,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R983</ns1:REQ_ID>
@@ -8925,7 +8928,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R984</ns1:REQ_ID>
@@ -8934,7 +8937,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R985</ns1:REQ_ID>
@@ -8943,7 +8946,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R986</ns1:REQ_ID>
@@ -8952,7 +8955,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R987</ns1:REQ_ID>
@@ -8961,7 +8964,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R988</ns1:REQ_ID>
@@ -8970,7 +8973,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R989</ns1:REQ_ID>
@@ -8979,7 +8982,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R990</ns1:REQ_ID>
@@ -8988,7 +8991,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R991</ns1:REQ_ID>
