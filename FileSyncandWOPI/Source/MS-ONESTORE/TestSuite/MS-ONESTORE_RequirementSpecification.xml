@@ -4750,7 +4750,17 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R52501</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In RevisionManifestStart6FND] The rid of two RevisionManifestStart4FND in revision manifest list is different.</ns1:Description>
+		<ns1:Description>[In RevisionManifestStart6FND] The rid of two RevisionManifestStart6FND in revision manifest list is different.</ns1:Description>
+		<ns1:Derived>MS-ONESTORE_R525</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ONESTORE_R52502</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In RevisionManifestStart6FND] The rid of two RevisionManifestStart7FND in revision manifest list is different.</ns1:Description>
 		<ns1:Derived>MS-ONESTORE_R525</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4778,7 +4788,16 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R528</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In RevisionManifestStart6FND] [ridDependent] Otherwise[If the value is not "{{00000000-0000-0000-0000-000000000000}, 0}"], this value MUST be equal to the RevisionManifestStart6FND.rid field or the RevisionManifestStart7FND.base.rid field of a previous revision manifest within this revision manifest list.</ns1:Description>
+		<ns1:Description>[In RevisionManifestStart6FND] [ridDependent] Otherwise[If the value is not "{{00000000-0000-0000-0000-000000000000}, 0}"], this value MUST be equal to the RevisionManifestStart6FND.rid field [or the RevisionManifestStart7FND.base.rid field] of a previous revision manifest within this revision manifest list.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ONESTORE_R52801</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In RevisionManifestStart6FND] [ridDependent] Otherwise[If the value is not "{{00000000-0000-0000-0000-000000000000}, 0}"], this value MUST be equal to [the RevisionManifestStart6FND.rid field or] the RevisionManifestStart7FND.base.rid field of a previous revision manifest within this revision manifest list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

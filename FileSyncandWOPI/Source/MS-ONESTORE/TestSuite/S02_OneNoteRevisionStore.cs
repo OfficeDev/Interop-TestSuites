@@ -2,6 +2,8 @@
 {
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Microsoft.Protocols.TestSuites.SharedAdapter;
+    using System.Collections.Generic;
     using System.Linq;
     using System;
 
@@ -52,13 +54,121 @@
                     @"[In FileNodeListHeader] The pair of FileNodeListID and nFragmentSequence field in FileNodeListFragment structures in the file, is different.");
             }
 
+            List<RevisionManifest> revisManifestList = new List<RevisionManifest>();
+
+            foreach (ObjectSpaceManifestList objSpaceManifestList in file.RootFileNodeList.ObjectSpaceManifestList)
+            {
+                foreach (RevisionManifestList revManifestList in objSpaceManifestList.RevisionManifestList)
+                {
+                    revisManifestList.AddRange(revManifestList.RevisionManifests);
+                }
+            }
+
+            List<ExtendedGUID> ridRevisionManifestStart6FND = new List<ExtendedGUID>();
+            List<ExtendedGUID> ridDependentRevisionManifestStart6FND = new List<ExtendedGUID>();
+            List<ExtendedGUID> ridRevisionManifestStart7FND = new List<ExtendedGUID>();
+            List<ExtendedGUID> ridDependentRevisionManifestStart7FND = new List<ExtendedGUID>();
+            List<uint> odcsDefault = new List<uint>();
+
+            for (int i = 0; i < revisManifestList.Count; i++)
+            {
+                for (int j = 0; j < revisManifestList[i].FileNodeSequence.Count; j++)
+                {
+                    FileNode revision = revisManifestList[i].FileNodeSequence[j];
+
+                    if (revision.FileNodeID == FileNodeIDValues.RevisionManifestStart6FND)
+                    {
+                        RevisionManifestStart6FND fnd = revision.fnd as RevisionManifestStart6FND;
+                        ridRevisionManifestStart6FND.Add(((RevisionManifestStart6FND)revision.fnd).rid);
+                        ridDependentRevisionManifestStart6FND.Add(((RevisionManifestStart6FND)revision.fnd).ridDependent);
+                        odcsDefault.Add(((RevisionManifestStart6FND)revision.fnd).odcsDefault);
+                    }
+
+                    if (revision.FileNodeID == FileNodeIDValues.RevisionManifestStart7FND)
+                    {
+                       
+                        RevisionManifestStart7FND fnd = revision.fnd as RevisionManifestStart7FND;
+                        ridRevisionManifestStart7FND.Add(((RevisionManifestStart7FND)revision.fnd).Base.rid);
+                        ridDependentRevisionManifestStart7FND.Add(((RevisionManifestStart7FND)revision.fnd).Base.ridDependent);
+                    }
+                }
+            }
+
+            for(int i=0; i<odcsDefault.Count-1; i++)
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R535
+                Site.CaptureRequirementIfAreEqual<uint>(
+                                odcsDefault[i],
+                                odcsDefault[i + 1],
+                                535,
+                                @"[In RevisionManifestStart6FND] [odcsDefault] MUST specify the same type of data encoding as used in the dependency revision (section 2.1.8), if one was specified in the ridDependent field.");
+            }
+
+            ExtendedGUID zeroExtendGuid = new ExtendedGUID();
+            zeroExtendGuid.Guid = Guid.Empty;
+            zeroExtendGuid.N = 0;
+
+            for (int i = 0; i < ridRevisionManifestStart6FND.Count - 1; i++)
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R52501
+                Site.CaptureRequirementIfAreNotEqual<ExtendedGUID>(
+                                ridRevisionManifestStart6FND[i],
+                                ridRevisionManifestStart6FND[i + 1],
+                                52501,
+                                @"[In RevisionManifestStart6FND] The rid of two RevisionManifestStart6FND in revision manifest list is different.");
+
+                if (ridDependentRevisionManifestStart6FND[i].Equals(zeroExtendGuid))
+                {
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R527
+                    Site.CaptureRequirementIfAreNotEqual<ExtendedGUID>(
+                        zeroExtendGuid,
+                        ridRevisionManifestStart6FND[i],
+                                    527,
+                                    @"[In RevisionManifestStart6FND] [ridDependent] If the value is ""{ { 00000000 - 0000 - 0000 - 0000 - 000000000000}, 0}
+                "", then this revision manifest has no dependency revision. ");
+                }
+                else
+                {
+                    if (!ridDependentRevisionManifestStart6FND[i + 1].Equals(zeroExtendGuid))
+                    {
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R528
+                        Site.CaptureRequirementIfAreEqual<ExtendedGUID>(
+                                        ridRevisionManifestStart6FND[i],
+                                        ridDependentRevisionManifestStart6FND[i + 1],
+                                        528,
+                                        @"[In RevisionManifestStart6FND] [ridDependent] Otherwise[If the value is not ""{ { 00000000 - 0000 - 0000 - 0000 - 000000000000}, 0}
+                    ""], this value MUST be equal to the RevisionManifestStart6FND.rid field [or the RevisionManifestStart7FND.base.rid field] of a previous revision manifest within this revision manifest list.");
+                    }
+                }
+            }
+
+            for (int i = 0; i < ridRevisionManifestStart7FND.Count - 1; i++)
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R52502
+                Site.CaptureRequirementIfAreNotEqual<ExtendedGUID>(
+                                ridRevisionManifestStart7FND[i],
+                                ridRevisionManifestStart7FND[i + 1],
+                                52502,
+                                @"[In RevisionManifestStart6FND] The rid of two RevisionManifestStart7FND in revision manifest list is different.");
+
+                if (!ridDependentRevisionManifestStart7FND[i].Equals(zeroExtendGuid) && !ridDependentRevisionManifestStart7FND[i+1].Equals(zeroExtendGuid))
+                {
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R52801
+                    Site.CaptureRequirementIfAreEqual<ExtendedGUID>(
+                                    ridRevisionManifestStart7FND[i],
+                                    ridDependentRevisionManifestStart7FND[i+1],
+                                    52801,
+                                    @"[In RevisionManifestStart6FND] [ridDependent] Otherwise[If the value is not ""{ { 00000000 - 0000 - 0000 - 0000 - 000000000000}, 0}
+                    ""], this value MUST be equal to [the RevisionManifestStart6FND.rid field or] the RevisionManifestStart7FND.base.rid field of a previous revision manifest within this revision manifest list.");
+                }
+            }
             foreach (ObjectSpaceManifestList objectSpaceManifestList in file.RootFileNodeList.ObjectSpaceManifestList)
             {
                 foreach (RevisionManifestList revisionManifestList in objectSpaceManifestList.RevisionManifestList)
                 {
                     if (revisionManifestList.FileNodeListFragments.Count > 1)
                     {
-                        for (int i = 0; i <= revisionManifestList.FileNodeListFragments.Count - 2; i++)
+                        for (int i = 0; i < revisionManifestList.FileNodeListFragments.Count - 1; i++)
                         {
                             // Verify MS-ONESTORE requirement: MS-ONESTORE_R366
                             Site.CaptureRequirementIfAreEqual<uint>(
@@ -92,48 +202,108 @@
                         }
                         else
                         {
-                                // Verify MS-ONESTORE requirement: MS-ONESTORE_R380
-                                Site.CaptureRequirementIfIsFalse(
-                                    nextFragment.IsfcrZero() || nextFragment.IsfcrNil(),
-                                    380,
-                                    @"[In FileNodeListFragment] Otherwise [If this is not the last fragment] the value of the nextFragment.stp field MUST specify the location of a valid FileNodeListFragment structure, and the value of the nextFragment.cb field MUST be equal to the size of the referenced fragment including the FileNodeListFragment.header field and the FileNodeListFragment.footer field.");
+                            // Verify MS-ONESTORE requirement: MS-ONESTORE_R380
+                            Site.CaptureRequirementIfIsFalse(
+                                nextFragment.IsfcrZero() || nextFragment.IsfcrNil(),
+                                380,
+                                @"[In FileNodeListFragment] Otherwise [If this is not the last fragment] the value of the nextFragment.stp field MUST specify the location of a valid FileNodeListFragment structure, and the value of the nextFragment.cb field MUST be equal to the size of the referenced fragment including the FileNodeListFragment.header field and the FileNodeListFragment.footer field.");
                         }
                     }
                 }
             }
 
-            int objectSpaceCount = file.RootFileNodeList.ObjectSpaceManifestList.Count;
-
-            for (int i = 0; i < file.RootFileNodeList.ObjectSpaceManifestList.Count; i++)
+            foreach (FileNode fileDataStoreList in file.RootFileNodeList.FileDataStoreListReference)
             {
-                ObjectSpaceManifestList objectSpace = file.RootFileNodeList.ObjectSpaceManifestList[i];
+                FileDataStoreListReferenceFND fnd = fileDataStoreList.fnd as FileDataStoreListReferenceFND;
 
-                for (int j = 0; j < objectSpace.RevisionManifestList[0].ObjectGroupList.Count; j++)
+                for(int i=0; i<fnd.fileNodeListFragment.rgFileNodes.Count-1; i++)
                 {
-                    ObjectGroupList objectGroupList = objectSpace.RevisionManifestList[0].ObjectGroupList[j];
-                    FileNode[] fileNodes = objectGroupList.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.ReadOnlyObjectDeclaration2RefCountFND).ToArray();
+                    FileDataStoreObjectReferenceFND objfnd1 = fnd.fileNodeListFragment.rgFileNodes[i].fnd as FileDataStoreObjectReferenceFND;
+                    FileDataStoreObjectReferenceFND objfnd2 = fnd.fileNodeListFragment.rgFileNodes[i+1].fnd as FileDataStoreObjectReferenceFND;
+                    
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R63701
+                    Site.CaptureRequirementIfAreNotEqual<Guid>(
+                            objfnd1.guidReference,
+                            objfnd2.guidReference,
+                            63701,
+                            @"[In FileDataStoreObjectReferenceFND] The guidReference is different for two FileDataStoreObjectReferenceFND structures.");
+                }
+            }
 
-                    foreach (FileNode node in fileNodes)
+                int objectSpaceCount = file.RootFileNodeList.ObjectSpaceManifestList.Count;
+
+                for (int i = 0; i < file.RootFileNodeList.ObjectSpaceManifestList.Count; i++)
+                {
+                    ObjectSpaceManifestList objectSpace = file.RootFileNodeList.ObjectSpaceManifestList[i];
+
+                    for (int j = 0; j < objectSpace.RevisionManifestList[0].ObjectGroupList.Count; j++)
                     {
-                        ReadOnlyObjectDeclaration2RefCountFND fnd = node.fnd as ReadOnlyObjectDeclaration2RefCountFND;
+                        ObjectGroupList objectGroupList = objectSpace.RevisionManifestList[0].ObjectGroupList[j];
+                        FileNode[] fileNodes = objectGroupList.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.ReadOnlyObjectDeclaration2RefCountFND).ToArray();
 
-                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R68
-                        Site.CaptureRequirementIfIsTrue(
-                                (uint)node.FileNodeID == 0x0C4 && fnd.Base.body.jcid.IsReadOnly == 1,
-                                68,
-                                @"[In Object Space Object] If the value of the JCID.IsReadOnly field is ""true"" then the value of the FileNode.FileNodeID field MUST be 0x0C4 (ReadOnlyObjectDeclaration2RefCountFND structure, section 2.5.29) [or 0x0C5 (ReadOnlyObjectDeclaration2LargeRefCountFND structure, section 2.5.30).]");
+                        foreach (FileNode node in fileNodes)
+                        {
+                            ReadOnlyObjectDeclaration2RefCountFND fnd = node.fnd as ReadOnlyObjectDeclaration2RefCountFND;
+
+                            // Verify MS-ONESTORE requirement: MS-ONESTORE_R68
+                            Site.CaptureRequirementIfIsTrue(
+                                    (uint)node.FileNodeID == 0x0C4 && fnd.Base.body.jcid.IsReadOnly == 1,
+                                    68,
+                                    @"[In Object Space Object] If the value of the JCID.IsReadOnly field is ""true"" then the value of the FileNode.FileNodeID field MUST be 0x0C4 (ReadOnlyObjectDeclaration2RefCountFND structure, section 2.5.29) [or 0x0C5 (ReadOnlyObjectDeclaration2LargeRefCountFND structure, section 2.5.30).]");
+
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R703
+                        Site.CaptureRequirementIfIsNotNull(
+                                fnd.Base,
+                                703,
+                                @"[In ReadOnlyObjectDeclaration2RefCountFND] If this object is revised, all declarations of this object MUST specify identical data. ");
                     }
+
                     fileNodes = objectGroupList.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.ObjectDeclarationFileData3RefCountFND).ToArray();
 
+                        foreach (FileNode node in fileNodes)
+                        {
+                            ObjectDeclarationFileData3RefCountFND fnd = node.fnd as ObjectDeclarationFileData3RefCountFND;
+
+                            // Verify MS-ONESTORE requirement: MS-ONESTORE_R71
+                            Site.CaptureRequirementIfIsTrue(
+                                    (uint)node.FileNodeID == 0x072 && fnd.jcid.IsFileData == 1,
+                                    71,
+                                    @"[In Object Space Object]If the value of the JCID.IsFileData field is ""true"" then the value of the FileNode.FileNodeID field MUST be 0x072 (ObjectDeclarationFileData3RefCountFND structure, section 2.5.27) [or 0x073 (ObjectDeclarationFileData3LargeRefCountFND structure, section 2.5.28). ]");
+                    }
+
+                    fileNodes = objectGroupList.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.ReadOnlyObjectDeclaration2LargeRefCountFND).ToArray();
+
                     foreach (FileNode node in fileNodes)
                     {
-                        ObjectDeclarationFileData3RefCountFND fnd = node.fnd as ObjectDeclarationFileData3RefCountFND;
+                        ReadOnlyObjectDeclaration2LargeRefCountFND fnd = node.fnd as ReadOnlyObjectDeclaration2LargeRefCountFND;
 
-                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R71
-                        Site.CaptureRequirementIfIsTrue(
-                                (uint)node.FileNodeID == 0x072 && fnd.jcid.IsFileData == 1,
-                                71,
-                                @"[In Object Space Object]If the value of the JCID.IsFileData field is ""true"" then the value of the FileNode.FileNodeID field MUST be 0x072 (ObjectDeclarationFileData3RefCountFND structure, section 2.5.27) [or 0x073 (ObjectDeclarationFileData3LargeRefCountFND structure, section 2.5.28). ]");
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R710
+                        Site.CaptureRequirementIfIsNotNull(
+                                fnd.Base,
+                                710,
+                                @"[In ReadOnlyObjectDeclaration2LargeRefCountFND] If this object is revised, all declarations of this object MUST specify identical data. ");
+                    }
+                    fileNodes = objectGroupList.FileNodeSequence.Where(f => f.FileNodeID == FileNodeIDValues.DataSignatureGroupDefinitionFND).ToArray();
+
+                    List<ExtendedGUID> dataSignatureGroupdefinitionFND = new List<ExtendedGUID>();
+
+                    for (int k = 0; k < fileNodes.Length - 1; k++)
+                    {
+                        DataSignatureGroupDefinitionFND fnd = fileNodes[k].fnd as DataSignatureGroupDefinitionFND;
+                        if (!fnd.DataSignatureGroup.Equals(zeroExtendGuid))
+                        {
+                            dataSignatureGroupdefinitionFND.Add(fnd.DataSignatureGroup);
+                        }
+                    }
+
+                    for (int k = 0; k < dataSignatureGroupdefinitionFND.Count-1; k++)
+                    {
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R72701
+                        Site.CaptureRequirementIfAreEqual<ExtendedGUID>(
+                            dataSignatureGroupdefinitionFND[k],
+                                dataSignatureGroupdefinitionFND[k + 1],
+                                72701,
+                                @"[In DataSignatureGroupDefinitionFND] DataSignatureGroup (20 bytes):All declarations of an object (section 2.1.5) with the same identity and the same DataSignatureGroup field not equal to {{00000000-0000-0000-0000-000000000000}, 0} MUST have the same data.");
                     }
                 }
             }
@@ -149,36 +319,87 @@
 
             OneNoteRevisionStoreFile file = this.Adapter.LoadOneNoteFile(fileName);
 
-            foreach (ObjectSpaceManifestList objectSpaceManifestList in file.RootFileNodeList.ObjectSpaceManifestList)
+            List<RevisionManifest> revisionManifestList = new List<RevisionManifest>();
+
+            foreach (ObjectSpaceManifestList objSpaceManifestList in file.RootFileNodeList.ObjectSpaceManifestList)
             {
-                foreach (RevisionManifestList revisionManifestList in objectSpaceManifestList.RevisionManifestList)
+                foreach (RevisionManifestList revManifestList in objSpaceManifestList.RevisionManifestList)
                 {
-                    int j = 0;
-                    string[] count = new string[1000];
+                    revisionManifestList.AddRange(revManifestList.RevisionManifests);
+                }
+            }
 
-                    foreach (FileNodeListFragment fileNodeListFragment in revisionManifestList.FileNodeListFragments)
+            List<ExtendedGUID> ridRevisionManifestStart4FND = new List<ExtendedGUID>();
+            List<ExtendedGUID> ridDependentRevisionManifestStart4FND = new List<ExtendedGUID>();
+
+            for (int i = 0; i < revisionManifestList.Count; i++)
+            {
+                for (int j = 0; j < revisionManifestList[i].FileNodeSequence.Count; j++)
+                {
+                    FileNode revision = revisionManifestList[i].FileNodeSequence[j];
+
+                    if (revision.FileNodeID == FileNodeIDValues.RevisionManifestStart4FND)
                     {
-                        for (int i = 0; i <= fileNodeListFragment.rgFileNodes.Count - 1; i++)
+                        RevisionManifestStart4FND fnd = revision.fnd as RevisionManifestStart4FND;
+
+                        ridRevisionManifestStart4FND.Add(((RevisionManifestStart4FND)revision.fnd).rid);
+                        ridDependentRevisionManifestStart4FND.Add(((RevisionManifestStart4FND)revision.fnd).ridDependent);
+                    }
+
+                        if (revision.FileNodeID == FileNodeIDValues.GlobalIdTableEntry2FNDX)
+                    {
+                        GlobalIdTableEntry2FNDX fnd = revision.fnd as GlobalIdTableEntry2FNDX;
+
+                    }
+
+                    if (revision.FileNodeID == FileNodeIDValues.ObjectInfoDependencyOverridesFND)
+                    {
+                        ObjectInfoDependencyOverridesFND fnd = revision.fnd as ObjectInfoDependencyOverridesFND;
+
+                        if (fnd.Ref.IsfcrNil())
                         {
-
-                            if ((uint)fileNodeListFragment.rgFileNodes[i].FileNodeID == 0x01B)
-                            {
-                                FileNode rgFileNode = fileNodeListFragment.rgFileNodes[i];
-                                RevisionManifestStart4FND fnd = fileNodeListFragment.rgFileNodes[i].fnd as RevisionManifestStart4FND;
-
-                                count[j] = fnd.rid.Guid.ToString();
-                                j++;
-                            }
+                            // Verify MS-ONESTORE requirement: MS-ONESTORE_R620
+                            Site.CaptureRequirementIfIsNotNull(
+                                            fnd.data,
+                                            620,
+                                            @"[In ObjectInfoDependencyOverridesFND] otherwise [if the value of the ref field is ""fcrNil""], the override data is specified by the data field. ");
                         }
+
                     }
-                    for (int n = 0; n < j; n++)
-                    {
-                        Site.CaptureRequirementIfAreNotEqual<string>(
-                            count[n],
-                            count[n + 1],
-                            51401,
-                            @"[In RevisionManifestStart4FND] The rid of two RevisionManifestStart4FND in revision manifest list is different");
-                    }
+                }
+
+            }
+
+            for (int i = 0; i < ridRevisionManifestStart4FND.Count-1; i++)
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R51401
+                Site.CaptureRequirementIfAreNotEqual<ExtendedGUID>(
+                                ridRevisionManifestStart4FND[i],
+                                ridRevisionManifestStart4FND[i + 1],
+                                51401,
+                                @"[In RevisionManifestStart4FND] The rid of two RevisionManifestStart4FND in revision manifest list is different");
+
+                ExtendedGUID zeroExtendGuid = new ExtendedGUID();
+                zeroExtendGuid.Guid = Guid.Empty;
+                zeroExtendGuid.N = 0;
+
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R516
+                Site.CaptureRequirementIfAreNotEqual<ExtendedGUID>(
+                    zeroExtendGuid,           
+                    ridRevisionManifestStart4FND[i],
+                                516,
+                                @"[In RevisionManifestStart4FND] [ridDependent] If the value is ""{ { 00000000 - 0000 - 0000 - 0000 - 000000000000}, 0}
+                    "", then this revision manifest has no dependency revision. ");
+
+                if (!ridDependentRevisionManifestStart4FND[i].Equals(zeroExtendGuid))
+                {
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R517
+                    Site.CaptureRequirementIfAreEqual<ExtendedGUID>(
+                                    ridRevisionManifestStart4FND[i-1],
+                                    ridDependentRevisionManifestStart4FND[i],
+                                    517,
+                                    @"[In RevisionManifestStart4FND]  [ridDependent] Otherwise [If the value is not ""{ { 00000000 - 0000 - 0000 - 0000 - 000000000000}, 0}
+                ""], this value MUST be equal to the RevisionManifestStart4FND.rid field of a previous revision manifest within this (section 2.1.9) revision manifest list.");
                 }
             }
         }
