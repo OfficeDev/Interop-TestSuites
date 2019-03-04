@@ -39,6 +39,7 @@ Technical specification| Protocol name
   MS-FSSHTTP  | [File Synchronization via SOAP over HTTP Protocol](http://go.microsoft.com/fwlink/?LinkId=389444)
   MS-FSSHTTPB | [Binary Requests for File Synchronization via SOAP Protocol](http://go.microsoft.com/fwlink/?LinkId=389445)
   MS-FSSHTTPD | [Binary Data Format for File Synchronization via SOAP](http://go.microsoft.com/fwlink/?LinkId=389446)
+  MS-ONESTORE | [OneNote Revision Store File Format](https://go.microsoft.com/fwlink/?linkid=2080738)
 
 Requirement specification <a name="requirement-specification"></a>
 ======================================================================================================================================================================================================================================================================
@@ -144,6 +145,7 @@ suites run against.
 	-   Microsoft SharePoint Server 2010 Service Pack 2 (SP2)
 	-   Microsoft SharePoint Server 2013 Service Pack 1 (SP1)
     -   Microsoft SharePoint Server 2016
+    -   Microsoft SharePoint Server 2019
 
 **Test Suite Client**
 
@@ -159,7 +161,7 @@ adapters and three test suites.
 -   The shared test suite implements MS-FSSHTTP and is shared with MS-WOPI to
     verify whether or not MS-FSSHTTP can be sent as an HTTP body by using the
     MS-WOPI transport format.
-
+-   MS-ONESTORE can be transmitted using the File Synchronization via SOAP over HTTP Protocol by Shared adapter.
 -   All protocol adapters communicate directly with an SUT.
 
 Common library
@@ -321,3 +323,12 @@ Scenario| Description
   MS\_WOPI\_S20\_FolderChildrenLevelItems       |   Verifies the EnumerateChildren operation.
   MS\_WOPI\_S21\_Versioning                     |   Verifies the GetVersions operation.
   MS\_WOPI\_S22\_FileOperation                  |   Verifies CellSubRequest operation for fileOperation request.
+### MS-ONESTORE
+In the MS-ONESTORE test suite, there are a total of two scenarios that are designed to cover the server-side, testable requirements.
+
+The following table lists the scenarios in the MS-ONESTORE test suite.
+
+Scenario| Description
+:------------ | :-------------
+  MS\_ONESTORE\_S01\_TransmissionByFSSHTTP        |Verifies the revision store files are transmitted using the File Synchronization via SOAP over HTTP Protocol..
+  MS\_ONESTORE\_S02\_OneNoteRevisionStore|Verifies the fileformat of the revision store files.
