@@ -4996,7 +4996,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R54901</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.5.10</ns1:Doc_Sect>
-		<ns1:Description>[In GlobalIdTableEntryFNDX]  The indexes in two global identification table specified by FileNode structures with the values of the FileNode.FileNodeID fields equal to 0x024 (GlobalIdTableEntryFNDX structure), 0x25 (GlobalIdTableEntry2FNDX structure), and 0x26 (GlobalIdTableEntry3FNDX structure) are different.</ns1:Description>
+		<ns1:Description>[In GlobalIdTableEntryFNDX]  The indexes in global identification table specified by FileNode structures with the values of the FileNode.FileNodeID fields equal to 0x024 (GlobalIdTableEntryFNDX structure) is different.</ns1:Description>
 		<ns1:Derived>MS-ONESTORE_R549</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5108,7 +5108,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R55901</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.5.11</ns1:Doc_Sect>
-		<ns1:Description>[In GlobalIdTableEntry2FNDX] The iIndexMapTo is defferent in two global identification table specified by FileNode structures with the value of the FileNode.FileNodeID field equal to 0x024 (GlobalIdTableEntryFNDX structure), 0x25 (GlobalIdTableEntry2FNDX structure), and 0x26 (GlobalIdTableEntry3FNDX structure).</ns1:Description>
+		<ns1:Description>[In GlobalIdTableEntry2FNDX] The iIndexMapTo is different in global identification table specified by FileNode structures with the value of the FileNode.FileNodeID field equal to 0x25 (GlobalIdTableEntry2FNDX structure).</ns1:Description>
 		<ns1:Derived>MS-ONESTORE_R559</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5209,7 +5209,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R57001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.5.12</ns1:Doc_Sect>
-		<ns1:Description>[In GlobalIdTableEntry3FNDX] The indices from the value of iIndexCopyToStart to the value of (iIndexCopyToStart + cEntriesToCopy – 1) are different in two global identification table specified by FileNode structures with the values of the FileNode.FileNodeID field equal to 0x024 (GlobalIdTableEntryFNDX structure), 0x025 (GlobalIdTableEntry2FNDX structure), and 0x026 (GlobalIdTableEntry3FNDX structure).</ns1:Description>
+		<ns1:Description>[In GlobalIdTableEntry3FNDX] The indices from the value of iIndexCopyToStart to the value of (iIndexCopyToStart + cEntriesToCopy – 1) is different in global identification table specified by FileNode structures with the values of the FileNode.FileNodeID field equal to 0x026 (GlobalIdTableEntry3FNDX structure).</ns1:Description>
 		<ns1:Derived>MS-ONESTORE_R570</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -5522,7 +5522,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R606</ns1:REQ_ID>
@@ -5650,7 +5650,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R620</ns1:REQ_ID>
@@ -7014,7 +7014,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R771</ns1:REQ_ID>
@@ -7519,7 +7519,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R827</ns1:REQ_ID>
@@ -8331,7 +8331,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R917</ns1:REQ_ID>

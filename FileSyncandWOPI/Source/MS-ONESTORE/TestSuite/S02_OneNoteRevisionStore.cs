@@ -94,7 +94,7 @@
                 }
             }
 
-            for(int i=0; i<odcsDefault.Count-1; i++)
+            for (int i=0; i<odcsDefault.Count-1; i++)
             {
                 // Verify MS-ONESTORE requirement: MS-ONESTORE_R535
                 Site.CaptureRequirementIfAreEqual<uint>(
@@ -110,12 +110,15 @@
 
             for (int i = 0; i < ridRevisionManifestStart6FND.Count - 1; i++)
             {
-                // Verify MS-ONESTORE requirement: MS-ONESTORE_R52501
-                Site.CaptureRequirementIfAreNotEqual<ExtendedGUID>(
-                                ridRevisionManifestStart6FND[i],
-                                ridRevisionManifestStart6FND[i + 1],
-                                52501,
-                                @"[In RevisionManifestStart6FND] The rid of two RevisionManifestStart6FND in revision manifest list is different.");
+                for (int j = i + 1; j < ridRevisionManifestStart6FND.Count; j++)
+                {
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R52501
+                    Site.CaptureRequirementIfAreNotEqual<ExtendedGUID>(
+                                    ridRevisionManifestStart6FND[i],
+                                    ridRevisionManifestStart6FND[j],
+                                    52501,
+                                    @"[In RevisionManifestStart6FND] The rid of two RevisionManifestStart6FND in revision manifest list is different.");
+                }
 
                 if (ridDependentRevisionManifestStart6FND[i].Equals(zeroExtendGuid))
                 {
@@ -144,12 +147,15 @@
 
             for (int i = 0; i < ridRevisionManifestStart7FND.Count - 1; i++)
             {
-                // Verify MS-ONESTORE requirement: MS-ONESTORE_R52502
-                Site.CaptureRequirementIfAreNotEqual<ExtendedGUID>(
-                                ridRevisionManifestStart7FND[i],
-                                ridRevisionManifestStart7FND[i + 1],
-                                52502,
-                                @"[In RevisionManifestStart6FND] The rid of two RevisionManifestStart7FND in revision manifest list is different.");
+                for (int j = i + 1; j < ridRevisionManifestStart7FND.Count; j++)
+                {
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R52502
+                    Site.CaptureRequirementIfAreNotEqual<ExtendedGUID>(
+                                    ridRevisionManifestStart7FND[i],
+                                    ridRevisionManifestStart7FND[i + 1],
+                                    52502,
+                                    @"[In RevisionManifestStart6FND] The rid of two RevisionManifestStart7FND in revision manifest list is different.");
+                }
 
                 if (!ridDependentRevisionManifestStart7FND[i].Equals(zeroExtendGuid) && !ridDependentRevisionManifestStart7FND[i+1].Equals(zeroExtendGuid))
                 {
@@ -170,12 +176,15 @@
                     {
                         for (int i = 0; i < revisionManifestList.FileNodeListFragments.Count - 1; i++)
                         {
-                            // Verify MS-ONESTORE requirement: MS-ONESTORE_R366
-                            Site.CaptureRequirementIfAreEqual<uint>(
-                                revisionManifestList.FileNodeListFragments[i].Header.FileNodeListID,
-                                revisionManifestList.FileNodeListFragments[i + 1].Header.FileNodeListID,
-                                366,
-                                @"[In FileNodeListFragment] All fragments in the same file node list MUST have the same FileNodeListFragment.header.FileNodeListID field.");
+                            for (int j = i + 1; j < revisionManifestList.FileNodeListFragments.Count; j++)
+                            {
+                                // Verify MS-ONESTORE requirement: MS-ONESTORE_R366
+                                Site.CaptureRequirementIfAreEqual<uint>(
+                                    revisionManifestList.FileNodeListFragments[i].Header.FileNodeListID,
+                                    revisionManifestList.FileNodeListFragments[j].Header.FileNodeListID,
+                                    366,
+                                    @"[In FileNodeListFragment] All fragments in the same file node list MUST have the same FileNodeListFragment.header.FileNodeListID field.");
+                            }
                         }
                     }
 
@@ -212,25 +221,54 @@
                 }
             }
 
+            bool isFileNode = false;
+
             foreach (FileNode fileDataStoreList in file.RootFileNodeList.FileDataStoreListReference)
             {
                 FileDataStoreListReferenceFND fnd = fileDataStoreList.fnd as FileDataStoreListReferenceFND;
 
                 for(int i=0; i<fnd.fileNodeListFragment.rgFileNodes.Count-1; i++)
                 {
-                    FileDataStoreObjectReferenceFND objfnd1 = fnd.fileNodeListFragment.rgFileNodes[i].fnd as FileDataStoreObjectReferenceFND;
-                    FileDataStoreObjectReferenceFND objfnd2 = fnd.fileNodeListFragment.rgFileNodes[i+1].fnd as FileDataStoreObjectReferenceFND;
-                    
-                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R63701
-                    Site.CaptureRequirementIfAreNotEqual<Guid>(
-                            objfnd1.guidReference,
-                            objfnd2.guidReference,
-                            63701,
-                            @"[In FileDataStoreObjectReferenceFND] The guidReference is different for two FileDataStoreObjectReferenceFND structures.");
+                    for (int j = i + 1; j < fnd.fileNodeListFragment.rgFileNodes.Count; j++)
+                    {
+                        FileDataStoreObjectReferenceFND objfnd1 = fnd.fileNodeListFragment.rgFileNodes[i].fnd as FileDataStoreObjectReferenceFND;
+                        FileDataStoreObjectReferenceFND objfnd2 = fnd.fileNodeListFragment.rgFileNodes[j].fnd as FileDataStoreObjectReferenceFND;
+
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R63701
+                        Site.CaptureRequirementIfAreNotEqual<Guid>(
+                                objfnd1.guidReference,
+                                objfnd2.guidReference,
+                                63701,
+                                @"[In FileDataStoreObjectReferenceFND] The guidReference is different for two FileDataStoreObjectReferenceFND structures.");
+                    }
+                }
+
+                isFileNode = true;
+
+                for (int k = 0; k < fnd.fileNodeListFragment.rgFileNodes.Count; k++)
+                {
+                    FileNode fileNode = fnd.fileNodeListFragment.rgFileNodes[k];
+                    if ((uint)fileNode.FileNodeID != 0x094)
+                    {
+                        isFileNode = false;
+                        break;
+                    }
+
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R628
+                    Site.CaptureRequirementIfIsTrue(
+                            isFileNode,
+                            628,
+                            @"[In FileDataStoreListReferenceFND] The referenced file node list MUST contain only FileNode structures with a FileNodeID field value equal to 00x094 (FileDataStoreObjectReferenceFND structure). ");
+
+                    //If MS-ONESTORE_R628 is verified successfully and according to the definition of FileDataStoreObjectReferenceFND, MS-ONESTORE_R33 can be verified directlly.
+                    //Verify MS-ONESTORE requirement: MS-ONESTORE_R633
+                    Site.CaptureRequirement(
+                            633,
+                            @"[[In FileDataStoreObjectReferenceFND] All such FileNode structures MUST be contained in the file node list (section 2.4) specified by a FileDataStoreListReferenceFND structure (section 2.5.21).");
                 }
             }
 
-                int objectSpaceCount = file.RootFileNodeList.ObjectSpaceManifestList.Count;
+            int objectSpaceCount = file.RootFileNodeList.ObjectSpaceManifestList.Count;
 
                 for (int i = 0; i < file.RootFileNodeList.ObjectSpaceManifestList.Count; i++)
                 {
@@ -298,12 +336,15 @@
 
                     for (int k = 0; k < dataSignatureGroupdefinitionFND.Count-1; k++)
                     {
-                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R72701
-                        Site.CaptureRequirementIfAreEqual<ExtendedGUID>(
-                            dataSignatureGroupdefinitionFND[k],
-                                dataSignatureGroupdefinitionFND[k + 1],
-                                72701,
-                                @"[In DataSignatureGroupDefinitionFND] DataSignatureGroup (20 bytes):All declarations of an object (section 2.1.5) with the same identity and the same DataSignatureGroup field not equal to {{00000000-0000-0000-0000-000000000000}, 0} MUST have the same data.");
+                        for (int h = k + 1; h < dataSignatureGroupdefinitionFND.Count; h++)
+                        {
+                            // Verify MS-ONESTORE requirement: MS-ONESTORE_R72701
+                            Site.CaptureRequirementIfAreEqual<ExtendedGUID>(
+                                dataSignatureGroupdefinitionFND[k],
+                                    dataSignatureGroupdefinitionFND[h],
+                                    72701,
+                                    @"[In DataSignatureGroupDefinitionFND] DataSignatureGroup (20 bytes):All declarations of an object (section 2.1.5) with the same identity and the same DataSignatureGroup field not equal to {{00000000-0000-0000-0000-000000000000}, 0} MUST have the same data.");
+                        }
                     }
                 }
             }
@@ -334,6 +375,10 @@
 
             for (int i = 0; i < revisionManifestList.Count; i++)
             {
+                List<uint> ridGlobalIdTableEntryFNDX = new List<uint>();
+                List<uint> ridGlobalIdTableEntry2FNDX = new List<uint>();
+                List<uint> ridGlobalIdTableEntry3FNDX = new List<uint>();
+
                 for (int j = 0; j < revisionManifestList[i].FileNodeSequence.Count; j++)
                 {
                     FileNode revision = revisionManifestList[i].FileNodeSequence[j];
@@ -346,10 +391,22 @@
                         ridDependentRevisionManifestStart4FND.Add(((RevisionManifestStart4FND)revision.fnd).ridDependent);
                     }
 
-                        if (revision.FileNodeID == FileNodeIDValues.GlobalIdTableEntry2FNDX)
+                    if (revision.FileNodeID == FileNodeIDValues.GlobalIdTableEntryFNDX)
+                    {
+                        GlobalIdTableEntryFNDX fnd = revision.fnd as GlobalIdTableEntryFNDX;
+                        ridGlobalIdTableEntryFNDX.Add(((GlobalIdTableEntryFNDX)revision.fnd).index);
+                    }
+
+                    if (revision.FileNodeID == FileNodeIDValues.GlobalIdTableEntry2FNDX)
                     {
                         GlobalIdTableEntry2FNDX fnd = revision.fnd as GlobalIdTableEntry2FNDX;
+                        ridGlobalIdTableEntry2FNDX.Add(((GlobalIdTableEntry2FNDX)revision.fnd).iIndexMapTo);
+                    }
 
+                    if (revision.FileNodeID == FileNodeIDValues.GlobalIdTableEntry3FNDX)
+                    {
+                        GlobalIdTableEntry3FNDX fnd = revision.fnd as GlobalIdTableEntry3FNDX;
+                        ridGlobalIdTableEntry3FNDX.Add(((GlobalIdTableEntry3FNDX)revision.fnd).iIndexCopyToStart);
                     }
 
                     if (revision.FileNodeID == FileNodeIDValues.ObjectInfoDependencyOverridesFND)
@@ -368,16 +425,57 @@
                     }
                 }
 
+                for (int j = 0; j < ridGlobalIdTableEntryFNDX.Count - 1; j++)
+                {
+                    for (int k = j + 1; k < ridGlobalIdTableEntryFNDX.Count; k++)
+                    {
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R54901
+                        Site.CaptureRequirementIfAreNotEqual<uint>(
+                                        ridGlobalIdTableEntryFNDX[j],
+                                        ridGlobalIdTableEntryFNDX[k],
+                                        54901,
+                                        @"[In GlobalIdTableEntryFNDX]  The indexes in two global identification table specified by FileNode structures with the values of the FileNode.FileNodeID fields equal to 0x024 (GlobalIdTableEntryFNDX structure), 0x25 (GlobalIdTableEntry2FNDX structure), and 0x26 (GlobalIdTableEntry3FNDX structure) are different.");
+                    }
+                }
+
+                for (int j = 0; j < ridGlobalIdTableEntry2FNDX.Count - 1; j++)
+                {
+                    for (int k = j + 1; k < ridGlobalIdTableEntry2FNDX.Count; k++)
+                    {
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R55901
+                        Site.CaptureRequirementIfAreNotEqual<uint>(
+                                        ridGlobalIdTableEntry2FNDX[j],
+                                        ridGlobalIdTableEntry2FNDX[k],
+                                        55901,
+                                        @"[In GlobalIdTableEntry2FNDX] The iIndexMapTo is defferent in two global identification table specified by FileNode structures with the value of the FileNode.FileNodeID field equal to 0x024 (GlobalIdTableEntryFNDX structure), 0x25 (GlobalIdTableEntry2FNDX structure), and 0x26 (GlobalIdTableEntry3FNDX structure).");
+                    }
+                }
+
+                for(int j=0; j<ridGlobalIdTableEntry3FNDX.Count-1; j++)
+                {
+                    for (int k = j + 1; k < ridGlobalIdTableEntry3FNDX.Count; k++)
+                    {
+                        // Verify MS-ONESTORE requirement: MS-ONESTORE_R57001
+                        Site.CaptureRequirementIfAreNotEqual<uint>(
+                                        ridGlobalIdTableEntry3FNDX[j],
+                                        ridGlobalIdTableEntry3FNDX[k],
+                                        57001,
+                                        @"[In GlobalIdTableEntry3FNDX] The indices from the value of iIndexCopyToStart to the value of (iIndexCopyToStart + cEntriesToCopy – 1) are different in two global identification table specified by FileNode structures with the values of the FileNode.FileNodeID field equal to 0x024 (GlobalIdTableEntryFNDX structure), 0x025 (GlobalIdTableEntry2FNDX structure), and 0x026 (GlobalIdTableEntry3FNDX structure).");
+                    }
+                }
             }
 
             for (int i = 0; i < ridRevisionManifestStart4FND.Count-1; i++)
             {
-                // Verify MS-ONESTORE requirement: MS-ONESTORE_R51401
-                Site.CaptureRequirementIfAreNotEqual<ExtendedGUID>(
-                                ridRevisionManifestStart4FND[i],
-                                ridRevisionManifestStart4FND[i + 1],
-                                51401,
-                                @"[In RevisionManifestStart4FND] The rid of two RevisionManifestStart4FND in revision manifest list is different");
+                for (int j = i + 1; j < ridRevisionManifestStart4FND.Count; j++)
+                {
+                    // Verify MS-ONESTORE requirement: MS-ONESTORE_R51401
+                    Site.CaptureRequirementIfAreNotEqual<ExtendedGUID>(
+                                    ridRevisionManifestStart4FND[i],
+                                    ridRevisionManifestStart4FND[j],
+                                    51401,
+                                    @"[In RevisionManifestStart4FND] The rid of two RevisionManifestStart4FND in revision manifest list is different");
+                }
 
                 ExtendedGUID zeroExtendGuid = new ExtendedGUID();
                 zeroExtendGuid.Guid = Guid.Empty;
