@@ -6,7 +6,7 @@
     public class CRC32
     {
         /// <summary>
-        /// 
+        /// The CRC32 code table. 
         /// </summary>
         private static uint[] Crc32Table;
         /// <summary>

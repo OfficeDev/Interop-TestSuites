@@ -17,6 +17,11 @@
         /// </summary>
         private uint cbFormat;
 
+        /// <summary>
+        /// Initialize the class.
+        /// </summary>
+        /// <param name="stpFormat">The value of stpFormat.</param>
+        /// <param name="cbFormat">The value of cbFormat.</param>
         public ObjectDataEncryptionKeyV2FNDX(uint stpFormat, uint cbFormat)
         {
             this.stpFormat = stpFormat;

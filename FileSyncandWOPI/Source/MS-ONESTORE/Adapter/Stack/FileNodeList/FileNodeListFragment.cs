@@ -2,9 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// This class is used to represent the FileNodeListFragment structure.
@@ -46,11 +43,11 @@
         public UInt64 footer { get; set; }
 
         /// <summary>
-        /// This method is used to deserialize the FileNodeListHeader object from the specified byte array and start index.
+        /// This method is used to deserialize the FileNodeListFragment object from the specified byte array and start index.
         /// </summary>
         /// <param name="byteArray">Specify the byte array.</param>
         /// <param name="startIndex">Specify the start index from the byte array.</param>
-        /// <returns>Return the length in byte of the FileNodeListHeader object.</returns>
+        /// <returns>Return the length in byte of the FileNodeListFragment object.</returns>
         public int DoDeserializeFromByteArray(byte[] byteArray, int startIndex)
         {
             int index = startIndex;
@@ -102,9 +99,9 @@
             return index - startIndex;
         }
         /// <summary>
-        /// This method is used to convert the element of FileNodeListHeader object into a byte List.
+        /// This method is used to convert the element of FileNodeListFragment object into a byte List.
         /// </summary>
-        /// <returns>Return the byte list which store the byte information of FileNodeListHeader.</returns>
+        /// <returns>Return the byte list which store the byte information of FileNodeListFragment.</returns>
         public List<byte> SerializeToByteList()
         {
             List<byte> byteList = new List<byte>();

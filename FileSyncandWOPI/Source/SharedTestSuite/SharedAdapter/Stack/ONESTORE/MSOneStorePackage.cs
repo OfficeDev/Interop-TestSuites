@@ -32,9 +32,17 @@
         /// Gets or sets the Revision Manifest of Header Cell.
         /// </summary>
         public RevisionManifestDataElementData HeaderCellRevisionManifest { get; set; }
+        /// <summary>
+        /// Gets or sets the Revision Manifests.
+        /// </summary>
         public List<RevisionManifestDataElementData> RevisionManifests { get; set; }
-
+        /// <summary>
+        /// Gets or sets the Cell Manifests.
+        /// </summary>
         public List<CellManifestDataElementData> CellManifests { get; set; }
+        /// <summary>
+        /// Gets or sets the Header Cell.
+        /// </summary>
         public HeaderCell HeaderCell { get; set; }
         /// <summary>
         /// Gets or sets the root objects of the revision store file.
@@ -299,6 +307,9 @@
     /// </summary>
     public class RevisionStoreObject
     {
+        /// <summary>
+        ///  Initialize the class.
+        /// </summary>
         public RevisionStoreObject()
         {
            

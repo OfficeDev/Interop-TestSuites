@@ -17,6 +17,11 @@
         /// </summary>
         private uint cbFormat;
 
+        /// <summary>
+        /// Initialize the class.
+        /// </summary>
+        /// <param name="stpFormat">The value of stpFormat.</param>
+        /// <param name="cbFormat">The value of cbFormat.</param>
         public ReadOnlyObjectDeclaration2RefCountFND(uint stpFormat, uint cbFormat)
         {
             this.stpFormat = stpFormat;
@@ -53,9 +58,9 @@
         }
 
         /// <summary>
-        /// This method is used to convert the element of ObjectDeclarationFileData3LargeRefCountFND object into a byte List.
+        /// This method is used to convert the element of ReadOnlyObjectDeclaration2RefCountFND object into a byte List.
         /// </summary>
-        /// <returns>Return the byte list which store the byte information of ObjectDeclarationFileData3LargeRefCountFND.</returns>
+        /// <returns>Return the byte list which store the byte information of ReadOnlyObjectDeclaration2RefCountFND.</returns>
         public override List<byte> SerializeToByteList()
         {
             List<byte> byteList = new List<byte>();

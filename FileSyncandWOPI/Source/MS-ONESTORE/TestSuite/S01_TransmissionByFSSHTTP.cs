@@ -1,10 +1,10 @@
 ﻿namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 {
     using Microsoft.Protocols.TestSuites.Common;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Microsoft.Protocols.TestSuites.SharedAdapter;
-    using System.Collections.Generic;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -161,7 +161,7 @@
         }
 
         /// <summary>
-        /// The test case is validate that call QueryChange to get the specific encryption OneNote file.
+        /// The test case is validate that call QueryChange to get the specific OneNote file that does not contain File Data.
         /// </summary>
         [TestCategory("MSONESTORE"), TestMethod]
         public void MSONESTORE_S01_TC03_QueryOneFileWithoutFileData()
@@ -287,7 +287,7 @@
         }
 
         /// <summary>
-        /// The test case is validate that call QueryChange to get the specific encryption OneNote file.
+        /// The test case is validate that call QueryChange to get the specific OneNote file that contains the large number references.
         /// </summary>
         [TestCategory("MSONESTORE"), TestMethod]
         public void MSONESTORE_S01_TC04_QueryOneFileWithLargeReferences()

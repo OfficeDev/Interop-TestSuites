@@ -16,6 +16,11 @@
         /// </summary>
         private uint cbFormat;
 
+        /// <summary>
+        /// Initialize the class.
+        /// </summary>
+        /// <param name="stpFormat">The value of stpFormat.</param>
+        /// <param name="cbFormat">The value of cbFormat.</param>
         public ObjectDeclarationWithRefCountFNDX(uint stpFormat, uint cbFormat)
         {
             this.stpFormat = stpFormat;
@@ -37,7 +42,7 @@
         /// </summary>
         public byte cRef { get; set; }
         /// <summary>
-        /// Gets or sets the value of ObjectSpaceObjectPropSet.
+        /// Gets or sets the value of PropertySet.
         /// </summary>
         public ObjectSpaceObjectPropSet PropertySet { get; set; }
         /// <summary>
@@ -68,9 +73,9 @@
         }
 
         /// <summary>
-        /// This method is used to convert the element of FileDataStoreObjectReferenceFND object into a byte List.
+        /// This method is used to convert the element of ObjectDeclarationWithRefCountFNDX object into a byte List.
         /// </summary>
-        /// <returns>Return the byte list which store the byte information of FileDataStoreObjectReferenceFND.</returns>
+        /// <returns>Return the byte list which store the byte information of ObjectDeclarationWithRefCountFNDX.</returns>
         public override List<byte> SerializeToByteList()
         {
             List<byte> byteList = new List<byte>();

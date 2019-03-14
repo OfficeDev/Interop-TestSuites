@@ -36,9 +36,9 @@
         }
 
         /// <summary>
-        /// This method is used to convert the element of RevisionRoleDeclarationFND object into a byte List.
+        /// This method is used to convert the element of RevisionRoleAndContextDeclarationFND object into a byte List.
         /// </summary>
-        /// <returns>Return the byte list which store the byte information of RevisionRoleDeclarationFND.</returns>
+        /// <returns>Return the byte list which store the byte information of RevisionRoleAndContextDeclarationFND.</returns>
         public override List<byte> SerializeToByteList()
         {
             List<byte> byteList = new List<byte>();

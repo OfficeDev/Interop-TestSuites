@@ -67,5 +67,19 @@
 
             return true;
         }
+        /// <summary>
+        ///  Calculate a hash code for the ExtendedGUID.
+        /// </summary>
+        /// <returns>Return a hash code for the ExtendedGUID object.</returns>
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hashCode = Guid.GetHashCode();
+                hashCode ^= N.GetHashCode();
+
+                return hashCode;
+            }
+        }
     }
 }
