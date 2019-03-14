@@ -2,9 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// This class is used to represent the FileDataStoreObject structure.
@@ -34,12 +31,10 @@
         /// Gets or sets the value of unused.
         /// </summary>
         public uint unused { get; set; }
-
         /// <summary>
         ///   Gets or sets the value of reserved.
         /// </summary>
         public ulong reserved { get; set; }
-
         /// <summary>
         /// Gets or sets the value of FileData.
         /// </summary>

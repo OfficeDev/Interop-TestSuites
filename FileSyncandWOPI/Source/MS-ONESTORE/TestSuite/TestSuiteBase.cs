@@ -4,10 +4,6 @@
     using Microsoft.Protocols.TestSuites.SharedAdapter;
     using Microsoft.Protocols.TestTools;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Net;
 
     /// <summary>
     /// Contain test cases designed to test [MS-ONESTORE] protocol.

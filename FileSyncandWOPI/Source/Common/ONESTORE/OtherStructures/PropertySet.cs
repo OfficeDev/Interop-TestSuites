@@ -2,9 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+	
     /// <summary>
     /// This class is used to represent a PropertySet.
     /// </summary>

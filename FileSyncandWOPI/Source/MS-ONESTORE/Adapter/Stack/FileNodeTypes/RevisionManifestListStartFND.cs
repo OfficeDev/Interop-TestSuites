@@ -3,6 +3,9 @@
     using System;
     using System.Collections.Generic;
 
+    /// <summary>
+    /// This class is used to represent the RevisionManifestListStartFND structure.
+    /// </summary>
     public class RevisionManifestListStartFND : FileNodeBase
     {
         /// <summary>

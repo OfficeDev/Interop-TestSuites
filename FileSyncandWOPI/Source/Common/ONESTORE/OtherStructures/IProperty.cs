@@ -1,6 +1,7 @@
 ﻿namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 {
     using System.Collections.Generic;
+
     /// <summary>
     /// The interface of the property in OneNote file.
     /// </summary>

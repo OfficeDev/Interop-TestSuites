@@ -2,9 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// This class is used to represent FileChunkReference64 structure.
@@ -22,7 +19,7 @@
         public UInt64 Cb { get; set; }
 
         /// <summary>
-        /// This method is used to deserialize the FileChunkReference32 object from the specified byte array and start index.
+        /// This method is used to deserialize the FileChunkReference64 object from the specified byte array and start index.
         /// </summary>
         /// <param name="byteArray">Specify the byte array.</param>
         /// <param name="startIndex">Specify the start index from the byte array.</param>
@@ -39,7 +36,7 @@
         }
 
         /// <summary>
-        /// This method is used to convert the element of FileChunkReference32 object into a byte List.
+        /// This method is used to convert the element of FileChunkReference64 object into a byte List.
         /// </summary>
         /// <returns>Return the byte list which store the byte information of FileChunkReference32</returns>
         public override List<byte> SerializeToByteList()

@@ -17,6 +17,11 @@
         /// </summary>
         private uint cbFormat;
 
+        /// <summary>
+        /// Initialize the class.
+        /// </summary>
+        /// <param name="stpFormat">The value of stpFormat.</param>
+        /// <param name="cbFormat">The value of cbFormat.</param>               
         public ObjectDeclaration2LargeRefCountFND(uint stpFormat, uint cbFormat)
         {
             this.stpFormat = stpFormat;
@@ -38,7 +43,7 @@
         /// </summary>
         public uint cRef { get; set; }
         /// <summary>
-        /// Gets or sets the value of ObjectSpaceObjectPropSet.
+        /// Gets or sets the value of PropertySet field.
         /// </summary>
         public ObjectSpaceObjectPropSet PropertySet { get; set; }
         /// <summary>

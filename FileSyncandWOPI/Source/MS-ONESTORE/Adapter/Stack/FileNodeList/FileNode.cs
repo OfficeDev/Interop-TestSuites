@@ -1,7 +1,6 @@
 ﻿namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 {
     using Common;
-    using System;
     using System.Collections.Generic;
 
     /// <summary>
@@ -20,7 +19,7 @@
         public uint Size { get; set; }
 
         /// <summary>
-        /// Gets or sets the value of StpFormat field,
+        /// Gets or sets the value of StpFormat field.
         /// </summary>
         public uint StpFormat { get; set; }
 
@@ -45,11 +44,11 @@
         public FileNodeBase fnd { get; set; }
 
         /// <summary>
-        /// This method is used to deserialize the FileNodeListHeader object from the specified byte array and start index.
+        /// This method is used to deserialize the FileNode object from the specified byte array and start index.
         /// </summary>
         /// <param name="byteArray">Specify the byte array.</param>
         /// <param name="startIndex">Specify the start index from the byte array.</param>
-        /// <returns>Return the length in byte of the FileNodeListHeader object.</returns>
+        /// <returns>Return the length in byte of the FileNode object.</returns>
         public int DoDeserializeFromByteArray(byte[] byteArray, int startIndex)
         {
             int index = startIndex;
@@ -181,9 +180,9 @@
             return index - startIndex;
         }
         /// <summary>
-        /// This method is used to convert the element of FileNodeListHeader object into a byte List.
+        /// This method is used to convert the element of FileNode object into a byte List.
         /// </summary>
-        /// <returns>Return the byte list which store the byte information of FileNodeListHeader.</returns>
+        /// <returns>Return the byte list which store the byte information of FileNode.</returns>
         public List<byte> SerializeToByteList()
         {
             List<byte> byteList = new List<byte>();

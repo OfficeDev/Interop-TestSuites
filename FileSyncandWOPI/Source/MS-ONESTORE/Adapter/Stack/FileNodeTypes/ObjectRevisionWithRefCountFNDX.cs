@@ -1,11 +1,7 @@
 ﻿namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 {
     using Common;
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// This class is used to represent the ObjectRevisionWithRefCountFNDX structure.
@@ -20,7 +16,11 @@
         /// The format of cb field.
         /// </summary>
         private uint cbFormat;
-
+        /// <summary>
+        /// Initialize the class.
+        /// </summary>
+        /// <param name="stpFormat">The value of stpFormat.</param>
+        /// <param name="cbFormat">The value of cbFormat.</param>
         public ObjectRevisionWithRefCountFNDX(uint stpFormat, uint cbFormat)
         {
             this.stpFormat = stpFormat;
@@ -47,7 +47,7 @@
         /// </summary>
         public int fHasOsidReferences { get; set; }
         /// <summary>
-        /// Gets or sets the value of the ObjectSpaceObjectPropSet.
+        /// Gets or sets the value of the PropertySet.
         /// </summary>
         public ObjectSpaceObjectPropSet PropertySet { get; set; }
         /// <summary>

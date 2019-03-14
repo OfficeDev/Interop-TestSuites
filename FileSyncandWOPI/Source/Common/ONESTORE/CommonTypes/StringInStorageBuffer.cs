@@ -18,9 +18,9 @@
         public string StringData { get; set; }
 
         /// <summary>
-        /// This method is used to convert the element of ExtendedGUID object into a byte List.
+        /// This method is used to convert the element of StringInStorageBuffer object into a byte List.
         /// </summary>
-        /// <returns>Return the byte list which store the byte information of ExtendedGUID</returns>
+        /// <returns>Return the byte list which store the byte information of StringInStorageBuffer</returns>
         public List<byte> SerializeToByteList()
         {
             List<byte> byteList = new List<byte>();
@@ -31,11 +31,11 @@
         }
 
         /// <summary>
-        /// This method is used to deserialize the ExtendedGUID object from the specified byte array and start index.
+        /// This method is used to deserialize the StringInStorageBuffer object from the specified byte array and start index.
         /// </summary>
         /// <param name="byteArray">Specify the byte array.</param>
         /// <param name="startIndex">Specify the start index from the byte array.</param>
-        /// <returns>Return the length in byte of the ExtendedGUID object.</returns>
+        /// <returns>Return the length in byte of the StringInStorageBuffer object.</returns>
         public int DoDeserializeFromByteArray(byte[] byteArray, int startIndex)
         {
             int index = startIndex;

@@ -15,13 +15,18 @@
         /// The format of cb field.
         /// </summary>
         private uint cbFormat;
+        /// <summary>
+        /// Initialize the class.
+        /// </summary>
+        /// <param name="stpFormat">The value of stpFormat.</param>
+        /// <param name="cbFormat">The value of cbFormat.</param>
         public ObjectSpaceManifestListReferenceFND(uint stpFormat, uint cbFormat)
         {
             this.stpFormat = stpFormat;
             this.cbFormat = cbFormat;
         }
         /// <summary>
-        /// Gets or sets the value pf ref field.
+        /// Gets or sets the value of ref field.
         /// </summary>
         public FileNodeChunkReference refField { get; set; }
         /// <summary>

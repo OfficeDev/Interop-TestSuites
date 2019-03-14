@@ -2,10 +2,9 @@
 {
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Microsoft.Protocols.TestSuites.SharedAdapter;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System;
 
     /// <summary>
     /// This scenario is designed to test the requirements related with .one file.

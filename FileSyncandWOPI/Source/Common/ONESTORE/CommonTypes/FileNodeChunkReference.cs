@@ -40,11 +40,11 @@
         public ulong StpValue { get; private set; }
 
         /// <summary>
-        /// This method is used to deserialize the FileChunkReference32 object from the specified byte array and start index.
+        /// This method is used to deserialize the FileNodeChunkReference object from the specified byte array and start index.
         /// </summary>
         /// <param name="byteArray">Specify the byte array.</param>
         /// <param name="startIndex">Specify the start index from the byte array.</param>
-        /// <returns>Return the length in byte of the FileChunkReference32 object.</returns>
+        /// <returns>Return the length in byte of the FileNodeChunkReference object.</returns>
         public override int DoDeserializeFromByteArray(byte[] byteArray, int startIndex)
         {
             int index = startIndex;
@@ -114,9 +114,9 @@
         }
 
         /// <summary>
-        /// This method is used to convert the element of FileChunkReference32 object into a byte List.
+        /// This method is used to convert the element of FileNodeChunkReference object into a byte List.
         /// </summary>
-        /// <returns>Return the byte list which store the byte information of FileChunkReference32</returns>
+        /// <returns>Return the byte list which store the byte information of FileNodeChunkReference</returns>
         public override List<byte> SerializeToByteList()
         {
             List<byte> byteList = new List<byte>();

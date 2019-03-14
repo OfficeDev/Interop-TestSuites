@@ -17,6 +17,11 @@
         /// </summary>
         private uint cbFormat;
 
+        /// <summary>
+        /// Initialize the class.
+        /// </summary>
+        /// <param name="stpFormat">The value of stpFormat.</param>
+        /// <param name="cbFormat">The value of cbFormat.</param>
         public ObjectDeclarationWithRefCount2FNDX(uint stpFormat, uint cbFormat)
         {
             this.stpFormat = stpFormat;
@@ -39,7 +44,7 @@
         public uint cRef { get; set; }
 
         /// <summary>
-        /// Gets or sets the value of ObjectSpaceObjectPropSet.
+        /// Gets or sets the value of PropertySet.
         /// </summary>
         public ObjectSpaceObjectPropSet PropertySet { get; set; }
         /// <summary>

@@ -16,6 +16,11 @@
         /// </summary>
         private uint cbFormat;
 
+        /// <summary>
+        /// The initialize method of FileDataStoreListReferenceFND
+        /// </summary>
+        /// <param name="stpFormat">The value of stpFormat.</param>
+        /// <param name="cbFormat">The value of cbFormat.</param>
         public FileDataStoreListReferenceFND(uint stpFormat, uint cbFormat)
         {
             this.stpFormat = stpFormat;
