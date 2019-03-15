@@ -455,24 +455,6 @@
             }
             #endregion
         }
-
-        /// <summary>
-        /// The test case is validate that call QueryChange to get the specific encryption OneNote file.
-        /// </summary>
-        [TestCategory("MSONESTORE"), TestMethod]
-        public void MSONESTORE_S01_TC06_QueryOneFileWithInvalidFileData()
-        {
-            // Get the resource url that contains the file data.
-            string resourceName = Common.GetConfigurationPropertyValue("OneWithInvalid", Site);
-            string url = this.GetResourceUrl(resourceName);
-            this.InitializeContext(url, this.UserName, this.Password, this.Domain);
-
-            // Call QueryChange to get the data that is uploaded by above step.
-            CellSubRequestType cellSubRequest = this.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentSerialNumber());
-            CellStorageResponse cellStorageResponse = this.SharedAdapter.CellStorageRequest(url, new SubRequestType[] { cellSubRequest });
-            MSOneStorePackage package = this.ConvertOneStorePackage(cellStorageResponse);
-
-        }
         #endregion Test Cases
 
         #region Private methods

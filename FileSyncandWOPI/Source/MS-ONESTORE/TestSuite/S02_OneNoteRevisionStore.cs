@@ -569,7 +569,7 @@
         /// The test case is validate that the requirements related with the .one file that have many large references.
         /// </summary>
         [TestCategory("MSONESTORE"), TestMethod]
-        public void S02_TC05_LoadOneNoteWithLargeReferences()
+        public void MSONESTORE_S02_TC05_LoadOneNoteWithLargeReferences()
         {
             string fileName = Common.GetConfigurationPropertyValue("OneWithLarge", Site);
 
