@@ -24,8 +24,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="OneFileWithoutFileData" value="OneWithoutFileData.one"/>
     <!-- The OneFileEncryption File property specifies the file path of the file which is a OneNote notebook and encryption. -->
     <Property name="OneFileEncryption" value="Encryption.one"/>
-    <!-- The OneWithInvalid File property specifies the file path of the file which is a OneNote notebook and contains invalid file data. -->
-    <Property name="OneWithInvalid" value="InvalidData.one"/>
     <!-- The OneWithLarge File property specifies the file path of the file which is a OneNote notebook and contains large references for file data. -->
     <Property name="OneWithLarge" value="LargeData.one"/>
     <!-- The OnetocFileLocal File property specifies the file path of the file which is a OneNote notebook. -->
