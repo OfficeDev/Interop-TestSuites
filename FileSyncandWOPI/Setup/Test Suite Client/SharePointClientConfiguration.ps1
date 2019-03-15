@@ -86,15 +86,15 @@ $MSWOPIPasswordCredentialItem                = ReadConfigFileNode "$environmentR
 $MSWOPIFolderCreatedByUser1                  = ReadConfigFileNode "$environmentResourceFile" "MSWOPIFolderCreatedByUser1"
 $MSWOPINoUseRemotePermissionLevel            = ReadConfigFileNode "$environmentResourceFile" "MSWOPINoUseRemotePermissionLevel"
 
-$MSONESTORESiteCollectionName                = ReadConfigFileNode "$environmentResourceFile" "SiteCollectionName"
+$MSONESTORESiteCollectionName                = ReadConfigFileNode "$environmentResourceFile" "MSONESTORESiteCollectionName"
 $MSONESTORELibraryName                       = ReadConfigFileNode "$environmentResourceFile" "MSONESTORELibraryName"
-$MSONESTOREOneFileWithFileData               = ReadConfigFileNode "$environmentResourceFile" "OneFileWithFileData"
-$MSONESTOREOneFileWithoutFileData            = ReadConfigFileNode "$environmentResourceFile" "OneFileWithoutFileData"
-$MSONESTOREOneFileEncryption                 = ReadConfigFileNode "$environmentResourceFile" "OneFileEncryption"
-$MSONESTOREOneWithInvalid                    = ReadConfigFileNode "$environmentResourceFile" "OneWithInvalid"
-$MSONESTOREOneWithLarge                      = ReadConfigFileNode "$environmentResourceFile" "OneWithLarge"
-$MSONESTOREOnetocFileLocal                   = ReadConfigFileNode "$environmentResourceFile" "OnetocFileLocal"
-$MSONESTORENoSectionFile                     = ReadConfigFileNode "$environmentResourceFile" "NoSectionFile"
+$MSONESTOREOneFileWithFileData               = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneFileWithFileData"
+$MSONESTOREOneFileWithoutFileData            = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneFileWithoutFileData"
+$MSONESTOREOneFileEncryption                 = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneFileEncryption"
+$MSONESTOREOneWithInvalid                    = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneWithInvalid"
+$MSONESTOREOneWithLarge                      = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneWithLarge"
+$MSONESTOREOnetocFileLocal                   = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOnetocFileLocal"
+$MSONESTORENoSectionFile                     = ReadConfigFileNode "$environmentResourceFile" "MSONESTORENoSectionFile"
 
 #-----------------------------------------------------
 # Paths for all PTF configuration files.

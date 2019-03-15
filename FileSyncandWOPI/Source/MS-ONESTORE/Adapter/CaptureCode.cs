@@ -1573,7 +1573,7 @@
                 for (int j = i + 1; j < globalIdTableEntryFNDXArray.Length; j++)
                 {
                     GlobalIdTableEntryFNDX fGlobalIdTableEntry = globalIdTableEntryFNDXArray[i].fnd as GlobalIdTableEntryFNDX;
-                    GlobalIdTableEntryFNDX sGlobalIdTableEntry = globalIdTableEntryFNDXArray[i].fnd as GlobalIdTableEntryFNDX;
+                    GlobalIdTableEntryFNDX sGlobalIdTableEntry = globalIdTableEntryFNDXArray[j].fnd as GlobalIdTableEntryFNDX;
 
                     if(fGlobalIdTableEntry.guid== sGlobalIdTableEntry.guid)
                     {
