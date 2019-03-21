@@ -512,7 +512,7 @@ if($sutVersion -ge $script:SharePointFoundation2010OnSUT[0] -or $sutVersion -ge 
     ModifyConfigFileNode $MSONESTOREDeploymentFile "OneFileWithFileData"                   $MSONESTOREOneFileWithFileData 
     ModifyConfigFileNode $MSONESTOREDeploymentFile "OneFileWithoutFileData"                $MSONESTOREOneFileWithoutFileData
     ModifyConfigFileNode $MSONESTOREDeploymentFile "OneFileEncryption"                     $MSONESTOREOneFileEncryption
-    ModifyConfigFileNode $MSONESTOREDeploymentFile "OneWithInvalid"                        $MSONESTOREOneWithInvalid
+   #ModifyConfigFileNode $MSONESTOREDeploymentFile "OneWithInvalid"                        $MSONESTOREOneWithInvalid
     ModifyConfigFileNode $MSONESTOREDeploymentFile "OneWithLarge"                          $MSONESTOREOneWithLarge
     ModifyConfigFileNode $MSONESTOREDeploymentFile "OnetocFileLocal"                       $MSONESTOREOnetocFileLocal
     ModifyConfigFileNode $MSONESTOREDeploymentFile "NoSectionFile"                         $MSONESTORENoSectionFile
