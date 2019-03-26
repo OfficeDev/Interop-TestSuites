@@ -33,7 +33,7 @@
 
         #region Test cases
         /// <summary>
-        /// The test case is validate that the requirements related with .one file.
+        /// The test case is validate that the requirements related with .one file that contains file data.
         /// </summary>
         [TestCategory("MSONESTORE"), TestMethod]
         public void MSONESTORE_S02_TC01_LoadOneNoteFileWithFileData()
@@ -502,7 +502,7 @@
         }
 
         /// <summary>
-        /// The test case is validate that the requirements related with .onetoc2 file.
+        /// The test case is validate that the requirements related with guidFile field in different .one files.
         /// </summary>
         [TestCategory("MSONESTORE"), TestMethod]
         public void MSONESTORE_S02_TC03_VerifyguildFile()
@@ -566,7 +566,7 @@
             }
         }
         /// <summary>
-        /// The test case is validate that the requirements related with the .one file that have many large references.
+        /// The test case is validate that the requirements related with the .one file that have large number references.
         /// </summary>
         [TestCategory("MSONESTORE"), TestMethod]
         public void MSONESTORE_S02_TC05_LoadOneNoteWithLargeReferences()

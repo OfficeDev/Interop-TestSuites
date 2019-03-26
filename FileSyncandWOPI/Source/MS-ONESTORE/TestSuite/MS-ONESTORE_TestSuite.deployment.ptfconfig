@@ -16,7 +16,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="HttpsTargetServiceUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/_vti_bin/CellStorage.svc/CellStorageService" />
     <!-- The SiteCollectionName property specifies the site collection name. -->
     <Property name="SiteCollectionName" value="MSONESTORE_SiteCollection" />
-    <!-- The MSFSSHTTPFSSHTTPBLibraryName property specifies the name of the document library that contains test files. -->
+    <!-- The MSONESTORELibraryName property specifies the name of the document library that contains test files. -->
     <Property name="MSONESTORELibraryName" value="MSONESTORE_DocumentLibrary" />
     <!-- The OneFileWithFileData File property specifies the file path of the file which is a OneNote notebook and contains the file data. -->
     <Property name="OneFileWithFileData" value="OneWithFileData.one"/>
