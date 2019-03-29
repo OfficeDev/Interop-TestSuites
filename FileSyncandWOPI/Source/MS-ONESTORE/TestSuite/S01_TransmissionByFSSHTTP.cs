@@ -47,7 +47,7 @@
             string url = this.GetResourceUrl(resourceName);
             this.InitializeContext(url, this.UserName, this.Password, this.Domain);
 
-            // Call QueryChange to get the data that is uploaded by above step.
+            // Call QueryChange to get the data that is specified by above step.
             CellSubRequestType cellSubRequest = this.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentSerialNumber());
             CellStorageResponse cellStorageResponse = this.SharedAdapter.CellStorageRequest(url, new SubRequestType[] { cellSubRequest });
             MSOneStorePackage package = this.ConvertOneStorePackage(cellStorageResponse);
@@ -171,7 +171,7 @@
             string url = this.GetResourceUrl(resourceName);
             this.InitializeContext(url, this.UserName, this.Password, this.Domain);
 
-            // Call QueryChange to get the data that is uploaded by above step.
+            // Call QueryChange to get the data that is specified by above step.
             CellSubRequestType cellSubRequest = this.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentSerialNumber());
             CellStorageResponse cellStorageResponse = this.SharedAdapter.CellStorageRequest(url, new SubRequestType[] { cellSubRequest });
             MSOneStorePackage package = this.ConvertOneStorePackage(cellStorageResponse);
@@ -297,7 +297,7 @@
             string url = this.GetResourceUrl(resourceName);
             this.InitializeContext(url, this.UserName, this.Password, this.Domain);
 
-            // Call QueryChange to get the data that is uploaded by above step.
+            // Call QueryChange to get the data that is specified by above step.
             CellSubRequestType cellSubRequest = this.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentSerialNumber());
             CellStorageResponse cellStorageResponse = this.SharedAdapter.CellStorageRequest(url, new SubRequestType[] { cellSubRequest });
             MSOneStorePackage package = this.ConvertOneStorePackage(cellStorageResponse);
@@ -368,7 +368,7 @@
             string url = this.GetResourceUrl(resourceName);
             this.InitializeContext(url, this.UserName, this.Password, this.Domain);
 
-            // Call QueryChange to get the data that is uploaded by above step.
+            // Call QueryChange to get the data that is specified by above step.
             CellSubRequestType cellSubRequest = this.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentSerialNumber());
             CellStorageResponse cellStorageResponse = this.SharedAdapter.CellStorageRequest(url, new SubRequestType[] { cellSubRequest });
             MSOneStorePackage package = this.ConvertOneStorePackage(cellStorageResponse);
@@ -644,6 +644,7 @@
         /// <summary>
         /// Get the url of resource.
         /// </summary>
+        /// <param name="resourceName">The name of resource</param>
         /// <returns>Returns the url of resource.</returns>
         private string GetResourceUrl(string resourceName)
         {
