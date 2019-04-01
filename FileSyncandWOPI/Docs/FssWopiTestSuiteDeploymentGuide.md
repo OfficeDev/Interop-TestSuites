@@ -72,6 +72,7 @@ following versions of SharePoint Server:
 -   Microsoft SharePoint Server 2013 Service Pack 1 (SP1)
 -   Microsoft SharePoint Server 2016
 -   Microsoft SharePoint Server 2019
+
 The following table describes the required server roles for a
 test suite deployment with Microsoft implementation.
 
