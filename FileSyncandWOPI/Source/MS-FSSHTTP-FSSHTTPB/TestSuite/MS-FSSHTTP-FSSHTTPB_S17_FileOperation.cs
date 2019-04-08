@@ -49,22 +49,23 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             FileOperationSubRequestType fileoperationSubRequest = SharedTestSuiteHelper.CreateFileOperationSubRequest(FileOperationRequestTypes.Rename, newName, null, this.Site);
 
             CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(string.Empty, new SubRequestType[] { fileoperationSubRequest });
+            SubResponseType subresponse = cellStoreageResponse.ResponseCollection.Response[0].SubResponse[0];
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11121
-                Site.CaptureRequirementIfAreNotEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.Success,
-                    cellStoreageResponse.ResponseVersion.ErrorCode,
+                Site.CaptureRequirementIfAreNotEqual<string>(
+                    GenericErrorCodeTypes.Success.ToString(),
+                    subresponse.ErrorCode,
                     "MS-FSSHTTP",
                     11121,
                     @"[In FileOperationSubResponseType] In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.");
             }
             else
             {
-                Site.Assert.AreNotEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.Success,
-                    cellStoreageResponse.ResponseVersion.ErrorCode,
+                Site.Assert.AreNotEqual<string>(
+                    GenericErrorCodeTypes.Success.ToString(),
+                    subresponse.ErrorCode,
                     "Error should occur if call fileoperation request with empty url.");
             }
         }

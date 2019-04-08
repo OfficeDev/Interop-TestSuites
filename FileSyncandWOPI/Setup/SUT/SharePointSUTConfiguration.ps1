@@ -81,6 +81,14 @@ $MSWOPIPasswordCredentialItem                = ReadConfigFileNode "$environmentR
 $MSWOPIFolderCreatedByUser1                  = ReadConfigFileNode "$environmentResourceFile" "MSWOPIFolderCreatedByUser1"
 $MSWOPINoUseRemotePermissionLevel            = ReadConfigFileNode "$environmentResourceFile" "MSWOPINoUseRemotePermissionLevel"
 
+$MSONESTORESiteCollectionName                =ReadConfigFileNode "$environmentResourceFile" "MSONESTORESiteCollectionName"
+$MSONESTORELibraryName                       =ReadConfigFileNode "$environmentResourceFile" "MSONESTORELibraryName"
+$MSONESTOREOneFileWithFileData               =ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneFileWithFileData"
+$MSONESTOREOneFileWithoutFileData            =ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneFileWithoutFileData"
+$MSONESTOREOneFileEncryption                 =ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneFileEncryption"
+$MSONESTOREOneWithInvalid                    =ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneWithInvalid"
+$MSONESTOREOneWithLarge                      =ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneWithLarge"
+$MSONESTOREOnetocFileLocal                   =ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOnetocFileLocal"
 #-----------------------------------------------------
 # Check whether the unattended SUT configuration XML is available if run in unattended mode.
 #-----------------------------------------------------
@@ -442,6 +450,56 @@ if($SharePointVersion -ge $SharePointServer2013[0] -or $SharePointVersion -eq $S
     #start url in IE
     StartUrlInIE $sutComputerName $web  
 }
+#-----------------------------------------------------
+# Start to configure SUT for MS-ONESTORE
+#-----------------------------------------------------
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -ge $SharePointServer2013[0] )
+{
+    Output "Start to run configuration for MS-ONESTORE ..." "White"
+    
+    Output "Steps for manual configuration:" "Yellow"
+    Output "Create a site collection with the name $MSONESTORESiteCollectionName ..." "Yellow"
+    $MSONESTORESiteCollectionNameObject = CreateSiteCollection $MSONESTORESiteCollectionName $sutComputerName "$domain\$userName" "$userName@$domain" "STS#0" 1033
+      
+    Output "Steps for manual configuration:" "Yellow"
+    Output "Create a document library $MSONESTORELibraryName in the root site $MSONESTORESiteCollectionName ..." "Yellow"
+    CreateListItem $MSONESTORESiteCollectionNameObject.RootWeb $MSONESTORELibraryName 101
+
+    $MSONESTORE_web = $MSONESTORESiteCollectionNameObject.OpenWeb()
+
+    Output "Steps for manual configuration:" "Yellow"
+    Output "Grant full control permissions to the users $User1 on the site $MSONESTORESiteCollectionName ..." "Yellow"
+    GrantUserPermission $MSONESTORE_web "Full Control" $domain.split(".")[0] $User1
+    
+    Output "Steps for manual configuration:" "Yellow"
+    Output "Upload the file $MSONESTOREOneFileWithFileData to http://$sutComputerName/sites/$MSONESTORESiteCollectionName/$MSONESTORELibraryName ..." "Yellow"
+    UploadFileToSharePointFolder $MSONESTORE_web $MSONESTORELibraryName $MSONESTOREOneFileWithFileData ".\$MSONESTOREOneFileWithFileData" $true
+
+    Output "Steps for manual configuration:" "Yellow"
+    Output "Upload the file $MSONESTOREOneFileWithFileData to http://$sutComputerName/sites/$MSONESTORESiteCollectionName/$MSONESTORELibraryName ..." "Yellow"
+    UploadFileToSharePointFolder $MSONESTORE_web $MSONESTORELibraryName $MSONESTOREOneFileWithoutFileData  ".\$MSONESTOREOneFileWithoutFileData" $true
+
+    Output "Steps for manual configuration:" "Yellow"
+    Output "Upload the file $MSONESTOREOneFileWithFileData to http://$sutComputerName/sites/$MSONESTORESiteCollectionName/$MSONESTORELibraryName ..." "Yellow"
+    UploadFileToSharePointFolder $MSONESTORE_web $MSONESTORELibraryName $MSONESTOREOneFileEncryption ".\$MSONESTOREOneFileEncryption" $true
+
+    Output "Steps for manual configuration:" "Yellow"
+    Output "Upload the file $MSONESTOREOneFileWithFileData to http://$sutComputerName/sites/$MSONESTORESiteCollectionName/$MSONESTORELibraryName ..." "Yellow"
+    UploadFileToSharePointFolder $MSONESTORE_web $MSONESTORELibraryName $MSONESTOREOneWithInvalid ".\$MSONESTOREOneWithInvalid" $true
+
+    Output "Steps for manual configuration:" "Yellow"
+    Output "Upload the file $MSONESTOREOneFileWithFileData to http://$sutComputerName/sites/$MSONESTORESiteCollectionName/$MSONESTORELibraryName ..." "Yellow"
+    UploadFileToSharePointFolder $MSONESTORE_web $MSONESTORELibraryName $MSONESTOREOneWithLarge ".\$MSONESTOREOneWithLarge" $true
+
+    Output "Steps for manual configuration:" "Yellow"
+    Output "Upload the file $MSONESTOREOneFileWithFileData to http://$sutComputerName/sites/$MSONESTORESiteCollectionName/$MSONESTORELibraryName ..." "Yellow"
+    UploadFileToSharePointFolder $MSONESTORE_web $MSONESTORELibraryName $MSONESTOREOnetocFileLocal ".\$MSONESTOREOnetocFileLocal" $true
+
+
+    $MSONESTORESiteCollectionNameObject.Dispose()
+    
+
+ }
 #----------------------------------------------------------------------------
 # Ending script
 #----------------------------------------------------------------------------

@@ -216,6 +216,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         ObjectGroupObjectBLOBDataDeclaration = 0x05,
 
         /// <summary>
+        /// Data Element Hash
+        /// </summary>
+        DataElementHash = 0x06,
+
+        /// <summary>
         /// Storage Manifest Root Declare
         /// </summary>
         StorageManifestRootDeclare = 0x07,
@@ -345,6 +350,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         ContentTagKnowledgeEntry = 0x2E,
 
+        /// <summary>
+        /// Query Changes Versioning
+        /// </summary>
+        QueryChangesVersioning = 0x30,
         /// <summary>
         /// The Request
         /// </summary>
@@ -564,11 +573,6 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// Put changes lock id
         /// </summary>
         PutChangesLockId = 0x85,
-
-        /// <summary>
-        /// This value is wrong
-        /// </summary>
-        DataElementHash = 0x100
     }
 
     /// <summary>
@@ -694,7 +698,22 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// Target PartitionId, new added in MOSS2013.
         /// </summary>
-        TargetPartitionId = 0x083
+        TargetPartitionId = 0x083,
+
+        /// <summary>
+        /// User Agent Client and Platform
+        /// </summary>
+        UserAgentClientandPlatform=0x8B,
+
+        /// <summary>
+        /// Version Token Knowledge
+        /// </summary>
+        VersionTokenKnowledge = 0x8C,
+
+        /// <summary>
+        /// Cell Roundtrip Options
+        /// </summary>
+        CellRoundtripOptions = 0x8D,
     }
 
     /// <summary>

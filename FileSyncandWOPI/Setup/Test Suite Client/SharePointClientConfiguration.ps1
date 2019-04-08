@@ -86,12 +86,23 @@ $MSWOPIPasswordCredentialItem                = ReadConfigFileNode "$environmentR
 $MSWOPIFolderCreatedByUser1                  = ReadConfigFileNode "$environmentResourceFile" "MSWOPIFolderCreatedByUser1"
 $MSWOPINoUseRemotePermissionLevel            = ReadConfigFileNode "$environmentResourceFile" "MSWOPINoUseRemotePermissionLevel"
 
+$MSONESTORESiteCollectionName                = ReadConfigFileNode "$environmentResourceFile" "MSONESTORESiteCollectionName"
+$MSONESTORELibraryName                       = ReadConfigFileNode "$environmentResourceFile" "MSONESTORELibraryName"
+$MSONESTOREOneFileWithFileData               = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneFileWithFileData"
+$MSONESTOREOneFileWithoutFileData            = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneFileWithoutFileData"
+$MSONESTOREOneFileEncryption                 = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneFileEncryption"
+$MSONESTOREOneWithInvalid                    = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneWithInvalid"
+$MSONESTOREOneWithLarge                      = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOneWithLarge"
+$MSONESTOREOnetocFileLocal                   = ReadConfigFileNode "$environmentResourceFile" "MSONESTOREOnetocFileLocal"
+$MSONESTORENoSectionFile                     = ReadConfigFileNode "$environmentResourceFile" "MSONESTORENoSectionFile"
+
 #-----------------------------------------------------
 # Paths for all PTF configuration files.
 #-----------------------------------------------------
 $CommonDeploymentFile = resolve-path "..\..\Source\Common\FssWopiCommonConfiguration.deployment.ptfconfig"
 $MSFSSHTTPFSSHTTPBDeploymentFile = resolve-path "..\..\Source\MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_TestSuite.deployment.ptfconfig"
 $MSWOPIDeploymentFile = resolve-path "..\..\Source\MS-WOPI\TestSuite\MS-WOPI_TestSuite.deployment.ptfconfig"
+$MSONESTOREDeploymentFile = resolve-path "..\..\Source\MS-ONESTORE\TestSuite\MS-ONESTORE_TestSuite.deployment.ptfconfig"
 
 #-----------------------------------------------------
 # Check whether the unattended client configuration XML is available if run in unattended mode.
@@ -466,6 +477,48 @@ if($sutVersion -ge $script:SharePointFoundation2013OnSUT[0] -or $sutVersion -ge 
     ModifyConfigFileNode $MSWOPIDeploymentFile "UserFriendlyName"                      $fileSyncWOPIUserDisplayName
 
     Output "Configuration for the MS-WOPI_TestSuite.deployment.ptfconfig file is complete." "Green"
+}
+
+#-----------------------------------------------------
+# Configuration for MS-ONESTORE ptfconfig file.
+#-----------------------------------------------------
+if($sutVersion -ge $script:SharePointFoundation2010OnSUT[0] -or $sutVersion -ge $script:SharePointServer2010OnSUT[0])
+{
+    Output "Modify the properties as necessary in the MS-ONESTORE_TestSuite.deployment.ptfconfig..." "White"
+    $step = 1
+    Output "Steps for manual configuration:" "Yellow"
+    Output "$step.Open $MSONESTOREDeploymentFile" "Yellow"
+    $step++
+    Output "$step.Find the property `"SiteCollectionName`", and set the value to $MSONESTORESiteCollectionName" "Yellow"
+    $step++
+    Output "$step.Find the property `"MSONESTORELibraryName`", and set the value to $MSONESTORELibraryName" "Yellow"
+    $step++
+    Output "$step.Find the property `"OneFileWithFileData`", and set the value to $MSONESTOREOneFileWithFileData" "Yellow"
+    $step++
+    Output "$step.Find the property `"OneFileWithoutFileData`", and set the value to $MSONESTOREOneFileWithoutFileData" "Yellow"
+    $step++
+    Output "$step.Find the property `"OneFileEncryption`", and set the value to $MSONESTOREOneFileEncryption" "Yellow"
+    $step++
+    Output "$step.Find the property `"OneWithInvalid`", and set the value to $MSONESTOREOneWithInvalid" "Yellow"
+    $step++
+    Output "$step.Find the property `"OneWithLarge`", and set the value to $MSONESTOREOneWithLarge" "Yellow"
+    $step++
+    Output "$step.Find the property `"OnetocFileLocal`", and set the value to $MSONESTOREOnetocFileLocal" "Yellow"
+    $step++
+    Output "$step.Find the property `"NoSectionFile`", and set the value to $MSONESTORENoSectionFile." "Yellow"
+
+    ModifyConfigFileNode $MSONESTOREDeploymentFile "SiteCollectionName"                    $MSONESTORESiteCollectionName
+    ModifyConfigFileNode $MSONESTOREDeploymentFile "MSONESTORELibraryName"                 $MSONESTORELibraryName 
+    ModifyConfigFileNode $MSONESTOREDeploymentFile "OneFileWithFileData"                   $MSONESTOREOneFileWithFileData 
+    ModifyConfigFileNode $MSONESTOREDeploymentFile "OneFileWithoutFileData"                $MSONESTOREOneFileWithoutFileData
+    ModifyConfigFileNode $MSONESTOREDeploymentFile "OneFileEncryption"                     $MSONESTOREOneFileEncryption
+   #ModifyConfigFileNode $MSONESTOREDeploymentFile "OneWithInvalid"                        $MSONESTOREOneWithInvalid
+    ModifyConfigFileNode $MSONESTOREDeploymentFile "OneWithLarge"                          $MSONESTOREOneWithLarge
+    ModifyConfigFileNode $MSONESTOREDeploymentFile "OnetocFileLocal"                       $MSONESTOREOnetocFileLocal
+    ModifyConfigFileNode $MSONESTOREDeploymentFile "NoSectionFile"                         $MSONESTORENoSectionFile
+
+
+    Output "Configuration for the MS-ONESTORE_TestSuite.deployment.ptfconfig file is complete." "Green"
 }
 
 #----------------------------------------------------------------------------

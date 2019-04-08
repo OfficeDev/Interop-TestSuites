@@ -355,10 +355,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     end = BasicObject.Parse<StreamObjectHeaderEnd16bit>(byteArray, ref index);
                 }
 
-                //if ((int)end.Type != (int)this.StreamObjectType)
-                //{
-                //    throw new StreamObjectParseErrorException(index, null, "Unexpected the stream header end value " + (int)this.StreamObjectType, null);
-                //}
+                if ((int)end.Type != (int)this.StreamObjectType)
+                {
+                    throw new StreamObjectParseErrorException(index, null, "Unexpected the stream header end value " + (int)this.StreamObjectType, null);
+                }
 
                 this.StreamObjectHeaderEnd = end;
             }

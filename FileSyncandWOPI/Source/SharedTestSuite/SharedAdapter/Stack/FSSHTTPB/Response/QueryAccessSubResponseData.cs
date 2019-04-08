@@ -1,5 +1,7 @@
 namespace Microsoft.Protocols.TestSuites.SharedAdapter
 {
+    using Microsoft.Protocols.TestSuites.Common;
+
     /// <summary>
     /// Specifies the access permissions requested for read/write to the file
     /// </summary>
@@ -35,6 +37,23 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             this.WriteAccessResponse = StreamObject.GetCurrent<WriteAccessResponse>(byteArray, ref index);
 
             currentIndex = index;
+
+            using (BitReader bitReader = new BitReader(byteArray, index))
+            {
+                int headertype = bitReader.ReadInt32(2);
+                if (headertype == 0x2)
+                {
+                    StreamObjectHeaderStart32bit header = new StreamObjectHeaderStart32bit();
+                    header.HeaderType = headertype;
+                    header.Compound = bitReader.ReadInt32(1);
+                    int type = bitReader.ReadInt32(14);
+                    header.Type = (StreamObjectTypeHeaderStart)type;
+                    header.Length = bitReader.ReadInt32(15);
+                    index += 4;
+                    ResponseError responseError = StreamObject.GetCurrent<ResponseError>(byteArray, ref index);
+                }
+                currentIndex = index + 2;
+            }
         }
     }
 

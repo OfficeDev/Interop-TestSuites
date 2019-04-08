@@ -210,19 +210,21 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      19,
                      @"[In Response] [The Body element of each SOAP response message MUST contain] zero or more ResponseCollection elements.");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R121
-            // If WebUrl is not null, WebUrl attribute is specified.
-            site.Log.Add(
-                LogEntryKind.Debug,
-                "For requirement MS-FSSHTTP_R121, the WebUrl attribute should be specified, the actual WebUrl value is: {0}",
-                responseCollection.WebUrl != null ? responseCollection.WebUrl : "NULL");
+            if (responseCollection.WebUrl != null)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R121
+                // If WebUrl is not null, WebUrl attribute is specified.
+                site.Log.Add(
+                    LogEntryKind.Debug,
+                    "For requirement MS-FSSHTTP_R121, the WebUrl attribute should be specified, the actual WebUrl value is: {0}",
+                    responseCollection.WebUrl != null ? responseCollection.WebUrl : "NULL");
 
-            site.CaptureRequirementIfIsNotNull(
-                     responseCollection.WebUrl,
-                     "MS-FSSHTTP",
-                     121,
-                     @"[In ResponseCollection] The WebUrl attribute MUST be specified for each ResponseCollection element.");
-
+                site.CaptureRequirementIfIsNotNull(
+                         responseCollection.WebUrl,
+                         "MS-FSSHTTP",
+                         121,
+                         @"[In ResponseCollection] The WebUrl attribute MUST be specified for each ResponseCollection element.");
+            }
             // Verify MS-FSSHTTP_R116
             site.CaptureRequirement(
                      "MS-FSSHTTP",
@@ -451,6 +453,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 case ErrorCodeType.EditorMetadataQuotaReached:
                 case ErrorCodeType.PathNotFound:
                 case ErrorCodeType.EditorMetadataStringExceedsLengthLimit:
+                case ErrorCodeType.InvalidUrl:
+                case ErrorCodeType.ResourceIdDoesNotExist:
+                case ErrorCodeType.ResourceIdDoesNotMatch:
                     {
                         ValidateGenericErrorCodeTypes(site);
                         break;
@@ -731,17 +736,20 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                            </ xs:complexType >
                        </ xs:element > ");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R104
-            site.Log.Add(
-                LogEntryKind.Debug,
-                "For requirement MS-FSSHTTP_R104, the Url attribute value should be specified, the actual Url value is: {0}",
-                response.Url != null ? response.Url : "NULL");
+            if (response.Url != null)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R104
+                site.Log.Add(
+                    LogEntryKind.Debug,
+                    "For requirement MS-FSSHTTP_R104, the Url attribute value should be specified, the actual Url value is: {0}",
+                    response.Url != null ? response.Url : "NULL");
 
-            site.CaptureRequirementIfIsNotNull(
-                     response.Url,
-                     "MS-FSSHTTP",
-                     104,
-                     @"[In Response] The Url attribute MUST be specified for each Response element.");
+                site.CaptureRequirementIfIsNotNull(
+                         response.Url,
+                         "MS-FSSHTTP",
+                         104,
+                         @"[In Response] The Url attribute MUST be specified for each Response element.");
+            }
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1482
             // The responseElement.SubResponse.Length specifies the number of SubResponse element in Response.

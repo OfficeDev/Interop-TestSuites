@@ -1,4 +1,4 @@
-SharePoint File Sync and WOPI Protocol Test Suite deployment guide
+﻿SharePoint File Sync and WOPI Protocol Test Suite deployment guide
 =====================================================================================================================================================
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
@@ -71,6 +71,7 @@ following versions of SharePoint Server:
 -   Microsoft SharePoint Server 2010 Service Pack 2 (SP2)
 -   Microsoft SharePoint Server 2013 Service Pack 1 (SP1)
 -   Microsoft SharePoint Server 2016
+-   Microsoft SharePoint Server 2019
 
 The following table describes the required server roles for a
 test suite deployment with Microsoft implementation.
@@ -236,6 +237,7 @@ configuration script will be required.
 -  Microsoft SharePoint Server 2013 Service Pack 1 (SP1)
 -  Microsoft SharePoint Foundation 2013 Service Pack 1 (SP1)
 -  Microsoft SharePoint Server 2016
+-  Microsoft SharePoint Server 2019
 
 **SharePoint Server resources**
 
@@ -268,6 +270,16 @@ configuration script will be required.
 | | Domain User                      |  FileSyncWOPIUser
 | | Folder                           |  MSWOPI\_TestFolderCreatedByUser1
 | | Permission level                 |  NoUseRemoteInterfacePermissionLevel
+|**MS-ONESTORE**    |Site collection |  MSONESTORE\_SiteCollection
+| | Document library 		     |  MSONESTORE\_DocumentLibrary
+| | Note file                        |  OneWithFileData.one
+| | Note file               	     |  OneWithoutFileData.one
+| | Note file    		     |  Encryption.one
+| | Note file        		     |  InvalidData.one
+| | Note file   		     |  LargeData.one
+| | Note file    		     |  Open Notebook.onetoc2
+| | Note file 			     |  NoSection.onetoc2
+| | Permission level                 |  FullControl
 
 ### Configuring the SUT using the setup configuration script <a name="configuring-the-sut-using-the-setup-configuration-script"></a>
 
@@ -416,6 +428,39 @@ For the MS-WOPI test suite, the SUT configuration steps are as follows:
 17. Make sure the MSWOPI\_SiteCollection can be accessed before running
     the test suite.
 
+#### MS-ONESTORE
+
+For the MS-ONESTORE test suite, the SUT configuration steps are as follows:
+
+1.  Create a site collection named MSONESTORE\_SiteCollection*.*
+
+2.  Create a document library named MSONESTORE\_DocumentLibrary
+    in MSONESTORE\_SiteCollection.
+
+3.  Grant FullControlPermissionLevel to User1
+    on MSONESTORE\_SiteCollection.
+
+4.  Upload a file OneWithFileData.one to
+    MSONESTORE\_DocumentLibrary under MSONESTORE\_SiteCollection.
+
+5.  Upload a file OneWithoutFileData.one to
+    MSONESTORE\_DocumentLibrary under MSONESTORE\_SiteCollection.
+
+6.  Upload a file Encryption.one to
+    MSONESTORE\_DocumentLibrary under MSONESTORE\_SiteCollection.
+
+7.  Upload a file InvalidData.one to
+    MSONESTORE\_DocumentLibrary under MSONESTORE\_SiteCollection.
+
+8.  Upload a file LargeData.one to
+    MSONESTORE\_DocumentLibrary under MSONESTORE\_SiteCollection.
+
+9.  Upload a file Open Notebook.onetoc2 to 
+    MSONESTORE\_DocumentLibrary under MSONESTORE\_SiteCollection.
+
+10. Upload a file NoSection.onetoc2 to
+    MSONESTORE\_DocumentLibrary under MSONESTORE\_SiteCollection.
+
 Configuring the test suite client
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -546,6 +591,7 @@ Server to be the closest match to the SUT implementation.
 |  **MS-XXXX\_SharePointServer2010\_SHOULDMAY.deployment.ptfconfig**     |  Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Server 2010 Service Pack 2 (SP2).
 |  **MS-XXXX\_SharePointServer2013\_SHOULDMAY.deployment.ptfconfig**     |  Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Server 2013 Service Pack 1 (SP1).
 |  **MS-XXXX\_SharePointServer2016\_SHOULDMAY.deployment.ptfconfig**     |  Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Server 2016.
+|  **MS-XXXX\_SharePointServer2019\_SHOULDMAY.deployment.ptfconfig**     |  Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Server 2019.
 
 ### Configuring the test suite client using setup configuration script
 
@@ -736,3 +782,4 @@ Appendix
 [Microsoft SharePoint Server 2010 deployment](http://go.microsoft.com/fwlink/?LinkId=517505)   |  The Microsoft SharePoint Server 2010 deployment on TechNet.
 [Microsoft SharePoint Server 2013 installation and configuration](http://go.microsoft.com/fwlink/?LinkId=517504) | The Microsoft SharePoint Server 2013 installation and configuration on TechNet.
 [Microsoft SharePoint Server 2016 installation and configuration](https://technet.microsoft.com/zh-cn/library/cc303422(v=office.16).aspx) | Microsoft SharePoint Server 2016 installation and configuration on TechNet.
+[Microsoft SharePoint Server 2019 installation and configuration](https://docs.microsoft.com/en-us/sharepoint/install/install-for-sharepoint-server-2019) | Microsoft SharePoint Server 2019 installation and configuration on TechNet.

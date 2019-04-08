@@ -85,24 +85,26 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                        </s:sequence>
                      </s:complexType>");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2303
-            // Add the log information.
-            site.Log.Add(LogEntryKind.Debug, "For requirement MS-FSSHTTP_R2303, the versioning.enabled MUST be '0' or '1', the versioning.enabled value is : {0}", getVersionsSubResponse.GetVersionsResponse.GetVersionsResult.results.versioning.enabled.ToString());
+            if (getVersionsSubResponse.GetVersionsResponse != null)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2303
+                // Add the log information.
+                site.Log.Add(LogEntryKind.Debug, "For requirement MS-FSSHTTP_R2303, the versioning.enabled MUST be '0' or '1', the versioning.enabled value is : {0}", getVersionsSubResponse.GetVersionsResponse.GetVersionsResult.results.versioning.enabled.ToString());
 
-            // if can launch this method and the versioning.enabled schema matches and value must be 0 or 1.
-            bool isVerifyR2303 = getVersionsSubResponse.GetVersionsResponse.GetVersionsResult.results.versioning.enabled == 0 || getVersionsSubResponse.GetVersionsResponse.GetVersionsResult.results.versioning.enabled == 1;
-            site.CaptureRequirementIfIsTrue(
-                     isVerifyR2303,
-                     "MS-FSSHTTP",
-                     2303,
-                     @"[In GetVersionsSubResponseType][Results complex type] versioning.enabled: The value of this attribute [versioning.enabled] MUST be ""0"" or ""1"".");
+                // if can launch this method and the versioning.enabled schema matches and value must be 0 or 1.
+                bool isVerifyR2303 = getVersionsSubResponse.GetVersionsResponse.GetVersionsResult.results.versioning.enabled == 0 || getVersionsSubResponse.GetVersionsResponse.GetVersionsResult.results.versioning.enabled == 1;
+                site.CaptureRequirementIfIsTrue(
+                         isVerifyR2303,
+                         "MS-FSSHTTP",
+                         2303,
+                         @"[In GetVersionsSubResponseType][Results complex type] versioning.enabled: The value of this attribute [versioning.enabled] MUST be ""0"" or ""1"".");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2308
-            // if can launch this method, the versioning.enabled schema matches.
-            site.CaptureRequirement(
-                     "MS-FSSHTTP",
-                     2308,
-                     @"[In GetVersionsSubResponseType][In VersionData] The VersionData complex type specifies the details about a single version of a file.
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2308
+                // if can launch this method, the versioning.enabled schema matches.
+                site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         2308,
+                         @"[In GetVersionsSubResponseType][In VersionData] The VersionData complex type specifies the details about a single version of a file.
                      <s:complexType name=""VersionData"">
                        <s:attribute name=""version"" type=""s:string"" use=""required"" />
                        <s:attribute name=""url"" type=""s:string"" use=""required"" />
@@ -114,12 +116,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                        <s:attribute name=""comments"" type=""s:string"" use=""required"" />
                      </s:complexType>");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3083
-            // if can launch this method, the versioning.enabled schema matches.
-            site.CaptureRequirement(
-                     "MS-FSSHTTP",
-                     3083,
-                     @"[In GetVersionsResponse][The schema of GetVersionsResponse element is defined as:] 
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3083
+                // if can launch this method, the versioning.enabled schema matches.
+                site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         3083,
+                         @"[In GetVersionsResponse][The schema of GetVersionsResponse element is defined as:] 
                      <s:element name=""GetVersionsResponse"">
                        <s:complexType>
                          <s:sequence>
@@ -134,26 +136,27 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                        </s:complexType>
                      </s:element>");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3084
-            // if can launch this method, the versioning.enabled schema matches.
-            site.CaptureRequirement(
-                     "MS-FSSHTTP",
-                     3084,
-                     @"[In GetVersionsResponse] GetVersionsResult: An XML node that conforms to the structure specified in section 2.2.4.1. ");
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3084
+                // if can launch this method, the versioning.enabled schema matches.
+                site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         3084,
+                         @"[In GetVersionsResponse] GetVersionsResult: An XML node that conforms to the structure specified in section 2.2.4.1. ");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2306
-            // if can launch this method, the versioning.enabled schema matches.
-            site.CaptureRequirement(
-                     "MS-FSSHTTP",
-                     2306,
-                     @"[In GetVersionsSubResponseType][Results complex type] settings.url: Specifies the URL to the webpage of versioning-related settings for the document library in which the file resides. ");
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2306
+                // if can launch this method, the versioning.enabled schema matches.
+                site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         2306,
+                         @"[In GetVersionsSubResponseType][Results complex type] settings.url: Specifies the URL to the webpage of versioning-related settings for the document library in which the file resides. ");
 
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R60101
-            // if can launch this method, the versioning.enabled schema matches.
-            site.CaptureRequirement(
-                     "MS-FSSHTTP",
-                     60101,
-                     @"[In GetVersionsSubResponseType][VersionData] Implementation does contain the version of the file, including the major version and minor version numbers connected by period, for example, ""1.0"". (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R60101
+                // if can launch this method, the versioning.enabled schema matches.
+                site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         60101,
+                         @"[In GetVersionsSubResponseType][VersionData] Implementation does contain the version of the file, including the major version and minor version numbers connected by period, for example, ""1.0"". (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+            }
         }
     }
 }

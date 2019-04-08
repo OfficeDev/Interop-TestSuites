@@ -51,6 +51,7 @@
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpServerTimeCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpVersioningCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpWhoAmICapture.cs" />
+    <Compile Include="CaptureCode\ONESTORE\MsonestoreCapture.cs" />
     <Compile Include="CellStorages.cs" />
     <Compile Include="DataStucture\Editor.cs" />
     <Compile Include="DataStucture\EditorsTable.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Helper\DataElementUtils.cs" />
     <Compile Include="Helper\EditorsTableUtils.cs" />
     <Compile Include="Helper\MsfsshttpbSubRequestMapping.cs" />
+    <Compile Include="Helper\MSONESTOREParser.cs" />
     <Compile Include="Helper\SequenceNumberGenerator.cs" />
     <Compile Include="Helper\SubResponseValidationWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,7 +70,6 @@
     <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\RevisionManifestDataElementData.cs" />
     <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\StorageIndexDataElementData.cs" />
     <Compile Include="Stack\FSSHTTPB\BasicType\DataPackage\StorageManifestDataElementData.cs" />
-    <Compile Include="Stack\FSSHTTPB\LittleEndianBitConverter.cs" />
     <Compile Include="RequestMessageBodyWriter.cs" />
     <Compile Include="Helper\FSSHTTPConverter.cs" />
     <Compile Include="Stack\FSSHTTPB\BasicType\BinaryItem.cs" />
@@ -87,7 +88,6 @@
     <Compile Include="Stack\FSSHTTPB\BasicType\StreamObjectHeader.cs" />
     <Compile Include="Stack\FSSHTTPB\BasicType\StringItem.cs" />
     <Compile Include="Stack\FSSHTTPB\BasicType\Compact64bitInt.cs" />
-    <Compile Include="Stack\FSSHTTPB\BitField.cs" />
     <Compile Include="Stack\FSSHTTPB\Enum.cs" />
     <Compile Include="Stack\FSSHTTPB\BaseType.cs" />
     <Compile Include="Stack\FSSHTTPB\Exception\BasicObjectParseErrorException.cs" />
@@ -118,7 +118,9 @@
     <Compile Include="Helper\AdapterHelper.cs" />
     <Compile Include="IMS-FSSHTTP-FSSHTTPBAdapter.cs" />
     <Compile Include="MS-FSSHTTP-FSSHTTPBAdapter.cs" />
+    <Compile Include="Stack\ONESTORE\MSOneStorePackage.cs" />
     <Compile Include="SUTControlAdapter\Implementation\MS-FSSHTTP-FSSHTTPBManagedCodeSUTControlAdapter.cs" />
+    <Compile Include="SUTControlAdapter\Implementation\MS-LISTSWS.cs" />
     <Compile Include="SUTControlAdapter\IMS-FSSHTTP-FSSHTTPBSUTControlAdapter.cs" />
     <Compile Include="SUTControlAdapter\IMS-FSSHTTP-FSSHTTPBManagedCodeSUTControlAdapter.cs" />
   </ItemGroup>
@@ -127,6 +129,7 @@
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -137,8 +140,6 @@
     <Compile Include="CaptureCode\FSSHTTPB\MsfsshttpbNodeObjectCapture.cs" />
     <None Include="SUTControlAdapter\Implementation\UploadTextFile.ps1" />
     <None Include="SUTControlAdapter\Implementation\ChangeDocLibraryStatus.ps1" />
-    <None Include="SUTControlAdapter\Implementation\CheckInFile.ps1" />
-    <None Include="SUTControlAdapter\Implementation\CheckOutFile.ps1" />
     <None Include="SUTControlAdapter\Implementation\GetListGuidByName.ps1" />
     <None Include="SUTControlAdapter\Implementation\SetMaxNumOfCoauthUsers.ps1" />
     <None Include="SUTControlAdapter\Implementation\SwitchCellStorageService.ps1" />

@@ -90,6 +90,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                                        fsshttpbResponse.DataElementPackage.DataElements,
                                        storageIndex.DataElementExtendedGUID);
                         }
+
+                        if (SharedContext.Current.FileUrl.ToLowerInvariant().EndsWith(".one")
+                            || SharedContext.Current.FileUrl.ToLowerInvariant().EndsWith(".onetoc2"))
+                        {
+                            MSONESTOREParser onenoteParser = new MSONESTOREParser();
+                            MSOneStorePackage package = onenoteParser.Parse(fsshttpbResponse.DataElementPackage);
+                            // Capture the MS-ONESTORE related requirements
+                            new MsonestoreCapture().Validate(package, site);
+                        }
                     }
 
                     if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)

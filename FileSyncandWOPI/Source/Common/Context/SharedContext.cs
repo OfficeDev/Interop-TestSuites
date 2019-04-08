@@ -108,6 +108,17 @@ namespace Microsoft.Protocols.TestSuites.Common
             }
         }
 
+        public string FileUrl
+        {
+            get
+            {
+                return this.GetValueOrDefault<string>("FileUrl");
+            }
+            set
+            {
+                this.AddOrUpdate("FileUrl", value);
+            }
+        }
         /// <summary>
         /// Gets or sets the endpoint configuration name.
         /// </summary>

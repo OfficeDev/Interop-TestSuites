@@ -1,5 +1,6 @@
 namespace Microsoft.Protocols.TestSuites.SharedAdapter
 {
+    using Microsoft.Protocols.TestSuites.Common;
     using System.Collections.Generic;
 
     /// <summary>

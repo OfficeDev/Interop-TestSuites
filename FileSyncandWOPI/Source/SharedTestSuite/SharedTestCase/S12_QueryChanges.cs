@@ -1192,13 +1192,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     fragDataElement,
                     "MS-FSSHTTPB",
                     4041,
-                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
             }
             else
             {
                 this.Site.Assert.IsNull(
                     fragDataElement,
-                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
             }
 
             cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
@@ -1222,13 +1222,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     fragDataElement,
                     "MS-FSSHTTPB",
                     4041,
-                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
             }
             else
             {
                 this.Site.Assert.IsNotNull(
                     fragDataElement,
-                    @"[In Query Changes] E – Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
             }
         }
         #endregion
@@ -1454,7 +1454,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     queryResponse2.DataElementPackage.DataElements.Count,
                     "MS-FSSHTTPB",
                     43001,
-                    @"[In Query Changes] Whenever the A – Reserved field is set to 0 or 1, the protocol server must return the same response.");
+                    @"[In Query Changes] Whenever the A ?Reserved field is set to 0 or 1, the protocol server must return the same response.");
             }
             else
             {
@@ -1539,7 +1539,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     data,
                     "MS-FSSHTTPB",
                     4042,
-                    @"[In Query Changes] F – Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned.");
+                    @"[In Query Changes] F ?Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned.");
             }
             else
             {

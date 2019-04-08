@@ -302,7 +302,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         public void TestCase_S04_TC05_GetExclusiveLock_FileAlreadyCheckedOutOnServer()
         {
             // Check out one file by a specified user name.
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password{2}", this.DefaultFileUrl, this.UserName02, this.Password02);
             }
@@ -531,28 +531,34 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // If the error code equals "FileNotLockedOnServer", then capture MS-FSSHTTP_R1253
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.FileNotLockedOnServer,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         1253,
-                         @"[In Release Lock] If the protocol server encounters an error because no lock currently exists on the file, the protocol server returns an error code value set to ""FileNotLockedOnServer"".");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1253, this.Site))
+                {
+                    // If the error code equals "FileNotLockedOnServer", then capture MS-FSSHTTP_R1253
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.FileNotLockedOnServer,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             1253,
+                             @"[In Release Lock] If the protocol server encounters an error because no lock currently exists on the file, the protocol server returns an error code value set to ""FileNotLockedOnServer"".");
 
-                // If the error code equals "FileNotLockedOnServer", then capture MS-FSSHTTP_R381
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.FileNotLockedOnServer,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         381,
-                         @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock exists on a file and a release of the lock is requested as part of a cell storage service request.");
+                    // If the error code equals "FileNotLockedOnServer", then capture MS-FSSHTTP_R381
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.FileNotLockedOnServer,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             381,
+                             @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock exists on a file and a release of the lock is requested as part of a cell storage service request.");
+                }
             }
             else
             {
-                Site.Assert.AreEqual<ErrorCodeType>(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1253, this.Site))
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.FileNotLockedOnServer,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
                     @"[In Release Lock] If the protocol server encounters an error because no lock currently exists on the file, the protocol server returns an error code value set to ""FileNotLockedOnServer"".");
+                }
             }
         }
 
@@ -903,7 +909,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         public void TestCase_S04_TC18_RefreshExclusiveLock_FileAlreadyCheckedOutOnServer()
         {
             // Check out one file by a specified user name.
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password{2}", this.DefaultFileUrl, this.UserName02, this.Password02);
             }
@@ -1072,14 +1078,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         public void TestCase_S04_TC22_CheckExclusiveLockAvailability_FileAlreadyCheckedOutOnServer()
         {
             // Check out one file by a specified user name. 
-            if (!this.SutPowerShellAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain))
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain))
             {
                 this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName02, this.Password02);
             }
 
             // Record the file check out status.
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
-
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
@@ -1090,39 +1095,45 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // If the error code is "FileAlreadyCheckedOutOnServer", capture MS-FSSHTTP requirement: MS-FSSHTTP_R1494
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.FileAlreadyCheckedOutOnServer,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTP",
-                         1494,
-                         @"[In Check Lock Availability] The protocol server returns error codes according to the following rules: If the file is checked out on the server, but it is checked out by a client with a different user name than that of the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1494, this.Site))
+                {
+                    // If the error code is "FileAlreadyCheckedOutOnServer", capture MS-FSSHTTP requirement: MS-FSSHTTP_R1494
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.FileAlreadyCheckedOutOnServer,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             1494,
+                             @"[In Check Lock Availability] The protocol server returns error codes according to the following rules: If the file is checked out on the server, but it is checked out by a client with a different user name than that of the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
 
-                bool isVerifyR385 = exclusiveResponse.ErrorMessage != null && exclusiveResponse.ErrorMessage.IndexOf(this.UserName02, StringComparison.OrdinalIgnoreCase) >= 0;
-                this.Site.Log.Add(
-                    LogEntryKind.Debug,
-                    "For the requirement MS-FSSHTTP_R385, the error message should contain the user name {0}, actual value is {1}",
-                    this.UserName02,
-                    exclusiveResponse.ErrorMessage);
+                    bool isVerifyR385 = exclusiveResponse.ErrorMessage != null && exclusiveResponse.ErrorMessage.IndexOf(this.UserName02, StringComparison.OrdinalIgnoreCase) >= 0;
+                    this.Site.Log.Add(
+                        LogEntryKind.Debug,
+                        "For the requirement MS-FSSHTTP_R385, the error message should contain the user name {0}, actual value is {1}",
+                        this.UserName02,
+                        exclusiveResponse.ErrorMessage);
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R385
-                Site.CaptureRequirementIfIsTrue(
-                         isVerifyR385,
-                         "MS-FSSHTTP",
-                         385,
-                         @"[In LockAndCoauthRelatedErrorCodeTypes][FileAlreadyCheckedOutOnServer] When the ""FileAlreadyCheckedOutOnServer"" error code is returned as the error code value in the SubResponse element, the protocol server returns the identity of the user who has currently checked out the file in the error message attribute.");
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R385
+                    Site.CaptureRequirementIfIsTrue(
+                             isVerifyR385,
+                             "MS-FSSHTTP",
+                             385,
+                             @"[In LockAndCoauthRelatedErrorCodeTypes][FileAlreadyCheckedOutOnServer] When the ""FileAlreadyCheckedOutOnServer"" error code is returned as the error code value in the SubResponse element, the protocol server returns the identity of the user who has currently checked out the file in the error message attribute.");
+                }
             }
             else
             {
-                Site.Assert.AreEqual<ErrorCodeType>(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1494, this.Site))
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.FileAlreadyCheckedOutOnServer,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
                     @"[In Check Lock Availability] The protocol server returns error codes according to the following rules: If the file is checked out on the server, but it is checked out by a client with a different user name than that of the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".");
 
-                bool isVerifyR385 = exclusiveResponse.ErrorMessage != null && exclusiveResponse.ErrorMessage.IndexOf(this.UserName02, StringComparison.OrdinalIgnoreCase) >= 0;
-                Site.Assert.IsTrue(
-                    isVerifyR385,
-                    @"[In LockAndCoauthRelatedErrorCodeTypes][FileAlreadyCheckedOutOnServer] When the ""FileAlreadyCheckedOutOnServer"" error code is returned as the error code value in the SubResponse element, the protocol server returns the identity of the user who has currently checked out the file in the error message attribute.");
+                    bool isVerifyR385 = exclusiveResponse.ErrorMessage != null && exclusiveResponse.ErrorMessage.IndexOf(this.UserName02, StringComparison.OrdinalIgnoreCase) >= 0;
+                    Site.Assert.IsTrue(
+                        isVerifyR385,
+                        @"[In LockAndCoauthRelatedErrorCodeTypes][FileAlreadyCheckedOutOnServer] When the ""FileAlreadyCheckedOutOnServer"" error code is returned as the error code value in the SubResponse element, the protocol server returns the identity of the user who has currently checked out the file in the error message attribute.");
+                }
             }
         }
 
@@ -1435,7 +1446,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
             ExclusiveLockSubResponseType exclusiveResponse = null;
-
+            System.Threading.Thread.Sleep(60 * 1000);
             while (retryCount > 0)
             {
                 ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.ConvertToSchemaJoinCoauth);
@@ -1993,7 +2004,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             int retryCount = Common.GetConfigurationPropertyValue<int>("RetryCount", this.Site);
 
             ExclusiveLockSubResponseType exclusiveResponse = null;
-
+            System.Threading.Thread.Sleep(60 * 1000);
             while (retryCount > 0)
             {
                 ExclusiveLockSubRequestType subRequest = SharedTestSuiteHelper.CreateExclusiveLockSubRequest(ExclusiveLockRequestTypes.ConvertToSchema);
@@ -2059,29 +2070,31 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Get an exclusive lock on a file with a Version attribute less than 2 and expect the ErrorCode in the response is present.
             CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest }, SequenceNumberGenerator.GetCurrentToken().ToString(), 1, 1);
-
-            // If ErrorCode is not null, MS-FSSHTTP_R15141 should be covered.
-            this.Site.Log.Add(
-                LogEntryKind.Debug,
-                "For MS-FSSHTTP_R15141, The ErrorCode attribute should be present when the Version attribute is less than 2. Actually the ErrorCode attribute is {0}.",
-                response.ResponseVersion.ErrorCodeSpecified);
-
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15141,this.Site))
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15141
-                Site.CaptureRequirementIfIsTrue(
-                         response.ResponseVersion.ErrorCodeSpecified,
-                         "MS-FSSHTTP",
-                         15141,
-                         @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if the following is true:
+                // If ErrorCode is not null, MS-FSSHTTP_R15141 should be covered.
+                this.Site.Log.Add(
+                    LogEntryKind.Debug,
+                    "For MS-FSSHTTP_R15141, The ErrorCode attribute should be present when the Version attribute is less than 2. Actually the ErrorCode attribute is {0}.",
+                    response.ResponseVersion.ErrorCodeSpecified);
+
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15141
+                    Site.CaptureRequirementIfIsTrue(
+                             response.ResponseVersion.ErrorCodeSpecified,
+                             "MS-FSSHTTP",
+                             15141,
+                             @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if the following is true:
                          The Version attribute of the RequestVersion element of the request message has a value that is less than 2.");
-            }
-            else
-            {
-                Site.Assert.IsTrue(
-                    response.ResponseVersion.ErrorCodeSpecified,
-                    @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if the following is true:
+                }
+                else
+                {
+                    Site.Assert.IsTrue(
+                        response.ResponseVersion.ErrorCodeSpecified,
+                        @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if the following is true:
                         The Version attribute of the RequestVersion element of the request message has a value that is less than 2.");
+                }
             }
         }
 
@@ -2177,36 +2190,42 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R88
-                Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15141, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R88
+                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
                          GenericErrorCodeTypes.IncompatibleVersion,
                          response.ResponseVersion.ErrorCode,
                          "MS-FSSHTTP",
                          88,
                          @"[In RequestVersion] Errors that occur because a version is not supported cause an IncompatibleVersion error code value to be set.");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R89
-                Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
-                         GenericErrorCodeTypes.IncompatibleVersion,
-                         response.ResponseVersion.ErrorCode,
-                         "MS-FSSHTTP",
-                         89,
-                         @"[In RequestVersion] [Errors that occur because a version is not supported cause an IncompatibleVersion error code value to be] sent as part of the ResponseVersion element.");
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R89
+                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                             GenericErrorCodeTypes.IncompatibleVersion,
+                             response.ResponseVersion.ErrorCode,
+                             "MS-FSSHTTP",
+                             89,
+                             @"[In RequestVersion] [Errors that occur because a version is not supported cause an IncompatibleVersion error code value to be] sent as part of the ResponseVersion element.");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R356
-                Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
-                         GenericErrorCodeTypes.IncompatibleVersion,
-                         response.ResponseVersion.ErrorCode,
-                         "MS-FSSHTTP",
-                         356,
-                         @"[In GenericErrorCodeTypes] IncompatibleVersion indicates an error when any an incompatible version number is specified as part of the RequestVersion element of the cell storage service.");
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R356
+                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                             GenericErrorCodeTypes.IncompatibleVersion,
+                             response.ResponseVersion.ErrorCode,
+                             "MS-FSSHTTP",
+                             356,
+                             @"[In GenericErrorCodeTypes] IncompatibleVersion indicates an error when any an incompatible version number is specified as part of the RequestVersion element of the cell storage service.");
+                }
             }
             else
             {
-                Site.Assert.AreEqual<GenericErrorCodeTypes>(
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15141, this.Site))
+                {
+                    Site.Assert.AreEqual<GenericErrorCodeTypes>(
                     GenericErrorCodeTypes.IncompatibleVersion,
                     response.ResponseVersion.ErrorCode,
                     @"[In RequestVersion] Errors that occur because a version is not supported cause an IncompatibleVersion error code value to be set.");
+                }
             }
         }
 

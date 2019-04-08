@@ -38,6 +38,16 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         PathNotFound,
 
         /// <summary>
+        /// Indicates an error when neither of the ResourceID and Url attributes identify valid files.
+        /// </summary>
+        ResourceIdDoesNotExist,
+
+        /// <summary>
+        /// Indicates an error when the ResourceID does not identify a valid file but Url attribute identify a valid file.
+        /// </summary>
+        ResourceIdDoesNotMatch,
+
+        /// <summary>
         /// Indicating an error when one or more SubRequest elements for a targeted URL for the file was unable to be parsed. 
         /// </summary>
         InvalidSubRequest,

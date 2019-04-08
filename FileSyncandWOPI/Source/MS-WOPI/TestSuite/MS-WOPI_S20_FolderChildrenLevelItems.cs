@@ -41,6 +41,10 @@ namespace Microsoft.Protocols.TestSuites.MS_WOPI
         [TestCategory("MSWOPI"), TestMethod()]
         public void MSWOPI_S20_TC01_EnumerateChildren()
         {
+            if (!Common.IsRequirementEnabled("MS-WOPI", 593, this.Site))
+            {
+                Site.Assume.Inconclusive(@"The implementation does not support the get the folder access_token and WOPISrc. It is determined using SHOULDMAY PTFConfig property named R593Enabled_MS-WOPI.");
+            }
             // Get the folder URL.
             string folderFullUrl = Common.GetConfigurationPropertyValue("SubFolderUrl", this.Site);
 
@@ -113,6 +117,10 @@ URI: HTTP://server/<...>/wopi*/folders/<id>/children?access_token=<token>");
         [TestCategory("MSWOPI"), TestMethod()]
         public void MSWOPI_S20_TC02_EnumerateChildren_Version()
         {
+            if (!Common.IsRequirementEnabled("MS-WOPI", 593, this.Site))
+            {
+                Site.Assume.Inconclusive(@"The implementation does not support the get the folder access_token and WOPISrc. It is determined using SHOULDMAY PTFConfig property named R593Enabled_MS-WOPI.");
+            }
             #region Get the WOPI resource URL for visiting file.
 
             // Get the file URL.
@@ -228,6 +236,10 @@ URI: HTTP://server/<...>/wopi*/folders/<id>/children?access_token=<token>");
         [TestCategory("MSWOPI"), TestMethod()]
         public void MSWOPI_S20_TC03_EnumerateChildren_Fail404()
         {
+            if (!Common.IsRequirementEnabled("MS-WOPI", 593, this.Site))
+            {
+                Site.Assume.Inconclusive(@"The implementation does not support the get the folder access_token and WOPISrc. It is determined using SHOULDMAY PTFConfig property named R593Enabled_MS-WOPI.");
+            }
             // Get the folder URL.
             string folderFullUrl = Common.GetConfigurationPropertyValue("SubFolderUrl", this.Site);
 
