@@ -3840,7 +3840,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R1392");
 
                         // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R1392
-                        bool isVerifyR1392 = isVerifyR1391;
+                        // 0x3000 is the property id of PidTagRowid according [MS-OXPROPS].
+                        // If the position of PidTagRowid is first, R1392 will be verified. 
+                        bool isVerifyR1392 = recipient.PropList.PropValues[0].PropInfo.PropID == 0x3000;
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR1392,
                             1392,
