@@ -924,8 +924,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             this.Site.CaptureRequirementIfAreEqual<ulong>(
                 0,
                 pidTagMessageSizeExtended,
-                10345,
-                @"[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.642) specifies the number of messages in a folder, as computed by the message store.");
+                10354,
+                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.793) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
             #endregion
             #endregion
         }
