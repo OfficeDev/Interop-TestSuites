@@ -17,7 +17,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
         /// <summary>
         /// The value of SaveFlags is not supported.
         /// </summary>
-        private const byte NotSupportedSaveFlags = 0x0F;
+        private const byte NotSupportedSaveFlags = 0x03;
 
         /// <summary>
         /// Constant string for the test data of DateTime.
