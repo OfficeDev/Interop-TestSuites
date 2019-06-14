@@ -1458,7 +1458,7 @@ machine S03_SyncFastTransferAttachmentLevel_Scenario() : Actions
 					CreateMessage(_, inboxFolderHandleIndex, inboxFolderIdIndex,false, out messageHandleIndex);
 					SaveChangesMessage(_, messageHandleIndex, out messageIdIndex);
 					CreateAttachment(_,messageHandleIndex,out attachmentHandleIndex);
-					SetProperties(_,messageHandleIndex,SetPropertyTags);
+					SetProperties(_,attachmentHandleIndex,SetPropertyTags);
 					SaveChangesAttachment(_,attachmentHandleIndex);
 					(
 						(

@@ -132,8 +132,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS {
                 TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult)(0)), temp11, "return of CreateAttachment, state S42");
                 this.Manager.Comment("reaching state \'S45\'");
                 Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult temp12;
-                this.Manager.Comment("executing step \'call SetProperties(1,3,[\"PidTagDisplayName\"])\'");
-                temp12 = this.IMS_OXCFXICSAdapterInstance.SetProperties(1, 3, this.Make<Microsoft.Modeling.Sequence<string>>(new string[] {
+                this.Manager.Comment("executing step \'call SetProperties(1,4,[\"PidTagDisplayName\"])\'");
+                temp12 = this.IMS_OXCFXICSAdapterInstance.SetProperties(1, 4, this.Make<Microsoft.Modeling.Sequence<string>>(new string[] {
                                 "Rep"}, new object[] {
                                 this.Make<Microsoft.Xrt.Runtime.RuntimeList<string>>(new string[] {
                                             "Head",
@@ -890,8 +890,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS {
                 TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult)(0)), temp43, "return of CreateAttachment, state S43");
                 this.Manager.Comment("reaching state \'S46\'");
                 Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult temp44;
-                this.Manager.Comment("executing step \'call SetProperties(1,3,[\"PidTagDisplayName\"])\'");
-                temp44 = this.IMS_OXCFXICSAdapterInstance.SetProperties(1, 3, this.Make<Microsoft.Modeling.Sequence<string>>(new string[] {
+                this.Manager.Comment("executing step \'call SetProperties(1,4,[\"PidTagDisplayName\"])\'");
+                temp44 = this.IMS_OXCFXICSAdapterInstance.SetProperties(1, 4, this.Make<Microsoft.Modeling.Sequence<string>>(new string[] {
                                 "Rep"}, new object[] {
                                 this.Make<Microsoft.Xrt.Runtime.RuntimeList<string>>(new string[] {
                                             "Head",
@@ -1649,8 +1649,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS {
                 TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult)(0)), temp75, "return of CreateAttachment, state S44");
                 this.Manager.Comment("reaching state \'S47\'");
                 Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult temp76;
-                this.Manager.Comment("executing step \'call SetProperties(1,3,[\"PidTagDisplayName\"])\'");
-                temp76 = this.IMS_OXCFXICSAdapterInstance.SetProperties(1, 3, this.Make<Microsoft.Modeling.Sequence<string>>(new string[] {
+                this.Manager.Comment("executing step \'call SetProperties(1,4,[\"PidTagDisplayName\"])\'");
+                temp76 = this.IMS_OXCFXICSAdapterInstance.SetProperties(1, 4, this.Make<Microsoft.Modeling.Sequence<string>>(new string[] {
                                 "Rep"}, new object[] {
                                 this.Make<Microsoft.Xrt.Runtime.RuntimeList<string>>(new string[] {
                                             "Head",
