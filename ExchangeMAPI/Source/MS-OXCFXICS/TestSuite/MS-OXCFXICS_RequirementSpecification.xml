@@ -653,7 +653,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3017</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMid Property] The PidTagMid property ([MS-OXPROPS] section 2.795) contains the MID structure ([MS-OXCDATA] section 2.2.1.2) of the message currently being synchronized.</ns1:Description>
+		<ns1:Description>[In PidTagMid Property] The PidTagMid property ([MS-OXPROPS] section 2.801) contains the MID structure ([MS-OXCDATA] section 2.2.1.2) of the message currently being synchronized.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -680,7 +680,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3019</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.694) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) of the folder currently being synchronized.</ns1:Description>
+		<ns1:Description>[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.700) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) of the folder currently being synchronized.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -707,7 +707,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1269</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagChangeNumber Property] The PidTagChangeNumber property ([MS-OXPROPS] section 2.626) contains the CN structure, as specified in section 2.2.2.1, that identifies the last change to the message or folder that is currently being synchronized.</ns1:Description>
+		<ns1:Description>[In PidTagChangeNumber Property] The PidTagChangeNumber property ([MS-OXPROPS] section 2.632) contains the CN structure, as specified in section 2.2.2.1, that identifies the last change to the message or folder that is currently being synchronized.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -734,7 +734,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1270</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagParentFolderId Property] The PidTagParentFolderId property ([MS-OXPROPS] section 2.853) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) that identifies the parent folder of the messaging object being synchronized.</ns1:Description>
+		<ns1:Description>[In PidTagParentFolderId Property] The PidTagParentFolderId property ([MS-OXPROPS] section 2.859) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) that identifies the parent folder of the messaging object being synchronized.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -752,7 +752,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1271</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSourceKey Property] The PidTagSourceKey property ([MS-OXPROPS] section 2.1016) contains a serialized XID structure, as specified in section 2.2.2.2, that specifies the internal identifier for the folder or message.</ns1:Description>
+		<ns1:Description>[In PidTagSourceKey Property] The PidTagSourceKey property ([MS-OXPROPS] section 2.1022) contains a serialized XID structure, as specified in section 2.2.2.2, that specifies the internal identifier for the folder or message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -788,7 +788,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1272</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagParentSourceKey Property] The PidTagParentSourceKey property ([MS-OXPROPS] section 2.855) specifies the PidTagSourceKey property (section 2.2.1.2.5) of the current folder's parent folder.</ns1:Description>
+		<ns1:Description>[In PidTagParentSourceKey Property] The PidTagParentSourceKey property ([MS-OXPROPS] section 2.861) specifies the PidTagSourceKey property (section 2.2.1.2.5) of the current folder's parent folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -806,7 +806,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1273</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagChangeKey Property] The PidTagChangeKey property ([MS-OXPROPS] section 2.625) contains a serialized XID structure, as specified in section 2.2.2.2, that identifies the last change to the messaging object.</ns1:Description>
+		<ns1:Description>[In PidTagChangeKey Property] The PidTagChangeKey property ([MS-OXPROPS] section 2.631) contains a serialized XID structure, as specified in section 2.2.2.2, that identifies the last change to the messaging object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -851,7 +851,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1274</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagPredecessorChangeList Property] The PidTagPredecessorChangeList property ([MS-OXPROPS] section 2.861) contains PredecessorChangeList structures, as specified in section 2.2.2.3.</ns1:Description>
+		<ns1:Description>[In PidTagPredecessorChangeList Property] The PidTagPredecessorChangeList property ([MS-OXPROPS] section 2.867) contains PredecessorChangeList structures, as specified in section 2.2.2.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -887,7 +887,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3029</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagOriginalEntryId Property] The PidTagOriginalEntryId property ([MS-OXPROPS] section 2.823) contains the original EntryID of the message, which is used to associate the full message item being downloaded from the server with the message header previously stored on the client.</ns1:Description>
+		<ns1:Description>[In PidTagOriginalEntryId Property] The PidTagOriginalEntryId property ([MS-OXPROPS] section 2.829) contains the original EntryID of the message, which is used to associate the full message item being downloaded from the server with the message header previously stored on the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1223,7 +1223,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3041</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagResolveMethod Property] The PidTagResolveMethod property ([MS-OXPROPS] section 2.923) specifies how to resolve any conflicts with the message.</ns1:Description>
+		<ns1:Description>[In PidTagResolveMethod Property] The PidTagResolveMethod property ([MS-OXPROPS] section 2.929) specifies how to resolve any conflicts with the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1295,7 +1295,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3044</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagConflictEntryId Property] The PidTagConflictEntryId property ([MS-OXPROPS] section 2.635) contains the EntryID of the conflict resolve message, as specified in section 3.1.5.6.2.1.</ns1:Description>
+		<ns1:Description>[In PidTagConflictEntryId Property] The PidTagConflictEntryId property ([MS-OXPROPS] section 2.641) contains the EntryID of the conflict resolve message, as specified in section 3.1.5.6.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1313,7 +1313,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3046</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagInConflict Property] The PidTagInConflict property ([MS-OXPROPS] section 2.733) specifies whether the attachment represents an alternate replica.</ns1:Description>
+		<ns1:Description>[In PidTagInConflict Property] The PidTagInConflict property ([MS-OXPROPS] section 2.739) specifies whether the attachment represents an alternate replica.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1332,7 +1332,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3048</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAssociated Property] The PidTagAssociated property ([MS-OXPROPS] section 2.578) specifies whether the message being synchronized is an FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagAssociated Property] The PidTagAssociated property ([MS-OXPROPS] section 2.584) specifies whether the message being synchronized is an FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1350,7 +1350,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3049</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.790) identifies the size of the message in bytes.</ns1:Description>
+		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.796) identifies the size of the message in bytes.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1397,7 +1397,7 @@ As values of MetaTagFXDelProp meta-properties(as specified in section 2.2.4.1.5.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R146</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In Properties That Denote Subobjects] When the folder properties is PidTagContainerContents ([MS-OXPROPS] section 2.637), it identifies all normal messages in the current folder.</ns1:Description>
+		<ns1:Description>[In Properties That Denote Subobjects] When the folder properties is PidTagContainerContents ([MS-OXPROPS] section 2.643), it identifies all normal messages in the current folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1406,7 +1406,7 @@ As values of MetaTagFXDelProp meta-properties(as specified in section 2.2.4.1.5.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R147</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In Properties That Denote Subobjects] When the folder properties is PidTagFolderAssociatedContents ([MS-OXPROPS] section 2.693), it identifies all FAI messages in the current folder.</ns1:Description>
+		<ns1:Description>[In Properties That Denote Subobjects] When the folder properties is PidTagFolderAssociatedContents ([MS-OXPROPS] section 2.699), it identifies all FAI messages in the current folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1415,7 +1415,7 @@ As values of MetaTagFXDelProp meta-properties(as specified in section 2.2.4.1.5.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R148</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In Properties That Denote Subobjects] When the folder properties is PidTagContainerHierarchy ([MS-OXPROPS] section 2.639), it identifies all subfolders of the current folder.</ns1:Description>
+		<ns1:Description>[In Properties That Denote Subobjects] When the folder properties is PidTagContainerHierarchy ([MS-OXPROPS] section 2.645), it identifies all subfolders of the current folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1433,7 +1433,7 @@ As values of MetaTagFXDelProp meta-properties(as specified in section 2.2.4.1.5.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R149</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In Properties That Denote Subobjects] When the Message Properties is PidTagMessageRecipients ([MS-OXPROPS] section 2.789), it identifies all recipients of the current message.</ns1:Description>
+		<ns1:Description>[In Properties That Denote Subobjects] When the Message Properties is PidTagMessageRecipients ([MS-OXPROPS] section 2.795), it identifies all recipients of the current message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1442,7 +1442,7 @@ As values of MetaTagFXDelProp meta-properties(as specified in section 2.2.4.1.5.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R150</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In Properties That Denote Subobjects] When the Message Properties is PidTagMessageAttachments ([MS-OXPROPS] section 2.779), it identifies all attachments to the current message.</ns1:Description>
+		<ns1:Description>[In Properties That Denote Subobjects] When the Message Properties is PidTagMessageAttachments ([MS-OXPROPS] section 2.785), it identifies all attachments to the current message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8246,7 +8246,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1301</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2.4.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSynchronizationImportMessageChange ROP Request Buffer] [ PropertyValues (variable)] PidTagLastModificationTime ([MS-OXPROPS] section 2.758) MUST be present in the index 1 in the position of the array list.</ns1:Description>
+		<ns1:Description>[In RopSynchronizationImportMessageChange ROP Request Buffer] [ PropertyValues (variable)] PidTagLastModificationTime ([MS-OXPROPS] section 2.764) MUST be present in the index 1 in the position of the array list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8562,7 +8562,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1312</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2.4.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSynchronizationImportHierarchyChange ROP Request Buffer] [ HierarchyValues(variable)] PidTagLastModificationTime ([MS-OXPROPS] section 2.758) MUST be present.</ns1:Description>
+		<ns1:Description>[In RopSynchronizationImportHierarchyChange ROP Request Buffer] [ HierarchyValues(variable)] PidTagLastModificationTime ([MS-OXPROPS] section 2.764) MUST be present.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8571,7 +8571,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1313</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2.4.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSynchronizationImportHierarchyChange ROP Request Buffer] [ HierarchyValues(variable)] PidTagLastModificationTime ([MS-OXPROPS] section 2.758) MUST be present in the index 2 of the position in the array list.</ns1:Description>
+		<ns1:Description>[In RopSynchronizationImportHierarchyChange ROP Request Buffer] [ HierarchyValues(variable)] PidTagLastModificationTime ([MS-OXPROPS] section 2.764) MUST be present in the index 2 of the position in the array list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12061,7 +12061,7 @@ state = IncrSyncStateBegin propList IncrSyncStateEnd</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3304</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.12</ns1:Doc_Sect>
-		<ns1:Description>[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.789) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.779) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).</ns1:Description>
+		<ns1:Description>[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.795) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.785) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12909,7 +12909,7 @@ MUST adhere to the following restrictions:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1391</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.23</ns1:Doc_Sect>
-		<ns1:Description>[In recipient Element] [PidTagRowid,Required] [The following table lists the restrictions[Required, Fixed position] that exist on the contained propList element] The property PidTagRowid ([MS-OXPROPS] section 2.933) MUST be present in the propList.</ns1:Description>
+		<ns1:Description>[In recipient Element] [PidTagRowid,Required] [The following table lists the restrictions[Required, Fixed position] that exist on the contained propList element] The property PidTagRowid ([MS-OXPROPS] section 2.939) MUST be present in the propList.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15799,7 +15799,7 @@ PidTagChangeNumber = CN8</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1827</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.6.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Last Writer Wins Algorithm] [The last writer wins algorithm uses the PidTagLastModificationTime ([MS-OXPROPS] section 2.753) property to determine the winning version of the folder or message, as specified in the following steps:] 2. For messages, if the value of the PidTagLastModificationTime property is equal on both objects, the tie-breaking winner is determined by comparing byte-to-byte values of the NamespaceGuid field for XID structures, as specified in section 2.2.2.2, in the PidTagChangeKey properties (section 2.2.1.2.7).</ns1:Description>
+		<ns1:Description>[In Last Writer Wins Algorithm] [The last writer wins algorithm uses the PidTagLastModificationTime ([MS-OXPROPS] section 2.764) property to determine the winning version of the folder or message, as specified in the following steps:] 2. For messages, if the value of the PidTagLastModificationTime property is equal on both objects, the tie-breaking winner is determined by comparing byte-to-byte values of the NamespaceGuid field for XID structures, as specified in section 2.2.2.2, in the PidTagChangeKey properties (section 2.2.1.2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16025,7 +16025,7 @@ PidTagChangeNumber = CN8</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1851</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.6.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Conflict Notification Message] PidTagConflictEntryId([MS-OXPROPS] section 2.635): EntryID of the conflict resolve message.</ns1:Description>
+		<ns1:Description>[In Conflict Notification Message] PidTagConflictEntryId([MS-OXPROPS] section 2.641): EntryID of the conflict resolve message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -18284,7 +18284,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2199</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSynchronizationConfigure ROP Request] [SynchronizationExtraFlags Constraints] If the OrderByDeliveryTime flag of the SynchronizationExtraFlags field is set, the server MUST sort messages by the PidTagLastModificationTime property ([MS-OXPROPS] section 2.753) if the former[PidTagMessageDeliveryTime] is missing, when generating a sequence of messageChange elements for the FastTransfer stream, as specified in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSynchronizationConfigure ROP Request] [SynchronizationExtraFlags Constraints] If the OrderByDeliveryTime flag of the SynchronizationExtraFlags field is set, the server MUST sort messages by the PidTagLastModificationTime property ([MS-OXPROPS] section 2.764) if the former[PidTagMessageDeliveryTime] is missing, when generating a sequence of messageChange elements for the FastTransfer stream, as specified in section 2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -18921,7 +18921,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2265</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopGetLocalReplicaIds Request] A server can limit the number of IDs that can be allocated in one batch to prevent malicious clients from reserving too many IDs with the intent of causing a denial-of-service attack by depleting the set of available IDs.</ns1:Description>
+		<ns1:Description>[In Receiving a RopGetLocalReplicaIds Request] A server can choose to limit the maximum number of IDs that can be allocated in one batch, for example,to prevent malicious clients from causing denial-of-service attacks by depleting the set of available IDs.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -18930,11 +18930,11 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2266</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopGetLocalReplicaIds Request] A server can limit the maximum number of IDs that can be allocated in one batch to the upper limit of the range recommended to clients, as specified in section 3.3.5.8.12.</ns1:Description>
+		<ns1:Description>[In Receiving a RopGetLocalReplicaIds Request] However, the server is responsible for enforcing this limit and MUST allow for the upper limit of the moderate size range recommended to clients, as specified in section 3.3.5.8.12.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2267</ns1:REQ_ID>
@@ -20961,7 +20961,7 @@ Using client side checkpointing, as specified in section 3.3.5.6.</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2307</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.2.2</ns1:Doc_Sect>
-		<ns1:Description>[InUse Online Mode ROPs] The following are the limitations of this mode:Clients cannot set values of special properties, such as the PidTagLastModificationTime property ([MS-OXPROPS] section 2.758).</ns1:Description>
+		<ns1:Description>[InUse Online Mode ROPs] The following are the limitations of this mode:Clients cannot set values of special properties, such as the PidTagLastModificationTime property ([MS-OXPROPS] section 2.764).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -22098,19 +22098,10 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2563</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.3.5.8.12</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a RopGetLocalReplicaIds ROP Request] Allocating IDs in batches of moderate size, between 0x00000200 and 0x0000FFFF, is recommended.</ns1:Description>
+		<ns1:Description>[In Sending a RopGetLocalReplicaIds ROP Request] Allocating IDs in batches of moderate size, between 0x00000200 and 0x10000 is recommended.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFXICS_R2564</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.3.5.8.12</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a RopGetLocalReplicaIds ROP Request] Note that servers are responsible for enforcing restrictions on the number of IDs that can be allocated at one time.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -23103,7 +23094,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R303401</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;1&gt; Section 2.2.1.3.3: Implementation does not support the MetaTagIdsetExpired property (Exchange 2013, Exchange 2016, and Exchange 2019 Preview follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;1&gt; Section 2.2.1.3.3: Implementation does not support the MetaTagIdsetExpired property (Exchange 2013, Exchange 2016, and Exchange 2019 follow this behavior).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23130,7 +23121,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2571</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.3: In Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview, trying to retrieve a checkpoint ICS state during the download returns the initial state, and not a state with differences applied.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.3: In Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019, trying to retrieve a checkpoint ICS state during the download returns the initial state, and not a state with differences applied.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -23139,7 +23130,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3118001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support this flag. [In Appendix A: Product Behavior]  &lt;3&gt; Section 2.2.3.1.1.1.1: The BestBody flag is not supported in Exchange 2013, Exchange 2016, and Exchange 2019 Preview.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support this flag. [In Appendix A: Product Behavior]  &lt;3&gt; Section 2.2.3.1.1.1.1: The BestBody flag is not supported in Exchange 2013, Exchange 2016, and Exchange 2019.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3118:I, MS-OXCFXICS_R705:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23149,7 +23140,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3118002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. &lt;3&gt; Section 2.2.3.1.1.1.1: In Exchange 2013, Exchange 2016, and Exchange 2019 Preview, the message body is always in the original format.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. &lt;3&gt; Section 2.2.3.1.1.1.1: In Exchange 2013, Exchange 2016, and Exchange 2019, the message body is always in the original format.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3118:I, MS-OXCFXICS_R705:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23189,7 +23180,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R499002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support this flag. [In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.3.1.1.3.1: The BestBody flag is not supported in Exchange 2013, Exchange 2016, and Exchange 2019 Preview</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support this flag. [In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.3.1.1.3.1: The BestBody flag is not supported in Exchange 2013, Exchange 2016, and Exchange 2019</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R499:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23199,7 +23190,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R499001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. &lt;5&gt; Section 2.2.3.1.1.3.1: In Exchange 2013, Exchange 2016, and Exchange 2019 Preview, the message body is always in the original format.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. &lt;5&gt; Section 2.2.3.1.1.3.1: In Exchange 2013, Exchange 2016, and Exchange 2019, the message body is always in the original format.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R499:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23288,7 +23279,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3150001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. [&lt;8&gt; Section 2.2.3.1.1.5.2: The NoRoom value is not returned by Exchange 2010 or Exchange 2013 or Exchange 2016 or Exchange 2019 Preview.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. [&lt;8&gt; Section 2.2.3.1.1.5.2: The NoRoom value is not returned by Exchange 2010 or Exchange 2013 or Exchange 2016 or Exchange 2019.]</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3150:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23320,7 +23311,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2808</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;9&gt; Section 2.2.3.1.1.5.2: Exchange 2010,  Exchange 2013, Exchange 2016 and Exchange 2019 Preview report inaccurate information in this output parameter when client connection services are deployed on a Microsoft Exchange server that does not also have a mailbox message store installed.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;9&gt; Section 2.2.3.1.1.5.2: Exchange 2010,  Exchange 2013, Exchange 2016 and Exchange 2019 report inaccurate information in this output parameter when client connection services are deployed on a Microsoft Exchange server that does not also have a mailbox message store installed.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -23369,7 +23360,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3178001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x0001. [&lt;11&gt; Section 2.2.3.1.2.2.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview set the value of the TotalStepCount field to 0x0001.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x0001. [&lt;11&gt; Section 2.2.3.1.2.2.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 set the value of the TotalStepCount field to 0x0001.]</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3178:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23401,7 +23392,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3182001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field. ( &lt;12&gt; Section 2.2.3.1.2.2.2: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field. ( &lt;12&gt; Section 2.2.3.1.2.2.2: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3182:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23411,7 +23402,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R318200101</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field. ( &lt;12&gt; Section 2.2.3.1.2.2.2: Exchange 2007, Exchange 2010, and Exchange 2013, Exchange 2016 and Exchange 2019 Preview always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field. ( &lt;12&gt; Section 2.2.3.1.2.2.2: Exchange 2007, Exchange 2010, and Exchange 2013, Exchange 2016 and Exchange 2019 always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3182001:p</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23422,7 +23413,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R318302601</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x00000001. [&lt;14&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview set the value of the TotalStepCount field to 0x00000001.]</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does set this value to 0x00000001. [&lt;14&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 set the value of the TotalStepCount field to 0x00000001.]</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3183026:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23443,7 +23434,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3183030001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when  the value of the ReturnValue field is equal to Success (0x00000000). ( &lt;15&gt; Section 2.2.3.1.2.3.2: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when  the value of the ReturnValue field is equal to Success (0x00000000). ( &lt;15&gt; Section 2.2.3.1.2.3.2: Exchange 2003, Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3183030:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23453,7 +23444,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R318303003</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when the value of the ReturnValue field is equal to Success (0x00000000) ( &lt;15&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when the value of the ReturnValue field is equal to Success (0x00000000) ( &lt;15&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3183030001:p</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23543,7 +23534,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2813</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder, implementation does not output.  &lt;22&gt; Section 2.2.4.3.6: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList element as Exchange 2010 , Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not check permissions on move operations.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the client set the Move flag of the CopyFlags field and the user does not have permissions to delete the source folder, implementation does not output.  &lt;22&gt; Section 2.2.4.3.6: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 do not include the MetaTagEcWarning meta-property (section 2.2.4.1.5.2) in the propList element as Exchange 2010 , Exchange 2013, Exchange 2016 and Exchange 2019 do not check permissions on move operations.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R1103:I, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23603,7 +23594,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2816</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;25&gt; Section 2.2.4.4: Office Outlook 2003, Office Outlook 2007, Outlook 2010, Outlook 2013, Outlook 2016, Outlook 2019 Preview do not use the folderContent element as a root element in a FastTransfer stream.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;25&gt; Section 2.2.4.4: Office Outlook 2003, Office Outlook 2007, Outlook 2010, Outlook 2013, Outlook 2016, Outlook 2019 do not use the folderContent element as a root element in a FastTransfer stream.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23667,7 +23658,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2819</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;32&gt; Section 3.2.5.3: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not perform this confirmation step.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;32&gt; Section 3.2.5.3: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 do not perform this confirmation step.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23703,7 +23694,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3442001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. &lt;34&gt; Section 3.2.5.8.1.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support the Move flag for the RopFastTransferSourceCopyTo ROP (section 2.2.3.1.1.1).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support. &lt;34&gt; Section 3.2.5.8.1.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 do not support the Move flag for the RopFastTransferSourceCopyTo ROP (section 2.2.3.1.1.1).</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3442:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23725,7 +23716,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3442003</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does fail the operation with an error code InvalidParameter (0x80070057).  &lt;34&gt; Section 3.2.5.8.1.1: The server sets the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag [Move flag].(Microsoft Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does fail the operation with an error code InvalidParameter (0x80070057).  &lt;34&gt; Section 3.2.5.8.1.1: The server sets the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag [Move flag].(Microsoft Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3442:i, MS-OXCFXICS_R2:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23805,7 +23796,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3492001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does fail the operation. &lt;39&gt; Section 3.2.5.8.2.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview fail the ROP [RopFastTransferDestinationConfigure ROP] if unknown bit flags in the CopyFlags field are set.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If unknown flags in the CopyFlags field are set, implementation does fail the operation. &lt;39&gt; Section 3.2.5.8.2.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 fail the ROP [RopFastTransferDestinationConfigure ROP] if unknown bit flags in the CopyFlags field are set.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3492:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -23879,7 +23870,7 @@ This sequence is correct and it produces the same result as the previous single 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3509001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  If unknown flags are set, implementation does fail the operation. &lt;44&gt; Section 3.2.5.9.4.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior]  If unknown flags are set, implementation does fail the operation. &lt;44&gt; Section 3.2.5.9.4.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.</ns1:Description>
 		<ns1:Derived>MS-OXCFXICS_R3509:i, MS-OXCFXICS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
