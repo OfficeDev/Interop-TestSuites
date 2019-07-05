@@ -293,7 +293,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     0x0001,
                     fastTransferDestinationPutBufferResponse.TotalStepCount,
                     3178001,
-                    @"[In Appendix A: Product Behavior] Implementation does set this value to 0x0001. [&lt;11&gt; Section 2.2.3.1.2.2.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview set the value of the TotalStepCount field to 0x0001.]");
+                    @"[In Appendix A: Product Behavior] Implementation does set this value to 0x0001. [&lt;11&gt; Section 2.2.3.1.2.2.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 set the value of the TotalStepCount field to 0x0001.]");
             }
             else if (Common.IsRequirementEnabled(317800201, this.Site))
             {
@@ -405,7 +405,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         fastTransferDestinationPutBufferRequest.TransferDataSize,
                         fastTransferDestinationPutBufferResponse.BufferUsedSize,
                         318200101,
-                        @"[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field. ( &lt;12&gt; Section 2.2.3.1.2.2.2: Exchange 2007, Exchange 2010, and Exchange 2013, Exchange 2016 and Exchange 2019 Preview always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)");
+                        @"[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field. ( &lt;12&gt; Section 2.2.3.1.2.2.2: Exchange 2007, Exchange 2010, and Exchange 2013, Exchange 2016 and Exchange 2019 always return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field, regardless of whether the value of the ReturnValue field is Success (0x00000000).)");
                 }
             }
         }
@@ -516,7 +516,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         fastTransferDestinationPutBufferExtenedRequest.TransferDataSize,
                         fastTransferDestinationPutBufferExtenedResponse.BufferUsedSize,
                         318303003,
-                        @"[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when the value of the ReturnValue field is equal to Success (0x00000000) ( &lt;15&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview follow this behavior.)");
+                        @"[In Appendix A: Product Behavior] Implementation does return a value for the BufferSizeUsed field that is equal to the value of the TransferDataSize field when the value of the ReturnValue field is equal to Success (0x00000000) ( &lt;15&gt; Section 2.2.3.1.2.3.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 follow this behavior.)");
                 }
             }
 
@@ -959,7 +959,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 this.Site.CaptureRequirementIfIsTrue(
                     isVerifiedR3150001,
                     3150001,
-                    @"[In Appendix A: Product Behavior] Implementation does not support. [&lt;8&gt; Section 2.2.3.1.1.5.2: The NoRoom value is not returned by Exchange 2010 or Exchange 2013 or Exchange 2016 or Exchange 2019 Preview.]");
+                    @"[In Appendix A: Product Behavior] Implementation does not support. [&lt;8&gt; Section 2.2.3.1.1.5.2: The NoRoom value is not returned by Exchange 2010 or Exchange 2013 or Exchange 2016 or Exchange 2019.]");
             }
             else if (Common.IsRequirementEnabled(315000201, this.Site))
             {
@@ -3834,15 +3834,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR1391,
                             1391,
-                            @"[In recipient Element] [PidTagRowid,Required] [The following table lists the restrictions[Required, Fixed position] that exist on the contained propList element] The property PidTagRowid ([MS-OXPROPS] section 2.933) MUST be present in the propList.");
+                            @"[In recipient Element] [PidTagRowid,Required] [The following table lists the restrictions[Required, Fixed position] that exist on the contained propList element] The property PidTagRowid ([MS-OXPROPS] section 2.939) MUST be present in the propList.");
 
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R1392");
 
                         // Verify MS-OXCFXICS requirement: MS-OXCFXICS_R1392
-                        // 0x3000 is the property id of PidTagRowid according [MS-OXPROPS].
-                        // If the position of PidTagRowid is first, R1392 will be verified. 
-                        bool isVerifyR1392 = recipient.PropList.PropValues[0].PropInfo.PropID == 0x3000;
+                        bool isVerifyR1392 = isVerifyR1391;
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR1392,
                             1392,
@@ -4170,7 +4168,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         // If the program can execute here, this requirement can be verified.
                         this.Site.CaptureRequirement(
                             3049,
-                            @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.790) identifies the size of the message in bytes.");
+                            @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.796) identifies the size of the message in bytes.");
 
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R2691");
@@ -4211,7 +4209,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         // If the program can execute here, this requirement can be verified directly.
                         this.Site.CaptureRequirement(
                             1269,
-                            @"[In PidTagChangeNumber Property] The PidTagChangeNumber property ([MS-OXPROPS] section 2.626) contains the CN structure, as specified in section 2.2.2.1, that identifies the last change to the message or folder that is currently being synchronized.");
+                            @"[In PidTagChangeNumber Property] The PidTagChangeNumber property ([MS-OXPROPS] section 2.632) contains the CN structure, as specified in section 2.2.2.1, that identifies the last change to the message or folder that is currently being synchronized.");
 
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R2699");
@@ -4286,7 +4284,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         // If the program can execute here, this requirement can be verified.
                         this.Site.CaptureRequirement(
                             3017,
-                            @"[In PidTagMid Property] The PidTagMid property ([MS-OXPROPS] section 2.795) contains the MID structure ([MS-OXCDATA] section 2.2.1.2) of the message currently being synchronized.");
+                            @"[In PidTagMid Property] The PidTagMid property ([MS-OXPROPS] section 2.801) contains the MID structure ([MS-OXCDATA] section 2.2.1.2) of the message currently being synchronized.");
 
                         // If the program can execute here, this requirement can be verified.
                         this.Site.CaptureRequirement(
@@ -5177,7 +5175,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     // If the program can execute here, this requirement can be verified directly.
                     this.Site.CaptureRequirement(
                         3019,
-                        @"[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.694) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) of the folder currently being synchronized.");
+                        @"[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.700) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) of the folder currently being synchronized.");
 
                     // If the program can execute here, this requirement can be verified directly.
                     this.Site.CaptureRequirement(
@@ -5257,7 +5255,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     // If the program execute here, this requirement can be verified directly.
                     this.Site.CaptureRequirement(
                         1270,
-                        @"[In PidTagParentFolderId Property] The PidTagParentFolderId property ([MS-OXPROPS] section 2.853) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) that identifies the parent folder of the messaging object being synchronized.");
+                        @"[In PidTagParentFolderId Property] The PidTagParentFolderId property ([MS-OXPROPS] section 2.859) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) that identifies the parent folder of the messaging object being synchronized.");
                 }
                 #endregion
             }
@@ -5332,7 +5330,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             // If the program can execute here, this requirement can be verified directly.
             this.Site.CaptureRequirement(
                 1272,
-                @"[In PidTagParentSourceKey Property] The PidTagParentSourceKey property ([MS-OXPROPS] section 2.855) specifies the PidTagSourceKey property (section 2.2.1.2.5) of the current folder's parent folder.");
+                @"[In PidTagParentSourceKey Property] The PidTagParentSourceKey property ([MS-OXPROPS] section 2.861) specifies the PidTagSourceKey property (section 2.2.1.2.5) of the current folder's parent folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXPROPS_R7478");
@@ -5407,7 +5405,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             // If the program can execute here, this requirement can be verified.
             this.Site.CaptureRequirement(
                 1271,
-                @"[In PidTagSourceKey Property] The PidTagSourceKey property ([MS-OXPROPS] section 2.1016) contains a serialized XID structure, as specified in section 2.2.2.2, that specifies the internal identifier for the folder or message.");
+                @"[In PidTagSourceKey Property] The PidTagSourceKey property ([MS-OXPROPS] section 2.1022) contains a serialized XID structure, as specified in section 2.2.2.2, that specifies the internal identifier for the folder or message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXPROPS_R8583");
@@ -5502,7 +5500,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             // If the program can execute here, this requirement can be verified directly.
             this.Site.CaptureRequirement(
                 1273,
-                @"[In PidTagChangeKey Property] The PidTagChangeKey property ([MS-OXPROPS] section 2.625) contains a serialized XID structure, as specified in section 2.2.2.2, that identifies the last change to the messaging object.");
+                @"[In PidTagChangeKey Property] The PidTagChangeKey property ([MS-OXPROPS] section 2.631) contains a serialized XID structure, as specified in section 2.2.2.2, that identifies the last change to the messaging object.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXPROPS_R5687");
@@ -5564,7 +5562,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             // If the program can execute here, this requirement can be verified directly.
             this.Site.CaptureRequirement(
                 1274,
-                @"[In PidTagPredecessorChangeList Property] The PidTagPredecessorChangeList property ([MS-OXPROPS] section 2.861) contains PredecessorChangeList structures, as specified in section 2.2.2.3.");
+                @"[In PidTagPredecessorChangeList Property] The PidTagPredecessorChangeList property ([MS-OXPROPS] section 2.867) contains PredecessorChangeList structures, as specified in section 2.2.2.3.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R1093");
