@@ -821,7 +821,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             this.Site.CaptureRequirementIfIsTrue(
                 isVerfiedR236,
                 236,
-                @"[In PidTagAttachDataBinary Property] The PidTagAttachDataBinary property ([MS-OXPROPS] section 2.585) contains the contents of the file to be attached.");
+                @"[In PidTagAttachDataBinary Property] The PidTagAttachDataBinary property ([MS-OXPROPS] section 2.589) contains the contents of the file to be attached.");
 
             if (Convert.ToInt32(pidTagAttachMethod.Value) == 0x00000001)
             {
@@ -956,7 +956,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 isHasAttachmentSecond,
                 Convert.ToBoolean(pidTagHasAttachmentsSecond.Value),
                 16,
-                @"[In PidTagHasAttachments Property] The server computes this property [PidTagHasAttachments] from the mfHasAttach flag of the PidTagMessageFlags property ([MS-OXPROPS] section 2.787).");
+                @"[In PidTagHasAttachments Property] The server computes this property [PidTagHasAttachments] from the mfHasAttach flag of the PidTagMessageFlags property ([MS-OXPROPS] section 2.791).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R498. The value of PidTagHasAttachments before creating the attachment is {0}, the value of PidTagHasAttachments after creating the attachment is {1}.", pidTagHasAttachmentsFirst.Value, pidTagHasAttachmentsSecond.Value);
@@ -968,7 +968,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR498,
                 498,
-                @"[In PidTagHasAttachments Property] The PidTagHasAttachments property ([MS-OXPROPS] section 2.712) indicates whether the Message object contains at least one attachment.");
+                @"[In PidTagHasAttachments Property] The PidTagHasAttachments property ([MS-OXPROPS] section 2.716) indicates whether the Message object contains at least one attachment.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R875. The value of PidTagHasAttachments before creating the attachment is {0}, the value of PidTagHasAttachments after creating the attachment is {1}.", pidTagHasAttachmentsFirst.Value, pidTagHasAttachmentsSecond.Value);
@@ -1235,7 +1235,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 fileNameExtension,
                 Convert.ToString(pidTagAttachExtension.Value),
                 604,
-                @"[In PidTagAttachExtension Property] The PidTagAttachExtension property ([MS-OXPROPS] section 2.588) contains a file name extension that indicates the document type of an attachment.");
+                @"[In PidTagAttachExtension Property] The PidTagAttachExtension property ([MS-OXPROPS] section 2.592) contains a file name extension that indicates the document type of an attachment.");
             #endregion
 
             #region Call RopRelease to release the created message and the created attachment
