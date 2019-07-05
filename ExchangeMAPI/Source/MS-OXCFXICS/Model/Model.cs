@@ -1426,7 +1426,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                 result = RopResult.InvalidParameter;
                 ModelHelper.CaptureRequirement(
                     3509001,
-                    @"[In Appendix A: Product Behavior]  If unknown flags are set, implementation does fail the operation. &lt;44&gt; Section 3.2.5.9.4.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.");
+                    @"[In Appendix A: Product Behavior]  If unknown flags are set, implementation does fail the operation. &lt;44&gt; Section 3.2.5.9.4.2: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 fail the ROP [RopSynchronizationImportMessageChange] if unknown bit flags are set.");
 
                 return result;
             }
@@ -2245,7 +2245,7 @@ Return value (4 bytes):] The following table[In section 2.2.3.2.4.4] contains ad
                         // When the ROP return invalid parameter this requirement verified.
                         ModelHelper.CaptureRequirement(
                         3442001,
-                        @"[In Appendix A: Product Behavior] Implementation does not support. &lt;34&gt; Section 3.2.5.8.1.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support the Move flag for the RopFastTransferSourceCopyTo ROP (section 2.2.3.1.1.1).");
+                        @"[In Appendix A: Product Behavior] Implementation does not support. &lt;34&gt; Section 3.2.5.8.1.1: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 do not support the Move flag for the RopFastTransferSourceCopyTo ROP (section 2.2.3.1.1.1).");
                     }
 
                     if (requirementContainer.ContainsKey(3442003) && requirementContainer[3442003])
@@ -2255,7 +2255,7 @@ Return value (4 bytes):] The following table[In section 2.2.3.2.4.4] contains ad
                         // When the ROP return invalid parameter this requirement verified.
                         ModelHelper.CaptureRequirement(
                         3442003,
-                        @"[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does fail the operation with an error code InvalidParameter (0x80070057).  &lt;34&gt; Section 3.2.5.8.1.1: The server sets the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag [Move flag].(Microsoft Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview follow this behavior.)");
+                        @"[In Appendix A: Product Behavior] If the server receives the Move flag, implementation does fail the operation with an error code InvalidParameter (0x80070057).  &lt;34&gt; Section 3.2.5.8.1.1: The server sets the value of the ReturnValue field to InvalidParameter (0x80070057) if it receives this flag [Move flag].(Microsoft Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 follow this behavior.)");
                     }
                 }
 
@@ -3442,7 +3442,7 @@ Are folders that have never been reported as deleted folders.");
                                                             newMessageChange.IsRTFformat = false;
                                                             ModelHelper.CaptureRequirement(
                                                                 3118002,
-                                                                @"[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. &lt;3&gt; Section 2.2.3.1.1.1.1: In Exchange 2013, Exchange 2016, and Exchange 2019 Preview, the message body is always in the original format.");
+                                                                @"[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. &lt;3&gt; Section 2.2.3.1.1.1.1: In Exchange 2013, Exchange 2016, and Exchange 2019, the message body is always in the original format.");
                                                         }
 
                                                         if (requirementContainer.ContainsKey(2117002) && requirementContainer[2117002])
@@ -3475,7 +3475,7 @@ Are folders that have never been reported as deleted folders.");
                                                             // Because the BestBody flag of the CopyFlags field is set before and the prior ROP is RopFastTransferSourceCopyMessages, so this requirement can be captured.
                                                             ModelHelper.CaptureRequirement(
                                                                    499001,
-                                                                   @"[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. &lt;5&gt; Section 2.2.3.1.1.3.1: In Exchange 2013, Exchange 2016, and Exchange 2019 Preview, the message body is always in the original format.");
+                                                                   @"[In Appendix A: Product Behavior] Implementation does only support the message body which is always in the original format. &lt;5&gt; Section 2.2.3.1.1.3.1: In Exchange 2013, Exchange 2016, and Exchange 2019, the message body is always in the original format.");
                                                         }
 
                                                         if (requirementContainer.ContainsKey(2182002) && requirementContainer[2182002])
@@ -3922,7 +3922,7 @@ Are folders that have never been reported as deleted folders.");
                                 abstractFastTransferStream.AbstractContentsSync.IsSortByLastModificationTime = true;
                                 ModelHelper.CaptureRequirement(
                                     2199,
-                                    @"[In Receiving a RopSynchronizationConfigure ROP Request] [SynchronizationExtraFlags Constraints] If the OrderByDeliveryTime flag of the SynchronizationExtraFlags field is set, the server MUST sort messages by the PidTagLastModificationTime property ([MS-OXPROPS] section 2.753) if the former[PidTagMessageDeliveryTime] is missing, when generating a sequence of messageChange elements for the FastTransfer stream, as specified in section 2.2.4.2.");
+                                    @"[In Receiving a RopSynchronizationConfigure ROP Request] [SynchronizationExtraFlags Constraints] If the OrderByDeliveryTime flag of the SynchronizationExtraFlags field is set, the server MUST sort messages by the PidTagLastModificationTime property ([MS-OXPROPS] section 2.764) if the former[PidTagMessageDeliveryTime] is missing, when generating a sequence of messageChange elements for the FastTransfer stream, as specified in section 2.2.4.2.");
                             }
 
                             // Search the message in MessageContainer.
@@ -4490,7 +4490,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                             abstractFastTransferStream.AbstractMessageContent.AbsMessageChildren.AttachmentPrecededByPidTagFXDelProp = true;
                                             ModelHelper.CaptureRequirement(
                                                 3304,
-                                                @"[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.789) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.779) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
+                                                @"[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.795) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.779) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
 
                                             // The AttachmentPrecededByPidTagFXDelProp true means server outputs the MetaTagFXDelProp property before outputting subobjects, such as attachment.
                                             ModelHelper.CaptureRequirement(
@@ -4512,7 +4512,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                             abstractFastTransferStream.AbstractMessageContent.AbsMessageChildren.RecipientPrecededByPidTagFXDelProp = true;
                                             ModelHelper.CaptureRequirement(
                                                 3304,
-                                                @"[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.789) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.779) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
+                                                @"[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.795) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.779) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
 
                                             // The RecipientPrecededByPidTagFXDelProp true means server outputs the MetaTagFXDelProp property before outputting subobjects, such as recipients.
                                             ModelHelper.CaptureRequirement(
@@ -4552,7 +4552,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
 
                                         ModelHelper.CaptureRequirement(
                                             3304,
-                                            @"[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.789) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.779) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
+                                            @"[In messageChildren Element] Under the conditions specified in section 3.2.5.10 [Effect of Property and Subobject Filters on Download] , the PidTagMessageRecipients ([MS-OXPROPS] section 2.795) property included in a recipient element and the PidTagMessageAttachments ([MS-OXPROPS] section 2.779) property included in an attachment element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
                                     }
                                 }
 
