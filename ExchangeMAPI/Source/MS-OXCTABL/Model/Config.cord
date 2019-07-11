@@ -473,6 +473,50 @@ machine S02_RowRops_SeekRowNotSupported_TestSuite() : Actions where TestEnabled 
 	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for 
     S02_RowRops_SeekRowNotSupported_SlicedModel        
 }
+// Scenario S02 definition for testing ecNotFound for the FindRow ROP
+machine S02_RowRops_FindRowNotFound_Scenario():Actions
+{
+    call CheckMAPIHTTPTransportSupported(out _);
+	(
+        return CheckMAPIHTTPTransportSupported(out false);
+		|
+		(
+            return CheckMAPIHTTPTransportSupported(out true);
+			(
+                InitializeTable(TableType.CONTENT_TABLE);
+				RopQueryPosition;
+				RopQueryPositionResponse(CursorPosition.BEGIN,true);   
+				RopSetColumns(1,false,false,false);      
+				RopCreateBookmark; 
+				CheckRequirementEnabled(768, out _);
+				CheckRequirementEnabled(866, out _);
+				CheckRequirementEnabled(867, out _);
+				RopQueryRows(QueryRowsFlags.Advance,true);  
+				CheckRequirementEnabled(610, out _);   
+				RopQueryRowsResponse(QueryRowsFlags.Advance,true,false,TableRopType.CREATEBOOKMARK,true,true,true,true,BookmarkType.BOOKMARK_CURRENT,false);      
+				CheckRequirementEnabled(827, out _);  
+				RopFindRow(FindRowFlags.Forwards, {BookmarkType.BOOKMARK_END}, true);
+				CheckRequirementEnabled(608, out _);
+				RopFindRowResponse(FindRowFlags.Forwards, true, false, true, false,true) 
+            )  
+        )
+    )
+}
+
+// Sliced model based on S02_RowRops_FindRowNotFound_Scenario
+machine S02_RowRops_FindRowNotFound_SlicedModel(): Actions
+{
+    S02_RowRops_FindRowNotFound_Scenario()
+    ||
+    OXCTABLModelProgramCoverage 
+}
+
+// S02 Test Suite Definition: test ecNotFound for the FindRow ROP
+// The TestEnable switch should be set to true for generating test suite code
+machine S02_RowRops_FindRowNotFound_TestSuite() : Actions where TestEnabled = true
+{
+	construct test cases where strategy = "longtests", AllowUndeterminedCoverage = true for S02_RowRops_FindRowNotFound_SlicedModel
+}
 
 // Scenario S02 definition for testing success for the FindRow ROP
 machine S02_RowRops_FindRowSuccess_Scenario() : Actions
