@@ -430,7 +430,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                     if (requirementContainer[897] && isRequestCountTooLarger)
                     {
                         Condition.IsTrue(queryRowOrigin == BookmarkType.BOOKMARK_END);
-                        ModelHelper.CaptureRequirement(897, @"[In Appendix A: Product Behavior] Implementation does set the Origin field to ""BOOKMARK_END"", if there are no more rows to return and the ForwardRead field in the ROP request is set to ""FALSE"". (<25> Section 3.2.5.5: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview set the Origin field to ""BOOKMARK_END"".)");
+                        ModelHelper.CaptureRequirement(897, @"[In Appendix A: Product Behavior] Implementation does set the Origin field to ""BOOKMARK_END"", if there are no more rows to return and the ForwardRead field in the ROP request is set to ""FALSE"". (<25> Section 3.2.5.5: Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 set the Origin field to ""BOOKMARK_END"".)");
                     }
 
                     // When ForwardRead in request is false, if the correct row count is returned, this requirement can be verified.
@@ -838,7 +838,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             }
 
             // Exchange 2010 SP1 and above implement the RopSeekRowFractional ROP.
-            ModelHelper.CaptureRequirement(910, @"[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (<14> Section 2.2.2.11: Exchange 2010 SP1 and Exchange 2013, Exchange 2016 and Exchange 2019 Preview do implement the RopSeekRowFractional ROP.)");
+            ModelHelper.CaptureRequirement(910, @"[In Appendix A: Product Behavior] Implementation does support the RopSeekRowFractional ROP. (<14> Section 2.2.2.11: Exchange 2010 SP1 and Exchange 2013, Exchange 2016 and Exchange 2019 do implement the RopSeekRowFractional ROP.)");
                 
             return TableRopReturnValues.success;
         }
@@ -1105,6 +1105,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
                 Condition.IsTrue(!rowNoLongerVisible);
                 ModelHelper.CaptureRequirement(239, @"[In RopFindRow ROP Response Buffer] Otherwise [if the row to which the bookmark pointed, has not been removed from the table.], this field [RowNoLongerVisible] MUST be set to ""FALSE"" (0x00).");
             }
+            if (hasRowData == false)
+            {
+                ModelHelper.CaptureRequirement(536, @"[In Processing RopFindRow] If no rows match the search criteria, the cursor position for the RopFindRow ROP is undefined, and the ReturnValue field MUST be set to ""ecNotFound"".");
+                ModelHelper.CaptureRequirement(544001, @"[In Processing RopFindRow] The error code ecNotFound will be returned with value 0x8004010F,%x0F.01.04.80, if the row match the search criteria was not found.");
+            }
         }
         #endregion
 
@@ -1291,7 +1296,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCTABL
             {
                 if (requirementContainer[748])
                 {
-                    ModelHelper.CaptureRequirement(748, @"[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (<16> Section 2.2.2.17.1: Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support a value greater than 0 for the MaxRowCount field.)");
+                    ModelHelper.CaptureRequirement(748, @"[In Appendix A: Product Behavior] Implementation does not support a value greater than 0 for the MaxRowCount field. (<16> Section 2.2.2.17.1: Exchange 2013, Exchange 2016 and Exchange 2019 do not support a value greater than 0 for the MaxRowCount field.)");
                     return TableRopReturnValues.ecNotSupported;
                 }
             }
