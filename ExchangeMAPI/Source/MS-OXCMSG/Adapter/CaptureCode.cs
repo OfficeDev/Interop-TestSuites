@@ -611,7 +611,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         // MS-OXCMSG_R140 can be indirectly verified when the value of property PidTagInternetCodepage is not null.
                         this.Site.CaptureRequirement(
                             2070,
-                            @"[In PidTagInternetCodepage Property] The PidTagInternetCodepage property ([MS-OXPROPS] section 2.742) indicates the code page used for the PidTagBody property (section 2.2.1.56.1) or the PidTagBodyHtml property (section 2.2.1.56.3).");
+                            @"[In PidTagInternetCodepage Property] The PidTagInternetCodepage property ([MS-OXPROPS] section 2.746) indicates the code page used for the PidTagBody property (section 2.2.1.56.1) or the PidTagBodyHtml property (section 2.2.1.56.3).");
                     }
 
                     break;
@@ -665,7 +665,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                             12,
                             ((byte[])propertyObj.Value).Length - 2,
                             2126,
-                            @"[In PidTagStartDateEtc Property] The PidTagStartDateEtc property ([MS-OXPROPS] section 2.1020) has the following structure [Default retention period, Start date].");
+                            @"[In PidTagStartDateEtc Property] The PidTagStartDateEtc property ([MS-OXPROPS] section 2.1026) has the following structure [Default retention period, Start date].");
 
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R172");
@@ -1029,7 +1029,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         this.Site.CaptureRequirementIfIsNotNull(
                             propertyObj.Value,
                             623,
-                            @"[In PidTagAttachTransportName Property] The PidTagAttachTransportName property ([MS-OXPROPS] section 2.606) contains the name of an attachment file, modified so that it can be correlated with TNEF messages, as specified in [MS-OXTNEF].");
+                            @"[In PidTagAttachTransportName Property] The PidTagAttachTransportName property ([MS-OXPROPS] section 2.610) contains the name of an attachment file, modified so that it can be correlated with TNEF messages, as specified in [MS-OXTNEF].");
                     }
 
                     break;
@@ -1109,7 +1109,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         PropertyType.PtypString,
                         propertyObj.ValueType,
                         959,
-                        @"[In MIME properties] The type of PidTagAttachMimeTag ([MS-OXPROPS] section 2.598) is PtypString.");
+                        @"[In MIME properties] The type of PidTagAttachMimeTag ([MS-OXPROPS] section 2.602) is PtypString.");
 
                     break;
 
@@ -1123,7 +1123,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         PropertyType.PtypString,
                         propertyObj.ValueType,
                         960,
-                        @"[In MIME Properties] The type of PidTagAttachContentId ([MS-OXPROPS] section 2.583) is PtypString.");
+                        @"[In MIME Properties] The type of PidTagAttachContentId ([MS-OXPROPS] section 2.587) is PtypString.");
                     break;
 
                 case PropertyNames.PidTagAttachContentLocation:
@@ -1136,7 +1136,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         PropertyType.PtypString,
                         propertyObj.ValueType,
                         961,
-                        @"[In MIME Properties] The type of PidTagAttachContentLocation ([MS-OXPROPS] section 2.584) is PtypString.");
+                        @"[In MIME Properties] The type of PidTagAttachContentLocation ([MS-OXPROPS] section 2.588) is PtypString.");
                     break;
 
                 case PropertyNames.PidTagAttachContentBase:
@@ -1149,7 +1149,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         PropertyType.PtypString,
                         propertyObj.ValueType,
                         962,
-                        @"[In MIME Properties] The type of PidTagAttachContentBase ([MS-OXPROPS] section 2.582) is PtypString.");
+                        @"[In MIME Properties] The type of PidTagAttachContentBase ([MS-OXPROPS] section 2.586) is PtypString.");
                     break;
 
                 case PropertyNames.PidLidSmartNoAttach:
@@ -1309,7 +1309,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                             0,
                             (propertyObj.Value.ToString().Length - 2) % 8,
                             1162,
-                            @"[In PidTagInternetReferences Property] The PidTagInternetReferences property ([MS-OXPROPS] section 2.745) contains a list of message IDs (MIDs), as specified in [MS-OXCDATA] section 2.2.1.2, that specify the messages to which this reply is related.");
+                            @"[In PidTagInternetReferences Property] The PidTagInternetReferences property ([MS-OXPROPS] section 2.749) contains a list of message IDs (MIDs), as specified in [MS-OXCDATA] section 2.2.1.2, that specify the messages to which this reply is related.");
                     }
 
                     break;
@@ -1742,7 +1742,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         this.Site.CaptureRequirementIfIsTrue(
                             isVerifiedR2072,
                             2072,
-                            @"[In PidTagBodyContentId Property] The PidTagBodyContentId property ([MS-OXPROPS] section 2.615) contains a GUID corresponding to the current message body.");
+                            @"[In PidTagBodyContentId Property] The PidTagBodyContentId property ([MS-OXPROPS] section 2.619) contains a GUID corresponding to the current message body.");
                     }
 
                     break;
@@ -1872,7 +1872,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         PropertyType.PtypString,
                         propertyObj.ValueType,
                         1554,
-                        @"[In MIME Properties] The type of PidTagAttachPayloadClass ([MS-OXPROPS] section 2.601) is PtypString.");
+                        @"[In MIME Properties] The type of PidTagAttachPayloadClass ([MS-OXPROPS] section 2.605) is PtypString.");
                     break;
 
                 case PropertyNames.PidTagAttachPayloadProviderGuidString:
@@ -1884,7 +1884,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         PropertyType.PtypString,
                         propertyObj.ValueType,
                         1553,
-                        @"[In MIME Properties] The type of PidTagAttachPayloadProviderGuidString ([MS-OXPROPS] section 2.602) is PtypString.");
+                        @"[In MIME Properties] The type of PidTagAttachPayloadProviderGuidString ([MS-OXPROPS] section 2.606) is PtypString.");
                     break;
                 case PropertyNames.PidNameContentType:
                     // Add the debug information

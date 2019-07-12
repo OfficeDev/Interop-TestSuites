@@ -69,6 +69,7 @@
     <Compile Include="S02_RowRops_Backward_TestSuite.cs" />
     <Compile Include="S02_RowRops_FindRowAfterInvalidBookmark_TestSuite.cs" />
     <Compile Include="S02_RowRops_FindRowBeforeSetColumns_TestSuite.cs" />
+    <Compile Include="S02_RowRops_FindRowNotFound_TestSuite.cs" />
     <Compile Include="S02_RowRops_FindRowNotSupported_TestSuite.cs" />
     <Compile Include="S02_RowRops_FindRowSuccess_TestSuite.cs" />
     <Compile Include="S02_RowRops_ParseQueryRowsAfterRestrict_TestSuite.cs" />
