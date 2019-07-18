@@ -1,10 +1,10 @@
 ---
 topic: sample
 products:
-- Office 365
-- SharePoint
+- office-365
+- office-sp
 languages:
-- C#
+- csharp
 extensions:
   contentType: tools
   createdDate: 7/24/2015 2:09:29 PM
