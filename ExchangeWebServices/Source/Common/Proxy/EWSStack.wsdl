@@ -4,6 +4,7 @@
     <xs:schema id="messages" elementFormDefault="qualified" version="Exchange2016" xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns="http://schemas.microsoft.com/exchange/services/2006/messages">
       <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSCORE-types.xsd"/>
       <xs:include schemaLocation="MS-OXWSCORE-messages.xsd"/>
+      <xs:include schemaLocation="MS-OXWSCONT-messages.xsd"/>
       <xs:include schemaLocation="MS-OXWSFOLD-messages.xsd"/>
       <xs:include schemaLocation="MS-OXWSATT-messages.xsd" />
       <xs:include schemaLocation="MS-OXWSBTRF-messages.xsd"/>
@@ -1028,7 +1029,7 @@
   </wsdl:message>
   <!--Elements from MS-OXWSCONT.wsdl-->
   <wsdl:message name="GetUserPhotoSoapIn">
-    <wsdl:part name="request" element="t:GetUserPhoto"/>
+    <wsdl:part name="request" element="tns:GetUserPhoto"/>
     <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
   </wsdl:message>
   <wsdl:message name="GetUserPhotoSoapOut">

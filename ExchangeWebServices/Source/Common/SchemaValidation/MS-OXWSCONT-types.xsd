@@ -75,6 +75,7 @@
           <xs:element name="IsHidden" type="xs:boolean" minOccurs="0"/>
           <xs:element name="ObjectId" type="xs:string" minOccurs="0"/>
           <xs:element name="PassportId" type="xs:long" minOccurs="0"/>
+          <xs:element name="PersonId" type="t:ItemIdType" minOccurs="0" />
           <xs:element name="IsPrivate" type="xs:boolean" minOccurs="0"/>
           <xs:element name="SourceId" type="xs:string" minOccurs="0"/>
           <xs:element name="TrustLevel" type="xs:int" minOccurs="0"/>
@@ -106,7 +107,7 @@
           <xs:element name="DisplayNamePrefix" type="xs:string" minOccurs="0"/>
           <xs:element name="YomiGivenName" type="xs:string" minOccurs="0"/>
           <xs:element name="YomiSurname" type="xs:string" minOccurs="0"/>
-          <xs:element name="PersonId" type="t:ItemIdType" minOccurs="0" />
+          
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -145,7 +146,7 @@
         <xs:sequence>
           <xs:element name="AntiLinkInfo" type="xs:string" minOccurs="0"/>
           <xs:element name="PersonIdGuid" type="t:GuidType" minOccurs="0"/>
-          <xs:element name="PersonId" type="t:ItemIdType" minOccurs="0"/>
+          <xs:element name="PersonId" type="xs:int" minOccurs="0"/>
           <xs:element name="ExchangePersonIdGuid" type="t:GuidType" minOccurs="0"/>
           <xs:element name="ContactHandles" type="t:ArrayOfAbchPersonContactHandlesType" minOccurs="0"/>
           <xs:element name="ContactCategories" type="t:ArrayOfStringsType" minOccurs="0"/>
@@ -351,18 +352,7 @@
       <xs:enumeration value="Other"/>
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="GetUserPhotoType">
-    <xs:complexContent>
-      <xs:extension base="m:BaseRequestType">
-        <xs:sequence>
-          <xs:element name="Email" type="xs:string" minOccurs="1" maxOccurs="1"/>
-          <xs:element name="SizeRequested" type="t:UserPhotoSizeType"
-                minOccurs="1" maxOccurs="1"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="GetUserPhoto" type="t:GetUserPhotoType"/>
+  
   <xs:complexType name="GetUserPhotoResponseMessageType">
     <xs:complexContent>
       <xs:extension base="m:ResponseMessageType">
@@ -381,6 +371,7 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="GetUserPhotoResponse" type="t:GetUserPhotoResponseMessageType"/>
+
   <xs:complexType name="SetUserPhotoType">
     <xs:complexContent>
       <xs:extension base="m:BaseRequestType">

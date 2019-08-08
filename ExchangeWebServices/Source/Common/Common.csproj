@@ -49,6 +49,9 @@
   <ItemGroup>
     <None Include="ExchangeCommonConfiguration.deployment.ptfconfig" />
     <None Include="Proxy\EWSStack.wsdl" />
+    <None Include="SchemaValidation\MS-OXWSCONT-messages.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="SchemaValidation\MS-OXWSDLGM-message.xsd" />
     <None Include="SchemaValidation\MS-OXWSDLGM-types.xsd" />
     <None Include="SchemaValidation\MS-OXWSATT-messages.xsd" />
