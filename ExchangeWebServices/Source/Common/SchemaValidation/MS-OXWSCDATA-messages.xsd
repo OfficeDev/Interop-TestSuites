@@ -23,6 +23,7 @@
   <xs:include schemaLocation="MS-OXWSPERS-messages.xsd"/>
   <xs:include schemaLocation="MS-OXWSCONV-messages.xsd"/>
   <xs:include schemaLocation="MS-OXWSURPT-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCONT-messages.xsd"/>
   <xs:complexType name="ArrayOfResponseMessagesType">
     <xs:choice maxOccurs="unbounded">
       <xs:element name="CreateItemResponseMessage" type="m:ItemInfoResponseMessageType"/>
@@ -96,7 +97,7 @@
       <xs:element name="GetPersonaResponseMessage" type="m:GetPersonaResponseMessageType"/>
       <xs:element name="GetConversationItemsResponseMessage" type="m:GetConversationItemsResponseMessageType"/>
       <xs:element name="GetUserRetentionPolicyTagsResponseMessage" type="m:GetUserRetentionPolicyTagsResponseMessageType"/>
-      <xs:element name="GetUserPhotoResponseMessage" type="t:GetUserPhotoResponseMessageType"/>
+      <xs:element name="GetUserPhotoResponseMessage" type="m:GetUserPhotoResponseMessageType"/>
       <xs:element name="MarkAsJunkResponseMessage" type="m:MarkAsJunkResponseMessageType"/>
       <xs:element name="UpdateMailboxAssociationResponseMessage" type="m:ResponseMessageType"/>
       <xs:element name="UpdateGroupMailboxResponseMessage" type="m:ResponseMessageType"/>
