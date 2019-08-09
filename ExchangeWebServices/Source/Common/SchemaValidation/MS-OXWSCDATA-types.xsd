@@ -602,6 +602,33 @@
       <xs:element ref="t:Path"/>
     </xs:choice>
   </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfPredictedActionReasonType">
+    <xs:sequence>
+      <xs:element name="PredictedActionReason" type="t:PredictedActionReasonType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PredictedActionReasonType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="ConversationStarterIsYou"/>
+      <xs:enumeration value="OnlyRecipient"/>
+      <xs:enumeration value="ConversationContributions"/>
+      <xs:enumeration value="MarkedImportantBySender"/>
+      <xs:enumeration value="SenderIsManager"/>
+      <xs:enumeration value="SenderIsInManagementChain"/>
+      <xs:enumeration value="SenderIsDirectReport"/>
+      <xs:enumeration value="ActionBasedOnSender"/>
+      <xs:enumeration value="NameOnToLine"/>
+      <xs:enumeration value="NameOnCcLine"/>
+      <xs:enumeration value="ManagerPosition"/>
+      <xs:enumeration value="ReplyToAMessageFromMe"/>
+      <xs:enumeration value="PreviouslyFlagged"/>
+      <xs:enumeration value="ActionBasedOnRecipients"/>
+      <xs:enumeration value="ActionBasedOnSubjectWords"/>
+      <xs:enumeration value="ActionBasedOnBasedOnBodyWords"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:complexType name="NonEmptyArrayOfRoleType">
     <xs:sequence>
       <xs:element name="Role" type="xs:string" maxOccurs="unbounded"/>

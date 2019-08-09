@@ -274,5 +274,5 @@
       <xs:extension base="m:BaseResponseMessageType"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="UpdateItemInRecoverableItemsResponse" type="m:UpdateItemInRecoverableItemsResponseMessageType"/>
+  <xs:element name="UpdateItemInRecoverableItemsResponse" type="m:UpdateItemInRecoverableItemsResponseType"/>
 </xs:schema>
