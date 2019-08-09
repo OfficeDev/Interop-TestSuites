@@ -3347,7 +3347,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R392</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The type of Impersonation part is] t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.4.33).</ns1:Description>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The type of Impersonation part is] t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.3.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3365,7 +3365,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R393</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The element of MailboxCulture part is] t:MailboxCulture ([MS-OXWSCDATA] section 2.2.4.45).</ns1:Description>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The element of MailboxCulture part is] t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3392,7 +3392,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R417</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:GetAttachmentSoapIn Message][The RequestVersion part is] t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11)</ns1:Description>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message][The RequestVersion part is] t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3872,7 +3872,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R1</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms "SHOULD" or "SHOULD NOT" implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3881,7 +3881,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R2</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, the term "MAY" implies that the product does not follow the prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3965,7 +3965,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R318015</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a ItemType item.(Exchange2007 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a ItemType item.(Exchange2007 and Exchange2019.)</ns1:Description>
 		<ns1:Derived>MS-OXWSATT_R527:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3985,7 +3985,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R318009</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016  and above follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXWSATT_R99006:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4091,8 +4091,8 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R713</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.23</ns1:Doc_Sect>
-		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorUnsupportedMimeConversion" occurs when you are trying to retrieve or set MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object.</ns1:Description>
+		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorUnsupportedMimeConversion" occurs when an attempt is made to retrieve  MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4100,8 +4100,8 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1234</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
-		<ns1:Description>[In t:NonEmptyArrayOfPathsToElementType Complex Type] The element "t:Path" with type "t:Path" specifies a property to be returned in a response.</ns1:Description>
+		<ns1:Doc_Sect>2.2.4.50</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfPathsToElementType Complex Type] The element "t:Path" with type "t:BasePathToElementType " specifies a property to be returned in a response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4109,7 +4109,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1339</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.10</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.3.10</ns1:Doc_Sect>
 		<ns1:Description>[In t:ServerVersionInfo Element] &lt;xs:element name="t:ServerVersionInfo"&gt;
  &lt;xs:complexType&gt;
   &lt;xs:attribute name="MajorVersion"
