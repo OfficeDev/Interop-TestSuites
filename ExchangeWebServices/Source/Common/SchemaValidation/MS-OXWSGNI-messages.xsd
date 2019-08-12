@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2016" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2016" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="MS-OXWSGNI-types.xsd" namespace="http://schemas.microsoft.com/exchange/services/2006/types"/>
   <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
   <xs:complexType name="GetNonIndexableItemStatisticsType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseRequestType">
+      <xs:extension base="tns:BaseRequestType">
         <xs:sequence>
           <xs:element minOccurs="1" name="Mailboxes" type="t:NonEmptyArrayOfLegacyDNsType"/>
           <xs:element minOccurs="0" name="SearchArchiveOnly" type="xs:boolean"/>
@@ -12,20 +12,20 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetNonIndexableItemStatistics" type="m:GetNonIndexableItemStatisticsType"/>
+  <xs:element name="GetNonIndexableItemStatistics" type="tns:GetNonIndexableItemStatisticsType"/>
   <xs:complexType name="GetNonIndexableItemStatisticsResponseMessageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:ResponseMessageType">
+      <xs:extension base="tns:ResponseMessageType">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="1" name="NonIndexableItemStatistics" type="t:ArrayOfNonIndexableItemStatisticsType"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetNonIndexableItemStatisticsResponse" type="m:GetNonIndexableItemStatisticsResponseMessageType"/>
+  <xs:element name="GetNonIndexableItemStatisticsResponse" type="tns:GetNonIndexableItemStatisticsResponseMessageType"/>
   <xs:complexType name="GetNonIndexableItemDetailsType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseRequestType">
+      <xs:extension base="tns:BaseRequestType">
         <xs:sequence>
           <xs:element minOccurs="1" name="Mailboxes" type="t:NonEmptyArrayOfLegacyDNsType"/>
           <xs:element minOccurs="0" name="PageSize" type="xs:int"/>
@@ -36,15 +36,15 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetNonIndexableItemDetails" type="m:GetNonIndexableItemDetailsType"/>
+  <xs:element name="GetNonIndexableItemDetails" type="tns:GetNonIndexableItemDetailsType"/>
   <xs:complexType name="GetNonIndexableItemDetailsResponseMessageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:ResponseMessageType">
+      <xs:extension base="tns:ResponseMessageType">
         <xs:sequence>
           <xs:element minOccurs="0" name="NonIndexableItemDetailsResult" type="t:NonIndexableItemDetailResultType"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetNonIndexableItemDetailsResponse" type="m:GetNonIndexableItemDetailsResponseMessageType"/>
+  <xs:element name="GetNonIndexableItemDetailsResponse" type="tns:GetNonIndexableItemDetailsResponseMessageType"/>
 </xs:schema>
