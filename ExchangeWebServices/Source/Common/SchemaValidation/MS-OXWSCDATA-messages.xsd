@@ -50,9 +50,7 @@
       <xs:element name="GetClientAccessTokenResponseMessage" type="m:GetClientAccessTokenResponseMessageType"/>
       <xs:element name="GetAppManifestsResponseMessage" type="m:ResponseMessageType"/>
       <xs:element name="GetClientExtensionResponseMessage" type="m:ResponseMessageType"/>
-      <xs:element name="SetClientExtensionResponseMessage" type="m:ResponseMessageType"/>
-      <xs:element name="GetEncryptionConfigurationResponseMessage" type="m:ResponseMessageType"/>
-      <xs:element name="SetEncryptionConfigurationResponseMessage" type="m:ResponseMessageType"/>
+      <xs:element name="SetClientExtensionResponseMessage" type="m:ResponseMessageType"/>     
       <xs:element name="GetOMEConfigurationResponseMessage" type="m:ResponseMessageType"/>
       <xs:element name="SetOMEConfigurationResponseMessage" type="m:ResponseMessageType"/>
       <xs:element name="FindItemResponseMessage" type="m:FindItemResponseMessageType"/>

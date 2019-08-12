@@ -1111,6 +1111,7 @@
       <xs:enumeration value="distributionlist:Members"/>
       <xs:enumeration value="contacts:PartnerNetworkProfilePhotoUrl" />
       <xs:enumeration value="contacts:PartnerNetworkThumbnailPhotoUrl" />
+      <xs:enumeration value="contacts:contacts:ConversationGuid" />
       <xs:enumeration value="postitem:PostedTime"/>
       <xs:enumeration value="conversation:ConversationId"/>
       <xs:enumeration value="conversation:ConversationTopic"/>
