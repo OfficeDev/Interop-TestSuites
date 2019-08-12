@@ -1143,7 +1143,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R349</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of Message element is] t:MessageType ([MS-OXWSMSG] section 2.2.4.1)</ns1:Description>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of Message element is] t:MessageType ([MS-OXWSMSG] section 2.2.4.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1161,7 +1161,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R350</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of CalendarItem element is] t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.9)</ns1:Description>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of CalendarItem element is] t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.6)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1197,7 +1197,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R352</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingMessage element is] t:MeetingMessageType ([MS-OXWSMTGS] section 2.2.4.20)</ns1:Description>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingMessage element is] t:MeetingMessageType ([MS-OXWSMTGS] section 2.2.4.15)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1215,7 +1215,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R353</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingRequest element is] t:MeetingRequestMessageType ([MS-OXWSMTGS] section 2.2.4.22)</ns1:Description>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingRequest element is] t:MeetingRequestMessageType ([MS-OXWSMTGS] section 2.2.4.17)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1233,7 +1233,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R354</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingResponse element is] t:MeetingResponseMessageType ([MS-OXWSMTGS] section 2.2.4.23)</ns1:Description>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingResponse element is] t:MeetingResponseMessageType ([MS-OXWSMTGS] section 2.2.4.18)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1251,7 +1251,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R355</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingCancellation element is] t:MeetingCancellationMessageType ([MS-OXWSMTGS] section 2.2.4.19)</ns1:Description>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of MeetingCancellation element is] t:MeetingCancellationMessageType ([MS-OXWSMTGS] section 2.2.4.14)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2038,7 +2038,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R368</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The type of Impersonation part is] t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.4.33).</ns1:Description>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The type of Impersonation part is] t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.3.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2056,7 +2056,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R369</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The type of MailboxCulture part is] t:MailboxCulture ([MS-OXWSCDATA] section 2.2.4.45).</ns1:Description>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The type of MailboxCulture part is] t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2083,7 +2083,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R370</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The type of RequestVersion part is] t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:CreateAttachmentSoapIn Message][The type of RequestVersion part is] t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2168,7 +2168,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R553</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CreateAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:CreateAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2627,7 +2627,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R379</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The type of Impersonation part is] t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.4.29.</ns1:Description>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The type of Impersonation part is] t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.3.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2645,7 +2645,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R380</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The type of MailboxCulture part is] t:MailboxCulture ([MS-OXWSCDATA] section 2.2.4.39).</ns1:Description>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The type of MailboxCulture part is] t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2672,7 +2672,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R381</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The element of RequestVersion part is] t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.5.9).</ns1:Description>
+		<ns1:Description>[In tns:DeleteAttachmentSoapIn Message][The element of RequestVersion part is] t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2739,7 +2739,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R383</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:DeleteAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:DeleteAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3347,7 +3347,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R392</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The type of Impersonation part is] t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.4.33).</ns1:Description>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The type of Impersonation part is] t:ExchangeImpersonation ([MS-OXWSCDATA] section 2.2.3.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3365,7 +3365,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R393</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The element of MailboxCulture part is] t:MailboxCulture ([MS-OXWSCDATA] section 2.2.4.45).</ns1:Description>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message] [The element of MailboxCulture part is] t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3392,7 +3392,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R417</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:GetAttachmentSoapIn Message][The RequestVersion part is] t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11)</ns1:Description>
+		<ns1:Description>[In tns:GetAttachmentSoapIn Message][The RequestVersion part is] t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3477,7 +3477,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R396</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:GetAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:GetAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3872,7 +3872,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R1</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms "SHOULD" or "SHOULD NOT" implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3881,7 +3881,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R2</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, the term "MAY" implies that the product does not follow the prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3965,7 +3965,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R318015</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a ItemType item.(Exchange2007 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a ItemType item.(Exchange2007 and Exchange2019.)</ns1:Description>
 		<ns1:Derived>MS-OXWSATT_R527:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3985,7 +3985,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R318009</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016  and above follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-OXWSATT_R99006:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4091,8 +4091,8 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R713</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.23</ns1:Doc_Sect>
-		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorUnsupportedMimeConversion" occurs when you are trying to retrieve or set MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object.</ns1:Description>
+		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
+		<ns1:Description>[In m:ResponseCodeType Simple Type] The value "ErrorUnsupportedMimeConversion" occurs when an attempt is made to retrieve  MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4100,8 +4100,8 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1234</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
-		<ns1:Description>[In t:NonEmptyArrayOfPathsToElementType Complex Type] The element "t:Path" with type "t:Path" specifies a property to be returned in a response.</ns1:Description>
+		<ns1:Doc_Sect>2.2.4.50</ns1:Doc_Sect>
+		<ns1:Description>[In t:NonEmptyArrayOfPathsToElementType Complex Type] The element "t:Path" with type "t:BasePathToElementType " specifies a property to be returned in a response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4109,7 +4109,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1339</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.10</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.3.10</ns1:Doc_Sect>
 		<ns1:Description>[In t:ServerVersionInfo Element] &lt;xs:element name="t:ServerVersionInfo"&gt;
  &lt;xs:complexType&gt;
   &lt;xs:attribute name="MajorVersion"
