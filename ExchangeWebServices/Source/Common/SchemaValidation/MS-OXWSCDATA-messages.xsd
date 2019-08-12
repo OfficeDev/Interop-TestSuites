@@ -23,7 +23,7 @@
   <xs:include schemaLocation="MS-OXWSPERS-messages.xsd"/>
   <xs:include schemaLocation="MS-OXWSCONV-messages.xsd"/>
   <xs:include schemaLocation="MS-OXWSURPT-messages.xsd"/>
-  <xs:include schemaLocation="MS-OXWSCONT-messages.xsd"/>
+  <xs:include schemaLocation="MS-OXWSCONT-messages.xsd"/> 
   <xs:complexType name="ArrayOfResponseMessagesType">
     <xs:choice maxOccurs="unbounded">
       <xs:element name="CreateItemResponseMessage" type="m:ItemInfoResponseMessageType"/>

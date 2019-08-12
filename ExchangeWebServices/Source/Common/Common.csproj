@@ -84,6 +84,9 @@
     <None Include="SchemaValidation\MS-OXWSMSG-types.xsd" />
     <None Include="SchemaValidation\MS-OXWSMSHR-messages.xsd" />
     <None Include="SchemaValidation\MS-OXWSMSHR-types.xsd" />
+    <None Include="SchemaValidation\MS-OXWSMTGS-messages.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="SchemaValidation\MS-OXWSMTGS-types.xsd" />
     <None Include="SchemaValidation\MS-OXWSNTIF-messages.xsd" />
     <None Include="SchemaValidation\MS-OXWSNTIF-types.xsd" />
