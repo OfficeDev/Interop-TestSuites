@@ -49,7 +49,7 @@
   <ItemGroup>
     <None Include="ExchangeCommonConfiguration.deployment.ptfconfig" />
     <None Include="Proxy\EWSStack.wsdl" />
-    <None Include="SchemaValidation\MS-OXWSCONT-messages.xsd">
+    <None Include="SchemaValidation\MS-OXWSCONT-messages.xsd" />
     <None Include="SchemaValidation\MS-OXWSDLGM-message.xsd" />
     <None Include="SchemaValidation\MS-OXWSDLGM-types.xsd" />
     <None Include="SchemaValidation\MS-OXWSATT-messages.xsd" />
@@ -82,7 +82,7 @@
     <None Include="SchemaValidation\MS-OXWSMSG-types.xsd" />
     <None Include="SchemaValidation\MS-OXWSMSHR-messages.xsd" />
     <None Include="SchemaValidation\MS-OXWSMSHR-types.xsd" />
-    <None Include="SchemaValidation\MS-OXWSMTGS-messages.xsd"> 
+    <None Include="SchemaValidation\MS-OXWSMTGS-messages.xsd" /> 
     <None Include="SchemaValidation\MS-OXWSMTGS-types.xsd" />
     <None Include="SchemaValidation\MS-OXWSNTIF-messages.xsd" />
     <None Include="SchemaValidation\MS-OXWSNTIF-types.xsd" />
