@@ -821,6 +821,7 @@
     <wsdl:part name="CopyItemResult" element="tns:CopyItemResponse"/>
     <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
   </wsdl:message>
+
   <wsdl:message name="SendItemSoapIn">
     <wsdl:part name="request" element="tns:SendItem"/>
     <wsdl:part name="Impersonation" element="t:ExchangeImpersonation"/>

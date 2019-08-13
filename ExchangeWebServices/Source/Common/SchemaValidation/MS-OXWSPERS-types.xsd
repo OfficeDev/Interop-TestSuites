@@ -22,6 +22,11 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailAddressAttributedValue" type="t:EmailAddressAttributedValueType"/>
     </xs:sequence>
   </xs:complexType>
+  <xs:complexType name="ArrayOfPeopleQuerySource">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Source" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="ArrayOfPeopleType">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element name="Persona" type="t:PersonaType"/>
