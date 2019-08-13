@@ -183,6 +183,7 @@ OutputQuestion "1: Microsoft Exchange Server 2007"
 OutputQuestion "2: Microsoft Exchange Server 2010"
 OutputQuestion "3: Microsoft Exchange Server 2013"
 OutputQuestion "4: Microsoft Exchange Server 2016"
+OutputQuestion "5: Microsoft Exchange Server 2019"
 
 While (($serverVersion -eq $null) -or ($serverVersion -eq ""))
 { 
@@ -193,6 +194,7 @@ While (($serverVersion -eq $null) -or ($serverVersion -eq ""))
         "2" { $serverVersion = "ExchangeServer2010"; break }
         "3" { $serverVersion = "ExchangeServer2013"; break }
         "4" { $serverVersion = "ExchangeServer2016"; break }
+        "5" { $serverVersion = "ExchangeServer2019"; break }
         default {OutputWarning "Your input is invalid, select the Exchange Server version again"}
     }
 }
