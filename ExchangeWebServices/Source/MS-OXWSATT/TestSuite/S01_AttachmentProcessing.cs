@@ -67,7 +67,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                 @"[In Message Processing Events and Sequencing Rules][The CreateAttachment operation] Creates an item and attaches it to the specified item.");
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R53201");
+            Site.Log.Add(LogEntryKind.Debug, "Verify  MS-OXWSATT_R53201");
 
             // Verify MS-OXWSATT requirement: MS-OXWSATT_R53201
             Site.CaptureRequirementIfAreEqual<ResponseClassType>(
