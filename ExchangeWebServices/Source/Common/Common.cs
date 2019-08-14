@@ -359,6 +359,7 @@ namespace Microsoft.Protocols.TestSuites.Common
             // Avoid closing base connection
             if (transportType == TransportProtocol.HTTPS)
             {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 Common.AcceptServerCertificate();
             }
 
@@ -379,8 +380,11 @@ namespace Microsoft.Protocols.TestSuites.Common
                 case SutVersion.ExchangeServer2016:
                     exchangeServiceBinding.RequestServerVersionValue.Version = ExchangeVersionType.Exchange2016;
                     break;
+                case SutVersion.ExchangeServer2019:
+                    exchangeServiceBinding.RequestServerVersionValue.Version = ExchangeVersionType.Exchange2016;
+                    break;
                 default:
-                    site.Assert.Fail(@"The SUT version ""{0}"" is invalid, the expected value is ""ExchangeServer2007"", ""ExchangeServer2010"", ""ExchangeServer2013"" or ""ExchangeServer2016"".", sutVersion);
+                    site.Assert.Fail(@"The SUT version ""{0}"" is invalid, the expected value is ""ExchangeServer2007"", ""ExchangeServer2010"", ""ExchangeServer2013"", ""ExchangeServer2016"" or ""ExchangeServer2019"".", sutVersion);
                     break;
             }
         }

@@ -328,7 +328,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 ResponseClassType.Success,
                 getAttachmentInfoResponse.ResponseClass,
                 349,
-                @"[In t:ItemAttachmentType Complex Type][The type of Message element is] t:MessageType ([MS-OXWSMSG] section 2.2.4.1)");
+                @"[In t:ItemAttachmentType Complex Type][The type of Message element is] t:MessageType ([MS-OXWSMSG] section 2.2.4.3)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R83");
@@ -390,7 +390,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.DateTimeCreated,
                 "MS-OXWSCDATA",
                 1234,
-                @"[In t:NonEmptyArrayOfPathsToElementType Complex Type] The element ""t:Path"" with type ""t:Path"" specifies a property to be returned in a response.");
+                @"[In t:NonEmptyArrayOfPathsToElementType Complex Type] The element ""t: Path"" with type ""t: BasePathToElementType "" specifies a property to be returned in a response.");
 
             this.VerifyGetAttachmentSuccessfulResponse(getAttachmentResponse);
 
@@ -549,7 +549,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 ResponseClassType.Success,
                 getAttachmentInfoResponse.ResponseClass,
                 350,
-                @"[In t:ItemAttachmentType Complex Type][The type of CalendarItem element is] t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.9)");
+                @"[In t:ItemAttachmentType Complex Type][The type of CalendarItem element is] t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.6)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R85");
@@ -1420,7 +1420,7 @@ Contains the status and result of a single DeleteAttachment operation.");
             this.Site.CaptureRequirement(
                 "MS-OXWSCDATA",
                 713,
-                @"[In m:ResponseCodeType Simple Type] The value ""ErrorUnsupportedMimeConversion"" occurs when you are trying to retrieve or set MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object.");
+                @"[In m:ResponseCodeType Simple Type] The value ""ErrorUnsupportedMimeConversion"" occurs when an attempt is made to retrieve  MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object.");
              #endregion
 
             #region Step 3 Delete the attachment created in step 1 by the DeleteAttachment operation.
