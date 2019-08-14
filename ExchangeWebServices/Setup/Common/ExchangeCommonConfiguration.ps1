@@ -1093,6 +1093,7 @@ function GetExchangeServerVersionOnSUT
         $Exchange2010 = "Microsoft Exchange Server 2010", "ExchangeServer2010"
         $Exchange2013 = "Microsoft Exchange Server 2013", "ExchangeServer2013"
         $Exchange2016 = "Microsoft Exchange Server 2016", "ExchangeServer2016"
+        $Exchange2019 = "Microsoft Exchange Server 2019", "ExchangeServer2019"
              
         $ExchangeVersion  = "Unknown Version"
         $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
@@ -1122,24 +1123,31 @@ function GetExchangeServerVersionOnSUT
             {
                 $ExchangeVersion = $Exchange2016[1]
                 break
-            }      
+            } 
+            if($item.DisplayName.StartsWith($Exchange2019[0]))
+            {
+                $ExchangeVersion = $Exchange2019[1]
+                break
+            }     
         }    
         return $ExchangeVersion
     }
     ,
-    $ExchangeVersions = @("ExchangeServer2007","ExchangeServer2010","ExchangeServer2013","ExchangeServer2016")
+    $ExchangeVersions = @("ExchangeServer2007","ExchangeServer2010","ExchangeServer2013","ExchangeServer2016","ExchangeServer2019")
     if($ExchangeVersions -notcontains $sutVersion )
     {
         OutputWarning "Cannot get the Exchange version automatically."
         $sutVersionChoices = @('1: Microsoft Exchange Server 2007',
                                '2: Microsoft Exchange Server 2010',
                                '3: Microsoft Exchange Server 2013',
-                               '4: Microsoft Exchange Server 2016')   
+                               '4: Microsoft Exchange Server 2016',
+                               '5: Microsoft Exchange Server 2019')   
         OutputQuestion "Select the Exchange version: "
         OutputQuestion ($sutVersionChoices[0])
         OutputQuestion ($sutVersionChoices[1])
         OutputQuestion ($sutVersionChoices[2])
         OutputQuestion ($sutVersionChoices[3])
+        OutputQuestion ($sutVersionChoices[4])
             
         $sutVersion = ReadUserChoice $sutVersionChoices "sutVersion"
         Switch ($sutVersion)
@@ -1148,6 +1156,7 @@ function GetExchangeServerVersionOnSUT
             "2" { $sutVersion = $ExchangeVersions[1]; break }
             "3" { $sutVersion = $ExchangeVersions[2]; break }
             "4" { $sutVersion = $ExchangeVersions[3]; break }
+            "5" { $sutVersion = $ExchangeVersions[4]; break }
         }
     }
     else
@@ -1161,4 +1170,5 @@ $global:Exchange2007 = "Microsoft Exchange Server 2007"
 $global:Exchange2010 = "Microsoft Exchange Server 2010"
 $global:Exchange2013 = "Microsoft Exchange Server 2013"
 $global:Exchange2016 = "Microsoft Exchange Server 2016"
+$global:Exchange2016 = "Microsoft Exchange Server 2019"
 [void][System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.AccountManagement")

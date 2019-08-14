@@ -32,7 +32,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 553,
-                @"[In tns:CreateAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
+                @"[In tns:CreateAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R542");
@@ -230,7 +230,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 383,
-                @"[In tns:DeleteAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
+                @"[In tns:DeleteAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R465");
@@ -529,7 +529,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 396,
-                @"[In tns:GetAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
+                @"[In tns:GetAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R395");
@@ -786,7 +786,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                             this.Site.CaptureRequirementIfIsTrue(
                                 isSchemaValidated,
                                 318009,
-                                @"[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 follow this behavior).");
+                                @"[In Appendix C: Product Behavior] Implementation does support the Person element. (Exchange 2016 and above follow this behavior).");
 
                             // Add the debug information
                             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R99005");
