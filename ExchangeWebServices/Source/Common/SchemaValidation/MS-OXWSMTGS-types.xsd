@@ -6,547 +6,507 @@
   <xs:include schemaLocation="MS-OXWSSRCH-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSCDATA-types.xsd"/>
   <xs:include schemaLocation="MS-OXWSPERS-types.xsd"/>
-  <xs:complexType name="AcceptItemType">
-    <xs:complexContent>
-      <xs:extension base="t:MeetingRegistrationResponseObjectType"/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="AddItemToMyCalendarType">
-    <xs:complexContent>
-      <xs:extension base="t:ResponseObjectType"/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="ApprovalRequestDataType">
-    <xs:sequence>
-      <xs:element name="IsUndecidedApprovalRequest" type="xs:boolean" minOccurs="0"/>
-      <xs:element name="ApprovalDecision" type="xs:int" minOccurs="0"/>
-      <xs:element name="ApprovalDecisionMaker" type="xs:string" minOccurs="0"/>
-      <xs:element name="ApprovalDecisionTime" type="xs:dateTime" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ArrayOfRemindersType">
-    <xs:sequence>
-      <xs:element name="Reminder" type="t:ReminderType" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ArrayOfVotingOptionDataType">
-    <xs:sequence>
-      <xs:element name="VotingOptionData" type="t:VotingOptionDataType" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
+  <xs:include schemaLocation="MS-OXWSXPROP-types.xsd"/>
+<xs:complexType name="AcceptItemType">
+	    <xs:complexContent>
+	      <xs:extension base="t:MeetingRegistrationResponseObjectType"/>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="AddItemToMyCalendarType">
+	    <xs:complexContent>
+	      <xs:extension base="t:ResponseObjectType"/>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="ArrayOfInboxReminderType">
+		<xs:sequence>
+	      <xs:element name="InboxReminder" 
+	           type="t:InboxReminderType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="ArrayOfRemindersType">
+	    <xs:sequence>
+	      <xs:element name="Reminder" type="t:ReminderType" minOccurs="0" maxOccurs="unbounded"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="CalendarPermissionType">
+	    <xs:complexContent>
+	      <xs:extension base="t:BasePermissionType">
+	        <xs:sequence>
+	          <xs:element name="ReadItems" type="t:CalendarPermissionReadAccessType" minOccurs="0"/>
+	          <xs:element name="CalendarPermissionLevel" type="t:CalendarPermissionLevelType"/>
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="AttendeeType">
+	    <xs:sequence>
+	      <xs:element name="Mailbox" type="t:EmailAddressType"/>
+	      <xs:element name="ResponseType" type="t:ResponseTypeType" minOccurs="0"/>
+	      <xs:element name="LastResponseTime" type="xs:dateTime" minOccurs="0"/>
+	      <xs:element name="ProposedStart" type="xs:dateTime" minOccurs="0"/>
+	      <xs:element name="ProposedEnd" type="xs:dateTime" minOccurs="0"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="CalendarFolderType">
+	    <xs:complexContent>
+	      <xs:extension base="t:BaseFolderType">
+	        <xs:sequence>
+	          <xs:element name="SharingEffectiveRights" type="t:CalendarPermissionReadAccessType" minOccurs="0"/>
+	          <xs:element name="PermissionSet" type="t:CalendarPermissionSetType" minOccurs="0"/>
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="CalendarFolderExType">
+	    <xs:complexContent>
+	      <xs:extension base="t:CalendarFolderType">
+	        <xs:sequence>
+	          <xs:element name="CalendarColor" type="xs:int" minOccurs="1" maxOccurs="1"/>
+	          <xs:element name="ParentGroupId" type="xs:string" minOccurs="1" maxOccurs="1"/>
+	          <xs:element name="IsDefaultCalendar" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:simpleType name="CalendarItemCreateOrDeleteOperationType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="SendToNone"/>
+	      <xs:enumeration value="SendOnlyToAll"/>
+	      <xs:enumeration value="SendToAllAndSaveCopy"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:complexType name="CalendarItemType">
+	    <xs:complexContent>
+	      <xs:extension base="t:ItemType">
+	        <xs:sequence>
+	          <!-- iCalendar properties -->
+	          <xs:element name="UID" type="xs:string" minOccurs="0"/>
+	          <xs:element name="RecurrenceId" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="DateTimeStamp" type="xs:dateTime" minOccurs="0"/>
+	          <!-- Single and Occurrence only -->
+	          <xs:element name="Start" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="End" type="xs:dateTime" minOccurs="0"/>
+	          <!-- Occurrence only -->
+	          <xs:element name="OriginalStart" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="IsAllDayEvent" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="LegacyFreeBusyStatus" type="t:LegacyFreeBusyType" minOccurs="0"/>
+	          <xs:element name="Location" type="xs:string" minOccurs="0"/>
+	          <xs:element name="When" type="xs:string" minOccurs="0"/>
+	          <xs:element name="IsMeeting" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="IsCancelled" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="IsRecurring" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="MeetingRequestWasSent" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="IsResponseRequested" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="CalendarItemType" type="t:CalendarItemTypeType" minOccurs="0"/>
+	          <xs:element name="MyResponseType" type="t:ResponseTypeType" minOccurs="0"/>
+	          <xs:element name="Organizer" type="t:SingleRecipientType" minOccurs="0"/>
+	          <xs:element name="RequiredAttendees" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
+	          <xs:element name="OptionalAttendees" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
+	          <xs:element name="Resources" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
+	          <!-- Conflicting and adjacent meetings -->
+	          <xs:element name="ConflictingMeetingCount" type="xs:int" minOccurs="0"/>
+	          <xs:element name="AdjacentMeetingCount" type="xs:int" minOccurs="0"/>
+	          <xs:element name="ConflictingMeetings" type="t:NonEmptyArrayOfAllItemsType" minOccurs="0"/>
+	          <xs:element name="AdjacentMeetings" type="t:NonEmptyArrayOfAllItemsType" minOccurs="0"/>
+	          <xs:element name="Duration" type="xs:string" minOccurs="0"/>
+	          <xs:element name="TimeZone" type="xs:string" minOccurs="0"/>
+	          <xs:element name="AppointmentReplyTime" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="AppointmentSequenceNumber" type="xs:int" minOccurs="0"/>
+	          <xs:element name="AppointmentState" type="xs:int" minOccurs="0"/>
+	          <!-- Recurrence specific data, only valid if CalendarItemType is RecurringMaster -->
+	          <xs:element name="Recurrence" type="t:RecurrenceType" minOccurs="0"/>
+	          <xs:element name="FirstOccurrence" type="t:OccurrenceInfoType" minOccurs="0"/>
+	          <xs:element name="LastOccurrence" type="t:OccurrenceInfoType" minOccurs="0"/>
+	          <xs:element name="ModifiedOccurrences" type="t:NonEmptyArrayOfOccurrenceInfoType" minOccurs="0"/>
+	          <xs:element name="DeletedOccurrences" type="t:NonEmptyArrayOfDeletedOccurrencesType" minOccurs="0"/>
+	          <xs:element name="MeetingTimeZone" type="t:TimeZoneType" minOccurs="0"/>
+	          <xs:element name="StartTimeZone" type="t:TimeZoneDefinitionType" minOccurs="0"/>
+	          <xs:element name="EndTimeZone" type="t:TimeZoneDefinitionType" minOccurs="0"/>
+	          <xs:element name="ConferenceType" type="xs:int" minOccurs="0"/>
+	          <xs:element name="AllowNewTimeProposal" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="IsOnlineMeeting" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="MeetingWorkspaceUrl" type="xs:string" minOccurs="0"/>
+	          <xs:element name="NetShowUrl" type="xs:string" minOccurs="0"/>
+	          <xs:element name="EnhancedLocation" type="t:EnhancedLocationType" minOccurs="0"/>
+	          <xs:element name="StartWallClock" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+	          <xs:element name="EndWallClock" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+	          <xs:element name="StartTimeZoneId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+	          <xs:element name="EndTimeZoneId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+	          <xs:element name="IntendedFreeBusyStatus" type="t:LegacyFreeBusyType" minOccurs="0" />
+	          <xs:element name="JoinOnlineMeetingUrl" type="xs:string" minOccurs="0" maxOccurs="1"/>
+	          <xs:element name="OnlineMeetingSettings" type="t:OnlineMeetingSettingsType" minOccurs="0" maxOccurs="1"/>
+	          <xs:element name="IsOrganizer" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="InboxReminders" type="t:ArrayOfInboxReminderType" minOccurs="0"/>
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:simpleType name="CalendarItemTypeType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="Single"/>
+	      <xs:enumeration value="Occurrence"/>
+	      <xs:enumeration value="Exception"/>
+	      <xs:enumeration value="RecurringMaster"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="CalendarItemUpdateOperationType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="SendToNone"/>
+	      <xs:enumeration value="SendOnlyToAll"/>
+	      <xs:enumeration value="SendOnlyToChanged"/>
+	      <xs:enumeration value="SendToAllAndSaveCopy"/>
+	      <xs:enumeration value="SendToChangedAndSaveCopy"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="CalendarPermissionLevelType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="None"/>
+	      <xs:enumeration value="Owner"/>
+	      <xs:enumeration value="PublishingEditor"/>
+	      <xs:enumeration value="Editor"/>
+	      <xs:enumeration value="PublishingAuthor"/>
+	      <xs:enumeration value="Author"/>
+	      <xs:enumeration value="NoneditingAuthor"/>
+	      <xs:enumeration value="Reviewer"/>
+	      <xs:enumeration value="Contributor"/>
+	      <xs:enumeration value="FreeBusyTimeOnly"/>
+	      <xs:enumeration value="FreeBusyTimeAndSubjectAndLocation"/>
+	      <xs:enumeration value="Custom"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="CalendarPermissionReadAccessType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="None"/>
+	      <xs:enumeration value="TimeOnly"/>
+	      <xs:enumeration value="TimeAndSubjectAndLocation"/>
+	      <xs:enumeration value="FullDetails"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:complexType name="CalendarPermissionSetType">
+	    <xs:sequence>
+	      <xs:element name="CalendarPermissions" type="t:ArrayOfCalendarPermissionsType"/>
+	      <xs:element name="UnknownEntries" type="t:ArrayOfUnknownEntriesType" minOccurs="0"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="CalendarViewType">
+	    <xs:complexContent>
+	      <xs:extension base="t:BasePagingType">
+	        <xs:attribute name="StartDate" type="xs:dateTime" use="required"/>
+	        <xs:attribute name="EndDate" type="xs:dateTime" use="required"/>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="CancelCalendarItemType">
+	    <xs:complexContent>
+	      <xs:extension base="t:SmartResponseType"/>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="DeclineItemType">
+	    <xs:complexContent>
+	      <xs:extension base="t:MeetingRegistrationResponseObjectType"/>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="EnhancedLocationType">
+	    <xs:sequence>
+	      <xs:element name="DisplayName" type="xs:string"/>
+	      <xs:element name="Annotation" type="xs:string" minOccurs="0"/>
+	      <xs:element name="PostalAddress" type="t:PersonaPostalAddressType" minOccurs="0"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="InboxReminderType">
+	    <xs:sequence>
+	      <xs:element name="Id" type="t:GuidType" minOccurs="0" maxOccurs="1"/>
+	      <xs:element name="ReminderOffset" type="xs:int" minOccurs="0" maxOccurs="1"/>
+		  <xs:element name="Message" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		  <xs:element name="IsOrganizerReminder" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+		  <xs:element name="OccurrenceChange" 
+	        type="t:EmailReminderChangeType" minOccurs="0" maxOccurs="1"/>
+	      <xs:element name="IsImportedFromOLC" type="xs:boolean" minOccurs="0" maxOccurs="1"/> 	
+	 	  <xs:element name="SendOption" 
+	        type="t:EmailReminderSendOption" minOccurs="0" maxOccurs="1"/>
+	    </xs:sequence>
+	  </xs:complexType>  
+	  <xs:simpleType name="EmailReminderChangeType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="None"/>
+	      <xs:enumeration value="Added"/>
+	      <xs:enumeration value="Override"/>
+	      <xs:enumeration value="Deleted"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="EmailReminderSendOption">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="NotSet"/>
+	      <xs:enumeration value="User"/>
+	      <xs:enumeration value="AllAttendees"/>
+	      <xs:enumeration value="Staff"/>
+	      <xs:enumeration value="Customer"/>
+	    </xs:restriction>
+	  </xs:simpleType>  <xs:complexType name="MeetingCancellationMessageType">
+	    <xs:complexContent>
+	      <xs:extension base="t:MeetingMessageType">
+	        <xs:sequence>
+	          <xs:element name="Start" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="End" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="Location" type="xs:string" minOccurs="0"/>
+	          <xs:element name="Recurrence" type="t:RecurrenceType" minOccurs="0"/>
+	          <xs:element name="CalendarItemType" type="xs:string" minOccurs="0"/>
+	          <xs:element name="EnhancedLocation" type="t:EnhancedLocationType" minOccurs="0"/>
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="MeetingMessageType">
+	    <xs:complexContent>
+	      <xs:extension base="t:MessageType">
+	        <xs:sequence>
+	          <xs:element name="AssociatedCalendarItemId" type="t:ItemIdType" minOccurs="0"/>
+	          <xs:element name="IsDelegated" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="IsOutOfDate" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="HasBeenProcessed" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="ResponseType" type="t:ResponseTypeType" minOccurs="0"/>
+	          <xs:element name="UID" type="xs:string" minOccurs="0"/>
+	          <xs:element name="RecurrenceId" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="DateTimeStamp" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="IsOrganizer" type="xs:boolean" minOccurs="0"/>
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="MeetingRegistrationResponseObjectType">
+	    <xs:complexContent>
+	      <xs:extension base="t:WellKnownResponseObjectType">
+	        <xs:sequence>
+	          <xs:element name="ProposedStart" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="ProposedEnd" type="xs:dateTime" minOccurs="0"/> 
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="MeetingRequestMessageType">
+	    <xs:complexContent>
+	      <xs:extension base="t:MeetingMessageType">
+	        <xs:sequence>
+	          <!--- MeetingRequest properties -->
+	          <xs:element name="MeetingRequestType" type="t:MeetingRequestTypeType" minOccurs="0"/>
+	          <xs:element name="IntendedFreeBusyStatus" type="t:LegacyFreeBusyType" minOccurs="0"/>
+	          <!-- Calendar Properties of the associated meeting request -->
+	          <!-- Single and Occurrence only -->
+	          <xs:element name="Start" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="End" type="xs:dateTime" minOccurs="0"/>
+	          <!-- Occurrence only -->
+	          <xs:element name="OriginalStart" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="IsAllDayEvent" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="LegacyFreeBusyStatus" type="t:LegacyFreeBusyType" minOccurs="0"/>
+	          <xs:element name="Location" type="xs:string" minOccurs="0"/>
+	          <xs:element name="When" type="xs:string" minOccurs="0"/>
+	          <xs:element name="IsMeeting" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="IsCancelled" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="IsRecurring" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="MeetingRequestWasSent" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="CalendarItemType" type="t:CalendarItemTypeType" minOccurs="0"/>
+	          <xs:element name="MyResponseType" type="t:ResponseTypeType" minOccurs="0"/>
+	          <xs:element name="Organizer" type="t:SingleRecipientType" minOccurs="0"/>
+	          <xs:element name="RequiredAttendees" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
+	          <xs:element name="OptionalAttendees" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
+	          <xs:element name="Resources" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
+	          <!-- Conflicting and adjacent meetings -->
+	          <xs:element name="ConflictingMeetingCount" type="xs:int" minOccurs="0"/>
+	          <xs:element name="AdjacentMeetingCount" type="xs:int" minOccurs="0"/>
+	          <xs:element name="ConflictingMeetings" type="t:NonEmptyArrayOfAllItemsType" minOccurs="0"/>
+	          <xs:element name="AdjacentMeetings" type="t:NonEmptyArrayOfAllItemsType" minOccurs="0"/>
+	          <xs:element name="Duration" type="xs:string" minOccurs="0"/>
+	          <xs:element name="TimeZone" type="xs:string" minOccurs="0"/>
+	          <xs:element name="AppointmentReplyTime" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="AppointmentSequenceNumber" type="xs:int" minOccurs="0"/>
+	          <xs:element name="AppointmentState" type="xs:int" minOccurs="0"/>
+	          <!-- Recurrence specific data, only valid if CalendarItemType is RecurringMaster -->
+	          <xs:element name="Recurrence" type="t:RecurrenceType" minOccurs="0"/>
+	          <xs:element name="FirstOccurrence" type="t:OccurrenceInfoType" minOccurs="0"/>
+	          <xs:element name="LastOccurrence" type="t:OccurrenceInfoType" minOccurs="0"/>
+	          <xs:element name="ModifiedOccurrences" type="t:NonEmptyArrayOfOccurrenceInfoType" minOccurs="0"/>
+	          <xs:element name="DeletedOccurrences" type="t:NonEmptyArrayOfDeletedOccurrencesType" minOccurs="0"/>
+	          <xs:element name="MeetingTimeZone" type="t:TimeZoneType" minOccurs="0"/>
+	          <xs:element name="StartTimeZone" type="t:TimeZoneDefinitionType" minOccurs="0"/>
+	          <xs:element name="EndTimeZone" type="t:TimeZoneDefinitionType" minOccurs="0"/>
+	          <xs:element name="ConferenceType" type="xs:int" minOccurs="0"/>
+	          <xs:element name="AllowNewTimeProposal" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="IsOnlineMeeting" type="xs:boolean" minOccurs="0"/>
+	          <xs:element name="MeetingWorkspaceUrl" type="xs:string" minOccurs="0"/>
+	          <xs:element name="NetShowUrl" type="xs:string" minOccurs="0"/>
+	          <xs:element name="EnhancedLocation" type="t:EnhancedLocationType" minOccurs="0"/>
+	          <xs:element name="ChangeHighlights" type="t:ChangeHighlightsType" minOccurs="0"/>
+	          <xs:element name="StartWallClock" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+	          <xs:element name="EndWallClock" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+	          <xs:element name="StartTimeZoneId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+	          <xs:element name="EndTimeZoneId" type="xs:string" minOccurs="0" maxOccurs="1"/>
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="MeetingResponseMessageType">
+	    <xs:complexContent>
+	      <xs:extension base="t:MeetingMessageType">
+	        <xs:sequence>
+	          <xs:element name="Start" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="End" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="Location" type="xs:string" minOccurs="0"/>
+	          <xs:element name="Recurrence" type="t:RecurrenceType" minOccurs="0"/>
+	          <xs:element name="CalendarItemType" type="xs:string" minOccurs="0"/>
+	          <xs:element name="ProposedStart" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="ProposedEnd" type="xs:dateTime" minOccurs="0"/>
+	          <xs:element name="EnhancedLocation" type="t:EnhancedLocationType" minOccurs="0"/>
+	        </xs:sequence>
+	      </xs:extension>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:simpleType name="MeetingRequestTypeType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="None"/>
+	      <xs:enumeration value="FullUpdate"/>
+	      <xs:enumeration value="InformationalUpdate"/>
+	      <xs:enumeration value="NewMeetingRequest"/>
+	      <xs:enumeration value="Outdated"/>
+	      <xs:enumeration value="SilentUpdate"/>
+	      <xs:enumeration value="PrincipalWantsCopy"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:complexType name="NonEmptyArrayOfAttendeesType">
+	    <xs:sequence>
+	      <xs:element name="Attendee" type="t:AttendeeType" maxOccurs="unbounded"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="NonEmptyArrayOfDeletedOccurrencesType">
+	    <xs:sequence>
+	      <xs:element name="DeletedOccurrence" type="t:DeletedOccurrenceInfoType" maxOccurs="unbounded"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="OccurrenceInfoType">
+	    <xs:sequence>
+	      <xs:element name="ItemId" type="t:ItemIdType"/>
+	      <xs:element name="Start" type="xs:dateTime"/>
+	      <xs:element name="End" type="xs:dateTime"/>
+	      <xs:element name="OriginalStart" type="xs:dateTime"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="NonEmptyArrayOfOccurrenceInfoType">
+	    <xs:sequence>
+	      <xs:element name="Occurrence" type="t:OccurrenceInfoType" maxOccurs="unbounded"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="NonEmptyArrayOfReminderItemActionType">
+	    <xs:sequence>
+	      <xs:element name="ReminderItemAction" type="t:ReminderItemActionType" minOccurs="1" maxOccurs="unbounded"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="ProposeNewTimeType">
+	    <xs:complexContent>
+	      <xs:extension base="t:ResponseObjectType"/>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="RecurrenceType">
+	    <xs:sequence>
+	      <xs:group ref="t:RecurrencePatternTypes"/>
+	      <xs:group ref="t:RecurrenceRangeTypes"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:complexType name="ReminderItemActionType">
+	    <xs:sequence>
+	      <xs:element name="ActionType" type="t:ReminderActionType" minOccurs="1" maxOccurs="1"/>
+	      <xs:element name="ItemId" type="t:ItemIdType" minOccurs="1" maxOccurs="1"/>
+	      <xs:element name="NewReminderTime" type="xs:string" minOccurs="0" maxOccurs="1"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:simpleType name="ReminderActionType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="Dismiss"/>
+	      <xs:enumeration value="Snooze"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:complexType name="ReminderType">
+	    <xs:sequence>
+	      <xs:element name="Subject" type="xs:string" minOccurs="1" maxOccurs="1"/>
+	      <xs:element name="Location" type="xs:string" minOccurs="0" maxOccurs="1"/>
+	      <xs:element name="ReminderTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+	      <xs:element name="StartDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+	      <xs:element name="EndDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+	      <xs:element name="ItemId" type="t:ItemIdType" minOccurs="1" maxOccurs="1"/>
+	      <xs:element name="RecurringMasterItemId" type="t:ItemIdType" minOccurs="0" maxOccurs="1"/>
+	      <xs:element name="ReminderGroup" type="t:ReminderGroupType" minOccurs="0" maxOccurs="1"/>
+	      <xs:element name="UID" type="xs:string" minOccurs="1" maxOccurs="1"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:simpleType name="ReminderGroupType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="Calendar"/>
+	      <xs:enumeration value="Task"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:complexType name="RemoveItemType">
+	    <xs:complexContent>
+	      <xs:extension base="t:ResponseObjectType"/>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:simpleType name="ResponseTypeType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="Unknown"/>
+	      <xs:enumeration value="Organizer"/>
+	      <xs:enumeration value="Tentative"/>
+	      <xs:enumeration value="Accept"/>
+	      <xs:enumeration value="Decline"/>
+	      <xs:enumeration value="NoResponseReceived"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:complexType name="OnlineMeetingSettingsType">
+	    <xs:sequence>
+	      <xs:element name="LobbyBypass" type="t:LobbyBypassType"/>
+	      <xs:element name="AccessLevel" type="t:OnlineMeetingAccessLevelType"/>
+	      <xs:element name="Presenters" type="t:PresentersType"/>
+	    </xs:sequence>
+	  </xs:complexType>
+	  <xs:simpleType name="LobbyBypassType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="Disabled"/>
+	      <xs:enumeration value="EnabledForGatewayParticipants"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="OnlineMeetingAccessLevelType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="Locked"/>
+	      <xs:enumeration value="Invited"/>
+	      <xs:enumeration value="Internal"/>
+	      <xs:enumeration value="Everyone"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:simpleType name="PresentersType">
+	    <xs:restriction base="xs:string">
+	      <xs:enumeration value="Disabled"/>
+	      <xs:enumeration value="Internal"/>
+	      <xs:enumeration value="Everyone"/>
+	    </xs:restriction>
+	  </xs:simpleType>
+	  <xs:complexType name="TentativelyAcceptItemType">
+	    <xs:complexContent>
+	      <xs:extension base="t:MeetingRegistrationResponseObjectType"/>
+	    </xs:complexContent>
+	  </xs:complexType>
+	  <xs:complexType name="TimeChangeType">
+	    <xs:sequence>
+	      <xs:element name="Offset" type="xs:duration"/>
+	      <xs:group ref="t:TimeChangePatternTypes" minOccurs="0"/>
+	      <xs:element name="Time" type="xs:time"/>
+	    </xs:sequence>
+	    <xs:attribute name="TimeZoneName" type="xs:string" use="optional"/>
+	  </xs:complexType>
+	  <xs:complexType name="TimeZoneType">
+	    <xs:sequence minOccurs="0">
+	      <xs:element name="BaseOffset" type="xs:duration"/>
+	      <xs:sequence minOccurs="0">
+	        <xs:element name="Standard" type="t:TimeChangeType"/>
+	        <xs:element name="Daylight" type="t:TimeChangeType"/>
+	      </xs:sequence>
+	    </xs:sequence>
+	    <xs:attribute name="TimeZoneName" type="xs:string" use="optional"/>
+	  </xs:complexType>
+	</xs:schema>
 
-  <xs:complexType name="CalendarPermissionType">
-    <xs:complexContent>
-      <xs:extension base="t:BasePermissionType">
-        <xs:sequence>
-          <xs:element name="ReadItems" type="t:CalendarPermissionReadAccessType" minOccurs="0"/>
-          <xs:element name="CalendarPermissionLevel" type="t:CalendarPermissionLevelType"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="AttendeeType">
-    <xs:sequence>
-      <xs:element name="Mailbox" type="t:EmailAddressType"/>
-      <xs:element name="ResponseType" type="t:ResponseTypeType" minOccurs="0"/>
-      <xs:element name="LastResponseTime" type="xs:dateTime" minOccurs="0"/>
-      <xs:element name="ProposedStart" type="xs:dateTime" minOccurs="0"/>
-      <xs:element name="ProposedEnd" type="xs:dateTime" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="CalendarFolderType">
-    <xs:complexContent>
-      <xs:extension base="t:BaseFolderType">
-        <xs:sequence>
-          <xs:element name="SharingEffectiveRights" type="t:CalendarPermissionReadAccessType" minOccurs="0"/>
-          <xs:element name="PermissionSet" type="t:CalendarPermissionSetType" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="CalendarFolderExType">
-    <xs:complexContent>
-      <xs:extension base="t:CalendarFolderType">
-        <xs:sequence>
-          <xs:element name="CalendarColor" type="xs:int" minOccurs="1" maxOccurs="1"/>
-          <xs:element name="ParentGroupId" type="xs:string" minOccurs="1" maxOccurs="1"/>
-          <xs:element name="IsDefaultCalendar" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="CalendarItemCreateOrDeleteOperationType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="SendToNone"/>
-      <xs:enumeration value="SendOnlyToAll"/>
-      <xs:enumeration value="SendToAllAndSaveCopy"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="CalendarItemType">
-    <xs:complexContent>
-      <xs:extension base="t:ItemType">
-        <xs:sequence>
-          <!-- iCalendar properties -->
-          <xs:element name="UID" type="xs:string" minOccurs="0"/>
-          <xs:element name="RecurrenceId" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="DateTimeStamp" type="xs:dateTime" minOccurs="0"/>
-          <!-- Single and Occurrence only -->
-          <xs:element name="Start" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="End" type="xs:dateTime" minOccurs="0"/>
-          <!-- Occurrence only -->
-          <xs:element name="OriginalStart" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="IsAllDayEvent" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="LegacyFreeBusyStatus" type="t:LegacyFreeBusyType" minOccurs="0"/>
-          <xs:element name="Location" type="xs:string" minOccurs="0"/>
-          <xs:element name="When" type="xs:string" minOccurs="0"/>
-          <xs:element name="IsMeeting" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="IsCancelled" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="IsRecurring" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="MeetingRequestWasSent" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="IsResponseRequested" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="CalendarItemType" type="t:CalendarItemTypeType" minOccurs="0"/>
-          <xs:element name="MyResponseType" type="t:ResponseTypeType" minOccurs="0"/>
-          <xs:element name="Organizer" type="t:SingleRecipientType" minOccurs="0"/>
-          <xs:element name="RequiredAttendees" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
-          <xs:element name="OptionalAttendees" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
-          <xs:element name="Resources" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
-          <xs:element name="InboxReminders" type="t:ArrayOfInboxReminderType" minOccurs="0"/>
-          <!-- Conflicting and adjacent meetings -->
-          <xs:element name="ConflictingMeetingCount" type="xs:int" minOccurs="0"/>
-          <xs:element name="AdjacentMeetingCount" type="xs:int" minOccurs="0"/>
-          <xs:element name="ConflictingMeetings" type="t:NonEmptyArrayOfAllItemsType" minOccurs="0"/>
-          <xs:element name="AdjacentMeetings" type="t:NonEmptyArrayOfAllItemsType" minOccurs="0"/>
-          <xs:element name="Duration" type="xs:string" minOccurs="0"/>
-          <xs:element name="TimeZone" type="xs:string" minOccurs="0"/>
-          <xs:element name="AppointmentReplyTime" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="AppointmentSequenceNumber" type="xs:int" minOccurs="0"/>
-          <xs:element name="AppointmentState" type="xs:int" minOccurs="0"/>
-          <!-- Recurrence specific data, only valid if CalendarItemType is RecurringMaster -->
-          <xs:element name="Recurrence" type="t:RecurrenceType" minOccurs="0"/>
-          <xs:element name="FirstOccurrence" type="t:OccurrenceInfoType" minOccurs="0"/>
-          <xs:element name="LastOccurrence" type="t:OccurrenceInfoType" minOccurs="0"/>
-          <xs:element name="ModifiedOccurrences" type="t:NonEmptyArrayOfOccurrenceInfoType" minOccurs="0"/>
-          <xs:element name="DeletedOccurrences" type="t:NonEmptyArrayOfDeletedOccurrencesType" minOccurs="0"/>
-          <xs:element name="MeetingTimeZone" type="t:TimeZoneType" minOccurs="0"/>
-          <xs:element name="StartTimeZone" type="t:TimeZoneDefinitionType" minOccurs="0"/>
-          <xs:element name="EndTimeZone" type="t:TimeZoneDefinitionType" minOccurs="0"/>
-          <xs:element name="ConferenceType" type="xs:int" minOccurs="0"/>
-          <xs:element name="AllowNewTimeProposal" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="IsOnlineMeeting" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="MeetingWorkspaceUrl" type="xs:string" minOccurs="0"/>
-          <xs:element name="NetShowUrl" type="xs:string" minOccurs="0"/>
-          <xs:element name="EnhancedLocation" type="t:EnhancedLocationType" minOccurs="0"/>
-          <xs:element name="StartWallClock" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="EndWallClock" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="StartTimeZoneId" type="xs:string" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="EndTimeZoneId" type="xs:string" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="IntendedFreeBusyStatus" type="t:LegacyFreeBusyType" minOccurs="0" />
-          <xs:element name="JoinOnlineMeetingUrl" type="xs:string" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="OnlineMeetingSettings" type="t:OnlineMeetingSettingsType" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="IsOrganizer" type="xs:boolean" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="ArrayOfInboxReminderType">
-    <xs:sequence>
-      <xs:element name="InboxReminder"
-           type="t:InboxReminderType" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="InboxReminderType">
-    <xs:sequence>
-      <xs:element name="Id" type="t:GuidType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ReminderOffset" type="xs:int" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Message" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="IsOrganizerReminder" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="OccurrenceChange"
-            type="t:EmailReminderChangeType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="SendOption"
-            type="t:EmailReminderSendOption" minOccurs="0" maxOccurs="1"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:simpleType name="EmailReminderChangeType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None"/>
-      <xs:enumeration value="Added"/>
-      <xs:enumeration value="Override"/>
-      <xs:enumeration value="Deleted"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EmailReminderSendOption">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="NotSet"/>
-      <xs:enumeration value="User"/>
-      <xs:enumeration value="AllAttendees"/>
-      <xs:enumeration value="Staff"/>
-      <xs:enumeration value="Customer"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="CalendarItemTypeType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Single"/>
-      <xs:enumeration value="Occurrence"/>
-      <xs:enumeration value="Exception"/>
-      <xs:enumeration value="RecurringMaster"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="CalendarItemUpdateOperationType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="SendToNone"/>
-      <xs:enumeration value="SendOnlyToAll"/>
-      <xs:enumeration value="SendOnlyToChanged"/>
-      <xs:enumeration value="SendToAllAndSaveCopy"/>
-      <xs:enumeration value="SendToChangedAndSaveCopy"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="CalendarPermissionLevelType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None"/>
-      <xs:enumeration value="Owner"/>
-      <xs:enumeration value="PublishingEditor"/>
-      <xs:enumeration value="Editor"/>
-      <xs:enumeration value="PublishingAuthor"/>
-      <xs:enumeration value="Author"/>
-      <xs:enumeration value="NoneditingAuthor"/>
-      <xs:enumeration value="Reviewer"/>
-      <xs:enumeration value="Contributor"/>
-      <xs:enumeration value="FreeBusyTimeOnly"/>
-      <xs:enumeration value="FreeBusyTimeAndSubjectAndLocation"/>
-      <xs:enumeration value="Custom"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="CalendarPermissionReadAccessType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None"/>
-      <xs:enumeration value="TimeOnly"/>
-      <xs:enumeration value="TimeAndSubjectAndLocation"/>
-      <xs:enumeration value="FullDetails"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="CalendarPermissionSetType">
-    <xs:sequence>
-      <xs:element name="CalendarPermissions" type="t:ArrayOfCalendarPermissionsType"/>
-      <xs:element name="UnknownEntries" type="t:ArrayOfUnknownEntriesType" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="CalendarViewType">
-    <xs:complexContent>
-      <xs:extension base="t:BasePagingType">
-        <xs:attribute name="StartDate" type="xs:dateTime" use="required"/>
-        <xs:attribute name="EndDate" type="xs:dateTime" use="required"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="CancelCalendarItemType">
-    <xs:complexContent>
-      <xs:extension base="t:SmartResponseType"/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="DeclineItemType">
-    <xs:complexContent>
-      <xs:extension base="t:MeetingRegistrationResponseObjectType"/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="EnhancedLocationType">
-    <xs:sequence>
-      <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
-      <xs:element name="Annotation" type="xs:string" minOccurs="0"/>
-      <xs:element name="PostalAddress" type="t:PersonaPostalAddressType" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MeetingCancellationMessageType">
-    <xs:complexContent>
-      <xs:extension base="t:MeetingMessageType">
-        <xs:sequence>
-          <xs:element name="Start" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="End" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="Location" type="xs:string" minOccurs="0"/>
-          <xs:element name="Recurrence" type="t:RecurrenceType" minOccurs="0"/>
-          <xs:element name="CalendarItemType" type="xs:string" minOccurs="0"/>
-          <xs:element name="EnhancedLocation" type="t:EnhancedLocationType" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="MeetingMessageType">
-    <xs:complexContent>
-      <xs:extension base="t:MessageType">
-        <xs:sequence>
-          <xs:element name="AssociatedCalendarItemId" type="t:ItemIdType" minOccurs="0"/>
-          <xs:element name="IsDelegated" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="IsOutOfDate" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="HasBeenProcessed" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="ResponseType" type="t:ResponseTypeType" minOccurs="0"/>
-          <xs:element name="UID" type="xs:string" minOccurs="0"/>
-          <xs:element name="RecurrenceId" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="DateTimeStamp" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="IsOrganizer" type="xs:boolean" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="MeetingRegistrationResponseObjectType">
-    <xs:complexContent>
-      <xs:extension base="t:WellKnownResponseObjectType">
-        <xs:sequence>
-          <xs:element name="ProposedStart" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="ProposedEnd" type="xs:dateTime" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="MeetingRequestMessageType">
-    <xs:complexContent>
-      <xs:extension base="t:MeetingMessageType">
-        <xs:sequence>
-          <!--- MeetingRequest properties -->
-          <xs:element name="MeetingRequestType" type="t:MeetingRequestTypeType" minOccurs="0"/>
-          <xs:element name="IntendedFreeBusyStatus" type="t:LegacyFreeBusyType" minOccurs="0"/>
-          <!-- Calendar Properties of the associated meeting request -->
-          <!-- Single and Occurrence only -->
-          <xs:element name="Start" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="End" type="xs:dateTime" minOccurs="0"/>
-          <!-- Occurrence only -->
-          <xs:element name="OriginalStart" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="IsAllDayEvent" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="LegacyFreeBusyStatus" type="t:LegacyFreeBusyType" minOccurs="0"/>
-          <xs:element name="Location" type="xs:string" minOccurs="0"/>
-          <xs:element name="When" type="xs:string" minOccurs="0"/>
-          <xs:element name="IsMeeting" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="IsCancelled" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="IsRecurring" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="MeetingRequestWasSent" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="CalendarItemType" type="t:CalendarItemTypeType" minOccurs="0"/>
-          <xs:element name="MyResponseType" type="t:ResponseTypeType" minOccurs="0"/>
-          <xs:element name="Organizer" type="t:SingleRecipientType" minOccurs="0"/>
-          <xs:element name="RequiredAttendees" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
-          <xs:element name="OptionalAttendees" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
-          <xs:element name="Resources" type="t:NonEmptyArrayOfAttendeesType" minOccurs="0"/>
-          <!-- Conflicting and adjacent meetings -->
-          <xs:element name="ConflictingMeetingCount" type="xs:int" minOccurs="0"/>
-          <xs:element name="AdjacentMeetingCount" type="xs:int" minOccurs="0"/>
-          <xs:element name="ConflictingMeetings" type="t:NonEmptyArrayOfAllItemsType" minOccurs="0"/>
-          <xs:element name="AdjacentMeetings" type="t:NonEmptyArrayOfAllItemsType" minOccurs="0"/>
-          <xs:element name="Duration" type="xs:string" minOccurs="0"/>
-          <xs:element name="TimeZone" type="xs:string" minOccurs="0"/>
-          <xs:element name="AppointmentReplyTime" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="AppointmentSequenceNumber" type="xs:int" minOccurs="0"/>
-          <xs:element name="AppointmentState" type="xs:int" minOccurs="0"/>
-          <!-- Recurrence specific data, only valid if CalendarItemType is RecurringMaster -->
-          <xs:element name="Recurrence" type="t:RecurrenceType" minOccurs="0"/>
-          <xs:element name="FirstOccurrence" type="t:OccurrenceInfoType" minOccurs="0"/>
-          <xs:element name="LastOccurrence" type="t:OccurrenceInfoType" minOccurs="0"/>
-          <xs:element name="ModifiedOccurrences" type="t:NonEmptyArrayOfOccurrenceInfoType" minOccurs="0"/>
-          <xs:element name="DeletedOccurrences" type="t:NonEmptyArrayOfDeletedOccurrencesType" minOccurs="0"/>
-          <xs:element name="MeetingTimeZone" type="t:TimeZoneType" minOccurs="0"/>
-          <xs:element name="StartTimeZone" type="t:TimeZoneDefinitionType" minOccurs="0"/>
-          <xs:element name="EndTimeZone" type="t:TimeZoneDefinitionType" minOccurs="0"/>
-          <xs:element name="ConferenceType" type="xs:int" minOccurs="0"/>
-          <xs:element name="AllowNewTimeProposal" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="IsOnlineMeeting" type="xs:boolean" minOccurs="0"/>
-          <xs:element name="MeetingWorkspaceUrl" type="xs:string" minOccurs="0"/>
-          <xs:element name="NetShowUrl" type="xs:string" minOccurs="0"/>
-          <xs:element name="EnhancedLocation" type="t:EnhancedLocationType" minOccurs="0"/>
-          <xs:element name="ChangeHighlights" type="t:ChangeHighlightsType" minOccurs="0"/>
-          <xs:element name="StartWallClock" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="EndWallClock" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="StartTimeZoneId" type="xs:string" minOccurs="0" maxOccurs="1"/>
-          <xs:element name="EndTimeZoneId" type="xs:string" minOccurs="0" maxOccurs="1"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="MeetingResponseMessageType">
-    <xs:complexContent>
-      <xs:extension base="t:MeetingMessageType">
-        <xs:sequence>
-          <xs:element name="Start" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="End" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="Location" type="xs:string" minOccurs="0"/>
-          <xs:element name="Recurrence" type="t:RecurrenceType" minOccurs="0"/>
-          <xs:element name="CalendarItemType" type="xs:string" minOccurs="0"/>
-          <xs:element name="ProposedStart" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="ProposedEnd" type="xs:dateTime" minOccurs="0"/>
-          <xs:element name="EnhancedLocation" type="t:EnhancedLocationType" minOccurs="0"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="MeetingRequestTypeType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None"/>
-      <xs:enumeration value="FullUpdate"/>
-      <xs:enumeration value="InformationalUpdate"/>
-      <xs:enumeration value="NewMeetingRequest"/>
-      <xs:enumeration value="Outdated"/>
-      <xs:enumeration value="SilentUpdate"/>
-      <xs:enumeration value="PrincipalWantsCopy"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="NonEmptyArrayOfAttendeesType">
-    <xs:sequence>
-      <xs:element name="Attendee" type="t:AttendeeType" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="NonEmptyArrayOfDeletedOccurrencesType">
-    <xs:sequence>
-      <xs:element name="DeletedOccurrence" type="t:DeletedOccurrenceInfoType" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="OccurrenceInfoType">
-    <xs:sequence>
-      <xs:element name="ItemId" type="t:ItemIdType"/>
-      <xs:element name="Start" type="xs:dateTime"/>
-      <xs:element name="End" type="xs:dateTime"/>
-      <xs:element name="OriginalStart" type="xs:dateTime"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="NonEmptyArrayOfOccurrenceInfoType">
-    <xs:sequence>
-      <xs:element name="Occurrence" type="t:OccurrenceInfoType" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="NonEmptyArrayOfReminderItemActionType">
-    <xs:sequence>
-      <xs:element name="ReminderItemAction" type="t:ReminderItemActionType" minOccurs="1" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ProposeNewTimeType">
-    <xs:complexContent>
-      <xs:extension base="t:ResponseObjectType"/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="RecurrenceType">
-    <xs:sequence>
-      <xs:group ref="t:RecurrencePatternTypes"/>
-      <xs:group ref="t:RecurrenceRangeTypes"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ReminderItemActionType">
-    <xs:sequence>
-      <xs:element name="ActionType" type="t:ReminderActionType" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="ItemId" type="t:ItemIdType" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="NewReminderTime" type="xs:string" minOccurs="0" maxOccurs="1"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:simpleType name="ReminderActionType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Dismiss"/>
-      <xs:enumeration value="Snooze"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="ReminderMessageDataType">
-    <xs:sequence>
-      <xs:element name="ReminderText" type="xs:string" minOccurs="0"/>
-      <xs:element name="Location" type="xs:string" minOccurs="0"/>
-      <xs:element name="StartTime" type="xs:dateTime" minOccurs="0"/>
-      <xs:element name="EndTime" type="xs:dateTime" minOccurs="0"/>
-      <xs:element name="AssociatedCalendarItemId" type="t:ItemIdType" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ReminderType">
-    <xs:sequence>
-      <xs:element name="Subject" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="Location" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ReminderTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="StartDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="EndDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="ItemId" type="t:ItemIdType" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="RecurringMasterItemId" type="t:ItemIdType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ReminderGroup" type="t:ReminderGroupType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="UID" type="xs:string" minOccurs="1" maxOccurs="1"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:simpleType name="ReminderGroupType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Calendar"/>
-      <xs:enumeration value="Task"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="RemoveItemType">
-    <xs:complexContent>
-      <xs:extension base="t:ResponseObjectType"/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="ResponseTypeType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Unknown"/>
-      <xs:enumeration value="Organizer"/>
-      <xs:enumeration value="Tentative"/>
-      <xs:enumeration value="Accept"/>
-      <xs:enumeration value="Decline"/>
-      <xs:enumeration value="NoResponseReceived"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="OnlineMeetingSettingsType">
-    <xs:sequence>
-      <xs:element name="LobbyBypass" type="t:LobbyBypassType"/>
-      <xs:element name="AccessLevel" type="t:OnlineMeetingAccessLevelType"/>
-      <xs:element name="Presenters" type="t:PresentersType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:simpleType name="LobbyBypassType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Disabled"/>
-      <xs:enumeration value="EnabledForGatewayParticipants"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="OnlineMeetingAccessLevelType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Locked"/>
-      <xs:enumeration value="Invited"/>
-      <xs:enumeration value="Internal"/>
-      <xs:enumeration value="Everyone"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="PresentersType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Disabled"/>
-      <xs:enumeration value="Internal"/>
-      <xs:enumeration value="Everyone"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="SendPromptType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None"/>
-      <xs:enumeration value="Send"/>
-      <xs:enumeration value="VotingOption"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="TentativelyAcceptItemType">
-    <xs:complexContent>
-      <xs:extension base="t:MeetingRegistrationResponseObjectType"/>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="TimeChangeType">
-    <xs:sequence>
-      <xs:element name="Offset" type="xs:duration"/>
-      <xs:group ref="t:TimeChangePatternTypes" minOccurs="0"/>
-      <xs:element name="Time" type="xs:time"/>
-    </xs:sequence>
-    <xs:attribute name="TimeZoneName" type="xs:string" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="TimeZoneType">
-    <xs:sequence minOccurs="0">
-      <xs:element name="BaseOffset" type="xs:duration"/>
-      <xs:sequence minOccurs="0">
-        <xs:element name="Standard" type="t:TimeChangeType"/>
-        <xs:element name="Daylight" type="t:TimeChangeType"/>
-      </xs:sequence>
-    </xs:sequence>
-    <xs:attribute name="TimeZoneName" type="xs:string" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="VotingInformationType">
-    <xs:sequence>
-      <xs:element name="UserOptions" type="t:ArrayOfVotingOptionDataType" minOccurs="0"/>
-      <xs:element name="VotingResponse" type="xs:string" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="VotingOptionDataType">
-    <xs:sequence>
-      <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
-      <xs:element name="SendPrompt" type="t:SendPromptType" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-</xs:schema>

@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" version="Exchange2016" id="types">
+<xs:schema xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+        targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" 
+	elementFormDefault="qualified" version="Exchange2016" id="types">
   <xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
   <xs:include schemaLocation="MS-OXWSCORE-types.xsd"/>
+   <xs:complexType name="ArrayOfVotingOptionDataType">
+     <xs:sequence>
+       <xs:element name="VotingOptionData" type="t:VotingOptionDataType" minOccurs="0" maxOccurs="unbounded"/>
+     </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="ApprovalRequestDataType">
+     <xs:sequence>
+       <xs:element name="IsUndecidedApprovalRequest" type="xs:boolean" minOccurs="0"/>
+       <xs:element name="ApprovalDecision" type="xs:int" minOccurs="0"/>
+       <xs:element name="ApprovalDecisionMaker" type="xs:string" minOccurs="0"/>
+       <xs:element name="ApprovalDecisionTime" type="xs:dateTime" minOccurs="0"/>
+     </xs:sequence>
+   </xs:complexType>
   <xs:complexType name="MessageType">
     <xs:complexContent>
       <xs:extension base="t:ItemType">
@@ -30,6 +46,27 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+ <xs:complexType name="ReminderMessageDataType">
+     <xs:sequence>
+       <xs:element name="ReminderText" type="xs:string" minOccurs="0"/>
+       <xs:element name="Location" type="xs:string" minOccurs="0"/>
+       <xs:element name="StartTime" type="xs:dateTime" minOccurs="0"/>
+       <xs:element name="EndTime" type="xs:dateTime" minOccurs="0"/>
+       <xs:element name="AssociatedCalendarItemId" type="t:ItemIdType" minOccurs="0"/>
+     </xs:sequence>
+   </xs:complexType> 
+   <xs:complexType name="VotingInformationType">
+     <xs:sequence>
+       <xs:element name="UserOptions" type="t:ArrayOfVotingOptionDataType" minOccurs="0"/>
+       <xs:element name="VotingResponse" type="xs:string" minOccurs="0"/>
+     </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="VotingOptionDataType">
+     <xs:sequence>
+       <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+       <xs:element name="SendPrompt" type="t:SendPromptType" minOccurs="0"/>
+     </xs:sequence>
+   </xs:complexType> 
   <xs:simpleType name="MessageDispositionType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="SaveOnly" />
@@ -37,4 +74,11 @@
       <xs:enumeration value="SendAndSaveCopy" />
     </xs:restriction>
   </xs:simpleType>
+   <xs:simpleType name="SendPromptType">
+     <xs:restriction base="xs:string">
+       <xs:enumeration value="None"/>
+       <xs:enumeration value="Send"/>
+       <xs:enumeration value="VotingOption"/>
+     </xs:restriction>
+   </xs:simpleType>
 </xs:schema>

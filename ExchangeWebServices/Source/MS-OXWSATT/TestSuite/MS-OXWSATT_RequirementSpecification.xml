@@ -2168,7 +2168,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R553</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CreateAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ).</ns1:Description>
+		<ns1:Description>[In tns:CreateAttachmentSoapOut Message][The element of ServerVersion part is] t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3872,7 +3872,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R1</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms "SHOULD" or "SHOULD NOT" implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3881,7 +3881,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R2</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, the term "MAY" implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3965,7 +3965,7 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R318015</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a ItemType item.(Exchange2007 and Exchange2019.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a ItemType item.(Exchange2007 and Exchange2019 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSATT_R527:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
