@@ -8624,6 +8624,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("FileAttachment", typeof(FileAttachmentType), IsNullable = false)]
         [System.Xml.Serialization.XmlArrayItemAttribute("ItemAttachment", typeof(ItemAttachmentType), IsNullable = false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ReferenceAttachment", typeof(ReferenceAttachmentType), IsNullable = false)]
         public AttachmentType[] Attachments
         {
             get
@@ -41760,6 +41761,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("FileAttachment", typeof(FileAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         [System.Xml.Serialization.XmlArrayItemAttribute("ItemAttachment", typeof(ItemAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ReferenceAttachment", typeof(ReferenceAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         public AttachmentType[] Attachments
         {
             get
@@ -42144,6 +42146,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("FileAttachment", typeof(FileAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         [System.Xml.Serialization.XmlArrayItemAttribute("ItemAttachment", typeof(ItemAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("ReferenceAttachment", typeof(ReferenceAttachmentType), Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
         public AttachmentType[] Attachments
         {
             get
@@ -45122,4 +45125,3 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
     }
 }
-
