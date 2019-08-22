@@ -595,6 +595,7 @@
     <xs:choice maxOccurs="unbounded">
       <xs:element name="ItemAttachment" type="t:ItemAttachmentType"/>
       <xs:element name="FileAttachment" type="t:FileAttachmentType"/>
+      <xs:element name="ReferenceAttachment" type="t:ReferenceAttachmentType"/>  
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="NonEmptyArrayOfPathsToElementType">
