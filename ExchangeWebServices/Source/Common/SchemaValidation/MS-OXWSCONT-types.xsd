@@ -22,7 +22,7 @@
         <xs:sequence>
           <xs:element name="FileAs" type="xs:string" minOccurs="0"/>
           <xs:element name="FileAsMapping" type="t:FileAsMappingType" minOccurs="0"/>
-          <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
+          <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>           
           <xs:element name="GivenName" type="xs:string" minOccurs="0"/>
           <xs:element name="Initials" type="xs:string" minOccurs="0"/>
           <xs:element name="MiddleName" type="xs:string" minOccurs="0"/>
@@ -72,8 +72,7 @@
           <xs:element name="Gender" type="xs:string" minOccurs="0"/>
           <xs:element name="IsHidden" type="xs:boolean" minOccurs="0"/>
           <xs:element name="ObjectId" type="xs:string" minOccurs="0"/>
-          <xs:element name="PassportId" type="xs:long" minOccurs="0"/>
-          <xs:element name="PersonId" type="t:ItemIdType" minOccurs="0"/>
+          <xs:element name="PassportId" type="xs:long" minOccurs="0"/>          
           <xs:element name="IsPrivate" type="xs:boolean" minOccurs="0"/>
           <xs:element name="SourceId" type="xs:string" minOccurs="0"/>
           <xs:element name="TrustLevel" type="xs:int" minOccurs="0"/>
@@ -106,6 +105,8 @@
           <xs:element name="YomiGivenName" type="xs:string" minOccurs="0" />
           <xs:element name="YomiSurname" type="xs:string" minOccurs="0" />
           <xs:element name="PersonalNotes" type="xs:string" minOccurs="0" />
+          <xs:element name="PersonId" type="t:ItemIdType" minOccurs="0"/>
+         
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
