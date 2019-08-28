@@ -216,21 +216,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 Generation = Common.GenerateResourceName(
                         this.Site,
                         "SR."),
-                PersonalNotes = Common.GenerateResourceName(
-                        this.Site,
-                        "PersonalNotes"),
-                AccountName = Common.GenerateResourceName(
-                        this.Site,
-                        "AccountName"),
-                Comment = Common.GenerateResourceName(
-                        this.Site,
-                        "Comment"),
-                //ContactType = Common.GenerateResourceName(
-                //        this.Site,
-                //        "ContactType"),
-                //ObjectId = Common.GenerateResourceName(
-                //        this.Site,
-                //        "ObjectId"),
 
                 ExtendedProperty = new ExtendedPropertyType[]
                 {
