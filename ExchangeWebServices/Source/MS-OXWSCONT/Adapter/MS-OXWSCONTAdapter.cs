@@ -77,6 +77,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
             this.VerifyGetContactItem(getItemResponse, this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -96,6 +97,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
             this.VerifyDeleteContactItem(this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -115,6 +117,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
             this.VerifyCreateContactItem(this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -134,6 +137,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
             this.VerifyUpdateContactItem(this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -153,7 +157,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
-            this.VerifyCopyContactItem(this.exchangeServiceBinding.IsSchemaValidated);
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
+            this.VerifyCopyContactItem(copyItemRespose,this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
             return copyItemRespose;
