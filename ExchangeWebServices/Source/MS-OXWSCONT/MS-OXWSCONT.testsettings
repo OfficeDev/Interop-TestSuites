@@ -3,6 +3,7 @@
   <Description>These are the default test settings for running all MS-OXWSCONT test cases.</Description>
   <Deployment>
     <DeploymentItem filename="TestSuite\MS-OXWSCONT_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCONT_TestSuite.ptfconfig" />
     <DeploymentItem filename="..\Common\SchemaValidation\" />
     <DeploymentItem filename="MS-OXWSCONT.runsettings" />
@@ -12,7 +13,7 @@
     <DeploymentItem filename="TestSuite\MS-OXWSCONT_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCONT_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSCONT_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSCONT_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
@@ -35,4 +36,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>
