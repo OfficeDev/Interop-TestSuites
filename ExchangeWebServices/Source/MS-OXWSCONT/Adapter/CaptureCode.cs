@@ -106,7 +106,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         /// Capture CopyItemResponseType related requirements.
         /// </summary>
         /// <param name="isSchemaValidated">A boolean value indicates the schema validation result. True means the response conforms with the schema, false means not.</param>
-        private void VerifyCopyContactItem(bool isSchemaValidated)
+        private void VerifyCopyContactItem(CopyItemResponseType copyItemResponse,bool isSchemaValidated)
         {
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R292");
@@ -119,6 +119,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                       <wsdl:input message=""tns:CopyItemSoapIn"" />
                       <wsdl:output message=""tns:CopyItemSoapOut"" />
                       </wsdl:operation>");
+
+            // Verify the BaseResponseMessageType schema.
+            this.VerifyBaseResponseMessageType(copyItemResponse);
         }
         #endregion
 
@@ -964,6 +967,247 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 }
             }
         }
+        #endregion
+
+        #region Verify BaseResponseMessageType Structure
+        /// <summary>
+        /// Verify the BaseResponseMessageType structure.
+        /// </summary>
+        /// <param name="baseResponseMessage">A BaseResponseMessageType instance.</param>
+        private void VerifyBaseResponseMessageType(BaseResponseMessageType baseResponseMessage)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1081001");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1081001
+            Site.CaptureRequirementIfIsNotNull(
+                baseResponseMessage,
+                "MS-OXWSCDATA",
+                1081001,
+                @"[In m:BaseResponseMessageType Complex Type] The type [BaseResponseMessageType] is defined as follow:
+                <xs:complexType name=""BaseResponseMessageType"">
+                  <xs:sequence>
+                    <xs:element name=""ResponseMessages""
+                      type=""m:ArrayOfResponseMessagesType""
+                     />
+                  </xs:sequence>
+                </xs:complexType>");
+        }
+        #endregion
+
+        #region Verify ResponseMessageType Structure
+        /// <summary>
+        /// Verify the ResponseMessageType structure.
+        /// </summary>
+        /// <param name="responseMessage">A ResponseMessageType instance.</param>
+        private void VerifyResponseMessageType(ResponseMessageType responseMessage)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R114701");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R114701
+            Site.CaptureRequirementIfIsNotNull(
+                responseMessage,
+                "MS-OXWSCDATA",
+                114701,
+                @"[In m:ResponseMessageType Complex Type] The type [ResponseMessageType] is defined as follow:
+                    <xs:complexType name=""ResponseMessageType"">
+                      <xs:sequence
+                        minOccurs=""0""
+                      >
+                        <xs:element name=""MessageText""
+                          type=""xs:string""
+                          minOccurs=""0""
+                         />
+                        <xs:element name=""ResponseCode""
+                          type=""m:ResponseCodeType""
+                          minOccurs=""0""
+                         />
+                        <xs:element name=""DescriptiveLinkKey""
+                          type=""xs:int""
+                          minOccurs=""0""
+                         />
+                        <xs:element name=""MessageXml""
+                          minOccurs=""0""
+                        >
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:any
+                                process_contents=""lax""
+                                minOccurs=""0""
+                                maxOccurs=""unbounded""
+                               />
+                            </xs:sequence>
+                            <xs:attribute name=""ResponseClass""
+                              type=""t:ResponseClassType""
+                              use=""required""
+                             />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>");
+        }
+
+        #region Verify ServerVersionInfo Structure
+        /// <summary>
+        /// Verify the ServerVersionInfo structure.
+        /// </summary>
+        /// <param name="serverVersionInfo">A ServerVersionInfo instance.</param>
+        /// <param name="isSchemaValidated">Indicate whether the schema is verified.</param>
+        private void VerifyServerVersionInfo(ServerVersionInfo serverVersionInfo, bool isSchemaValidated)
+        {
+            Site.Assert.IsTrue(isSchemaValidated, "The schema should be validated.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368004");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368004
+            Site.CaptureRequirementIfIsNotNull(
+                serverVersionInfo,
+                "MS-OXWSCDATA",
+                368004,
+                @"[In t:ServerVersionInfo Element] <xs:element name=""t:ServerVersionInfo"">
+                      <xs:complexType>
+                        <xs:attribute name=""MajorVersion""
+                          type=""xs:int""
+                          use=""optional""
+                         />
+                        <xs:attribute name=""MinorVersion""
+                          type=""xs:int""
+                          use=""optional""
+                         />
+                        <xs:attribute name=""MajorBuildNumber""
+                          type=""xs:int""
+                          use=""optional""
+                         />
+                        <xs:attribute name=""MinorBuildNumber""
+                          type=""xs:int""
+                          use=""optional""
+                         />
+                        <xs:attribute name=""Version""
+                          type=""xs:string""
+                          use=""optional""
+                         />
+                      </xs:complexType>
+                    </xs:element>");
+
+            if (serverVersionInfo.MajorVersionSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368005");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368005
+                // If MajorVersion element is specified, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368005,
+                    "[In t:ServerVersionInfo Element] The type of the attribute MajorVersion is xs:int ([XMLSCHEMA2])");
+            }
+
+            if (serverVersionInfo.MinorVersionSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368007");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368007
+                // If MinorVersion element is specified, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368007,
+                    "[In t:ServerVersionInfo Element] The type of the attribute MinorVersion is xs:int ");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368008");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368008
+                // If MinorVersion element is not null, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirementIfIsNotNull(
+                    serverVersionInfo.MinorVersion,
+                    "MS-OXWSCDATA",
+                    368008,
+                    "[In t:ServerVersionInfo Element] MinorVersion attribute: Specifies the server's minor version number.");
+            }
+
+            if (serverVersionInfo.MajorBuildNumberSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368009");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368009
+                // If MajorBuildNumber element is specified, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368009,
+                    "[In t:ServerVersionInfo Element] The type of the attribute MajorBuildNumber is xs:int");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368010");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368010
+                // If MajorBuildNumber element is not null, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirementIfIsNotNull(
+                    serverVersionInfo.MajorBuildNumber,
+                    "MS-OXWSCDATA",
+                    368010,
+                    "[In t:ServerVersionInfo Element] MajorBuildNumber attribute: Specifies the server's major build number.");
+            }
+
+            if (serverVersionInfo.MinorBuildNumberSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368011");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368011
+                // If MinorBuildNumber element is specified, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368011,
+                    "[In t:ServerVersionInfo Element] The type of the attribute MinorBuildNumber is xs:int");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368012");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368012
+                // If MinorBuildNumber element is not null, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirementIfIsNotNull(
+                    serverVersionInfo.MinorBuildNumber,
+                    "MS-OXWSCDATA",
+                    368012,
+                    "[In t:ServerVersionInfo Element] MinorBuildNumber attribute: Specifies the server's minor build number.");
+            }
+
+            if (serverVersionInfo.Version != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368013");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368013
+                // If Version element is not null, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368013,
+                    "[In t:ServerVersionInfo Element] The type of the attribute Version is xs:string ([XMLSCHEMA2])");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368014");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368014
+                // If MS-OXWSCDATA_r368013 is verifed successfully, this requirement can be validated directly
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368014,
+                    "[In t:ServerVersionInfo Element] Version attribute: specifies the server's version number including the major version number, minor version number, major build number, and minor build number in that order.");
+            }
+        }
+        #endregion
         #endregion
 
         #region Verify requirements related to SOAP version

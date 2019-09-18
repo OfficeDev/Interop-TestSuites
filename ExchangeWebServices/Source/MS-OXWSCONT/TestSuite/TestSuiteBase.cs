@@ -171,6 +171,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 this.Site, "FirstContact"),
                 FileAsMapping = FileAsMappingType.None,
                 FileAsMappingSpecified = true,
+                IsAutoUpdateDisabledSpecified = true,
 
                 // Set a single e-mail address for the contact.
                 EmailAddresses = new EmailAddressDictionaryEntryType[]
@@ -215,6 +216,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 Generation = Common.GenerateResourceName(
                         this.Site,
                         "SR."),
+
                 ExtendedProperty = new ExtendedPropertyType[]
                 {
                     // Set the title of the complete name.
