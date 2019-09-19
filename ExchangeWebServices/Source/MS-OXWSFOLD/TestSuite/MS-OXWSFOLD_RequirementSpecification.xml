@@ -2870,8 +2870,9 @@
 		<ns1:Description>[In t:ManagedFolderInformationType Complex Type]This element[CanDelete] can be present.&lt;7&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R4003.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R105</ns1:REQ_ID>
@@ -2941,8 +2942,9 @@
 		<ns1:Description>[In t:ManagedFolderInformationType Complex Type]This element[CanRenameOrMove] can be present.&lt;8&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R4004.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R106</ns1:REQ_ID>
@@ -4319,7 +4321,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R192</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CopyFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
+		<ns1:Description>[In tns:CopyFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.4.45).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4421,7 +4423,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R198</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CopyFolderSoapOut Message]ServerVersion which Element/Type is :ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:CopyFolderSoapOut Message]ServerVersion which Element/Type is :ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6617,6 +6619,7 @@ indicates that the user has permission to perform the action on all items in the
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R5664.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R345</ns1:REQ_ID>
@@ -6626,7 +6629,7 @@ indicates that the user has permission to perform the action on all items in the
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R5664.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R5666.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R347</ns1:REQ_ID>
@@ -8226,7 +8229,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R441</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:MoveFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture  ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+		<ns1:Description>[In tns:MoveFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture  ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8253,7 +8256,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R444</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:MoveFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:MoveFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9835,7 +9838,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R1531</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] The implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder and read those items. (&lt;11&gt; Section 2.2.5.3:  In Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 the user can create items in the folder and read those items.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] The implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder and read those items. (&lt;11&gt; Section 2.2.5.3:  In Microsoft Exchange Server 2013 Service Pack 1 (SP1) , Exchange 2016,and Exchange 2019  the user can create items in the folder and read those items.)</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R153:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9857,7 +9860,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R56612</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the CopyFolder operation if either the source folder or the destination folder is a public folder. (&lt;12&gt; Section 3.1.4.1:  Exchange 2013 and Exchange 2016 do not support the CopyFolder operation if either the source folder or the destination folder is a public folder.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the CopyFolder operation if either the source folder or the destination folder is a public folder. (&lt;12&gt; Section 3.1.4.1:  Exchange 2013 , Exchange 2016,and Exchange 2019 do not support the CopyFolder operation if either the source folder or the destination folder is a public folder.)</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R555:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9898,8 +9901,8 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R5663</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the EmptyFolder operation. (&lt;13&gt; Section 3.1.4.5: Exchange 2007 and the initial release version of Exchange 2010 do not include the EmptyFolder operation.)</ns1:Description>
-		<ns1:Derived>MS-OXWSFOLD_R345:i</ns1:Derived>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the EmptyFolder operation. (&lt;13&gt; Section 3.1.4.5: Exchange 2013, Exchange 2016, and Exchange 2019 do not support the EmptyFolder operation for use with public folders.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R344:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9908,7 +9911,28 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R5664</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include the EmptyFolder operation.(Exchange Server 2010 SP2 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the EmptyFolder operation.(Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R344:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R5665</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the EmptyFolder operation. (&lt;14&gt; Section 3.1.4.5:Exchange 2007 and the initial release version of Exchange 2010 do not include the EmptyFolder operation.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R345:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R5666</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include the EmptyFolder operation.(Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
