@@ -1920,7 +1920,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             if (Common.IsRequirementEnabled(2921, this.Site))
             {
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2925");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2921");
 
                 // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2925
                 // The schema is validated and the item is not null, so this requirement can be captured.
