@@ -301,6 +301,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R4000</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types]ConsumerCalendarIdType specifies the identifier of a consumer calendar folder.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R19</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
 		<ns1:Description>[In Complex Types]FolderChangeDescriptionType specifies a change to a single folder property.</ns1:Description>
@@ -503,7 +512,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R29</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In t:ArrayOfFoldersType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.8).</ns1:Description>
+		<ns1:Description>[In t:ArrayOfFoldersType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.5).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1470,7 +1479,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R85</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In t:BaseFolderType Complex Type]The FolderType complex type, as specified in section 2.2.4.12, CalendarFolderType complex type, as specified in [MS-OXWSMTGS] section 2.2.4.8, and ContactsFolderType complex type, as specified in [MS-OXWSCONT] section 3.1.4.1.1.6, extend the BaseFolderType complex type.</ns1:Description>
+		<ns1:Description>[In t:BaseFolderType Complex Type]The FolderType complex type, as specified in section 2.2.4.12, CalendarFolderType complex type, as specified in [MS-OXWSMTGS] section 2.2.4.5, and ContactsFolderType complex type, as specified in [MS-OXWSCONT] section 3.1.4.1.1.6, extend the BaseFolderType complex type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1648,7 +1657,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R43</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In t:BasePermissionType Complex Type]The type of element UserId is t:UserIdType ([MS-OXWSCDATA] section 2.2.4.62).</ns1:Description>
+		<ns1:Description>[In t:BasePermissionType Complex Type]The type of element UserId is t:UserIdType ([MS-OXWSCDATA] section 2.2.4.75).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2178,7 +2187,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R5301</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In t:BasePermissionType Complex Type]The CalendarPermissionType complex type, as specified in [MS-OXWSMTGS] section 2.2.4.11, extends the BasePermissionType complex type.</ns1:Description>
+		<ns1:Description>[In t:BasePermissionType Complex Type]The CalendarPermissionType complex type, as specified in [MS-OXWSMTGS] section 2.2.4.8, extends the BasePermissionType complex type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2196,7 +2205,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R53012</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In t:ConsumerCalendarIdType Complex Type]This complex type extends the BaseFolderIdType complex type, as specified in section 2.2.4.5.</ns1:Description>
+		<ns1:Description>[In t:ConsumerCalendarIdType Complex Type]This complex type extends the BaseFolderIdType complex type, as specified in section 2.2.4.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2713,7 +2722,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R10011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
-		<ns1:Description>[In t:FolderType Complex Type]This element[UnreadCount] MUST equal the sum of all MessageType complex types ([MS-OXWSMSG] section 2.2.4.1) and PostItemType complex types ([MS-OXWSPOST] section 2.2.4.1) that have the IsRead property set to "false".</ns1:Description>
+		<ns1:Description>[In t:FolderType Complex Type]This element[UnreadCount] MUST equal the sum of all MessageType complex types ([MS-OXWSMSG] section 2.2.4.3) and PostItemType complex types ([MS-OXWSPOST] section 2.2.4.1) that have the IsRead property set to "false".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2858,11 +2867,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R1041</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
-		<ns1:Description>[In t:ManagedFolderInformationType Complex Type]This element[CanDelete] can be present.</ns1:Description>
+		<ns1:Description>[In t:ManagedFolderInformationType Complex Type]This element[CanDelete] can be present.&lt;7&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R4003.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R105</ns1:REQ_ID>
@@ -2929,11 +2939,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R1053</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
-		<ns1:Description>[In t:ManagedFolderInformationType Complex Type]This element[CanRenameOrMove] can be present.</ns1:Description>
+		<ns1:Description>[In t:ManagedFolderInformationType Complex Type]This element[CanRenameOrMove] can be present.&lt;8&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R4004.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R106</ns1:REQ_ID>
@@ -3324,7 +3335,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R5491</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.15</ns1:Doc_Sect>
-		<ns1:Description>[In t:PermissionType Complex Type]The PermissionType complex type extends the BasePermissionType complex type, as specified in section 2.2.4.7.&lt;7&gt;</ns1:Description>
+		<ns1:Description>[In t:PermissionType Complex Type]The PermissionType complex type extends the BasePermissionType complex type, as specified in section 2.2.4.7.&lt;9&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3575,7 +3586,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R130022</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.16</ns1:Doc_Sect>
-		<ns1:Description>[In t:TargetFolderIdType Complex Type]ConsumerCalendarId specifies the identifier of a consumer calendar.&lt;8&gt;</ns1:Description>
+		<ns1:Description>[In t:TargetFolderIdType Complex Type]ConsumerCalendarId specifies the identifier of a consumer calendar.&lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3879,7 +3890,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R153</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:PermissionLevelType Simple Type]The value Contributor means the user can create items in the folder but cannot read any items in the folder.&lt;9&gt; </ns1:Description>
+		<ns1:Description>[In t:PermissionLevelType Simple Type]The value Contributor means the user can create items in the folder but cannot read any items in the folder.&lt;11&gt; </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4108,7 +4119,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R555</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CopyFolder Operation]The CopyFolder operation copies an identified folder and returns the folder identifier and change key of the copied folder.&lt;10&gt;</ns1:Description>
+		<ns1:Description>[In CopyFolder Operation]The CopyFolder operation copies an identified folder and returns the folder identifier and change key of the copied folder.&lt;12&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4337,7 +4348,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R194</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CopyFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:CopyFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4412,7 +4423,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R198</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CopyFolderSoapOut Message]ServerVersion which Element/Type is :ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:CopyFolderSoapOut Message]ServerVersion which Element/Type is :ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4822,7 +4833,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R227</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CreateFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+		<ns1:Description>[In tns:CreateFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4849,7 +4860,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R230</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CreateFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:CreateFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4942,7 +4953,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R236</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CreateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:CreateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5271,7 +5282,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R257</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:NonEmptyArrayOfFoldersType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.8).</ns1:Description>
+		<ns1:Description>[In t:NonEmptyArrayOfFoldersType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.5).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5562,7 +5573,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R277</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CreateManagedFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+		<ns1:Description>[In tns:CreateManagedFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5589,7 +5600,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R280</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CreateManagedFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:CreateManagedFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5664,7 +5675,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R285</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:CreateManagedFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:CreateManagedFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6216,7 +6227,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R320</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:DeleteFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+		<ns1:Description>[In tns:DeleteFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6243,7 +6254,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R322</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:DeleteFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:DeleteFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6318,7 +6329,7 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R326</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:DeleteFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:DeleteFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6603,21 +6614,22 @@ indicates that the user has permission to perform the action on all items in the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R344</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In EmptyFolder Operation]The EmptyFolder operation empties identified folders &lt;11&gt; and can be used to delete the subfolders of the specified folder.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSFOLD_R345</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In EmptyFolder Operation]When a subfolder is deleted, the subfolder and the messages within the subfolder are deleted.&lt;12&gt;</ns1:Description>
+		<ns1:Description>[In EmptyFolder Operation]The EmptyFolder operation empties identified folders &lt;13&gt; and can be used to delete the subfolders of the specified folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R5664.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R345</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In EmptyFolder Operation]When a subfolder is deleted, the subfolder and the messages within the subfolder are deleted.&lt;14&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSFOLD_R5666.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R347</ns1:REQ_ID>
@@ -6814,7 +6826,7 @@ tns:EmptyFolder (section 3.1.4.5.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R357</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:EmptyFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+		<ns1:Description>[In tns:EmptyFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6841,7 +6853,7 @@ tns:EmptyFolder (section 3.1.4.5.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R360</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:EmptyFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:EmptyFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6916,7 +6928,7 @@ tns:EmptyFolder (section 3.1.4.5.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R364</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:EmptyFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:EmptyFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7440,7 +7452,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R396</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:GetFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+		<ns1:Description>[In tns:GetFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7467,7 +7479,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R399</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:GetFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:GetFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7578,7 +7590,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R405</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:GetFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:GetFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8217,7 +8229,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R441</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:MoveFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture  ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+		<ns1:Description>[In tns:MoveFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture  ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8244,7 +8256,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R444</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:MoveFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:MoveFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8319,7 +8331,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R448</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:MoveFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:MoveFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8702,7 +8714,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R474</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:UpdateFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+		<ns1:Description>[In tns:UpdateFolderSoapIn Message]MailboxCulture which Element/Type is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8729,7 +8741,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R477</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:UpdateFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:UpdateFolderSoapIn Message]RequestVersion which Element/Type is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8822,7 +8834,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R483</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:UpdateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:UpdateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9108,7 +9120,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R507</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:AppendToFolderFieldType Complex Type]Any request that uses this complex type will always return an error response.</ns1:Description>
+		<ns1:Description>[In t:AppendToFolderFieldType Complex Type]Any request that uses this complex type will  return an error response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9188,7 +9200,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R511</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:AppendToFolderFieldType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.8.3).</ns1:Description>
+		<ns1:Description>[In t:AppendToFolderFieldType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.5).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9549,7 +9561,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R535</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In t:SetFolderFieldType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.8).</ns1:Description>
+		<ns1:Description>[In t:SetFolderFieldType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.5).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9783,9 +9795,29 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R4003</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not use a value of "true"  to indicate the managed folder can be deleted.(&lt;7&gt; Section 2.2.4.13: Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016, and Exchange 2019 do not use this value to indicate the managed folder can be deleted.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R1041:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R4004</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not use a value of "true" to indicate the managed folder can be renamed or moved.(&lt;8&gt; Section 2.2.4.13:  Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016, and Exchange 2019 do not use this value to indicate the managed folder can be renamed or moved.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R1053:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R54911</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return an ErrorInvalidPermissionSettings response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to "Custom". (&lt;7&gt; Section 2.2.4.15:  Exchange 2007 and Exchange 2010 will return an ErrorInvalidPermissionSettings ([MS-OXWSCDATA] section 2.2.5.24) response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to "Custom".)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return an ErrorInvalidPermissionSettings response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to "Custom". (&lt;9&gt; Section 2.2.4.15:  Exchange 2007 and Exchange 2010 will return an ErrorInvalidPermissionSettings ([MS-OXWSCDATA] section 2.2.5.24) response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to "Custom".)</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R5491:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9806,7 +9838,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R1531</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] The implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder and read those items. (&lt;9&gt; Section 2.2.5.3:  In Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 the user can create items in the folder and read those items.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] The implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder and read those items. (&lt;11&gt; Section 2.2.5.3:  In Microsoft Exchange Server 2013 Service Pack 1 (SP1) , Exchange 2016,and Exchange 2019  the user can create items in the folder and read those items.)</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R153:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9828,7 +9860,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R56612</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the CopyFolder operation if either the source folder or the destination folder is a public folder. (&lt;10&gt; Section 3.1.4.1:  Exchange 2013 and Exchange 2016 do not support the CopyFolder operation if either the source folder or the destination folder is a public folder.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the CopyFolder operation if either the source folder or the destination folder is a public folder. (&lt;12&gt; Section 3.1.4.1:  Exchange 2013 , Exchange 2016,and Exchange 2019 do not support the CopyFolder operation if either the source folder or the destination folder is a public folder.)</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R555:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9869,8 +9901,8 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R5663</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the EmptyFolder operation. (&lt;12&gt; Section 3.1.4.5: Exchange 2007 and the initial release version of Exchange 2010 do not include the EmptyFolder operation.)</ns1:Description>
-		<ns1:Derived>MS-OXWSFOLD_R345:i</ns1:Derived>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the EmptyFolder operation. (&lt;13&gt; Section 3.1.4.5: Exchange 2013, Exchange 2016, and Exchange 2019 do not support the EmptyFolder operation for use with public folders.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R344:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9879,7 +9911,28 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSFOLD_R5664</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include the EmptyFolder operation.(Exchange Server 2010 SP2 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the EmptyFolder operation.(Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R344:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R5665</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the EmptyFolder operation. (&lt;14&gt; Section 3.1.4.5:Exchange 2007 and the initial release version of Exchange 2010 do not include the EmptyFolder operation.)</ns1:Description>
+		<ns1:Derived>MS-OXWSFOLD_R345:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSFOLD_R5666</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does include the EmptyFolder operation.(Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSFOLD_R345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -9889,7 +9942,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1339</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.12</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.3.10</ns1:Doc_Sect>
 		<ns1:Description>[In t:ServerVersionInfo Element] &lt;xs:element name="t:ServerVersionInfo"&gt;
   &lt;xs:complexType&gt;
     &lt;xs:attribute name="MajorVersion"
@@ -10250,7 +10303,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1137</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.29</ns1:Doc_Sect>
-		<ns1:Description>[In t:EffectiveRightsType Complex Type] The element "ViewPrivateItems" with type "xs:boolean" specifies whether a client can read private items.&lt;245&gt;</ns1:Description>
+		<ns1:Description>[In t:EffectiveRightsType Complex Type] The element "ViewPrivateItems" with type "xs:boolean" specifies whether a client can read private items.&lt;51&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10304,7 +10357,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1234</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.50</ns1:Doc_Sect>
-		<ns1:Description>[In t:NonEmptyArrayOfPathsToElementType Complex Type] The element "t:Path" with type "t:Path" specifies a property to be returned in a response.</ns1:Description>
+		<ns1:Description>[In t:NonEmptyArrayOfPathsToElementType Complex Type] The element "t:Path" with type "t:BasePathToElementType (section 2.2.4.16)" specifies a property to be returned in a response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10521,7 +10574,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R8301</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.10</ns1:Doc_Sect>
-		<ns1:Description>[In t:DistinguishedFolderIdNameType Simple Type] The DistinguishedFolderIdNameType simple type specifies well-known folders that can be referenced by name.&lt;88&gt;
+		<ns1:Description>[In t:DistinguishedFolderIdNameType Simple Type] The DistinguishedFolderIdNameType simple type specifies well-known folders that can be referenced by name.&lt;87&gt;
     </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -10621,7 +10674,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1485</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the ViewPrivateItems element. (&lt;245&gt; Section 2.2.4.25: Exchange 2007 do not include the ViewPrivateItems element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the ViewPrivateItems element. (&lt;51&gt; Section 2.2.4.25: Exchange 2007 do not include the ViewPrivateItems element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCDATA_R1137:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10631,7 +10684,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1486</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the ViewPrivateItems element. (&lt;245&gt; Section 2.2.4.25: Exchange 2010 do not include the ViewPrivateItems element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the ViewPrivateItems element. (&lt;51&gt; Section 2.2.4.25: Exchange 2010 do not include the ViewPrivateItems element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCDATA_R1137:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10661,7 +10714,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1462</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges. (&lt;88&gt; Section 2.2.5.10: Exchange 2007 and the initial release version of Exchange 2010 do not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges. (&lt;87&gt; Section 2.2.5.10: Exchange 2007 and the initial release version of Exchange 2010 do not include the following enumeration values: recoverableitemsroot, recoverableitemsdeletions, recoverableitemsversions, recoverableitemspurges, archiveroot, archivemsgfolderroot, archivedeleteditems, archiverecoverableitemsroot, archiverecoverableitemsdeletions, archiverecoverableitemsversions, and archiverecoverableitemspurges.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCDATA_R8301:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -10681,7 +10734,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R215</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
 		<ns1:Description>[In t:ContactsFolderType Complex Type] The type of the element of SharingEffectiveRights is t:PermissionReadAccessType ([MS-OXWSFOLD] section 2.2.5.4)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -10690,7 +10743,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R216</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
 		<ns1:Description>[In t:ContactsFolderType Complex Type] SharingEffectiveRights element: Specifies whether a user has permission to read items in a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -10699,8 +10752,8 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R217</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactsFolderType Complex Type] The type of the element of PermissionSet is t:PermissionSetType ([MS-OXWSFOLD] section 2.2.4.12)</ns1:Description>
+		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactsFolderType Complex Type] The type of the element of PermissionSet is t:PermissionSetType ([MS-OXWSFOLD] section 2.2.4.14)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10708,7 +10761,7 @@ tns:GetFolder (section 3.1.4.6.2.1).</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R35</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
 		<ns1:Description>[In t:TasksFolderType Complex Type] The TasksFolderType complex type specifies a Tasks folder that is contained in a mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
