@@ -244,13 +244,112 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 item.Attachments[0] = fileAttachment;
                 item.Attachments[1] = itemAttachment;
             }
-            
+
             if (Common.IsRequirementEnabled(2283, this.Site))
             {
                 item.ReminderNextTimeSpecified = true;
                 item.ReminderNextTime = DateTime.Now.AddMinutes(30);
             }
 
+            return item;
+        }
+
+        /// <summary>
+        /// Create an item with all properties.
+        /// </summary>
+        /// <returns>The item object</returns>
+        protected ItemType fff_CreateFullPropertiesItem()
+        {
+            ItemType item = new ItemType();
+
+            // Set the ItemClass as "IPM.Note".
+            item.ItemClass = "IPM.Note";
+            item.Subject = Common.GenerateResourceName(
+               this.Site,
+               TestSuiteHelper.SubjectForCreateItem);
+            item.SensitivitySpecified = true;
+            item.Sensitivity = SensitivityChoicesType.Normal;
+            item.Body = new BodyType();
+            item.Body.BodyType1 = BodyTypeType.Text;
+            item.Body.Value = TestSuiteHelper.BodyForBaseItem;
+
+            #region fff
+                   
+            #endregion fff
+            
+            item.Categories = new string[1];
+            item.Categories[0] = TestSuiteHelper.CategoryName;
+            item.ImportanceSpecified = true;
+            item.Importance = ImportanceChoicesType.Normal;
+            item.InReplyTo = TestSuiteHelper.InReplyTo;
+            item.ReminderDueBySpecified = true;
+            item.ReminderDueBy = DateTime.Now.AddMinutes(15);
+            item.ReminderIsSetSpecified = true;
+            item.ReminderIsSet = true;
+            item.ReminderMinutesBeforeStart = TestSuiteHelper.ReminderMinutesBeforeStart;
+            item.ExtendedProperty = new ExtendedPropertyType[1];
+            item.ExtendedProperty[0] = new ExtendedPropertyType();
+            item.ExtendedProperty[0].ExtendedFieldURI = new PathToExtendedFieldType();
+
+            // Set the extend properties for the element.
+            DistinguishedPropertySetType distinguishedPropertySetId = DistinguishedPropertySetType.Common;
+
+            int propertyId = Convert.ToInt32(TestSuiteHelper.PropertyId);
+            MapiPropertyTypeType propertyType = MapiPropertyTypeType.String;
+
+            item.ExtendedProperty[0].ExtendedFieldURI.DistinguishedPropertySetId = distinguishedPropertySetId;
+            item.ExtendedProperty[0].ExtendedFieldURI.DistinguishedPropertySetIdSpecified = true;
+            item.ExtendedProperty[0].ExtendedFieldURI.PropertyId = propertyId;
+            item.ExtendedProperty[0].ExtendedFieldURI.PropertyIdSpecified = true;
+            item.ExtendedProperty[0].ExtendedFieldURI.PropertyType = propertyType;
+            item.ExtendedProperty[0].Item = TestSuiteHelper.ElementValue;
+            item.Culture = TestSuiteHelper.Culture;
+
+            // Add Exchange 2013 elements.
+            if (Common.IsRequirementEnabled(4003, this.Site))
+            {
+                item.Body.IsTruncatedSpecified = true;
+                item.Body.IsTruncated = true;
+            }
+
+            if (Common.IsRequirementEnabled(1271, this.Site))
+            {
+                item.Flag = new FlagType();
+                item.Flag.FlagStatus = FlagStatusType.Flagged;
+                item.Flag.StartDateSpecified = true;
+                item.Flag.StartDate = DateTime.Now;
+                item.Flag.DueDateSpecified = true;
+                item.Flag.DueDate = DateTime.Now.AddDays(1);
+            }
+
+            if (Common.IsRequirementEnabled(1353, this.Site))
+            {
+                item.RetentionDateSpecified = true;
+                item.RetentionDate = DateTime.Now.AddDays(1);
+            }
+
+            if (Common.IsRequirementEnabled(2281, this.Site))
+            {
+                FileAttachmentType fileAttachment = new FileAttachmentType();
+                fileAttachment.Name = Common.GenerateResourceName(this.Site, "File attachment name");
+                fileAttachment.Content = Convert.FromBase64String("/9j/4AAQSkZJRgABAQEAYABgAAD/7AARRHVja3kAAQAEAAAARgAA/9sAQwACAQECAQECAgICAgICAgMFAwMDAwMGBAQDBQcGBwcHBgcHCAkLCQgICggHBwoNCgoLDAwMDAcJDg8NDA4LDAwM/9sAQwECAgIDAwMGAwMGDAgHCAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM/8AAEQgADAAUAwEiAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A5j9hnXPH/gy003RdI+KejWVjciO7muPF86y2GiWFu3nahceUJUyEtfOcKroplMZeSJAxH1j+2p8f9L8TfBTw1qvwo8YSSWGr6FB4p1bStWsLi01TVPDl4ZLe21CwkeOJ9yXf2cSQlCfKukdjDvhM34beLf2n/G3wz+B2g+ItA1qbS9Y0bxBm1uIlDFA9vPG6kNkFWQlSp4welZfxG/4K1fHj9ozQj4T8V+N73U9J1u7e7uxLmWU+YYWaGJ5Cxt7fzLeF/s8Hlxbox8mABXNQjVjQnQlVk+zurrRbWSXnbbuedTyvD0ISoQvZ333WnyPqLxp8PG8feIrjU5dG8O60ZWMYuDeW1tjyyUKeWzALtZWGFG3Oe+aK/OP4ja3c+CfiZ4m07TJTbWdvq90iIQJSAsrKMs+WJwo6miuFZRbT2svvX+QoZTQirXf4f5H/2Q==");
+
+                ItemAttachmentType itemAttachment = new ItemAttachmentType();
+                itemAttachment.Name = Common.GenerateResourceName(this.Site, "Item attachment name");
+                itemAttachment.Item = new ItemType();
+                itemAttachment.Item.Subject = Common.GenerateResourceName(this.Site, "Item attachment subject");
+                item.Attachments = new AttachmentType[2];
+
+                item.Attachments[0] = fileAttachment;
+                item.Attachments[1] = itemAttachment;
+            }
+            
+            if (Common.IsRequirementEnabled(2283, this.Site))
+            {
+                item.ReminderNextTimeSpecified = true;
+                item.ReminderNextTime = DateTime.Now.AddMinutes(30);
+            }
+            
             return item;
         }
 
@@ -394,6 +493,66 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 createItemRequest.SavedItemFolderId.Item = folderIdForCreateItems;
                 createItemRequest.MessageDisposition = MessageDispositionType.SaveOnly;
                 createItemRequest.MessageDispositionSpecified = true;
+            }
+
+            if (createItemRequest.Items.Items[0] is CalendarItemType)
+            {
+                DistinguishedFolderIdType folderIdForCreateItems = new DistinguishedFolderIdType();
+                folderIdForCreateItems.Id = DistinguishedFolderIdNameType.calendar;
+                createItemRequest.SavedItemFolderId = new TargetFolderIdType();
+                createItemRequest.SavedItemFolderId.Item = folderIdForCreateItems;
+                createItemRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendToAllAndSaveCopy;
+                createItemRequest.SendMeetingInvitationsSpecified = true;
+            }
+            #endregion
+
+            CreateItemResponseType createItemResponse = this.COREAdapter.CreateItem(createItemRequest);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+            ItemIdType[] createdItemIds = Common.GetItemIdsFromInfoResponse(createItemResponse);
+
+            // One created item should be returned.
+            Site.Assert.AreEqual<int>(
+                1,
+                 createdItemIds.GetLength(0),
+                 "One created item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 createdItemIds.GetLength(0));
+
+            return createdItemIds;
+        }
+
+        /// <summary>
+        /// Create item with minimum elements which are needed.
+        /// </summary>
+        /// <typeparam name="T">The ItemType or its child class object.</typeparam>
+        /// <param name="item">The item to be created.</param>
+        /// <returns>The ItemId of the created item.</returns>
+        protected ItemIdType[] FFF_CreateItemWithMinimumElements<T>(T item)
+            where T : ItemType, new()
+        {
+            CreateItemType createItemRequest = new CreateItemType();
+
+            #region Config the item
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+
+            createItemRequest.Items.Items = new ItemType[] { item };
+            createItemRequest.Items.Items[0].Subject = Common.GenerateResourceName(this.Site, TestSuiteHelper.SubjectForCreateItem);
+            #region FFF
+            createItemRequest.Items.Items[0].MentionedMe = true;
+            createItemRequest.Items.Items[0].MentionedMeSpecified = true;
+            #endregion FFF
+            if (createItemRequest.Items.Items[0] is MessageType)
+            {
+                DistinguishedFolderIdType folderIdForCreateItems = new DistinguishedFolderIdType();
+                folderIdForCreateItems.Id = DistinguishedFolderIdNameType.drafts;
+                createItemRequest.SavedItemFolderId = new TargetFolderIdType();
+                createItemRequest.SavedItemFolderId.Item = folderIdForCreateItems;
+                createItemRequest.MessageDisposition = MessageDispositionType.SaveOnly;
+                createItemRequest.MessageDispositionSpecified = true;
+               
             }
 
             if (createItemRequest.Items.Items[0] is CalendarItemType)
@@ -1766,6 +1925,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             getItem.ItemShape.IncludeMimeContent = true;
             getItem.ItemShape.IncludeMimeContentSpecified = true;
 
+            // Return Additional Property 'itemMimeContentUTF8'
+            List<PathToUnindexedFieldType> additionalProperties = new List<PathToUnindexedFieldType>();
+            additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.itemMimeContentUTF8 });
+            getItem.ItemShape.AdditionalProperties = additionalProperties.ToArray();
+
             GetItemResponseType getItemResponse_IncludeMimeContentTrue = this.COREAdapter.GetItem(getItem);
 
             // Check the operation response.
@@ -1774,6 +1938,184 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             // Check whether the schema is validated
             Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
 
+            // Get item from GetItemResponse.
+            item = Common.GetItemsFromInfoResponse<T>(getItemResponse_IncludeMimeContentTrue)[0];          
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1307");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1307
+            // If the MimeContent element of the item is not null, and the schema is validated,
+            // which represents the MIME content of an item is returned in a response as MimeContentType,
+            // this requirement can be verified.
+            Site.CaptureRequirementIfIsNotNull(
+                item.MimeContent,
+                1307,
+                @"[In t:ItemType Complex Type] The type of MimeContent is t:MimeContentType (section 2.2.4.10).");
+
+            #region fff_cap
+           
+            if (Common.IsRequirementEnabled(2919, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2919");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1348
+                // if the element is not null, the schema is validated, and the instanceKey is base64 binary data
+                // this requirement can be validated.
+                Site.CaptureRequirementIfIsNotNull(
+                    item.MimeContentUTF8.Value,
+                    2919,
+                    @"[In Appendix C: Product Behavior] Implementation does support the MimeContentUTF8 element which specifies an instance of the MimeContentUTF8Type complex type that contains the native MIME stream of an object that is represented in UTF-8. (<79> Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)");
+            }
+            
+            if (Common.IsRequirementEnabled(23091, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R23091");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R23091
+                // If the MimeContent element of the item is not null, and the schema is validated,
+                // which represents the MIME content of an item is returned in a response as MimeContentType,
+                // this requirement can be verified.
+                Site.CaptureRequirementIfIsNotNull(
+                    item.MimeContent,
+                    23091,
+                    @"[In Appendix C: Product Behavior] This element [MimeContent] is applicable for ContactType, TaskType and DistributionListType item when retrieving MIME content.(E2010SP3 and above follow this behavior.)");
+            }
+            if (Common.IsRequirementEnabled(23093, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R23093");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R23093
+                this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                    ResponseCodeType.ErrorUnsupportedMimeConversion,
+                    getItemResponse_IncludeMimeContentTrue.ResponseMessages.Items[0].ResponseCode,
+                    23093,
+                    @"[In Appendix C: Product Behavior] An ErrorUnsupportedMimeConversion will be returned. (<52> Section 2.2.4.24:  In Exchange 2007, Exchange 2010, Exchange 2010 SP1 and Microsoft Exchange Server 2010 Service Pack 2 (SP2), when retrieving MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object, an ErrorUnsupportedMimeConversion will be returned.)");
+            }
+                
+            #endregion
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R69");
+
+            // If the value of MimeContent element is a base64 string format,
+            // this requirement can be validated.
+            Site.CaptureRequirementIfIsTrue(
+                TestSuiteHelper.IsBase64String(item.MimeContent.Value),
+                69,
+                @"[In t:ItemType Complex Type] [The element ""MimeContent""] Specifies an instance of the MimeContentType class that contains the native MIME stream of an object that is represented in base64Binary format.");
+            
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1362");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1362
+            // If the CharacterSet element of the MimeContent is not null, and the schema is validated,
+            // which represents the CharacterSet of a MimeContent is returned in a response as string,
+            // this requirement can be verified.
+            Site.CaptureRequirementIfIsNotNull(
+                item.MimeContent.CharacterSet,
+                1362,
+                @"[In t:MimeContentType Complex Type] The type of CharacterSet is xs:string [XMLSCHEMA2].");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R114");
+
+            // The CharacterSet attribute use the International Standards Organization (ISO) name, but the specific name should not be checked, just validate the name is not null or empty here.
+            Site.CaptureRequirementIfIsTrue(
+                !string.IsNullOrEmpty(item.MimeContent.CharacterSet),
+                114,
+                @"[In t:MimeContentType Complex Type] [The attribute ""CharacterSet""] Specifies the International Standards Organization (ISO) name of the character set that is used in a MIME message.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R21188");
+
+            // The request set IncludeMimeContent element to true,
+            // If the MimeContent element of the item is not null, which represents the MIME content of an item is returned in a response,
+            // this requirement can be verified.
+            Site.CaptureRequirementIfIsNotNull(
+                item.MimeContent,
+                "MS-OXWSCDATA",
+                21188,
+                @"[In t:ItemResponseShapeType Complex Type] [IncludeMimeContent is] True, specifies the MIME content of an item is returned in a response.");
+
+            if (item is MessageType
+                || item is PostItemType
+                || item is CalendarItemType)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2012");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2012
+                Site.CaptureRequirementIfIsNotNull(
+                    item.MimeContent,
+                    2012,
+                    @"[In t:ItemType Complex Type] This element [MimeContent] is only applicable to PostItemType, MessageType, and CalendarItemType object when setting MIME content for an item. ");
+            }
+            #endregion
+
+            #region Step 3: Get the created item with IncludeMimeContent set to false.
+            getItem.ItemShape.IncludeMimeContent = false;
+            GetItemResponseType getItemResponse_IncludeMimeContentFalse = this.COREAdapter.GetItem(getItem);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse_IncludeMimeContentFalse, 1, this.Site);
+
+            item = Common.GetItemsFromInfoResponse<T>(getItemResponse_IncludeMimeContentFalse)[0];
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R21189");
+
+            // The request set IncludeMimeContent element to false,
+            // If the MimeContent element of the item is null, which represents the MIME content of an item is not returned in a response,
+            // this requirement can be verified.
+            Site.CaptureRequirementIfIsNull(
+                item.MimeContent,
+                "MS-OXWSCDATA",
+                21189,
+                @"[In t:ItemResponseShapeType Complex Type] otherwise [IncludeMimeContent is] false, specifies [the MIME content of an item is not returned in a response].");
+            #endregion
+        }
+
+        /// <summary>
+        /// Verify the responses returned by GetItem operation with the ItemShape element in which IncludeMimeContent element exists.
+        /// </summary>
+        /// <typeparam name="T">The ItemType or its child class object.</typeparam>
+        /// <param name="item">The item to be got.</param>
+        protected void FFF_TestSteps_VerifyGetItemWithItemResponseShapeType_IncludeMimeContentBoolean<T>(T item)
+            where T : ItemType, new()
+        {
+            GetItemType getItem = new GetItemType();
+
+            #region Step 1: Create an item.
+            // Create item and return the item id.
+            getItem.ItemIds = this.CreateItemWithMinimumElements(item);
+            #endregion
+
+            #region Step 2: Get the created item with IncludeMimeContent set to true.
+            // Set the item shape's elements.
+            getItem.ItemShape = new ItemResponseShapeType();
+            getItem.ItemShape.BaseShape = DefaultShapeNamesType.AllProperties;
+            getItem.ItemShape.IncludeMimeContent = true;
+            getItem.ItemShape.IncludeMimeContentSpecified = true;
+
+            // Return Additional Property 'itemMimeContentUTF8'
+            List<PathToUnindexedFieldType> additionalProperties = new List<PathToUnindexedFieldType>();
+            additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.itemMimeContentUTF8 });
+            getItem.ItemShape.AdditionalProperties = additionalProperties.ToArray();
+
+            GetItemResponseType getItemResponse_IncludeMimeContentTrue = this.COREAdapter.GetItem(getItem);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse_IncludeMimeContentTrue, 1, this.Site);
+                        
+            // Check whether the schema is validated.
+            Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
+
+            // Get Item Info in GetResponseMessage.
             item = Common.GetItemsFromInfoResponse<T>(getItemResponse_IncludeMimeContentTrue)[0];
 
             // Add the debug information
@@ -1788,15 +2130,48 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 1307,
                 @"[In t:ItemType Complex Type] The type of MimeContent is t:MimeContentType (section 2.2.4.10).");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R69");
+            #region fff_cap
+            if (Common.IsRequirementEnabled(2919, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2919");
 
-            // If the value of MimeContent element is a base64 string format,
-            // this requirement can be validated.
-            Site.CaptureRequirementIfIsTrue(
-                TestSuiteHelper.IsBase64String(item.MimeContent.Value),
-                69,
-                @"[In t:ItemType Complex Type] [The element ""MimeContent""] Specifies an instance of the MimeContentType class that contains the native MIME stream of an object that is represented in base64Binary format.");
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1348
+                // if the element is not null, the schema is validated, and the instanceKey is base64 binary data
+                // this requirement can be validated.
+                Site.CaptureRequirementIfIsNotNull(
+                    item.MimeContentUTF8.Value,
+                    2919,
+                    @"[In Appendix C: Product Behavior] Implementation does support the MimeContentUTF8 element which specifies an instance of the MimeContentUTF8Type complex type that contains the native MIME stream of an object that is represented in UTF-8. (<79> Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)");
+            }
+            if (Common.IsRequirementEnabled(23091, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R23091");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R23091
+                // If the MimeContent element of the item is not null, and the schema is validated,
+                // which represents the MIME content of an item is returned in a response as MimeContentType,
+                // this requirement can be verified.
+                Site.CaptureRequirementIfIsNotNull(
+                    item.MimeContent,
+                    23091,
+                    @"[In Appendix C: Product Behavior] This element [MimeContent] is applicable for ContactType, TaskType and DistributionListType item when retrieving MIME content.(E2010SP3 and above follow this behavior.)");
+            }
+            if (Common.IsRequirementEnabled(23093, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R23093");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R23093
+                this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                    ResponseCodeType.ErrorUnsupportedMimeConversion,
+                    getItemResponse_IncludeMimeContentTrue.ResponseMessages.Items[0].ResponseCode,
+                    23093,
+                    @"[In Appendix C: Product Behavior] An ErrorUnsupportedMimeConversion will be returned. (<52> Section 2.2.4.24:  In Exchange 2007, Exchange 2010, Exchange 2010 SP1 and Microsoft Exchange Server 2010 Service Pack 2 (SP2), when retrieving MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object, an ErrorUnsupportedMimeConversion will be returned.)");
+            }
+
+            #endregion
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1362");
@@ -2645,11 +3020,185 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         }
 
         /// <summary>
+        /// Verify the successful responses returned by UpdateItem operation.
+        /// </summary>
+        /// <typeparam name="T">The ItemType or its child class object.</typeparam>
+        /// <param name="item">The item to be updated.</param>
+        protected void FFF_TestSteps_VerifyUpdateItemSuccessfulResponse<T>(T item)
+            where T : ItemType, new()
+        {
+            #region Step 1:Create an item
+            ItemIdType[] createdItemIds = this.FFF_CreateItemWithMinimumElements(item);
+            #endregion
+
+            #region Step 2:Get the item
+            // Call GetItem operation using the created item IDs.
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(createdItemIds);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+            ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+
+            // One item should be returned.
+            Site.Assert.AreEqual<int>(
+                 1,
+                 getItemIds.GetLength(0),
+                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getItemIds.GetLength(0));
+            #endregion
+
+            #region Step 3:Update the item
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            AppendToItemFieldType append = new AppendToItemFieldType();
+            append.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemBody
+            };
+            append.Item1 = new T()
+            {
+                Body = new BodyType()
+                {
+                    BodyType1 = BodyTypeType.Text,
+                    Value = TestSuiteHelper.BodyForBaseItem
+                }
+            };
+            itemChanges[0].Updates[0] = append;
+
+            // Call UpdateItem to update the email address of the created item, by using ItemId in CreateItem response.
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(updateItemResponse, 1, this.Site);
+
+            ItemIdType[] updatedItemIds = createdItemIds;
+
+            // One updated item should be returned.
+            Site.Assert.AreEqual<int>(
+                 1,
+                 updatedItemIds.GetLength(0),
+                 "One updated item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 updatedItemIds.GetLength(0));
+            #endregion
+
+            #region Step 4:Get the updated item
+            // Call GetItem operation using the updated item IDs.
+            getItemResponse = this.CallGetItemOperation(updatedItemIds);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+            getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+
+            // One contact item should be returned.
+            Site.Assert.AreEqual<int>(
+                 1,
+                 getItemIds.GetLength(0),
+                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getItemIds.GetLength(0));
+
+            ItemInfoResponseMessageType getItemResponseMessage = getItemResponse.ResponseMessages.Items[0] as ItemInfoResponseMessageType;
+
+            Site.Assert.AreEqual<BodyTypeType>(
+                append.Item1.Body.BodyType1,
+                getItemResponseMessage.Items.Items[0].Body.BodyType1,
+                string.Format(
+                "The value of BodyType1 should be {0}, actual {1}.",
+                append.Item1.Body.BodyType1,
+                getItemResponseMessage.Items.Items[0].Body.BodyType1));
+
+            Site.Assert.AreEqual<string>(
+                append.Item1.Body.Value,
+                getItemResponseMessage.Items.Items[0].Body.Value,
+                string.Format(
+                "The value of Body should be {0}, actual {1}.",
+                append.Item1.Body.Value,
+                getItemResponseMessage.Items.Items[0].Body.Value));
+            #endregion
+        }
+
+        /// <summary>
         /// Verify the successful responses returned by CreateItem, GetItem and DeleteItem operations.
         /// </summary>
         /// <typeparam name="T">The ItemType or its child class object.</typeparam>
         /// <param name="item">The item to be operated.</param>
         protected void TestSteps_VerifyCreateGetDeleteItem<T>(T item)
+            where T : ItemType, new()
+        {
+            #region Step 1:Create an item
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+            #endregion
+
+            #region Step 2:Get the item
+            // Call GetItem operation using the created item IDs.
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(createdItemIds);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+            ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+
+            // One item should be returned.
+            Site.Assert.AreEqual<int>(
+                1,
+                 getItemIds.GetLength(0),
+                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getItemIds.GetLength(0));
+
+            #endregion
+
+            #region Step3:Delete the item
+            DeleteItemResponseType deleteItemResponse = this.CallDeleteItemOperation();
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(deleteItemResponse, 1, this.Site);            
+
+            // Clear ExistItemIds for DeleteItem.
+            this.InitializeCollection();
+            #endregion
+
+            #region Step 4:Get the deleted contact item
+            // Call GetItem operation using the deleted item IDs.
+            getItemResponse = this.CallGetItemOperation(getItemIds);
+
+            Site.Assert.AreEqual<int>(
+                 1,
+                 getItemResponse.ResponseMessages.Items.GetLength(0),
+                 "Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getItemResponse.ResponseMessages.Items.GetLength(0));
+
+            Site.Assert.AreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                getItemResponse.ResponseMessages.Items[0].ResponseClass,
+                string.Format(
+                    "Get deleted item should be failed! Expected response code: {0}, actual response code: {1}",
+                    ResponseCodeType.ErrorItemNotFound,
+                    getItemResponse.ResponseMessages.Items[0].ResponseCode));
+            #endregion
+        }
+
+        /// <summary>
+        /// Verify the successful responses returned by CreateItem, GetItem and DeleteItem operations.
+        /// </summary>
+        /// <typeparam name="T">The ItemType or its child class object.</typeparam>
+        /// <param name="item">The item to be operated.</param>
+        protected void FFF_TestSteps_VerifyCreateGetDeleteItem<T>(T item)
             where T : ItemType, new()
         {
             #region Step 1:Create an item
@@ -5176,6 +5725,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 @"[In t:ItemType Complex Type] The type of ItemId is t:ItemIdType (section 2.2.4.19).");
 
             // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2015");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2015
+            Site.CaptureRequirementIfIsNotNull(
+                itemIdResponse,
+                2015,
+                @"[In t:ItemType Complex Type] This element [ItemId] can be returned by the server.");
+
+            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1385");
 
             // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1385
@@ -7004,4 +7562,5 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         }
         #endregion
     }
+   
 }

@@ -1,6 +1,7 @@
 namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
 {
     using System;
+    using System.Collections.Generic;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -80,6 +81,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
 
             ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+
+            TaskType[] getItems = Common.GetItemsFromInfoResponse<TaskType>(getItemResponse);
 
             // One task item should be returned.
             Site.Assert.AreEqual<int>(
@@ -595,6 +598,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 2023,
                 @"[In t:ItemType Complex Type] If invalid values are set for these items in the CreateItem request, an ErrorObjectTypeChanged ([MS-OXWSCDATA] section 2.2.5.24) response code will be returned in the CreateItem response.");
         }
+
+        /// <summary>
+        /// This case is intended to validate the response returned by GetItem operation with the ItemShape element in which IncludeMimeContent element exists.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S07_TC19_VerifyGetItemWithItemResponseShapeType_IncludeMimeContentBoolean()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(23091, this.Site), "[In Appendix C: Product Behavior] This element [MimeContent] is applicable for ContactType, TaskType and DistributionListType item when retrieving MIME content.(E2010SP3 and above follow this behavior.)");
+
+            TaskType item = new TaskType();
+            this.TestSteps_VerifyGetItemWithItemResponseShapeType_IncludeMimeContentBoolean(item);
+        }
+
         #endregion
     }
 }

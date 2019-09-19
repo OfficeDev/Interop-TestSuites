@@ -114,6 +114,32 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
 
             ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
 
+            CalendarItemType[] getItems = Common.GetItemsFromInfoResponse<CalendarItemType>(getItemResponse);
+
+            if (Common.IsRequirementEnabled(2935, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2935");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2935               
+                this.Site.CaptureRequirementIfIsNull(getItems[0].Location,
+                    "MS-OXWSCORE",
+                    2935,
+                    @"[In Appendix C: Product Behavior] Implementation will return no data for the Location element which represents the location of the meeting. (<88> Section 2.2.4.27:  Exchange 2013, Exchange 2016, and Exchange 2019 follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(2936, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2936");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2936               
+                this.Site.CaptureRequirementIfIsNotNull(getItems[0].Location,
+                    "MS-OXWSCORE",
+                    2936,
+                    @"[In Appendix C: Product Behavior] Implementation will return data for the Location element which represents the location of the meeting. (<88> Section 2.2.4.27:  Exchange 2010 follow this behavior.)");
+            }
+
             // One calendar item should be returned.
             Site.Assert.AreEqual<int>(
                 1,
@@ -987,7 +1013,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.ExistItemIds.Clear();
             this.ExistItemIds.Add(calendar.ItemId);
         }
-
+        
         /// <summary>
         /// Create and get a recurring calendar item.
         /// </summary>
