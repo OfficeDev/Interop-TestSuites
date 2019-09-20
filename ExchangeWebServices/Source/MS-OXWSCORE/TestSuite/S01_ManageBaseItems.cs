@@ -1483,23 +1483,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 2040,
                 @"[In t:ItemType Complex Type] This element [LastModifiedName] can be returned by the server.");
 
+            if (Common.IsRequirementEnabled(20472, this.Site))
+            {
+
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2047");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R20472");
 
             // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2047
             Site.CaptureRequirementIfIsNotNull(
                 getItems[0].InstanceKey,
-                2047,
-                @"[In t:ItemType Complex Type] This element [InstanceKey] can be returned by the server.");
+                20472,
+                @"[In Appendix C: Product Behavior] This element [InstanceKey] can be returned by the server.(<63> Section 2.2.4.24: Exchange 2013 and above support the InstanceKey element.)");
+            }
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2051");
+            if (Common.IsRequirementEnabled(20512, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R20512");
 
-            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2051
-            Site.CaptureRequirementIfIsNotNull(
-                getItems[0].Preview,
-                2051,
-                @"[In t:ItemType Complex Type] This element [Preview] can be returned by the server.");
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R20512
+                Site.CaptureRequirementIfIsNotNull(
+                    getItems[0].Preview,
+                    20512,
+                    @"[In Appendix C: Product Behavior] This element [Preview] can be returned by the server.(<63> Section 2.2.4.24: Exchange 2013 and above support the InstanceKey element.)");
+            }
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2055");
@@ -1519,14 +1526,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 2059,
                 @"[In t:ItemType Complex Type] This element [BlockStatus] can be returned by the server.");
 
+            if (Common.IsRequirementEnabled(20612, this.Site))
+            {
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2061");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R20612");
 
-            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2061
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R20612
             Site.CaptureRequirementIfIsNotNull(
                 getItems[0].TextBody,
-                2061,
-                @"[In t:ItemType Complex Type] This element [TextBody] can be returned by the server .");
+                20612,
+                @"[In Appendix C: Product Behavior] This element [TextBody] can be returned by the server.(<77> Section 2.2.4.24:  Exchange 2007 and Exchange 2010 do support the TextBody element.)");
+            }
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2063");

@@ -1925,10 +1925,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             getItem.ItemShape.IncludeMimeContent = true;
             getItem.ItemShape.IncludeMimeContentSpecified = true;
 
-            // Return Additional Property 'itemMimeContentUTF8'
-            List<PathToUnindexedFieldType> additionalProperties = new List<PathToUnindexedFieldType>();
-            additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.itemMimeContentUTF8 });
-            getItem.ItemShape.AdditionalProperties = additionalProperties.ToArray();
+            if (Common.IsRequirementEnabled(2919, this.Site))
+            {
+                // Return Additional Property 'itemMimeContentUTF8'
+                List<PathToUnindexedFieldType> additionalProperties = new List<PathToUnindexedFieldType>();
+                additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.itemMimeContentUTF8 });
+                getItem.ItemShape.AdditionalProperties = additionalProperties.ToArray();
+            }
 
             GetItemResponseType getItemResponse_IncludeMimeContentTrue = this.COREAdapter.GetItem(getItem);
 
