@@ -799,7 +799,132 @@
           type="xs:string" 
           minOccurs="0"
         /&gt;
-</ns1:Description>
+&lt;xs:element name="TrustLevel" 
+          type="xs:int" 
+          minOccurs="0"
+        /&gt;
+        &lt;xs:element name="CreatedBy" 
+          type="xs:string" 
+          minOccurs="0"
+        /&gt;
+        &lt;xs:element name="Urls" 
+          type="t:ContactUrlDictionaryType" 
+          minOccurs="0"
+        /&gt;
+        &lt;xs:element name="Cid" 
+          type="xs:long" 
+          minOccurs="0"
+        /&gt;
+        &lt;xs:element name="SkypeAuthCertificate" 
+          type="xs:string" 
+          minOccurs="0"
+        /&gt;
+        &lt;xs:element name="SkypeContext" 
+          type="xs:string" 
+          minOccurs="0"
+        /&gt;
+        &lt;xs:element name="SkypeId" 
+          type="xs:string" 
+          minOccurs="0"
+        /&gt;
+        &lt;xs:element name="SkypeRelationship" 
+          type="xs:string" 
+          minOccurs="0"
+        /&gt;
+	        &lt;xs:element name="YomiNickname" 
+	          type="xs:string" 
+	          minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="XboxLiveTag" 
+	          type="xs:string"
+	          minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="InviteFree" 
+	          type="xs:boolean" 
+	          minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="HidePresenceAndProfile" 
+	          type="xs:boolean"
+	          minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="IsPendingOutbound" 
+	          type="xs:boolean"
+	          minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="SupportGroupFeeds" 
+	          type="xs:boolean" 
+	          minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="UserTileHash"
+	          type="xs:string" 
+	          minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="UnifiedInbox" 
+	          type="xs:boolean" 
+	          minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="Mris"
+	          type="t:ArrayOfStringsType" 
+	          minOccurs="0"
+        /&gt;
+	
+	        &lt;xs:element name="Wlid" 
+	          type="xs:string" 
+	          minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="AbchContactId" 
+	          type="t:GuidType" 
+	          minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="NotInBirthdayCalendar"
+	           type="xs:boolean"
+	           minOccurs="0"
+	        /&gt;
+        &lt;
+	xs:element name="ShellContactType" 
+	           type="xs:string" 
+	           minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name ="ImMri"
+	           type="xs:int"
+	           minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="PresenceTrustLevel"
+	           type="xs:string"
+	           minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="OtherMri"
+	           type="xs:string"
+	           minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="ProfileLastChanged"
+	           type="xs:string"
+	           minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="MobileImEnabled"  
+	           type="xs:boolean"
+	           minOccurs="0"
+	        /&gt; 
+	        &lt;xs:element name="DisplayNamePrefix"  
+	           type="xs:string"
+	           minOccurs="0"
+	        /&gt; 
+	        &lt;xs:element name="YomiGivenName"  
+	           type="xs:string"
+	           minOccurs="0"
+	        /&gt;
+	        &lt;xs:element name="YomiSurname"  
+	           type="xs:string"
+	           minOccurs="0"
+	        /&gt; 
+	        &lt;xs:element name="PersonalNotes"  
+	           type="xs:string"
+	           minOccurs="0"
+	        /&gt; 
+	      &lt;/xs:sequence&gt;
+	    &lt;/xs:entension&gt;
+	  &lt;/xs:complexContent&gt;
+	&lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2348,7 +2473,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334068</ns1:REQ_ID>
@@ -2357,7 +2482,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275116.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334069</ns1:REQ_ID>
@@ -2366,7 +2492,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334070</ns1:REQ_ID>
@@ -2375,7 +2501,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275118.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334071</ns1:REQ_ID>
@@ -2384,7 +2511,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334072</ns1:REQ_ID>
@@ -2393,7 +2520,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275120.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334073</ns1:REQ_ID>
@@ -2407,11 +2535,12 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334074</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] YomiSurname element:Specifies the user note.&lt;41&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] PersonalNotes element:Specifies the user note.&lt;41&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275122.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R82</ns1:REQ_ID>
@@ -3554,7 +3683,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R224005</ns1:REQ_ID>
@@ -3563,7 +3692,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R224006</ns1:REQ_ID>
@@ -3572,7 +3701,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R224007</ns1:REQ_ID>
@@ -3590,7 +3719,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R224009</ns1:REQ_ID>
@@ -3599,7 +3728,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R224010</ns1:REQ_ID>
@@ -3641,7 +3770,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R224014</ns1:REQ_ID>
@@ -3650,7 +3779,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R225</ns1:REQ_ID>
@@ -7234,7 +7363,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275115</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the DisplayNamePrefix  element. (&lt;38&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the DisplayNamePrefix  element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R1275116:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R334068:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7244,7 +7373,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275116</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the DisplayNamePrefix  element. (Exchange 2016 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R1275116:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R334068:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7255,7 +7384,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275117</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the YomiGivenName  element. (&lt;39&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the YomiGivenName  element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R1275118:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R334070:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7265,7 +7394,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275118</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the YomiGivenName  element. (Exchange 2016 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R1275118:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R334070:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7276,7 +7405,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275119</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the YomiSurname  element. (&lt;40&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the YomiSurname  element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R1275120:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R334072:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7286,7 +7415,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275120</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the YomiSurname element. (Exchange 2016 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R1275120:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R334072:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7297,7 +7426,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275121</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the PersonalNotes  element. (&lt;41&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the PersonalNotes  element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R1275122:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R334074:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7307,11 +7436,11 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:REQ_ID>MS-OXWSCONT_R1275122</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the PersonalNotes  element. (Exchange 2016 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCONT_R1275122:i</ns1:Derived>
+		<ns1:Derived>MS-OXWSCONT_R334074:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
