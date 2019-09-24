@@ -1900,21 +1900,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     @"[In Appendix C: Product Behavior] Implementation does support the element IsAssociated with type xs:boolean. (Exchange Server 2010 and above follow this behavior.)");
             }
 
-            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2503
-            // The schema is validated and the item is not null, so this requirement can be captured.
-            if (Common.IsRequirementEnabled(2503, this.Site))
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2503");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2503
-                // The schema is validated and the item is not null, so this requirement can be captured.
-                Site.CaptureRequirementIfIsNotNull(
-                    item,
-                    2503,
-                    @"[In Appendix C: Product Behavior] Implementation does support the WebClientEditFormQueryString  element which specifies a query string that identifies a edit form accessible by using a Web browser. (<57> Section 2.2.4.24:  Exchange 2010 and above follow this behavior.)");
-            }
-
             // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2921
             // The schema is validated and the item is not null, so this requirement can be captured.
             if (Common.IsRequirementEnabled(2921, this.Site))

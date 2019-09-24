@@ -443,6 +443,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
 
             getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
 
+            ItemType[] getItems = Common.GetItemsFromInfoResponse<ItemType>(getItemResponse);
+
             // One item should be returned.
             Site.Assert.AreEqual<int>(
                  1,
@@ -459,6 +461,23 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.Site.CaptureRequirement(
                 1600,
                 @"[In m:BaseMoveCopyItemType Complex Type] [The element ""ToFolderId""] Specifies an instance of the TargetFolderIdType complex type that specifies the folder to which the items specified by the ItemIds property are to be copied.");
+
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2503
+            // The schema is validated and the item is not null, so this requirement can be captured.
+            if (Common.IsRequirementEnabled(2503, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2503");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2503
+                // The schema is validated and the WebClientEditFormQueryStrings is not null, so this requirement can be captured.
+                Site.CaptureRequirementIfIsNotNull(
+                    getItems[0].WebClientEditFormQueryString,
+                    2503,
+                    @"[In Appendix C: Product Behavior] Implementation does support the WebClientEditFormQueryString  element which specifies a query string that identifies a edit form accessible by using a Web browser. (<57> Section 2.2.4.24:  Exchange 2010 and above follow this behavior.)");
+            }
+
             #endregion
         }
 
