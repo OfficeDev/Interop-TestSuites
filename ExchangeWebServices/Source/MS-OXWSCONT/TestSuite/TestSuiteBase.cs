@@ -323,6 +323,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     }
                 },
 
+                Urls = new ContactUrlDictionaryEntryType[]
+                {
+                    new ContactUrlDictionaryEntryType()
+                    {
+                        Type = ContactUrlKeyType.Business,
+                        Name = "This is a url",
+                        Address = Common.GenerateResourceName(
+                            this.Site,
+                            "Address"),
+                    }
+                },
+
                 // Set other relevant properties on the contact.
                 SpouseName = Common.GenerateResourceName(
                         this.Site,
@@ -382,6 +394,42 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 WeddingAnniversary = Convert.ToDateTime("2010-10-10"),
                 WeddingAnniversarySpecified = true
             };
+
+            if (Common.IsRequirementEnabled(1275004, this.Site))
+            {
+                item.AccountName = Common.GenerateResourceName(this.Site, "AccountName");
+            }
+
+            if (Common.IsRequirementEnabled(1275008, this.Site))
+            {
+                item.Comment = Common.GenerateResourceName(this.Site, "Comment");
+            }
+
+            if (Common.IsRequirementEnabled(1275014, this.Site))
+            {
+                item.Gender = "Female";
+            }
+
+            if (Common.IsRequirementEnabled(1275026, this.Site))
+            {
+                item.SourceId = Common.GenerateResourceName(this.Site, "SourceId");
+            }
+
+            if (Common.IsRequirementEnabled(1275034, this.Site))
+            {
+                item.CidSpecified = true;
+                item.Cid = 1;
+            }
+
+            if (Common.IsRequirementEnabled(1275040, this.Site))
+            {
+                item.SkypeId = Common.GenerateResourceName(this.Site, "SkypeId");
+            }
+
+            if (Common.IsRequirementEnabled(1275044, this.Site))
+            {
+                item.YomiNickname = Common.GenerateResourceName(this.Site, "YomiNickname");
+            }
 
             return item;
         }
@@ -456,6 +504,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     {
                         Value = Common.GenerateResourceName(this.Site, "EmailAddress") + "@" + Common.GetConfigurationPropertyValue("Domain", this.Site),
                         Key = emailAddressKeyType,
+                        Name = Common.GenerateResourceName(this.Site, "Name"),
                     }
                 }
             };
@@ -933,6 +982,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 @"[In t:ContactItemType Complex Type] The type of the element of PhysicalAddresses is t:PhysicalAddressDictionaryType (section 3.1.4.1.1.17).");
 
             this.VerifylPhysicalAddressDictionaryTypeComplexType(responseContactItem.PhysicalAddresses, requestContactItem.PhysicalAddresses);
+
+            this.VerifyContactUrlDictionaryTypeComplexType(responseContactItem.Urls, requestContactItem.Urls);
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R42");
@@ -1810,6 +1861,106 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 @"[In t:ContactItemType Complex Type] CompleteName element: Represents the complete name of a contact (2).");
         }
         #endregion
+
+        #region Verify requirements related to ContactUrlDictionaryEntryType complex types
+        /// <summary>
+        /// Capture ContactUrlDictionaryEntryType Complex Type related requirements.
+        /// </summary>
+        /// <param name="responseContactUrlDictionaryEntryType">The ContactUrlDictionaryEntryType element from the response package of GetItem operation.</param>
+        /// <param name="requestContactUrlDictionaryEntryType">The ContactUrlDictionaryEntryType element from the request package of CreateItem operation.</param>
+        private void VerifyContactUrlDictionaryEntryTypeComplexType(ContactUrlDictionaryEntryType responseContactUrlDictionaryEntryType, ContactUrlDictionaryEntryType requestContactUrlDictionaryEntryType)
+        {
+            Site.Assert.IsNotNull(responseContactUrlDictionaryEntryType, "The PhysicalAddresses element should not contain null entry!");
+
+            Site.Assert.IsNotNull(responseContactUrlDictionaryEntryType.Type, "The Type of the responseContactUrlDictionaryEntryType element from response should not be null.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R224004");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R224004
+            Site.CaptureRequirementIfIsTrue(
+                this.IsSchemaValidated,
+                224004,
+                @"[In t:ContactUrlDictionaryEntryType Complex Type] The type of the element Type is t:ContactUrlKeyType (section 3.1.4.1.2.2).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R224005");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R224005
+            this.Site.CaptureRequirementIfAreEqual<ContactUrlKeyType>(
+                requestContactUrlDictionaryEntryType.Type,
+                responseContactUrlDictionaryEntryType.Type,
+                224005,
+                @"[In t:ContactUrlDictionaryEntryType Complex Type] Type element: specifies the Url type.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R224006");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R224006
+            Site.CaptureRequirementIfIsTrue(
+                this.IsSchemaValidated,
+                224006,
+                @"[[In t:ContactUrlDictionaryEntryType Complex Type] The type of the element Name is xs:string ([XMLSCHEMA2]).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R224008");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R224008
+            Site.CaptureRequirementIfIsTrue(
+                this.IsSchemaValidated,
+                224008,
+                @"[In t:ContactUrlDictionaryEntryType Complex Type]  The type of the element Address xs:string.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R224009");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R224009
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                requestContactUrlDictionaryEntryType.Address,
+                responseContactUrlDictionaryEntryType.Address,
+                224009,
+                @"[In t:ContactUrlDictionaryEntryType Complex Type] Address element: Specifies the Url.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R224014");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R224014
+            // Because R224014 is captured based on R224005 and R224009, so if all of them are captured successfully, R224014 can be captured.
+            this.Site.CaptureRequirement(
+                224014,
+                @"[In t:ContactUrlDictionaryType Complex Type] Url element: Specifies a Url associated with a contact.");
+        }
+        #endregion
+
+        #region Verify requirements related to ContactUrlDictionaryType complex types
+        /// <summary>
+        /// Capture ContactUrlDictionaryType Complex Type related requirements.
+        /// </summary>
+        /// <param name="responseContactUrlDictionaryType">The array of ContactUrlDictionaryType element from the response package of GetItem operation.</param>
+        /// <param name="requestContactUrlDictionaryType">The array of ContactUrlDictionaryType element from the request package of CreateItem operation.</param>
+        private void VerifyContactUrlDictionaryTypeComplexType(ContactUrlDictionaryEntryType[] responseContactUrlDictionaryType, ContactUrlDictionaryEntryType[] requestContactUrlDictionaryType)
+        {
+            Site.Assert.IsNotNull(responseContactUrlDictionaryType, "The ContactUrl element should not be null!");
+
+            for (int i = 0; i < responseContactUrlDictionaryType.Length; i++)
+            {
+                // Verify the PhysicalAddressDictionaryEntryType element of PhysicalAddressDictionaryType Complex Type.
+                this.VerifyContactUrlDictionaryEntryTypeComplexType(responseContactUrlDictionaryType[i], requestContactUrlDictionaryType[i]);
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R224013");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R271
+                bool isVerifyR224013 = this.IsSchemaValidated && (responseContactUrlDictionaryType[i] != null);
+
+                Site.CaptureRequirementIfIsTrue(
+                    isVerifyR224013,
+                    224013,
+                    @"[In t:ContactUrlDictionaryType Complex Type] The type of the element Url is t:ContactUrlDictionaryEntryType (section 3.1.4.1.1.8).");
+            }
+        }
+        #endregion
+
         #endregion
 
         #region Private methods
