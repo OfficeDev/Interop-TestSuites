@@ -1022,7 +1022,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         [TestCategory("MSOXWSCONT"), TestMethod()]
         public void MSOXWSCONT_S01_TC10_VerifyHasPictureIsReadonly()
         {
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(1275002, this.Site), "Implementation does not support the HasPicture element.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1275002, this.Site), "Implementation does support the HasPicture element.");
 
             #region Step 1:Create the contact item.
             // Call CreateItem operation.
@@ -1037,6 +1037,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 createItemResponse.ResponseMessages.Items[0].ResponseCode,
                 81001,
                 @"[In t:ContactItemType Complex Type] HasPicture element: This element is read-only for the client.<4>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275002");
+
+            // If step above all pass, R1275002 will be verified.
+            this.Site.CaptureRequirement(
+                1275002,
+                @"[In Appendix C: Product Behavior] Implementation does support element HasPicture. (Exchange 2010 and above follow this behavior.)");
+
             #endregion
         }
 
