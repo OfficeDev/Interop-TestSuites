@@ -11114,9 +11114,9 @@ public partial class ContactUrlDictionaryEntryType {
     
     private ContactUrlKeyType typeField;
     
-    private string nameField;
-    
     private string addressField;
+    
+    private string nameField;
     
     /// <remarks/>
     public ContactUrlKeyType Type {
@@ -11129,22 +11129,22 @@ public partial class ContactUrlDictionaryEntryType {
     }
     
     /// <remarks/>
-    public string Name {
-        get {
-            return this.nameField;
-        }
-        set {
-            this.nameField = value;
-        }
-    }
-    
-    /// <remarks/>
     public string Address {
         get {
             return this.addressField;
         }
         set {
             this.addressField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string Name {
+        get {
+            return this.nameField;
+        }
+        set {
+            this.nameField = value;
         }
     }
 }
