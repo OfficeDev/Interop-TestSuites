@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!--Set R183Enabled to true to verify that the implementation does uses secure communications via HTTPS, as defined in [RFC2818]. Set R183Enabled to false to disable this requirement.-->
+    <Property name="R183Enabled" value="true" />
+    <!--Set R1428001Enabled to true to verify that the implementation return the MailboxType element in the GetItem operation. Set R1428001Enabled to false to disable this requirement.-->
+    <Property name="R1428001Enabled" value="true" />
+  </Properties>
+</TestSite>
