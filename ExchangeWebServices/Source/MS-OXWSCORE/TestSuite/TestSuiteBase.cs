@@ -1823,7 +1823,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 Site.CaptureRequirementIfIsNotNull(
                     item.MimeContent,
                     23091,
-                    @"[In Appendix C: Product Behavior] This element [MimeContent] is applicable for ContactType, TaskType and DistributionListType item when retrieving MIME content.(E2010SP3 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] This element [MimeContent] is applicable for PostItemType, MessageType, CalendarItemType, ContactType, TaskType and DistributionListType item when retrieving MIME content.(<52> Section 2.2.4.24: Exchange 2010SP3 and above follow this behavior.)");
             }
             if (Common.IsRequirementEnabled(23093, this.Site))
             {
@@ -1846,8 +1846,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsTrue(
                 TestSuiteHelper.IsBase64String(item.MimeContent.Value),
                 69,
-                @"[In t:ItemType Complex Type] [The element ""MimeContent""] Specifies an instance of the MimeContentType class that contains the native MIME stream of an object that is represented in base64Binary format.");
-            
+                @"[In t:ItemType Complex Type] [The element 'MimeContent'] Specifies an instance of the MimeContentType complex type that contains the native MIME stream of an object that is represented in base64encoding.");           
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1362");

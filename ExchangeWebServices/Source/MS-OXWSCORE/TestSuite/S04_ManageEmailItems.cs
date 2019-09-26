@@ -1972,7 +1972,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             // This requirement can be captured directly after above steps.
             this.Site.CaptureRequirement(
                 2315,
-                @"[In Appendix C: Product Behavior] Implementation does  support the SuppressReadReceipts attribute specifies whether read receipts are suppressed. (<102> Section 3.1.4.9.3.2:  This attribute [SuppressReadReceipts] was introduced in Exchange 2013 SP1.)");
+                @"[In Appendix C: Product Behavior] Implementation does  support the SuppressReadReceipts attribute specifies whether read receipts are suppressed. (<113> Section 3.1.4.9.3.2:  This attribute [SuppressReadReceipts] was introduced in Exchange 2013 SP1.)");
             #endregion
         }
 

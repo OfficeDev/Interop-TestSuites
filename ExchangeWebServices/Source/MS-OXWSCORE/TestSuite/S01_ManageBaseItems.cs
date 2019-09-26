@@ -281,7 +281,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 deleteItemResponse.ResponseMessages.Items[0],
                 "MS-OXWSCDATA",
                 1584,
-                @"[In m:ArrayOfResponseMessagesType Complex Type] The element ""DeleteItemResponseMessage"" is ""m:ResponseMessageType""(section 2.2.4.57) type.");
+                @"[In m:ArrayOfResponseMessagesType Complex Type] The element ""DeleteItemResponseMessage"" is ""m:ResponseMessageType""(section 2.2.4.67) type.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1038");
@@ -292,7 +292,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 deleteItemResponse.ResponseMessages.Items[0],
                 "MS-OXWSCDATA",
                 1038,
-                @"[In m:ArrayOfResponseMessagesType Complex Type] The element ""DeleteItemResponseMessage"" with type ""m:ResponseMessageType(section 2.2.4.57)"" specifies the response message for the DeleteItem operation ([MS-OXWSCORE] section 3.1.4.3).");
+                @"[In m:ArrayOfResponseMessagesType Complex Type] The element ""DeleteItemResponseMessage"" with type ""m:ResponseMessageType(section 2.2.4.67)"" specifies the response message for the DeleteItem operation ([MS-OXWSCORE] section 3.1.4.3).");
 
             // Clear ExistItemIds for DeleteItem.
             this.InitializeCollection();
@@ -1933,8 +1933,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
 
                 // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2923               
                 this.Site.CaptureRequirementIfIsNotNull(
-                    getItems[0].SortKey,                     
-                    "MS-OXWSCORE",
+                    getItems[0].SortKey,                   
                     2923,
                     @"[In Appendix C: Product Behavior] Implementation does support the SortKey element which specifies a sort key. (<81> Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)");
             }
@@ -1946,8 +1945,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
 
                 // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2932               
                 this.Site.CaptureRequirementIfIsInstanceOfType(getItems[0].MentionedMe,
-                     typeof(bool),
-                    "MS-OXWSCORE",
+                    typeof(bool),                    
                     2932,
                     @"[In Appendix C: Product Behavior] Implementation does support element name MentionedMe with type xs: boolean which Specifies whether the mention applies to the mailbox owner. (<84> Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)");
             }
@@ -2378,7 +2376,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 // The DateTimePrecision SOAP header is set in request and the schema is validated, so this requirement can be captured.
                 this.Site.CaptureRequirement(
                     1256,
-                    @"[In Appendix C: Product Behavior] Implementation does introduce the DateTimePrecision SOAP header. (<98> Section 3.1.4.4.1.1:  The DateTimePrecision SOAP header was introduced in Microsoft Exchange Server 2010 Service Pack 2 (SP2). (Exchange 2013 Preview and above follow this behavior).)");
+                    @"[In Appendix C: Product Behavior] Implementation does introduce the DateTimePrecision SOAP header. (<109> Section 3.1.4.4.1.1:  The DateTimePrecision SOAP header was introduced in Microsoft Exchange Server 2010 Service Pack 2 (SP2). (Exchange 2013 Preview and above follow this behavior).)");
             }
 
             if (Common.IsRequirementEnabled(1816, this.Site))
@@ -4614,15 +4612,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
 
                 CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
 
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2045");
-
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R20451
-                this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
-                    ResponseCodeType.ErrorInvalidPropertySet,
-                    createItemResponse.ResponseMessages.Items[0].ResponseCode,
-                    20451,
-                    @"[In Appendix C: Product Behavior]It [StoreEntryId] is read-only for the client and will be ignored by the server.(<62> Section 2.2.4.24:  In Exchange 2010 SP2, if the StoreEntryId is specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.)");
                 #endregion
 
                 #region Step 2: Update created item with setting StoreEntryId.
@@ -4728,17 +4717,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     itemChanges);
 
                 ItemType[] updateItems = Common.GetItemsFromInfoResponse<ItemType>(updateItemResponse);
-                
-        
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R20451");
 
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R20452
-                this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
-                    ResponseCodeType.ErrorInvalidPropertySet,
-                    updateItemResponse.ResponseMessages.Items[0].ResponseCode,
-                    20452,
-                    @"[In Appendix C: Product Behavior] It [StoreEntryId] is read-only for the client and will be ignored by the server.(<62> Section 2.2.4.24:  In Exchange 2013 and above,  if the StoreEntryId is specified in a CreateItem or UpdateItem request, will be ignored by server.)");
                #endregion
             }
         }

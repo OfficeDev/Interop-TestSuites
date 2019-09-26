@@ -1893,7 +1893,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R13411");
 
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R13411
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_13411
                 Site.CaptureRequirementIfIsNotNull(
                     item,
                     13411,
@@ -1907,7 +1907,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2921");
 
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2925
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2921
                 // The schema is validated and the item is not null, so this requirement can be captured.
                 Site.CaptureRequirementIfIsNotNull(
                     item,
@@ -1952,7 +1952,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2931");
 
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2927
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2931
                 // The schema is validated and the item is not null, so this requirement can be captured.
                 Site.CaptureRequirementIfIsNotNull(
                     item,

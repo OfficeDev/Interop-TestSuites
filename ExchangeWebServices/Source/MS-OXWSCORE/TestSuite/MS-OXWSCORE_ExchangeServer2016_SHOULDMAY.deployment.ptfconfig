@@ -199,10 +199,6 @@
     <Property name="R2313Enabled" value="true" />
     <!--Set R1839Enabled to true to verify that When the value of ""IsJunk"" is True the implementation adds the sender of the email to the blocked sender list. Set R1839Enabled to false to disable this requirement.-->
     <Property name="R1839Enabled" value="false" />
-    <!--Set R23091Enabled to true to verify that In Exchange 2013 and above,if the StoreEntryId is specified in a CreateItem or UpdateItem request, will be ignored by server.Set R20452Enabled to false to disable this requirement.-->
-    <Property name="R23091Enabled" value="true" />
-    <!--Set R23093Enabled to true to verify that In Exchange 2007, Exchange 2010, Exchange 2010 SP1 and Microsoft Exchange Server 2010 Service Pack 2 (SP2), when retrieving MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object, an ErrorUnsupportedMimeConversion will be returned. Set R23093Enabled to false to disable this requirement.-->
-    <Property name="R23093Enabled" value="false" />
     <!--Set R2503Enabled to true to verify that the implementation does Implementation does support the WebClientEditFormQueryString  element. Set R2503Enabled to false to disable this requirement.-->
     <Property name="R2503Enabled" value="true" />
     <!--Set R20451Enabled to true to verify that In Exchange 2010 SP2, if the StoreEntryId is specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned. Set R20451Enabled to false to disable this requirement.-->
@@ -227,14 +223,12 @@
     <Property name="R2935Enabled" value="true" />
     <!--Set R2936Enabled to true to verify that In Exchange 2010 and above, the implementation will return data for the Location element which represents the location of the meeting. Set R2936Enabled to false to disable this requirement.-->
     <Property name="R2936Enabled" value="false" />
-
     <!--Set R20472Enabled to true to verify that In Exchange 2013 and above, the implementation support InstanceKey element. Set R20472Enabled to false to disable this requirement.-->
     <Property name="R20472Enabled" value="false" />
     <!--Set R20512Enabled to true to verify that In Exchange 2013 and above, the implementation support Preview element. Set R20512Enabled to false to disable this requirement.-->
     <Property name="R20512Enabled" value="false" />
     <!--Set R20612Enabled to true to verify that In Exchange 2013 and above, the implementation support TextBody element. Set R20612Enabled to false to disable this requirement.-->
     <Property name="R20612Enabled" value="false" />
-
     <!--Set R13411Enabled to true to verify that In Exchange 2010 and above, the implementation  Implementation does support the element IsAssociated with type xs:boolean. Set R13411Enabled to false to disable this requirement.-->
     <Property name="R13411Enabled" value="true" />
     <!--Set R1881Enabled to true to verify that In Exchange 2010 SP2 and above, the implementation does support the element with type "xs:base64Binary ([XMLSCHEMA2]) which specifies the entry ID of the store that hosts an item. Set R13411Enabled to false to disable this requirement.-->

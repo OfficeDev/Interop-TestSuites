@@ -123,7 +123,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
 
                 // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2935               
                 this.Site.CaptureRequirementIfIsNull(getItems[0].Location,
-                    "MS-OXWSCORE",
                     2935,
                     @"[In Appendix C: Product Behavior] Implementation will return no data for the Location element which represents the location of the meeting. (<88> Section 2.2.4.27:  Exchange 2013, Exchange 2016, and Exchange 2019 follow this behavior.)");
             }
@@ -134,8 +133,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2936");
 
                 // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2936               
-                this.Site.CaptureRequirementIfIsNotNull(getItems[0].Location,
-                    "MS-OXWSCORE",
+                this.Site.CaptureRequirementIfIsNotNull(getItems[0].Location,                    
                     2936,
                     @"[In Appendix C: Product Behavior] Implementation will return data for the Location element which represents the location of the meeting. (<88> Section 2.2.4.27:  Exchange 2010 follow this behavior.)");
             }
@@ -857,7 +855,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     // Element ProposeNewTime is returned from server, this requirement can be captured directly.
                     this.Site.CaptureRequirement(
                         2302,
-                        @"[In Appendix C: Product Behavior] Implementation does support the ProposeNewTime element which specifies the response object that is used to propose a new time. (<82> Section 2.2.4.33:  This element [ProposeNewTime] was introduced in Exchange 2013 SP1.)");
+                        @"[In Appendix C: Product Behavior] Implementation does support the ProposeNewTime element which specifies the response object that is used to propose a new time. (<93> Section 2.2.4.33:  This element [ProposeNewTime] was introduced in Exchange 2013 SP1.)");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2135");
