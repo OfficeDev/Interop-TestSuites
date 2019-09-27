@@ -4673,7 +4673,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R204512");
 
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R20452
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R204512
                 this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                     ResponseCodeType.ErrorInvalidPropertySet,
                     updateItemResponse.ResponseMessages.Items[0].ResponseCode,
@@ -4684,7 +4684,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             if (Common.IsRequirementEnabled(204522, this.Site))
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R204512");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R204522");
 
                 // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R204522
                 this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
