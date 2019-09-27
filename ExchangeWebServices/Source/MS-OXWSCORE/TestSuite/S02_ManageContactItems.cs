@@ -440,7 +440,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         [TestCategory("MSOXWSCORE"), TestMethod()]
         public void MSOXWSCORE_S02_TC17_VerifyGetItemWithItemResponseShapeType_IncludeMimeContentBoolean()
         {
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(23091, this.Site), "[In Appendix C: Product Behavior] This element [MimeContent] is not applicable for ContactType, TaskType and DistributionListType item when retrieving MIME content.(E2010SP3 and above follow this behavior.)");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(23091, this.Site), "E2010SP3 version below do not support the MimeContent element for ContactType, TaskType and DistributionListType item when retrieving MIME content.");
 
             ContactItemType item = new ContactItemType();
             this.TestSteps_VerifyGetItemWithItemResponseShapeType_IncludeMimeContentBoolean(item);
