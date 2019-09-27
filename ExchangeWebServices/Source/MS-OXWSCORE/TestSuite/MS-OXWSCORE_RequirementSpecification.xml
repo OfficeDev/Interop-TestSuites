@@ -2730,9 +2730,9 @@
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R20451,MS-OXWSCORE_R20452.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R20451</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSCORE_R204511</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior]It [StoreEntryId] is read-only for the client and will be ignored by the server.(&lt;62&gt; Section 2.2.4.24:  In Exchange 2010 SP2, if the StoreEntryId is specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior]It [StoreEntryId] is read-only for the client and will be ignored by the server.(&lt;62&gt; Section 2.2.4.24:  In Exchange 2010 SP2, if the StoreEntryId is specified in a CreateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2045:i</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2741,9 +2741,31 @@
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R20452</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSCORE_R204512</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] It [StoreEntryId] is read-only for the client and will be ignored by the server.(&lt;62&gt; Section 2.2.4.24:  In Exchange 2013 and above,  if the StoreEntryId is specified in a CreateItem or UpdateItem request, will be ignored by server.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior]It [StoreEntryId] is read-only for the client and will be ignored by the server.(&lt;62&gt; Section 2.2.4.24:  In Exchange 2010 SP2, if the StoreEntryId is specified in a  UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2045:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R204521</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] It [StoreEntryId] is read-only for the client and will be ignored by the server.(&lt;62&gt; Section 2.2.4.24:  In Exchange 2013 and above,  if the StoreEntryId is specified in a CreateItem request, will be ignored by server.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2045:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R204522</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] It [StoreEntryId] is read-only for the client and will be ignored by the server.(&lt;62&gt; Section 2.2.4.24:  In Exchange 2013 and above,  if the StoreEntryId is specified in a UpdateItem request, will be ignored by server.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2045:i</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

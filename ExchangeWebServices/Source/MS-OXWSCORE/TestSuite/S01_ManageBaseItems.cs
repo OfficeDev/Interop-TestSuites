@@ -4601,125 +4601,100 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         [TestCategory("MSOXWSCORE"), TestMethod()]
         public void MSOXWSCORE_S01_TC45_VerifyStoreEntryIdIsReadOnly()
         {
-            if (Common.IsRequirementEnabled(20451, this.Site))
+            #region Step 1: Create the item with setting WebClientReadFormQueryString.
+            ItemType[] createdItems = new ItemType[] { new ItemType() };
+            createdItems[0].Subject = Common.GenerateResourceName(
+                this.Site,
+                TestSuiteHelper.SubjectForCreateItem);
+            createdItems[0].StoreEntryId = new byte[5] { 1, 2, 3, 4, 5 };
+
+            CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
+            if (Common.IsRequirementEnabled(204511, this.Site))
             {
-                #region Step 1: Create the item with setting WebClientReadFormQueryString.
-                ItemType[] createdItems = new ItemType[] { new ItemType() };
-                createdItems[0].Subject = Common.GenerateResourceName(
-                    this.Site,
-                    TestSuiteHelper.SubjectForCreateItem);
-                createdItems[0].StoreEntryId = new byte[5] { 1, 2, 3, 4, 5 };
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R204511");
 
-                CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
-
-                #endregion
-
-                #region Step 2: Update created item with setting StoreEntryId.
-
-                ItemType item = new ItemType();
-                ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
-
-                UpdateItemResponseType updateItemResponse;
-                ItemChangeType[] itemChanges;
-
-                itemChanges = new ItemChangeType[1];
-                itemChanges[0] = new ItemChangeType();
-
-                // Update the created item.
-                itemChanges[0].Item = createdItemIds[0];
-                itemChanges[0].Updates = new ItemChangeDescriptionType[1];
-                SetItemFieldType setItem = new SetItemFieldType();
-                setItem.Item = new PathToUnindexedFieldType()
-                {
-                    FieldURI = UnindexedFieldURIType.itemStoreEntryId
-                };
-                setItem.Item1 = new ItemType()
-                {
-                    StoreEntryId = new byte[5] { 1, 2, 3, 4, 5 }
-                };
-                itemChanges[0].Updates[0] = setItem;
-
-                // Call UpdateItem to update the body of the created item, by using ItemId in CreateItem response.
-                updateItemResponse = this.CallUpdateItemOperation(
-                    DistinguishedFolderIdNameType.drafts,
-                    true,
-                    itemChanges);
-
-                ItemType[] updateItems = Common.GetItemsFromInfoResponse<ItemType>(updateItemResponse);
-
-                if (Common.IsRequirementEnabled(20451, this.Site))
-                {
-                    // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R20451");
-
-                    // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R20451
-                    this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
-                        ResponseCodeType.ErrorInvalidPropertySet,
-                        updateItemResponse.ResponseMessages.Items[0].ResponseCode,
-                        20451,
-                        @"[In Appendix C: Product Behavior]It [StoreEntryId] is read-only for the client and will be ignored by the server.(<62> Section 2.2.4.24:  In Exchange 2010 SP2, if the StoreEntryId is specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.)");
-                }
-                #endregion
-
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R204511
+                this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                    ResponseCodeType.ErrorInvalidPropertySet,
+                    createItemResponse.ResponseMessages.Items[0].ResponseCode,
+                    204511,
+                    @"[In Appendix C: Product Behavior]It [StoreEntryId] is read-only for the client and will be ignored by the server.(<62> Section 2.2.4.24:  In Exchange 2010 SP2, if the StoreEntryId is specified in a CreateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.)");
             }
 
-            if (Common.IsRequirementEnabled(20452, this.Site))
+            if (Common.IsRequirementEnabled(204521, this.Site))
             {
-                #region Step 1: Create the item with setting WebClientReadFormQueryString.
-                ItemType[] createdItems = new ItemType[] { new ItemType() };
-                createdItems[0].Subject = Common.GenerateResourceName(
-                    this.Site,
-                    TestSuiteHelper.SubjectForCreateItem);
-                createdItems[0].StoreEntryId = new byte[5] { 1, 2, 3, 4, 5 };
-
-                CreateItemResponseType createItemResponse = this.CallCreateItemOperation(DistinguishedFolderIdNameType.drafts, createdItems);
-
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R20452");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R204521");
 
-                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R20452
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R204521
                 this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                     ResponseCodeType.NoError,
                     createItemResponse.ResponseMessages.Items[0].ResponseCode,
-                    20452,
-                    @"[In Appendix C: Product Behavior] It [StoreEntryId] is read-only for the client and will be ignored by the server.(<62> Section 2.2.4.24:  In Exchange 2013 and above,  if the StoreEntryId is specified in a CreateItem or UpdateItem request, will be ignored by server.)");
-                #endregion
-
-                #region Step 2: Update created item with setting StoreEntryId.
-
-                ItemType item = new ItemType();
-                ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
-
-                UpdateItemResponseType updateItemResponse;
-                ItemChangeType[] itemChanges;
-
-                itemChanges = new ItemChangeType[1];
-                itemChanges[0] = new ItemChangeType();
-
-                // Update the created item.
-                itemChanges[0].Item = createdItemIds[0];
-                itemChanges[0].Updates = new ItemChangeDescriptionType[1];
-                SetItemFieldType setItem = new SetItemFieldType();
-                setItem.Item = new PathToUnindexedFieldType()
-                {
-                    FieldURI = UnindexedFieldURIType.itemStoreEntryId
-                };
-                setItem.Item1 = new ItemType()
-                {
-                    StoreEntryId = new byte[5] { 5, 4, 3, 2, 1 }
-                };
-                itemChanges[0].Updates[0] = setItem;
-
-                // Call UpdateItem to update the body of the created item, by using ItemId in CreateItem response.
-                updateItemResponse = this.CallUpdateItemOperation(
-                    DistinguishedFolderIdNameType.drafts,
-                    true,
-                    itemChanges);
-
-                ItemType[] updateItems = Common.GetItemsFromInfoResponse<ItemType>(updateItemResponse);
-
-               #endregion
+                    204521,
+                    @"[In Appendix C: Product Behavior] It [StoreEntryId] is read-only for the client and will be ignored by the server.(<62> Section 2.2.4.24:  In Exchange 2013 and above,  if the StoreEntryId is specified in a CreateItem request, will be ignored by server.)");
             }
+            #endregion
+
+            #region Step 2: Update created item with setting StoreEntryId.
+            ItemType item = new ItemType();
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
+
+            UpdateItemResponseType updateItemResponse;
+            ItemChangeType[] itemChanges;
+
+            itemChanges = new ItemChangeType[1];
+            itemChanges[0] = new ItemChangeType();
+
+            // Update the created item.
+            itemChanges[0].Item = createdItemIds[0];
+            itemChanges[0].Updates = new ItemChangeDescriptionType[1];
+            SetItemFieldType setItem = new SetItemFieldType();
+            setItem.Item = new PathToUnindexedFieldType()
+            {
+                FieldURI = UnindexedFieldURIType.itemStoreEntryId
+            };
+            setItem.Item1 = new ItemType()
+            {
+                StoreEntryId = new byte[5] { 1, 2, 3, 4, 5 }
+            };
+            itemChanges[0].Updates[0] = setItem;
+
+            // Call UpdateItem to update the body of the created item, by using ItemId in CreateItem response.
+            updateItemResponse = this.CallUpdateItemOperation(
+                DistinguishedFolderIdNameType.drafts,
+                true,
+                itemChanges);
+
+            ItemType[] updateItems = Common.GetItemsFromInfoResponse<ItemType>(updateItemResponse);
+ 
+            if (Common.IsRequirementEnabled(204512, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R204512");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R20452
+                this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                    ResponseCodeType.ErrorInvalidPropertySet,
+                    updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                    204512,
+                    @"[In Appendix C: Product Behavior]It [StoreEntryId] is read-only for the client and will be ignored by the server.(<62> Section 2.2.4.24:  In Exchange 2010 SP2, if the StoreEntryId is specified in a  UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.)");
+            }
+
+            if (Common.IsRequirementEnabled(204522, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R204512");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R204522
+                this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                    ResponseCodeType.ErrorInvalidPropertySet,
+                    updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                    204522,
+                    @"[In Appendix C: Product Behavior] It [StoreEntryId] is read-only for the client and will be ignored by the server.(<62> Section 2.2.4.24:  In Exchange 2013 and above,  if the StoreEntryId is specified in a UpdateItem request, will be ignored by server.)");
+            }
+            #endregion
+
         }
 
         /// <summary>
