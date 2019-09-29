@@ -81,7 +81,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             // Check the operation response.
             Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
 
-            ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+            ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);            
 
             // One message type item should be returned.
             Site.Assert.AreEqual<int>(
@@ -530,7 +530,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             messages[0].ToRecipients[0] = email;
             messages[0].IsReadReceiptRequestedSpecified = true;
             messages[0].IsReadReceiptRequested = true;
-
+            
             // Define the request of CreateItem operation.
             CreateItemType requestItem = new CreateItemType();
             requestItem.MessageDispositionSpecified = true;
@@ -596,7 +596,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     // The schema is validated, so this requirement can be captured.
                     this.Site.CaptureRequirement(
                         1371,
-                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyToItem is t:ReplyToItemType ([MS-OXWSCDATA] section 2.2.4.56).");
+                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyToItem is t:ReplyToItemType ([MS-OXWSCDATA] section 2.2.4.66).");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R131");
@@ -617,7 +617,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     // The schema is validated, so this requirement can be captured.
                     this.Site.CaptureRequirement(
                         1372,
-                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ForwardItem is t:ForwardItemType ([MS-OXWSCDATA] section 2.2.4.33).");
+                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ForwardItem is t:ForwardItemType ([MS-OXWSCDATA] section 2.2.4.38).");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R132");
@@ -638,7 +638,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     // The schema is validated, so this requirement can be captured.
                     this.Site.CaptureRequirement(
                         1373,
-                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyAllToItem is t:ReplyAllToItemType ([MS-OXWSCDATA] section 2.2.4.54).");
+                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyAllToItem is t:ReplyAllToItemType ([MS-OXWSCDATA] section 2.2.4.64).");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R133");
@@ -1972,9 +1972,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             // This requirement can be captured directly after above steps.
             this.Site.CaptureRequirement(
                 2315,
-                @"[In Appendix C: Product Behavior] Implementation does  support the SuppressReadReceipts attribute specifies whether read receipts are suppressed. (<102> Section 3.1.4.9.3.2:  This attribute [SuppressReadReceipts] was introduced in Exchange 2013 SP1.)");
+                @"[In Appendix C: Product Behavior] Implementation does  support the SuppressReadReceipts attribute specifies whether read receipts are suppressed. (<113> Section 3.1.4.9.3.2:  This attribute [SuppressReadReceipts] was introduced in Exchange 2013 SP1.)");
             #endregion
         }
+
         #endregion
     }
 }
