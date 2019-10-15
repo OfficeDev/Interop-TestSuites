@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R212Enabled to true to verify that the implementation supports SOAP over HTTPS for enhancing the security of communication with protocol clients as specified in section 2.1. Set R212Enabled to false to disable this requirement.-->
+    <Property name="R212Enabled" value="true"/>
+    <!-- Set R1489Enabled to true to verify that the implementation does not include FirstDayOfWeek element as specified in [MS-OXWSCDATA] section 8. Set R1489Enabled to false to disable this requirement.-->
+    <Property name="R1489Enabled" value="false"/>
+    <!-- Set R4005Enabled to true to verify that the implementation includes FirstDayOfWeek element as specified in [MS-OXWSCDATA] section 2.2.4.64. Set R4005Enabled to false to disable this requirement.-->
+    <Property name="R4005Enabled" value="true"/>
+    <!-- Set R212001Enabled to true to verify that the implementation does support SOAP over HTTP, as specified in [RFC2616], as a transport means. Set R212001Enabled to false to disable this requirement.-->
+    <Property name="R212001Enabled" value="true"/>
+  </Properties>
+</TestSite>
