@@ -546,7 +546,7 @@ and the reference of the namespace URI is [SOAP1.1].</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R213</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskType Complex Type] The type of ActualWork is xs:int [XMLSCHEMA2] section 3.3.17.</ns1:Description>
+		<ns1:Description>[In t:TaskType Complex Type] The type of ActualWork is xs:int [XMLSCHEMA2/2] section 3.3.17.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -564,7 +564,7 @@ and the reference of the namespace URI is [SOAP1.1].</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R214</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskType Complex Type] AssignedTime with xs:dateTime [XMLSCHEMA2] section 3.2.7 type specifies an instance of the DateTime structure that contains the time when a task is assigned to a contact.</ns1:Description>
+		<ns1:Description>[In t:TaskType Complex Type] AssignedTime with xs:dateTime [XMLSCHEMA2/2] section 3.2.7 type specifies an instance of the DateTime structure that contains the time when a task is assigned to a contact.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -582,7 +582,7 @@ and the reference of the namespace URI is [SOAP1.1].</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R215</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskType Complex Type] The type of BillingInformation is xs:string [XMLSCHEMA2] section 3.2.1.</ns1:Description>
+		<ns1:Description>[In t:TaskType Complex Type] The type of BillingInformation is xs:string [XMLSCHEMA2/2] section 3.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1191,15 +1191,6 @@ name="TaskDelegateStateType"&gt;
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSTASK_R91001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskDelegateStateType Simple Type] Accepted: This value cannot be in the simple type.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R92</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1</ns1:Doc_Sect>
 		<ns1:Description>[In t:TaskDelegateStateType Simple Type] Declined: Specifies that the task has been declined.</ns1:Description>
@@ -1771,7 +1762,7 @@ name="TaskDelegateStateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R152</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn([MS-OXWSCORE] section 3.1.4.1.1.1): Specifies the SOAP message that defines the task item to be copied.</ns1:Description>
+		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn([MS-OXWSCORE] section 3.1.4.1.1.1)%5BMS-OXWSCORE%5D.pdf: Specifies the SOAP message that defines the task item to be copied.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1780,7 +1771,7 @@ name="TaskDelegateStateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R200</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn ([MS-OXWSCORE] section 3.1.4.1.1.1): The CopyItem operation (as specified in [MS-OXWSCORE] section 3.1.4.1.1.1) that specifies the XML request MUST contain the t:TargetFolderIdType complex type (as specified in [MS-OXWSFOLD] section 2.2.4.16) and the t:ItemIdType complex type (as specified in [MS-OXWSCORE] section 2.2.4.25). </ns1:Description>
+		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn ([MS-OXWSCORE] section 3.1.4.1.1.1)%5BMS-OXWSCORE%5D.pdf: The CopyItem operation (as specified in [MS-OXWSCORE] section 3.1.4.1.1.1) that specifies the XML request MUST contain the t:TargetFolderIdType complex type (as specified in [MS-OXWSFOLD] section 2.2.4.16) and the t:ItemIdType complex type (as specified in [MS-OXWSCORE] section 2.2.4.25). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1789,7 +1780,7 @@ name="TaskDelegateStateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R153</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn ([MS-OXWSCORE] section 3.1.4.1.1.1): All other type elements in t:NonEmptyArrayOfBaseItemIdsType element MUST NOT be included.</ns1:Description>
+		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn ([MS-OXWSCORE] section 3.1.4.1.1.1)%5BMS-OXWSCORE%5D.pdf: All other type elements in t:NonEmptyArrayOfBaseItemIdsType element MUST NOT be included.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2097,7 +2088,7 @@ name="TaskDelegateStateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R182</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In GetItem Operation] [tns:GetItemSoapOut ([MS-OXWSCORE] section 3.1.4.4.1.2)] The server returns a t:ItemResponseShapeType complex type element, as specified in [MS-OXWSCDATA] section 2.2.4.44, that contains properties associated with the task item.</ns1:Description>
+		<ns1:Description>[In GetItem Operation] [tns:GetItemSoapOut ([MS-OXWSCORE] section 3.1.4.4.1.2)] The server returns a  t:GetItemResponseType complex type element, which extends the BaseResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.18, that contains properties associated with the task item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
