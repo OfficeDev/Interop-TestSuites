@@ -745,7 +745,7 @@ xs:dateTime.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R224</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskType Complex Type] The type of IsComplete is xs:boolean [XMLSCHEMA2] section 3.2.2.</ns1:Description>
+		<ns1:Description>[In t:TaskType Complex Type] The type of IsComplete is xs:boolean [XMLSCHEMA2/2] section 3.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -893,7 +893,7 @@ xs:dateTime.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R229</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:TaskType Complex Type] The type of PercentComplete is xs:double [XMLSCHEMA2] section 3.2.5.</ns1:Description>
+		<ns1:Description>[In t:TaskType Complex Type] The type of PercentComplete is xs:double [XMLSCHEMA2/2] section 3.2.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1762,7 +1762,7 @@ name="TaskDelegateStateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R152</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn([MS-OXWSCORE] section 3.1.4.1.1.1)%5BMS-OXWSCORE%5D.pdf: Specifies the SOAP message that defines the task item to be copied.</ns1:Description>
+		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn([MS-OXWSCORE] section 3.1.4.1.1.1): Specifies the SOAP message that defines the task item to be copied.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1771,7 +1771,7 @@ name="TaskDelegateStateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R200</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn ([MS-OXWSCORE] section 3.1.4.1.1.1)%5BMS-OXWSCORE%5D.pdf: The CopyItem operation (as specified in [MS-OXWSCORE] section 3.1.4.1.1.1) that specifies the XML request MUST contain the t:TargetFolderIdType complex type (as specified in [MS-OXWSFOLD] section 2.2.4.16) and the t:ItemIdType complex type (as specified in [MS-OXWSCORE] section 2.2.4.25). </ns1:Description>
+		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn ([MS-OXWSCORE] section 3.1.4.1.1.1): The CopyItem operation (as specified in [MS-OXWSCORE] section 3.1.4.1.1.1) that specifies the XML request MUST contain the t:TargetFolderIdType complex type (as specified in [MS-OXWSFOLD] section 2.2.4.16) and the t:ItemIdType complex type (as specified in [MS-OXWSCORE] section 2.2.4.25). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1780,7 +1780,7 @@ name="TaskDelegateStateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSTASK_R153</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn ([MS-OXWSCORE] section 3.1.4.1.1.1)%5BMS-OXWSCORE%5D.pdf: All other type elements in t:NonEmptyArrayOfBaseItemIdsType element MUST NOT be included.</ns1:Description>
+		<ns1:Description>[In CopyItem Operation] tns:CopyItemSoapIn ([MS-OXWSCORE] section 3.1.4.1.1.1): All other type elements in t:NonEmptyArrayOfBaseItemIdsType element MUST NOT be included.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
