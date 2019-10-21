@@ -49,7 +49,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         public void MSOXWSCORE_S06_TC02_CopyPostItemSuccessfully()
         {
             #region Step 1: Create the post item.
-            PostItemType item = new PostItemType();
+            PostItemType item = new PostItemType();            
             ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
             #endregion
 
@@ -79,6 +79,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
 
             ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+
+            PostItemType[] getItems = Common.GetItemsFromInfoResponse<PostItemType>(getItemResponse);
 
             // One post item should be returned.
             Site.Assert.AreEqual<int>(
@@ -437,6 +439,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.Site.CaptureRequirement(
                 2023,
                 @"[In t:ItemType Complex Type] If invalid values are set for these items in the CreateItem request, an ErrorObjectTypeChanged ([MS-OXWSCDATA] section 2.2.5.24) response code will be returned in the CreateItem response.");
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the successful responses returned by CreateItem, GetItem and DeleteItem operations for post item with required elements.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S06_TCXX_CreateGetDeletePostItemSuccessfully()
+        {
+            PostItemType item = new PostItemType();
+            this.TestSteps_VerifyCreateGetDeleteItem(item);
         }
         #endregion
     }
