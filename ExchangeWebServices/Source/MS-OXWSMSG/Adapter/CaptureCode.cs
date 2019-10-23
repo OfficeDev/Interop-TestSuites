@@ -566,6 +566,59 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                     isSchemaValidated,
                     73002,
                     @"[In t:MessageType Complex Type] The type of child element ApprovalRequestData is t:ApprovalRequestDataType ([MS-OXWSMTGS] section 2.2.4.3).");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R301");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R301
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    301,
+                    @"[In t:ApprovalRequestDataType Complex Type] The ApprovalRequestDataType schema is 
+                    <xs:complexType name=""ApprovalRequestDataType"">
+                      <xs:sequence>
+                        <xs:element name=""IsUndecidedApprovalRequest"" type=""xs:boolean"" minOccurs=""0""/>
+                        <xs:element name=""ApprovalDecision"" type=""xs:int"" minOccurs=""0""/>
+                        <xs:element name=""ApprovalDecisionMaker"" type=""xs:string"" minOccurs=""0""/>
+                        <xs:element name=""ApprovalDecisionTime"" type=""xs:dateTime"" minOccurs=""0""/>
+                      </xs:sequence>
+                    </xs:complexType>");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R303");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R303
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    303,
+                    @"[In t:ApprovalRequestDataType Complex Type] The IsUndecidedApprovalRequest element is xs:boolean ([XMLSCHEMA2]) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R307");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R307
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    307,
+                    @"[In t:ApprovalRequestDataType Complex Type]The ApprovalDecision element is xs:int ([XMLSCHEMA2]) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R309");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R309
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    309,
+                    @"[In t:ApprovalRequestDataType Complex Type]The ApprovalDecisionMaker element is xs:string ([XMLSCHEMA2]) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R311");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R311
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    311,
+                    @"[In t:ApprovalRequestDataType Complex Type]The ApprovalDecisionTime element is xs:dateTime ([XMLSCHEMA2]) type.");
             }
 
             if (messageItem.VotingInformation != null && Common.IsRequirementEnabled(182004, Site))
@@ -577,7 +630,120 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     73004,
-                    @"[In t:MessageType Complex Type] The type of child element VotingInformation is t:VotingInformationType ([MS-OXWSMTGS] section 2.2.4.39)."); 
+                    @"[In t:MessageType Complex Type] The type of child element VotingInformation is t:VotingInformationType ([MS-OXWSMTGS] section 2.2.4.39).");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R314");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R314
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    314,
+                    @"[In t:ArrayOfVotingOptionDataType  Complex Type] The ArrayOfVotingOptionDataType  schema is 
+                    <xs:complexType name=""ArrayOfVotingOptionDataType"">
+                       <xs:sequence>
+                        <xs:element name=""VotingOptionData"" type = ""t:VotingOptionDataType"" minOccurs =""0"" maxOccurs=""unbounded"" />
+                       </xs:sequence>
+                    </xs:complexType>");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R316");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R316
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    316,
+                    @"[In t:ArrayOfVotingOptionDataType  Complex Type] The VotingOptionData element is t:VotingOptionDataType (section 2.2.4.6) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R332");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R332
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    332,
+                    @"[In t:VotingInformationType Complex Type]The VotingInformationType schema is  
+                    <xs:complexType name=""VotingInformationType"">
+                      <xs:sequence>
+                        <xs:element name=""UserOptions"" type=""t:ArrayOfVotingOptionDataType"" minOccurs=""0""/>
+                        <xs:element name=""VotingResponse"" type=""xs:string"" minOccurs=""0""/>
+                      </xs:sequence>
+                    </xs:complexType> ");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R334");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R334
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    334,
+                    @"[In t:VotingInformationType Complex Type]The UserOptions element is t:ArrayOfVotingOptionDataType (section 2.2.4.2) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R334");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R334
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    334,
+                    @"[In t:VotingInformationType Complex Type]The UserOptions element is t:ArrayOfVotingOptionDataType (section 2.2.4.2) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R336");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R336
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    336,
+                    @"[In t:VotingInformationType Complex Type]The VotingResponse element is xs:string ([XMLSCHEMA2]) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R339");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R339
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    339,
+                    @"[In t:VotingOptionDataType  Complex Type]The VotingOptionDataType  schema is <xs:complexType name=""VotingOptionDataType"">
+                      <xs:sequence>
+                        <xs:element name=""DisplayName"" type=""xs:string"" minOccurs=""0""/>
+                        <xs:element name=""SendPrompt"" type=""t:SendPromptType"" minOccurs=""0""/>
+                      </xs:sequence>
+                    </xs:complexType>");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R341");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R341
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    341,
+                    @"[In t:VotingOptionDataType  Complex Type]The DisplayName element is xs:string ([XMLSCHEMA2]) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R343");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R343
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    343,
+                    @"[In t:VotingOptionDataType  Complex Type]The SendPrompt element is t:SendPromptType (section 2.2.5.2) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R347");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R347
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    347,
+                    @"[In t:SendPromptType Simple Type]The schema is	
+                    <xs:simpleType name=""SendPromptType"">
+                      <xs:restriction base=""xs:string"" >
+                        <xs:enumeration value=""None"" />
+                        <xs:enumeration value=""Send"" />
+                        <xs:enumeration value=""VotingOption""/>
+                      </xs:restriction >
+                    </xs:simpleType > ");
             }
 
             if (messageItem.ReminderMessageData != null && Common.IsRequirementEnabled(182006, Site))
@@ -589,7 +755,70 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     73006,
-                    @"[In t:MessageType Complex Type] The type of child element ReminderMessageData is t:ReminderMessageDataType ( [MS-OXWSMTGS] section 2.2.4.33).");  
+                    @"[In t:MessageType Complex Type] The type of child element ReminderMessageData is t:ReminderMessageDataType ( [MS-OXWSMTGS] section 2.2.4.33).");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R319");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R319
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    319,
+                    @"[In t:ReminderMessageDataType Complex Type] The ReminderMessageDataType  schema is
+                    <xs:complexType name=""ReminderMessageDataType"">
+                      <xs:sequence>
+                        <xs:element name=""ReminderText"" type=""xs:string"" minOccurs = ""0""/>
+                        <xs:element name=""Location"" type=""xs:string"" minOccurs=""0""/>
+                        <xs:element name=""StartTime"" type=""xs:dateTime"" minOccurs=""0""/>
+                        <xs:element name=""EndTime"" type=""xs:dateTime"" minOccurs=""0""/>
+                        <xs:element name=""AssociatedCalendarItemId"" type=""t:ItemIdType"" minOccurs=""0""/>
+                      </xs:sequence>
+                    </xs:complexType> ");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R321");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R321
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    321,
+                    @"[In t:ReminderMessageDataType Complex Type] The ReminderText element is xs:string ([XMLSCHEMA2]) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R323");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R323
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    323,
+                    @"[In t:ReminderMessageDataType Complex Type] The ReminderText element is xs:string ([XMLSCHEMA2]) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R325");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R325
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    325,
+                    @"[In t:ReminderMessageDataType Complex Type] The StartTime element is xs:dateTime ([XMLSCHEMA2]) type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R327");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R327
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    327,
+                    @"[In t:ReminderMessageDataType Complex Type] The EndTime element is xs:dateTime type.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R329");
+
+                // Verify MS-OXWSMSG requirement: MS-OXWSMSG_R329
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    329,
+                    @"[In t:ReminderMessageDataType Complex Type] The AssociatedCalendarItemId element is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.25) type.");
             }
             
             if (messageItem.From != null)

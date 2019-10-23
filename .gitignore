@@ -59,3 +59,6 @@
 /ExchangeWebServices/Source/UpgradeLog4.htm
 /ExchangeWebServices/Source/.vs/ExchangeServerEWSProtocolTestSuites/v14/.suo
 
+/ExchangeWebServices/Setup/Test Suite Client/SetupLogs
+/ExchangeWebServices/Source/TestResults
+/ExchangeWebServices/Source/.vs/ExchangeServerEWSProtocolTestSuites/DesignTimeBuild/.dtbcache

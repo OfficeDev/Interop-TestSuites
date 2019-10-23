@@ -176,7 +176,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsNotNull(
                 this.exchangeServiceBinding.ServerVersionInfoValue,
                 1405,
-                @"[In tns:CopyItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:CopyItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R241");
@@ -352,7 +352,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsNotNull(
                 this.exchangeServiceBinding.ServerVersionInfoValue,
                 1412,
-                @"[In tns:CreateItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:CreateItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R280");
@@ -594,7 +594,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsNotNull(
                 this.exchangeServiceBinding.ServerVersionInfoValue,
                 1422,
-                @"[In tns:DeleteItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:DeleteItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R323");
@@ -801,7 +801,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsNotNull(
                 this.exchangeServiceBinding.ServerVersionInfoValue,
                 1435,
-                @"[In tns:GetItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:GetItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R368");
@@ -996,7 +996,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsNotNull(
                 this.exchangeServiceBinding.ServerVersionInfoValue,
                 1443,
-                @"[In tns:MarkAllItemsAsReadSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:MarkAllItemsAsReadSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1191");
@@ -1124,7 +1124,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsNotNull(
                 this.exchangeServiceBinding.ServerVersionInfoValue,
                 1814,
-                @"[In tns:MarkAsJunkSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:MarkAsJunkSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1815");
@@ -1295,7 +1295,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsNotNull(
                 this.exchangeServiceBinding.ServerVersionInfoValue,
                 1449,
-                @"[In tns:MoveItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:MoveItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R407");
@@ -1457,7 +1457,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsNotNull(
                 this.exchangeServiceBinding.ServerVersionInfoValue,
                 1455,
-                @"[In tns:SendItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:SendItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R444");
@@ -1612,7 +1612,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsNotNull(
                 this.exchangeServiceBinding.ServerVersionInfoValue,
                 1465,
-                @"[In tns:UpdateItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.5.10).");
+                @"[In tns:UpdateItemSoapOut Message] The type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R488");
@@ -1856,9 +1856,109 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                             <xs:element name=""BlockStatus"" type=""xs:boolean"" minOccurs=""0"" />
                             <xs:element name=""HasBlockedImages"" type=""xs:boolean"" minOccurs=""0"" />
                             <xs:element name=""TextBody"" type=""t:BodyType"" minOccurs=""0""/>
-                            <xs:element name=""IconIndex"" type=""t:IconIndexType"" minOccurs=""0""/> 
-                        </xs:sequence>
+                            <xs:element name=""IconIndex"" type=""t:IconIndexType"" minOccurs=""0""/>
+                            <xs:element name=""MimeContenstUTF8"" type=""t: MimeContentUTF8Type"" minOccurs=""0""/> 
+                            <xs:element name=""SearchKey"" type=""xs:base64Binary"" minOccurs=""0"" />
+                            <xs:element name=""SortKey"" type=""xs:long"" minOccurs=""0""/>
+                            <xs:element name=""Hashtags"" type=""t:ArrayOfStringsType"" minOccurs=""0"" />
+                            <xs:element name=""Mentions"" type=""t:ArrayOfRecipientsType"" minOccurs=""0"" />
+                            <xs:element name=""MentionedMe"" type=""xs:boolean"" minOccurs=""0"" />
+                            <xs:element name=""PendingSocialActivityTagIds"" type=""t: ArrayOfStringsType"" minOccurs=""0""/> 
+                          s</xs:sequence>
                     </xs:complexType>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1343");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1343
+            Site.CaptureRequirementIfIsNotNull(
+                item,
+                1343,
+                @"[In t:ItemType Complex Type] The type of WebClientEditFormQueryString is xs:string.");
+
+            if (Common.IsRequirementEnabled(1881, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1881");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1881
+                Site.CaptureRequirementIfIsNotNull(
+                    item,
+                    1881,
+                    @"[In Appendix C: Product Behavior] Implementation does support the StoreEntryId element with type xs: base64Binary([XMLSCHEMA2]) which specifies the entry ID of the store that hosts an item. (Exchange 2010 SP2 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(13411, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R13411");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_13411
+                Site.CaptureRequirementIfIsNotNull(
+                    item,
+                    13411,
+                    @"[In Appendix C: Product Behavior] Implementation does support the element IsAssociated with type xs:boolean. (Exchange Server 2010 and above follow this behavior.)");
+            }
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2921
+            // The schema is validated and the item is not null, so this requirement can be captured.
+            if (Common.IsRequirementEnabled(2921, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2921");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2921
+                // The schema is validated and the item is not null, so this requirement can be captured.
+                Site.CaptureRequirementIfIsNotNull(
+                    item,
+                    2921,
+                    @"[In Appendix C: Product Behavior] Implementation does support the SearchKey element with type 'xs: base64Binary' which specifies a search key. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2925
+            // The schema is validated and the item is not null, so this requirement can be captured.
+            if (Common.IsRequirementEnabled(2925, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2925");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2925
+                // The schema is validated and the item is not null, so this requirement can be captured.
+                Site.CaptureRequirementIfIsNotNull(
+                    item,
+                    2925,
+                    @"[In Appendix C: Product Behavior] Implementation does support the Hashtags element with type t:ArrayOfStringsType which specifies hashtags. (<82> Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)");
+            }
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2927
+            // The schema is validated and the item is not null, so this requirement can be captured.
+            if (Common.IsRequirementEnabled(2927, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2925");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2927
+                // The schema is validated and the item is not null, so this requirement can be captured.
+                Site.CaptureRequirementIfIsNotNull(
+                    item,
+                    2927,
+                    @"[In Appendix C: Product Behavior] Implementation does support the Mentions element with type ArrayOfRecipientsType which specifies mentions. (<83> Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)");
+            }
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2931
+            // The schema is validated and the item is not null, so this requirement can be captured.
+            if (Common.IsRequirementEnabled(2931, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2931");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2931
+                // The schema is validated and the item is not null, so this requirement can be captured.
+                Site.CaptureRequirementIfIsNotNull(
+                    item,
+                    2931,
+                    @"[In Appendix C: Product Behavior] Implementation does support the PendingSocialActivityTagIds with type t:ArrayOfStringsType element which specifies tag ids to track draft social activity tags. (<85> Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)");
+            }
 
             if (item.Body != null)
             {

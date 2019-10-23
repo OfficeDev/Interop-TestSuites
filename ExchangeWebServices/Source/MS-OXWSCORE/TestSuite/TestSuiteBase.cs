@@ -244,7 +244,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 item.Attachments[0] = fileAttachment;
                 item.Attachments[1] = itemAttachment;
             }
-            
+
             if (Common.IsRequirementEnabled(2283, this.Site))
             {
                 item.ReminderNextTimeSpecified = true;
@@ -1766,6 +1766,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             getItem.ItemShape.IncludeMimeContent = true;
             getItem.ItemShape.IncludeMimeContentSpecified = true;
 
+            if (Common.IsRequirementEnabled(2919, this.Site))
+            {
+                // Return Additional Property 'itemMimeContentUTF8'
+                List<PathToUnindexedFieldType> additionalProperties = new List<PathToUnindexedFieldType>();
+                additionalProperties.Add(new PathToUnindexedFieldType() { FieldURI = UnindexedFieldURIType.itemMimeContentUTF8 });
+                getItem.ItemShape.AdditionalProperties = additionalProperties.ToArray();
+            }
+
             GetItemResponseType getItemResponse_IncludeMimeContentTrue = this.COREAdapter.GetItem(getItem);
 
             // Check the operation response.
@@ -1774,7 +1782,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             // Check whether the schema is validated
             Site.Assert.IsTrue(this.IsSchemaValidated, "The schema should be validated.");
 
-            item = Common.GetItemsFromInfoResponse<T>(getItemResponse_IncludeMimeContentTrue)[0];
+            // Get item from GetItemResponse.
+            item = Common.GetItemsFromInfoResponse<T>(getItemResponse_IncludeMimeContentTrue)[0];          
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1307");
@@ -1787,7 +1796,48 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 item.MimeContent,
                 1307,
                 @"[In t:ItemType Complex Type] The type of MimeContent is t:MimeContentType (section 2.2.4.10).");
+           
+            if (Common.IsRequirementEnabled(2919, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2919");
 
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1348
+                // if the element is not null, the schema is validated, and the instanceKey is base64 binary data
+                // this requirement can be validated.
+                Site.CaptureRequirementIfIsNotNull(
+                    item.MimeContentUTF8.Value,
+                    2919,
+                    @"[In Appendix C: Product Behavior] Implementation does support the MimeContentUTF8 element which specifies an instance of the MimeContentUTF8Type complex type that contains the native MIME stream of an object that is represented in UTF-8. (<79> Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)");
+            }
+            
+            if (Common.IsRequirementEnabled(23091, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R23091");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R23091
+                // If the MimeContent element of the item is not null, and the schema is validated,
+                // which represents the MIME content of an item is returned in a response as MimeContentType,
+                // this requirement can be verified.
+                Site.CaptureRequirementIfIsNotNull(
+                    item.MimeContent,
+                    23091,
+                    @"[In Appendix C: Product Behavior] This element [MimeContent] is applicable for PostItemType, MessageType, CalendarItemType, ContactType, TaskType and DistributionListType item when retrieving MIME content.(<52> Section 2.2.4.24: Exchange 2010SP3 and above follow this behavior.)");
+            }
+            if (Common.IsRequirementEnabled(23093, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R23093");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R23093
+                this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                    ResponseCodeType.ErrorUnsupportedMimeConversion,
+                    getItemResponse_IncludeMimeContentTrue.ResponseMessages.Items[0].ResponseCode,
+                    23093,
+                    @"[In Appendix C: Product Behavior] An ErrorUnsupportedMimeConversion will be returned. (<52> Section 2.2.4.24:  In Exchange 2007, Exchange 2010, Exchange 2010 SP1 and Microsoft Exchange Server 2010 Service Pack 2 (SP2), when retrieving MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object, an ErrorUnsupportedMimeConversion will be returned.)");
+            }
+            
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R69");
 
@@ -1796,7 +1846,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsTrue(
                 TestSuiteHelper.IsBase64String(item.MimeContent.Value),
                 69,
-                @"[In t:ItemType Complex Type] [The element ""MimeContent""] Specifies an instance of the MimeContentType class that contains the native MIME stream of an object that is represented in base64Binary format.");
+                @"[In t:ItemType Complex Type] [The element 'MimeContent'] Specifies an instance of the MimeContentType complex type that contains the native MIME stream of an object that is represented in base64encoding.");           
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1362");
@@ -1842,7 +1892,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 Site.CaptureRequirementIfIsNotNull(
                     item.MimeContent,
                     2012,
-                    @"[In t:ItemType Complex Type] This element [MimeContent] is only applicable to PostItemType, MessageType, and CalendarItemType object. ");
+                    @"[In t:ItemType Complex Type] This element [MimeContent] is only applicable to PostItemType, MessageType, and CalendarItemType object when setting MIME content for an item. ");
             }
             #endregion
 
@@ -1868,7 +1918,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 @"[In t:ItemResponseShapeType Complex Type] otherwise [IncludeMimeContent is] false, specifies [the MIME content of an item is not returned in a response].");
             #endregion
         }
-
+        
         /// <summary>
         /// Verify the responses returned by GetItem operation with the ItemShape element in which ConvertHtmlCodePageToUTF8 element exists or is not specified.
         /// </summary>
@@ -2679,7 +2729,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             DeleteItemResponseType deleteItemResponse = this.CallDeleteItemOperation();
 
             // Check the operation response.
-            Common.CheckOperationSuccess(deleteItemResponse, 1, this.Site);
+            Common.CheckOperationSuccess(deleteItemResponse, 1, this.Site);            
 
             // Clear ExistItemIds for DeleteItem.
             this.InitializeCollection();
@@ -5176,6 +5226,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 @"[In t:ItemType Complex Type] The type of ItemId is t:ItemIdType (section 2.2.4.19).");
 
             // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2015");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2015
+            Site.CaptureRequirementIfIsNotNull(
+                itemIdResponse,
+                2015,
+                @"[In t:ItemType Complex Type] This element [ItemId] can be returned by the server.");
+
+            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R1385");
 
             // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R1385
@@ -7004,4 +7063,5 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         }
         #endregion
     }
+   
 }
