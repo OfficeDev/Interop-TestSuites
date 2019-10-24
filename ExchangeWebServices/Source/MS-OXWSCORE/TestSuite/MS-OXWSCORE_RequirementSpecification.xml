@@ -1336,8 +1336,10 @@
 		<ns1:Description>[In t:ItemType Complex Type] This element [MimeContent] is applicable for all item objects when retrieving MIME content.&lt;52&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R23091,MS-OXWSCORE_R23093
+</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1308</ns1:REQ_ID>
@@ -1373,7 +1375,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2347</ns1:REQ_ID>
@@ -1688,7 +1690,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2349</ns1:REQ_ID>
@@ -1733,7 +1735,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2272</ns1:REQ_ID>
@@ -2069,7 +2071,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2273</ns1:REQ_ID>
@@ -2114,7 +2116,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2274</ns1:REQ_ID>
@@ -2315,7 +2317,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2275</ns1:REQ_ID>
@@ -2443,7 +2445,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2276</ns1:REQ_ID>
@@ -2488,7 +2490,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2277</ns1:REQ_ID>
@@ -2524,7 +2526,28 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R13411</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the element IsAssociated with type xs:boolean. (Exchange Server 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R1341:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R13411.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R13412</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] In Exchange Server 2007, Implementation does not support the element IsAssociated with type xs:boolean.</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R1341:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R106</ns1:REQ_ID>
@@ -2609,6 +2632,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2503.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2044</ns1:REQ_ID>
@@ -2704,6 +2728,29 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R20451,MS-OXWSCORE_R20452.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R20451</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior]It [StoreEntryId] is read-only for the client and will be ignored by the server.(&lt;62&gt; Section 2.2.4.24:  In Exchange 2010 SP2, if the StoreEntryId is specified in a CreateItem or UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2045:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R20452</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] It [StoreEntryId] is read-only for the client and will be ignored by the server.(&lt;62&gt; Section 2.2.4.24:  In Exchange 2013 and above,  if the StoreEntryId is specified in a CreateItem or UpdateItem request, will be ignored by server.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2045:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1049</ns1:REQ_ID>
@@ -2736,11 +2783,32 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2047</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] This element [InstanceKey] can be returned by the server.</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] This element [InstanceKey] can be returned by the server.&lt;63&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCORE_R20472</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R20471</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] This element [InstanceKey] can be returned by the server.(&lt;63&gt; Section 2.2.4.24:  Exchange 2007 and Exchange 2010 do not support the InstanceKey element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2047:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R20472</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] This element [InstanceKey] can be returned by the server.(&lt;63&gt; Section 2.2.4.24: Exchange 2013 and above support the InstanceKey element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2047:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1050</ns1:REQ_ID>
@@ -2848,11 +2916,32 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2051</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] This element [Preview] can be returned by the server.</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] This element [Preview] can be returned by the server.&lt;69&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R20512.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R20511</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] This element [Preview] can not be returned by the server.(&lt;69&gt; Section 2.2.4.24:  Exchange 2007 and Exchange 2010 do not support the InstanceKey element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2051:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R20512</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] This element [Preview] can be returned by the server.(&lt;69&gt; Section 2.2.4.24: Exchange 2013 and above support the InstanceKey element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2051:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1056</ns1:REQ_ID>
@@ -2925,7 +3014,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2056</ns1:REQ_ID>
@@ -2971,7 +3060,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2059</ns1:REQ_ID>
@@ -2980,7 +3069,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1059</ns1:REQ_ID>
@@ -3023,11 +3112,32 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2061</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] This element [TextBody] can be returned by the server .</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] This element [TextBody] can be returned by the server.&lt;77&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R20612.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R20611</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] This element [TextBody] can not be returned by the server.(&lt;77&gt; Section 2.2.4.24:  Exchange 2007 and Exchange 2010 do not support the TextBody element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2061:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R20612</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] This element [TextBody] can be returned by the server.(&lt;77&gt; Section 2.2.4.24:  Exchange 2007 and Exchange 2010 do support the TextBody element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2061:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1732</ns1:REQ_ID>
@@ -3055,7 +3165,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2358</ns1:REQ_ID>
@@ -3084,6 +3194,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2921.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2065</ns1:REQ_ID>
@@ -3093,6 +3204,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2923.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2066</ns1:REQ_ID>
@@ -3102,6 +3214,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2925.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2067</ns1:REQ_ID>
@@ -3111,6 +3224,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2927.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2068</ns1:REQ_ID>
@@ -3120,6 +3234,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2932.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2069</ns1:REQ_ID>
@@ -3129,10 +3244,11 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2931.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1061</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect> 2.2.4.26</ns1:Doc_Sect>
 		<ns1:Description>[In t:ManagementRoleType Complex Type] The ManagementRoleType complex type specifies the roles that are associated with a user or application.&lt;86&gt;
 &lt;xs:complexType name="ManagementRoleType"&gt;
   &lt;xs:sequence&gt;
@@ -3147,7 +3263,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1359</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.26</ns1:Doc_Sect>
 		<ns1:Description>[In t:ManagementRoleType Complex Type] The following table lists and describes the elements [UserRoles, ApplicationRoles]of the ManagementRoleType complex type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -3156,7 +3272,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1360</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.26</ns1:Doc_Sect>
 		<ns1:Description>[In t:ManagementRoleType Complex Type] The type of UserRoles is t:NonEmptyArrayOfRoleType (section 2.2.4.14).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -3165,7 +3281,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1063</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.26</ns1:Doc_Sect>
 		<ns1:Description>[In t:ManagementRoleType Complex Type] [The element "UserRoles"] Specifies an array of elements of type string that specifies a set of user roles.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -3174,7 +3290,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1361</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.26</ns1:Doc_Sect>
 		<ns1:Description>[In t:ManagementRoleType Complex Type] The type of ApplicationRoles is t:NonEmptyArrayOfRoleType(section 2.2.4.14).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -3183,7 +3299,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1064</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.26</ns1:Doc_Sect>
 		<ns1:Description>[In t:ManagementRoleType Complex Type] [The element "ApplicationRoles"]Specifies an array of elements of type string that specifies a set of application roles.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -5458,8 +5574,8 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2935.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R2935,MS-OXWSCORE_R2936.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1088</ns1:REQ_ID>
@@ -15533,14 +15649,35 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R2380</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSCORE_R23091</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] An ErrorUnsupportedMimeConversion will be returned. (&lt;52&gt; Section 2.2.4.24:  In Exchange 2007, Exchange 2010, Exchange 2010 SP1 and Microsoft Exchange Server 2010 Service Pack 2 (SP2), when retrieving MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object, an ErrorUnsupportedMimeConversion will be returned.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2309:i</ns1:Derived>
+		<ns1:Description>[In Appendix C: Product Behavior] This element [MimeContent] is applicable for ContactType, TaskType and DistributionListType item when retrieving MIME content.(&lt;52&gt; Section 2.2.4.24: Exchange 2010SP3 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2309:p</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R23092</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] This element [MimeContent] is not applicable for ContactType, TaskType and DistributionListType item when retrieving MIME content.(&lt;52&gt; Section 2.2.4.24: In Exchange 2007, Exchange 2010, Exchange 2010 SP1 and Microsoft Exchange Server 2010 Service Pack 2 (SP2))</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2309:p</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R23093</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] An ErrorUnsupportedMimeConversion will be returned. (&lt;52&gt; Section 2.2.4.24:  In Exchange 2007, Exchange 2010, Exchange 2010 SP1 and Microsoft Exchange Server 2010 Service Pack 2 (SP2), when retrieving MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object, an ErrorUnsupportedMimeConversion will be returned.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R2309:p</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -15619,7 +15756,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2503</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the WebClientEditFormQueryString  element which specifies a query string that identifies a edit form accessible by using a Web browser. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the WebClientEditFormQueryString  element which specifies a query string that identifies a edit form accessible by using a Web browser. (&lt;57&gt; Section 2.2.4.24:  Exchange 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R108:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15640,7 +15777,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2288</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the element "ConversationId" which specifies the ID of the conversation that an item is part of.. (Exchange 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the element "ConversationId" which specifies the ID of the conversation that an item is part of. (Exchange 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R109:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15693,7 +15830,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1233</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the StoreEntryId element. (&lt;61&gt; Section 2.2.4.24:  Exchange 2007, Exchange 2010 and Exchange 2010 SP1 do not support the StoreEntryId element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the StoreEntryId element with type "xs:base64Binary ([XMLSCHEMA2]). (&lt;61&gt; Section 2.2.4.24:  Exchange 2007, Exchange 2010 and Exchange 2010 SP1 do not support the StoreEntryId element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R1274:i, MS-OXWSCORE_R589:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -15703,12 +15840,12 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1881</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the included StoreEntryId element which specifies the entry ID of the store that hosts an item. (Exchange 2010 SP2 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the StoreEntryId element with type "xs:base64Binary ([XMLSCHEMA2]) which specifies the entry ID of the store that hosts an item. (Exchange 2010 SP2 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R1274:i, MS-OXWSCORE_R589:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1235</ns1:REQ_ID>
@@ -15802,7 +15939,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1263</ns1:REQ_ID>
@@ -16146,7 +16283,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2919</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the MimeContentUTF8 element which specifies an instance of the MimeContentUTF8Type complex type that contains the native MIME stream of an object that is represented in UTF-8.. (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the MimeContentUTF8 element which specifies an instance of the MimeContentUTF8Type complex type that contains the native MIME stream of an object that is represented in UTF-8. (&lt;79&gt; Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2400:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -16167,12 +16304,12 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2921</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the SearchKey element which specifies a search key. (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the SearchKey element with type "xs:base64Binary" which specifies a search key. (Exchange 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2064:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -16188,7 +16325,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2923</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the SortKey element which specifies a sort key. (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the SortKey element which specifies a sort key. (&lt;81&gt; Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2065:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -16209,12 +16346,12 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2925</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the Hashtags element which specifies hashtags. (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the Hashtags element with type t:ArrayOfStringsType which specifies hashtags. (&lt;82&gt; Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2066:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -16230,12 +16367,12 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2927</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the Mentions element which specifies mentions. (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the Mentions element with type ArrayOfRecipientsType which specifies mentions. (&lt;83&gt; Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2067:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -16251,23 +16388,12 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2932</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support element name "MentionedMe" with type "xs:boolean" which is true indicating the mention applies to the mailbox owner. (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support element name "MentionedMe" with type "xs:boolean" which Specifies whether the mention applies to the mailbox owner. (&lt;84&gt; Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2068:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R2929</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support element name "MentionedMe" with type "xs:boolean" which is false indicating the mention does not apply to the mailbox owner. (Exchange 2016 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2068:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -16283,12 +16409,12 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2931</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the PendingSocialActivityTagIds  element which specifies tag ids to track draft social activity tags. (Exchange 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the PendingSocialActivityTagIds with type t:ArrayOfStringsType element which specifies tag ids to track draft social activity tags. (&lt;85&gt; Section 2.2.4.24:  Exchange 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R2069:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -16361,12 +16487,23 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2935</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation will return  data for the Location element which represents the location of the meeting. (Exchange 2007 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation will return no data for the Location element which represents the location of the meeting. (&lt;88&gt; Section 2.2.4.27:  Exchange 2013, Exchange 2016, and Exchange 2019 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCORE_R1087:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R2936</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation will return data for the Location element which represents the location of the meeting. (&lt;88&gt; Section 2.2.4.27:  Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R1087:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
