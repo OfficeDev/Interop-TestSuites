@@ -9106,8 +9106,6 @@ public partial class ContactItemType : ItemType {
     
     private EmailAddressDictionaryEntryType[] emailAddressesField;
     
-    private AbchEmailAddressDictionaryEntryType[] abchEmailAddressesField;
-    
     private PhysicalAddressDictionaryEntryType[] physicalAddressesField;
     
     private PhoneNumberDictionaryEntryType[] phoneNumbersField;
@@ -9225,6 +9223,8 @@ public partial class ContactItemType : ItemType {
     private string createdByField;
     
     private ContactUrlDictionaryEntryType[] urlsField;
+    
+    private AbchEmailAddressDictionaryEntryType[] abchEmailAddressesField;
     
     private long cidField;
     
@@ -9409,17 +9409,6 @@ public partial class ContactItemType : ItemType {
         }
         set {
             this.emailAddressesField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("Email", IsNullable=false)]
-    public AbchEmailAddressDictionaryEntryType[] AbchEmailAddresses {
-        get {
-            return this.abchEmailAddressesField;
-        }
-        set {
-            this.abchEmailAddressesField = value;
         }
     }
     
@@ -10033,6 +10022,17 @@ public partial class ContactItemType : ItemType {
         }
         set {
             this.urlsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayItemAttribute("Email", IsNullable=false)]
+    public AbchEmailAddressDictionaryEntryType[] AbchEmailAddresses {
+        get {
+            return this.abchEmailAddressesField;
+        }
+        set {
+            this.abchEmailAddressesField = value;
         }
     }
     
@@ -10716,108 +10716,6 @@ public enum EmailAddressKeyType {
 [System.Diagnostics.DebuggerStepThroughAttribute()]
 [System.ComponentModel.DesignerCategoryAttribute("code")]
 [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/exchange/services/2006/types")]
-public partial class AbchEmailAddressDictionaryEntryType {
-    
-    private AbchEmailAddressTypeType typeField;
-    
-    private string addressField;
-    
-    private bool isMessengerEnabledField;
-    
-    private bool isMessengerEnabledFieldSpecified;
-    
-    private long capabilitiesField;
-    
-    private bool capabilitiesFieldSpecified;
-    
-    /// <remarks/>
-    public AbchEmailAddressTypeType Type {
-        get {
-            return this.typeField;
-        }
-        set {
-            this.typeField = value;
-        }
-    }
-    
-    /// <remarks/>
-    public string Address {
-        get {
-            return this.addressField;
-        }
-        set {
-            this.addressField = value;
-        }
-    }
-    
-    /// <remarks/>
-    public bool IsMessengerEnabled {
-        get {
-            return this.isMessengerEnabledField;
-        }
-        set {
-            this.isMessengerEnabledField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool IsMessengerEnabledSpecified {
-        get {
-            return this.isMessengerEnabledFieldSpecified;
-        }
-        set {
-            this.isMessengerEnabledFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    public long Capabilities {
-        get {
-            return this.capabilitiesField;
-        }
-        set {
-            this.capabilitiesField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool CapabilitiesSpecified {
-        get {
-            return this.capabilitiesFieldSpecified;
-        }
-        set {
-            this.capabilitiesFieldSpecified = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/exchange/services/2006/types")]
-public enum AbchEmailAddressTypeType {
-    
-    /// <remarks/>
-    Personal,
-    
-    /// <remarks/>
-    Business,
-    
-    /// <remarks/>
-    Other,
-    
-    /// <remarks/>
-    Passport,
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/exchange/services/2006/types")]
 public partial class PhysicalAddressDictionaryEntryType {
     
     private string streetField;
@@ -11184,6 +11082,108 @@ public enum ContactUrlKeyType {
     
     /// <remarks/>
     Other,
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/exchange/services/2006/types")]
+public partial class AbchEmailAddressDictionaryEntryType {
+    
+    private AbchEmailAddressTypeType typeField;
+    
+    private string addressField;
+    
+    private bool isMessengerEnabledField;
+    
+    private bool isMessengerEnabledFieldSpecified;
+    
+    private long capabilitiesField;
+    
+    private bool capabilitiesFieldSpecified;
+    
+    /// <remarks/>
+    public AbchEmailAddressTypeType Type {
+        get {
+            return this.typeField;
+        }
+        set {
+            this.typeField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string Address {
+        get {
+            return this.addressField;
+        }
+        set {
+            this.addressField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public bool IsMessengerEnabled {
+        get {
+            return this.isMessengerEnabledField;
+        }
+        set {
+            this.isMessengerEnabledField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool IsMessengerEnabledSpecified {
+        get {
+            return this.isMessengerEnabledFieldSpecified;
+        }
+        set {
+            this.isMessengerEnabledFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    public long Capabilities {
+        get {
+            return this.capabilitiesField;
+        }
+        set {
+            this.capabilitiesField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool CapabilitiesSpecified {
+        get {
+            return this.capabilitiesFieldSpecified;
+        }
+        set {
+            this.capabilitiesFieldSpecified = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/exchange/services/2006/types")]
+public enum AbchEmailAddressTypeType {
+    
+    /// <remarks/>
+    Personal,
+    
+    /// <remarks/>
+    Business,
+    
+    /// <remarks/>
+    Other,
+    
+    /// <remarks/>
+    Passport,
 }
 
 /// <remarks/>
@@ -15885,10 +15885,10 @@ public enum MapiPropertyTypeType {
 }
 
 /// <remarks/>
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(PathToExtendedFieldType))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(PathToUnindexedFieldType))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(PathToIndexedFieldType))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(PathToExceptionFieldType))]
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(PathToExtendedFieldType))]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
 [System.SerializableAttribute()]
 [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -27584,10 +27584,10 @@ public enum PermissionLevelType {
 }
 
 /// <remarks/>
-[System.Xml.Serialization.XmlIncludeAttribute(typeof(ContactsFolderType))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(FolderType))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(TasksFolderType))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(SearchFolderType))]
+[System.Xml.Serialization.XmlIncludeAttribute(typeof(ContactsFolderType))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalendarFolderType))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalendarFolderExType))]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
@@ -28016,111 +28016,6 @@ public partial class ManagedFolderInformationType {
 }
 
 /// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/exchange/services/2006/types")]
-public partial class ContactsFolderType : BaseFolderType {
-    
-    private PermissionReadAccessType sharingEffectiveRightsField;
-    
-    private bool sharingEffectiveRightsFieldSpecified;
-    
-    private PermissionSetType permissionSetField;
-    
-    private string sourceIdField;
-    
-    private string accountNameField;
-    
-    /// <remarks/>
-    public PermissionReadAccessType SharingEffectiveRights {
-        get {
-            return this.sharingEffectiveRightsField;
-        }
-        set {
-            this.sharingEffectiveRightsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIgnoreAttribute()]
-    public bool SharingEffectiveRightsSpecified {
-        get {
-            return this.sharingEffectiveRightsFieldSpecified;
-        }
-        set {
-            this.sharingEffectiveRightsFieldSpecified = value;
-        }
-    }
-    
-    /// <remarks/>
-    public PermissionSetType PermissionSet {
-        get {
-            return this.permissionSetField;
-        }
-        set {
-            this.permissionSetField = value;
-        }
-    }
-    
-    /// <remarks/>
-    public string SourceId {
-        get {
-            return this.sourceIdField;
-        }
-        set {
-            this.sourceIdField = value;
-        }
-    }
-    
-    /// <remarks/>
-    public string AccountName {
-        get {
-            return this.accountNameField;
-        }
-        set {
-            this.accountNameField = value;
-        }
-    }
-}
-
-/// <remarks/>
-[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
-[System.SerializableAttribute()]
-[System.Diagnostics.DebuggerStepThroughAttribute()]
-[System.ComponentModel.DesignerCategoryAttribute("code")]
-[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/exchange/services/2006/types")]
-public partial class PermissionSetType {
-    
-    private PermissionType[] permissionsField;
-    
-    private string[] unknownEntriesField;
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("Permission", IsNullable=false)]
-    public PermissionType[] Permissions {
-        get {
-            return this.permissionsField;
-        }
-        set {
-            this.permissionsField = value;
-        }
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlArrayItemAttribute("UnknownEntry", IsNullable=false)]
-    public string[] UnknownEntries {
-        get {
-            return this.unknownEntriesField;
-        }
-        set {
-            this.unknownEntriesField = value;
-        }
-    }
-}
-
-/// <remarks/>
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(TasksFolderType))]
 [System.Xml.Serialization.XmlIncludeAttribute(typeof(SearchFolderType))]
 [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
@@ -28164,6 +28059,41 @@ public partial class FolderType : BaseFolderType {
         }
         set {
             this.unreadCountFieldSpecified = value;
+        }
+    }
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/exchange/services/2006/types")]
+public partial class PermissionSetType {
+    
+    private PermissionType[] permissionsField;
+    
+    private string[] unknownEntriesField;
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayItemAttribute("Permission", IsNullable=false)]
+    public PermissionType[] Permissions {
+        get {
+            return this.permissionsField;
+        }
+        set {
+            this.permissionsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlArrayItemAttribute("UnknownEntry", IsNullable=false)]
+    public string[] UnknownEntries {
+        get {
+            return this.unknownEntriesField;
+        }
+        set {
+            this.unknownEntriesField = value;
         }
     }
 }
@@ -28782,6 +28712,76 @@ public enum SearchFolderTraversalType {
     
     /// <remarks/>
     Deep,
+}
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://schemas.microsoft.com/exchange/services/2006/types")]
+public partial class ContactsFolderType : BaseFolderType {
+    
+    private PermissionReadAccessType sharingEffectiveRightsField;
+    
+    private bool sharingEffectiveRightsFieldSpecified;
+    
+    private PermissionSetType permissionSetField;
+    
+    private string sourceIdField;
+    
+    private string accountNameField;
+    
+    /// <remarks/>
+    public PermissionReadAccessType SharingEffectiveRights {
+        get {
+            return this.sharingEffectiveRightsField;
+        }
+        set {
+            this.sharingEffectiveRightsField = value;
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool SharingEffectiveRightsSpecified {
+        get {
+            return this.sharingEffectiveRightsFieldSpecified;
+        }
+        set {
+            this.sharingEffectiveRightsFieldSpecified = value;
+        }
+    }
+    
+    /// <remarks/>
+    public PermissionSetType PermissionSet {
+        get {
+            return this.permissionSetField;
+        }
+        set {
+            this.permissionSetField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string SourceId {
+        get {
+            return this.sourceIdField;
+        }
+        set {
+            this.sourceIdField = value;
+        }
+    }
+    
+    /// <remarks/>
+    public string AccountName {
+        get {
+            return this.accountNameField;
+        }
+        set {
+            this.accountNameField = value;
+        }
+    }
 }
 
 /// <remarks/>
