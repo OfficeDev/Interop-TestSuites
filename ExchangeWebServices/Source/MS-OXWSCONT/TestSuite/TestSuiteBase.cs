@@ -573,6 +573,48 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 this.Site, "FirstContact");
             return item;
         }
+
+        /// <summary>
+        /// Create item with minimum elements which are needed.
+        /// </summary>
+        /// <param name="item">The item to be created.</param>
+        /// <returns>The ItemId of the created item.</returns>
+        protected ItemIdType[] CreateItemWithMinimumElements(AbchPersonItemType item)
+        {
+            CreateItemType createItemRequest = new CreateItemType();
+
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new AbchPersonItemType[1];
+
+            // Create a person item without optional elements.
+            createItemRequest.Items.Items[0] = item;
+
+            // Configure the SavedItemFolderId of CreateItem request to specify that the created item is saved under which folder.
+            createItemRequest.SavedItemFolderId = new TargetFolderIdType()
+            {
+                Item = new DistinguishedFolderIdType()
+                {
+                    Id = DistinguishedFolderIdNameType.contacts,
+                }
+            };
+
+            CreateItemResponseType createItemResponse = this.CONTAdapter.CreateItem(createItemRequest);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(createItemResponse, 1, this.Site);
+
+            ItemIdType[] createdItemIds = Common.GetItemIdsFromInfoResponse(createItemResponse);
+
+            // One created item should be returned.
+            Site.Assert.AreEqual<int>(
+                1,
+                 createdItemIds.GetLength(0),
+                 "One created item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 createdItemIds.GetLength(0));
+
+            return createdItemIds;
+        }
         #endregion
 
         #region Capture methods
@@ -1901,6 +1943,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 this.IsSchemaValidated,
                 224006,
                 @"[[In t:ContactUrlDictionaryEntryType Complex Type] The type of the element Name is xs:string ([XMLSCHEMA2]).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R224007");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R224007
+            this.Site.CaptureRequirementIfAreEqual<string>(
+                requestContactUrlDictionaryEntryType.Name,
+                responseContactUrlDictionaryEntryType.Name,
+                224007,
+                @"[In t:ContactUrlDictionaryEntryType Complex Type] Name element: Specifies what the url is used for.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R224008");

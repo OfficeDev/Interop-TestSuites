@@ -29,11 +29,47 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     <wsdl:output message=""tns:GetItemSoapOut"" />
                     </wsdl:operation>");
 
-            ContactItemType[] contacts = Common.GetItemsFromInfoResponse<ContactItemType>(getItemResponse);
-            foreach (ContactItemType contact in contacts)
+            
+            ArrayOfResponseMessagesType responseMessages = getItemResponse.ResponseMessages;
+            foreach (ResponseMessageType responseMessage in responseMessages.Items)
             {
-                // Capture ContactItemType Complex Type related requirements.
-                this.VerifyContactItemTypeComplexType(contact, isSchemaValidated);
+                ItemInfoResponseMessageType itemInfoResponseMessage = responseMessage as ItemInfoResponseMessageType;
+                ArrayOfRealItemsType arrayOfRealItemsType = itemInfoResponseMessage.Items;
+                if (arrayOfRealItemsType.Items != null)
+                {                  
+                    foreach (ItemType item in arrayOfRealItemsType.Items)
+                    {
+                        if ((item.GetType()) == typeof(AbchPersonItemType))
+                        {
+                            AbchPersonItemType[] abchPersons = Common.GetItemsFromInfoResponse<AbchPersonItemType>(getItemResponse);
+
+                            foreach (AbchPersonItemType abchPerson in abchPersons)
+                            {
+                                // Capture AbchPersonItemType Complex Type related requirements.
+                                this.VerifyAbchPersonItemTypeComplexType(abchPerson, isSchemaValidated);
+                            }
+                        }
+
+                        if ((item.GetType()) == typeof(ContactItemType))
+                        {
+                            ContactItemType[] contacts = Common.GetItemsFromInfoResponse<ContactItemType>(getItemResponse);
+                            foreach (ContactItemType contact in contacts)
+                            {
+                                // Capture ContactItemType Complex Type related requirements.
+                                this.VerifyContactItemTypeComplexType(contact, isSchemaValidated);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    ContactItemType[] contacts = Common.GetItemsFromInfoResponse<ContactItemType>(getItemResponse);
+                    foreach (ContactItemType contact in contacts)
+                    {
+                        // Capture ContactItemType Complex Type related requirements.
+                        this.VerifyContactItemTypeComplexType(contact, isSchemaValidated);
+                    }
+                }
             }
         }
         #endregion
@@ -122,6 +158,125 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             // Verify the BaseResponseMessageType schema.
             this.VerifyBaseResponseMessageType(copyItemResponse);
+        }
+        #endregion
+
+        #region Verify requirements related to AbchPersonItemType complex types
+        /// <summary>
+        /// Capture AbchPersonItemType Complex Type related requirements.
+        /// </summary>
+        /// <param name="abchPersonItemType">A person item from the response package of GetItem operation.</param>
+        /// <param name="isSchemaValidated">A boolean value indicates the schema validation result. True means the response conforms with the schema, false means not.</param>
+        private void VerifyAbchPersonItemTypeComplexType(AbchPersonItemType abchPersonItemType, bool isSchemaValidated)
+        {
+            Site.Assert.IsTrue(isSchemaValidated, "The schema validation result should be true!");
+
+            if (Common.IsRequirementEnabled(336002, this.Site) && abchPersonItemType != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16003");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16003
+                // If the abchPersonItemType element is not null and schema is validated,
+                // the requirement can be validated.
+                Site.CaptureRequirement(
+                    16003,
+                    @"[In t:AbchPersonItemType Complex Type] The type [AbchPersonItemType] is defined as follow:
+  <xs:complexType name=""AbchPersonItemType"" >
+   < xs:complexContent >
+     < xs:extension base = ""t:ItemType"" >
+       < xs:sequence >
+         < xs:element name = ""AntiLinkInfo"" type = ""xs:string"" minOccurs = ""0"" />
+         < xs:element name = ""PersonIdGuid"" type = ""t:GuidType"" minOccurs = ""0"" />
+         < xs:element name = ""PersonId"" type = ""xs:int"" minOccurs = ""0"" />
+         < xs:element name = ""ContactHandles"" type = ""t:ArrayOfAbchPersonContactHandlesType"" minOccurs = ""0"" />
+         < xs:element name = ""ContactCategories"" type = ""t:ArrayOfStringsType"" minOccurs = ""0"" />
+         < xs:element name = ""RelevanceOrder1"" type = ""xs:string"" minOccurs = ""0"" />
+         < xs:element name = ""RelevanceOrder2"" type = ""xs:string"" minOccurs = ""0"" />
+         < xs:element name = ""TrustLevel"" type = ""xs:int"" minOccurs = ""0"" />
+         < xs:element name = ""FavoriteOrder"" type = ""xs:int"" minOccurs = ""0"" />
+         < xs:element name = ""ExchangePersonIdGuid"" type = ""t:GuidType"" minOccurs = ""0"" />
+       </ xs:sequence >
+     </ xs:extension >
+   </ xs:complexContent >
+ </ xs:complexType >
+");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R336002");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R336002
+                // If the schema is validated,
+                // the requirement can be validated.
+                Site.CaptureRequirement(
+                    336002,
+                    @"[In Appendix C: Product Behavior] Implementation does support the AbchPersonItemType complex type which specifies a person. (Exchange 2016 and above follow this behavior.)");
+
+                if (abchPersonItemType.AntiLinkInfo != null)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16005");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16005
+                    Site.CaptureRequirementIfIsInstanceOfType(
+                        abchPersonItemType.AntiLinkInfo,
+                        typeof(string),
+                        16005,
+                    @"[In t:AbchPersonItemType Complex Type] The type of child element AntiLinkInfo is xs:string ([XMLSCHEMA2]).");
+
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16006");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16006
+                    // If schema is validated, the requirement can be validated.
+                    this.Site.CaptureRequirement(
+                        16006,
+                        @"[In t:AbchPersonItemType Complex Type] AntiLinkInfo element: Specifies an ID of a set of people who MUST NOT be linked together automatically.");
+                }
+
+                if (abchPersonItemType.ContactCategories != null)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16011");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16011
+                    Site.CaptureRequirementIfIsInstanceOfType(
+                        abchPersonItemType.ContactCategories,
+                        typeof(String[]),
+                        16011,
+                    @"[In t:AbchPersonItemType Complex Type] The type of child element ContactCategories is t:ArrayOfStringsType ([MS-OXWSCDATA] section 2.2.4.13).");
+
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16012");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16012
+                    // If schema is validated, the requirement can be validated.
+                    this.Site.CaptureRequirement(
+                        16012,
+                        @"[In t:AbchPersonItemType Complex Type] ContactCategories element: Specifies the categories of groups that this person belongs to.");
+                }
+
+                if (Common.IsRequirementEnabled(336004, this.Site)&& abchPersonItemType.ExchangePersonIdGuid != null)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16026");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16026
+                    Site.CaptureRequirementIfIsNotNull(
+                        abchPersonItemType.ExchangePersonIdGuid,
+                        16026,
+                    @"[In t:AbchPersonItemType Complex Type] The type of child element ExchangePersonIdGuid is t:GuidType ([MS-OXWSXPROP] section 2.1.7).");
+
+                    // Add the debug information
+                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R336004");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R336004
+                    // If schema is validated, the requirement can be validated.
+                    this.Site.CaptureRequirement(
+                        336004,
+                        @"[In Appendix C: Product Behavior] Implementation does include theExchangePersonIdGuid  element which specifies the person ID. (Exchange 2016 and above follow this behavior.)");
+                }
+            }
         }
         #endregion
 
@@ -620,7 +775,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             if (Common.IsRequirementEnabled(1275006, this.Site))
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R334003");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334003");
 
                 // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R334003
                 // If schema is validated, the requirement can be validated.
@@ -631,7 +786,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     @"[In t:ContactItemType Complex Type] The type of element IsAutoUpdateDisabled is xs:boolean.");
 
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1275006");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275006");
 
                 // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275006
                 // If schema is validated, the requirement can be validated.
@@ -643,7 +798,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             if (Common.IsRequirementEnabled(1275008, this.Site) && contactItemType.Comment != null)
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R334007");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334007");
 
                 // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R334007
                 Site.CaptureRequirementIfIsInstanceOfType(
@@ -653,7 +808,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     @"[In t:ContactItemType Complex Type] The type of element Comment is xs:string.");
 
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1275008");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275008");
 
                 // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275008
                 // If schema is validated, the requirement can be validated.
@@ -662,10 +817,32 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     @"[In Appendix C: Product Behavior] Implementation does support the Comment element. (Exchange 2016 and above follow this behavior.)");
             }
 
+            if (Common.IsRequirementEnabled(1275012, this.Site) && contactItemType.ContactType != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334007");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R334011
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.ContactType,
+                    typeof(string),
+                    334011,
+                    @"[In t:ContactItemType Complex Type] The type of element ContactType is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275012");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275012
+                // If schema is validated, the requirement can be validated.
+                this.Site.CaptureRequirement(
+                    1275012,
+                    @"[In Appendix C: Product Behavior] Implementation does support the ContactType element. (Exchange 2016 and above follow this behavior.)");
+            }
+
             if (Common.IsRequirementEnabled(1275014, this.Site) && contactItemType.Gender != null)
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R334013");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334013");
 
                 Site.CaptureRequirementIfIsInstanceOfType(
                     contactItemType.Gender,
@@ -674,7 +851,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     @"[In t:ContactItemType Complex Type] The type of element Gender is xs:string.");
 
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1275014");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275014");
 
                 // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275014
                 // If schema is validated, the requirement can be validated.
@@ -683,10 +860,31 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     @"[In Appendix C: Product Behavior] Implementation does support the Gender element. (Exchange 2016 and above follow this behavior.)");
             }
 
+            if (Common.IsRequirementEnabled(1275018, this.Site) && contactItemType.ObjectId != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334017");
+
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.ObjectId,
+                    typeof(string),
+                    334017,
+                    @"[In t:ContactItemType Complex Type] The type of element ObjectId is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275018");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275018
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirement(
+                    1275018,
+                    @"[In Appendix C: Product Behavior] Implementation does support the ObjectId element. (Exchange 2016 and above follow this behavior.)");
+            }
+
             if (Common.IsRequirementEnabled(1275026, this.Site) && contactItemType.SourceId != null)
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R334025");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334025");
 
                 Site.CaptureRequirementIfIsInstanceOfType(
                     contactItemType.SourceId,
@@ -695,7 +893,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     @"[In t:ContactItemType Complex Type] The type of element SourceId is xs:string.");
 
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1275026");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275026");
 
                 // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275026
                 // If schema is validated, the requirement can be validated.
@@ -707,7 +905,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             if (Common.IsRequirementEnabled(1275034, this.Site) && contactItemType.CidSpecified)
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R334033");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334033");
 
                 Site.CaptureRequirementIfIsInstanceOfType(
                     contactItemType.Cid,
@@ -716,7 +914,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     @"[In t:ContactItemType Complex Type] The type of element Cid is xs:long.");
 
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1275034");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275034");
 
                 // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275034
                 // If schema is validated, the requirement can be validated.
@@ -724,11 +922,45 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     1275034,
                     @"[In Appendix C: Product Behavior] Implementation does support the Cid element. (Exchange 2016 and above follow this behavior.)");
             }
+            if(contactItemType.PersonId != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334021");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R334021
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.PersonId,
+                    typeof(ItemIdType),
+                    334021,
+                    @"[In t:ContactItemType Complex Type] The type of element PersonId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.25).");
+
+            }
+            if (Common.IsRequirementEnabled(1275036, this.Site) && contactItemType.SkypeAuthCertificate != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334035");
+
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.SkypeAuthCertificate,
+                    typeof(string),
+                    334035,
+                    @"[In t:ContactItemType Complex Type] The type of element SkypeAuthCertificate is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275036");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275036
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirement(
+                    1275036,
+                    @"[In Appendix C: Product Behavior] Implementation does support the SkypeAuthCertificate element. (Exchange 2016 and above follow this behavior.)");
+            }
 
             if (Common.IsRequirementEnabled(1275040, this.Site) && contactItemType.SkypeId != null)
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R334039");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334039");
 
                 Site.CaptureRequirementIfIsInstanceOfType(
                     contactItemType.SkypeId,
@@ -737,7 +969,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     @"[In t:ContactItemType Complex Type] The type of element SkypeId is xs:string.");
 
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R1275040");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275040");
 
                 // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275040
                 // If schema is validated, the requirement can be validated.
@@ -815,7 +1047,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             if (Common.IsRequirementEnabled(1275116, this.Site) && contactItemType.DisplayNamePrefix != null)
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R334067");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334067");
 
                 Site.CaptureRequirementIfIsInstanceOfType(
                     contactItemType.DisplayNamePrefix,
@@ -1794,6 +2026,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     "MS-OXWSCDATA",
                     368005,
                     "[In t:ServerVersionInfo Element] The type of the attribute MajorVersion is xs:int ([XMLSCHEMA2])");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368006
+                // If MinorVersion element is not null, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirementIfIsNotNull(
+                    serverVersionInfo.MajorVersion,
+                    "MS-OXWSCDATA",
+                    368006,
+                    @"[In t:ServerVersionInfo Element] MajorVersion attribute: Specifies the server's major version number.");
             }
 
             if (serverVersionInfo.MinorVersionSpecified)
