@@ -570,163 +570,159 @@
 		<ns1:REQ_ID>MS-OXWSCONT_R19</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:ContactItemType Complex Type] The type [ContactItemType] is defined as follow:
-  &lt;xs:complexType name="ContactItemType"&gt;
-   &lt;xs:complexContent&gt;
-     &lt;xs:extension
-       base="t:ItemType"
-     &gt;
-       &lt;xs:sequence&gt;
-         &lt;xs:element name="FileAs"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="FileAsMapping"
-           type="t:FileAsMappingType" 
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="DisplayName"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="GivenName"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="Initials"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="MiddleName"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="Nickname"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="CompleteName"
-           type="t:CompleteNameType"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="CompanyName"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="EmailAddresses"
-           type="t:EmailAddressDictionaryType"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="AbchEmailAddresses"
-           type="t:AbchEmailAddressDictionaryType"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="PhysicalAddresses"
-           type="t:PhysicalAddressDictionaryType"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="PhoneNumbers"
-           type="t:PhoneNumberDictionaryType"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="AssistantName"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="Birthday"
-           type="xs:dateTime"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="BusinessHomePage"
-           type="xs:anyURI"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="Children"
-           type="t:ArrayOfStringsType"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="Companies"
-           type="t:ArrayOfStringsType"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="ContactSource"
-           type="t:ContactSourceType"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="Department"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="Generation"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="ImAddresses"
-           type="t:ImAddressDictionaryType"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="JobTitle"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="Manager"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="Mileage"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="OfficeLocation"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="PostalAddressIndex"
-           type="t:PhysicalAddressIndexType"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="Profession"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="SpouseName"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="Surname"
-           type="xs:string"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="WeddingAnniversary"
-           type="xs:dateTime"
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="HasPicture"
-           type="xs:boolean" 
-           minOccurs="0"
-          /&gt;
-         &lt;xs:element name="PhoneticFullName" 
-           type="xs:string"
-           minOccurs="0" 
-         /&gt;
-         &lt;xs:element name="PhoneticFirstName" 
-           type="xs:string" 
-           minOccurs="0" 
-         /&gt;
-         &lt;xs:element name="PhoneticLastName" 
-           type="xs:string" 
-           minOccurs="0" 
-         /&gt;
-         &lt;xs:element name="Alias" 
-           type="xs:string" 
-           minOccurs="0" 
-         /&gt;
-         &lt;xs:element name="Notes" 
-           type="xs:string" 
-           minOccurs="0" 
-         /&gt;
-         &lt;xs:element name="Photo" 
-           type="xs:base64Binary" 
-           minOccurs="0" 
+  	&lt;xs:complexType name="ContactItemType"&gt;
+	  &lt;xs:complexContent&gt;
+	    &lt;xs:extension
+	      base="t:ItemType"
+	    &gt;
+	      &lt;xs:sequence&gt;
+	        &lt;xs:element name="FileAs"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="FileAsMapping"
+	          type="t:FileAsMappingType" 
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="DisplayName"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="GivenName"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="Initials"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="MiddleName"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="Nickname"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="CompleteName"
+	          type="t:CompleteNameType"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="CompanyName"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="EmailAddresses"
+	          type="t:EmailAddressDictionaryType"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="PhysicalAddresses"
+	          type="t:PhysicalAddressDictionaryType"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="PhoneNumbers"
+	          type="t:PhoneNumberDictionaryType"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="AssistantName"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="Birthday"
+	          type="xs:dateTime"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="BusinessHomePage"
+	          type="xs:anyURI"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="Children"
+	          type="t:ArrayOfStringsType"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="Companies"
+	          type="t:ArrayOfStringsType"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="ContactSource"
+	          type="t:ContactSourceType"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="Department"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="Generation"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="ImAddresses"
+	          type="t:ImAddressDictionaryType"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="JobTitle"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="Manager"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="Mileage"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="OfficeLocation"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="PostalAddressIndex"
+	          type="t:PhysicalAddressIndexType"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="Profession"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="SpouseName"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="Surname"
+	          type="xs:string"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="WeddingAnniversary"
+	          type="xs:dateTime"
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="HasPicture"
+	          type="xs:boolean" 
+	          minOccurs="0"
+	         /&gt;
+	        &lt;xs:element name="PhoneticFullName" 
+	          type="xs:string"
+	          minOccurs="0" 
+	        /&gt;
+	        &lt;xs:element name="PhoneticFirstName" 
+	          type="xs:string" 
+	          minOccurs="0" 
+	        /&gt;
+	        &lt;xs:element name="PhoneticLastName" 
+	          type="xs:string" 
+	          minOccurs="0" 
+	        /&gt;
+	        &lt;xs:element name="Alias" 
+	          type="xs:string" 
+	          minOccurs="0" 
+	        /&gt;
+	        &lt;xs:element name="Notes" 
+	          type="xs:string" 
+	          minOccurs="0" 
+	        /&gt;
+	        &lt;xs:element name="Photo" 
+	          type="xs:base64Binary" 
+	          minOccurs="0" 
         /&gt;
         &lt;xs:element name="UserSMIMECertificate" 
           type="t:ArrayOfBinaryType" 
@@ -787,10 +783,6 @@
         &lt;xs:element name="PassportId" 
           type="xs:long" 
           minOccurs="0"
-        /&gt;
-        &lt;xs:element name="PersonId" 
-          type="t:ItemIdType" 
-          minOccurs="0"
         /&gt; 
         &lt;xs:element name="IsPrivate" 
           type="xs:boolean" 
@@ -800,7 +792,7 @@
           type="xs:string" 
           minOccurs="0"
         /&gt;
-&lt;xs:element name="TrustLevel" 
+        &lt;xs:element name="TrustLevel" 
           type="xs:int" 
           minOccurs="0"
         /&gt;
@@ -811,7 +803,11 @@
         &lt;xs:element name="Urls" 
           type="t:ContactUrlDictionaryType" 
           minOccurs="0"
-        /&gt;
+	        /&gt;
+	        &lt;xs:element name="AbchEmailAddresses"
+	          type="t:AbchEmailAddressDictionaryType"
+	          minOccurs="0"
+         /&gt;
         &lt;xs:element name="Cid" 
           type="xs:long" 
           minOccurs="0"
@@ -867,8 +863,7 @@
 	        &lt;xs:element name="Mris"
 	          type="t:ArrayOfStringsType" 
 	          minOccurs="0"
-        /&gt;
-	
+	        /&gt;
 	        &lt;xs:element name="Wlid" 
 	          type="xs:string" 
 	          minOccurs="0"
@@ -881,8 +876,7 @@
 	           type="xs:boolean"
 	           minOccurs="0"
 	        /&gt;
-        &lt;
-	xs:element name="ShellContactType" 
+	        &lt;xs:element name="ShellContactType" 
 	           type="xs:string" 
 	           minOccurs="0"
 	        /&gt;
@@ -921,7 +915,11 @@
 	        &lt;xs:element name="PersonalNotes"  
 	           type="xs:string"
 	           minOccurs="0"
-	        /&gt; 
+	        /&gt;
+	        &lt;xs:element name="PersonId"
+	          type="t:ItemIdType" 
+	          minOccurs="0"
+	        /&gt;  
 	      &lt;/xs:sequence&gt;
 	    &lt;/xs:entension&gt;
 	  &lt;/xs:complexContent&gt;
@@ -3658,8 +3656,8 @@
  &lt;xs:complexType name="ContactUrlDictionaryEntryType"&gt;
    &lt;xs:sequence&gt;
      &lt;xs:element name="Type" type="t:ContactUrlKeyType" minOccurs="1"/&gt;
-     &lt;xs:element name="Name" type="xs:string" minOccurs="0"/&gt;
      &lt;xs:element name="Address" type="xs:string" minOccurs="0"/&gt;
+     &lt;xs:element name="Name" type="xs:string" minOccurs="0"/&gt;
    &lt;/xs:sequence&gt;
  &lt;/xs:complexType&gt; 
 </ns1:Description>
@@ -5699,7 +5697,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302003</ns1:REQ_ID>
@@ -5724,7 +5722,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302004</ns1:REQ_ID>
@@ -5741,7 +5739,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Description>[In GetUserPhoto] The protocol server responds with a GetUserPhotoSoapOut response WSDL message</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -5854,7 +5852,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Description>[In GetUserPhotoSoapOut] The GetUserPhotoSoapOut WSDL message specifies the response to a GetUserPhotoSoapIn request WSDL message. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -5869,7 +5867,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302018</ns1:REQ_ID>
@@ -5877,7 +5875,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Description>[In GetUserPhotoSoapOut] The GetUserPhotoSoapOut WSDL message is the output message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/GetUserPhoto.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -5896,7 +5894,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302021</ns1:REQ_ID>
@@ -5905,7 +5903,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302022</ns1:REQ_ID>
@@ -5914,7 +5912,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302023</ns1:REQ_ID>
@@ -5923,7 +5921,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302024</ns1:REQ_ID>
@@ -6015,7 +6013,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Description>[In GetUserPhotoResponse] The GetUserPhotoResponse element specifies the result data for the GetUserPhoto WSDL operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -6029,7 +6027,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302035</ns1:REQ_ID>
@@ -6194,7 +6192,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Description>[In GetUserPhotoResponseMessageType] The GetUserPhotoResponseMessageType complex type specifies the response message status for the GetUserPhoto request. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -6204,7 +6202,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302053</ns1:REQ_ID>
@@ -6228,7 +6226,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302054</ns1:REQ_ID>
@@ -6246,7 +6244,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302056</ns1:REQ_ID>
@@ -6284,7 +6282,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302058</ns1:REQ_ID>
@@ -6293,7 +6291,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302155</ns1:REQ_ID>
@@ -6302,7 +6300,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302156</ns1:REQ_ID>
@@ -6518,7 +6516,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302079</ns1:REQ_ID>
@@ -6538,7 +6536,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302080</ns1:REQ_ID>
@@ -6556,7 +6554,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302082</ns1:REQ_ID>
@@ -6668,7 +6666,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Description>[In SetUserPhotoSoapOut] The SetUserPhotoSoapOut WSDL message specifies the response to the SetUserPhotoSoapIn request WSDL message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -6683,7 +6681,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302095</ns1:REQ_ID>
@@ -6691,7 +6689,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Description>[In SetUserPhotoSoapOut] The SetUserPhotoSoapOut WSDL message is the output message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/SetUserPhoto.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -6710,7 +6708,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302098</ns1:REQ_ID>
@@ -6719,7 +6717,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302099</ns1:REQ_ID>
@@ -6728,7 +6726,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302100</ns1:REQ_ID>
@@ -6737,7 +6735,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302101</ns1:REQ_ID>
@@ -6803,7 +6801,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302108</ns1:REQ_ID>
@@ -6939,8 +6937,8 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Description>[In SetUserPhotoResponseMessageType] This type extends the ResponseMessageType complex type, as specified by [MS-OXWSCDATA] section 2.2.4.67.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302126</ns1:REQ_ID>
@@ -6955,7 +6953,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R335</ns1:REQ_ID>
