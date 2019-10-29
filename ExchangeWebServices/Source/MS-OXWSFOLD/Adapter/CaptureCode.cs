@@ -593,7 +593,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 236,
-                @"[In tns:CreateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
+                @"[In tns:CreateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R237");
@@ -832,7 +832,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 285,
-                @"[In tns:CreateManagedFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
+                @"[In tns:CreateManagedFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R2851");
@@ -960,7 +960,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 326,
-                @"[In tns:DeleteFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
+                @"[In tns:DeleteFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R327");
@@ -1100,7 +1100,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 364,
-                @"[In tns:EmptyFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
+                @"[In tns:EmptyFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R365");
@@ -1275,7 +1275,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 this.Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     43,
-                    @"[In t:BasePermissionType Complex Type]The type of element UserId is t:UserIdType ([MS-OXWSCDATA] section 2.2.4.62).");
+                    @"[In t:BasePermissionType Complex Type]The type of element UserId is t:UserIdType ([MS-OXWSCDATA] section 2.2.4.75).");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R44");
@@ -1572,7 +1572,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 405,
-                @"[In tns:GetFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
+                @"[In tns:GetFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R406");
@@ -1951,7 +1951,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 448,
-                @"[In tns:MoveFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
+                @"[In tns:MoveFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R449");
@@ -2092,7 +2092,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 483,
-                @"[In tns:UpdateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).");
+                @"[In tns:UpdateFolderSoapOut Message]ServerVersion which Element/Type is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R484");
