@@ -171,7 +171,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 this.Site, "FirstContact"),
                 FileAsMapping = FileAsMappingType.None,
                 FileAsMappingSpecified = true,
-                IsAutoUpdateDisabledSpecified = true,
 
                 // Set a single e-mail address for the contact.
                 EmailAddresses = new EmailAddressDictionaryEntryType[]
@@ -323,18 +322,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     }
                 },
 
-                Urls = new ContactUrlDictionaryEntryType[]
-                {
-                    new ContactUrlDictionaryEntryType()
-                    {
-                        Type = ContactUrlKeyType.Business,
-                        Name = "This is a url",
-                        Address = Common.GenerateResourceName(
-                            this.Site,
-                            "Address"),
-                    }
-                },
-
                 // Set other relevant properties on the contact.
                 SpouseName = Common.GenerateResourceName(
                         this.Site,
@@ -400,6 +387,11 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 item.AccountName = Common.GenerateResourceName(this.Site, "AccountName");
             }
 
+            if (Common.IsRequirementEnabled(1275006, this.Site))
+            {
+                item.IsAutoUpdateDisabledSpecified = true;
+            }
+
             if (Common.IsRequirementEnabled(1275008, this.Site))
             {
                 item.Comment = Common.GenerateResourceName(this.Site, "Comment");
@@ -413,6 +405,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             if (Common.IsRequirementEnabled(1275026, this.Site))
             {
                 item.SourceId = Common.GenerateResourceName(this.Site, "SourceId");
+            }
+
+            if (Common.IsRequirementEnabled(1275032, this.Site))
+            {
+                item.Urls = new ContactUrlDictionaryEntryType[]
+                {
+                    new ContactUrlDictionaryEntryType()
+                    {
+                        Type = ContactUrlKeyType.Business,
+                        Name = "This is a url",
+                        Address = Common.GenerateResourceName(
+                            this.Site,
+                            "Address"),
+                    }
+                };
             }
 
             if (Common.IsRequirementEnabled(1275034, this.Site))
@@ -1025,7 +1032,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             this.VerifylPhysicalAddressDictionaryTypeComplexType(responseContactItem.PhysicalAddresses, requestContactItem.PhysicalAddresses);
 
-            this.VerifyContactUrlDictionaryTypeComplexType(responseContactItem.Urls, requestContactItem.Urls);
+            if (Common.IsRequirementEnabled(1275084, this.Site))
+            {
+                this.VerifyContactUrlDictionaryTypeComplexType(responseContactItem.Urls, requestContactItem.Urls);
+            }
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R42");
