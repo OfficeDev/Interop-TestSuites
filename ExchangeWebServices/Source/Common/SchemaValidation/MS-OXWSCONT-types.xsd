@@ -30,7 +30,6 @@
           <xs:element name="CompleteName" type="t:CompleteNameType" minOccurs="0"/>
           <xs:element name="CompanyName" type="xs:string" minOccurs="0"/>
           <xs:element name="EmailAddresses" type="t:EmailAddressDictionaryType" minOccurs="0"/>
-          <xs:element name="AbchEmailAddresses" type="t:AbchEmailAddressDictionaryType" minOccurs="0"/>
           <xs:element name="PhysicalAddresses" type="t:PhysicalAddressDictionaryType" minOccurs="0"/>
           <xs:element name="PhoneNumbers" type="t:PhoneNumberDictionaryType" minOccurs="0"/>
           <xs:element name="AssistantName" type="xs:string" minOccurs="0"/>
@@ -78,6 +77,7 @@
           <xs:element name="TrustLevel" type="xs:int" minOccurs="0"/>
           <xs:element name="CreatedBy" type="xs:string" minOccurs="0"/>
           <xs:element name="Urls" type="t:ContactUrlDictionaryType" minOccurs="0"/>
+          <xs:element name="AbchEmailAddresses" type="t:AbchEmailAddressDictionaryType" minOccurs="0"/>
           <xs:element name="Cid" type="xs:long" minOccurs="0"/>
           <xs:element name="SkypeAuthCertificate" type="xs:string" minOccurs="0"/>
           <xs:element name="SkypeContext" type="xs:string" minOccurs="0"/>

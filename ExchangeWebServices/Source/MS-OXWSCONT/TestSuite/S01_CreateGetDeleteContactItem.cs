@@ -1022,7 +1022,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         [TestCategory("MSOXWSCONT"), TestMethod()]
         public void MSOXWSCONT_S01_TC10_VerifyHasPictureIsReadonly()
         {
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(1275002, this.Site), "Implementation does support the HasPicture element.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1275002, this.Site), "Implementation does not support the HasPicture element.");
 
             #region Step 1:Create the contact item.
             // Call CreateItem operation.
@@ -1086,6 +1086,93 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 createItemResponse.ResponseMessages.Items[0].ResponseCode,
                 301001,
                 @"[In CreateItem] tns:CreateItemSoapIn: The contact (2) item MUST be created in a Contacts folder, or ErrorCannotCreateContactInNonContactFolder ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the successful response returned by CreateItem, GetItem and DeleteItem operations for person item with required elements.
+        /// </summary>
+        [TestCategory("MSOXWSCONT"), TestMethod()]
+        public void MSOXWSCONT_S01_TC12_VerifyAbchPersonItemType()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(336002, this.Site), "Implementation does support the AbchPersonItemType complex type.");
+
+            AbchPersonItemType abchPersonItem = new AbchPersonItemType();
+
+            abchPersonItem.AntiLinkInfo = "IDs";
+            abchPersonItem.PersonIdGuid = "0000";
+            abchPersonItem.ContactHandles = new AbchPersonContactHandle[] {
+                                    new AbchPersonContactHandle()
+                                    {
+                                        SourceId = Common.GenerateResourceName(this.Site, "SourceId"),
+                                        ObjectId = Common.GenerateResourceName(this.Site, "ObjectId"),
+                                        AccountName = Common.GenerateResourceName(this.Site, "AccountName"),
+                                    },
+                                };
+            abchPersonItem.ContactCategories = new string[] {
+                                    "test category"
+                                };
+            abchPersonItem.FavoriteOrderSpecified = true;
+            abchPersonItem.FavoriteOrder = 0;
+
+            #region Step 1:Create an item
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(abchPersonItem);
+            #endregion
+
+            #region Step 2:Get the item
+            // Call GetItem operation using the created item IDs.
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(createdItemIds);
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+
+            ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+
+            // One item should be returned.
+            Site.Assert.AreEqual<int>(
+                1,
+                 getItemIds.GetLength(0),
+                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getItemIds.GetLength(0));
+
+            #endregion
+
+            #region Step3:Delete the item
+            DeleteItemType deleteItemRequest = new DeleteItemType();
+            deleteItemRequest.ItemIds = getItemIds;
+
+            // Configure the enumeration value that specifies how an person item is to be deleted.
+            deleteItemRequest.DeleteType = DisposalType.HardDelete;
+
+            DeleteItemResponseType deleteItemResponse = this.CONTAdapter.DeleteItem(deleteItemRequest);
+
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(deleteItemResponse, 1, this.Site);
+
+            // Clear ExistItemIds for DeleteItem.
+            this.InitializeCollection();
+            #endregion
+
+            #region Step 4:Get the deleted person item
+            // Call GetItem operation using the deleted item IDs.
+            getItemResponse = this.CallGetItemOperation(getItemIds);
+
+            Site.Assert.AreEqual<int>(
+                 1,
+                 getItemResponse.ResponseMessages.Items.GetLength(0),
+                 "Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getItemResponse.ResponseMessages.Items.GetLength(0));
+
+            Site.Assert.AreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                getItemResponse.ResponseMessages.Items[0].ResponseClass,
+                string.Format(
+                    "Get deleted item should be failed! Expected response code: {0}, actual response code: {1}",
+                    ResponseCodeType.ErrorItemNotFound,
+                    getItemResponse.ResponseMessages.Items[0].ResponseCode));
             #endregion
         }
         #endregion

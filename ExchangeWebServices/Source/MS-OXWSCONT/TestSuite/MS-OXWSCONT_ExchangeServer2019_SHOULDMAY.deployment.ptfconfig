@@ -67,9 +67,13 @@
     <Property name="R1275102Enabled" value="true"/>
     <!--Set R1275104Enabled to true to implementation does support the Empty attribute. Set R1275104Enabled to false to disable this requirement-->
     <Property name="R1275104Enabled" value="true"/>
-    <!--Set R1275106Enabled to true to implementation does use  the BusinessMobile value. Set R1275106Enabled to false to disable this requirement-->
+    <!--Set R1275106Enabled to true to implementation does use the BusinessMobile value. Set R1275106Enabled to false to disable this requirement-->
     <Property name="R1275106Enabled" value="true"/>
-    <!--Set R1275108Enabled to true to implementation does use  the IPPhone value. Set R1275108Enabled to false to disable this requirement-->
+    <!--Set R1275108Enabled to true to implementation does use the IPPhone value. Set R1275108Enabled to false to disable this requirement-->
     <Property name="R1275108Enabled" value="true"/>
+    <!--Set R336002Enabled to true to implementation does use the AbchPersonItemType complex type. Set R336002Enabled to false to disable this requirement-->
+    <Property name="R336002Enabled" value="true"/>
+    <!--Set R336004Enabled to true to implementation does use the ExchangePersonIdGuid element. Set R336004Enabled to false to disable this requirement-->
+    <Property name="R336004Enabled" value="true"/>
   </Properties>
 </TestSite>
