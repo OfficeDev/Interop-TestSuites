@@ -480,7 +480,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.CaptureRequirementIfIsTrue(
              isSchemaValidated,
              368,
-             @"[In t:NonEmptyArrayOfAttendeesType Complex Type] The type of Attendee type is t:AttendeeType (section 2.2.4.2).");
+             @"[In t:NonEmptyArrayOfAttendeesType Complex Type] The type of Attendee type is t:AttendeeType (section 2.2.4.4).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R135");
@@ -615,7 +615,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                           <xs:element name=""RequiredAttendees"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
                           <xs:element name=""OptionalAttendees"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
                            <xs:element name=""Resources"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
-                           <xs:element name=""InboxReminders"" type=""t:ArrayOfInboxReminderType"" minOccurs=""0""/>
                           <!-- Conflicting and adjacent meetings -->
                           <xs:element name=""ConflictingMeetingCount"" type=""xs:int"" minOccurs=""0""/>
                           <xs:element name=""AdjacentMeetingCount"" type=""xs:int"" minOccurs=""0""/>
@@ -649,6 +648,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                           <xs:element name=""JoinOnlineMeetingUrl"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1"" />
                           <xs:element name=""OnlineMeetingSettings"" type=""t:OnlineMeetingSettingsType"" minOccurs=""0"" maxOccurs=""1""/>
                           <xs:element name=""IsOrganizer"" type=""xs:boolean"" minOccurs=""0""/>
+                           <xs:element name=""InboxReminders"" type=""t:ArrayOfInboxReminderType"" minOccurs=""0""/>
                         </xs:sequence>
                       </xs:extension>
                     </xs:complexContent>
@@ -867,7 +867,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     182,
-                    @"[In t:CalendarItemType Complex Type] The type of MyResponseType is t:ResponseTypeType (section 2.2.5.10).");
+                    @"[In t:CalendarItemType Complex Type] The type of MyResponseType is t:ResponseTypeType (section 2.2.5.12).");
 
                 this.VerifyResponseTypeType(isSchemaValidated);
             }
@@ -895,7 +895,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     513,
-                    @"[In t:CalendarItemType Complex Type] The type of RequiredAttendees is t:NonEmptyArrayOfAttendeesType (section 2.2.4.15)");
+                    @"[In t:CalendarItemType Complex Type] The type of RequiredAttendees is t:NonEmptyArrayOfAttendeesType (section 2.2.4.19)");
 
                 this.VeirfyNonEmptyArrayOfAttendeesType(calendarItem.RequiredAttendees, isSchemaValidated);
             }
@@ -961,7 +961,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     196,
-                    @"[In t:CalendarItemType Complex Type] The type of ConflictingMeetings is t:NonEmptyArrayOfAllItemsType ([MS-OXWSCDATA] section 2.2.4.42).");
+                    @"[In t:CalendarItemType Complex Type] The type of ConflictingMeetings is t:NonEmptyArrayOfAllItemsType ([MS-OXWSCDATA] section 2.2.4.48).");
             }
 
             if (calendarItem.AdjacentMeetings != null)
@@ -1045,7 +1045,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     210,
-                    @"[In t:CalendarItemType Complex Type] The type of Recurrence is t:RecurrenceType (section 2.2.4.20).");
+                    @"[In t:CalendarItemType Complex Type] The type of Recurrence is t:RecurrenceType (section 2.2.4.25).");
 
                 this.VerifyRecurrenceType(calendarItem.Recurrence, isSchemaValidated);
             }
@@ -1059,7 +1059,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     515,
-                    @"[In t:CalendarItemType Complex Type] The type of FirstOccurrence is t:OccurrenceInfoType (section 2.2.4.18).");
+                    @"[In t:CalendarItemType Complex Type] The type of FirstOccurrence is t:OccurrenceInfoType (section 2.2.4.22).");
 
                 this.VerifyOccurrenceInfoType(isSchemaValidated);
             }
@@ -1087,7 +1087,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     216,
-                    @"[In t:CalendarItemType Complex Type] The type of ModifiedOccurrences is t:NonEmptyArrayOfOccurrenceInfoType (section 2.2.4.17).");
+                    @"[In t:CalendarItemType Complex Type] The type of ModifiedOccurrences is t:NonEmptyArrayOfOccurrenceInfoType (section 2.2.4.21).");
 
                 this.VerifyNonEmptyArrayOfOccurrenceInfoType(calendarItem.ModifiedOccurrences, isSchemaValidated);
             }
@@ -1101,7 +1101,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     218,
-                    @"[In t:CalendarItemType Complex Type] The type of DeletedOccurrences is t:NonEmptyArrayOfDeletedOccurrencesType (section 2.2.4.16).");
+                    @"[In t:CalendarItemType Complex Type] The type of DeletedOccurrences is t:NonEmptyArrayOfDeletedOccurrencesType (section 2.2.4.20).");
 
                 this.VerifyNonEmptyArrayOfDeletedOccurrencesType(calendarItem.DeletedOccurrences, isSchemaValidated);
             }
@@ -1321,7 +1321,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     271,
-                    @"[In t:MeetingMessageType Complex Type] The type of ResponseType is t:ResponseTypeType (section 2.2.5.10).");
+                    @"[In t:MeetingMessageType Complex Type] The type of ResponseType is t:ResponseTypeType (section 2.2.5.12).");
             }
 
             if (!string.IsNullOrEmpty(meetingMessageType.UID))
@@ -1477,7 +1477,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     282,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of MeetingRequestType is t:MeetingRequestTypeType (section 2.2.5.7).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of MeetingRequestType is t:MeetingRequestTypeType (section 2.2.5.9).");
 
                 this.VerifyMeetingRequestTypeType(isSchemaValidated);
             }
@@ -1587,7 +1587,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     308,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of CalendarItemType is t:CalendarItemTypeType.");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of CalendarItemType is t:CalendarItemTypeType.(section 2.2.4.6)");
 
                 this.VerifyCalendarItemTypeType(isSchemaValidated);
             }
@@ -1615,7 +1615,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     314,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of RequiredAttendees is t:NonEmptyArrayOfAttendeesType (section 2.2.4.15).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of RequiredAttendees is t:NonEmptyArrayOfAttendeesType (section 2.2.4.19).");
 
                 this.VeirfyNonEmptyArrayOfAttendeesType(meetingRequestMessage.RequiredAttendees, isSchemaValidated);
             }
@@ -1743,7 +1743,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     338,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of Recurrence is t:RecurrenceType (section 2.2.4.20).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of Recurrence is t:RecurrenceType (section 2.2.4.25).");
 
                 this.VerifyRecurrenceType(meetingRequestMessage.Recurrence, isSchemaValidated);
             }
@@ -1757,7 +1757,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     340,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of FirstOccurrence is t:OccurrenceInfoType (section 2.2.4.18).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of FirstOccurrence is t:OccurrenceInfoType (section 2.2.4.22).");
 
                 this.VerifyOccurrenceInfoType(isSchemaValidated);
             }
@@ -1785,7 +1785,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     344,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of ModifiedOccurrences is t:NonEmptyArrayOfOccurrenceInfoType (section 2.2.4.17).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of ModifiedOccurrences is t:NonEmptyArrayOfOccurrenceInfoType (section 2.2.4.21).");
             }
 
             if (meetingRequestMessage.DeletedOccurrences != null)
@@ -1797,7 +1797,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     346,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of DeletedOccurrences is t:NonEmptyArrayOfDeletedOccurrencesType (section 2.2.4.16).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of DeletedOccurrences is t:NonEmptyArrayOfDeletedOccurrencesType (section 2.2.4.20).");
             }
 
             if (meetingRequestMessage.IsOnlineMeetingSpecified)
@@ -1973,7 +1973,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
     type=""xs:string""
     use=""optional""
   />
-</xs:complexType> (<76> Section 2.2.4.40:  Only Exchange 2007 supports the TimeZoneType complex type.)");
+</xs:complexType> (<57> Section 2.2.4.29:  Only Exchange 2007 supports the TimeZoneType complex type.)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R406");
@@ -1991,7 +1991,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.CaptureRequirementIfIsTrue(
              isSchemaValidated,
              408,
-             @"[In t:TimeZoneType Complex Type] The type of Standard is t:TimeChangeType (section 2.2.4.23).");
+             @"[In t:TimeZoneType Complex Type] The type of Standard is t:TimeChangeType (section 2.2.4.28).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R410");

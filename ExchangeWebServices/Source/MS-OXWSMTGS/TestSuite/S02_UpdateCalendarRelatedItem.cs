@@ -176,7 +176,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     meetingRequest.StartTimeZone,
                     718,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""StartTimeZone"" with type ""t:TimeZoneDefinitionType ([MS-OXWSGTZ] section 2.2.4.12)"" which specifies the time zone for the start of the meeting item. (Exchange 2010 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""StartTimeZone"" with type ""t:TimeZoneDefinitionType ([MS-OXWSGTZ] section 2.2.4.12)"" which specifies the time zone for the start of the meeting item. (Exchange 2010 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(719, this.Site))
@@ -189,7 +189,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     meetingRequest.EndTimeZone,
                     719,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""EndTimeZone"" with type ""t:TimeZoneDefinitionType"" which specifies the time zone for the end of the meeting item. (Exchange 2010 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""EndTimeZone"" with type ""t:TimeZoneDefinitionType"" which specifies the time zone for the end of the meeting item. (Exchange 2010 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(710, this.Site))
@@ -202,7 +202,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     meetingRequest.StartTimeZoneId,
                     710,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""StartTimeZoneId"" with type ""xs:string"" which specifies the start time zone identifier. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""StartTimeZoneId"" with type ""xs:string"" which specifies the start time zone identifier. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(711, this.Site))
@@ -215,7 +215,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     meetingRequest.EndTimeZoneId,
                     711,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""EndTimeZoneId"" with type ""xs:string"" which specifies the end time zone identifier. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""EndTimeZoneId"" with type ""xs:string"" which specifies the end time zone identifier. (Exchange 2013 and above follow this behavior.)");
             }
             #endregion
 
