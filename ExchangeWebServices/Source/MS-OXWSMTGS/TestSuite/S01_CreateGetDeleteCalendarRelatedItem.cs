@@ -108,7 +108,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     calendar.EnhancedLocation,
                     696,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""EnhancedLocation"" with type ""EnhancedLocationType (section 2.2.4.10)"" which specifies enhance location information for the calendar item. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support element ""EnhancedLocation"" with type ""EnhancedLocationType (section 2.2.4.10)"" which specifies enhance location information for the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(697, this.Site))
@@ -420,7 +420,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                         // Element ProposeNewTime is returned from server and passes schema validation, this requirement can be captured directly.
                         this.Site.CaptureRequirement(
                             1107,
-                            @"[In t:ProposeNewTimeType Complex Type] This type [ProposeNewTimeType] extends the ResponseObjectType complex type ([MS-OXWSCDATA] section 2.2.4.65).");
+                            @"[In t:ProposeNewTimeType Complex Type] This type [ProposeNewTimeType] extends the ResponseObjectType complex type ([MS-OXWSCDATA] section 2.2.4.69).");
 
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1355");
@@ -608,7 +608,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.Site.CaptureRequirementIfIsFalse(
                 request.IsDelegated,
                 749,
-                "[In t:MeetingMessageType Complex Type]otherwise [if a meeting was not handled by an account that has delegate access], [IsDelegated is] false.");
+                "[In t:MeetingMessageType Complex Type]otherwise [if a meeting message not belong to a mailbox of an account that has delegate access], [IsDelegated is] false.");
             #endregion
 
             #region Organizer deletes the meeting with CalendarItemCreateOrDeleteOperationType value set to SendOnlyToAll
@@ -720,7 +720,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     calendar.MeetingTimeZone,
                     715,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""MeetingTimeZone"" with type ""t:TimeZoneType (section 2.2.4.40)"" which does specify the time zone of the location where the meeting is hosted. (<28> Section 2.2.4.9: Only Exchange 2007 supports the MeetingTimeZone element.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support element ""MeetingTimeZone"" with type ""t:TimeZoneType (section 2.2.4.40)"" which does specify the time zone of the location where the meeting is hosted. (<28> Section 2.2.4.9: Only Exchange 2007 supports the MeetingTimeZone element.)");
                 
                 if (Common.IsRequirementEnabled(654, this.Site))
                 {
@@ -790,7 +790,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     timeChange.Offset,
                     399,
-                    @"[In t:TimeChangeType Complex Type] Offset: Specifies the offset from the duration specified by the BaseOffset element (section 2.2.4.24).");
+                    @"[In t:TimeChangeType Complex Type] Offset: Specifies the offset from the duration specified by the BaseOffset element (section 2.2.4.29).");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R401");
@@ -885,7 +885,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     request.MeetingTimeZone,
                     706,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""MeetingTimeZone"" with type ""t:TimeZoneType (section 2.2.4.24)"" which does specify the time zone of the location where the meeting is hosted. (<52> Section 2.2.4.22:  Only Exchange 2007 supports the MeetingTimeZone element.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""MeetingTimeZone"" with type ""t:TimeZoneType (section 2.2.4.24)"" which does specify the time zone of the location where the meeting is hosted. (<52> Section 2.2.4.22:  Only Exchange 2007 supports the MeetingTimeZone element.)");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1090");
@@ -1500,7 +1500,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     meeting.Start.Date,
                     createdCalendarItem.StartWallClock.Date,
                     699,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""StartWallClock"" with type ""xs:dateTime"" which specifies the start time of the calendar item. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support element ""StartWallClock"" with type ""xs:dateTime"" which specifies the start time of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(700, this.Site))
@@ -1513,7 +1513,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     meeting.End.Date,
                     createdCalendarItem.EndWallClock.Date,
                     700,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""EndWallClock"" with type ""xs:dateTime"" which specifies the ending time of the calendar item. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support element ""EndWallClock"" with type ""xs:dateTime"" which specifies the ending time of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(80048, this.Site))
@@ -1525,7 +1525,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsTrue(
                     createdCalendarItem.IsOrganizer && createdCalendarItem.IsOrganizerSpecified,
                     80048,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""IsOrganizer"" with type ""xs:boolean"" which specifies whether the current user is the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support element ""IsOrganizer"" with type ""xs:boolean"" which specifies whether the current user is the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
             #endregion
             #endregion
@@ -1787,7 +1787,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     meeting.Start.Date,
                     receivedRequest.StartWallClock.Date,
                     708,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""StartWallClock""with type ""xs:dateTime"" which specifies the start time of the calendar item. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""StartWallClock""with type ""xs:dateTime"" which specifies the start time of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(709, this.Site))
@@ -1800,7 +1800,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     meeting.End.Date,
                     receivedRequest.EndWallClock.Date,
                     709,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""EndWallClock"" with type ""xs:dateTime"" which specifies the ending time of the calendar item. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""EndWallClock"" with type ""xs:dateTime"" which specifies the ending time of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
             #endregion
 
@@ -2002,7 +2002,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     receivedRequest.EnhancedLocation,
                     707,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""EnhancedLocation"" with type ""EnhancedLocationType (section 2.2.4.10)"" which specifies enhanced location information. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""EnhancedLocation"" with type ""EnhancedLocationType (section 2.2.4.10)"" which specifies enhanced location information. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(3541, this.Site))
@@ -2110,7 +2110,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     response.EnhancedLocation,
                     80011,
-                    @"[In Appendix C: Product Behavior] Implementation does support the EnhancedLocation, which is an element of type EnhancedLocationType, as defined in section 2.2.4.10, that represents additional location information for the calendar item. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the EnhancedLocation, which is an element of type EnhancedLocationType, as defined in section 2.2.4.12, that represents additional location information for the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
 
             // Add the debug information
@@ -2407,7 +2407,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.Site.CaptureRequirementIfIsNotNull(
                 deletedItem,
                 620,
-                @"[In Messages] DeleteItemSoapIn: For each item being deleted that is a recurring calendar item, the ItemIds element can contain a RecurringMasterItemId child element ([MS-OXWSCORE] section 2.2.4.11) or an OccurrenceItemId child element ([MS-OXWSCORE] section 2.2.4.11).");
+                @"[In Messages] DeleteItemSoapIn: For each item being deleted that is a recurring calendar item, the ItemIds element can contain a RecurringMasterItemId child element ([MS-OXWSCORE] section 2.2.4.39) or an OccurrenceItemId child element ([MS-OXWSCORE] section 2.2.4.35).");
             #endregion
 
             #region Clean up organizer's deleteditems and sentitems folder, and attendee's inbox, calendar and deleteditems folders.
@@ -2665,7 +2665,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 ResponseCodeType.ErrorCalendarEndDateIsEarlierThanStartDate,
                 response.ResponseMessages.Items[0].ResponseCode,
                 1204,
-                @"[In Messages] ErrorCalendarEndDateIsEarlierThanStartDate: Specifies that the end date/time must be changed so that it is greater than the start date/time.");
+                @"[In Messages] ErrorCalendarEndDateIsEarlierThanStartDate: Specifies that the end date/time MUST be changed so that it is greater than the start date/time.");
             #endregion
 
             #region Clean up organizer's calendar folders.
@@ -3184,7 +3184,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     "Greenwich Standard Time",
                     calendar.StartTimeZoneId,
                     701,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""StartTimeZoneId"" with type ""xs:string"" which specifies the calendar item start time zone identifier. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support element ""StartTimeZoneId"" with type ""xs:string"" which specifies the calendar item start time zone identifier. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(702, this.Site))
@@ -3197,7 +3197,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     "Greenwich Standard Time",
                     calendar.EndTimeZoneId,
                     702,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""EndTimeZoneId"" with type ""xs:string"" which specifies the calendar item end time zone identifier. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support element ""EndTimeZoneId"" with type ""xs:string"" which specifies the calendar item end time zone identifier. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(703, this.Site))
@@ -3210,7 +3210,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     LegacyFreeBusyType.OOF,
                     calendar.IntendedFreeBusyStatus,
                     703,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""IntendedFreeBusyStatus"" with type ""LegacyFreeBusyType ([MS-OXWSCDATA] section 2.2.3.16)"" which indicates how the organizer of the meeting wants it to show up in the attendee's calendar when the meeting is accepted. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support element ""IntendedFreeBusyStatus"" with type ""LegacyFreeBusyType ([MS-OXWSCDATA] section 2.2.3.16)"" which indicates how the organizer of the meeting wants it to show up in the attendee's calendar when the meeting is accepted. (Exchange 2013 and above follow this behavior.)");
             }
 
             // Add the debug information

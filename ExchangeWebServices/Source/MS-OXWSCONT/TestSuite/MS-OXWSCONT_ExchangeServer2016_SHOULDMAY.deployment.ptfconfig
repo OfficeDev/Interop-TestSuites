@@ -72,7 +72,7 @@
     <!--Set R1275108Enabled to true to implementation does use the IPPhone value. Set R1275108Enabled to false to disable this requirement-->
     <Property name="R1275108Enabled" value="true"/>
     <!--Set R336002Enabled to true to implementation does use the AbchPersonItemType complex type. Set R336002Enabled to false to disable this requirement-->
-    <Property name="R336002Enabled" value="true"/>
+    <Property name="R336002Enabled" value="false"/>
     <!--Set R336004Enabled to true to implementation does use the ExchangePersonIdGuid element. Set R336004Enabled to false to disable this requirement-->
     <Property name="R336004Enabled" value="true"/>
   </Properties>

@@ -341,6 +341,15 @@
                 30205601,
                 @"[In GetUserPhotoResponseMessageType] HasChanged element: If the value is true, the photo has changed.");
 
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R302058");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302058
+            this.Site.CaptureRequirementIfIsNotNull(
+                getUserPhotoResponse.PictureData,
+                302058,
+                @"[In GetUserPhotoResponseMessageType] PictureData element: Specifies the binary data for the picture.");
+
             #endregion
         }
     }

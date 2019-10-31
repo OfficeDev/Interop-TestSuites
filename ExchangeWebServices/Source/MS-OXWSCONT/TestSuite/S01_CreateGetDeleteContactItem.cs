@@ -1095,6 +1095,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         [TestCategory("MSOXWSCONT"), TestMethod()]
         public void MSOXWSCONT_S01_TC12_VerifyAbchPersonItemType()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(336002, this.Site), "Implementation does support the AbchPersonItemType complex type.");
+
             AbchPersonItemType abchPersonItem = new AbchPersonItemType();
 
             abchPersonItem.AntiLinkInfo = "IDs";

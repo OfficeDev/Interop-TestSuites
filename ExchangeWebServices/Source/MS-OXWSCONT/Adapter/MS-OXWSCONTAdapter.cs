@@ -195,6 +195,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             #region Verifiy GetUserPhoto opreation requirements
             this.VerifySoapVersion();
             this.VerifyTransportType();
+
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
+            this.VerifyGetUserPhotoResponseMessageType(getUserPhotoResponse, this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
             return getUserPhotoResponse;
@@ -212,6 +215,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             #region Verifiy SetUserPhoto opreation requirements
             this.VerifySoapVersion();
             this.VerifyTransportType();
+
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
+            this.VerifySetUserPhotoResponseMessageType(setUserPhotoResponse, this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
             return setUserPhotoResponse;
