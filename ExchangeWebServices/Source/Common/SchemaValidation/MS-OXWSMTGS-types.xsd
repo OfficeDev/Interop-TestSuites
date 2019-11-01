@@ -208,10 +208,10 @@
 	  </xs:complexType>
 	  <xs:complexType name="EnhancedLocationType">
 	    <xs:sequence>
-	      <xs:element name="DisplayName" type="xs:string"/>
+        <xs:element name="DisplayName" type="xs:string" minOccurs="0"/>
 	      <xs:element name="Annotation" type="xs:string" minOccurs="0"/>
-	      <xs:element name="PostalAddress" type="t:PersonaPostalAddressType" minOccurs="0"/>
-	    </xs:sequence>
+        <xs:element name="PostalAddress" type="t:PersonaPostalAddressType" minOccurs="0"/>
+      </xs:sequence>
 	  </xs:complexType>
 	  <xs:complexType name="InboxReminderType">
 	    <xs:sequence>
