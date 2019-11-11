@@ -47,6 +47,7 @@
     <None Include="MS-OXWSSYNC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXWSSYNC_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXWSSYNC_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OXWSSYNC_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OXWSSYNC_TestSuite.deployment.ptfconfig" />
     <None Include="MS-OXWSSYNC_TestSuite.ptfconfig" />
   </ItemGroup>

@@ -1546,6 +1546,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 @"[In t:MeetingRequestMessageType Complex Type] [IsMeeting is] True, if the calendar item is a meeting or an appointment.");
 
             // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R7561");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R7561
+            this.Site.CaptureRequirementIfIsTrue(
+                receivedRequest.IsMeeting,
+                7561,
+                @"[In t:MeetingRequestMessageType Complex Type]This element [IsMeeting] is true.");
+
+            // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R759");
 
             // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R759
