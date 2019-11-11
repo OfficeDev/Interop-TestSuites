@@ -596,7 +596,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1032</ns1:REQ_ID>
@@ -614,7 +614,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1034</ns1:REQ_ID>
@@ -622,7 +622,7 @@
 		<ns1:Description>[In t:ArrayOfInboxReminderType] InboxReminder:  An inbox reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -949,6 +949,7 @@
           &lt;xs:element name="JoinOnlineMeetingUrl" type="xs:string" minOccurs="0" maxOccurs="1" /&gt;
           &lt;xs:element name="OnlineMeetingSettings" type="t:OnlineMeetingSettingsType" minOccurs="0" maxOccurs="1"/&gt;
           &lt;xs:element name="IsOrganizer" type="xs:boolean" minOccurs="0"/&gt;
+          &lt;xs:element name="InboxReminders" type="t:ArrayOfInboxReminderType" minOccurs="0"/&gt;
         &lt;/xs:sequence&gt;
       &lt;/xs:extension&gt;
     &lt;/xs:complexContent&gt;
@@ -2137,7 +2138,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R532</ns1:REQ_ID>
@@ -2155,7 +2156,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R80001</ns1:REQ_ID>
@@ -2169,6 +2170,15 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:CalendarItemType Complex Type] The type of complex type "InboxReminders" is "t:ArrayOfInboxReminderType (section 2.2.4.3)".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R2004001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
 		<ns1:Description>[In t:CalendarItemType Complex Type] [The complex type "InboxReminders" with type "t:ArrayOfInboxReminderType (section 2.2.4.3)"]: Specifies Inbox reminders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -2574,7 +2584,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1060</ns1:REQ_ID>
@@ -2583,7 +2593,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1061</ns1:REQ_ID>
@@ -2592,7 +2602,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1062</ns1:REQ_ID>
@@ -2601,7 +2611,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1063</ns1:REQ_ID>
@@ -2610,7 +2620,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1064</ns1:REQ_ID>
@@ -2619,7 +2629,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1065</ns1:REQ_ID>
@@ -2628,7 +2638,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1066</ns1:REQ_ID>
@@ -2637,7 +2647,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1067</ns1:REQ_ID>
@@ -2646,7 +2656,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1339</ns1:REQ_ID>
@@ -2666,7 +2676,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1068</ns1:REQ_ID>
@@ -2675,7 +2685,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1069</ns1:REQ_ID>
@@ -2702,7 +2712,27 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R200611</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
+		<ns1:Description>[In t:InboxReminderType] [IsImportedFromOLC is] true if this is imported from Microsoft Outlook.</ns1:Description>
+		<ns1:Derived>MS-OXWSMTGS_R2006:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R200612</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
+		<ns1:Description>[In t:InboxReminderType] otherwise [if this is imported from Microsoft Outlook], [IsImportedFromOLC is] false.</ns1:Description>
+		<ns1:Derived>MS-OXWSMTGS_R2006:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1070</ns1:REQ_ID>
@@ -2711,7 +2741,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1341</ns1:REQ_ID>
@@ -6104,6 +6134,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1310.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1361</ns1:REQ_ID>
@@ -6119,7 +6150,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1162</ns1:REQ_ID>
@@ -6174,6 +6205,7 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R1312.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1362</ns1:REQ_ID>
@@ -6190,7 +6222,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1168</ns1:REQ_ID>
@@ -7023,7 +7055,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1195</ns1:REQ_ID>
@@ -9800,8 +9832,10 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:REQ_ID>MS-OXWSMTGS_R2172</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] ErrorCalendarEndDateIsEarlierThanStartDate: Specifies that the end date/time MUST be changed so that it is greater than the start date/time.</ns1:Description>
-		<ns1:IsNormative/>
-		<ns1:Verification/>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R504</ns1:REQ_ID>
@@ -10196,7 +10230,7 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMTGS_R2187</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSMTGS_R2301</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation is read-only  the IsOnlineMeeting element. (Exchange 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSMTGS_R2001:i</ns1:Derived>
@@ -10434,12 +10468,12 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1278</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support InboxReminderType which specifies an inbox reminder. (Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support InboxReminderType which specifies an inbox reminder. (Exchange 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSMTGS_R1059:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R669</ns1:REQ_ID>
@@ -11145,7 +11179,8 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1311</ns1:REQ_ID>
@@ -11165,7 +11200,8 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R80058</ns1:REQ_ID>

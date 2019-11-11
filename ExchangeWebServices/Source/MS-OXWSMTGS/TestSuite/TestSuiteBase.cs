@@ -402,6 +402,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             attendeeType.Mailbox = email;
             return attendeeType;
         }
+
+        /// <summary>
+        /// Get an attendeeType or resource instance.
+        /// </summary>
+        /// <param name="emailAddress">The email address related to an attendeeType or resource.</param>
+        /// <returns>An instance of AttendeeType</returns>
+        protected static InboxReminderType GetInboxReminder(string message)
+        {
+            InboxReminderType inboxReminder = new InboxReminderType();
+            inboxReminder.ReminderOffsetSpecified = true;
+            inboxReminder.ReminderOffset = 5;
+            inboxReminder.Message = message;
+            return inboxReminder;
+        }
         #endregion
 
         #region Test case initialize and clean up
