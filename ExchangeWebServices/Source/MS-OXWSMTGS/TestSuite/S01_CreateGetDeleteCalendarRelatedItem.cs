@@ -3059,8 +3059,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
         }
 
-
-
         /// <summary>
         /// This test case is designed to test ErrorCalendarCannotUseIdForRecurringMasterId will be returned if the RecurringMasterId does not correspond to a valid recurring master item.
         /// </summary>
@@ -3163,6 +3161,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S01_TC26_CreateCalendarItemWithInboxMinders()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1278, this.Site), "Implementation does support the InboxReminderType.");
+
             #region Define a meeting to be created
             int timeInterval = this.TimeInterval;
             CalendarItemType meetingItem = new CalendarItemType();
@@ -3269,6 +3269,101 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             #region Clean up organizer's inbox, calendar and deleteditems folders, and attendee's sentitems, calendar and deleteditems folders
             this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
             this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to verify properties related to reminders.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S01_TC27_Reminders()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(2198, this.Site), "Implementation does support the GetReminders operation.");
+
+            #region Define a meeting to be created
+            int timeInterval = this.TimeInterval;
+            CalendarItemType meetingItem = new CalendarItemType();
+            meetingItem.UID = Guid.NewGuid().ToString();
+            meetingItem.Subject = this.Subject;
+            meetingItem.Start = DateTime.Now.AddHours(timeInterval);
+
+            meetingItem.StartSpecified = true;
+            timeInterval++;
+            meetingItem.End = DateTime.Now.AddHours(timeInterval);
+            meetingItem.EndSpecified = true;
+            meetingItem.Location = this.Location;
+            meetingItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
+            meetingItem.ReminderIsSetSpecified = true;
+            meetingItem.ReminderIsSet = true;
+
+            #endregion
+
+            #region Organizer creates a meeting with CalendarItemCreateOrDeleteOperationType value set to SendToAllAndSaveCopy
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, meetingItem, CalendarItemCreateOrDeleteOperationType.SendToAllAndSaveCopy);
+            Site.Assert.IsNotNull(item, "The meeting should be created successfully.");
+
+            Site.Assert.IsNotNull(
+                this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.sentitems, "IPM.Schedule.Meeting.Request", meetingItem.UID),
+                "The meeting request message should be saved to organizer's Sent Items folder after call CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+
+            ItemIdType meetingId = item.Items.Items[0].ItemId;
+
+            CalendarItemType calendarInOrganizer = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+            Site.Assert.IsNotNull(calendarInOrganizer, "The meeting should be found in organizer's Calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+            #endregion
+
+            GetRemindersType getRemindersRequest = new GetRemindersType();
+            getRemindersRequest.ReminderTypeSpecified = true;
+            getRemindersRequest.ReminderType = GetRemindersTypeReminderType.All;
+            
+            GetRemindersResponseMessageType getRemindersResponse = this.MTGSAdapter.GetReminders(getRemindersRequest);
+
+            #region Capture code
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2032");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2032
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Success,
+                getRemindersResponse.ResponseClass,
+               2032,
+                @"[In tns:GetRemindersSoapOut Message]If the request is successful, the GetReminders operation returns a GetRemindersResponse element with the ResponseClass attribute of the GetRemindersResponseMessage element set to ""Success"". ");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2033");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2033
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.NoError,
+                getRemindersResponse.ResponseCode,
+                2033,
+                @"[In tns:GetRemindersSoapOut Message]The ResponseCode element of the GetRemindersResponse element is set to ""NoError"".");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2039");
+
+            //Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R2039
+            Site.CaptureRequirementIfIsNotNull(
+                getRemindersResponse.Reminders,
+                2039,
+                @"[In Elements]GetReminders:Specifies a request to retrieve reminders.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2039");
+
+            foreach (ReminderType reminder in getRemindersResponse.Reminders)
+            {
+                //Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R2039
+                Site.CaptureRequirementIfIsNotNull(
+                    reminder.Location,
+                    2039,
+                    @"[In Elements]GetReminders:Specifies a request to retrieve reminders.");
+            }
+            #endregion
+
+            #region Clean up organizer's calendar folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
             #endregion
         }
         #endregion

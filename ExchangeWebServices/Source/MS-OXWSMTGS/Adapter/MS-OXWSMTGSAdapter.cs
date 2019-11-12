@@ -80,6 +80,27 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         /// <summary>
         /// Get the calendar related item elements.
         /// </summary>
+        /// <param name="request">A request to the GetReminder operation.</param>
+        /// <returns>The response message returned by GetReminder operation.</returns>
+        public GetRemindersResponseMessageType GetReminders(GetRemindersType request)
+        {
+            if (request == null)
+            {
+                throw new ArgumentException("The request of operation 'GetReminders' should not be null.");
+            }
+
+            GetRemindersResponseMessageType getRemindersResponse = this.exchangeServiceBinding.GetReminders(request);
+            Site.Assert.IsNotNull(getRemindersResponse, "If the operation is successful, the response should not be null.");
+
+            this.VerifySoapVersion();
+            this.VerifyTransportType();
+            this.VerifyGetReminderResponseMessageType(getRemindersResponse, this.exchangeServiceBinding.IsSchemaValidated);
+            return getRemindersResponse;
+        }
+
+        /// <summary>
+        /// Get the calendar related item elements.
+        /// </summary>
         /// <param name="request">A request to the GetItem operation.</param>
         /// <returns>The response message returned by GetItem operation.</returns>
         public GetItemResponseType GetItem(GetItemType request)

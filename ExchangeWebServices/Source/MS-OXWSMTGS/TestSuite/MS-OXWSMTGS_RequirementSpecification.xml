@@ -7346,7 +7346,7 @@ MeetingCancellationMessageType (section 2.2.4.14)</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R2196.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSMTGS_R12052.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1206</ns1:REQ_ID>
@@ -7845,7 +7845,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages]GetRemindersSoapIn:Specifies the SOAP message request to retrieve reminders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -7856,14 +7856,14 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2017</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:GetRemindersSoapIn Message]The GetRemindersSoapIn WSDL message specifies the GetReminders operation request to retrieve reminders on the server.	</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -7876,16 +7876,16 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 	  &lt;wsdl:part name="RequestVersion" element="t:RequestServerVersion"/&gt;
 	&lt;/wsdl:message&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2018</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:GetRemindersSoapIn Message]The GetRemindersSoapIn WSDL message is the input message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/GetReminders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -7903,16 +7903,16 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:GetRemindersSoapIn Message]the element of  request is tns:GetReminders (section 3.1.4.5.2.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2021</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:GetRemindersSoapIn Message]request:Specifies the SOAP body of the request to retrieve reminders on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -7921,16 +7921,16 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:GetRemindersSoapIn Message]the element of  RequestVersion is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2023</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:GetRemindersSoapIn Message]RequestVersion:Specifies a SOAP header that identifies the server version for the response to a GetReminders operation request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -7940,7 +7940,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Description>[In tns:GetRemindersSoapOut Message]The GetRemindersSoapOut WSDL message specifies the server response to a GetReminders operation request to retrieve reminders on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -7961,7 +7961,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Description>[In tns:GetRemindersSoapOut Message]The GetRemindersSoapOut WSDL message is the output message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/GetReminders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -7985,11 +7985,11 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2029</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:GetRemindersSoapOut Message]GetRemindersResponse:Specifies the SOAP body of a response message.</ns1:Description>
+		<ns1:Description>[In tns:GetRemindersSoapOut Message]GetRemindersResult:Specifies the SOAP body of a response message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2030</ns1:REQ_ID>
@@ -8007,7 +8007,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2032</ns1:REQ_ID>
@@ -8059,7 +8059,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.2</ns1:Doc_Sect>
 		<ns1:Description>[In Elements]GetReminders:Specifies a request to retrieve reminders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -8069,7 +8069,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Description>[In Elements]GetRemindersResponse:Specifies a response to a GetReminders operation request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -8077,7 +8077,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In m:GetReminders Element]The GetReminders element specifies a request to return reminders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -8086,9 +8086,9 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In m:GetReminders Element][The schema of GetReminders is defined as:] 	&lt;xs:element name="GetReminders" type="m:GetRemindersType"/&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2043</ns1:REQ_ID>
@@ -8096,7 +8096,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Description>[In m:GetRemindersResponse Element]The GetRemindersResponse element specifies a response to a GetReminders operation request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -8125,7 +8125,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2047</ns1:REQ_ID>
@@ -8222,7 +8222,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In m:GetRemindersType Complex Type]The GetRemindersType complex type represents a request to return reminders. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -8231,7 +8231,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In m:GetRemindersType Complex Type]This type[GetRemindersType] extends the BaseRequestType complex type ([MS-OXWSCDATA] section 2.2.4.17).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -8267,9 +8267,9 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 	  &lt;/xs:complexContent&gt;
 	&lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2059</ns1:REQ_ID>
@@ -8285,7 +8285,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In m:GetRemindersType Complex Type]the type of BeginTime is xs:dateTime ([XMLSCHEMA2]).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -8294,7 +8294,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In m:GetRemindersType Complex Type]BeginTime:the beginning time of reminders to return.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -8303,7 +8303,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In m:GetRemindersType Complex Type]The type of EndTime is xs:dateTime.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -8312,7 +8312,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In m:GetRemindersType Complex Type]EndTime:The end time of the reminders to return.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -8321,7 +8321,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.5.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In m:GetRemindersType Complex Type]The type of MaxItems is xs:int ([XMLSCHEMA2]).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -8362,7 +8362,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2069</ns1:REQ_ID>
@@ -8417,7 +8417,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2074</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.3.4</ns1:Doc_Sect>
-		<ns1:Description>[In t:ReminderType Complex Type][The schema of ArrayOfRemindersType is defined as:]
+		<ns1:Description>[In t:ReminderType Complex Type][The schema of ReminderType is defined as:]
 	&lt;xs:complexType name="ReminderType"&gt;
 	  &lt;xs:sequence&gt;
 	    &lt;xs:element name="Subject" type="xs:string" minOccurs="1" maxOccurs="1"/&gt;
@@ -8864,15 +8864,6 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1232</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] ErrorCalendarCannotUseIdForOccurrenceId: Specifies that the OccurrenceId ([MS-OXWSCORE] section 2.2.4.39) does not correspond to a valid occurrence of a recurring master item.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMTGS_R1233</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.6.1</ns1:Doc_Sect>
-		<ns1:Description>[In Messages] ErrorCalendarEndDateIsEarlierThanStartDate: Specifies that the end date/time must be changed so that it is greater than the start date/time.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9829,7 +9820,7 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMTGS_R2172</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSMTGS_R1233</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] ErrorCalendarEndDateIsEarlierThanStartDate: Specifies that the end date/time MUST be changed so that it is greater than the start date/time.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -11339,7 +11330,7 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMTGS_R2196</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSMTGS_R12052</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does use ErrorCalendarInvalidDayForWeeklyRecurrence error code which specifies that invalid values were used to specify the weekly recurrence. (This type was introduced in Exchange 2013 SP1.)</ns1:Description>
 		<ns1:Derived>MS-OXWSMTGS_R1205:i</ns1:Derived>

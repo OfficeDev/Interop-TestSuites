@@ -59,6 +59,7 @@ namespace Microsoft.Protocols.TestSuites.Common
             "MS-OXWSMSG-types.xsd", 
             "MS-OXWSMSHR-messages.xsd",
             "MS-OXWSMSHR-types.xsd",
+            "MS-OXWSMTGS-messages.xsd",
             "MS-OXWSMTGS-types.xsd",
             "MS-OXWSNTIF-messages.xsd", 
             "MS-OXWSNTIF-types.xsd", 
