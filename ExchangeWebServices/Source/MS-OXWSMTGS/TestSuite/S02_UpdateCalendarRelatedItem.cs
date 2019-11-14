@@ -920,6 +920,73 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
             #endregion
         }
+
+        /// <summary>
+        /// This test case is designed to test ErrorCalendarEndDateIsEarlierThanStartDate will be returned if end date is earlier than start date.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S02_TC13_UpdateMeetingErrorCalendarEndDateIsEarlierThanStartDate()
+        {
+            #region Define a calendar item
+            int timeInterval = this.TimeInterval;
+            CalendarItemType calendarItem = new CalendarItemType();
+            calendarItem.UID = Guid.NewGuid().ToString();
+            calendarItem.Subject = this.Subject;
+            calendarItem.Start = DateTime.Now.AddHours(timeInterval);
+            calendarItem.StartSpecified = true;
+            calendarItem.End = calendarItem.Start.AddDays(6);
+            calendarItem.EndSpecified = true;
+            #endregion
+
+            #region Create the recurring calendar item and extract the Id of an occurrence item
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new ItemType[] { calendarItem };
+            createItemRequest.MessageDispositionSpecified = true;
+            createItemRequest.MessageDisposition = MessageDispositionType.SaveOnly;
+            createItemRequest.SendMeetingInvitationsSpecified = true;
+            createItemRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendToNone;
+            CreateItemResponseType response = this.MTGSAdapter.CreateItem(createItemRequest);
+            Common.CheckOperationSuccess(response, 1, this.Site);
+            #endregion
+
+            #region Organizer updates the End element in the created meeting item with CalendarItemUpdateOperationType value set to SendOnlyToAll
+            CalendarItemType calendarUpdate = new CalendarItemType();
+            calendarUpdate.End = calendarItem.Start.AddMinutes(-1);
+            calendarUpdate.EndSpecified = true;
+
+            UpdateItemType updateItemRequest = new UpdateItemType();
+            updateItemRequest.ItemChanges = new ItemChangeType[1];
+            PathToUnindexedFieldType pathToUnindexedField = new PathToUnindexedFieldType();
+            pathToUnindexedField.FieldURI = UnindexedFieldURIType.calendarEnd;
+            SetItemFieldType setItemField = new SetItemFieldType();
+            setItemField.Item = pathToUnindexedField;
+            setItemField.Item1 = calendarUpdate;
+            ItemChangeType itemChange = new ItemChangeType();
+            itemChange.Item = (response.ResponseMessages.Items[0] as ItemInfoResponseMessageType).Items.Items[0].ItemId;
+            itemChange.Updates = new ItemChangeDescriptionType[] { setItemField };
+            updateItemRequest.ItemChanges[0] = itemChange;
+            updateItemRequest.SendMeetingInvitationsOrCancellationsSpecified = true;
+            updateItemRequest.SendMeetingInvitationsOrCancellations = CalendarItemUpdateOperationType.SendToNone;
+            UpdateItemResponseType updateItemResponse = this.MTGSAdapter.UpdateItem(updateItemRequest);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1244");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1244
+            Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorCalendarEndDateIsEarlierThanStartDate,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                1244,
+                @"[In Messages] ErrorCalendarDurationIsTooLong: Specifies that the item duration of a calendar item exceeds five years.");
+
+            #endregion
+
+            #region Clean up organizer's calendar and deleteditems folders, and attendee's inbox and calendar folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.calendar });
+            #endregion
+        }
         #endregion
 
         #region Private methods

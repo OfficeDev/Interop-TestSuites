@@ -50,7 +50,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             #endregion
 
             #region Step 2. Client invokes CreateItem operation to create a MessageType item on server and get its id.
-            MessageType messageType = new MessageType();
+            MessageType messageType = new MessageType();            
             BaseItemIdType[] itemIds = this.CreateItem(inboxFolder, messageType);
             #endregion
 
@@ -260,7 +260,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 @"[In t:SyncFolderItemsChangesType Complex Type] [The element Delete] specifies an item that has been deleted on the server and has to be deleted on the client.");
             #endregion
         }
-
+        
         /// <summary>
         ///  Client calls SyncFolderItems operation to sync MeetingRequestMessageType item.
         /// </summary>
@@ -316,6 +316,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 166,
                 @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingRequest is t:MeetingRequestMessageType ([MS-OXWSMTGS] section 2.2.4.22).");
 
+            // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R164
+            // As the MeetingRequestMessageType complex type extends the MeetingMessageType complex type, then MS-OXWSSYNC_R164 can be captured.
+            Site.CaptureRequirementIfIsInstanceOfType(
+                (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item,
+                typeof(MeetingMessageType),
+                164,
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingMessage is t:MeetingMessageType ([MS-OXWSMTGS] section 2.2.4.15).");
+
             Site.Assert.AreEqual<int>(1, changes.ItemsElementName.Length, "Just one MeetingRequestMessageType item was created in previous step, so the count of ItemsElementName array in responseMessage.Changes should be 1.");
             bool isMeetingRequestCreated = changes.ItemsElementName[0] == ItemsChoiceType1.Create &&
                     (changes.Items[0] as SyncFolderItemsCreateOrUpdateType).Item.GetType() == typeof(MeetingRequestMessageType);
@@ -336,6 +344,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 isMeetingRequestCreated,
                 1671,
                 @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingRequest] specifies a meeting request message to create in the client message store.");
+
+            // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R165
+            // As the MeetingRequestMessageType complex type extends the MeetingMessageType complex type, then MS-OXWSSYNC_R165 can be captured.
+            Site.CaptureRequirementIfIsTrue(
+                isMeetingRequestCreated,
+                165,
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingMessage] specifies a meeting message to create in the client message store.");
             #endregion
 
             #region Step 4. Client invokes UpdateItem operation to update the subject of the item that created in Step 2.
@@ -377,6 +392,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 isMeetingRequestUpdated,
                 1672,
                 @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingRequest] specifies a meeting request message to update in the client message store.");
+
+            // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R1651
+            // As the MeetingRequestMessageType complex type extends the MeetingMessageType complex type, then MS-OXWSSYNC_R1651 can be captured.
+            Site.CaptureRequirementIfIsTrue(
+                isMeetingRequestUpdated,
+                1651,
+                @"[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingMessage] specifies a meeting message to update in the client message store.");
 
             // Call GetItem operation to get the parent folder Id of the item that in SyncFolderItems response.
             GetItemType getItemRequest = new GetItemType();
@@ -482,6 +504,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             this.CleanupAttendeeMailbox();
             #endregion
         }
+
 
         /// <summary>
         /// Client calls SyncFolderItems operation to sync MeetingResponseMessageType item.
