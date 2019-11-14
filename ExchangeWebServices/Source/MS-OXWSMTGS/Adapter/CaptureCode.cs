@@ -262,6 +262,393 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
 
         /// <summary>
+        /// Verify the ArrayOfRemindersType structure
+        /// </summary>
+        /// <param name="arrayOfReminders">Contains a list representing reminders for a meeting</param>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyArrayOfRemindersType(ReminderType[] arrayOfReminders, bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2068");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2068
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             2068,
+             @"[In t:ArrayOfRemindersType Complex Type]The ArrayOfRemindersType complex type specifies an array of reminders.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2069");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2069
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             2069,
+             @"[In t:ArrayOfRemindersType Complex Type][The schema of ArrayOfRemindersType is defined as:]
+	<xs:complexType name=""ArrayOfRemindersType"" >
+      < xs:sequence >
+
+        < xs:element name = ""Reminder"" type = ""t:ReminderType"" minOccurs = ""0"" maxOccurs = ""unbounded"" />
+
+      </ xs:sequence >
+
+    </ xs:complexType > ");
+
+
+
+            foreach (ReminderType reminder in arrayOfReminders)
+            {
+                this.VerifyReminderType(reminder, isSchemaValidated);
+            }
+        }
+
+        /// <summary>
+        /// Verify the ReminderType structure.
+        /// </summary>
+        /// <param name="reminder">Reminder for a calendar</param>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyReminderType(ReminderType reminder, bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2071");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2071
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             2071,
+             @"[In t:ArrayOfRemindersType Complex Type]The type of Reminder is t:ReminderType (section 3.1.4.5.3.4).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2074");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2074
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2074,
+                @"[In t:ReminderType Complex Type][The schema of ReminderType is defined as:]
+	<xs:complexType name=""ReminderType"" >
+      < xs:sequence >
+
+        < xs:element name = ""Subject"" type = ""xs:string"" minOccurs = ""1"" maxOccurs = ""1"" />
+        xs:element name = ""Location"" type = ""xs:string"" minOccurs = ""0"" maxOccurs = ""1"" />
+
+        < xs:element name = ""ReminderTime"" type = ""xs:dateTime"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+        < xs:element name = ""StartDate"" type = ""xs:dateTime"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+        < xs:element name = ""EndDate"" type = ""xs:dateTime"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+        < xs:element name = ""ItemId"" type = ""t:ItemIdType"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+        < xs:element name = ""RecurringMasterItemId"" type = ""t:ItemIdType"" minOccurs = ""0"" maxOccurs = ""1"" />
+
+        < xs:element name = ""ReminderGroup"" type = ""t:ReminderGroupType"" minOccurs = ""0"" maxOccurs = ""1"" />
+
+        < xs:element name = ""UID"" type = ""xs:string"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+      </ xs:sequence >
+
+    </ xs:complexType > ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2076");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2076
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2076,
+                @"[In t:ReminderType Complex Type]The type of Subject is xs:string ([XMLSCHEMA2]).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2078");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2078,
+                @"[In t:ReminderType Complex Type]The type of Location is xs:string.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2080");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2080
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2080,
+                @"[In t:ReminderType Complex Type]The type of ReminderTime is xs:dateTime ([XMLSCHEMA2]).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2082");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2082
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2082,
+                @"[In t:ReminderType Complex Type]The type of StartDate is xs:string ([XMLSCHEMA2]).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2084");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2084
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2084,
+                @"[In t:ReminderType Complex Type]The type of EndDate is xs:dateTime .");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2086");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2086
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2086,
+                @"[In t:ReminderType Complex Type]The type of ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.25).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2088");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2088
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2088,
+                @"[In t:ReminderType Complex Type]The type of RecurringMasterItemId is t:ItemIdType.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2092");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2092
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2092,
+                @"[In t:ReminderType Complex Type]The type of UID is xs:string .");
+
+
+            if (reminder.ReminderGroupSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2090");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2090
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    2090,
+                    @"[In t:ReminderType Complex Type]The type of ReminderGroup is t:ReminderGroupType (section 3.1.4.5.4.1).");
+
+                this.VerifyReminderGroupType(reminder.ReminderGroup, isSchemaValidated);
+            }
+        }
+
+        /// <summary>
+        /// Verify the ReminderGroupType structure.
+        /// </summary>
+        /// <param name="reminderGroup">Reminder group for a calendar</param>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyReminderGroupType(ReminderGroupType reminderGroup, bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2097");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2097
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2097,
+                @"[In ReminderGroupType Simple Type][The schema of ReminderGroupType is defined as:]
+	<xs:simpleType name=""ReminderGroupType"" >
+      < xs:restriction base = ""xs:string"" >
+
+        < xs:enumeration value = ""Calendar"" />
+
+        < xs:enumeration value = ""Task"" />
+
+      </ xs:restriction >
+
+    </ xs:simpleType > ");
+        }
+
+        /// <summary>
+        /// Captures GetRemindersResponseMessageType related requirements.
+        /// </summary>
+        /// <param name="getReminderResponseMessage">An GetRemindersResponseMessageType instance.</param>
+        /// <param name="isSchemaValidated">A Boolean value indicates the schema validation result.</param>
+        private void VerifyGetReminderResponseMessageType(GetRemindersResponseMessageType getReminderResponseMessage, bool isSchemaValidated)
+        {
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2046");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2046,
+                @"[In Complex Types]GetRemindersResponseMessageType:Specifies a response to a GetReminders operation request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2050");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2050
+            this.Site.CaptureRequirementIfIsNotNull(
+                getReminderResponseMessage,
+                2050,
+                @"[In m:GetRemindersResponseMessageType Complex Type]The GetRemindersResponseMessageType complex type specifies a response to a request to return reminders. ");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2051");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2051
+            this.Site.CaptureRequirementIfIsNotNull(
+                getReminderResponseMessage,
+                2051,
+                @"[In m:GetRemindersResponseMessageType Complex Type]This type[GetRemindersResponseMessageType] extends the ResponseMessageType ([MS-OXWSCDATA] section 2.2.4.67).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R2052");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2052
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2052,
+                @"[In m:GetRemindersResponseMessageType Complex Type][The schema of GetRemindersResponseMessageType is defined as:]	
+<xs:complexType name=""GetRemindersResponseMessageType"" >
+    < xs:complexContent >
+
+    < xs:extension base = ""m:ResponseMessageType"" >
+
+        < xs:sequence >
+
+        < xs:element name = ""Reminders"" type = ""t:ArrayOfRemindersType"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+        </ xs:sequence >
+
+    </ xs:extension >
+
+    </ xs:complexContent >
+");
+
+            if(getReminderResponseMessage.Reminders != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R2054");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2054
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    getReminderResponseMessage.Reminders,
+                    typeof(ReminderType[]),
+                    2054,
+                    @"[In m:GetRemindersResponseMessageType Complex Type]the type of Reminders is t:ArrayOfRemindersType (section 3.1.4.5.3.3).");
+
+                this.VerifyArrayOfRemindersType(getReminderResponseMessage.Reminders, isSchemaValidated);
+            }
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2012");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2012
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2012,
+                @"[In GetReminders operation]The following is the WSDL port type specification for the GetReminders operation.
+        <wsdl:operation name=""GetReminders"" >
+                < wsdl:input message = ""tns:GetRemindersSoapIn"" />
+
+                < wsdl:output message = ""tns:GetRemindersSoapOut"" />
+
+        </ wsdl:operation >");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2013");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2013,
+                @"[In GetReminders operation]The following is the WSDL binding specification for the GetReminders operation.	
+                    <wsdl:operation name=""GetReminders"" >
+            < soap:operation soapAction = ""http://schemas.microsoft.com/exchange/services/2006/messages/GetReminders"" />
+
+            < wsdl:input >
+
+                < soap:header message = ""tns:GetRemindersSoapIn"" part = ""RequestVersion"" use = ""literal"" />
+
+                < soap:body parts = ""request"" use = ""literal"" />
+
+            </ wsdl:input >
+
+            < wsdl:output >
+
+                < soap:body parts = ""GetRemindersResult"" use = ""literal"" />
+
+                < soap:header message = ""tns:GetRemindersSoapOut"" part = ""ServerVersion"" use = ""literal"" />
+
+            </ wsdl:output >
+
+        </ wsdl:operation > ");
+
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2025");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2025,
+                @"[In tns:GetRemindersSoapOut Message][The schema of GetRemindersSoapOut is defined as:] 	<wsdl:message name=""GetRemindersSoapOut"" >
+            < wsdl:part name = ""GetRemindersResult"" element = ""tns:GetRemindersResponse"" />
+
+            < wsdl:part name = ""ServerVersion"" element = ""t:ServerVersionInfo"" />
+
+        </ wsdl:message > ");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2016");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2016,
+                @"[In Messages] GetRemindersSoapOut:Specifies the SOAP message that is returned by the server in response to a GetRemindersSoapIn operation request.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2019");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2019
+            // According to the schema, getRemindersResponseMessage is the SOAP body of a response message returned by server, this requirement can be verified directly.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2019,
+                @"[In tns:GetRemindersSoapOut Message] GetRemindersResult:Specifies the SOAP body of a response message.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2028");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2028
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2028,
+                @"[In tns:GetRemindersSoapOut Message]the element of GetRemindersResult is tns:GetRemindersResponse (section 3.1.4.5.2.2).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2030");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2030
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2030,
+                @"[In tns:GetRemindersSoapOut Message]the element of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2031");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2031
+            // According to the schema, ServerVersion is the SOAP header that contains the server version information, this requirement can be verified directly.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2031,
+                @"[In tns:GetRemindersSoapOut Message]ServerVersion:Specifies a SOAP header that identifies the server version for the response to a GetReminders operation request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2044");
+
+            Site.CaptureRequirementIfIsNotNull(
+                getReminderResponseMessage,
+                2044,
+                @"[In m:GetRemindersResponse Element][The schema of GetRemindersResponse is defined as:]	<xs:element name=""GetRemindersResponse"" type =""m: GetRemindersResponseMessageType"" />");
+        }
+
+        /// <summary>
         /// Verify the WSDL port type specifications for the MoveItem operation and MoveItemResponseType structure. 
         /// </summary>
         /// <param name="response">The response message of MoveItem operation.</param>

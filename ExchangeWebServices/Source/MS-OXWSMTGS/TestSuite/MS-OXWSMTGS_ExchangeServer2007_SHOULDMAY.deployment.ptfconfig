@@ -115,5 +115,7 @@
     <Property name="R1310Enabled" value="false" />
     <!--Set R1312Enabled to true to verify that the implementation does support the EmailReminderSendOption simple type. Set R1312Enabled to false to disable this requirement.-->
     <Property name="R1312Enabled" value="false" />
+    <!--Set R2198Enabled to true to verify that the implementation does support the GetReminder operation. Set R2198Enabled to false to disable this requirement.-->
+    <Property name="R2198Enabled" value="false" />
   </Properties>
 </TestSite>
