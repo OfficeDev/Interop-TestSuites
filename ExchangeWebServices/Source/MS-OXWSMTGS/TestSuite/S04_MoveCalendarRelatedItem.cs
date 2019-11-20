@@ -458,8 +458,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 @"[In Messages] ErrorCalendarCannotUseIdForOccurrenceId: Specifies that the OccurrenceId ([MS-OXWSCORE] section 2.2.4.39) does not correspond to a valid occurrence of a recurring master item.");
             #endregion
 
-            #region Clean up organizer's inbox folder.
-            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox });
+            #region Clean up organizer's calendar, sentitems and deleteditems folders and attendee's calendar, inbox and deleteditems folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType> { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
             #endregion
         }
         #endregion

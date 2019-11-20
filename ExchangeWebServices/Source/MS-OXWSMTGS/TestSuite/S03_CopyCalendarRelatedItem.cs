@@ -426,8 +426,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 @"[In Messages] ErrorCalendarCannotUseIdForRecurringMasterId: Specifies that the RecurringMasterId ([MS-OXWSCORE] section 2.2.4.35) does not correspond to a valid recurring master item.");
             #endregion
 
-            #region Clean up organizer's calendar folders.
-            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
+            #region Clean up organizer's calendar, sentitems and deleteditems folders and attendee's calendar, inbox and deleteditems folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType> { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
             #endregion
         }
         #endregion

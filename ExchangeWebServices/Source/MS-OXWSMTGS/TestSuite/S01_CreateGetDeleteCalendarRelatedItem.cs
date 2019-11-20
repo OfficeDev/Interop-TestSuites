@@ -3038,8 +3038,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             createItem.SendMeetingInvitationsSpecified = true;
             createItem.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendToNone;
 
-
-
             CreateItemResponseType createItemResponse = this.MTGSAdapter.CreateItem(createItem);
 
             if (Common.IsRequirementEnabled(2301, this.Site))
@@ -3055,8 +3053,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     @"[In Appendix C: Product Behavior] Implementation is read-only  the IsOnlineMeeting element. (Exchange 2016 and above follow this behavior.)");
             }
             #endregion
-
-
         }
 
         /// <summary>
@@ -3127,7 +3123,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             #endregion
 
             #region Organizer updates the RecurringMasterId of the recurring calendar item
-
             OccurrenceItemIdType occurrenceId = new OccurrenceItemIdType();
             occurrenceId.RecurringMasterId = calendarInOrganizer.ItemId.Id;
             occurrenceId.InstanceIndex = 1;
@@ -3150,16 +3145,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 @"[In Messages] ErrorCalendarCannotUseIdForRecurringMasterId: Specifies that the RecurringMasterId ([MS-OXWSCORE] section 2.2.4.35) does not correspond to a valid recurring master item.");
             #endregion
 
-            #region Clean up organizer's calendar folders.
+            #region Clean up organizer's calendar folders and attendee's inbox and calendar folders.
             this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.calendar });
             #endregion
         }
-		
-		/// <summary>
+
+        /// <summary>
         /// This test case is designed to test InboxReminderType complex type.
         /// </summary>
         [TestCategory("MSOXWSMTGS"), TestMethod()]
-        public void MSOXWSMTGS_S01_TC26_CreateCalendarItemWithInboxMinders()
+        public void MSOXWSMTGS_S01_TC26_CreateCalendarItemWithInboxReminders()
         {
             Site.Assume.IsTrue(Common.IsRequirementEnabled(1278, this.Site), "Implementation does support the InboxReminderType.");
 
@@ -3266,9 +3262,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 "The removed calendar item should not exist in Organizer's calendar folder.");
             #endregion
 
-            #region Clean up organizer's inbox, calendar and deleteditems folders, and attendee's sentitems, calendar and deleteditems folders
-            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
-            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
+            #region Clean up organizer's sentitems and deleteditems folders, and attendee's inbox, calendar and deleteditems folders
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.deleteditems });
             #endregion
         }
 
@@ -3310,7 +3306,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             CalendarItemType calendarInOrganizer = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
             Site.Assert.IsNotNull(calendarInOrganizer, "The meeting should be found in organizer's Calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
             #endregion
-         
+
+            #region Organizer gets the reminders
             GetRemindersType getRemindersRequest = new GetRemindersType();
             getRemindersRequest.ReminderTypeSpecified = true;
             getRemindersRequest.ReminderType = GetRemindersTypeReminderType.All;
@@ -3322,6 +3319,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             getRemindersRequest.MaxItems = 1;
             
             GetRemindersResponseMessageType getRemindersResponse = this.MTGSAdapter.GetReminders(getRemindersRequest);
+            #endregion
 
             #region Capture code
 
@@ -3474,10 +3472,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             #endregion
 
             #region Clean up organizer's calendar folders.
-            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
-            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.sentitems });
-            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox });
-            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.sentitems });
             #endregion
         }
 
@@ -3553,10 +3549,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 @"[In t:ReminderType Complex Type]Subject:The subject of the item the reminder is for.");
             #endregion
 
-            #region Clean up organizer's tasks.
-            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.drafts });
+            #region Clean up organizer's calendars.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
             #endregion
-
         }
 
         /// <summary>
@@ -3686,7 +3681,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             }
             #endregion
 
-            #region Clean up organizer's drafts and calendar folders.
+            #region Clean up organizer's drafts and task folders.
             ItemIdType[] itemIds = new ItemIdType[] { createItemId };
             if (itemIds != null && itemIds.Length > 0)
             {
@@ -3698,7 +3693,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
                 this.MTGSAdapter.DeleteItem(deleteItem);
             }
-            //this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.tasks, DistinguishedFolderIdNameType.tasks });
+
+           this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.deleteditems });
             #endregion
         }
 
@@ -3795,8 +3791,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 @"[In Messages] ErrorCalendarCannotUseIdForOccurrenceId: Specifies that the OccurrenceId ([MS-OXWSCORE] section 2.2.4.39) does not correspond to a valid occurrence of a recurring master item .");
             #endregion
 
-            #region Clean up organizer's inbox folder.
-            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox });
+            #region Clean up organizer's calendar, sentitems and deleteditems folders and attendee's calendar, inbox and deleteditems.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
             #endregion
         }
 
@@ -3895,8 +3892,268 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 @"[In Messages] ErrorCalendarCannotUseIdForOccurrenceId: Specifies that the OccurrenceId ([MS-OXWSCORE] section 2.2.4.39) does not correspond to a valid occurrence of a recurring master item.");
             #endregion
 
-            #region Clean up organizer's inbox folder.
-            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox });
+            #region Clean up organizer's calendar, sentitems and deleteditems folders and attendee's calendar, inbox and deleteditems.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to test EmailReminderChangeType simple type.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S01_TC32_VerifyEmailReminderChangeTypeOfInboxReminders()
+        {
+            Site.Assert.IsTrue(Common.IsRequirementEnabled(1310, this.Site), "Implementation does support the EmailReminderChangeType simple type.");
+
+            #region Define a meeting
+            int timeInterval = this.TimeInterval;
+            CalendarItemType meetingItem = new CalendarItemType();
+            meetingItem.UID = Guid.NewGuid().ToString();
+            meetingItem.Subject = this.Subject;
+            meetingItem.Start = DateTime.UtcNow;
+
+            meetingItem.StartSpecified = true;
+            timeInterval++;
+            meetingItem.End = DateTime.Now.AddHours(timeInterval);
+            meetingItem.EndSpecified = true;
+            meetingItem.Location = this.Location;
+
+            meetingItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
+            meetingItem.InboxReminders = new InboxReminderType[] { GetInboxReminder("This is a inbox reminder") };
+            meetingItem.InboxReminders[0].OccurrenceChangeSpecified = true;
+            meetingItem.InboxReminders[0].OccurrenceChange = EmailReminderChangeType.Added;
+            meetingItem.InboxReminders[0].SendOptionSpecified = true;
+            meetingItem.InboxReminders[0].SendOption = EmailReminderSendOption.User;
+            meetingItem.InboxReminders[0].IsOrganizerReminderSpecified = true;
+            meetingItem.InboxReminders[0].IsOrganizerReminder = true;
+
+            // Create the  meeting
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, meetingItem, CalendarItemCreateOrDeleteOperationType.SendToAllAndSaveCopy);
+            Site.Assert.IsNotNull(item, "Server should return success for creating a recurring meeting.");
+
+            CalendarItemType calendarInOrganizer = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+            Site.Assert.IsNotNull(calendarInOrganizer, "The meeting should be found in organizer's Calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+
+            System.Threading.Thread.Sleep(25000);
+
+            MessageType message = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.inbox, "IPM.Note.Reminder.Event", calendarInOrganizer.Subject) as MessageType;
+            Site.Assert.IsNotNull(message, "The reminder should be found in organizer's inbox.");
+
+            ItemIdType meetingId = item.Items.Items[0].ItemId;
+            #endregion
+
+            #region Capture Code
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1164");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1164
+            this.Site.CaptureRequirementIfAreEqual<EmailReminderChangeType>(
+                EmailReminderChangeType.Added,
+                calendarInOrganizer.InboxReminders[0].OccurrenceChange,
+                1164,
+                @"[In t:EmailReminderChangeType] Added: An email reminder was added.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1170");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1170
+            this.Site.CaptureRequirementIfAreEqual<EmailReminderSendOption>(
+                EmailReminderSendOption.User,
+                calendarInOrganizer.InboxReminders[0].SendOption,
+                1170,
+                @"[In t:EmailReminderSendOption] User: Send the email reminder only to the user.");
+            #endregion
+
+            #region Organizer updates the EmailReminderChangeType to Override in the created meeting item.
+            CalendarItemType calendarUpdate = new CalendarItemType();
+            calendarUpdate.InboxReminders = meetingItem.InboxReminders;
+            calendarInOrganizer.InboxReminders[0].OccurrenceChangeSpecified = true;
+            calendarUpdate.InboxReminders[0].OccurrenceChange = EmailReminderChangeType.Override;
+            calendarUpdate.InboxReminders[0].SendOption = EmailReminderSendOption.AllAttendees;
+
+            AdapterHelper itemChangeInfo = new AdapterHelper();
+            itemChangeInfo.FieldURI = UnindexedFieldURIType.calendarInboxReminders;
+            itemChangeInfo.Item = calendarUpdate;
+            itemChangeInfo.ItemId = meetingId;
+
+            // Update the created calendar item.
+            UpdateItemResponseMessageType updatedItem = this.UpdateSingleCalendarItem(Role.Organizer, itemChangeInfo, CalendarItemUpdateOperationType.SendOnlyToAll);
+            Site.Assert.IsNotNull(updatedItem, "Update the meeting item should be successful.");
+            #endregion
+
+            #region Verify the OccurrenceChange and SendOption of the InboxReminders have been updated
+            ItemInfoResponseMessageType getItem = this.GetSingleCalendarItem(Role.Organizer, meetingId);
+            Site.Assert.IsNotNull(getItem, "The updated calendar should exist.");
+
+            CalendarItemType updatedCalendar = getItem.Items.Items[0] as CalendarItemType;
+
+            Site.Assert.IsTrue(calendarInOrganizer.InboxReminders[0].OccurrenceChangeSpecified, "The value of the OccurrenceChangeSpecified element should be true.");
+            Site.Assert.IsTrue(calendarInOrganizer.InboxReminders[0].SendOptionSpecified, "The value of the SendOptionSpecified element should be true.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1165");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1165
+            this.Site.CaptureRequirementIfAreEqual<EmailReminderChangeType>(
+                EmailReminderChangeType.Override,
+                updatedCalendar.InboxReminders[0].OccurrenceChange,
+                1165,
+                @"[In t:EmailReminderChangeType] Override: The change was an override.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1171");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1171
+            this.Site.CaptureRequirementIfAreEqual<EmailReminderSendOption>(
+                EmailReminderSendOption.AllAttendees,
+                updatedCalendar.InboxReminders[0].SendOption,
+                1171,
+                @"[In t:EmailReminderSendOption] AllAttendees: Send the email reminder to all attendees.");
+            #endregion
+
+            #region Organizer updates the EmailReminderChangeType to None in the created meeting item.
+            calendarUpdate = new CalendarItemType();
+            calendarUpdate.InboxReminders = meetingItem.InboxReminders;
+            calendarInOrganizer.InboxReminders[0].OccurrenceChangeSpecified = true;
+            calendarUpdate.InboxReminders[0].OccurrenceChange = EmailReminderChangeType.None;
+
+            itemChangeInfo = new AdapterHelper();
+            itemChangeInfo.FieldURI = UnindexedFieldURIType.calendarInboxReminders;
+            itemChangeInfo.Item = calendarUpdate;
+            itemChangeInfo.ItemId = meetingId;
+
+            // Update the created calendar item.
+            updatedItem = this.UpdateSingleCalendarItem(Role.Organizer, itemChangeInfo, CalendarItemUpdateOperationType.SendOnlyToAll);
+            Site.Assert.IsNotNull(updatedItem, "Update the meeting item should be successful.");
+            #endregion
+
+            #region Verify the OccurrenceChange and SendOption of the InboxReminders have been updated
+            getItem = this.GetSingleCalendarItem(Role.Organizer, meetingId);
+            Site.Assert.IsNotNull(getItem, "The updated calendar should exist.");
+
+            updatedCalendar = getItem.Items.Items[0] as CalendarItemType;
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1163");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1163
+            this.Site.CaptureRequirementIfAreEqual<EmailReminderChangeType>(
+                EmailReminderChangeType.None,
+                updatedCalendar.InboxReminders[0].OccurrenceChange,
+                1163,
+                @"[In t:EmailReminderChangeType] None: No change was made.");
+            #endregion
+
+            #region Organizer updates the EmailReminderChangeType to Deleted in the created meeting item.
+            calendarUpdate = new CalendarItemType();
+            calendarUpdate.InboxReminders = meetingItem.InboxReminders;
+            calendarInOrganizer.InboxReminders[0].OccurrenceChangeSpecified = true;
+            calendarUpdate.InboxReminders[0].OccurrenceChange = EmailReminderChangeType.Deleted;
+
+            itemChangeInfo = new AdapterHelper();
+            itemChangeInfo.FieldURI = UnindexedFieldURIType.calendarInboxReminders;
+            itemChangeInfo.Item = calendarUpdate;
+            itemChangeInfo.ItemId = meetingId;
+
+            // Update the created calendar item.
+            updatedItem = this.UpdateSingleCalendarItem(Role.Organizer, itemChangeInfo, CalendarItemUpdateOperationType.SendOnlyToAll);
+            Site.Assert.IsNotNull(updatedItem, "Update the meeting item should be successful.");
+            #endregion
+
+            #region Verify the OccurrenceChange and SendOption of the InboxReminders have been updated
+            getItem = this.GetSingleCalendarItem(Role.Organizer, meetingId);
+            Site.Assert.IsNotNull(getItem, "The updated calendar should exist.");
+
+            updatedCalendar = getItem.Items.Items[0] as CalendarItemType;
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1166");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1166
+            this.Site.CaptureRequirementIfAreEqual<EmailReminderChangeType>(
+                EmailReminderChangeType.Deleted,
+                updatedCalendar.InboxReminders[0].OccurrenceChange,
+                1166,
+                @"[In t:EmailReminderChangeType] Deleted: The reminder was deleted.");
+            #endregion
+
+            #region Clean up organizer's inbox, calendar and deleteditems folders, and attendee's sentitems, calendar and deleteditems folders
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
+            #endregion
+        }
+
+         /// <summary>
+        /// This test case is designed to test EmailReminderChangeType simple type.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S01_TC33_VerifyInboxReminderWithEmailReminderSendOptionIsAllAttendees()
+        {
+            Site.Assert.IsTrue(Common.IsRequirementEnabled(1310, this.Site), "Implementation does support the EmailReminderChangeType simple type.");
+
+            #region Define a meeting to be created
+            int timeInterval = this.TimeInterval;
+            CalendarItemType meetingItem = new CalendarItemType();
+            meetingItem.UID = Guid.NewGuid().ToString();
+            meetingItem.Subject = this.Subject;
+            meetingItem.Start = DateTime.UtcNow;
+
+            meetingItem.StartSpecified = true;
+            timeInterval++;
+            meetingItem.End = DateTime.Now.AddHours(timeInterval);
+            meetingItem.EndSpecified = true;
+            meetingItem.Location = this.Location;
+            meetingItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
+            meetingItem.InboxReminders = new InboxReminderType[] { GetInboxReminder("This is a reminder") };
+            meetingItem.InboxReminders[0].SendOptionSpecified = true;
+            meetingItem.InboxReminders[0].SendOption = EmailReminderSendOption.AllAttendees;
+            #endregion
+
+            #region Organizer creates a meeting with CalendarItemCreateOrDeleteOperationType value set to SendToAllAndSaveCopy
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, meetingItem, CalendarItemCreateOrDeleteOperationType.SendToAllAndSaveCopy);
+            Site.Assert.IsNotNull(item, "The meeting should be created successfully.");
+
+            Site.Assert.IsNotNull(
+                this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.sentitems, "IPM.Schedule.Meeting.Request", meetingItem.UID),
+                "The meeting request message should be saved to organizer's Sent Items folder after call CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+
+            ItemIdType meetingId = item.Items.Items[0].ItemId;
+
+            CalendarItemType calendarInOrganizer = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+            Site.Assert.IsNotNull(calendarInOrganizer, "The meeting should be found in organizer's Calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+            #endregion
+
+            System.Threading.Thread.Sleep(25000);
+
+            MessageType message = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Note.Reminder.Event", calendarInOrganizer.Subject) as MessageType;
+            Site.Assert.IsNotNull(message, "The reminder should be found in attendee's inbox.");
+
+            #region Capture Code
+            Site.Assert.IsTrue(calendarInOrganizer.InboxReminders[0].SendOptionSpecified, "The value of the SendOptionSpecified element should be true.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1171");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1171
+            this.Site.CaptureRequirementIfAreEqual<EmailReminderSendOption>(
+                EmailReminderSendOption.AllAttendees,
+                calendarInOrganizer.InboxReminders[0].SendOption,
+                1171,
+                @"[In t:EmailReminderSendOption] AllAttendees: Send the email reminder to all attendees.");
+            #endregion
+
+            #region Organizer deletes the single calendar item
+            ResponseMessageType removedItem = this.DeleteSingleCalendarItem(Role.Organizer, meetingId, CalendarItemCreateOrDeleteOperationType.SendToNone);
+
+            Site.Assert.IsNull(
+                this.SearchDeletedSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID),
+                "The removed calendar item should not exist in Organizer's calendar folder.");
+            #endregion
+
+            #region Clean up organizer's inbox, calendar and deleteditems folders, and attendee's inbox, calendar and deleteditems folders
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
             #endregion
         }
         #endregion
