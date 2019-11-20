@@ -3142,7 +3142,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1194");
 
-            //Verify MS-OXWSMSG requirement: MS - OXWSMTGS_R1194
+            //Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1194
             Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                 ResponseCodeType.ErrorCalendarCannotUseIdForRecurringMasterId,
                 response.ResponseMessages.Items[0].ResponseCode,
