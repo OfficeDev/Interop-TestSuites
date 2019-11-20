@@ -683,6 +683,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         {
             UpdateItemType request = this.GetUpdateItemType(itemsChangeInfo, updateOperation);
             this.SwitchMTGSUser(role);
+            request.ConflictResolution = ConflictResolutionType.AlwaysOverwrite;
             UpdateItemResponseType response = this.MTGSAdapter.UpdateItem(request);
             Site.Assert.IsTrue(IsValidResponse(response), "The response messages returned by the UpdateItem operation should succeed.");
 
@@ -1408,6 +1409,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     if (meetingResponseMessage.UID == uid)
                     {
                         return meetingResponseMessage;
+                    }
+                }
+                else if (item.Items.Items[0] is MessageType)
+                {
+                    MessageType message = item.Items.Items[0] as MessageType;
+                    if (message.Subject.EndsWith(uid))
+                    {
+                        return message;
                     }
                 }
             }
