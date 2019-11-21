@@ -925,15 +925,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 1064,
                 @"[In t:InboxReminderType] The type of Message is xs:string ([XMLSCHEMA2] ).");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1070");
-
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1070
-            Site.CaptureRequirementIfIsTrue(
-                isSchemaValidated,
-                1070,
-                @"[In t:InboxReminderType] The type of SendOption is t:EmailReminderSendOption (section 2.2.5.7).");
-
             if (inboxReminder.IsOrganizerReminderSpecified)
             {
                 // Add the debug information
@@ -947,6 +938,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
             if (Common.IsRequirementEnabled(1310, this.Site) && inboxReminder.OccurrenceChangeSpecified)
             {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1069");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1069
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    1069,
+                    @"[In t:InboxReminderType] OccurrenceChange: Specifies how this reminder has been modified for an occurrence");
+
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1068");
 
@@ -968,8 +968,26 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     2005,
                     @"[In t:InboxReminderType] The type of IsImportedFromOLC is xs:boolean.");
             }
-            if (Common.IsRequirementEnabled(1312, this.Site))
+            if (Common.IsRequirementEnabled(1312, this.Site) && inboxReminder.SendOptionSpecified)
             {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1341");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1341
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    1341,
+                    @"[In t:InboxReminderType] SendOption: Specifies the send option.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1070");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1070
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    1070,
+                    @"[In t:InboxReminderType] The type of SendOption is t:EmailReminderSendOption (section 2.2.5.7).");
+
                 this.VerifyEmailReminderSendOption(inboxReminder.SendOption, isSchemaValidated);
             }
         }

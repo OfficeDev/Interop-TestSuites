@@ -2666,7 +2666,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1340</ns1:REQ_ID>
@@ -2694,7 +2694,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2005</ns1:REQ_ID>
@@ -2746,11 +2746,11 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1341</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
-		<ns1:Description>[In t:InboxReminderType] EmailReminderSendOption: Specifies the send option.</ns1:Description>
+		<ns1:Description>[In t:InboxReminderType] SendOption: Specifies the send option.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R259</ns1:REQ_ID>

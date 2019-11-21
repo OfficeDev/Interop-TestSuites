@@ -3990,6 +3990,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
             Site.Assert.IsTrue(calendarInOrganizer.InboxReminders[0].OccurrenceChangeSpecified, "The value of the OccurrenceChangeSpecified element should be true.");
             Site.Assert.IsTrue(calendarInOrganizer.InboxReminders[0].SendOptionSpecified, "The value of the SendOptionSpecified element should be true.");
+            Site.Assert.IsTrue(calendarInOrganizer.InboxReminders[0].IsOrganizerReminderSpecified, "The value of the IsOrganizerReminderSpecified element should be true.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1339");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1339
+            this.Site.CaptureRequirementIfIsTrue(
+                updatedCalendar.InboxReminders[0].IsOrganizerReminder,
+                1339,
+                @"[In t:InboxReminderType] True [Specifies  this [IsOrganizerReminder] is an organizer inbox reminder.]");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1165");
