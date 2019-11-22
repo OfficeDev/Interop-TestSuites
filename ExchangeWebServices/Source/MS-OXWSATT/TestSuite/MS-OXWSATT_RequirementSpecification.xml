@@ -1124,12 +1124,11 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R527</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of Item element is] t:ItemType ([MS-OXWSCORE] section 2.2.4.24).&lt;3&gt;</ns1:Description>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The type of Item element is] t:ItemType ([MS-OXWSCORE] section 2.2.4.24).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318014.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R81</ns1:REQ_ID>
@@ -1139,6 +1138,16 @@ represents an item that is attached to another item.</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R444</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type][The Item element]All items of type t:ItemType SHOULD&lt;3&gt; be returned as Message of a t:MessageType type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318015.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R349</ns1:REQ_ID>
@@ -1305,7 +1314,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R99001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemAttachmentType Complex Type] [The type of RoleMember element is] t:RoleMemberItemType ([MS-OXWSCORE] section 2.2.4.42)</ns1:Description>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type] [The type of RoleMember element is] t:RoleMemberItemType ([MS-OXWSCORE] section 2.2.4.43)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1323,7 +1332,7 @@ represents an item that is attached to another item.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R99003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemAttachmentType Complex Type] [The type of Network element is] t:NetworkItemType ([MS-OXWSCORE] section 2.2.4.29)</ns1:Description>
+		<ns1:Description>[In t:ItemAttachmentType Complex Type] [The type of Network element is] t:NetworkItemType ([MS-OXWSCORE] section 2.2.4.30)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3954,23 +3963,23 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R318014</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a MessageType item.(&lt;3&gt; Section 2.2.4.6:  In Microsoft Exchange Server 2007 Service Pack 1 (SP1), Exchange 2010, Exchange 2013, and Exchange 2016, generic items will be returned as MessageType items.)</ns1:Description>
-		<ns1:Derived>MS-OXWSATT_R527:i</ns1:Derived>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not return the items of type t:ItemType as a t:MessageType type.(&lt;3&gt; Section 2.2.4.6:  Exchange 2007 does not return the items of type t:ItemType as a t:MessageType type. )</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R444:i,MS-OXWSATT_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSATT_R318015</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a ItemType item.(Microsoft Exchange Server 2007 Service Pack 1 (SP1) starts to return the items of type t:ItemType as a t:MessageType type.)</ns1:Description>
+		<ns1:Derived>MS-OXWSATT_R444:i,MS-OXWSATT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSATT_R318015</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a ItemType item.(Exchange2007 and Exchange2019 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSATT_R527:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R318008</ns1:REQ_ID>
