@@ -2100,6 +2100,15 @@
                 @"[In t:CalendarFolderType Complex Type]SharingEffectiveRights: This element is read-only.");
 
             // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R144");
+
+            this.Site.CaptureRequirementIfIsInstanceOfType(
+               ((CalendarFolderType)createFolderRequest.Folders[0]).SharingEffectiveRights,
+               typeof(CalendarPermissionReadAccessType),
+               144,
+               @"[In t:CalendarFolderType Complex Type] The type of  SharingEffectiveRights is t:CalendarPermissionReadAccessType (section 2.2.5.5).");
+
+            // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1338");
 
             // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1338
