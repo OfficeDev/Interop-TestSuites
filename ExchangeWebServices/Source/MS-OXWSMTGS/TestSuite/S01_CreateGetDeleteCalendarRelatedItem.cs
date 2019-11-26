@@ -3892,7 +3892,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S01_TC32_VerifyEmailReminderChangeTypeOfInboxReminders()
         {
-            Site.Assert.IsTrue(Common.IsRequirementEnabled(1310, this.Site), "Implementation does support the EmailReminderChangeType simple type.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1310, this.Site), "Implementation does support the EmailReminderChangeType simple type.");
 
             #region Define a meeting
             int timeInterval = this.TimeInterval;
@@ -4088,7 +4088,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S01_TC33_VerifyInboxReminderWithEmailReminderSendOptionIsAllAttendees()
         {
-            Site.Assert.IsTrue(Common.IsRequirementEnabled(1310, this.Site), "Implementation does support the EmailReminderChangeType simple type.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1310, this.Site), "Implementation does support the EmailReminderChangeType simple type.");
 
             #region Define a meeting to be created
             int timeInterval = this.TimeInterval;
