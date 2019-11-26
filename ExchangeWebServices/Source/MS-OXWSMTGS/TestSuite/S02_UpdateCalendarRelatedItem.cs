@@ -46,11 +46,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             calendarItem.UID = Guid.NewGuid().ToString();
             calendarItem.Subject = this.Subject;
             calendarItem.Location = this.Location;
-            if (Common.IsRequirementEnabled(16505, this.Site))
-            {
-                calendarItem.LegacyFreeBusyStatus = LegacyFreeBusyType.WorkingElsewhere;
-                calendarItem.LegacyFreeBusyStatusSpecified = true;
-            }
+            calendarItem.LegacyFreeBusyStatus = LegacyFreeBusyType.WorkingElsewhere;
+            calendarItem.LegacyFreeBusyStatusSpecified = true;
 
             calendarItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
             calendarItem.OptionalAttendees = new AttendeeType[] { GetAttendeeOrResource(this.OrganizerEmailAddress) };
@@ -63,19 +60,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
             CalendarItemType calendar = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", calendarItem.UID) as CalendarItemType;
             Site.Assert.IsNotNull(calendar, "The calendar should exist.");
-
-            if (Common.IsRequirementEnabled(16505, this.Site))
-            {
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R16505");
-
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R16505
-                this.Site.CaptureRequirementIfAreEqual<LegacyFreeBusyType>(
-                    LegacyFreeBusyType.WorkingElsewhere,
-                    calendar.LegacyFreeBusyStatus,
-                    16505,
-                    @"[In Appendix C: Product Behavior] Implementation does support the LegacyFreeBusyStatus in t:CalendarItemType Complex Type which value set to ""WorkingElsewhere"" specifies the status as working outside the office. (Exchange 2013 and above follow this behavior.)");
-            }
 
             if (Common.IsRequirementEnabled(713, this.Site))
             {
