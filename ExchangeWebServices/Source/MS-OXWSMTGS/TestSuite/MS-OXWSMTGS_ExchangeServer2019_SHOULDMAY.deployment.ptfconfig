@@ -61,8 +61,6 @@
     <Property name="R909Enabled" value="true" />
     <!--Set R910Enabled to true to verify that for MeetingResponseMessageType the implementation does support CalendarItemType which is a string element that represents the type of calendar item, as specified in section 2.2.4.14. Set R910Enabled to false to disable this requirement.-->
     <Property name="R910Enabled" value="true" />
-    <!--Set R16505Enabled to true to verify that for CalendarItemType the implementation does support the LegacyFreeBusyStatus which value set to "WorkingElsewhere" specifies the status as working outside the office. Set R16505Enabled to false to disable this requirement.-->
-    <Property name="R16505Enabled" value="true" />
     <!--Set R28505Enabled to true to verify that for MeetingRequestMessageType the implementation does support the IntendedFreeBusyStatus which value set to "WorkingElsewhere" specifies the status as working outside the office. Set R28505Enabled to false to disable this requirement.-->
     <Property name="R28505Enabled" value="true" />
     <!--Set R80048Enabled to true to verify that the implementation does support complex type "IsOrganizer" with type "xs:boolean" which specifies whether the current user is the organizer and/or owner of the calendar item. Set R80048Enabled to false to disable this requirement.-->

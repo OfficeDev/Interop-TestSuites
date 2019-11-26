@@ -1506,18 +1506,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     700,
                     @"[In Appendix C: Product Behavior] Implementation does support element ""EndWallClock"" with type ""xs:dateTime"" which specifies the ending time of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
-
-            if (Common.IsRequirementEnabled(80048, this.Site))
-            {
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R80048");
-
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R80048
-                this.Site.CaptureRequirementIfIsTrue(
-                    createdCalendarItem.IsOrganizer && createdCalendarItem.IsOrganizerSpecified,
-                    80048,
-                    @"[In Appendix C: Product Behavior] Implementation does support element ""IsOrganizer"" with type ""xs:boolean"" which specifies whether the current user is the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
-            }
             #endregion
             #endregion
             #endregion
@@ -2851,7 +2839,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 MeetingRequestTypeType.PrincipalWantsCopy,
                 request.MeetingRequestType,
                 7512,
-                @"[In Appendix C: Product Behavior] Implementation does support PrincipalWantsCopy which indicates that the meeting request belongs to a principal who has forwarded meeting messages to a delegate. (Exchange 2010 and above follow this behavior.)");
+                @"[In Appendix C: Product Behavior] Implementation does use the PrincipalWantsCopy enumeration value which indicates that the meeting request belongs to a principal who has forwarded meeting messages to a delegate and this copy is informational. (Exchange 2013 and above follow this behavior.)");
             #endregion
 
             #region Clean up organizer's calendar folders, attendee's inbox folder and delegate user's inbox folder.
@@ -4251,7 +4239,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsFalse(
                     request.IsOrganizer,
                     80048,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""IsOrganizer"" with type ""xs:boolean"" which specifies whether the current user is the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support element""IsOrganizer"" with type ""xs: boolean"" which specifies whether the current user is the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(903, this.Site))

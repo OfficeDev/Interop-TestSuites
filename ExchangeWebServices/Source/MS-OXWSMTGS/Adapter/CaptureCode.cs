@@ -602,13 +602,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 @"[In Messages] GetRemindersSoapOut:Specifies the SOAP message that is returned by the server in response to a GetRemindersSoapIn operation request.");
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2019");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2029");
 
-            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2019
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2029
             // According to the schema, getRemindersResponseMessage is the SOAP body of a response message returned by server, this requirement can be verified directly.
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
-                2019,
+                2029,
                 @"[In tns:GetRemindersSoapOut Message] GetRemindersResult:Specifies the SOAP body of a response message.");
 
             // Add the debug information
