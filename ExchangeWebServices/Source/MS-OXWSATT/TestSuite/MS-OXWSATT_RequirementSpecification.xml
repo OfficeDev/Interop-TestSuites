@@ -1147,7 +1147,7 @@ represents an item that is attached to another item.</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318015.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSATT_R318014.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSATT_R349</ns1:REQ_ID>
@@ -3961,9 +3961,9 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSATT_R318014</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSATT_R318015</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not return the items of type t:ItemType as a t:MessageType type.(&lt;3&gt; Section 2.2.4.6:  Exchange 2007 does not return the items of type t:ItemType as a t:MessageType type. )</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return the items of type t:ItemType as a t:MessageType type.(Microsoft Exchange Server 2007 Service Pack 1 (SP1) starts to return the items of type t:ItemType as a t:MessageType type.)</ns1:Description>
 		<ns1:Derived>MS-OXWSATT_R444:i,MS-OXWSATT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3971,9 +3971,9 @@ Contains the status and result of a single DeleteAttachment operation.</ns1:Desc
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSATT_R318015</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSATT_R318014</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a ItemType item.(Microsoft Exchange Server 2007 Service Pack 1 (SP1) starts to return the items of type t:ItemType as a t:MessageType type.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not return the items of type t:ItemType as a t:MessageType type.(&lt;3&gt; Section 2.2.4.6:  Exchange 2007 does not return the items of type t:ItemType as a t:MessageType type. )</ns1:Description>
 		<ns1:Derived>MS-OXWSATT_R444:i,MS-OXWSATT_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
