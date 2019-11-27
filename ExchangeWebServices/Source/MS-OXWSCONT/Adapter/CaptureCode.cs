@@ -28,48 +28,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     <wsdl:input message=""tns:GetItemSoapIn"" />
                     <wsdl:output message=""tns:GetItemSoapOut"" />
                     </wsdl:operation>");
-
-            
-            ArrayOfResponseMessagesType responseMessages = getItemResponse.ResponseMessages;
-            foreach (ResponseMessageType responseMessage in responseMessages.Items)
+     
+            ContactItemType[] contacts = Common.GetItemsFromInfoResponse<ContactItemType>(getItemResponse);
+            foreach (ContactItemType contact in contacts)
             {
-                ItemInfoResponseMessageType itemInfoResponseMessage = responseMessage as ItemInfoResponseMessageType;
-                ArrayOfRealItemsType arrayOfRealItemsType = itemInfoResponseMessage.Items;
-                if (arrayOfRealItemsType.Items != null)
-                {                  
-                    foreach (ItemType item in arrayOfRealItemsType.Items)
-                    {
-                        if ((item.GetType()) == typeof(AbchPersonItemType))
-                        {
-                            AbchPersonItemType[] abchPersons = Common.GetItemsFromInfoResponse<AbchPersonItemType>(getItemResponse);
-
-                            foreach (AbchPersonItemType abchPerson in abchPersons)
-                            {
-                                // Capture AbchPersonItemType Complex Type related requirements.
-                                this.VerifyAbchPersonItemTypeComplexType(abchPerson, isSchemaValidated);
-                            }
-                        }
-
-                        if ((item.GetType()) == typeof(ContactItemType))
-                        {
-                            ContactItemType[] contacts = Common.GetItemsFromInfoResponse<ContactItemType>(getItemResponse);
-                            foreach (ContactItemType contact in contacts)
-                            {
-                                // Capture ContactItemType Complex Type related requirements.
-                                this.VerifyContactItemTypeComplexType(contact, isSchemaValidated);
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    ContactItemType[] contacts = Common.GetItemsFromInfoResponse<ContactItemType>(getItemResponse);
-                    foreach (ContactItemType contact in contacts)
-                    {
-                        // Capture ContactItemType Complex Type related requirements.
-                        this.VerifyContactItemTypeComplexType(contact, isSchemaValidated);
-                    }
-                }
+                // Capture ContactItemType Complex Type related requirements.
+                this.VerifyContactItemTypeComplexType(contact, isSchemaValidated);                    
             }
         }
         #endregion
@@ -212,28 +176,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     336002,
                     @"[In Appendix C: Product Behavior] Implementation does support the AbchPersonItemType complex type which specifies a person. (Exchange 2016 and above follow this behavior.)");
 
-                if (abchPersonItemType.AntiLinkInfo != null)
-                {
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16005");
-
-                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16005
-                    Site.CaptureRequirementIfIsInstanceOfType(
-                        abchPersonItemType.AntiLinkInfo,
-                        typeof(string),
-                        16005,
-                    @"[In t:AbchPersonItemType Complex Type] The type of child element AntiLinkInfo is xs:string ([XMLSCHEMA2]).");
-
-                    // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16006");
-
-                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16006
-                    // If schema is validated, the requirement can be validated.
-                    this.Site.CaptureRequirement(
-                        16006,
-                        @"[In t:AbchPersonItemType Complex Type] AntiLinkInfo element: Specifies an ID of a set of people who MUST NOT be linked together automatically.");
-                }
-
                 if (abchPersonItemType.ContactCategories != null)
                 {
                     // Add the debug information
@@ -245,36 +187,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                         typeof(String[]),
                         16011,
                     @"[In t:AbchPersonItemType Complex Type] The type of child element ContactCategories is t:ArrayOfStringsType ([MS-OXWSCDATA] section 2.2.4.13).");
-
-                    // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16012");
-
-                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16012
-                    // If schema is validated, the requirement can be validated.
-                    this.Site.CaptureRequirement(
-                        16012,
-                        @"[In t:AbchPersonItemType Complex Type] ContactCategories element: Specifies the categories of groups that this person belongs to.");
-                }
-
-                if (Common.IsRequirementEnabled(336004, this.Site)&& abchPersonItemType.ExchangePersonIdGuid != null)
-                {
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16026");
-
-                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16026
-                    Site.CaptureRequirementIfIsNotNull(
-                        abchPersonItemType.ExchangePersonIdGuid,
-                        16026,
-                    @"[In t:AbchPersonItemType Complex Type] The type of child element ExchangePersonIdGuid is t:GuidType ([MS-OXWSXPROP] section 2.1.7).");
-
-                    // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R336004");
-
-                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R336004
-                    // If schema is validated, the requirement can be validated.
-                    this.Site.CaptureRequirement(
-                        336004,
-                        @"[In Appendix C: Product Behavior] Implementation does include theExchangePersonIdGuid  element which specifies the person ID. (Exchange 2016 and above follow this behavior.)");
                 }
             }
         }

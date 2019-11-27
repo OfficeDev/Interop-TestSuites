@@ -1506,18 +1506,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     700,
                     @"[In Appendix C: Product Behavior] Implementation does support element ""EndWallClock"" with type ""xs:dateTime"" which specifies the ending time of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
-
-            if (Common.IsRequirementEnabled(80048, this.Site))
-            {
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R80048");
-
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R80048
-                this.Site.CaptureRequirementIfIsTrue(
-                    createdCalendarItem.IsOrganizer && createdCalendarItem.IsOrganizerSpecified,
-                    80048,
-                    @"[In Appendix C: Product Behavior] Implementation does support element ""IsOrganizer"" with type ""xs:boolean"" which specifies whether the current user is the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
-            }
             #endregion
             #endregion
             #endregion
@@ -2851,7 +2839,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 MeetingRequestTypeType.PrincipalWantsCopy,
                 request.MeetingRequestType,
                 7512,
-                @"[In Appendix C: Product Behavior] Implementation does support PrincipalWantsCopy which indicates that the meeting request belongs to a principal who has forwarded meeting messages to a delegate. (Exchange 2010 and above follow this behavior.)");
+                @"[In Appendix C: Product Behavior] Implementation does use the PrincipalWantsCopy enumeration value which indicates that the meeting request belongs to a principal who has forwarded meeting messages to a delegate and this copy is informational. (Exchange 2013 and above follow this behavior.)");
             #endregion
 
             #region Clean up organizer's calendar folders, attendee's inbox folder and delegate user's inbox folder.
@@ -3904,7 +3892,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S01_TC32_VerifyEmailReminderChangeTypeOfInboxReminders()
         {
-            Site.Assert.IsTrue(Common.IsRequirementEnabled(1310, this.Site), "Implementation does support the EmailReminderChangeType simple type.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1310, this.Site), "Implementation does support the EmailReminderChangeType simple type.");
 
             #region Define a meeting
             int timeInterval = this.TimeInterval;
@@ -3990,6 +3978,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
             Site.Assert.IsTrue(calendarInOrganizer.InboxReminders[0].OccurrenceChangeSpecified, "The value of the OccurrenceChangeSpecified element should be true.");
             Site.Assert.IsTrue(calendarInOrganizer.InboxReminders[0].SendOptionSpecified, "The value of the SendOptionSpecified element should be true.");
+            Site.Assert.IsTrue(calendarInOrganizer.InboxReminders[0].IsOrganizerReminderSpecified, "The value of the IsOrganizerReminderSpecified element should be true.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1339");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1339
+            this.Site.CaptureRequirementIfIsTrue(
+                updatedCalendar.InboxReminders[0].IsOrganizerReminder,
+                1339,
+                @"[In t:InboxReminderType] True [Specifies  this [IsOrganizerReminder] is an organizer inbox reminder.]");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1165");
@@ -4090,7 +4088,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         [TestCategory("MSOXWSMTGS"), TestMethod()]
         public void MSOXWSMTGS_S01_TC33_VerifyInboxReminderWithEmailReminderSendOptionIsAllAttendees()
         {
-            Site.Assert.IsTrue(Common.IsRequirementEnabled(1310, this.Site), "Implementation does support the EmailReminderChangeType simple type.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1310, this.Site), "Implementation does support the EmailReminderChangeType simple type.");
 
             #region Define a meeting to be created
             int timeInterval = this.TimeInterval;
@@ -4241,7 +4239,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsFalse(
                     request.IsOrganizer,
                     80048,
-                    @"[In Appendix C: Product Behavior] Implementation does support complex type ""IsOrganizer"" with type ""xs:boolean"" which specifies whether the current user is the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support element""IsOrganizer"" with type ""xs: boolean"" which specifies whether the current user is the organizer and/or owner of the calendar item. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(903, this.Site))

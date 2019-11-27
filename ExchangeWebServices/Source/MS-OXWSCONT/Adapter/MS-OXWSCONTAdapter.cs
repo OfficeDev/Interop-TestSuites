@@ -125,6 +125,21 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         }
 
         /// <summary>
+        /// Search specified items.
+        /// </summary>
+        /// <param name="findRequest">A request to the FindItem operation.</param>
+        /// <returns>The response message returned by FindItem operation.</returns>
+        public FindItemResponseType FindItem(FindItemType findRequest)
+        {
+            FindItemResponseType findResponse = this.exchangeServiceBinding.FindItem(findRequest);
+
+            ArrayOfRealItemsType items = ((FindItemResponseMessageType)findResponse.ResponseMessages.Items[0]).RootFolder.Item as ArrayOfRealItemsType;
+
+            this.VerifyAbchPersonItemTypeComplexType((AbchPersonItemType)items.Items[0], this.exchangeServiceBinding.IsSchemaValidated);
+            return findResponse;
+        }
+
+        /// <summary>
         /// Update contact item on the server.
         /// </summary>
         /// <param name="updateItemRequest">The request of UpdateItem operation.</param>
