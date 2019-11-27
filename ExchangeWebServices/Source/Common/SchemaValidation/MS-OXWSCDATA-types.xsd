@@ -256,6 +256,8 @@
       <xs:enumeration value="imcontactlist"/>
       <xs:enumeration value="peopleconnect"/>
       <xs:enumeration value="favorites"/>
+      <xs:enumeration value="mecontact" />
+      <xs:enumeration value="personmetadata" />
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="DistinguishedFolderIdType">
