@@ -1210,7 +1210,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R73008");
 
-            // If the above steps are pass, the R73001 will be verified.
+            // If the above steps are pass, the R73008 will be verified.
             this.Site.CaptureRequirement(
                 73008,
                 @"[In t:MessageType Complex Type] [ApprovalRequestData] This element is read-only.");
@@ -1359,7 +1359,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
         }
 
         /// <summary>
-        /// This test case is used to verify  related requirement about the VotingInformation is read-only. 
+        /// This test case is used to verify  related requirement about the ReminderMessageData is read-only. 
         /// </summary>
         [TestCategory("MSOXWSMSG"), TestMethod()]
         public void MSOXWSMSG_S07_TC10_VerifyReminderMessageDataIsReadOnly()
