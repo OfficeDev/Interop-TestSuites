@@ -1152,7 +1152,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             };
 
             CreateItemResponseType createItemResponse = this.MSGAdapter.CreateItem(createItemRequest);
-
             Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidPropertySet, createItemResponse.ResponseMessages.Items[0].ResponseCode, "Since ReceivedRepresenting is read-only, then the The ErrorInvalidPropertySet should be returned by server.");
             #endregion
 
@@ -1285,7 +1284,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             };
 
             CreateItemResponseType createItemResponse = this.MSGAdapter.CreateItem(createItemRequest);
-
             Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidPropertySet, createItemResponse.ResponseMessages.Items[0].ResponseCode, "Since ReceivedRepresenting is read-only, then the The ErrorInvalidPropertySet should be returned by server.");
             #endregion
 
@@ -1342,12 +1340,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             #endregion
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R73008");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R73009");
 
-            // If the above steps are pass, the R73001 will be verified.
+            // If the above steps are pass, the R73009 will be verified.
             this.Site.CaptureRequirement(
-                73008,
-                @"[In t:MessageType Complex Type] [ApprovalRequestData] This element is read-only.");
+                73009,
+                @"[In t:MessageType Complex Type] [VotingInformation]This element is read-only.");
 
             #region Clean up Sender's drafts folder
             bool isClear = this.MSGSUTControlAdapter.CleanupFolders(
@@ -1418,7 +1416,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             };
 
             CreateItemResponseType createItemResponse = this.MSGAdapter.CreateItem(createItemRequest);
-
             Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidPropertySet, createItemResponse.ResponseMessages.Items[0].ResponseCode, "Since ReceivedRepresenting is read-only, then the The ErrorInvalidPropertySet should be returned by server.");
             #endregion
 
@@ -1475,12 +1472,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             #endregion
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R73008");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R73010");
 
-            // If the above steps are pass, the R73001 will be verified.
+            // If the above steps are pass, the R73010 will be verified.
             this.Site.CaptureRequirement(
-                73008,
-                @"[In t:MessageType Complex Type] [ApprovalRequestData] This element is read-only.");
+                73010,
+                @"[In t:MessageType Complex Type] [ReminderMessageData]This element is read-only.");
 
             #region Clean up Sender's drafts folder
             bool isClear = this.MSGSUTControlAdapter.CleanupFolders(
