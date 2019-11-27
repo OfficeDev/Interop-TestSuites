@@ -1097,50 +1097,44 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         {
             Site.Assume.IsTrue(Common.IsRequirementEnabled(336002, this.Site), "Implementation does support the AbchPersonItemType complex type.");
 
+            #region Step 1:Create an item
             AbchPersonItemType abchPersonItem = new AbchPersonItemType();
 
-            abchPersonItem.AntiLinkInfo = "IDs";
-            abchPersonItem.PersonIdGuid = "0000";
-            abchPersonItem.ContactHandles = new AbchPersonContactHandle[] {
-                                    new AbchPersonContactHandle()
-                                    {
-                                        SourceId = Common.GenerateResourceName(this.Site, "SourceId"),
-                                        ObjectId = Common.GenerateResourceName(this.Site, "ObjectId"),
-                                        AccountName = Common.GenerateResourceName(this.Site, "AccountName"),
-                                    },
-                                };
             abchPersonItem.ContactCategories = new string[] {
                                     "test category"
                                 };
             abchPersonItem.FavoriteOrderSpecified = true;
-            abchPersonItem.FavoriteOrder = 0;
 
-            #region Step 1:Create an item
             ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(abchPersonItem);
             #endregion
 
-            #region Step 2:Get the item
-            // Call GetItem operation using the created item IDs.
-            GetItemResponseType getItemResponse = this.CallGetItemOperation(createdItemIds);
+            #region Find the item
+            FindItemType findRequest = new FindItemType();
+            findRequest.ItemShape = new ItemResponseShapeType();
+            findRequest.ItemShape.BaseShape = DefaultShapeNamesType.Default;
+            DistinguishedFolderIdType disFolderId = new DistinguishedFolderIdType();
+            disFolderId.Id = DistinguishedFolderIdNameType.contacts;
+            findRequest.ParentFolderIds = new BaseFolderIdType[1];
+            findRequest.ParentFolderIds[0] = disFolderId;
+            FindItemResponseType resp = this.CONTAdapter.FindItem(findRequest);
 
-            // Check the operation response.
-            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+            ArrayOfRealItemsType items = ((FindItemResponseMessageType)resp.ResponseMessages.Items[0]).RootFolder.Item as ArrayOfRealItemsType;
+            #endregion
 
-            ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+            #region Capture code
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16012");
 
-            // One item should be returned.
-            Site.Assert.AreEqual<int>(
-                1,
-                 getItemIds.GetLength(0),
-                 "One item should be returned! Expected Item Count: {0}, Actual Item Count: {1}",
-                 1,
-                 getItemIds.GetLength(0));
-
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R216012
+            Site.CaptureRequirementIfIsNotNull(
+                ((AbchPersonItemType)items.Items[0]).ContactCategories,
+                16012,
+                @"[In t:AbchPersonItemType Complex Type] ContactCategories element: Specifies the categories of groups that this person belongs to.");
             #endregion
 
             #region Step3:Delete the item
             DeleteItemType deleteItemRequest = new DeleteItemType();
-            deleteItemRequest.ItemIds = getItemIds;
+            deleteItemRequest.ItemIds = createdItemIds;
 
             // Configure the enumeration value that specifies how an person item is to be deleted.
             deleteItemRequest.DeleteType = DisposalType.HardDelete;
@@ -1157,7 +1151,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             #region Step 4:Get the deleted person item
             // Call GetItem operation using the deleted item IDs.
-            getItemResponse = this.CallGetItemOperation(getItemIds);
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(createdItemIds);
 
             Site.Assert.AreEqual<int>(
                  1,
