@@ -46,8 +46,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             calendarItem.UID = Guid.NewGuid().ToString();
             calendarItem.Subject = this.Subject;
             calendarItem.Location = this.Location;
-            calendarItem.LegacyFreeBusyStatus = LegacyFreeBusyType.WorkingElsewhere;
-            calendarItem.LegacyFreeBusyStatusSpecified = true;
+
+            if (Common.IsRequirementEnabled(4001, this.Site))
+            {
+                calendarItem.LegacyFreeBusyStatus = LegacyFreeBusyType.WorkingElsewhere;
+                calendarItem.LegacyFreeBusyStatusSpecified = true;
+            }
 
             calendarItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
             calendarItem.OptionalAttendees = new AttendeeType[] { GetAttendeeOrResource(this.OrganizerEmailAddress) };

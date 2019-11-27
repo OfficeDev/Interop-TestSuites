@@ -115,5 +115,7 @@
     <Property name="R1312Enabled" value="false" />
     <!--Set R2198Enabled to true to verify that the implementation does support the GetReminder operation. Set R2198Enabled to false to disable this requirement.-->
     <Property name="R2198Enabled" value="true" />
+    <!--Set R4001Enabled to true to verify that the implementation does support the WorkingElsewhere value. Set R4001Enabled to false to disable this requirement.-->
+    <Property name="R4001Enabled" value="true" />
   </Properties>
 </TestSite>
