@@ -2627,7 +2627,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R108</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] [The element "WebClientEditFormQueryString"] Specifies a query string that identifies an edit form accessible by using a Web browser&lt;57&gt;.</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] [The element "WebClientEditFormQueryString"] MAY specify a query string that identifies an edit form accessible by using a Web browser&lt;57&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2783,28 +2783,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2047</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] This element [InstanceKey] can be returned by the server.&lt;63&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXWSCORE_R20472</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R20471</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] This element [InstanceKey] can be returned by the server.(&lt;63&gt; Section 2.2.4.24:  Exchange 2007 and Exchange 2010 do not support the InstanceKey element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2047:i</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R20472</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] This element [InstanceKey] can be returned by the server.(&lt;63&gt; Section 2.2.4.24: Exchange 2013 and above support the InstanceKey element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2047:i</ns1:Derived>
+		<ns1:Description>[In t:ItemType Complex Type] This element [InstanceKey] can be returned by the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2916,28 +2895,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2051</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] This element [Preview] can be returned by the server.&lt;69&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R20512.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R20511</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] This element [Preview] can not be returned by the server.(&lt;69&gt; Section 2.2.4.24:  Exchange 2007 and Exchange 2010 do not support the InstanceKey element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2051:i</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R20512</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] This element [Preview] can be returned by the server.(&lt;69&gt; Section 2.2.4.24: Exchange 2013 and above support the InstanceKey element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2051:i</ns1:Derived>
+		<ns1:Description>[In t:ItemType Complex Type] This element [Preview] can be returned by the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3112,28 +3070,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2061</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] This element [TextBody] can be returned by the server.&lt;77&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCORE_R20612.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R20611</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] This element [TextBody] can not be returned by the server.(&lt;77&gt; Section 2.2.4.24:  Exchange 2007 and Exchange 2010 do not support the TextBody element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2061:i</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R20612</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] This element [TextBody] can be returned by the server.(&lt;77&gt; Section 2.2.4.24:  Exchange 2007 and Exchange 2010 do support the TextBody element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R2061:i</ns1:Derived>
+		<ns1:Description>[In t:ItemType Complex Type] This element [TextBody] can be returned by the server .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15744,25 +15681,25 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCORE_R2502</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the WebClientEditFormQueryString  element. (&lt;57&gt; Section 2.2.4.24: Exchange 2007 does not support the WebClientEditFormQueryString  element.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R108:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2503</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the WebClientEditFormQueryString  element which specifies a query string that identifies a edit form accessible by using a Web browser. (&lt;57&gt; Section 2.2.4.24:  Exchange 2010 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OXWSCORE_R108:i</ns1:Derived>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return the WebClientEditFormQueryString  element. (&lt;57&gt; Section 2.2.4.24:Exchange 2010, Exchange 2013 and the initial release of Exchange 2016 will return the WebClientEditFormQueryString element.)</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R108:i, MS-OXWSCORE_R589:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCORE_R2502</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not return the WebClientEditFormQueryString  element which specifies a query string that identifies a edit form accessible by using a Web browser. (Exchange 2016 CU6 and Exchange 2019 does not return this element. )</ns1:Description>
+		<ns1:Derived>MS-OXWSCORE_R108:i, MS-OXWSCORE_R589:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2287</ns1:REQ_ID>
