@@ -976,7 +976,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                     ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item,
                     typeof(MessageType),
                     318014,
-                    @"[In Appendix C: Product Behavior] Implementation does not return the items of type t:ItemType as a t:MessageType type.(<3> Section 2.2.4.6:  Exchange 2007 does not return the items of type t:ItemType as a t:MessageType type. )");
+                    @"[In Appendix C: Product Behavior] Implementation does return the items of type t:ItemType as a t:MessageType type.(Microsoft Exchange Server 2007 Service Pack 1 (SP1) starts to return the items of type t:ItemType as a t:MessageType type.)");
             }
 
             // Add the debug information
