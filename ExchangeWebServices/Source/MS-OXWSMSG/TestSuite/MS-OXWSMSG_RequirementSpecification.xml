@@ -255,7 +255,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R200</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSMSG_R444</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
 		<ns1:Description>[In Complex Types] The MessageType(section 2.2.4.3) complex type Represents a server email message in a user's mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>

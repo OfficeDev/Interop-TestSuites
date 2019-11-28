@@ -226,13 +226,7 @@
     <!--Set R2935Enabled to true to verify that  In Exchange 2013 and above, Exchange 2016, and Exchange 2019  Exchange 2013, Exchange 2016, and Exchange 2019, the implementation will return no data for the Location element which represents the location of the meeting. Set R2935Enabled to false to disable this requirement.-->
     <Property name="R2935Enabled" value="true" />
     <!--Set R2936Enabled to true to verify that In Exchange 2010 and above, the implementation will return data for the Location element which represents the location of the meeting. Set R2936Enabled to false to disable this requirement.-->
-    <Property name="R2936Enabled" value="false" />
-    <!--Set R20472Enabled to true to verify that In Exchange 2013 and above, the implementation support InstanceKey element. Set R20472Enabled to false to disable this requirement.-->
-    <Property name="R20472Enabled" value="false" />
-    <!--Set R20512Enabled to true to verify that In Exchange 2013 and above, the implementation support Preview element. Set R20512Enabled to false to disable this requirement.-->
-    <Property name="R20512Enabled" value="false" />
-    <!--Set R20612Enabled to true to verify that In Exchange 2013 and above, the implementation support TextBody element. Set R20612Enabled to false to disable this requirement.-->
-    <Property name="R20612Enabled" value="false" />    
+    <Property name="R2936Enabled" value="false" /> 
     <!--Set R13411Enabled to true to verify that In Exchange 2010 and above, the implementation  Implementation does support the element IsAssociated with type xs:boolean. Set R13411Enabled to false to disable this requirement.-->
     <Property name="R13411Enabled" value="true" />
     <!--Set R1881Enabled to true to verify that In Exchange 2010 SP2 and above, the implementation does support the element with type "xs:base64Binary ([XMLSCHEMA2]) which specifies the entry ID of the store that hosts an item. Set R13411Enabled to false to disable this requirement.-->
