@@ -1502,16 +1502,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 2040,
                 @"[In t:ItemType Complex Type] This element [LastModifiedName] can be returned by the server.");
 
-            if (Common.IsRequirementEnabled(20472, this.Site))
+            if (Common.IsRequirementEnabled(1348, this.Site))
             {
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R20472");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2047");
 
             // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R2047
             Site.CaptureRequirementIfIsNotNull(
                 getItems[0].InstanceKey,
-                20472,
+                2047,
                 @"[In t:ItemType Complex Type] This element [InstanceKey] can be returned by the server.");
             }
 

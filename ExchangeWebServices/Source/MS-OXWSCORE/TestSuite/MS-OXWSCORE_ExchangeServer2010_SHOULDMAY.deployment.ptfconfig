@@ -227,8 +227,6 @@
     <Property name="R2935Enabled" value="false" />
     <!--Set R2936Enabled to true to verify that In Exchange 2010 and above, the implementation will return data for the Location element which represents the location of the meeting. Set R2936Enabled to false to disable this requirement.-->
     <Property name="R2936Enabled" value="true" />    
-    <!--Set R20472Enabled to true to verify that In Exchange 2013 and above, the implementation support InstanceKey element. Set R20472Enabled to false to disable this requirement.-->
-    <Property name="R20472Enabled" value="false" />
     <!--Set R20512Enabled to true to verify that In Exchange 2013 and above, the implementation support Preview element. Set R20512Enabled to false to disable this requirement.-->
     <Property name="R20512Enabled" value="false" />
     <!--Set R20612Enabled to true to verify that In Exchange 2013 and above, the implementation support TextBody element. Set R20612Enabled to false to disable this requirement.-->
