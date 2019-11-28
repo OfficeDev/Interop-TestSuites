@@ -507,8 +507,15 @@ namespace Microsoft.Protocols.TestSuites.Common
                                 }
                                 else
                                 {
-                                    isIdOnly = false;
-                                    break;
+                                    if (string.Equals(child.Name, "t:PersonalNotes"))
+                                    {
+                                        isIdOnly = true;
+                                    }
+                                    else
+                                    {
+                                        isIdOnly = false;
+                                        break;
+                                    }                                    
                                 }
                             }
                         }
