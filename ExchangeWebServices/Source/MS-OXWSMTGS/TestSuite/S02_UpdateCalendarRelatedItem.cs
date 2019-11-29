@@ -129,16 +129,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             MeetingRequestMessageType meetingRequest = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Schedule.Meeting.Request", calendarItem.UID) as MeetingRequestMessageType;
             Site.Assert.IsNotNull(meetingRequest, "The update meeting request message should exist in attendee's inbox folder.");
 
-            if (Common.IsRequirementEnabled(28505, this.Site))
+            if (Common.IsRequirementEnabled(4001, this.Site))
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R28505");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R4001");
 
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R28505
+                // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R4001
                 this.Site.CaptureRequirementIfAreEqual<LegacyFreeBusyType>(
                     LegacyFreeBusyType.WorkingElsewhere,
                     meetingRequest.IntendedFreeBusyStatus,
-                    28505,
+                    "MS-OXWSCDATA",
+                    4001,
                     @"[In Appendix C: Product Behavior] Implementation does support the IntendedFreeBusyStatus which value set to ""WorkingElsewhere"" specifies the status as working outside the office. (Exchange 2013 and above follow this behavior.)");
             }
 

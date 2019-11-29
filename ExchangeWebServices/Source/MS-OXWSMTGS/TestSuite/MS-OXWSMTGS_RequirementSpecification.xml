@@ -10135,9 +10135,9 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMTGS_R2183</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSMTGS_R3311</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior]Implementation does support TimeZone element if the meeting is not associated with a recurring calendar item. (Exchange 2007, Exchange 2013 and Exchange 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior]Implementation does support TimeZone element if the meeting is not associated with a recurring calendar item. (Exchange 2007, Exchange 2010 and Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXWSMTGS_R203:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -10738,7 +10738,7 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMTGS_R2190</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSMTGS_R3541</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support ConferenceType in MeetingRequestMessageType. (&lt;41&gt; Section 2.2.4.17:  Exchange 2007, Exchange 2010, and Exchange 2013 support the ConferenceType element. The ConferenceType element is obsolete in Exchange 2016 and Exchange 2019.)</ns1:Description>
 		<ns1:Derived>MS-OXWSMTGS_R355:i</ns1:Derived>

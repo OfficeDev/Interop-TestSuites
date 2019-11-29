@@ -1729,7 +1729,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     receivedRequest.ConferenceType,
                     3541,
-                    @"[In Appendix C: Product Behavior] Implementation does support ConferenceType in MeetingRequestMessageType. (Exchange 2007, Exchange 2010 and Exchange 2013 follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support ConferenceType in MeetingRequestMessageType. (<41> Section 2.2.4.17:  Exchange 2007, Exchange 2010, and Exchange 2013 support the ConferenceType element. The ConferenceType element is obsolete in Exchange 2016 and Exchange 2019.)");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R35502");
@@ -2052,7 +2052,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     receivedRequest.TimeZone,
                     3311,
-                    @"[In Appendix C: Product Behavior] Implementation does support TimeZone in MeetingRequestMessageType. (Exchange 2007, Exchange 2010 and Exchange 2013 follow this behavior.)");
+                    @"[In Appendix C: Product Behavior]Implementation does support TimeZone element if the meeting is not associated with a recurring calendar item. (Exchange 2007, Exchange 2010 and Exchange 2013 follow this behavior.)");
             }
 
             // Add the debug information
