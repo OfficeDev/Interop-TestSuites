@@ -2827,99 +2827,9 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R182001</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ApprovalRequestDataType complex type. (&lt;1&gt; Section 2.2.4: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ApprovalRequestDataType complex type. )</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R182002</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ApprovalRequestDataType complex type. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R352</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ArrayOfVotingOptionDataType complex type. (&lt;2&gt; Section 2.2.4: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ArrayOfVotingOptionDataType complex type. )</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R353</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ArrayOfVotingOptionDataType complex type. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R354</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ReminderMessageDataType complex type. (&lt;3&gt; Section 2.2.4: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ReminderMessageDataType complex type. )</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R355</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ReminderMessageDataType complex type. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R356</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the VotingInformationType complex type. (&lt;4&gt; Section 2.2.4: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the VotingInformationType complex type. )</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R357</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the VotingInformationType complex type. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R358</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the VotingOptionDataType complex type. (&lt;5&gt; Section 2.2.4: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the VotingOptionDataType complex type. )</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R359</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the VotingOptionDataType complex type. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R360</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ovalRequestDataTypAppre complex type. (&lt;6&gt; Section 2.2.4.1: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ovalRequestDataTypAppre complex type. )</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ApprovalRequestDataType complex type. (&lt;6&gt; Section 2.2.4.1: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ovalRequestDataTypAppre complex type. )</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R300:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2929,7 +2839,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R361</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ovalRequestDataTypAppre complex type. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ApprovalRequestDataType complex type. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R300:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -3053,7 +2963,7 @@
 		<ns1:Derived>MS-OXWSMSG_R331:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -3063,7 +2973,7 @@
 		<ns1:Derived>MS-OXWSMSG_R338:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -3073,25 +2983,7 @@
 		<ns1:Derived>MS-OXWSMSG_R338:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R372</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the SendPromptType simple type. (&lt;14&gt; Section 2.2.5:  Exchange 2007,Exchange 2010, and the initial release of Exchange 2013 do not support the SendPromptType simple type. )</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R373</ns1:REQ_ID>
-		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the SendPromptType complex type. (This type was introduced in Exchange 2013 SP1.)</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -3101,7 +2993,7 @@
 		<ns1:Derived>MS-OXWSMSG_R346:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -3111,7 +3003,7 @@
 		<ns1:Derived>MS-OXWSMSG_R346:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
