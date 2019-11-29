@@ -23,6 +23,7 @@
     <DeploymentItem filename="MS-OXWSBTRF\TestSuite\MS-OXWSBTRF_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSFOLD\TestSuite\MS-OXWSFOLD_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSCORE\TestSuite\MS-OXWSCORE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OXWSMSG\TestSuite\MS-OXWSMSG_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="ExchangeServerEWSProtocolTestSuites.runsettings" />
     <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
@@ -71,7 +72,6 @@
     <DeploymentItem filename="MS-OXWSFOLD\TestSuite\MS-OXWSFOLD_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMSG\TestSuite\MS-OXWSMSG_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-OXWSCONT\TestSuite\Resources\UserPhoto.jpg" />
-    <DeploymentItem filename="TestSuite\MS-OXWSMSG_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSFOLD\TestSuite\MS-OXWSFOLD_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSSYNC\TestSuite\MS-OXWSSYNC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSCONT\TestSuite\MS-OXWSCONT_TestSuite.deployment.ptfconfig" />
