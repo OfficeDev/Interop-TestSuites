@@ -127,7 +127,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     @"[In Appendix C: Product Behavior] Implementation will return no data for the Location element which represents the location of the meeting. (<88> Section 2.2.4.27:  Exchange 2013, Exchange 2016, and Exchange 2019 follow this behavior.)");
             }
 
-            if (Common.IsRequirementEnabled(2936, this.Site))
+            if (Common.IsRequirementEnabled(1276, this.Site) && Common.IsRequirementEnabled(2936, this.Site))
             {
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2936");
