@@ -440,16 +440,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 2023,
                 @"[In t:ItemType Complex Type] If invalid values are set for these items in the CreateItem request, an ErrorObjectTypeChanged ([MS-OXWSCDATA] section 2.2.5.24) response code will be returned in the CreateItem response.");
         }
-
-        /// <summary>
-        /// This test case is intended to validate the successful responses returned by CreateItem, GetItem and DeleteItem operations for post item with required elements.
-        /// </summary>
-        [TestCategory("MSOXWSCORE"), TestMethod()]
-        public void MSOXWSCORE_S06_TCXX_CreateGetDeletePostItemSuccessfully()
-        {
-            PostItemType item = new PostItemType();
-            this.TestSteps_VerifyCreateGetDeleteItem(item);
-        }
         #endregion
     }
 }

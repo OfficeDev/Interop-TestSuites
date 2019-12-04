@@ -1100,6 +1100,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
         [TestCategory("MSOXWSMSG"), TestMethod()]
         public void MSOXWSMSG_S07_TC08_VerifyApprovalRequestDataIsReadOnly()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(73008, this.Site), "Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ApprovalRequestData element.");
             #region Create a message which include the ApprovalRequestData element.
             CreateItemType createItemRequest = new CreateItemType
             {
@@ -1232,6 +1233,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
         [TestCategory("MSOXWSMSG"), TestMethod()]
         public void MSOXWSMSG_S07_TC09_VerifyVotingInformationIsReadOnly()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(73009, this.Site), "Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the VotingInformation element.");
             #region Create a message which include the VotingInformation element.
             CreateItemType createItemRequest = new CreateItemType
             {
@@ -1364,6 +1366,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
         [TestCategory("MSOXWSMSG"), TestMethod()]
         public void MSOXWSMSG_S07_TC10_VerifyReminderMessageDataIsReadOnly()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(73010, this.Site), "Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ReminderMessageData element.");
             #region Create a message which include the ReminderMessageData element.
             CreateItemType createItemRequest = new CreateItemType
             {

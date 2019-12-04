@@ -108,7 +108,7 @@
     <!--Set R911Enabled to true to verify that the implementation does support the TimeZoneType complex type. Set R911Enabled to false to disable this requirement.-->
     <Property name="R911Enabled" value="false" />
     <!--Set R1278Enabled to true to verify that the implementation does support the InboxReminder complex type. Set R1278Enabled to false to disable this requirement.-->
-    <Property name="R1278Enabled" value="true" />
+    <Property name="R1278Enabled" value="false" />
     <!--Set R1310Enabled to true to verify that the implementation does support the EmailReminderChangeType simple type. Set R1310Enabled to false to disable this requirement.-->
     <Property name="R1310Enabled" value="false" />
     <!--Set R1312Enabled to true to verify that the implementation does support the EmailReminderSendOption simple type. Set R1312Enabled to false to disable this requirement.-->
