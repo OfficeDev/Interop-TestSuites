@@ -4168,7 +4168,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                         @"[In MailboxItemMailboxGuidBased or ConversationIdMailboxGuidBased] If the Id storage type is ConversationIdMailboxGuidBased, the format of the remaining bytes is
                             [Short] Moniker Length
                             [Variable] Moniker Bytes
-                            [Byte] Id Processing Instruction (Normal = 0, Recurrence = 1)
+                            [Byte] Id Processing Instruction (Normal = 0, Recurrence = 1, Series = 2)
                             [Short] Store Id Bytes Length
                             [Variable] Store Id Bytes");
                 }
