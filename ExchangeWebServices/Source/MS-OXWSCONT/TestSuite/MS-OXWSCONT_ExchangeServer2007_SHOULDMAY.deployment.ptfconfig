@@ -3,7 +3,13 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- Note: Property values are case-insensitive unless otherwise specified. -->
   <Properties>
-     <!--Set R1275114Enabled to true to implementation does support the SetUserPhoto operation. Set R1275114Enabled to false to disable this requirement-->
+    <!--Set R1275120Enabled to true to implementation does support the YomiSurname element. Set R1275120Enabled to false to disable this requirement-->
+    <Property name="R1275120Enabled" value="false"/>
+    <!--Set R1275118Enabled to true to implementation does support the YomiGivenName element. Set R1275118Enabled to false to disable this requirement-->
+    <Property name="R1275118Enabled" value="false"/>
+    <!--Set R1275116Enabled to true to implementation does support the DisplayNamePrefix operation. Set R1275116Enabled to false to disable this requirement-->
+    <Property name="R1275116Enabled" value="false"/>
+    <!--Set R1275114Enabled to true to implementation does support the SetUserPhoto operation. Set R1275114Enabled to false to disable this requirement-->
      <Property name="R1275114Enabled" value="false"/>
      <!--Set R1275002Enabled to true to implementation does support the HasPicture element. Set R1275002Enabled to false to disable this requirement-->
      <Property name="R1275002Enabled" value="false"/>
@@ -61,9 +67,11 @@
      <Property name="R1275102Enabled" value="false"/>
      <!--Set R1275104Enabled to true to implementation does support the Empty attribute. Set R1275104Enabled to false to disable this requirement-->
      <Property name="R1275104Enabled" value="false"/>
-     <!--Set R1275106Enabled to true to implementation does use  the BusinessMobile value. Set R1275106Enabled to false to disable this requirement-->
+     <!--Set R1275106Enabled to true to implementation does use the BusinessMobile value. Set R1275106Enabled to false to disable this requirement-->
      <Property name="R1275106Enabled" value="false"/>
-     <!--Set R1275108Enabled to true to implementation does use  the IPPhone value. Set R1275108Enabled to false to disable this requirement-->
+     <!--Set R1275108Enabled to true to implementation does use the IPPhone value. Set R1275108Enabled to false to disable this requirement-->
      <Property name="R1275108Enabled" value="false"/>
+    <!--Set R336002Enabled to true to implementation does use the AbchPersonItemType complex type. Set R336002Enabled to false to disable this requirement-->
+    <Property name="R336002Enabled" value="false"/>
   </Properties>
 </TestSite>

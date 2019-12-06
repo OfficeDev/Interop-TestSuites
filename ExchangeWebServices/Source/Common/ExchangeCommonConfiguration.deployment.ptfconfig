@@ -1,40 +1,39 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
   <Properties>
     <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
     <!-- The Domain property specifies the domain name. -->
     <Property name="Domain" value="contoso.com" />
     <!-- The SUTComputerName property specifies the name of the SUT. -->
-    <Property name="SutComputerName" value="OI-D1-E14SP3DS" />
+    <Property name="SutComputerName" value="sut01" />
     <!-- The SUTComputerName property specifies the login name of the SUT. -->
-    <Property name="UserName" value="pettest" />
+    <Property name="UserName" value="plugdevuser01" />
     <!-- The SUTComputerName property specifies the password of the SUT. -->
-    <Property name="Password" value="Password01!" />
+    <Property name="Password" value="901aYa7-Q94SO" />
     <!-- The SutVersion property specifies the version of the SUT. If the product version that you want is not listed, enter the value corresponding to the closest version of the product. 
          The supported values are:
          "ExchangeServer2007" (Microsoft® Exchange Server 2007 Service Pack 3 (SP3))
          "ExchangeServer2010" (Microsoft® Exchange Server 2010 Service Pack 3 (SP3))
          "ExchangeServer2013" (Microsoft® Exchange Server 2013 Service Pack 1 (SP1))
-         "ExchangeServer2016" (Microsoft® Exchange Server 2016 Preview). -->
-    <Property name="SutVersion" value="ExchangeServer2010"/>
+         "ExchangeServer2016" (Microsoft® Exchange Server 2016)
+         "ExchangeServer2019" (Microsoft® Exchange Server 2019 Preview).-->
+    <Property name="SutVersion" value="ExchangeServer2019" />
     <!-- The ServiceUrl property specifies the format of an SUT service Uniform Resource Locator (URL). The property value is composed of property names "TransportType", "SutComputerName", "Domain" and "AppendingURL".
          [TransportType] will be replaced with the actual value of TransportType property;
          [SutComputerName] will be replaced with the value of SutComputerName property;
          [Domain] will be replaced with the value of Domain property;
          [AppendingURL] will be replaced with the value of AppendingURL property. -->
-    <Property name="ServiceUrl" value="[TransportType]://[SutComputerName].[Domain]/[AppendingURL]"/>
+    <Property name="ServiceUrl" value="[TransportType]://[SutComputerName].[Domain]/[AppendingURL]" />
     <!-- The AppendingURL property specifies an appending URL of a specific SUT service for the ServiceUrl property. The value "EWS/Exchange.asmx" indicates Exchange Web Service (EWS). -->
     <Property name="AppendingURL" value="EWS/Exchange.asmx" />
     <!-- SUT section ends. -->
-    
     <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
     <!-- The TransportType property specifies the transport used to transfer messages between the client and the server.
            The supported values are:
            "HTTP", the transport is HTTP;
            "HTTPS", the transport is HTTPS. -->
-    <Property name="TransportType" value="HTTP"/>
+    <Property name="TransportType" value="HTTPS" />
     <!-- The WaitTime property specifies the time interval (in milliseconds) to find a message item after it has been created. Depending on your hardware environment, you may need to increase the value to avoid intermittent failures. -->
     <Property name="WaitTime" value="1000" />
     <!-- The RetryCount property specifies the maximum count to retry finding the message item  if the item cannot be found. -->

@@ -123,7 +123,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     253,
-                    @"[In tns:ExportItemsSoapOut Message]The type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.3.12).");
+                    @"[In tns:ExportItemsSoapOut Message]The type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.3.10).");
 
                 // Add debug information.
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSBTRF_R254");
@@ -262,7 +262,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     249,
-                    @"[In tns:UploadItemsSoapOut Message]The Element/type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.3.12).");
+                    @"[In tns:UploadItemsSoapOut Message]The Element/type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.3.10).");
 
                 // Add debug information.
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSBTRF_R250");
@@ -1087,181 +1087,89 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSBTRF
                 isSchemaValidated,
                 "MS-OXWSCDATA",
                 1036,
-                @"[In m:ArrayOfResponseMessagesType Complex Type] The type [ArrayOfResponseMessagesType] is defined as follow:
-                <xs:complexType name=""ArrayOfResponseMessagesType"">
-                  <xs:choice
-                    maxOccurs=""unbounded""
-                  >
-                    <xs:element name=""CreateItemResponseMessage""
-                      type=""m:ItemInfoResponseMessageType""
-                     />
-                    <xs:element name=""DeleteItemResponseMessage""
-                      type=""m:ResponseMessageType""
-                     />
-                    <xs:element name=""GetItemResponseMessage""
-                      type=""m:ItemInfoResponseMessageType""
-                     />
-                    <xs:element name=""UpdateItemResponseMessage""
-                      type=""m:UpdateItemResponseMessageType""
-                     />
-                    <xs:element name=""UpdateItemInRecoverableItemsResponseMessage"" 
-                     type=""m:UpdateItemInRecoverableItemsResponseMessageType""/>
-                    <xs:element name=""SendItemResponseMessage""
-                      type=""m:ResponseMessageType""
-                     />
-                    <xs:element name=""DeleteFolderResponseMessage""
-                      type=""m:ResponseMessageType""
-                     />
-                    <xs:element name=""EmptyFolderResponseMessage""
-                      type=""m:ResponseMessageType""
-                     />
-                    <xs:element name=""CreateFolderResponseMessage""
-                      type=""m:FolderInfoResponseMessageType""
-                     />
-                    <xs:element name=""GetFolderResponseMessage""
-                      type=""m:FolderInfoResponseMessageType""
-                     />
-                    <xs:element name=""FindFolderResponseMessage""
-                      type=""m:FindFolderResponseMessageType""
-                     />
-                    <xs:element name=""UpdateFolderResponseMessage""
-                      type=""m:FolderInfoResponseMessageType""
-                     />
-                    <xs:element name=""MoveFolderResponseMessage""
-                      type=""m:FolderInfoResponseMessageType""
-                     />
-                    <xs:element name=""CopyFolderResponseMessage""
-                      type=""m:FolderInfoResponseMessageType""
-                     />
-                    <xs:element name=""CreateFolderPathResponseMessage"" 
-                     type=""m:FolderInfoResponseMessageType""
-                    />
-                    <xs:element name=""CreateAttachmentResponseMessage""
-                      type=""m:AttachmentInfoResponseMessageType""
-                     />
-                    <xs:element name=""DeleteAttachmentResponseMessage""
-                      type=""m:DeleteAttachmentResponseMessageType""
-                     />
-                    <xs:element name=""GetAttachmentResponseMessage""
-                      type=""m:AttachmentInfoResponseMessageType""
-                     />
-                    <xs:element name=""UploadItemsResponseMessage""
-                      type=""m:UploadItemsResponseMessageType""
-                     />
-                    <xs:element name=""ExportItemsResponseMessage""
-                      type=""m:ExportItemsResponseMessageType""
-                     />
-                    <xs:element name=""MarkAllItemsAsReadResponseMessage"" 
-                       type=""m:ResponseMessageType""/>
-                    <xs:element name=""GetClientAccessTokenResponseMessage"" 
-                       type=""m:GetClientAccessTokenResponseMessageType""/>
-                    <xs:element name=""GetAppManifestsResponseMessage"" type=""m:ResponseMessageType""/>
-                    <xs:element name=""GetClientExtensionResponseMessage"" 
-                       type=""m:ResponseMessageType""/>
-                    <xs:element name=""SetClientExtensionResponseMessage"" 
-                       type=""m:ResponseMessageType""/>
-
-                    <xs:element name=""FindItemResponseMessage""
-                      type=""m:FindItemResponseMessageType""
-                     />
-                    <xs:element name=""MoveItemResponseMessage""
-                      type=""m:ItemInfoResponseMessageType""
-                     />
-                    <xs:element name=""ArchiveItemResponseMessage"" type=""m:ItemInfoResponseMessageType""/>
-                    <xs:element name=""CopyItemResponseMessage""
-                      type=""m:ItemInfoResponseMessageType""
-                     />
-                    <xs:element name=""ResolveNamesResponseMessage""
-                      type=""m:ResolveNamesResponseMessageType""
-                     />
-                    <xs:element name=""ExpandDLResponseMessage""
-                      type=""m:ExpandDLResponseMessageType""
-                     />
-                    <xs:element name=""GetServerTimeZonesResponseMessage""
-                      type=""m:GetServerTimeZonesResponseMessageType""
-                     />
-                    <xs:element name=""GetEventsResponseMessage""
-                      type=""m:GetEventsResponseMessageType""
-                     />
-                    <xs:element name=""GetStreamingEventsResponseMessage""
-                      type=""m:GetStreamingEventsResponseMessageType""
-                     />
-                    <xs:element name=""SubscribeResponseMessage""
-                      type=""m:SubscribeResponseMessageType""
-                     />
-                    <xs:element name=""UnsubscribeResponseMessage""
-                      type=""m:ResponseMessageType""
-                     />
-                    <xs:element name=""SendNotificationResponseMessage""
-                      type=""m:SendNotificationResponseMessageType""
-                     />
-                    <xs:element name=""SyncFolderHierarchyResponseMessage""
-                      type=""m:SyncFolderHierarchyResponseMessageType""
-                     />
-                    <xs:element name=""SyncFolderItemsResponseMessage""
-                      type=""m:SyncFolderItemsResponseMessageType""
-                     />
-                    <xs:element name=""CreateManagedFolderResponseMessage""
-                      type=""m:FolderInfoResponseMessageType""
-                     />
-                    <xs:element name=""ConvertIdResponseMessage""
-                      type=""m:ConvertIdResponseMessageType""
-                     />
-                    <xs:element name=""GetSharingMetadataResponseMessage""
-                      type=""m:GetSharingMetadataResponseMessageType""
-                     />
-                    <xs:element name=""RefreshSharingFolderResponseMessage""
-                      type=""m:RefreshSharingFolderResponseMessageType""
-                     />
-                    <xs:element name=""GetSharingFolderResponseMessage""
-                      type=""m:GetSharingFolderResponseMessageType""
-                     />
-                    <xs:element name=""CreateUserConfigurationResponseMessage""
-                      type=""m:ResponseMessageType""
-                     />
-                    <xs:element name=""DeleteUserConfigurationResponseMessage""
-                      type=""m:ResponseMessageType""
-                     />
-                    <xs:element name=""GetUserConfigurationResponseMessage""
-                      type=""m:GetUserConfigurationResponseMessageType""
-                     />
-                    <xs:element name=""UpdateUserConfigurationResponseMessage""
-                      type=""m:ResponseMessageType""
-                     />
-                    <xs:element name=""GetRoomListsResponse""
-                      type=""m:GetRoomListsResponseMessageType""
-                     />
-                    <xs:element name=""GetRoomsResponse""
-                      type=""m:GetRoomsResponseMessageType""
-                     />
-                      <xs:element name=""GetRemindersResponse"" 
-                       type=""m:GetRemindersResponseMessageType""/>
-                      <xs:element name=""PerformReminderActionResponse"" 
-                       type=""m:PerformReminderActionResponseMessageType""/>
-                    <xs:element name=""ApplyConversationActionResponseMessage""
-                      type=""m:ResponseMessageType""
-                     />
-                    <xs:element name=""FindMailboxStatisticsByKeywordsResponseMessage"" type=""m:FindMailboxStatisticsByKeywordsResponseMessageType""/>
-                    <xs:element name=""GetSearchableMailboxesResponseMessage"" type=""m:GetSearchableMailboxesResponseMessageType""/>
-                    <xs:element name=""SearchMailboxesResponseMessage"" type=""m:SearchMailboxesResponseMessageType""/>
-                    <xs:element name=""GetDiscoverySearchConfigurationResponseMessage"" type=""m:GetDiscoverySearchConfigurationResponseMessageType""/>
-                    <xs:element name=""GetHoldOnMailboxesResponseMessage"" type=""m:GetHoldOnMailboxesResponseMessageType""/>
-                    <xs:element name=""SetHoldOnMailboxesResponseMessage"" type=""m:SetHoldOnMailboxesResponseMessageType""/>
-                      <xs:element name=""GetNonIndexableItemStatisticsResponseMessage"" type=""m:GetNonIndexableItemStatisticsResponseMessageType""/>
-                      <!-- GetNonIndexableItemDetails response -->
-                      <xs:element name=""GetNonIndexableItemDetailsResponseMessage"" type=""m:GetNonIndexableItemDetailsResponseMessageType""/>
-                      <!-- GetUserHoldSettings response -->
-                    <xs:element name=""FindPeopleResponseMessage"" type=""m:FindPeopleResponseMessageType""/>
-
-                    <xs:element name=""GetPasswordExpirationDateResponse"" type=""m:GetPasswordExpirationDateResponseMessageType""
-                    />
-                      <xs:element name=""GetPersonaResponseMessage"" type=""m:GetPersonaResponseMessageType""/>
-                      <xs:element name=""GetConversationItemsResponseMessage"" type=""m:GetConversationItemsResponseMessageType""/>
-                      <xs:element name=""GetUserRetentionPolicyTagsResponseMessage"" type=""m:GetUserRetentionPolicyTagsResponseMessageType""/>
-                      <xs:element name=""GetUserPhotoResponseMessage"" type=""m:GetUserPhotoResponseMessageType""/>
-                      <xs:element name=""MarkAsJunkResponseMessage"" type=""m:MarkAsJunkResponseMessageType""/>
-                  </xs:choice>
-                </xs:complexType>
+                @"<xs:complexType name=""ArrayOfResponseMessagesType"">
+                    <xs:choice maxOccurs = ""unbounded"">
+                    <xs:element name=""CreateItemResponseMessage"" type=""m:ItemInfoResponseMessageType""/>
+                    <xs:element name=""DeleteItemResponseMessage"" type=""m:DeleteItemResponseMessageType""/>
+                    <xs:element name=""GetItemResponseMessage"" type=""m:ItemInfoResponseMessageType""/>
+                    <xs:element name=""UpdateItemResponseMessage"" type=""m:UpdateItemResponseMessageType""/>
+                    <xs:element name=""UpdateItemInRecoverableItemsResponseMessage"" type=""m:UpdateItemInRecoverableItemsResponseMessageType""/>
+                    <xs:element name=""SendItemResponseMessage"" type=""m:ResponseMessageType""/>
+                    <xs:element name=""DeleteFolderResponseMessage"" type=""m:ResponseMessageType""/>
+                    <xs:element name=""EmptyFolderResponseMessage"" type=""m:ResponseMessageType""/>
+                    <xs:element name=""CreateFolderResponseMessage"" type=""m:FolderInfoResponseMessageType""/>
+                    <xs:element name=""GetFolderResponseMessage"" type=""m:FolderInfoResponseMessageType""/>
+                    <xs:element name=""FindFolderResponseMessage"" type=""m:FindFolderResponseMessageType""/>
+                    <xs:element name=""UpdateFolderResponseMessage"" type=""m:FolderInfoResponseMessageType""/>
+                    <xs:element name=""MoveFolderResponseMessage"" type=""m:FolderInfoResponseMessageType""/>
+                    <xs:element name=""CopyFolderResponseMessage"" type=""m:FolderInfoResponseMessageType""/>
+                    <xs:element name=""CreateFolderPathResponseMessage"" type=""m:FolderInfoResponseMessageType""/>
+                    <xs:element name=""CreateAttachmentResponseMessage"" type=""m:AttachmentInfoResponseMessageType""/>
+                    <xs:element name=""DeleteAttachmentResponseMessage"" type=""m:DeleteAttachmentResponseMessageType""/>
+                    <xs:element name=""GetAttachmentResponseMessage"" type=""m:AttachmentInfoResponseMessageType""/>
+                    <xs:element name=""UploadItemsResponseMessage"" type=""m:UploadItemsResponseMessageType""/>
+                    <xs:element name=""ExportItemsResponseMessage"" type=""m:ExportItemsResponseMessageType""/>
+                    <xs:element name=""MarkAllItemsAsReadResponseMessage"" type=""m:ResponseMessageType""/>
+                    <xs:element name=""GetClientAccessTokenResponseMessage"" type=""m:GetClientAccessTokenResponseMessageType"" />
+                    <xs:element name=""GetAppManifestsResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""GetClientExtensionResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""SetClientExtensionResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""GetOMEConfigurationResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""SetOMEConfigurationResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""FindItemResponseMessage"" type=""m:FindItemResponseMessageType"" />
+                    <xs:element name=""MoveItemResponseMessage"" type=""m:ItemInfoResponseMessageType"" />
+                    <xs:element name=""ArchiveItemResponseMessage"" type=""m:ItemInfoResponseMessageType"" />
+                    <xs:element name=""CopyItemResponseMessage"" type=""m:ItemInfoResponseMessageType"" />
+                    <xs:element name=""ResolveNamesResponseMessage"" type=""m:ResolveNamesResponseMessageType"" />
+                    <xs:element name=""ExpandDLResponseMessage"" type=""m:ExpandDLResponseMessageType"" />
+                    <xs:element name=""GetServerTimeZonesResponseMessage"" type=""m:GetServerTimeZonesResponseMessageType"" />
+                    <xs:element name=""GetEventsResponseMessage"" type=""m:GetEventsResponseMessageType"" />
+                    <xs:element name=""GetStreamingEventsResponseMessage"" type=""m:GetStreamingEventsResponseMessageType"" />
+                    <xs:element name=""SubscribeResponseMessage"" type=""m:SubscribeResponseMessageType"" />
+                    <xs:element name=""UnsubscribeResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""GetChannelEventsResponseMessage"" type=""m:GetChannelEventsResponseMessageType"" />
+                    <xs:element name=""ChannelSubscribeResponseMessage"" type=""m:ChannelSubscribeResponseMessageType"" />
+                    <xs:element name=""ChannelUnsubscribeResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""SendNotificationResponseMessage"" type=""m:SendNotificationResponseMessageType"" />
+                    <xs:element name=""SyncFolderHierarchyResponseMessage"" type=""m:SyncFolderHierarchyResponseMessageType"" />
+                    <xs:element name=""SyncFolderItemsResponseMessage"" type=""m:SyncFolderItemsResponseMessageType""/>
+                    <xs:element name=""CreateManagedFolderResponseMessage"" type=""m:FolderInfoResponseMessageType""/>
+                    <xs:element name=""ConvertIdResponseMessage"" type = ""m:ConvertIdResponseMessageType"" />
+                    <xs:element name=""GetSharingMetadataResponseMessage"" type=""m:GetSharingMetadataResponseMessageType"" />
+                    <xs:element name=""RefreshSharingFolderResponseMessage"" type=""m:RefreshSharingFolderResponseMessageType"" />
+                    <xs:element name=""GetSharingFolderResponseMessage"" type=""m:GetSharingFolderResponseMessageType""/>
+                    <xs:element name=""CreateUserConfigurationResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""DeleteUserConfigurationResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""GetUserConfigurationResponseMessage"" type=""m:GetUserConfigurationResponseMessageType"" />
+                    <xs:element name=""UpdateUserConfigurationResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""GetRoomListsResponse"" type=""m:GetRoomListsResponseMessageType"" />
+                    <xs:element name=""GetRoomsResponse"" type=""m:GetRoomsResponseMessageType"" />
+                    <xs:element name=""GetRemindersResponse"" type=""m:GetRemindersResponseMessageType"" />
+                    <xs:element name=""PerformReminderActionResponse"" type=""m:PerformReminderActionResponseMessageType"" />
+                    <xs:element name=""ApplyConversationActionResponseMessage"" type=""m:ApplyConversationActionResponseMessageType"" />
+                    <xs:element name=""FindMailboxStatisticsByKeywordsResponseMessage"" type=""m:FindMailboxStatisticsByKeywordsResponseMessageType"" />
+                    <xs:element name=""GetSearchableMailboxesResponseMessage"" type=""m:GetSearchableMailboxesResponseMessageType"" />
+                    <xs:element name=""SearchMailboxesResponseMessage"" type=""m:SearchMailboxesResponseMessageType"" />
+                    <xs:element name=""GetDiscoverySearchConfigurationResponseMessage"" type=""m:GetDiscoverySearchConfigurationResponseMessageType"" />
+                    <xs:element name=""GetHoldOnMailboxesResponseMessage"" type=""m:GetHoldOnMailboxesResponseMessageType"" />
+                    <xs:element name=""SetHoldOnMailboxesResponseMessage"" type=""m:SetHoldOnMailboxesResponseMessageType"" />
+                    <xs:element name=""GetNonIndexableItemStatisticsResponseMessage"" type=""m:GetNonIndexableItemStatisticsResponseMessageType"" />
+                    <!--GetNonIndexableItemDetails response-- >
+                    <xs:element name=""GetNonIndexableItemDetailsResponseMessage"" type=""m:GetNonIndexableItemDetailsResponseMessageType"" />
+                    <xs:element name=""FindPeopleResponseMessage"" type=""m:FindPeopleResponseMessageType"" />
+                    <xs:element name=""GetPasswordExpirationDateResponse"" type=""m:GetPasswordExpirationDateResponseMessageType""/>
+                    <xs:element name=""GetPersonaResponseMessage"" type=""m:GetPersonaResponseMessageType"" />
+                    <xs:element name=""GetConversationItemsResponseMessage"" type=""m:GetConversationItemsResponseMessageType"" />
+                    <xs:element name=""GetUserRetentionPolicyTagsResponseMessage"" type=""m:GetUserRetentionPolicyTagsResponseMessageType"" />
+                    <xs:element name=""GetUserPhotoResponseMessage"" type=""m:GetUserPhotoResponseMessageType"" />
+                    <xs:element name=""MarkAsJunkResponseMessage"" type=""m:MarkAsJunkResponseMessageType"" />
+                    <xs:element name=""UpdateMailboxAssociationResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""UpdateGroupMailboxResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""PostModernGroupItemResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""LikeItemResponseMessage"" type=""m:ResponseMessageType"" />
+                    <xs:element name=""GetUnifiedGroupUnseenDataResponseMessage"" type=""m:GetUnifiedGroupUnseenDataResponseMessageType""s />
+                </xs:choice >
+            </xs:complexType >
                 ");
 
             // The schema defines  <xs:element name="ResponseMessages" type="m:ArrayOfResponseMessagesType"/>, maxoccurs default value is 1.

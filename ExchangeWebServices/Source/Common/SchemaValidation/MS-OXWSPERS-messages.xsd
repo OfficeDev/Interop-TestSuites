@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2015" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2015" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="MS-OXWSPERS-types.xsd" namespace="http://schemas.microsoft.com/exchange/services/2006/types"/>
   <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
   <xs:complexType name="FindPeopleType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseRequestType">
+      <xs:extension base="tns:BaseRequestType">
         <xs:sequence>
           <xs:element minOccurs="0" name="PersonaShape" type="t:PersonaResponseShapeType"/>
           <xs:element name="IndexedPageItemView" type="t:IndexedPageViewType"/>
@@ -21,10 +21,10 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="FindPeople" type="m:FindPeopleType"/>
+  <xs:element name="FindPeople" type="tns:FindPeopleType"/>
   <xs:complexType name="FindPeopleResponseMessageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:ResponseMessageType">
+      <xs:extension base="tns:ResponseMessageType">
         <xs:sequence>
           <xs:element minOccurs="0" name="People" type="t:ArrayOfPeopleType"/>
           <xs:element minOccurs="0" name="TotalNumberOfPeopleInView" type="xs:int"/>
@@ -34,27 +34,27 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="FindPeopleResponse" type="m:FindPeopleResponseMessageType"/>
+  <xs:element name="FindPeopleResponse" type="tns:FindPeopleResponseMessageType"/>
   <xs:complexType name="GetPersonaType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseRequestType">
+      <xs:extension base="tns:BaseRequestType">
         <xs:sequence>
-          <xs:element name="PersonaId" type="t:ItemIdType"/>
+          <xs:element minOccurs="0" maxOccurs="1"  name="PersonaId" type="t:ItemIdType"/>
           <xs:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="t:EmailAddressType"/>
           <xs:element minOccurs="0" maxOccurs="1" name="ParentFolderId" type="t:TargetFolderIdType"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetPersona" type="m:GetPersonaType"/>
+  <xs:element name="GetPersona" type="tns:GetPersonaType"/>
   <xs:complexType name="GetPersonaResponseMessageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:ResponseMessageType">
+      <xs:extension base="tns:ResponseMessageType">
         <xs:sequence>
           <xs:element name="Persona" type="t:PersonaType"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetPersonaResponseMessage" type="m:GetPersonaResponseMessageType"/>
+  <xs:element name="GetPersonaResponseMessage" type="tns:GetPersonaResponseMessageType"/>
 </xs:schema>

@@ -28,12 +28,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     <wsdl:input message=""tns:GetItemSoapIn"" />
                     <wsdl:output message=""tns:GetItemSoapOut"" />
                     </wsdl:operation>");
-
+     
             ContactItemType[] contacts = Common.GetItemsFromInfoResponse<ContactItemType>(getItemResponse);
             foreach (ContactItemType contact in contacts)
             {
                 // Capture ContactItemType Complex Type related requirements.
-                this.VerifyContactItemTypeComplexType(contact, isSchemaValidated);
+                this.VerifyContactItemTypeComplexType(contact, isSchemaValidated);                    
             }
         }
         #endregion
@@ -106,7 +106,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         /// Capture CopyItemResponseType related requirements.
         /// </summary>
         /// <param name="isSchemaValidated">A boolean value indicates the schema validation result. True means the response conforms with the schema, false means not.</param>
-        private void VerifyCopyContactItem(bool isSchemaValidated)
+        private void VerifyCopyContactItem(CopyItemResponseType copyItemResponse,bool isSchemaValidated)
         {
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R292");
@@ -119,6 +119,76 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                       <wsdl:input message=""tns:CopyItemSoapIn"" />
                       <wsdl:output message=""tns:CopyItemSoapOut"" />
                       </wsdl:operation>");
+
+            // Verify the BaseResponseMessageType schema.
+            this.VerifyBaseResponseMessageType(copyItemResponse);
+        }
+        #endregion
+
+        #region Verify requirements related to AbchPersonItemType complex types
+        /// <summary>
+        /// Capture AbchPersonItemType Complex Type related requirements.
+        /// </summary>
+        /// <param name="abchPersonItemType">A person item from the response package of GetItem operation.</param>
+        /// <param name="isSchemaValidated">A boolean value indicates the schema validation result. True means the response conforms with the schema, false means not.</param>
+        private void VerifyAbchPersonItemTypeComplexType(AbchPersonItemType abchPersonItemType, bool isSchemaValidated)
+        {
+            Site.Assert.IsTrue(isSchemaValidated, "The schema validation result should be true!");
+
+            if (Common.IsRequirementEnabled(336002, this.Site) && abchPersonItemType != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16003");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16003
+                // If the abchPersonItemType element is not null and schema is validated,
+                // the requirement can be validated.
+                Site.CaptureRequirement(
+                    16003,
+                    @"[In t:AbchPersonItemType Complex Type] The type [AbchPersonItemType] is defined as follow:
+  <xs:complexType name=""AbchPersonItemType"" >
+   < xs:complexContent >
+     < xs:extension base = ""t:ItemType"" >
+       < xs:sequence >
+         < xs:element name = ""AntiLinkInfo"" type = ""xs:string"" minOccurs = ""0"" />
+         < xs:element name = ""PersonIdGuid"" type = ""t:GuidType"" minOccurs = ""0"" />
+         < xs:element name = ""PersonId"" type = ""xs:int"" minOccurs = ""0"" />
+         < xs:element name = ""ContactHandles"" type = ""t:ArrayOfAbchPersonContactHandlesType"" minOccurs = ""0"" />
+         < xs:element name = ""ContactCategories"" type = ""t:ArrayOfStringsType"" minOccurs = ""0"" />
+         < xs:element name = ""RelevanceOrder1"" type = ""xs:string"" minOccurs = ""0"" />
+         < xs:element name = ""RelevanceOrder2"" type = ""xs:string"" minOccurs = ""0"" />
+         < xs:element name = ""TrustLevel"" type = ""xs:int"" minOccurs = ""0"" />
+         < xs:element name = ""FavoriteOrder"" type = ""xs:int"" minOccurs = ""0"" />
+         < xs:element name = ""ExchangePersonIdGuid"" type = ""t:GuidType"" minOccurs = ""0"" />
+       </ xs:sequence >
+     </ xs:extension >
+   </ xs:complexContent >
+ </ xs:complexType >
+");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R336002");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R336002
+                // If the schema is validated,
+                // the requirement can be validated.
+                Site.CaptureRequirement(
+                    336002,
+                    @"[In Appendix C: Product Behavior] Implementation does support the AbchPersonItemType complex type which specifies a person. (Exchange 2016 and above follow this behavior.)");
+
+                if (abchPersonItemType.ContactCategories != null)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16011");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16011
+                    Site.CaptureRequirementIfIsInstanceOfType(
+                        abchPersonItemType.ContactCategories,
+                        typeof(String[]),
+                        16011,
+                    @"[In t:AbchPersonItemType Complex Type] The type of child element ContactCategories is t:ArrayOfStringsType ([MS-OXWSCDATA] section 2.2.4.13).");
+                }
+            }
         }
         #endregion
 
@@ -208,10 +278,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
           />
          < xs:element name = ""EmailAddresses""
            type = ""t: EmailAddressDictionaryType""
-           minOccurs = ""0""
-          />
-         < xs:element name = ""AbchEmailAddresses""
-           type = ""t: AbchEmailAddressDictionaryType""
            minOccurs = ""0""
           />
          < xs:element name = ""PhysicalAddresses""
@@ -382,10 +448,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
           type = ""xs: long""
           minOccurs = ""0""
         />
-        < xs:element name = ""PersonId""
-          type = ""xs: int""
-          minOccurs = ""0""
-        />
         < xs:element name = ""IsPrivate""
           type = ""xs: boolean""
           minOccurs = ""0""
@@ -394,7 +456,526 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
           type = ""xs: string""
           minOccurs = ""0""
         />
+<xs:element name=""TrustLevel""
+          type = ""xs:int""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""CreatedBy""
+          type = ""xs:string""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""Urls""
+          type = ""t:ContactUrlDictionaryType""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""AbchEmailAddresses""
+           type = ""t: AbchEmailAddressDictionaryType""
+           minOccurs = ""0""
+          />
+        < xs:element name = ""Cid""
+          type = ""xs:long""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""SkypeAuthCertificate""
+          type = ""xs:string""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""SkypeContext""
+          type = ""xs:string""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""SkypeId""
+          type = ""xs:string""
+          minOccurs = ""0""
+        />
+        < xs:element name = ""SkypeRelationship""
+          type = ""xs:string""
+          minOccurs = ""0""
+        />
+
+            < xs:element name = ""YomiNickname""
+
+              type = ""xs:string""
+
+              minOccurs = ""0""
+            />
+
+            < xs:element name = ""XboxLiveTag""
+
+              type = ""xs:string""
+
+              minOccurs = ""0""
+            />
+
+            < xs:element name = ""InviteFree""
+
+              type = ""xs:boolean""
+
+              minOccurs = ""0""
+            />
+
+            < xs:element name = ""HidePresenceAndProfile""
+
+              type = ""xs:boolean""
+
+              minOccurs = ""0""
+            />
+
+            < xs:element name = ""IsPendingOutbound""
+
+              type = ""xs:boolean""
+
+              minOccurs = ""0""
+            />
+
+            < xs:element name = ""SupportGroupFeeds""
+
+              type = ""xs:boolean""
+
+              minOccurs = ""0""
+            />
+
+            < xs:element name = ""UserTileHash""
+
+              type = ""xs:string""
+
+              minOccurs = ""0""
+            />
+
+            < xs:element name = ""UnifiedInbox""
+
+              type = ""xs:boolean""
+
+              minOccurs = ""0""
+            />
+
+            < xs:element name = ""Mris""
+
+              type = ""t:ArrayOfStringsType""
+
+              minOccurs = ""0""
+        />
+
+
+            < xs:element name = ""Wlid""
+
+              type = ""xs:string""
+
+              minOccurs = ""0""
+            />
+
+            < xs:element name = ""AbchContactId""
+
+              type = ""t:GuidType""
+
+              minOccurs = ""0""
+            />
+
+            < xs:element name = ""NotInBirthdayCalendar""
+
+               type = ""xs:boolean""
+
+               minOccurs = ""0""
+            />
+        <
+    xs:element name = ""ShellContactType""
+
+               type = ""xs:string""
+
+               minOccurs = ""0""
+            />
+
+            < xs:element name = ""ImMri""
+
+               type = ""xs:int""
+
+               minOccurs = ""0""
+            />
+
+            < xs:element name = ""PresenceTrustLevel""
+
+               type = ""xs:string""
+
+               minOccurs = ""0""
+            />
+
+            < xs:element name = ""OtherMri""
+
+               type = ""xs:string""
+
+               minOccurs = ""0""
+            />
+
+            < xs:element name = ""ProfileLastChanged""
+
+               type = ""xs:string""
+
+               minOccurs = ""0""
+            />
+
+            < xs:element name = ""MobileImEnabled""
+
+               type = ""xs:boolean""
+
+               minOccurs = ""0""
+            />
+
+            < xs:element name = ""DisplayNamePrefix""
+
+               type = ""xs:string""
+
+               minOccurs = ""0""
+            />
+
+            < xs:element name = ""YomiGivenName""
+
+               type = ""xs:string""
+
+               minOccurs = ""0""
+            />
+
+            < xs:element name = ""YomiSurname""
+
+               type = ""xs:string""
+
+               minOccurs = ""0""
+            />
+
+            < xs:element name = ""PersonalNotes""
+
+               type = ""xs:string""
+
+               minOccurs = ""0""
+            />
+            < xs:element name = ""PersonId""
+              type = ""xs: int""
+              minOccurs = ""0""
+            />
+
+          </ xs:sequence >
+
+        </ xs:entension >
+
+      </ xs:complexContent >
+
+    </ xs:complexType >
 ");
+            }
+
+            if (Common.IsRequirementEnabled(1275004, this.Site) && contactItemType.AccountName != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334001");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R334001
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.AccountName,
+                    typeof(string),
+                    334001,
+                @"[In t:ContactItemType Complex Type] The type of element AccountName is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275004");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275004
+                // If schema is validated, the requirement can be validated.
+                this.Site.CaptureRequirement(
+                    1275004,
+                    @"[In Appendix C: Product Behavior] Implementation does support AccountName element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275006, this.Site))
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334003");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R334003
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.IsAutoUpdateDisabled,
+                    typeof(Boolean),
+                    334003,
+                    @"[In t:ContactItemType Complex Type] The type of element IsAutoUpdateDisabled is xs:boolean.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275006");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275006
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirement(
+                    1275006,
+                    @"[In Appendix C: Product Behavior] Implementation does support the IsAutoUpdateDisabled element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275008, this.Site) && contactItemType.Comment != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334007");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R334007
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.Comment,
+                    typeof(string),
+                    334007,
+                    @"[In t:ContactItemType Complex Type] The type of element Comment is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275008");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275008
+                // If schema is validated, the requirement can be validated.
+                this.Site.CaptureRequirement(
+                    1275008,
+                    @"[In Appendix C: Product Behavior] Implementation does support the Comment element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275012, this.Site) && contactItemType.ContactType != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334007");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R334011
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.ContactType,
+                    typeof(string),
+                    334011,
+                    @"[In t:ContactItemType Complex Type] The type of element ContactType is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275012");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275012
+                // If schema is validated, the requirement can be validated.
+                this.Site.CaptureRequirement(
+                    1275012,
+                    @"[In Appendix C: Product Behavior] Implementation does support the ContactType element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275014, this.Site) && contactItemType.Gender != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334013");
+
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.Gender,
+                    typeof(string),
+                    334013,
+                    @"[In t:ContactItemType Complex Type] The type of element Gender is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275014");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275014
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirement(
+                    1275014,
+                    @"[In Appendix C: Product Behavior] Implementation does support the Gender element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275018, this.Site) && contactItemType.ObjectId != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334017");
+
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.ObjectId,
+                    typeof(string),
+                    334017,
+                    @"[In t:ContactItemType Complex Type] The type of element ObjectId is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275018");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275018
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirement(
+                    1275018,
+                    @"[In Appendix C: Product Behavior] Implementation does support the ObjectId element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275026, this.Site) && contactItemType.SourceId != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334025");
+
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.SourceId,
+                    typeof(string),
+                    334025,
+                    @"[In t:ContactItemType Complex Type] The type of element SourceId is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275026");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275026
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirement(
+                    1275026,
+                    @"[In Appendix C: Product Behavior] Implementation does support the SourceId element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275034, this.Site) && contactItemType.CidSpecified)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334033");
+
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.Cid,
+                    typeof(long),
+                    334033,
+                    @"[In t:ContactItemType Complex Type] The type of element Cid is xs:long.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275034");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275034
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirement(
+                    1275034,
+                    @"[In Appendix C: Product Behavior] Implementation does support the Cid element. (Exchange 2016 and above follow this behavior.)");
+            }
+            if(contactItemType.PersonId != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334021");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R334021
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.PersonId,
+                    typeof(ItemIdType),
+                    334021,
+                    @"[In t:ContactItemType Complex Type] The type of element PersonId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.25).");
+
+            }
+            if (Common.IsRequirementEnabled(1275036, this.Site) && contactItemType.SkypeAuthCertificate != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334035");
+
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.SkypeAuthCertificate,
+                    typeof(string),
+                    334035,
+                    @"[In t:ContactItemType Complex Type] The type of element SkypeAuthCertificate is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275036");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275036
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirement(
+                    1275036,
+                    @"[In Appendix C: Product Behavior] Implementation does support the SkypeAuthCertificate element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275040, this.Site) && contactItemType.SkypeId != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334039");
+
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.SkypeId,
+                    typeof(string),
+                    334039,
+                    @"[In t:ContactItemType Complex Type] The type of element SkypeId is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275040");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275040
+                // If schema is validated, the requirement can be validated.
+                Site.CaptureRequirement(
+                    1275040,
+                    @"[In Appendix C: Product Behavior] Implementation does support the SkypeId element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275044, this.Site) && contactItemType.YomiNickname != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334043");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R334043
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.YomiNickname,
+                    typeof(string),
+                    334043,
+                @"[In t:ContactItemType Complex Type] The type of element YomiNickname is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275044");
+
+                // Verify MS - OXWSCONT requirement: MS - OXWSCONT_R1275044
+                // If schema is validated, the requirement can be validated.
+                this.Site.CaptureRequirement(
+                    1275044,
+                    @"[In Appendix C: Product Behavior] Implementation does support the YomiNickname element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275118, this.Site) && contactItemType.YomiGivenName != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334069");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R334069
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.YomiGivenName,
+                    typeof(string),
+                    334069,
+                @"[In t:ContactItemType Complex Type] The type of element YomiGivenName is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275118");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275118
+                // If schema is validated, the requirement can be validated.
+                this.Site.CaptureRequirement(
+                    1275118,
+                    @"[In Appendix C: Product Behavior] Implementation does support the YomiGivenName  element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275120, this.Site) && contactItemType.YomiSurname != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334071");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R334071
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.YomiSurname,
+                    typeof(string),
+                    334071,
+                    @"[In t:ContactItemType Complex Type] The type of element YomiSurname is xs:string.");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275120");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275120
+                // If schema is validated, the requirement can be validated.
+                this.Site.CaptureRequirement(
+                    1275120,
+                    @"[In Appendix C: Product Behavior] Implementation does support the YomiSurname element. (Exchange 2016 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(1275116, this.Site) && contactItemType.DisplayNamePrefix != null)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334067");
+
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    contactItemType.DisplayNamePrefix,
+                    typeof(string),
+                    334067,
+                    @"[In t:ContactItemType Complex Type] The type of element DisplayNamePrefix is xs:string.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275116");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275116
+                // If the DisplayNamePrefix element is specified and schema is validated,
+                // the requirement can be validated.
+                Site.CaptureRequirement(
+                    1275116,
+                    @"[In Appendix C: Product Behavior] Implementation does support the DisplayNamePrefix  element. (Exchange 2016 and above follow this behavior.)");
             }
 
             if (contactItemType.FileAsMappingSpecified)
@@ -468,6 +1049,201 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                            />
                          </xs:restriction>
                         </xs:simpleType>");
+
+                if (Common.IsRequirementEnabled(1275096, this.Site))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275096");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275096
+                    // If the FileAsMapping element is specified and schema is validated,
+                    // the requirement can be validated.
+                    Site.CaptureRequirement(
+                        1275096,
+                        @"[In Appendix C: Product Behavior] Implementation does support the DisplayName attribute. (Exchange 2010 and above follow this behavior.)");
+                }
+
+                if (Common.IsRequirementEnabled(1275098, this.Site))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275098");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275098
+                    // If the FileAsMapping element is specified and schema is validated,
+                    // the requirement can be validated.
+                    Site.CaptureRequirement(
+                        1275098,
+                        @"[In Appendix C: Product Behavior] Implementation does support the FirstName attribute. (Exchange 2010 and above follow this behavior.)");
+                }
+
+                if (Common.IsRequirementEnabled(1275100, this.Site))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275100");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275100
+                    // If the FileAsMapping element is specified and schema is validated,
+                    // the requirement can be validated.
+                    Site.CaptureRequirement(
+                        1275100,
+                        @"[In Appendix C: Product Behavior] Implementation does support the LastFirstMiddleSuffix attribute. (Exchange 2010 and above follow this behavior.)");
+                }
+
+                if (Common.IsRequirementEnabled(1275102, this.Site))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275102");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275102
+                    // If the FileAsMapping element is specified and schema is validated,
+                    // the requirement can be validated.
+                    Site.CaptureRequirement(
+                        1275102,
+                        @"[In Appendix C: Product Behavior] Implementation does support the LastName attribute. (Exchange 2010 and above follow this behavior.)");
+                }
+
+                if (Common.IsRequirementEnabled(1275104, this.Site))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275104");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275104
+                    // If the FileAsMapping element is specified and the schema is validated,
+                    // the requirement can be validated.
+                    Site.CaptureRequirement(
+                        1275104,
+                        @"[In Appendix C: Product Behavior] Implementation does support the Empty attribute. (Exchange 2010 and above follow this behavior.)");
+                }
+            }
+
+            if (Common.IsRequirementEnabled(1275032, this.Site) && contactItemType.Urls != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R224011");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R224011
+                // If the Urls element is not null and schema is validated,
+                // the requirement can be validated.
+                Site.CaptureRequirement(
+                    224011,
+                    @"[In t:ContactUrlDictionaryType Complex Type] The type [ContactUrlDictionaryType] is defined as follow:
+<xs:complexType name=""ContactUrlDictionaryType"" >
+   < xs:sequence >
+     < xs:element name = ""Url"" type = ""t:ContactUrlDictionaryEntryType"" maxOccurs = ""unbounded"" />
+   </ xs:sequence >
+ </ xs:complexType > ");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275032");
+
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275032
+                // If the Urls element is not null and the schema is validated,
+                // the requirement can be validated.
+                Site.CaptureRequirement(
+                    1275032,
+                    @"[In Appendix C: Product Behavior] Implementation does support the Urls element. (Exchange 2016 and above follow this behavior.)");
+
+                if (Common.IsRequirementEnabled(1275084, this.Site))
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R334031");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R334031
+                    // If the Urls element is not null and the schema is validated,
+                    // the requirement can be validated.
+                    Site.CaptureRequirement(
+                        334031,
+                        @"[In t:ContactItemType Complex Type] The type of element Urls is t:ContactUrlDictionaryType (section 3.1.4.1.1.9).");
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275084");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275084
+                    // If the Urls element is not null and the schema is validated,
+                    // the requirement can be validated.
+                    Site.CaptureRequirement(
+                        1275084,
+                        @"[In Appendix C: Product Behavior] Implementation does support the ContactUrlDictionaryType complex type. (Exchange 2016 and above follow this behavior.).");
+                }
+
+                for (int i = 0; i < contactItemType.Urls.Length; i++)
+                {
+                    if (contactItemType.Urls[i] != null)
+                    {
+                        if (Common.IsRequirementEnabled(1275082, this.Site))
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275082");
+
+                            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275082
+                            // If the entry of Urls is not null and schema is validated,
+                            // the requirement can be validated.
+                            Site.CaptureRequirement(
+                                1275082,
+                                @"[In Appendix C: Product Behavior] Implementation does support the ContactUrlDictionaryEntryType complex type. (Exchange 2016 and above follow this behavior.)");
+
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R224002");
+
+                            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R224002
+                            // If the entry of Urls is not null and schema is validated,
+                            // the requirement can be validated.
+                            Site.CaptureRequirement(
+                                224002,
+                                @"[In t:ContactUrlDictionaryEntryType Complex Type]  The type [ContactUrlDictionaryEntryType] is defined as follow:
+ <xs:complexType name=""ContactUrlDictionaryEntryType"" >
+   < xs:sequence >
+     < xs:element name = ""Type"" type = ""t:ContactUrlKeyType"" minOccurs = ""1"" />
+     < xs:element name = ""Address"" type = ""xs:string"" minOccurs = ""0"" />
+     < xs:element name = ""Name"" type = ""xs:string"" minOccurs = ""0"" />
+   </ xs:sequence >
+ </ xs:complexType >
+");
+                        }
+
+                        if (Common.IsRequirementEnabled(1275094, this.Site))
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275094");
+
+                            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275094
+                            // The Type element is a required element of ContactUrlDictionaryEntryType, if the entry as ContactUrlDictionaryEntryType is not null,
+                            // and the schema is validated, this requirement can be validated.                            
+                            Site.CaptureRequirement(
+                                1275094,
+                                @"[In Appendix C: Product Behavior] Implementation does support the ContactUrlKeyType simple type. (Exchange 2016 and above follow this behavior.)");
+
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R120009");
+
+                            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R120009
+                            // The Type element is a required element of ContactUrlDictionaryEntryType, if the entry as ContactUrlDictionaryEntryType is not null,
+                            // and the schema is validated, this requirement can be validated.                            
+                            Site.CaptureRequirement(
+                            120009,
+                            @"[In t:ContactUrlKeyType Simple Type] The type [ContactUrlKeyType] is defined as follow:
+<xs:simpleType name=""ContactUrlKeyType"" >
+< xs:restriction base = ""xs:string"" >
+    < xs:enumeration value = ""Personal"" />
+    < xs:enumeration value = ""Business"" />
+    < xs:enumeration value = ""Attachment"" />
+    < xs:enumeration value = ""EbcDisplayDefinition"" />
+    < xs:enumeration value = ""EbcFinalImage"" />
+    < xs:enumeration value = ""EbcLogo"" />
+    < xs:enumeration value = ""Feed"" />
+    < xs:enumeration value = ""Image"" />
+    < xs:enumeration value = ""InternalMarker"" />
+    < xs:enumeration value = ""Other"" />
+</ xs:restriction >
+</ xs:simpleType >
+");
+                        }
+                        else
+                        {
+                            Site.Assert.Fail("The entry of PhysicalAddresses should not be null!");
+                        }
+                    }
+                }
             }
 
             if (contactItemType.Companies != null)
@@ -656,6 +1432,42 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                                    />
                                  </xs:restriction>
                                 </xs:simpleType>");
+
+                        if (Common.IsRequirementEnabled(1275086, this.Site) && contactItemType.EmailAddresses[i].Name !=null)
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275086");
+
+                            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275086
+                            // If the Name is not null and the schema is validated, this requirement can be validated.
+                            Site.CaptureRequirement(
+                                1275086,
+                                @"[In Appendix C: Product Behavior] Implementation does support the Name attribute. (Exchange 2010 and above follow this behavior.)");
+                        }
+
+                        if (Common.IsRequirementEnabled(1275088, this.Site) && contactItemType.EmailAddresses[i].RoutingType != null)
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275088");
+
+                            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275088
+                            // If the Name is not null and the schema is validated, this requirement can be validated.
+                            Site.CaptureRequirement(
+                                1275088,
+                                @"[In Appendix C: Product Behavior] Implementation does support the Name attribute. (Exchange 2010 and above follow this behavior.)");
+                        }
+
+                        if (Common.IsRequirementEnabled(1275090, this.Site) && contactItemType.EmailAddresses[i].MailboxTypeSpecified == true)
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275090");
+
+                            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275090
+                            // If the Name is not null and the schema is validated, this requirement can be validated.
+                            Site.CaptureRequirement(
+                                1275090,
+                                @"[In Appendix C: Product Behavior] Implementation does support the Name attribute. (Exchange 2010 and above follow this behavior.)");
+                        }
                     }
                     else
                     {
@@ -865,6 +1677,32 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
  </ xs:restriction >
 </ xs:simpleType > ");
+
+                        if (Common.IsRequirementEnabled(1275106, this.Site))
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275106");
+
+                            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275106
+                            // If BusinessMobile is not null and the schema is verifed, this requirement can be validated.
+                            Site.CaptureRequirementIfIsNotNull(
+                                PhoneNumberKeyType.BusinessMobile,
+                                1275106,
+                                @"[In Appendix C: Product Behavior] Implementation does support  the IPPhone value. (Exchange 2016 and above follow this behavior.)");
+                        }
+
+                            if (Common.IsRequirementEnabled(1275108, this.Site))
+                        {
+                            // Add the debug information
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275108");
+
+                            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275108
+                            // If IPPhone is not null and the schema is verifed, this requirement can be validated.
+                            Site.CaptureRequirementIfIsNotNull(
+                                PhoneNumberKeyType.IPPhone,
+                                1275108,
+                                @"[In Appendix C: Product Behavior] Implementation does support  the IPPhone value. (Exchange 2016 and above follow this behavior.)");
+                        }
                     }
                     else
                     {
@@ -963,6 +1801,587 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     }
                 }
             }
+        }
+        #endregion
+
+        #region Verify BaseResponseMessageType Structure
+        /// <summary>
+        /// Verify the BaseResponseMessageType structure.
+        /// </summary>
+        /// <param name="baseResponseMessage">A BaseResponseMessageType instance.</param>
+        private void VerifyBaseResponseMessageType(BaseResponseMessageType baseResponseMessage)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1081001");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R1081001
+            Site.CaptureRequirementIfIsNotNull(
+                baseResponseMessage,
+                "MS-OXWSCDATA",
+                1081001,
+                @"[In m:BaseResponseMessageType Complex Type] The type [BaseResponseMessageType] is defined as follow:
+                <xs:complexType name=""BaseResponseMessageType"">
+                  <xs:sequence>
+                    <xs:element name=""ResponseMessages""
+                      type=""m:ArrayOfResponseMessagesType""
+                     />
+                  </xs:sequence>
+                </xs:complexType>");
+        }
+        #endregion
+
+        #region Verify ResponseMessageType Structure
+        /// <summary>
+        /// Verify the ResponseMessageType structure.
+        /// </summary>
+        /// <param name="responseMessage">A ResponseMessageType instance.</param>
+        private void VerifyResponseMessageType(ResponseMessageType responseMessage)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R114701");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R114701
+            Site.CaptureRequirementIfIsNotNull(
+                responseMessage,
+                "MS-OXWSCDATA",
+                114701,
+                @"[In m:ResponseMessageType Complex Type] The type [ResponseMessageType] is defined as follow:
+                    <xs:complexType name=""ResponseMessageType"">
+                      <xs:sequence
+                        minOccurs=""0""
+                      >
+                        <xs:element name=""MessageText""
+                          type=""xs:string""
+                          minOccurs=""0""
+                         />
+                        <xs:element name=""ResponseCode""
+                          type=""m:ResponseCodeType""
+                          minOccurs=""0""
+                         />
+                        <xs:element name=""DescriptiveLinkKey""
+                          type=""xs:int""
+                          minOccurs=""0""
+                         />
+                        <xs:element name=""MessageXml""
+                          minOccurs=""0""
+                        >
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:any
+                                process_contents=""lax""
+                                minOccurs=""0""
+                                maxOccurs=""unbounded""
+                               />
+                            </xs:sequence>
+                            <xs:attribute name=""ResponseClass""
+                              type=""t:ResponseClassType""
+                              use=""required""
+                             />
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>");
+        }
+
+        #region Verify ServerVersionInfo Structure
+        /// <summary>
+        /// Verify the ServerVersionInfo structure.
+        /// </summary>
+        /// <param name="serverVersionInfo">A ServerVersionInfo instance.</param>
+        /// <param name="isSchemaValidated">Indicate whether the schema is verified.</param>
+        private void VerifyServerVersionInfo(ServerVersionInfo serverVersionInfo, bool isSchemaValidated)
+        {
+            Site.Assert.IsTrue(isSchemaValidated, "The schema should be validated.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368004");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368004
+            Site.CaptureRequirementIfIsNotNull(
+                serverVersionInfo,
+                "MS-OXWSCDATA",
+                368004,
+                @"[In t:ServerVersionInfo Element] <xs:element name=""t:ServerVersionInfo"">
+                      <xs:complexType>
+                        <xs:attribute name=""MajorVersion""
+                          type=""xs:int""
+                          use=""optional""
+                         />
+                        <xs:attribute name=""MinorVersion""
+                          type=""xs:int""
+                          use=""optional""
+                         />
+                        <xs:attribute name=""MajorBuildNumber""
+                          type=""xs:int""
+                          use=""optional""
+                         />
+                        <xs:attribute name=""MinorBuildNumber""
+                          type=""xs:int""
+                          use=""optional""
+                         />
+                        <xs:attribute name=""Version""
+                          type=""xs:string""
+                          use=""optional""
+                         />
+                      </xs:complexType>
+                    </xs:element>");
+
+            if (serverVersionInfo.MajorVersionSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368005");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368005
+                // If MajorVersion element is specified, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368005,
+                    "[In t:ServerVersionInfo Element] The type of the attribute MajorVersion is xs:int ([XMLSCHEMA2])");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368006
+                // If MinorVersion element is not null, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirementIfIsNotNull(
+                    serverVersionInfo.MajorVersion,
+                    "MS-OXWSCDATA",
+                    368006,
+                    @"[In t:ServerVersionInfo Element] MajorVersion attribute: Specifies the server's major version number.");
+            }
+
+            if (serverVersionInfo.MinorVersionSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368007");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368007
+                // If MinorVersion element is specified, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368007,
+                    "[In t:ServerVersionInfo Element] The type of the attribute MinorVersion is xs:int ");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368008");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368008
+                // If MinorVersion element is not null, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirementIfIsNotNull(
+                    serverVersionInfo.MinorVersion,
+                    "MS-OXWSCDATA",
+                    368008,
+                    "[In t:ServerVersionInfo Element] MinorVersion attribute: Specifies the server's minor version number.");
+            }
+
+            if (serverVersionInfo.MajorBuildNumberSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368009");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368009
+                // If MajorBuildNumber element is specified, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368009,
+                    "[In t:ServerVersionInfo Element] The type of the attribute MajorBuildNumber is xs:int");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368010");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368010
+                // If MajorBuildNumber element is not null, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirementIfIsNotNull(
+                    serverVersionInfo.MajorBuildNumber,
+                    "MS-OXWSCDATA",
+                    368010,
+                    "[In t:ServerVersionInfo Element] MajorBuildNumber attribute: Specifies the server's major build number.");
+            }
+
+            if (serverVersionInfo.MinorBuildNumberSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368011");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368011
+                // If MinorBuildNumber element is specified, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368011,
+                    "[In t:ServerVersionInfo Element] The type of the attribute MinorBuildNumber is xs:int");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368012");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368012
+                // If MinorBuildNumber element is not null, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirementIfIsNotNull(
+                    serverVersionInfo.MinorBuildNumber,
+                    "MS-OXWSCDATA",
+                    368012,
+                    "[In t:ServerVersionInfo Element] MinorBuildNumber attribute: Specifies the server's minor build number.");
+            }
+
+            if (serverVersionInfo.Version != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368013");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368013
+                // If Version element is not null, and the schema is validated,
+                // this requirement can be validated.
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368013,
+                    "[In t:ServerVersionInfo Element] The type of the attribute Version is xs:string ([XMLSCHEMA2])");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R368014");
+
+                // Verify MS-OXWSCORE requirement: MS-OXWSCDATA_R368014
+                // If MS-OXWSCDATA_r368013 is verifed successfully, this requirement can be validated directly
+                Site.CaptureRequirement(
+                    "MS-OXWSCDATA",
+                    368014,
+                    "[In t:ServerVersionInfo Element] Version attribute: specifies the server's version number including the major version number, minor version number, major build number, and minor build number in that order.");
+            }
+        }
+        #endregion
+        #endregion
+
+        #region Verify SetUserPhotoMessageResponseType Structure
+        /// <summary>
+        /// Capture SetuserPhotoResponseMessageType related requirements.
+        /// </summary>
+        /// <param name="getUserPhotoMessageResponse">Specified SetUserPhotoResponseMessageType instance.</param>
+        /// <param name="isSchemaValidated">A boolean value indicates the schema validation result. True means the response conforms with the schema, false means not.</param>
+        private void VerifySetUserPhotoResponseMessageType(SetUserPhotoResponseMessageType setUserPhotoMessageResponse, bool isSchemaValidated)
+        {
+            // Verify the base type ResponseMessageType related requirements.
+            this.VerifyResponseMessageType(setUserPhotoMessageResponse as ResponseMessageType);
+
+            // If the schema validation and the above base type verification are successful, then MS-OXWSCONT_R302126 can be captured.
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302126");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R302126
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                302126,
+                @"[In SetUserPhotoResponseMessageType] The following is the SetUserPhotoResponseMessageType complex type specification. 
+   <xs:complexType name=""SetUserPhotoResponseMessageType"" >
+     < xs:complexContent >
+       < xs:extension base = ""m:ResponseMessageType"" />
+     </ xs:complexContent >
+ <  / xs:complexType >
+");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275114");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275114
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                1275114,
+                @"[In Appendix C: Product Behavior] Implementation does support the SetUserPhoto operation. (Exchange 2016 and above follow this behavior.)");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R302125");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302125
+            this.Site.CaptureRequirementIfIsNotNull(
+                setUserPhotoMessageResponse,
+                302125,
+                @"[In SetUserPhotoResponseMessageType] This type extends the ResponseMessageType complex type, as specified by [MS-OXWSCDATA] section 2.2.4.67.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R302078");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302078
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                302078,
+                @"[In SetUserPhoto] The following is the WSDL port type specification of the SetUserPhoto WSDL operation.
+   <wsdl:operation name=""SetUserPhoto"" >
+     < wsdl:input message = ""tns:SetUserPhotoSoapIn"" />
+     < wsdl:output message = ""tns:SetUserPhotoSoapOut"" />
+   </ wsdl:operation >
+");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302079");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302079
+            Site.CaptureRequirementIfIsNotNull(
+                setUserPhotoMessageResponse,
+                302079,
+                @"[In SetUserPhoto] The following is the WSDL binding specification of the SetUserPhoto WSDL operation.
+   <wsdl:operation name=""SetUserPhoto"" >
+     < soap:operation soapAction = ""http://schemas.microsoft.com/exchange/services/2006/messages/SetUserPhoto"" />
+     < wsdl:input >
+       < soap:header message = ""tns:SetUserPhotoSoapIn"" part = ""RequestVersion"" use = ""literal"" />
+       < soap:body parts = ""request"" use = ""literal"" />
+     </ wsdl:input >
+     < wsdl:output >
+       < soap:body parts = ""SetUserPhotoResult"" use = ""literal"" />
+       < soap:header message = ""tns:SetUserPhotoSoapOut"" part = ""ServerVersion"" use = ""literal"" />
+     </ wsdl:output >
+   </ wsdl:operation >
+");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302094");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302094
+            Site.CaptureRequirementIfIsNotNull(
+                setUserPhotoMessageResponse,
+                302094,
+                @"[In SetUserPhotoSoapOut] The following is the SetUserPhotoSoapOut WSDL message specification.
+   <wsdl:message name=""SetUserPhotoSoapOut"" >
+       < wsdl:part name = ""SetUserPhotoResult"" element = ""tns:SetUserPhotoResponse"" />
+       < wsdl:part name = ""ServerVersion"" element = ""t:ServerVersionInfo"" />
+     </ wsdl:message >
+");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302097");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302097
+            Site.CaptureRequirementIfIsNotNull(
+                setUserPhotoMessageResponse,
+                302097,
+                @"[In SetUserPhotoSoapOut] The element of the part SetUserPhotoResult is tns:SetUserPhotoResponse (section 3.1.4.8.2.2)");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302098");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302098
+            // According to the schema, getUserPhotoMessageResponse is the SOAP body of a response message returned by server, this requirement can be verified directly.
+            Site.CaptureRequirement(
+                302098,
+                @"[In SetUserPhotoSoapOut] SetUserPhotoResult part: Specifies the SOAP body of the response to a SetUserPhoto WSDL operation request.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302099");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302099
+            Site.CaptureRequirementIfIsNotNull(
+                this.exchangeServiceBinding.ServerVersionInfoValue,
+                302099,
+                @"[In SetUserPhotoSoapOut] The element of the part ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12)");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302100");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302100
+            // According to the schema, ServerVersion is the SOAP header that contains the server version information, this requirement can be verified directly.
+            Site.CaptureRequirement(
+                302100,
+                @"[In SetUserPhotoSoapOut] ServerVersion part: Specifies a SOAP header that identifies the server version for the response.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302107");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302107
+            Site.CaptureRequirementIfIsNotNull(
+                setUserPhotoMessageResponse,
+                302107,
+                @"[In SetUserPhotoResponse] The following is the SetUserPhotoResponse element specification.
+ <xs:element name=""SetUserPhotoResponse"" type =""m: SetUserPhotoResponseMessageType"" />
+");
+        }
+        #endregion
+
+        #region Verify GetUserPhotoMessageResponseType Structure
+        /// <summary>
+        /// Capture GetuserPhotoResponseMessageType related requirements.
+        /// </summary>
+        /// <param name="getUserPhotoMessageResponse">Specified GetUserPhotoResponseMessageType instance.</param>
+        /// <param name="isSchemaValidated">A boolean value indicates the schema validation result. True means the response conforms with the schema, false means not.</param>
+        private void VerifyGetUserPhotoResponseMessageType(GetUserPhotoResponseMessageType getUserPhotoMessageResponse, bool isSchemaValidated)
+        {
+            // Verify the base type ResponseMessageType related requirements.
+            this.VerifyResponseMessageType(getUserPhotoMessageResponse as ResponseMessageType);
+
+            // If the schema validation and the above base type verification are successful, then MS-OXWSCONT_R302053, MS-OXWSCONT_R302055, MS-OXWSCONT_R302057 and MS-OXWSCONT_R1275124 can be captured.
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302053");
+
+            // Verify MS-OXWSCORE requirement: MS-OXWSCORE_R302053
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                302053,
+                @"[In GetUserPhotoResponseMessageType] The following is the GetUserPhotoResponseMessageType complex type specification. 
+   <xs:complexType name=""GetUserPhotoResponseMessageType"" >
+     < xs:complexContent >
+       < xs:extension base = ""m:ResponseMessageType"" >
+         < xs:sequence >
+           < xs:element name = ""HasChanged"" type = ""xs:boolean""
+                 minOccurs = ""1"" maxOccurs = ""1"" />
+           < xs:element name = ""PictureData"" type = ""xs:base64Binary""
+                 minOccurs = ""0"" maxOccurs = ""1"" />
+           < xs:element name = ""ContentType"" type = ""xs:string""
+                 minOccurs = ""0"" maxOccurs = ""1"" />
+         </ xs:sequence >
+       </ xs:extension >
+     </ xs:complexContent >
+   </ xs:complexType >
+");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R302052");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302052
+            Site.CaptureRequirementIfIsNotNull(
+                getUserPhotoMessageResponse,
+                302052,
+                @"[In GetUserPhotoResponseMessageType] This type [GetUserPhotoResponseMessageType] extends the ResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.67.");
+
+            // Add debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R302055");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302055
+            Site.CaptureRequirementIfIsInstanceOfType(
+                getUserPhotoMessageResponse.HasChanged,
+                typeof(Boolean),
+                302055,
+                @"[In GetUserPhotoResponseMessageType] The type of the element HasChanged is xs:boolean ([XMLSCHEMA2])");
+
+            // Add debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R302057");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302057
+            Site.CaptureRequirementIfIsInstanceOfType(
+                getUserPhotoMessageResponse.PictureData,
+                typeof(byte[]),
+                302057,
+                @"[In GetUserPhotoResponseMessageType] The type of the element PictureData is xs:base64Binary ([XMLSCHEMA2])");
+
+            // Add debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R302155");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302155
+            Site.CaptureRequirementIfIsInstanceOfType(
+                getUserPhotoMessageResponse.ContentType,
+                typeof(String),
+                302155,
+                @"[In GetUserPhotoResponseMessageType] The type of the element ContentType is xs:string ([XMLSCHEMA2])");
+
+            // Add debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275124");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275124
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                1275124,
+                @"[In Appendix C: Product Behavior] Implementation does support  the ContentType element. (Exchange 2013 and above follow this behavior.)");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R302002");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302002
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                302002,
+                @"[In GetUserPhoto] The following is the WSDL port type specification of the GetUserPhoto WSDL operation.
+ <wsdl:operation name=""GetUserPhoto"" >
+       < wsdl:input message = ""tns:GetUserPhotoSoapIn"" />
+       < wsdl:output message = ""tns:GetUserPhotoSoapOut"" />
+     </ wsdl:operation >
+");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302003");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302003
+            Site.CaptureRequirementIfIsNotNull(
+                getUserPhotoMessageResponse,
+                302003,
+                @"[In GetUserPhoto] The following is the WSDL binding specification of the GetUserPhoto WSDL operation.
+ <wsdl:operation name=""GetUserPhoto"" >
+       < soap:operation soapAction =
+     ""http://schemas.microsoft.com/exchange/services/2006/messages/GetUserPhoto"" />
+       < wsdl:input >
+         < soap:body parts = ""request"" use = ""literal"" />
+         < soap:header message = ""tns:GetUserPhotoSoapIn""
+               part = ""RequestVersion"" use = ""literal"" />
+       </ wsdl:input >
+       < wsdl:output >
+
+
+         < soap:header message = ""tns:GetUserPhotoSoapOut""
+               part = ""ServerVersion"" use = ""literal"" />
+        < soap:body parts = ""GetUserPhotoResult"" use = ""literal"" />
+       </ wsdl:output >
+     </ wsdl:operation > ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302017");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302017
+            Site.CaptureRequirementIfIsNotNull(
+                getUserPhotoMessageResponse,
+                302017,
+                @"[In GetUserPhotoSoapOut] The following is the GetUserPhotoSoapOut WSDL message specification.
+   <wsdl:message name=""GetUserPhotoSoapOut"" >
+     < wsdl:part name = ""GetUserPhotoResult"" element = ""tns:GetUserPhotoResponse"" />
+     < wsdl:part name = ""ServerVersion"" element = ""t:ServerVersionInfo"" />
+   </ wsdl:message >
+");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302020");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302020
+            Site.CaptureRequirementIfIsNotNull(
+                getUserPhotoMessageResponse,
+                302020,
+                @"[In GetUserPhotoSoapOut] The element of the part GetUserPhotoResult is tns:GetUserPhotoResponse (section 3.1.4.7.2.2).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302021");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302021
+            // According to the schema, getUserPhotoMessageResponse is the SOAP body of a response message returned by server, this requirement can be verified directly.
+            Site.CaptureRequirement(
+                302021,
+                @"[In GetUserPhotoSoapOut] GetUserPhotoResult part: Specifies the SOAP body of the response to a GetUserPhoto WSDL operation request.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302022");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302022
+            Site.CaptureRequirementIfIsNotNull(
+                this.exchangeServiceBinding.ServerVersionInfoValue,
+                302022,
+                @"[In GetUserPhotoSoapOut] The element of the part ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12)");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302023");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302023
+            // According to the schema, ServerVersion is the SOAP header that contains the server version information, this requirement can be verified directly.
+            Site.CaptureRequirement(
+                302023,
+                @"[In GetUserPhotoSoapOut] ServerVersion part: Specifies a SOAP header that identifies the server version for the response.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R302034");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302034
+            Site.CaptureRequirementIfIsNotNull(
+                getUserPhotoMessageResponse,
+                302034,
+                @"[In GetUserPhotoResponse] The following is the GetUserPhotoResponse element specification.
+ <xs:element name=""GetUserPhotoResponse""
+         type = ""m:GetUserPhotoResponseMessageType""
+ xmlns: xs = ""http://www.w3.org/2001/XMLSchema"" />
+");
         }
         #endregion
 

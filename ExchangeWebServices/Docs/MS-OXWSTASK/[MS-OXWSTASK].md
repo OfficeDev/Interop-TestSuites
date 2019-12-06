@@ -1,6 +1,6 @@
 ## [MS-OXWSTASK]: Tasks Web Service Protocol
-- [MS-OXWSTASK] v20150914 is used to develop the test suite.
-- Release date, 9/14/2015.
+- [MS-OXWSTASK] v20181211 is used to develop the test suite.
+- Release date, 12/11/2018.
 
 To find the new landing page for [MS-OXWSTASK], please visit https://msdn.microsoft.com/en-us/library/ee178307(v=exchg.80).aspx
 

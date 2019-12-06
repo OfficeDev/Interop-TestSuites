@@ -237,17 +237,239 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R20</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSMSG_R400</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Complex Types] The MessageType complex type Represents a server email message in a user's mailbox.</ns1:Description>
+		<ns1:Description>[In Complex Types] The ApprovalRequestDataType(section 2.2.4.1)  complex type represents an approval request message.&lt;1&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R21</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSMSG_R401</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] The ArrayOfVotingOptionDataType (section 2.2.4.2) complex type specifies an array of voting options.&lt;2&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R444</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] The MessageType(section 2.2.4.3) complex type Represents a server email message in a user's mailbox.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R402</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] TheReminderMessageDataType (section 2.2.4.4) complex type specifies a reminder message.&lt;3&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R403</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] The VotingInformationType (section 2.2.4.5) complex type specifies voting information.&lt;4&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R404</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types] The VotingOptionDataType (section 2.2.4.6) complex type specifies the voting option on a message.&lt;5&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R300</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] The ApprovalRequestDataType complex type represents an approval request message.&lt;6&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXWSMSG_R361.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R301</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] The ApprovalRequestDataType schema is &lt;xs:complexType name="ApprovalRequestDataType"&gt;
+	  &lt;xs:sequence&gt;
+	    &lt;xs:element name="IsUndecidedApprovalRequest" type="xs:boolean" minOccurs="0"/&gt;
+	    &lt;xs:element name="ApprovalDecision" type="xs:int" minOccurs="0"/&gt;
+	    &lt;xs:element name="ApprovalDecisionMaker" type="xs:string" minOccurs="0"/&gt;
+	    xs:element name="ApprovalDecisionTime" type="xs:dateTime" minOccurs="0"/&gt;
+	  &lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R302</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] The following table lists the child elements[IsUndecidedApprovalRequest,ApprovalDecision,ApprovalDecisionMaker,ApprovalDecisionTime] of the ApprovalRequestDataType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R303</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] The IsUndecidedApprovalRequest element is xs:boolean ([XMLSCHEMA2]) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R304</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] The IsUndecidedApprovalRequest element specifies a value that indicates whether this approval request is awaiting a moderator to approve or reject the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R305</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:IsUndecidedApprovalRequest Complex Type] [IsUndecidedApprovalRequest element] A text value of "true" indicates that this approval request is awaiting a moderator to approve.</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R304:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R306</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type]  [IsUndecidedApprovalRequest element] A text value of "false" indicates that this approval request is awaiting a moderator to reject the request.</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R304:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R307</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type]The ApprovalDecision element is xs:int ([XMLSCHEMA2]) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R308</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] The ApprovalDecision element specifies the approval decision on the approval request message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R309</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type]The ApprovalDecisionMaker element is xs:string ([XMLSCHEMA2]) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R310</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] The ApprovalDecisionMaker element specifies the display name of the moderator who approved or rejected the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R311</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type]The ApprovalDecisionTime element is xs:dateTime ([XMLSCHEMA2]) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R312</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Description>[In t:ApprovalRequestDataType Complex Type] The ApprovalDecisionTime element specifies the time at which a moderator approved or rejected the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R313</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfVotingOptionDataType Complex Type] The ArrayOfVotingOptionDataType complex type specifies an array of voting options.&lt;7&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXWSMSG_R363.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R314</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfVotingOptionDataType  Complex Type] The ArrayOfVotingOptionDataType  schema is &lt;xs:complexType name="ArrayOfVotingOptionDataType"&gt;
+	  &lt;xs:sequence&gt;
+	    &lt;xs:element name="VotingOptionData" type="t:VotingOptionDataType" minOccurs="0" maxOccurs="unbounded"/&gt;
+	  &lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R315</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfVotingOptionDataType  Complex Type] The following table lists the child element[VotingOptionData] of the ArrayOfVotingOptionDataType  complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R316</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfVotingOptionDataType  Complex Type] The VotingOptionData element is t:VotingOptionDataType (section 2.2.4.6) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R317</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:ArrayOfVotingOptionDataType  Complex Type] The VotingOptionData element specifies the voting options on a message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R21</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] The MessageType complex type represents a server email message in a mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -256,7 +478,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R22</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] The MessageType complex type extends the ItemType complex type ([MS-OXWSCORE] section 2.2.4.24).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -265,7 +487,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R23</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] The MessageType schema is &lt;xs:complexType name="MessageType"&gt;
   &lt;xs:complexContent&gt;
     &lt;xs:extension
@@ -359,7 +581,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R24</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] The following table lists the child elements[Sender, ToRecipients, CcRecipients, BccRecipients, IsReadReceiptRequested, IsDeliveryReceiptRequested, ConversationIndex, ConversationTopic, From, InternetMessageId, IsRead, IsResponseRequested, References, ReplyTo, ReceivedBy and ReceivedRepresenting] of the MessageType complex type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -368,7 +590,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R25</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] The Sender element is t:SingleRecipientType ([MS-OXWSCDATA] section 2.2.4.71) type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -377,7 +599,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R2512</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] When the Mailbox element of Sender element include an MailboxType element of t:MailboxTypeType, the value "Mailbox" of t:MailboxTypeType specifies a mail-enabled directory service object.</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R25:i,MS-OXWSCDATA_R168:i</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -387,7 +609,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R2516</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] When the Mailbox element of Sender element include an EmailAddress element of t:NonEmptyStringType, the t:NonEmptyStringType simple type specifies a string that MUST have a minimum of one character.</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R25:i,MS-OXWSCDATA_R188:i</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -397,7 +619,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R26</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] The Sender element Specifies the sender of a message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -406,7 +628,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R27</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [Sender element]This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -415,7 +637,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R28</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [Sender element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -424,7 +646,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R29</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ToRecipients element is t:ArrayOfRecipientsType ([MS-OXWSCDATA] section 2.2.4.11) type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -433,7 +655,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R2912</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type]When the Mailbox element of ToRecipients element include an MailboxType element of t:MailboxTypeType, the value "Mailbox" of t:MailboxTypeType specifies a mail-enabled directory service object.</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R29:i,MS-OXWSCDATA_R168:i</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -443,7 +665,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R2916</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] When the Mailbox element of ToRecipients element include an EmailAddress element of t:NonEmptyStringType, the t:NonEmptyStringType simple type specifies a string that MUST have a minimum of one character.</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R29:i,MS-OXWSCDATA_R188:i</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -453,7 +675,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R30</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ToRecipients element Specifies a collection of recipients of an email.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -462,7 +684,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R31</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [ToRecipients element] This element is required for sending a message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -471,7 +693,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R32</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [ToRecipients element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -480,7 +702,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R184</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] CcRecipients element is t:ArrayOfRecipientsType type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -489,7 +711,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R33</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] CcRecipients element Specifies a collection of recipients that receive a carbon copy (Cc) of an email.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -498,7 +720,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R34</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [CcRecipients element] This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -507,7 +729,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R35</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [CcRecipients element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -516,7 +738,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R185</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] BccRecipients element is t:ArrayOfRecipientsType type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -525,7 +747,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R36</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] BccRecipients element Specifies a collection of recipients that receive a blind carbon copy (Bcc) of an email.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -534,7 +756,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R37</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [BccRecipients element] This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -543,7 +765,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R38</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [BccRecipients element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -552,7 +774,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R186</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] IsReadReceiptRequested element is xs:boolean ([XMLSCHEMA2] sec 3.2.2) type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -561,7 +783,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R39</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] IsReadReceiptRequested element Specifies a Boolean value that indicates whether the sender of a message requests a read receipt.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -570,7 +792,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R40</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsReadReceiptRequested element] This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -579,7 +801,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R41</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsReadReceiptRequested element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -588,7 +810,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R42</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsReadReceiptRequested element] A text value of "true" indicates that a read receipt is requested from the recipient of the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -597,7 +819,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R4200</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsReadReceiptRequested element] A text value of "false" indicates that a read receipt is not requested from the recipient of the message.</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R39:i</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -607,7 +829,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R187</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] IsDeliveryReceiptRequested element is xs:boolean type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -616,7 +838,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R43</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] IsDeliveryReceiptRequested element Specifies a Boolean value that indicates whether the sender of the message has requested a delivery receipt.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -625,7 +847,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R45</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsDeliveryReceiptRequested element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -634,7 +856,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R46</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsDeliveryReceiptRequested element] A text value of "true" indicates that a delivery receipt has been requested from the recipient of the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -643,7 +865,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R4600</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsDeliveryReceiptRequested element] A text value of "false" indicates that a delivery receipt has not been requested from the recipient of the message.</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R43:i</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -653,7 +875,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R188</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ConversationIndex element is xs:base64Binary ([XMLSCHEMA2] sec 3.2.16) type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -662,7 +884,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R47</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ConversationIndex element Specifies the position of the message within a conversation. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -671,7 +893,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R48</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [ConversationIndex element] This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -680,7 +902,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R49</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [ConversationIndex element] This element is read-only.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -689,7 +911,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R189</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ConversationTopic element is xs:string ([XMLSCHEMA2] sec 3.2.1) type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -698,7 +920,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R50</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ConversationTopic element Specifies the conversation identifier.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -707,7 +929,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R51</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [ConversationTopic element] This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -716,7 +938,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R52</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [ConversationTopic element] This element is read-only.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -725,7 +947,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R190</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] From element is t:SingleRecipientType type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -734,7 +956,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R53</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] From element Specifies the addressee from whom the message was sent.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -743,7 +965,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R54</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [From element] This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -752,7 +974,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R55</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [From element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -761,7 +983,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R191</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] InternetMessageId element is xs:string type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -770,7 +992,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R56</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] InternetMessageId element Specifies the Internet message identifier for the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -779,7 +1001,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R57</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [InternetMessageId element] This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -788,7 +1010,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R58</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [InternetMessageId element] This element is read-only.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -797,7 +1019,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R192</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] IsRead element is xs:boolean type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -806,7 +1028,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R59</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] IsRead element Specifies a Boolean value that indicates whether the message has been read.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -815,7 +1037,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R60</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsRead element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -824,7 +1046,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R61</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsRead element]The text value of "true" indicates that the message has been read.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -833,7 +1055,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R6100</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsRead element]The text value of "false" indicates that the message has not been read.</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R59:i</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -843,7 +1065,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R193</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] IsResponseRequested element is xs:boolean type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -852,7 +1074,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R62</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] IsResponseRequested element Specifies a Boolean value that indicates whether a response to an email has been requested.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -861,7 +1083,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R63</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsResponseRequested element] This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -870,7 +1092,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R64</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsResponseRequested element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -879,7 +1101,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R65</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsResponseRequested element] A text value of "true" indicates that a response has been requested.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -888,7 +1110,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R6500</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [IsResponseRequested element] A text value of "false" indicates that a response has not been requested.</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R62:i</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -898,7 +1120,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R194</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] References element is xs:string type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -907,7 +1129,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R66</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] References element Specifies the Usenet header that is used to correlate replies with their original message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -916,7 +1138,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R67</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [References element] This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -925,7 +1147,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R68</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [References element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -934,7 +1156,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R195</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ReplyTo element is t:ArrayOfRecipientsType type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -943,7 +1165,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R69</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ReplyTo element Specifies a collection of addresses to send replies to. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -952,7 +1174,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R70</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [ReplyTo element] This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -961,7 +1183,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R71</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [ReplyTo element] This is a read/write element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -970,7 +1192,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R196</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ReceivedBy element is t:SingleRecipientType type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -979,7 +1201,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R72</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ReceivedBy element Identifies the delegate in a delegate access scenario.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -988,7 +1210,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R72001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [ReceivedBy element] This element is read-only.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -997,7 +1219,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R197</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ReceivedRepresenting element is t:SingleRecipientType</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1006,7 +1228,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R73</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] ReceivedRepresenting element Identifies the principal in a delegate access scenario.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1015,7 +1237,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R73001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:MessageType Complex Type] [ReceivedRepresenting element] This element is read-only.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1024,8 +1246,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R73002</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] The type of child element ApprovalRequestData is t:ApprovalRequestDataType ([MS-OXWSMTGS] section 2.2.4.3).</ns1:Description>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] The type of child element ApprovalRequestData is t:ApprovalRequestDataType (section 2.2.4.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1033,18 +1255,27 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R73003</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] [ApprovalRequestData] Specifies the approval state of an approval request message.&lt;1&gt;</ns1:Description>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] [ApprovalRequestData] Specifies the approval state of an approval request message.&lt;8&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-OXWSMSG_R182002.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirement: MS-OXWSMSG_R365.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R73008</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] [ApprovalRequestData] This element is read-only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R73004</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] The type of child element VotingInformation is t:VotingInformationType ([MS-OXWSMTGS] section 2.2.4.39).</ns1:Description>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] The type of child element VotingInformation is t:VotingInformationType (section 2.2.4.5).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1052,8 +1283,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R73005</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] [VotingInformation] Specifies voting information on messages that include voting buttons or voting response messages. &lt;2&gt;</ns1:Description>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] [VotingInformation] Specifies voting information on messages that include voting buttons or voting response messages. &lt;9&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1061,9 +1292,18 @@
 		<ns1:VerificationComment>Verified by requirement: MS-OXWSMSG_R182004.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R73009</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] [VotingInformation]This element is read-only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R73006</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] The type of child element ReminderMessageData is t:ReminderMessageDataType ( [MS-OXWSMTGS] section 2.2.4.33).</ns1:Description>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] The type of child element ReminderMessageData is t:ReminderMessageDataType ( section 2.2.4.4).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1071,8 +1311,8 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R73007</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:MessageType Complex Type] [ReminderMessageData] Specifies the data in a reminder message. &lt;3&gt;</ns1:Description>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] [ReminderMessageData] Specifies the data in a reminder message. &lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1080,9 +1320,282 @@
 		<ns1:VerificationComment>Verified by requirement: MS-OXWSMSG_R182006.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R73010</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:MessageType Complex Type] [ReminderMessageData]This element is read-only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R318</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The ReminderMessageDataType complex type specifies a reminder message.&lt;11&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXWSMSG_R367.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R319</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The ReminderMessageDataType  schema is &lt;xs:complexType name="ReminderMessageDataType"&gt;
+	  &lt;xs:sequence&gt;
+	    &lt;xs:element name="ReminderText" type="xs:string" minOccurs="0"/&gt;
+	    &lt;xs:element name="Location" type="xs:string" minOccurs="0"/&gt;
+	    &lt;xs:element name="StartTime" type="xs:dateTime" minOccurs="0"/&gt;
+	    &lt;xs:element name="EndTime" type="xs:dateTime" minOccurs="0"/&gt;
+	    &lt;xs:element name="AssociatedCalendarItemId" type="t:ItemIdType" minOccurs="0"/&gt;
+	  &lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R320</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The following table lists the child elements[ReminderText,Location,StartTime,EndTime,AssociatedCalendarItemId] of the ReminderMessageDataType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R321</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The ReminderText element is xs:string ([XMLSCHEMA2]) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R322</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The ReminderText element specifies the reminder message text.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R323</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The Location element is xs:string type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R324</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The Location element specifies the location of the reminder's associated event.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R325</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The StartTime element is xs:dateTime ([XMLSCHEMA2]) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R326</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The StartTime element specifies the start time of the reminder's associated event.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R327</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The EndTime element is xs:dateTime type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R328</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The EndTime element specifies the end time of the reminder's associated event.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R329</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The AssociatedCalendarItemId element is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.25) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R330</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[In t:ReminderMessageDataType Complex Type] The AssociatedCalendarItemId element specifies the item id of the reminder's associated event.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R331</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingInformationType Complex Type] The VotingInformationType complex type specifies voting information.&lt;12&gt; </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXWSMSG_R369.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R332</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingInformationType Complex Type]The VotingInformationType schema is  &lt;xs:complexType name="VotingInformationType"&gt;
+	  &lt;xs:sequence&gt;
+	    &lt;xs:element name="UserOptions" type="t:ArrayOfVotingOptionDataType" minOccurs="0"/&gt;
+	    &lt;xs:element name="VotingResponse" type="xs:string" minOccurs="0"/&gt;
+	  &lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R333</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingInformationType Complex Type]The following table lists the child elements[UserOptions,VotingResponse] of the VotingInformationType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R334</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingInformationType Complex Type]The UserOptions element is t:ArrayOfVotingOptionDataType (section 2.2.4.2) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R335</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingInformationType Complex Type] The UserOptions element specifies the list of voting options.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R336</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingInformationType Complex Type]The VotingResponse element is xs:string ([XMLSCHEMA2]) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R337</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingInformationType Complex Type]The VotingResponse element specifies voting response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R338</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingOptionDataType  Complex Type]The VotingOptionDataType complex type specifies the voting option on a message.&lt;13&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXWSMSG_R371.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R339</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingOptionDataType  Complex Type]The VotingOptionDataType  schema is &lt;xs:complexType name="VotingOptionDataType"&gt;
+	  &lt;xs:sequence&gt;
+	    &lt;xs:element name="DisplayName" type="xs:string" minOccurs="0"/&gt;
+	   &lt;xs:element name="SendPrompt" type="t:SendPromptType" minOccurs="0"/&gt;
+	  &lt;/xs:sequence&gt;
+	&lt;/xs:complexType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R340</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingOptionDataType  Complex Type]The following table lists the child elements[DisplayName,SendPrompt] of the VotingOptionDataType complex type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R341</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingOptionDataType  Complex Type]The DisplayName element is xs:string ([XMLSCHEMA2]) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R342</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingOptionDataType  Complex Type]The DisplayName element specifies the display name for the voting choice.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R343</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingOptionDataType  Complex Type]The SendPrompt element is t:SendPromptType (section 2.2.5.2) type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R344</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.6</ns1:Doc_Sect>
+		<ns1:Description>[In t:VotingOptionDataType  Complex Type]The SendPrompt element indicates the prompt behavior when the user selects this voting choice.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R74</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In Simple Types] The following table summarizes the set of common XML schema simple type definitions[MessageDispositionType] that are defined by this specification.</ns1:Description>
+		<ns1:Description>[In Simple Types] The following table summarizes the set of common XML schema simple type definitions[MessageDispositionType，SendPromptType] that are defined by this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1100,7 +1613,16 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R76</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In Simple Types] MessageDispositionType simple type Specifies how a message item is handled after it is created or updated.</ns1:Description>
+		<ns1:Description>[In Simple Types] MessageDispositionType(section 2.2.5.1) simple type Specifies how a message item is handled after it is created or updated.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R345</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Simple Types] SendPromptType (section 2.2.5.2) simple type Specifies the prompt behavior associated with a voting option.&lt;14&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1227,6 +1749,67 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R346</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:SendPromptType Simple Type] The SendPromptType simple type specifies the prompt behavior associated with a voting option.&lt;15&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement: MS-OXWSMSG_R375.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R347</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:SendPromptType Simple Type]The schema is	&lt;xs:simpleType name="SendPromptType"&gt;
+	  &lt;xs:restriction base="xs:string"&gt;
+	    &lt;xs:enumeration value="None"/&gt;
+	    &lt;xs:enumeration value="Send"/&gt;
+	    &lt;xs:enumeration value="VotingOption"/&gt;
+	  &lt;/xs:restriction&gt;
+	&lt;/xs:simpleType&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R348</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:SendPromptType Simple Type]The following table lists the possible values[None, Send and VotingOption] for the SendPromptType simple type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R349</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:SendPromptType Simple Type]The value "None" means no prompt behavior is specified.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R350</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:SendPromptType Simple Type]The value "Send" means the response is sent immediately when the user chooses a voting option.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R351</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.2</ns1:Doc_Sect>
+		<ns1:Description>[In t:SendPromptType Simple Type]The value "VotingOption" means the user is prompted to confirm their choice before sending a response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R87</ns1:REQ_ID>
@@ -2244,9 +2827,49 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R182001</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSMSG_R360</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ApprovalRequestData element. (&lt;1&gt; Section 2.2.4.1: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ApprovalRequestData element. )</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ApprovalRequestDataType complex type. (&lt;6&gt; Section 2.2.4.1: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ovalRequestDataTypAppre complex type. )</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R300:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R361</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ApprovalRequestDataType complex type. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R300:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R362</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ArrayOfVotingOptionDataType complex type. (&lt;7&gt; Section 2.2.4.2: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ArrayOfVotingOptionDataType  complex type. )</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R313:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R363</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ArrayOfVotingOptionDataType complex type. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R313:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R364</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ApprovalRequestData element. (&lt;8&gt; Section 2.2.4.3: Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ApprovalRequestData element. )</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R73003:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2254,9 +2877,9 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSMSG_R182002</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-OXWSMSG_R365</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ApprovalRequestData element. (This element was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ApprovalRequestData element. (This type was introduced in Microsoft Exchange Server 2013 Service Pack 1 (SP1).)</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R73003:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2266,7 +2889,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R182003</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the VotingInformation element. (&lt;2&gt; Section 2.2.4.1:  Exchange 2007,Exchange 2010, and the initial release of Exchange 2013 do not support the VotingInformation element. This .)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the VotingInformation element. (&lt;9&gt; Section 2.2.4.3:  Exchange 2007,Exchange 2010, and the initial release of Exchange 2013 do not support the VotingInformation element. )</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R73005:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2286,7 +2909,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMSG_R182005</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ReminderMessageData element. (&lt;3&gt; Section 2.2.4.1:  Exchange 2007,Exchange 2010, and the initial release of Exchange 2013 do not support the ReminderMessageData element. )</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ReminderMessageData element. (&lt;10&gt; Section 2.2.4.3:  Exchange 2007,Exchange 2010, and the initial release of Exchange 2013 do not support the ReminderMessageData element. )</ns1:Description>
 		<ns1:Derived>MS-OXWSMSG_R73007:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2304,8 +2927,88 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R366</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ReminderMessageDataType complex type. (&lt;11&gt; Section 2.2.4.4:  Exchange 2007,Exchange 2010, and the initial release of Exchange 2013 do not support the ReminderMessageDataType complex type. )</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R318:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R367</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the ReminderMessageDataType complex type. (This type was introduced in Exchange 2013 SP1.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R318:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R368</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the VotingInformationType complex type. (&lt;12&gt; Section 2.2.4.5:  Exchange 2007,Exchange 2010, and the initial release of Exchange 2013 do not support the VotingInformationType complex type. )</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R331:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R369</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the VotingInformationType complex type. (This type was introduced in Exchange 2013 SP1.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R331:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R370</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the VotingOptionDataType complex type. (&lt;13&gt; Section 2.2.4.6:  Exchange 2007,Exchange 2010, and the initial release of Exchange 2013 do not support the VotingOptionDataType complex type. )</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R338:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R371</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the VotingOptionDataType complex type. (This type was introduced in Exchange 2013 SP1.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R338:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R374</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the SendPromptType simple type. (&lt;15&gt; Section 2.2.5.2:  Exchange 2007,Exchange 2010, and the initial release of Exchange 2013 do not support the SendPromptType simple type. )</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R346:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMSG_R375</ns1:REQ_ID>
+		<ns1:Doc_Sect>8</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce the SendPromptType complex type. (This type was introduced in Exchange 2013 SP1.)</ns1:Description>
+		<ns1:Derived>MS-OXWSMSG_R346:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R163</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.5.18</ns1:Doc_Sect>
 		<ns1:Description>[In t:MailboxTypeType Simple Type] The type [MailboxTypeType] is defined as follow:
 &lt;xs:simpleType name="MailboxTypeType"&gt;
     &lt;xs:restriction base="xs:string"&gt;
@@ -2316,6 +3019,7 @@
         &lt;xs:enumeration value="PrivateDL"/&gt;
         &lt;xs:enumeration value="PublicDL"/&gt;
         &lt;xs:enumeration value="PublicFolder"/&gt;
+        &lt;xs:enumeration value="GroupMailbox"/&gt;
     &lt;/xs:restriction&gt;
 &lt;/xs:simpleType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -2325,7 +3029,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R168</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.17</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.5.18</ns1:Doc_Sect>
 		<ns1:Description>[In t:MailboxTypeType Simple Type] The value "Mailbox" specifies a mail-enabled directory service object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2335,7 +3039,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R188</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.5.20</ns1:Doc_Sect>
 		<ns1:Description>[In t:NonEmptyStringType Simple Type] The NonEmptyStringType simple type specifies a string that MUST have a minimum of one character.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2345,7 +3049,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R189</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.19</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.5.20</ns1:Doc_Sect>
 		<ns1:Description>[In t:NonEmptyStringType Simple Type] The type [NonEmptyStringType] is defined as follow:
 &lt;xs:simpleType name="NonEmptyStringType"&gt;
     &lt;xs:restriction base="xs:string"&gt;
@@ -2359,7 +3063,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1033</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.9</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
 		<ns1:Description>[In t:ArrayOfRecipientsType Complex Type] The type [ArrayOfRecipientsType] is defined as follow:
  &lt;xs:complexType name="ArrayOfRecipientsType"&gt;
   &lt;xs:choice
@@ -2378,7 +3082,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1147</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.27</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.31</ns1:Doc_Sect>
 		<ns1:Description>[In t:EmailAddessType Complex Type] The type [EmailAddressType] is defined as follow:
 &lt;xs:complexType name="EmailAddressType"&gt;
   &lt;xs:complexContent&gt;
@@ -2420,7 +3124,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1188</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
 		<ns1:Description>[In t:ItemResponseShapeType Complex Type] The element "IncludeMimeContent" with type "xs:boolean" specifies whether the MIME content of an item is returned in a response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2429,7 +3133,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R21188</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
 		<ns1:Description>[In t:ItemResponseShapeType Complex Type] [IncludeMimeContent is] True, specifies the MIME content of an item is returned in a response.</ns1:Description>
 		<ns1:Derived>MS-OXWSCDATA_R1188:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -2439,7 +3143,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R21189</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
 		<ns1:Description>[In t:ItemResponseShapeType Complex Type] otherwise [IncludeMimeContent is] false, specifies [the MIME content of an item is not returned in a response].</ns1:Description>
 		<ns1:Derived>MS-OXWSCDATA_R1188:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -2449,7 +3153,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1190</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
 		<ns1:Description>[In t:ItemResponseShapeType Complex Type] The element "BodyType" with type "t:BodyTypeResponseType(section 2.2.3.1)" specifies the requested body text format for the Body property that is returned in a response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2458,7 +3162,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1197</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
 		<ns1:Description>[In t:ItemResponseShapeType Complex Type] The element "AdditionalProperties" with type "t:NonEmptyArrayOfPathsToElementType" specifies a set of requested additional properties to return in a response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2467,7 +3171,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R21193</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
 		<ns1:Description>[In t:ItemResponseShapeType Complex Type] [FilterHtmlContent is] True, specifies HTML content filtering is enabled.</ns1:Description>
 		<ns1:Derived>MS-OXWSCDATA_R1193:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -2477,7 +3181,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R21194</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
 		<ns1:Description>[In t:ItemResponseShapeType Complex Type] otherwise [FilterHtmlContent is] false, specifies [HTML content filtering is not enabled].</ns1:Description>
 		<ns1:Derived>MS-OXWSCDATA_R1193:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -2487,7 +3191,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1193</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.38</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
 		<ns1:Description>[In t:ItemResponseShapeType Complex Type] The element "FilterHtmlContent" with type "xs:boolean" Specifies whether HTML content filtering is enabled.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -2496,7 +3200,7 @@
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1292</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.60</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.71</ns1:Doc_Sect>
 		<ns1:Description>[In t:SingleRecipientType Complex Type] The type [SingleRecipientType] is defined as follow:
  &lt;xs:complexType name="SingleRecipientType"&gt;
   &lt;xs:choice&gt;
@@ -2513,7 +3217,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1428001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior]&lt;53&gt; Section 2.2.4.31:  Exchange 2010 and above return the MailboxType element in the GetItem operation.</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior]&lt;52&gt; Section 2.2.4.31:  Exchange 2010 and above return the MailboxType element in the GetItem operation.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

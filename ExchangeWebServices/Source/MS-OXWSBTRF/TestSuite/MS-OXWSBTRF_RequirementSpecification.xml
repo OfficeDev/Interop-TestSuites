@@ -535,7 +535,7 @@ specifies a SOAP header that identifies the user whom the client application is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSBTRF_R160</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:ExportItemsSoapIn Message]The type of MailboxCulture is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The type of MailboxCulture is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -553,7 +553,7 @@ specifies a SOAP header that identifies the user whom the client application is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSBTRF_R162</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:ExportItemsSoapIn Message]The type of RequestVersion is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The type of RequestVersion is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -571,7 +571,7 @@ specifies a SOAP header that identifies the user whom the client application is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSBTRF_R2105</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:ExportItemsSoapIn Message]The part ManagementRole with Element/type t:ManagementRole ([MS-OXWSCDATA] section 2.2.3.8): specifies the SOAP header that identifies the caller's role. &lt;2&gt; .</ns1:Description>
+		<ns1:Description>[In tns:ExportItemsSoapIn Message]The part ManagementRole with Element/type t:ManagementRole ([MS-OXWSCDATA] section 2.2.3.7): specifies the SOAP header that identifies the caller's role. &lt;2&gt; .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -629,7 +629,7 @@ specifies a SOAP header that identifies the user whom the client application is 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSBTRF_R253</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:ExportItemsSoapOut Message]The type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:ExportItemsSoapOut Message]The type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1250,7 +1250,7 @@ UploadItems (section 3.1.4.2.2.1).</ns1:Description>
 		<ns1:REQ_ID>MS-OXWSBTRF_R188</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:UploadItemsSoapIn Message]The Element/type of MailboxCulture is
-MailboxCulture ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1287,7 +1287,7 @@ MailboxCulture ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
 		<ns1:REQ_ID>MS-OXWSBTRF_R191</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:UploadItemsSoapIn Message]The Element/type of RequestVersion is
-RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1355,7 +1355,7 @@ UploadItemsResponse (section 3.1.4.2.2.2).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSBTRF_R249</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:UploadItemsSoapOut Message]The Element/type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:UploadItemsSoapOut Message]The Element/type of ServerVersion is ServerVersion ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2221,7 +2221,7 @@ The following values [CreateNew, Update, UpdateOrCreate] are defined by the Crea
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R191</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.22</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.5.23</ns1:Doc_Sect>
 		<ns1:Description>[In t:ResponseClassType Simple Type] The type [ResponseClassType] is defined as follow:
 &lt;xs:simpleType name="ResponseClassType"&gt;
   &lt;xs:restriction base="xs:string"&gt;
@@ -2237,7 +2237,7 @@ The following values [CreateNew, Update, UpdateOrCreate] are defined by the Crea
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R197</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.23</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.5.24</ns1:Doc_Sect>
 		<ns1:Description>[In m:ResponseCodeType Simple Type] The type [ResponseCodeType] is defined as follow:
 &lt;xs:simpleType name="ResponseCodeType"&gt;
     &lt;xs:restriction base="xs:string"&gt;
@@ -2696,183 +2696,196 @@ The following values [CreateNew, Update, UpdateOrCreate] are defined by the Crea
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1036</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In m:ArrayOfResponseMessagesType Complex Type] The type [ArrayOfResponseMessagesType] is defined as follow:
-&lt;xs:complexType name="ArrayOfResponseMessagesType"&gt;
-  &lt;xs:choice
-    maxOccurs="unbounded"
-  &gt;
-    &lt;xs:element name="CreateItemResponseMessage"
-      type="m:ItemInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="DeleteItemResponseMessage"
-      type="m:ResponseMessageType"
-     /&gt;
-    &lt;xs:element name="GetItemResponseMessage"
-      type="m:ItemInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="UpdateItemResponseMessage"
-      type="m:UpdateItemResponseMessageType"
-     /&gt;
-    &lt;xs:element name="UpdateItemInRecoverableItemsResponseMessage" 
-     type="m:UpdateItemInRecoverableItemsResponseMessageType"/&gt;
-    &lt;xs:element name="SendItemResponseMessage"
-      type="m:ResponseMessageType"
-     /&gt;
-    &lt;xs:element name="DeleteFolderResponseMessage"
-      type="m:ResponseMessageType"
-     /&gt;
-    &lt;xs:element name="EmptyFolderResponseMessage"
-      type="m:ResponseMessageType"
-     /&gt;
-    &lt;xs:element name="CreateFolderResponseMessage"
-      type="m:FolderInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="GetFolderResponseMessage"
-      type="m:FolderInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="FindFolderResponseMessage"
-      type="m:FindFolderResponseMessageType"
-     /&gt;
-    &lt;xs:element name="UpdateFolderResponseMessage"
-      type="m:FolderInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="MoveFolderResponseMessage"
-      type="m:FolderInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="CopyFolderResponseMessage"
-      type="m:FolderInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="CreateFolderPathResponseMessage" 
-     type="m:FolderInfoResponseMessageType"
-    /&gt;
-    &lt;xs:element name="CreateAttachmentResponseMessage"
-      type="m:AttachmentInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="DeleteAttachmentResponseMessage"
-      type="m:DeleteAttachmentResponseMessageType"
-     /&gt;
-    &lt;xs:element name="GetAttachmentResponseMessage"
-      type="m:AttachmentInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="UploadItemsResponseMessage"
-      type="m:UploadItemsResponseMessageType"
-     /&gt;
-    &lt;xs:element name="ExportItemsResponseMessage"
-      type="m:ExportItemsResponseMessageType"
-     /&gt;
-    &lt;xs:element name="MarkAllItemsAsReadResponseMessage" 
-       type="m:ResponseMessageType"/&gt;
-    &lt;xs:element name="GetClientAccessTokenResponseMessage" 
-       type="m:GetClientAccessTokenResponseMessageType"/&gt;
-    &lt;xs:element name="GetAppManifestsResponseMessage" type="m:ResponseMessageType"/&gt;
-    &lt;xs:element name="GetClientExtensionResponseMessage" 
-       type="m:ResponseMessageType"/&gt;
-    &lt;xs:element name="SetClientExtensionResponseMessage" 
-       type="m:ResponseMessageType"/&gt;
-
-    &lt;xs:element name="FindItemResponseMessage"
-      type="m:FindItemResponseMessageType"
-     /&gt;
-    &lt;xs:element name="MoveItemResponseMessage"
-      type="m:ItemInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="ArchiveItemResponseMessage" type="m:ItemInfoResponseMessageType"/&gt;
-    &lt;xs:element name="CopyItemResponseMessage"
-      type="m:ItemInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="ResolveNamesResponseMessage"
-      type="m:ResolveNamesResponseMessageType"
-     /&gt;
-    &lt;xs:element name="ExpandDLResponseMessage"
-      type="m:ExpandDLResponseMessageType"
-     /&gt;
-    &lt;xs:element name="GetServerTimeZonesResponseMessage"
-      type="m:GetServerTimeZonesResponseMessageType"
-     /&gt;
-    &lt;xs:element name="GetEventsResponseMessage"
-      type="m:GetEventsResponseMessageType"
-     /&gt;
-    &lt;xs:element name="GetStreamingEventsResponseMessage"
-      type="m:GetStreamingEventsResponseMessageType"
-     /&gt;
-    &lt;xs:element name="SubscribeResponseMessage"
-      type="m:SubscribeResponseMessageType"
-     /&gt;
-    &lt;xs:element name="UnsubscribeResponseMessage"
-      type="m:ResponseMessageType"
-     /&gt;
-    &lt;xs:element name="SendNotificationResponseMessage"
-      type="m:SendNotificationResponseMessageType"
-     /&gt;
-    &lt;xs:element name="SyncFolderHierarchyResponseMessage"
-      type="m:SyncFolderHierarchyResponseMessageType"
-     /&gt;
-    &lt;xs:element name="SyncFolderItemsResponseMessage"
-      type="m:SyncFolderItemsResponseMessageType"
-     /&gt;
-    &lt;xs:element name="CreateManagedFolderResponseMessage"
-      type="m:FolderInfoResponseMessageType"
-     /&gt;
-    &lt;xs:element name="ConvertIdResponseMessage"
-      type="m:ConvertIdResponseMessageType"
-     /&gt;
-    &lt;xs:element name="GetSharingMetadataResponseMessage"
-      type="m:GetSharingMetadataResponseMessageType"
-     /&gt;
-    &lt;xs:element name="RefreshSharingFolderResponseMessage"
-      type="m:RefreshSharingFolderResponseMessageType"
-     /&gt;
-    &lt;xs:element name="GetSharingFolderResponseMessage"
-      type="m:GetSharingFolderResponseMessageType"
-     /&gt;
-    &lt;xs:element name="CreateUserConfigurationResponseMessage"
-      type="m:ResponseMessageType"
-     /&gt;
-    &lt;xs:element name="DeleteUserConfigurationResponseMessage"
-      type="m:ResponseMessageType"
-     /&gt;
-    &lt;xs:element name="GetUserConfigurationResponseMessage"
-      type="m:GetUserConfigurationResponseMessageType"
-     /&gt;
-    &lt;xs:element name="UpdateUserConfigurationResponseMessage"
-      type="m:ResponseMessageType"
-     /&gt;
-    &lt;xs:element name="GetRoomListsResponse"
-      type="m:GetRoomListsResponseMessageType"
-     /&gt;
-    &lt;xs:element name="GetRoomsResponse"
-      type="m:GetRoomsResponseMessageType"
-     /&gt;
-      &lt;xs:element name="GetRemindersResponse" 
-       type="m:GetRemindersResponseMessageType"/&gt;
-      &lt;xs:element name="PerformReminderActionResponse" 
-       type="m:PerformReminderActionResponseMessageType"/&gt;
-    &lt;xs:element name="ApplyConversationActionResponseMessage"
-      type="m:ResponseMessageType"
-     /&gt;
-    &lt;xs:element name="FindMailboxStatisticsByKeywordsResponseMessage" type="m:FindMailboxStatisticsByKeywordsResponseMessageType"/&gt;
-    &lt;xs:element name="GetSearchableMailboxesResponseMessage" type="m:GetSearchableMailboxesResponseMessageType"/&gt;
-    &lt;xs:element name="SearchMailboxesResponseMessage" type="m:SearchMailboxesResponseMessageType"/&gt;
-    &lt;xs:element name="GetDiscoverySearchConfigurationResponseMessage" type="m:GetDiscoverySearchConfigurationResponseMessageType"/&gt;
-    &lt;xs:element name="GetHoldOnMailboxesResponseMessage" type="m:GetHoldOnMailboxesResponseMessageType"/&gt;
-    &lt;xs:element name="SetHoldOnMailboxesResponseMessage" type="m:SetHoldOnMailboxesResponseMessageType"/&gt;
-      &lt;xs:element name="GetNonIndexableItemStatisticsResponseMessage" type="m:GetNonIndexableItemStatisticsResponseMessageType"/&gt;
-      &lt;!-- GetNonIndexableItemDetails response --&gt;
-      &lt;xs:element name="GetNonIndexableItemDetailsResponseMessage" type="m:GetNonIndexableItemDetailsResponseMessageType"/&gt;
-      &lt;!-- GetUserHoldSettings response --&gt;
-    &lt;xs:element name="FindPeopleResponseMessage" type="m:FindPeopleResponseMessageType"/&gt;
-
-    &lt;xs:element name="GetPasswordExpirationDateResponse" type="m:GetPasswordExpirationDateResponseMessageType"
-    /&gt;
-      &lt;xs:element name="GetPersonaResponseMessage" type="m:GetPersonaResponseMessageType"/&gt;
-      &lt;xs:element name="GetConversationItemsResponseMessage" type="m:GetConversationItemsResponseMessageType"/&gt;
-      &lt;xs:element name="GetUserRetentionPolicyTagsResponseMessage" type="m:GetUserRetentionPolicyTagsResponseMessageType"/&gt;
-      &lt;xs:element name="GetUserPhotoResponseMessage" type="m:GetUserPhotoResponseMessageType"/&gt;
-      &lt;xs:element name="MarkAsJunkResponseMessage" type="m:MarkAsJunkResponseMessageType"/&gt;
-  &lt;/xs:choice&gt;
-&lt;/xs:complexType&gt;
-</ns1:Description>
+		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
+		<ns1:Description>	&lt;xs:complexType name="ArrayOfResponseMessagesType"&gt;
+	  &lt;xs:choice
+	    maxOccurs="unbounded"
+	  &gt;
+	    &lt;xs:element name="CreateItemResponseMessage"
+	      type="m:ItemInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="DeleteItemResponseMessage"
+	      type=" m:DeleteItemResponseMessageType "
+	     /&gt;
+	    &lt;xs:element name="GetItemResponseMessage"
+	      type="m:ItemInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="UpdateItemResponseMessage"
+	      type="m:UpdateItemResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="UpdateItemInRecoverableItemsResponseMessage" 
+	     type="m:UpdateItemInRecoverableItemsResponseMessageType"/&gt;
+	    &lt;xs:element name="SendItemResponseMessage"
+	      type="m:ResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="DeleteFolderResponseMessage"
+	      type="m:ResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="EmptyFolderResponseMessage"
+	      type="m:ResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="CreateFolderResponseMessage"
+	      type="m:FolderInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="GetFolderResponseMessage"
+	      type="m:FolderInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="FindFolderResponseMessage"
+	      type="m:FindFolderResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="UpdateFolderResponseMessage"
+	      type="m:FolderInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="MoveFolderResponseMessage"
+	      type="m:FolderInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="CopyFolderResponseMessage"
+	      type="m:FolderInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="CreateFolderPathResponseMessage" 
+	     type="m:FolderInfoResponseMessageType"
+	    /&gt;
+	    &lt;xs:element name="CreateAttachmentResponseMessage"
+	      type="m:AttachmentInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="DeleteAttachmentResponseMessage"
+	      type="m:DeleteAttachmentResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="GetAttachmentResponseMessage"
+	      type="m:AttachmentInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="UploadItemsResponseMessage"
+	      type="m:UploadItemsResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="ExportItemsResponseMessage"
+	      type="m:ExportItemsResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="MarkAllItemsAsReadResponseMessage" 
+	       type="m:ResponseMessageType"/&gt;
+	    &lt;xs:element name="GetClientAccessTokenResponseMessage" 
+	       type="m:GetClientAccessTokenResponseMessageType"/&gt;
+	    &lt;xs:element name="GetAppManifestsResponseMessage" type="m:ResponseMessageType"/&gt;
+	    &lt;xs:element name="GetClientExtensionResponseMessage" 
+	       type="m:ResponseMessageType"/&gt;
+	    &lt;xs:element name="SetClientExtensionResponseMessage" 
+	       type="m:ResponseMessageType"/&gt;
+	    &lt;xs:element name="GetOMEConfigurationResponseMessage" type="m:ResponseMessageType"/&gt;
+		&lt;xs:element name="SetOMEConfigurationResponseMessage" type="m:ResponseMessageType"/&gt;
+	    &lt;xs:element name="FindItemResponseMessage"
+	      type="m:FindItemResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="MoveItemResponseMessage"
+	      type="m:ItemInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="ArchiveItemResponseMessage" type="m:ItemInfoResponseMessageType"/&gt;
+	    &lt;xs:element name="CopyItemResponseMessage"
+	      type="m:ItemInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="ResolveNamesResponseMessage"
+	      type="m:ResolveNamesResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="ExpandDLResponseMessage"
+	      type="m:ExpandDLResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="GetServerTimeZonesResponseMessage"
+	      type="m:GetServerTimeZonesResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="GetEventsResponseMessage"
+	      type="m:GetEventsResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="GetStreamingEventsResponseMessage"
+	      type="m:GetStreamingEventsResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="SubscribeResponseMessage"
+	      type="m:SubscribeResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="UnsubscribeResponseMessage"
+	      type="m:ResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="GetChannelEventsResponseMessage"
+	      type="m:GetChannelEventsResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="ChannelSubscribeResponseMessage" 
+	      type="m:ChannelSubscribeResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="ChannelUnsubscribeResponseMessage" 
+	      type="m:ResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="SendNotificationResponseMessage"
+	      type="m:SendNotificationResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="SyncFolderHierarchyResponseMessage"
+	      type="m:SyncFolderHierarchyResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="SyncFolderItemsResponseMessage"
+	      type="m:SyncFolderItemsResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="CreateManagedFolderResponseMessage"
+	      type="m:FolderInfoResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="ConvertIdResponseMessage"
+	      type="m:ConvertIdResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="GetSharingMetadataResponseMessage"
+	      type="m:GetSharingMetadataResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="RefreshSharingFolderResponseMessage"
+	      type="m:RefreshSharingFolderResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="GetSharingFolderResponseMessage"
+	      type="m:GetSharingFolderResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="CreateUserConfigurationResponseMessage"
+	      type="m:ResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="DeleteUserConfigurationResponseMessage"
+	      type="m:ResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="GetUserConfigurationResponseMessage"
+	      type="m:GetUserConfigurationResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="UpdateUserConfigurationResponseMessage"
+	      type="m:ResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="GetRoomListsResponse"
+	      type="m:GetRoomListsResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="GetRoomsResponse"
+	      type="m:GetRoomsResponseMessageType"   
+	     /&gt;
+	    &lt;xs:element name="GetRemindersResponse" 
+	       type="m:GetRemindersResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="PerformReminderActionResponse" 
+	       type="m:PerformReminderActionResponseMessageType"
+	     /&gt;
+	    &lt;xs:element name="ApplyConversationActionResponseMessage"
+	      type="m:ApplyConversationActionResponseMessageType"/&gt;
+	    &lt;xs:element name="FindMailboxStatisticsByKeywordsResponseMessage" type="m:FindMailboxStatisticsByKeywordsResponseMessageType"/&gt;
+	    &lt;xs:element name="GetSearchableMailboxesResponseMessage" type="m:GetSearchableMailboxesResponseMessageType"/&gt;
+	    &lt;xs:element name="SearchMailboxesResponseMessage" type="m:SearchMailboxesResponseMessageType"/&gt;
+	    &lt;xs:element name="GetDiscoverySearchConfigurationResponseMessage" type="m:GetDiscoverySearchConfigurationResponseMessageType"/&gt;
+	    &lt;xs:element name="GetHoldOnMailboxesResponseMessage" type="m:GetHoldOnMailboxesResponseMessageType"/&gt;
+	    &lt;xs:element name="SetHoldOnMailboxesResponseMessage" type="m:SetHoldOnMailboxesResponseMessageType"/&gt;
+	      &lt;xs:element name="GetNonIndexableItemStatisticsResponseMessage" type="m:GetNonIndexableItemStatisticsResponseMessageType"/&gt;
+	      &lt;!-- GetNonIndexableItemDetails response --&gt;
+	      &lt;xs:element name="GetNonIndexableItemDetailsResponseMessage" type="m:GetNonIndexableItemDetailsResponseMessageType"/&gt;
+	    &lt;xs:element name="FindPeopleResponseMessage" type="m:FindPeopleResponseMessageType"/&gt;
+	
+	    &lt;xs:element name="GetPasswordExpirationDateResponse" type="m:GetPasswordExpirationDateResponseMessageType"
+	    /&gt;
+	      &lt;xs:element name="GetPersonaResponseMessage" type="m:GetPersonaResponseMessageType"/&gt;
+	      &lt;xs:element name="GetConversationItemsResponseMessage" type="m:GetConversationItemsResponseMessageType"/&gt;
+	      &lt;xs:element name="GetUserRetentionPolicyTagsResponseMessage" type="m:GetUserRetentionPolicyTagsResponseMessageType"/&gt;
+	      &lt;xs:element name="GetUserPhotoResponseMessage" type="m:GetUserPhotoResponseMessageType"/&gt;
+	      &lt;xs:element name="MarkAsJunkResponseMessage" type="m:MarkAsJunkResponseMessageType"/&gt;
+	      &lt;xs:element name="UpdateMailboxAssociationResponseMessage" type="m:ResponseMessageType"/&gt;
+	      &lt;xs:element name="UpdateGroupMailboxResponseMessage" type="m:ResponseMessageType"/&gt;
+	      &lt;xs:element name="PostModernGroupItemResponseMessage" type="m:ResponseMessageType"/&gt;
+	      &lt;xs:element name="LikeItemResponseMessage" type="m:ResponseMessageType"/&gt;
+	      &lt;xs:element name="GetUnifiedGroupUnseenDataResponseMessage" type="m:GetUnifiedGroupUnseenDataResponseMessageType"/&gt;
+	  &lt;/xs:choice&gt;
+	&lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2880,7 +2893,7 @@ The following values [CreateNew, Update, UpdateOrCreate] are defined by the Crea
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1091</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.16</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.18</ns1:Doc_Sect>
 		<ns1:Description>[In m:BaseResponseMessageType Complex Type] The BaseResponseMessageType complex type MUST NOT be sent in a SOAP message because it is an abstract type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2905,7 +2918,7 @@ The following values [CreateNew, Update, UpdateOrCreate] are defined by the Crea
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1094</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.16</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.18</ns1:Doc_Sect>
 		<ns1:Description>[In m:BaseResponseMessageType Complex Type] There MUST be only one ResponseMessages element in a response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2914,7 +2927,7 @@ The following values [CreateNew, Update, UpdateOrCreate] are defined by the Crea
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1284</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.57</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.67</ns1:Doc_Sect>
 		<ns1:Description>[In m:ResponseMessageType Complex Type] This attribute [ResponseClass] MUST be present.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2923,7 +2936,7 @@ The following values [CreateNew, Update, UpdateOrCreate] are defined by the Crea
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1434</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.57</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.67</ns1:Doc_Sect>
 		<ns1:Description>[In m:ResponseMessageType Complex Type] The type [ResponseMessageType] is defined as follow:
 &lt;xs:complexType name="ResponseMessageType"&gt;
  &lt;xs:sequence
@@ -2967,7 +2980,7 @@ The following values [CreateNew, Update, UpdateOrCreate] are defined by the Crea
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1436</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.57</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.4.67</ns1:Doc_Sect>
 		<ns1:Description>[In m:ResponseMessageType Complex Type] [ResponseClass:] The following values are valid for this attribute: Success
 , Warning
 , Error.</ns1:Description>
@@ -2978,7 +2991,7 @@ The following values [CreateNew, Update, UpdateOrCreate] are defined by the Crea
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCDATA_R1339</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.5.10</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.3.10</ns1:Doc_Sect>
 		<ns1:Description>[In t:ServerVersionInfo Element] &lt;xs:element name="t:ServerVersionInfo"&gt;
  &lt;xs:complexType&gt;
   &lt;xs:attribute name="MajorVersion"

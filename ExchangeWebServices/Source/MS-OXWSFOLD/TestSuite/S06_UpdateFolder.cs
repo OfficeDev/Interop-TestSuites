@@ -234,7 +234,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 ResponseClassType.Error,
                 updateFolderResponse.ResponseMessages.Items[0].ResponseClass,
                 507,
-                @"[In t:AppendToFolderFieldType Complex Type]Any request that uses this complex type will always return an error response.");
+                @"[In t:AppendToFolderFieldType Complex Type]Any request that uses this complex type will return an error response.");
 
             #endregion
         }

@@ -329,6 +329,108 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
             #endregion
         }
+
+        /// <summary>
+        /// This test case is designed to test ErrorCalendarCannotUseIdForRecurringMasterId will be returned if the RecurringMasterId does not correspond to a valid recurring master item.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S03_TC05_CopyItemErrorCalendarCannotUseIdForRecurringMasterId()
+        {
+            #region Define a meeting
+            int timeInterval = this.TimeInterval;
+            CalendarItemType calendarItem = new CalendarItemType();
+            calendarItem.UID = Guid.NewGuid().ToString();
+            calendarItem.Subject = this.Subject;
+            calendarItem.Start = DateTime.UtcNow;
+
+            calendarItem.StartSpecified = true;
+            timeInterval++;
+            calendarItem.End = DateTime.Now.AddHours(timeInterval);
+            calendarItem.EndSpecified = true;
+            calendarItem.Location = this.Location;
+
+            calendarItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
+
+            ItemInfoResponseMessageType item1 = this.CreateSingleCalendarItem(Role.Organizer, calendarItem, CalendarItemCreateOrDeleteOperationType.SendToAllAndSaveCopy);
+            Site.Assert.IsNotNull(item1, "Server should return success for creating a recurring meeting.");
+
+            CalendarItemType calendarInOrganizer = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", calendarItem.UID) as CalendarItemType;
+            Site.Assert.IsNotNull(calendarInOrganizer, "The meeting should be found in organizer's Calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+
+            #endregion
+
+            #region Define a recurring calendar item
+            DateTime startTime = DateTime.Now;
+
+            DailyRecurrencePatternType pattern = new DailyRecurrencePatternType();
+            pattern.Interval = this.PatternInterval;
+
+            NumberedRecurrenceRangeType range = new NumberedRecurrenceRangeType();
+            range.NumberOfOccurrences = this.NumberOfOccurrences;
+            range.StartDate = startTime;
+
+            CalendarItemType meetingItem = new CalendarItemType();
+            meetingItem.UID = Guid.NewGuid().ToString();
+            meetingItem.Subject = this.Subject;
+            meetingItem.Start = startTime;
+            meetingItem.StartSpecified = true;
+            meetingItem.End = startTime.AddHours(this.TimeInterval);
+            meetingItem.EndSpecified = true;
+            meetingItem.Location = this.Location;
+            meetingItem.Recurrence = new RecurrenceType();
+            meetingItem.Recurrence.Item = pattern;
+            meetingItem.Recurrence.Item1 = range;
+            meetingItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
+            meetingItem.OptionalAttendees = new AttendeeType[] { GetAttendeeOrResource(this.OrganizerEmailAddress) };
+            meetingItem.Resources = new AttendeeType[] { GetAttendeeOrResource(this.RoomEmailAddress) };
+            #endregion
+
+            #region Organizer creates a recurring calendar item with CalendarItemCreateOrDeleteOperationType value set to SendOnlyToAll
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new ItemType[] { meetingItem };
+            createItemRequest.MessageDispositionSpecified = true;
+            createItemRequest.MessageDisposition = MessageDispositionType.SaveOnly;
+            createItemRequest.SendMeetingInvitationsSpecified = true;
+            createItemRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendToNone;
+
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, meetingItem, CalendarItemCreateOrDeleteOperationType.SendOnlyToAll);
+            #endregion
+
+            #region Organizer copys the RecurringMasterId of the recurring calendar item
+
+            #region Copy the recurring calendar item to Drafts folder through Id of recurring master getItem
+            DistinguishedFolderIdType folderId = new DistinguishedFolderIdType();
+            folderId.Id = DistinguishedFolderIdNameType.drafts;
+            TargetFolderIdType targetFolderId = new TargetFolderIdType();
+            targetFolderId.Item = folderId;
+            OccurrenceItemIdType occurrenceId = new OccurrenceItemIdType();
+            occurrenceId.RecurringMasterId = calendarInOrganizer.ItemId.Id;
+            occurrenceId.InstanceIndex = 1;
+
+            CopyItemType copyItemRequest = new CopyItemType();
+            copyItemRequest.ItemIds = new BaseItemIdType[] { occurrenceId };
+            copyItemRequest.ToFolderId = targetFolderId;
+            CopyItemResponseType response = this.MTGSAdapter.CopyItem(copyItemRequest);
+
+            #endregion
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1223");
+
+            //Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1223
+            Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorCalendarCannotUseIdForRecurringMasterId,
+                response.ResponseMessages.Items[0].ResponseCode,
+                1223,
+                @"[In Messages] ErrorCalendarCannotUseIdForRecurringMasterId: Specifies that the RecurringMasterId ([MS-OXWSCORE] section 2.2.4.35) does not correspond to a valid recurring master item.");
+            #endregion
+
+            #region Clean up organizer's calendar, sentitems and deleteditems folders and attendee's calendar, inbox and deleteditems folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType> { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
+            #endregion
+        }
         #endregion
     }
 }

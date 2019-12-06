@@ -163,7 +163,7 @@
       <xs:element name="RetentionDate" type="xs:dateTime" minOccurs="0"/>
       <xs:element name="Preview" type="xs:string" minOccurs="0"/>
       <xs:element name="RightsManagementLicenseData" type="t:RightsManagementLicenseDataType" minOccurs="0" />
-      <!--<xs:element name="PredictedActionReasons" type="t:NonEmptyArrayOfPredictedActionReasonType" minOccurs="0"/>-->
+      <xs:element name="PredictedActionReasons" type="t:NonEmptyArrayOfPredictedActionReasonType" minOccurs="0"/>
       <xs:element name="IsClutter" type="xs:boolean" minOccurs="0"/>
       <xs:element name="NextPredictedAction" type="t:PredictedMessageActionType" minOccurs="0" />
       <xs:element name="GroupingAction" type="t:PredictedMessageActionType" minOccurs="0"/>
@@ -171,6 +171,7 @@
       <xs:element name="HasBlockedImages" type="xs:boolean" minOccurs="0" />
       <xs:element name="TextBody" type="t:BodyType" minOccurs="0"/>
       <xs:element name="IconIndex" type="t:IconIndexType" minOccurs="0"/>
+      <xs:element name="MimeContentUTF8" type="t:MimeContentUTF8Type" minOccurs="0"/>
       <xs:element name="SearchKey" type="xs:base64Binary" minOccurs="0"/>
       <xs:element name="SortKey" type="xs:long" minOccurs="0"/>
       <xs:element name="Hashtags" type="t:ArrayOfStringsType" minOccurs="0"/>

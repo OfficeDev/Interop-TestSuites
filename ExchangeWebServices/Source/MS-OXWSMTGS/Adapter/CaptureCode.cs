@@ -262,6 +262,393 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
 
         /// <summary>
+        /// Verify the ArrayOfRemindersType structure
+        /// </summary>
+        /// <param name="arrayOfReminders">Contains a list representing reminders for a meeting</param>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyArrayOfRemindersType(ReminderType[] arrayOfReminders, bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2068");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2068
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             2068,
+             @"[In t:ArrayOfRemindersType Complex Type]The ArrayOfRemindersType complex type specifies an array of reminders.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2069");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2069
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             2069,
+             @"[In t:ArrayOfRemindersType Complex Type][The schema of ArrayOfRemindersType is defined as:]
+	<xs:complexType name=""ArrayOfRemindersType"" >
+      < xs:sequence >
+
+        < xs:element name = ""Reminder"" type = ""t:ReminderType"" minOccurs = ""0"" maxOccurs = ""unbounded"" />
+
+      </ xs:sequence >
+
+    </ xs:complexType > ");
+
+
+
+            foreach (ReminderType reminder in arrayOfReminders)
+            {
+                this.VerifyReminderType(reminder, isSchemaValidated);
+            }
+        }
+
+        /// <summary>
+        /// Verify the ReminderType structure.
+        /// </summary>
+        /// <param name="reminder">Reminder for a calendar</param>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyReminderType(ReminderType reminder, bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2071");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2071
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             2071,
+             @"[In t:ArrayOfRemindersType Complex Type]The type of Reminder is t:ReminderType (section 3.1.4.5.3.4).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2074");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2074
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2074,
+                @"[In t:ReminderType Complex Type][The schema of ReminderType is defined as:]
+	<xs:complexType name=""ReminderType"" >
+      < xs:sequence >
+
+        < xs:element name = ""Subject"" type = ""xs:string"" minOccurs = ""1"" maxOccurs = ""1"" />
+        xs:element name = ""Location"" type = ""xs:string"" minOccurs = ""0"" maxOccurs = ""1"" />
+
+        < xs:element name = ""ReminderTime"" type = ""xs:dateTime"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+        < xs:element name = ""StartDate"" type = ""xs:dateTime"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+        < xs:element name = ""EndDate"" type = ""xs:dateTime"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+        < xs:element name = ""ItemId"" type = ""t:ItemIdType"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+        < xs:element name = ""RecurringMasterItemId"" type = ""t:ItemIdType"" minOccurs = ""0"" maxOccurs = ""1"" />
+
+        < xs:element name = ""ReminderGroup"" type = ""t:ReminderGroupType"" minOccurs = ""0"" maxOccurs = ""1"" />
+
+        < xs:element name = ""UID"" type = ""xs:string"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+      </ xs:sequence >
+
+    </ xs:complexType > ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2076");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2076
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2076,
+                @"[In t:ReminderType Complex Type]The type of Subject is xs:string ([XMLSCHEMA2]).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2078");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2078,
+                @"[In t:ReminderType Complex Type]The type of Location is xs:string.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2080");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2080
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2080,
+                @"[In t:ReminderType Complex Type]The type of ReminderTime is xs:dateTime ([XMLSCHEMA2]).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2082");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2082
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2082,
+                @"[In t:ReminderType Complex Type]The type of StartDate is xs:string ([XMLSCHEMA2]).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2084");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2084
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2084,
+                @"[In t:ReminderType Complex Type]The type of EndDate is xs:dateTime .");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2086");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2086
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2086,
+                @"[In t:ReminderType Complex Type]The type of ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.25).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2088");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2088
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2088,
+                @"[In t:ReminderType Complex Type]The type of RecurringMasterItemId is t:ItemIdType.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2092");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2092
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2092,
+                @"[In t:ReminderType Complex Type]The type of UID is xs:string .");
+
+
+            if (reminder.ReminderGroupSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2090");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2090
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    2090,
+                    @"[In t:ReminderType Complex Type]The type of ReminderGroup is t:ReminderGroupType (section 3.1.4.5.4.1).");
+
+                this.VerifyReminderGroupType(reminder.ReminderGroup, isSchemaValidated);
+            }
+        }
+
+        /// <summary>
+        /// Verify the ReminderGroupType structure.
+        /// </summary>
+        /// <param name="reminderGroup">Reminder group for a calendar</param>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyReminderGroupType(ReminderGroupType reminderGroup, bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2097");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2097
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2097,
+                @"[In ReminderGroupType Simple Type][The schema of ReminderGroupType is defined as:]
+	<xs:simpleType name=""ReminderGroupType"" >
+      < xs:restriction base = ""xs:string"" >
+
+        < xs:enumeration value = ""Calendar"" />
+
+        < xs:enumeration value = ""Task"" />
+
+      </ xs:restriction >
+
+    </ xs:simpleType > ");
+        }
+
+        /// <summary>
+        /// Captures GetRemindersResponseMessageType related requirements.
+        /// </summary>
+        /// <param name="getReminderResponseMessage">An GetRemindersResponseMessageType instance.</param>
+        /// <param name="isSchemaValidated">A Boolean value indicates the schema validation result.</param>
+        private void VerifyGetReminderResponseMessageType(GetRemindersResponseMessageType getReminderResponseMessage, bool isSchemaValidated)
+        {
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2046");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2046,
+                @"[In Complex Types]GetRemindersResponseMessageType:Specifies a response to a GetReminders operation request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2050");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2050
+            this.Site.CaptureRequirementIfIsNotNull(
+                getReminderResponseMessage,
+                2050,
+                @"[In m:GetRemindersResponseMessageType Complex Type]The GetRemindersResponseMessageType complex type specifies a response to a request to return reminders. ");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2051");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2051
+            this.Site.CaptureRequirementIfIsNotNull(
+                getReminderResponseMessage,
+                2051,
+                @"[In m:GetRemindersResponseMessageType Complex Type]This type[GetRemindersResponseMessageType] extends the ResponseMessageType ([MS-OXWSCDATA] section 2.2.4.67).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R2052");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2052
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2052,
+                @"[In m:GetRemindersResponseMessageType Complex Type][The schema of GetRemindersResponseMessageType is defined as:]	
+<xs:complexType name=""GetRemindersResponseMessageType"" >
+    < xs:complexContent >
+
+    < xs:extension base = ""m:ResponseMessageType"" >
+
+        < xs:sequence >
+
+        < xs:element name = ""Reminders"" type = ""t:ArrayOfRemindersType"" minOccurs = ""1"" maxOccurs = ""1"" />
+
+        </ xs:sequence >
+
+    </ xs:extension >
+
+    </ xs:complexContent >
+");
+
+            if(getReminderResponseMessage.Reminders != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R2054");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2054
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    getReminderResponseMessage.Reminders,
+                    typeof(ReminderType[]),
+                    2054,
+                    @"[In m:GetRemindersResponseMessageType Complex Type]the type of Reminders is t:ArrayOfRemindersType (section 3.1.4.5.3.3).");
+
+                this.VerifyArrayOfRemindersType(getReminderResponseMessage.Reminders, isSchemaValidated);
+            }
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2012");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2012
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2012,
+                @"[In GetReminders operation]The following is the WSDL port type specification for the GetReminders operation.
+        <wsdl:operation name=""GetReminders"" >
+                < wsdl:input message = ""tns:GetRemindersSoapIn"" />
+
+                < wsdl:output message = ""tns:GetRemindersSoapOut"" />
+
+        </ wsdl:operation >");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2013");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2013,
+                @"[In GetReminders operation]The following is the WSDL binding specification for the GetReminders operation.	
+                    <wsdl:operation name=""GetReminders"" >
+            < soap:operation soapAction = ""http://schemas.microsoft.com/exchange/services/2006/messages/GetReminders"" />
+
+            < wsdl:input >
+
+                < soap:header message = ""tns:GetRemindersSoapIn"" part = ""RequestVersion"" use = ""literal"" />
+
+                < soap:body parts = ""request"" use = ""literal"" />
+
+            </ wsdl:input >
+
+            < wsdl:output >
+
+                < soap:body parts = ""GetRemindersResult"" use = ""literal"" />
+
+                < soap:header message = ""tns:GetRemindersSoapOut"" part = ""ServerVersion"" use = ""literal"" />
+
+            </ wsdl:output >
+
+        </ wsdl:operation > ");
+
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2025");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2025,
+                @"[In tns:GetRemindersSoapOut Message][The schema of GetRemindersSoapOut is defined as:] 	<wsdl:message name=""GetRemindersSoapOut"" >
+            < wsdl:part name = ""GetRemindersResult"" element = ""tns:GetRemindersResponse"" />
+
+            < wsdl:part name = ""ServerVersion"" element = ""t:ServerVersionInfo"" />
+
+        </ wsdl:message > ");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2016");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2016,
+                @"[In Messages] GetRemindersSoapOut:Specifies the SOAP message that is returned by the server in response to a GetRemindersSoapIn operation request.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2029");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2029
+            // According to the schema, getRemindersResponseMessage is the SOAP body of a response message returned by server, this requirement can be verified directly.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2029,
+                @"[In tns:GetRemindersSoapOut Message] GetRemindersResult:Specifies the SOAP body of a response message.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2028");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2028
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2028,
+                @"[In tns:GetRemindersSoapOut Message]the element of GetRemindersResult is tns:GetRemindersResponse (section 3.1.4.5.2.2).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2030");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2030
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2030,
+                @"[In tns:GetRemindersSoapOut Message]the element of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2031");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2031
+            // According to the schema, ServerVersion is the SOAP header that contains the server version information, this requirement can be verified directly.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2031,
+                @"[In tns:GetRemindersSoapOut Message]ServerVersion:Specifies a SOAP header that identifies the server version for the response to a GetReminders operation request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2044");
+
+            Site.CaptureRequirementIfIsNotNull(
+                getReminderResponseMessage,
+                2044,
+                @"[In m:GetRemindersResponse Element][The schema of GetRemindersResponse is defined as:]	<xs:element name=""GetRemindersResponse"" type =""m: GetRemindersResponseMessageType"" />");
+        }
+
+        /// <summary>
         /// Verify the WSDL port type specifications for the MoveItem operation and MoveItemResponseType structure. 
         /// </summary>
         /// <param name="response">The response message of MoveItem operation.</param>
@@ -467,6 +854,145 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         }
 
         /// <summary>
+        /// Verify the InboxReminderType structure.
+        /// </summary>
+        /// <param name="inboxReminder">InboxReminder for a calendar</param>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyInboxReminderType(InboxReminderType inboxReminder, bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1278");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1278
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             1278,
+             @"[In Appendix C: Product Behavior] Implementation does support InboxReminderType which specifies an inbox reminder. (Exchange 2013 and above follow this behavior.)");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1033");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1033
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             1033,
+             @"[In t:ArrayOfInboxReminderType] The type of InboxReminder is t:InboxReminderType (section 2.2.4.13).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1349");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1349
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                1349,
+                @"[In t:InboxReminderType] [its schema is] <xs:complexType name=""InboxReminderType"" >
+   < xs:sequence >
+     < xs:element name = ""Id"" type = ""t:GuidType"" minOccurs = ""0"" maxOccurs = ""1"" />
+     < xs:element name = ""ReminderOffset"" type = ""xs:int"" minOccurs = ""0"" maxOccurs = ""1"" />
+  < xs:element name = ""Message"" type = ""xs:string"" minOccurs = ""0"" maxOccurs = ""1"" />
+  < xs:element name = ""IsOrganizerReminder"" type = ""xs:boolean"" minOccurs = ""0"" maxOccurs = ""1"" />
+  < xs:element name = ""OccurrenceChange""
+         type = ""t:EmailReminderChangeType"" minOccurs = ""0"" maxOccurs = ""1"" />
+  < xs:element name = ""IsImportedFromOLC"" type = ""xs:boolean"" minOccurs = ""0"" maxOccurs = ""1"" />
+   < xs:element name = ""SendOption""
+         type = ""t:EmailReminderSendOption"" minOccurs = ""0"" maxOccurs = ""1"" />
+   </ xs:sequence >
+ </ xs:complexType > ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1060");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1060
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                1060,
+                @"[In t:InboxReminderType] The type of Id is t:GuidType ([XMLSCHEMA2] ).");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1062");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                1062,
+                @"[In t:InboxReminderType] The type of ReminderOffset is xs:int ([XMLSCHEMA2] ).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1064");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1064
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                1064,
+                @"[In t:InboxReminderType] The type of Message is xs:string ([XMLSCHEMA2] ).");
+
+            if (inboxReminder.IsOrganizerReminderSpecified)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1066");
+
+                this.Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    1066,
+                    @"[In t:InboxReminderType] The type of IsOrganizerReminder is xs:boolean ([XMLSCHEMA2] ).");
+            }
+
+            if (Common.IsRequirementEnabled(1310, this.Site) && inboxReminder.OccurrenceChangeSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1069");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1069
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    1069,
+                    @"[In t:InboxReminderType] OccurrenceChange: Specifies how this reminder has been modified for an occurrence");
+
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1068");
+
+                this.Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    1068,
+                    @"[In t:InboxReminderType] The type of OccurrenceChange t:EmailReminderChangeType (section 2.2.5.6).");
+
+                this.VerifyEmailReminderChangeType(inboxReminder.OccurrenceChange, isSchemaValidated);
+            }
+
+            if (inboxReminder.IsImportedFromOLCSpecified)
+            {
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2005");
+
+                this.Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    2005,
+                    @"[In t:InboxReminderType] The type of IsImportedFromOLC is xs:boolean.");
+            }
+            if (Common.IsRequirementEnabled(1312, this.Site) && inboxReminder.SendOptionSpecified)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1341");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1341
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    1341,
+                    @"[In t:InboxReminderType] SendOption: Specifies the send option.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1070");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1070
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    1070,
+                    @"[In t:InboxReminderType] The type of SendOption is t:EmailReminderSendOption (section 2.2.5.7).");
+
+                this.VerifyEmailReminderSendOption(inboxReminder.SendOption, isSchemaValidated);
+            }
+        }
+
+        /// <summary>
         /// Verify the AttendeeType structure.
         /// </summary>
         /// <param name="attendee">Attendee or resource for a meeting</param>
@@ -480,7 +1006,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.CaptureRequirementIfIsTrue(
              isSchemaValidated,
              368,
-             @"[In t:NonEmptyArrayOfAttendeesType Complex Type] The type of Attendee type is t:AttendeeType (section 2.2.4.2).");
+             @"[In t:NonEmptyArrayOfAttendeesType Complex Type] The type of Attendee type is t:AttendeeType (section 2.2.4.4).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R135");
@@ -615,7 +1141,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                           <xs:element name=""RequiredAttendees"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
                           <xs:element name=""OptionalAttendees"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
                            <xs:element name=""Resources"" type=""t:NonEmptyArrayOfAttendeesType"" minOccurs=""0""/>
-                           <xs:element name=""InboxReminders"" type=""t:ArrayOfInboxReminderType"" minOccurs=""0""/>
                           <!-- Conflicting and adjacent meetings -->
                           <xs:element name=""ConflictingMeetingCount"" type=""xs:int"" minOccurs=""0""/>
                           <xs:element name=""AdjacentMeetingCount"" type=""xs:int"" minOccurs=""0""/>
@@ -649,6 +1174,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                           <xs:element name=""JoinOnlineMeetingUrl"" type=""xs:string"" minOccurs=""0"" maxOccurs=""1"" />
                           <xs:element name=""OnlineMeetingSettings"" type=""t:OnlineMeetingSettingsType"" minOccurs=""0"" maxOccurs=""1""/>
                           <xs:element name=""IsOrganizer"" type=""xs:boolean"" minOccurs=""0""/>
+                           <xs:element name=""InboxReminders"" type=""t:ArrayOfInboxReminderType"" minOccurs=""0""/>
                         </xs:sequence>
                       </xs:extension>
                     </xs:complexContent>
@@ -867,7 +1393,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     182,
-                    @"[In t:CalendarItemType Complex Type] The type of MyResponseType is t:ResponseTypeType (section 2.2.5.10).");
+                    @"[In t:CalendarItemType Complex Type] The type of MyResponseType is t:ResponseTypeType (section 2.2.5.12).");
 
                 this.VerifyResponseTypeType(isSchemaValidated);
             }
@@ -895,7 +1421,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     513,
-                    @"[In t:CalendarItemType Complex Type] The type of RequiredAttendees is t:NonEmptyArrayOfAttendeesType (section 2.2.4.15)");
+                    @"[In t:CalendarItemType Complex Type] The type of RequiredAttendees is t:NonEmptyArrayOfAttendeesType (section 2.2.4.19)");
 
                 this.VeirfyNonEmptyArrayOfAttendeesType(calendarItem.RequiredAttendees, isSchemaValidated);
             }
@@ -961,7 +1487,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     196,
-                    @"[In t:CalendarItemType Complex Type] The type of ConflictingMeetings is t:NonEmptyArrayOfAllItemsType ([MS-OXWSCDATA] section 2.2.4.42).");
+                    @"[In t:CalendarItemType Complex Type] The type of ConflictingMeetings is t:NonEmptyArrayOfAllItemsType ([MS-OXWSCDATA] section 2.2.4.48).");
             }
 
             if (calendarItem.AdjacentMeetings != null)
@@ -1045,7 +1571,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     210,
-                    @"[In t:CalendarItemType Complex Type] The type of Recurrence is t:RecurrenceType (section 2.2.4.20).");
+                    @"[In t:CalendarItemType Complex Type] The type of Recurrence is t:RecurrenceType (section 2.2.4.25).");
 
                 this.VerifyRecurrenceType(calendarItem.Recurrence, isSchemaValidated);
             }
@@ -1059,7 +1585,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     515,
-                    @"[In t:CalendarItemType Complex Type] The type of FirstOccurrence is t:OccurrenceInfoType (section 2.2.4.18).");
+                    @"[In t:CalendarItemType Complex Type] The type of FirstOccurrence is t:OccurrenceInfoType (section 2.2.4.22).");
 
                 this.VerifyOccurrenceInfoType(isSchemaValidated);
             }
@@ -1087,7 +1613,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     216,
-                    @"[In t:CalendarItemType Complex Type] The type of ModifiedOccurrences is t:NonEmptyArrayOfOccurrenceInfoType (section 2.2.4.17).");
+                    @"[In t:CalendarItemType Complex Type] The type of ModifiedOccurrences is t:NonEmptyArrayOfOccurrenceInfoType (section 2.2.4.21).");
 
                 this.VerifyNonEmptyArrayOfOccurrenceInfoType(calendarItem.ModifiedOccurrences, isSchemaValidated);
             }
@@ -1101,7 +1627,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     218,
-                    @"[In t:CalendarItemType Complex Type] The type of DeletedOccurrences is t:NonEmptyArrayOfDeletedOccurrencesType (section 2.2.4.16).");
+                    @"[In t:CalendarItemType Complex Type] The type of DeletedOccurrences is t:NonEmptyArrayOfDeletedOccurrencesType (section 2.2.4.20).");
 
                 this.VerifyNonEmptyArrayOfDeletedOccurrencesType(calendarItem.DeletedOccurrences, isSchemaValidated);
             }
@@ -1169,6 +1695,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     isSchemaValidated,
                     234,
                     @"[In t:CalendarItemType Complex Type] The type of NetShowUrl is xs:string.");
+            }
+
+            if (Common.IsRequirementEnabled(1278, this.Site) && calendarItem.InboxReminders != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2004");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2004
+                Site.CaptureRequirementIfIsTrue(
+                    isSchemaValidated,
+                    2004,
+                    @"[In t:CalendarItemType Complex Type] The type of complex type ""InboxReminders"" is ""t: ArrayOfInboxReminderType(section 2.2.4.3)"".");
+
+                this.VerifyArrayOfInboxReminderType(calendarItem.InboxReminders, isSchemaValidated);
             }
         }
 
@@ -1321,7 +1861,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     271,
-                    @"[In t:MeetingMessageType Complex Type] The type of ResponseType is t:ResponseTypeType (section 2.2.5.10).");
+                    @"[In t:MeetingMessageType Complex Type] The type of ResponseType is t:ResponseTypeType (section 2.2.5.12).");
             }
 
             if (!string.IsNullOrEmpty(meetingMessageType.UID))
@@ -1477,7 +2017,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     282,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of MeetingRequestType is t:MeetingRequestTypeType (section 2.2.5.7).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of MeetingRequestType is t:MeetingRequestTypeType (section 2.2.5.9).");
 
                 this.VerifyMeetingRequestTypeType(isSchemaValidated);
             }
@@ -1587,7 +2127,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     308,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of CalendarItemType is t:CalendarItemTypeType.");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of CalendarItemType is t:CalendarItemTypeType.(section 2.2.4.6)");
 
                 this.VerifyCalendarItemTypeType(isSchemaValidated);
             }
@@ -1615,7 +2155,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     314,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of RequiredAttendees is t:NonEmptyArrayOfAttendeesType (section 2.2.4.15).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of RequiredAttendees is t:NonEmptyArrayOfAttendeesType (section 2.2.4.19).");
 
                 this.VeirfyNonEmptyArrayOfAttendeesType(meetingRequestMessage.RequiredAttendees, isSchemaValidated);
             }
@@ -1743,7 +2283,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     338,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of Recurrence is t:RecurrenceType (section 2.2.4.20).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of Recurrence is t:RecurrenceType (section 2.2.4.25).");
 
                 this.VerifyRecurrenceType(meetingRequestMessage.Recurrence, isSchemaValidated);
             }
@@ -1757,7 +2297,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     340,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of FirstOccurrence is t:OccurrenceInfoType (section 2.2.4.18).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of FirstOccurrence is t:OccurrenceInfoType (section 2.2.4.22).");
 
                 this.VerifyOccurrenceInfoType(isSchemaValidated);
             }
@@ -1785,7 +2325,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     344,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of ModifiedOccurrences is t:NonEmptyArrayOfOccurrenceInfoType (section 2.2.4.17).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of ModifiedOccurrences is t:NonEmptyArrayOfOccurrenceInfoType (section 2.2.4.21).");
             }
 
             if (meetingRequestMessage.DeletedOccurrences != null)
@@ -1797,7 +2337,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 Site.CaptureRequirementIfIsTrue(
                     isSchemaValidated,
                     346,
-                    @"[In t:MeetingRequestMessageType Complex Type] The type of DeletedOccurrences is t:NonEmptyArrayOfDeletedOccurrencesType (section 2.2.4.16).");
+                    @"[In t:MeetingRequestMessageType Complex Type] The type of DeletedOccurrences is t:NonEmptyArrayOfDeletedOccurrencesType (section 2.2.4.20).");
             }
 
             if (meetingRequestMessage.IsOnlineMeetingSpecified)
@@ -1877,6 +2417,34 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // MeetingMessageType is the base type of MeetingResponseMessageType
             this.VerifyMeetingMessageType(meetingResponseMessageType, isSchemaValidated);
         }
+
+        /// <summary>
+        /// Verify the NonEmptyArrayOfAttendeesType structure
+        /// </summary>
+        /// <param name="arrayOfAttendee">Contains a list representing attendees and resources for a meeting</param>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyArrayOfInboxReminderType(InboxReminderType[] arrayOfInboxReminder, bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1345");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1345
+            Site.CaptureRequirementIfIsTrue(
+             isSchemaValidated,
+             1345,
+             @"[In t:ArrayOfInboxReminderType] [its schema is] <xs:complexType name=""ArrayOfInboxReminderType"" >
+  < xs:sequence >
+       < xs:element name = ""InboxReminder""
+            type = ""t:InboxReminderType"" minOccurs = ""0"" maxOccurs = ""unbounded"" />
+  </ xs:sequence >
+ </ xs:complexType > ");
+
+            foreach (InboxReminderType inboxReminderType in arrayOfInboxReminder)
+            {
+                this.VerifyInboxReminderType(inboxReminderType, isSchemaValidated);
+            }
+        }
+
 
         /// <summary>
         /// Verify the NonEmptyArrayOfAttendeesType structure
@@ -1973,7 +2541,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
     type=""xs:string""
     use=""optional""
   />
-</xs:complexType> (<76> Section 2.2.4.40:  Only Exchange 2007 supports the TimeZoneType complex type.)");
+</xs:complexType> (<57> Section 2.2.4.29:  Only Exchange 2007 supports the TimeZoneType complex type.)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R406");
@@ -1991,7 +2559,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.CaptureRequirementIfIsTrue(
              isSchemaValidated,
              408,
-             @"[In t:TimeZoneType Complex Type] The type of Standard is t:TimeChangeType (section 2.2.4.23).");
+             @"[In t:TimeZoneType Complex Type] The type of Standard is t:TimeChangeType (section 2.2.4.28).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R410");
@@ -2504,6 +3072,76 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                         />
                     </xs:sequence>
                 </xs:complexType>");
+        }
+
+        /// <summary>
+        /// Verify EmailReminderChangeType structure.
+        /// </summary>
+        /// <param name="emailReminderchangeType">The EmaiReminderChangeType object.</param>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyEmailReminderChangeType(EmailReminderChangeType emailReminderchangeType, bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1310");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1310
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                1310,
+                @"[In Appendix C: Product Behavior] Implementation does support the EmailReminderChangeType simple type, which specifies the type of the change. (Exchange 2016 and above follow this behavior.)");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1361");
+
+            // Verify MS-OXWSCDATA requirement: MS-OXWSMTGS_R1361
+            // The EmailReminderchangeType is the type of OccurrenceChange contained in InboxReminderType. If schema verification passes, it indicates the schemas of contained elements are also verified.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                1361,
+                @"[In t:EmailReminderChangeType] [its schema is] <xs:simpleType name=""EmailReminderChangeType"" >
+   < xs:restriction base = ""xs:string"" >
+    < xs:enumeration value = ""None"" />
+    < xs:enumeration value = ""Added"" />
+    < xs:enumeration value = ""Override"" />
+    < xs:enumeration value = ""Deleted"" />
+   </ xs:restriction >
+  </ xs:simpleType > ");
+        }
+
+        /// <summary>
+        /// Verify EmailReminderSendOption structure.
+        /// </summary>
+        /// <param name="emailReminderSendOption">The EmailReminderSendOption object.</param>
+        /// <param name="isSchemaValidated">The result of schema validation, true means valid.</param>
+        private void VerifyEmailReminderSendOption(EmailReminderSendOption emailReminderSendOption, bool isSchemaValidated)
+        {
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1312");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1312
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                1312,
+                @"[In Appendix C: Product Behavior] Implementation does support the EmailReminderSendOption simple type, which specifies the send options for the reminder. (Exchange 2016 and above follow this behavior.)");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1362");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1362
+            // The EmailReminderchangeType is the type of OccurrenceChange contained in InboxReminderType. If schema verification passes, it indicates the schemas of contained elements are also verified.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                1362,
+                @"[In t:EmailReminderSendOption] [its schema is] <xs:simpleType name=""EmailReminderSendOption"" >
+   < xs:restriction base = ""xs:string"" >
+     < xs:enumeration value = ""NotSet"" />
+     < xs:enumeration value = ""User"" />
+     < xs:enumeration value = ""AllAttendees"" />
+     < xs:enumeration value = ""Staff"" />
+     < xs:enumeration value = ""Customer"" />
+   </ xs:restriction >
+ </ xs:simpleType >
+c");
         }
 
         /// <summary>

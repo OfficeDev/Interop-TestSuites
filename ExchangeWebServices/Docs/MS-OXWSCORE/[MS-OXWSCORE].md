@@ -1,6 +1,6 @@
 ## [MS-OXWSCORE]: Core Items Web Service Protocol
-- [MS-OXWSCORE] v20150914 is used to develop the test suite.
-- Release date, 9/14/2015.
+- [MS-OXWSCORE] v20191119 is used to develop the test suite.
+- Release date, 11/19/2019.
 
 To find the new landing page for [MS-OXWSCORE], please visit https://msdn.microsoft.com/en-us/library/ee218241(v=exchg.80).aspx
 

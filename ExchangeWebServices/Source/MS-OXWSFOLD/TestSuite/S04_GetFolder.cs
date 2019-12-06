@@ -79,7 +79,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 foldersResponseInfo.Folders[0],
                 typeof(CalendarFolderType),
                 29,
-                @"[In t:ArrayOfFoldersType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.8).");
+                @"[In t:ArrayOfFoldersType Complex Type]The type of element CalendarFolder is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.5).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSFOLD_R2901");
@@ -597,7 +597,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             // Since R9901 and R100 are captured successfully, this requirement will be captured.
             this.Site.CaptureRequirement(
                 10011,
-                @"[In t:FolderType Complex Type]This element[UnreadCount] MUST equal the sum of all MessageType complex types ([MS-OXWSMSG] section 2.2.4.1) and PostItemType complex types ([MS-OXWSPOST] section 2.2.4.1) that have the IsRead property set to ""false"".");
+                @"[In t:FolderType Complex Type]This element[UnreadCount] MUST equal the sum of all MessageType complex types ([MS-OXWSMSG] section 2.2.4.3) and PostItemType complex types ([MS-OXWSPOST] section 2.2.4.1) that have the IsRead property set to ""false"".");
         }
 
         /// <summary>

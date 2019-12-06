@@ -46,7 +46,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             calendarItem.UID = Guid.NewGuid().ToString();
             calendarItem.Subject = this.Subject;
             calendarItem.Location = this.Location;
-            if (Common.IsRequirementEnabled(16505, this.Site))
+
+            if (Common.IsRequirementEnabled(4001, this.Site))
             {
                 calendarItem.LegacyFreeBusyStatus = LegacyFreeBusyType.WorkingElsewhere;
                 calendarItem.LegacyFreeBusyStatusSpecified = true;
@@ -63,19 +64,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
             CalendarItemType calendar = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", calendarItem.UID) as CalendarItemType;
             Site.Assert.IsNotNull(calendar, "The calendar should exist.");
-
-            if (Common.IsRequirementEnabled(16505, this.Site))
-            {
-                // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R16505");
-
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R16505
-                this.Site.CaptureRequirementIfAreEqual<LegacyFreeBusyType>(
-                    LegacyFreeBusyType.WorkingElsewhere,
-                    calendar.LegacyFreeBusyStatus,
-                    16505,
-                    @"[In Appendix C: Product Behavior] Implementation does support the LegacyFreeBusyStatus in t:CalendarItemType Complex Type which value set to ""WorkingElsewhere"" specifies the status as working outside the office. (Exchange 2013 and above follow this behavior.)");
-            }
 
             if (Common.IsRequirementEnabled(713, this.Site))
             {
@@ -141,16 +129,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             MeetingRequestMessageType meetingRequest = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Schedule.Meeting.Request", calendarItem.UID) as MeetingRequestMessageType;
             Site.Assert.IsNotNull(meetingRequest, "The update meeting request message should exist in attendee's inbox folder.");
 
-            if (Common.IsRequirementEnabled(28505, this.Site))
+            if (Common.IsRequirementEnabled(4001, this.Site))
             {
                 // Add the debug information
-                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R28505");
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R4001");
 
-                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R28505
+                // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R4001
                 this.Site.CaptureRequirementIfAreEqual<LegacyFreeBusyType>(
                     LegacyFreeBusyType.WorkingElsewhere,
                     meetingRequest.IntendedFreeBusyStatus,
-                    28505,
+                    "MS-OXWSCDATA",
+                    4001,
                     @"[In Appendix C: Product Behavior] Implementation does support the IntendedFreeBusyStatus which value set to ""WorkingElsewhere"" specifies the status as working outside the office. (Exchange 2013 and above follow this behavior.)");
             }
 
@@ -176,7 +165,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     meetingRequest.StartTimeZone,
                     718,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""StartTimeZone"" with type ""t:TimeZoneDefinitionType ([MS-OXWSGTZ] section 2.2.4.12)"" which specifies the time zone for the start of the meeting item. (Exchange 2010 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""StartTimeZone"" with type ""t:TimeZoneDefinitionType ([MS-OXWSGTZ] section 2.2.4.12)"" which specifies the time zone for the start of the meeting item. (Exchange 2010 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(719, this.Site))
@@ -189,7 +178,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     meetingRequest.EndTimeZone,
                     719,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""EndTimeZone"" with type ""t:TimeZoneDefinitionType"" which specifies the time zone for the end of the meeting item. (Exchange 2010 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""EndTimeZone"" with type ""t:TimeZoneDefinitionType"" which specifies the time zone for the end of the meeting item. (Exchange 2010 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(710, this.Site))
@@ -202,7 +191,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     meetingRequest.StartTimeZoneId,
                     710,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""StartTimeZoneId"" with type ""xs:string"" which specifies the start time zone identifier. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""StartTimeZoneId"" with type ""xs:string"" which specifies the start time zone identifier. (Exchange 2013 and above follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(711, this.Site))
@@ -215,7 +204,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 this.Site.CaptureRequirementIfIsNotNull(
                     meetingRequest.EndTimeZoneId,
                     711,
-                    @"[In Appendix C: Product Behavior] Implementation does support the complex type ""EndTimeZoneId"" with type ""xs:string"" which specifies the end time zone identifier. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix C: Product Behavior] Implementation does support the element ""EndTimeZoneId"" with type ""xs:string"" which specifies the end time zone identifier. (Exchange 2013 and above follow this behavior.)");
             }
             #endregion
 
@@ -918,6 +907,73 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
 
             #region Clean up organizer's calendar folders.
             this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is designed to test ErrorCalendarEndDateIsEarlierThanStartDate will be returned if end date is earlier than start date.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S02_TC13_UpdateMeetingErrorCalendarEndDateIsEarlierThanStartDate()
+        {
+            #region Define a calendar item
+            int timeInterval = this.TimeInterval;
+            CalendarItemType calendarItem = new CalendarItemType();
+            calendarItem.UID = Guid.NewGuid().ToString();
+            calendarItem.Subject = this.Subject;
+            calendarItem.Start = DateTime.Now.AddHours(timeInterval);
+            calendarItem.StartSpecified = true;
+            calendarItem.End = calendarItem.Start.AddDays(6);
+            calendarItem.EndSpecified = true;
+            #endregion
+
+            #region Create the recurring calendar item and extract the Id of an occurrence item
+            CreateItemType createItemRequest = new CreateItemType();
+            createItemRequest.Items = new NonEmptyArrayOfAllItemsType();
+            createItemRequest.Items.Items = new ItemType[] { calendarItem };
+            createItemRequest.MessageDispositionSpecified = true;
+            createItemRequest.MessageDisposition = MessageDispositionType.SaveOnly;
+            createItemRequest.SendMeetingInvitationsSpecified = true;
+            createItemRequest.SendMeetingInvitations = CalendarItemCreateOrDeleteOperationType.SendToNone;
+            CreateItemResponseType response = this.MTGSAdapter.CreateItem(createItemRequest);
+            Common.CheckOperationSuccess(response, 1, this.Site);
+            #endregion
+
+            #region Organizer updates the End element in the created meeting item with CalendarItemUpdateOperationType value set to SendOnlyToAll
+            CalendarItemType calendarUpdate = new CalendarItemType();
+            calendarUpdate.End = calendarItem.Start.AddMinutes(-1);
+            calendarUpdate.EndSpecified = true;
+
+            UpdateItemType updateItemRequest = new UpdateItemType();
+            updateItemRequest.ItemChanges = new ItemChangeType[1];
+            PathToUnindexedFieldType pathToUnindexedField = new PathToUnindexedFieldType();
+            pathToUnindexedField.FieldURI = UnindexedFieldURIType.calendarEnd;
+            SetItemFieldType setItemField = new SetItemFieldType();
+            setItemField.Item = pathToUnindexedField;
+            setItemField.Item1 = calendarUpdate;
+            ItemChangeType itemChange = new ItemChangeType();
+            itemChange.Item = (response.ResponseMessages.Items[0] as ItemInfoResponseMessageType).Items.Items[0].ItemId;
+            itemChange.Updates = new ItemChangeDescriptionType[] { setItemField };
+            updateItemRequest.ItemChanges[0] = itemChange;
+            updateItemRequest.SendMeetingInvitationsOrCancellationsSpecified = true;
+            updateItemRequest.SendMeetingInvitationsOrCancellations = CalendarItemUpdateOperationType.SendToNone;
+            UpdateItemResponseType updateItemResponse = this.MTGSAdapter.UpdateItem(updateItemRequest);
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1244");
+
+            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1244
+            Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.ErrorCalendarEndDateIsEarlierThanStartDate,
+                updateItemResponse.ResponseMessages.Items[0].ResponseCode,
+                1244,
+                @"[In Messages] ErrorCalendarDurationIsTooLong: Specifies that the item duration of a calendar item exceeds five years.");
+
+            #endregion
+
+            #region Clean up organizer's calendar and attendee's inbox, calendar deleteditems folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.deleteditems });
             #endregion
         }
         #endregion

@@ -38,7 +38,7 @@
         [TestCategory("MSOXWSCONT"), TestMethod()]
         public void MSOXWSCONT_S07_TC01_SetUserPhotoSuccess()
         {
-            Site.Assume.IsTrue(Common.IsRequirementEnabled(1275114, this.Site), "Implementation does not support the SetUserPhoto operation.");
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1275114, this.Site), "Implementation does support the SetUserPhoto operation.");
 
             #region Step 1: Call SetUserPhoto operation to set a photo to specific user.
             string emailAddress = string.Format("{0}@{1}", Common.GetConfigurationPropertyValue("ContactUserName", this.Site), Common.GetConfigurationPropertyValue("Domain", this.Site));
@@ -68,7 +68,15 @@
                 setUserPhotoResponse,
                 302081,
                 @"[In SetUserPhoto] [The protocol client sends a SetUserPhotoSoapIn request WSDL message] and the protocol server responds with a SetUserPhotoSoapOut response WSDL message");
-  
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275114");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R1275114
+            this.Site.CaptureRequirementIfIsNotNull(
+                setUserPhotoResponse,
+                1275114,
+                @"[In Appendix C: Product Behavior] Implementation does support the SetUserPhoto operation. (Exchange 2016 and above follow this behavior.)");
             #endregion
 
             #region Step 2: Call GetUserPhoto operation to get the photo which is set by step above.
@@ -332,6 +340,15 @@
                 getUserPhotoResponse.HasChanged,
                 30205601,
                 @"[In GetUserPhotoResponseMessageType] HasChanged element: If the value is true, the photo has changed.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R302058");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R302058
+            this.Site.CaptureRequirementIfIsNotNull(
+                getUserPhotoResponse.PictureData,
+                302058,
+                @"[In GetUserPhotoResponseMessageType] PictureData element: Specifies the binary data for the picture.");
 
             #endregion
         }
