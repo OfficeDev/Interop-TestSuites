@@ -143,15 +143,15 @@
     <xs:complexContent>
       <xs:extension base="t:ItemType">
         <xs:sequence>
-          <xs:element name="AntiLinkInfo" type="xs:string" minOccurs="0"/>
           <xs:element name="PersonIdGuid" type="t:GuidType" minOccurs="0"/>
           <xs:element name="PersonId" type="xs:int" minOccurs="0"/>
-          <xs:element name="ContactHandles" type="t:ArrayOfAbchPersonContactHandlesType" minOccurs="0"/>
-          <xs:element name="ContactCategories" type="t:ArrayOfStringsType" minOccurs="0"/>
+          <xs:element name="FavoriteOrder" type="xs:int" minOccurs="0"/>
+          <xs:element name="TrustLevel" type="xs:int" minOccurs="0"/>
           <xs:element name="RelevanceOrder1" type="xs:string" minOccurs="0"/>
           <xs:element name="RelevanceOrder2" type="xs:string" minOccurs="0"/>
-          <xs:element name="TrustLevel" type="xs:int" minOccurs="0"/>
-          <xs:element name="FavoriteOrder" type="xs:int" minOccurs="0"/>
+          <xs:element name="AntiLinkInfo" type="xs:string" minOccurs="0"/>
+          <xs:element name="ContactCategories" type="t:ArrayOfStringsType" minOccurs="0"/>
+          <xs:element name="ContactHandles" type="t:ArrayOfAbchPersonContactHandlesType" minOccurs="0"/>
           <xs:element name="ExchangePersonIdGuid" type="t:GuidType" minOccurs="0" />
         </xs:sequence>
       </xs:extension>

@@ -344,12 +344,12 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ManagementRole")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("DateTimePrecision")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/GetItem", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("GetItemResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public GetItemResponseType GetItem([System.Xml.Serialization.XmlElementAttribute("GetItem", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] GetItemType GetItem1)
@@ -400,11 +400,11 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/CreateItem", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("CreateItemResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public CreateItemResponseType CreateItem([System.Xml.Serialization.XmlElementAttribute("CreateItem", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] CreateItemType CreateItem1)
@@ -455,10 +455,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/DeleteItem", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("DeleteItemResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public DeleteItemResponseType DeleteItem([System.Xml.Serialization.XmlElementAttribute("DeleteItem", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] DeleteItemType DeleteItem1)
@@ -509,11 +509,11 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/UpdateItem", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("UpdateItemResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public UpdateItemResponseType UpdateItem([System.Xml.Serialization.XmlElementAttribute("UpdateItem", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] UpdateItemType UpdateItem1)
@@ -565,10 +565,10 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ManagementRole")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/UpdateItemInRecovera" +
             "bleItems", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
@@ -621,10 +621,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/MarkAllItemsAsRead", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("MarkAllItemsAsReadResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public MarkAllItemsAsReadResponseType MarkAllItemsAsRead([System.Xml.Serialization.XmlElementAttribute("MarkAllItemsAsRead", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] MarkAllItemsAsReadType MarkAllItemsAsRead1)
@@ -675,10 +675,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/MarkAsJunk", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("MarkAsJunkResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public MarkAsJunkResponseType MarkAsJunk([System.Xml.Serialization.XmlElementAttribute("MarkAsJunk", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] MarkAsJunkType MarkAsJunk1)
@@ -729,10 +729,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/MoveItem", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("MoveItemResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public MoveItemResponseType MoveItem([System.Xml.Serialization.XmlElementAttribute("MoveItem", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] MoveItemType MoveItem1)
@@ -783,10 +783,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/CopyItem", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("CopyItemResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public CopyItemResponseType CopyItem([System.Xml.Serialization.XmlElementAttribute("CopyItem", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] CopyItemType CopyItem1)
@@ -837,10 +837,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/SendItem", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("SendItemResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public SendItemResponseType SendItem([System.Xml.Serialization.XmlElementAttribute("SendItem", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] SendItemType SendItem1)
@@ -891,11 +891,11 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/CreateFolder", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("CreateFolderResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public CreateFolderResponseType CreateFolder([System.Xml.Serialization.XmlElementAttribute("CreateFolder", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] CreateFolderType CreateFolder1)
@@ -946,10 +946,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/DeleteFolder", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("DeleteFolderResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public DeleteFolderResponseType DeleteFolder([System.Xml.Serialization.XmlElementAttribute("DeleteFolder", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] DeleteFolderType DeleteFolder1)
@@ -1000,10 +1000,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/EmptyFolder", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("EmptyFolderResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public EmptyFolderResponseType EmptyFolder([System.Xml.Serialization.XmlElementAttribute("EmptyFolder", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] EmptyFolderType EmptyFolder1)
@@ -1054,11 +1054,11 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/UpdateFolder", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("UpdateFolderResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public UpdateFolderResponseType UpdateFolder([System.Xml.Serialization.XmlElementAttribute("UpdateFolder", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] UpdateFolderType UpdateFolder1)
@@ -1109,10 +1109,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/MoveFolder", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("MoveFolderResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public MoveFolderResponseType MoveFolder([System.Xml.Serialization.XmlElementAttribute("MoveFolder", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] MoveFolderType MoveFolder1)
@@ -1163,10 +1163,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/CopyFolder", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("CopyFolderResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public CopyFolderResponseType CopyFolder([System.Xml.Serialization.XmlElementAttribute("CopyFolder", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] CopyFolderType CopyFolder1)
@@ -1218,10 +1218,10 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ManagementRole")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/GetFolder", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("GetFolderResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
@@ -1273,10 +1273,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/CreateManagedFolder", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("CreateManagedFolderResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public CreateManagedFolderResponseType CreateManagedFolder([System.Xml.Serialization.XmlElementAttribute("CreateManagedFolder", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] CreateManagedFolderRequestType CreateManagedFolder1)
@@ -1327,11 +1327,11 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/CreateAttachment", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("CreateAttachmentResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public CreateAttachmentResponseType CreateAttachment([System.Xml.Serialization.XmlElementAttribute("CreateAttachment", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] CreateAttachmentType CreateAttachment1)
@@ -1382,10 +1382,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/DeleteAttachment", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("DeleteAttachmentResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public DeleteAttachmentResponseType DeleteAttachment([System.Xml.Serialization.XmlElementAttribute("DeleteAttachment", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] DeleteAttachmentType DeleteAttachment1)
@@ -1436,11 +1436,11 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/GetAttachment", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("GetAttachmentResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public GetAttachmentResponseType GetAttachment([System.Xml.Serialization.XmlElementAttribute("GetAttachment", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] GetAttachmentType GetAttachment1)
@@ -1491,10 +1491,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/UploadItems", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("UploadItemsResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public UploadItemsResponseType UploadItems([System.Xml.Serialization.XmlElementAttribute("UploadItems", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] UploadItemsType UploadItems1)
@@ -1545,11 +1545,11 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ManagementRole")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/ExportItems", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("ExportItemsResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public ExportItemsResponseType ExportItems([System.Xml.Serialization.XmlElementAttribute("ExportItems", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] ExportItemsType ExportItems1)
@@ -1600,10 +1600,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/SyncFolderHierarchy", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("SyncFolderHierarchyResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public SyncFolderHierarchyResponseType SyncFolderHierarchy([System.Xml.Serialization.XmlElementAttribute("SyncFolderHierarchy", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] SyncFolderHierarchyType SyncFolderHierarchy1)
@@ -1654,10 +1654,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/SyncFolderItems", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("SyncFolderItemsResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public SyncFolderItemsResponseType SyncFolderItems([System.Xml.Serialization.XmlElementAttribute("SyncFolderItems", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] SyncFolderItemsType SyncFolderItems1)
@@ -1709,10 +1709,10 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ManagementRole")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/FindFolder", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("FindFolderResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
@@ -1765,12 +1765,12 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Web.Services.Protocols.SoapHeaderAttribute("TimeZoneContext")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
         [System.Web.Services.Protocols.SoapHeaderAttribute("ManagementRole")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("DateTimePrecision")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/FindItem", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("FindItemResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public FindItemResponseType FindItem([System.Xml.Serialization.XmlElementAttribute("FindItem", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] FindItemType FindItem1)
@@ -1821,10 +1821,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/GetDelegate", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("GetDelegateResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public GetDelegateResponseMessageType GetDelegate([System.Xml.Serialization.XmlElementAttribute("GetDelegate", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] GetDelegateType GetDelegate1)
@@ -1875,10 +1875,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/AddDelegate", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("AddDelegateResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public AddDelegateResponseMessageType AddDelegate([System.Xml.Serialization.XmlElementAttribute("AddDelegate", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] AddDelegateType AddDelegate1)
@@ -1929,10 +1929,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/RemoveDelegate", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("RemoveDelegateResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public RemoveDelegateResponseMessageType RemoveDelegate([System.Xml.Serialization.XmlElementAttribute("RemoveDelegate", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] RemoveDelegateType RemoveDelegate1)
@@ -1983,10 +1983,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/UpdateDelegate", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("UpdateDelegateResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
         public UpdateDelegateResponseMessageType UpdateDelegate([System.Xml.Serialization.XmlElementAttribute("UpdateDelegate", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")] UpdateDelegateType UpdateDelegate1)
@@ -2141,10 +2141,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/CreateUserConfigurat" +
             "ion", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("CreateUserConfigurationResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
@@ -2196,10 +2196,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/DeleteUserConfigurat" +
             "ion", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("DeleteUserConfigurationResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
@@ -2251,10 +2251,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/GetUserConfiguration" +
             "", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("GetUserConfigurationResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
@@ -2306,10 +2306,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
-        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
         [System.Web.Services.Protocols.SoapHeaderAttribute("RequestServerVersionValue")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("MailboxCulture")]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ServerVersionInfoValue", Direction = System.Web.Services.Protocols.SoapHeaderDirection.Out)]
+        [System.Web.Services.Protocols.SoapHeaderAttribute("ExchangeImpersonation")]
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/exchange/services/2006/messages/UpdateUserConfigurat" +
             "ion", Use = System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle = System.Web.Services.Protocols.SoapParameterStyle.Bare)]
         [return: System.Xml.Serialization.XmlElementAttribute("UpdateUserConfigurationResponse", Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
@@ -9825,10 +9825,10 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
 
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumerCalendarIdType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressListIdType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FolderIdType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DistinguishedFolderIdType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumerCalendarIdType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressListIdType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -9836,106 +9836,6 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
     public abstract partial class BaseFolderIdType
     {
-    }
-
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
-    public partial class ConsumerCalendarIdType : BaseFolderIdType
-    {
-
-        private long ownerPuidField;
-
-        private long ownerCidField;
-
-        private bool ownerCidFieldSpecified;
-
-        private string calendarGuidField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public long OwnerPuid
-        {
-            get
-            {
-                return this.ownerPuidField;
-            }
-            set
-            {
-                this.ownerPuidField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public long OwnerCid
-        {
-            get
-            {
-                return this.ownerCidField;
-            }
-            set
-            {
-                this.ownerCidField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool OwnerCidSpecified
-        {
-            get
-            {
-                return this.ownerCidFieldSpecified;
-            }
-            set
-            {
-                this.ownerCidFieldSpecified = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string CalendarGuid
-        {
-            get
-            {
-                return this.calendarGuidField;
-            }
-            set
-            {
-                this.calendarGuidField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
-    public partial class AddressListIdType : BaseFolderIdType
-    {
-
-        private string idField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Id
-        {
-            get
-            {
-                return this.idField;
-            }
-            set
-            {
-                this.idField = value;
-            }
-        }
     }
 
     /// <remarks/>
@@ -10139,6 +10039,106 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         personmetadata,
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    public partial class ConsumerCalendarIdType : BaseFolderIdType
+    {
+
+        private long ownerPuidField;
+
+        private long ownerCidField;
+
+        private bool ownerCidFieldSpecified;
+
+        private string calendarGuidField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public long OwnerPuid
+        {
+            get
+            {
+                return this.ownerPuidField;
+            }
+            set
+            {
+                this.ownerPuidField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public long OwnerCid
+        {
+            get
+            {
+                return this.ownerCidField;
+            }
+            set
+            {
+                this.ownerCidField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool OwnerCidSpecified
+        {
+            get
+            {
+                return this.ownerCidFieldSpecified;
+            }
+            set
+            {
+                this.ownerCidFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string CalendarGuid
+        {
+            get
+            {
+                return this.calendarGuidField;
+            }
+            set
+            {
+                this.calendarGuidField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    public partial class AddressListIdType : BaseFolderIdType
+    {
+
+        private string idField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Id
+        {
+            get
+            {
+                return this.idField;
+            }
+            set
+            {
+                this.idField = value;
+            }
+        }
     }
 
     /// <remarks/>
@@ -16797,44 +16797,31 @@ namespace Microsoft.Protocols.TestSuites.Common
     public partial class AbchPersonItemType : ItemType
     {
 
-        private string antiLinkInfoField;
-
         private string personIdGuidField;
 
         private int personIdField;
 
         private bool personIdFieldSpecified;
 
-        private AbchPersonContactHandle[] contactHandlesField;
+        private int favoriteOrderField;
 
-        private string[] contactCategoriesField;
-
-        private string relevanceOrder1Field;
-
-        private string relevanceOrder2Field;
+        private bool favoriteOrderFieldSpecified;
 
         private int trustLevelField;
 
         private bool trustLevelFieldSpecified;
 
-        private int favoriteOrderField;
+        private string relevanceOrder1Field;
 
-        private bool favoriteOrderFieldSpecified;
+        private string relevanceOrder2Field;
+
+        private string antiLinkInfoField;
+
+        private string[] contactCategoriesField;
+
+        private AbchPersonContactHandle[] contactHandlesField;
 
         private string exchangePersonIdGuidField;
-
-        /// <remarks/>
-        public string AntiLinkInfo
-        {
-            get
-            {
-                return this.antiLinkInfoField;
-            }
-            set
-            {
-                this.antiLinkInfoField = value;
-            }
-        }
 
         /// <remarks/>
         public string PersonIdGuid
@@ -16877,56 +16864,29 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("ContactHandle", IsNullable = false)]
-        public AbchPersonContactHandle[] ContactHandles
+        public int FavoriteOrder
         {
             get
             {
-                return this.contactHandlesField;
+                return this.favoriteOrderField;
             }
             set
             {
-                this.contactHandlesField = value;
+                this.favoriteOrderField = value;
             }
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("String", IsNullable = false)]
-        public string[] ContactCategories
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool FavoriteOrderSpecified
         {
             get
             {
-                return this.contactCategoriesField;
+                return this.favoriteOrderFieldSpecified;
             }
             set
             {
-                this.contactCategoriesField = value;
-            }
-        }
-
-        /// <remarks/>
-        public string RelevanceOrder1
-        {
-            get
-            {
-                return this.relevanceOrder1Field;
-            }
-            set
-            {
-                this.relevanceOrder1Field = value;
-            }
-        }
-
-        /// <remarks/>
-        public string RelevanceOrder2
-        {
-            get
-            {
-                return this.relevanceOrder2Field;
-            }
-            set
-            {
-                this.relevanceOrder2Field = value;
+                this.favoriteOrderFieldSpecified = value;
             }
         }
 
@@ -16958,29 +16918,69 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        public int FavoriteOrder
+        public string RelevanceOrder1
         {
             get
             {
-                return this.favoriteOrderField;
+                return this.relevanceOrder1Field;
             }
             set
             {
-                this.favoriteOrderField = value;
+                this.relevanceOrder1Field = value;
             }
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool FavoriteOrderSpecified
+        public string RelevanceOrder2
         {
             get
             {
-                return this.favoriteOrderFieldSpecified;
+                return this.relevanceOrder2Field;
             }
             set
             {
-                this.favoriteOrderFieldSpecified = value;
+                this.relevanceOrder2Field = value;
+            }
+        }
+
+        /// <remarks/>
+        public string AntiLinkInfo
+        {
+            get
+            {
+                return this.antiLinkInfoField;
+            }
+            set
+            {
+                this.antiLinkInfoField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("String", IsNullable = false)]
+        public string[] ContactCategories
+        {
+            get
+            {
+                return this.contactCategoriesField;
+            }
+            set
+            {
+                this.contactCategoriesField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlArrayItemAttribute("ContactHandle", IsNullable = false)]
+        public AbchPersonContactHandle[] ContactHandles
+        {
+            get
+            {
+                return this.contactHandlesField;
+            }
+            set
+            {
+                this.contactHandlesField = value;
             }
         }
 
@@ -18759,10 +18759,10 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
 
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PathToExtendedFieldType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PathToUnindexedFieldType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PathToIndexedFieldType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PathToExceptionFieldType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PathToExtendedFieldType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -34998,7 +34998,6 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
 
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GetUserPhotoResponseType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GetConversationItemsResponseType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ApplyConversationActionResponseType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SearchMailboxesResponseType))]
@@ -35064,16 +35063,6 @@ namespace Microsoft.Protocols.TestSuites.Common
                 this.responseMessagesField = value;
             }
         }
-    }
-
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
-    public partial class GetUserPhotoResponseType : BaseResponseMessageType
-    {
     }
 
     /// <remarks/>
@@ -43576,6 +43565,48 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlRootAttribute("ExchangeImpersonation", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
+    public partial class ExchangeImpersonationType : System.Web.Services.Protocols.SoapHeader
+    {
+
+        private ConnectingSIDType connectingSIDField;
+
+        private System.Xml.XmlAttribute[] anyAttrField;
+
+        /// <remarks/>
+        public ConnectingSIDType ConnectingSID
+        {
+            get
+            {
+                return this.connectingSIDField;
+            }
+            set
+            {
+                this.connectingSIDField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAnyAttributeAttribute()]
+        public System.Xml.XmlAttribute[] AnyAttr
+        {
+            get
+            {
+                return this.anyAttrField;
+            }
+            set
+            {
+                this.anyAttrField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
     public partial class ServerVersionInfo : System.Web.Services.Protocols.SoapHeader
@@ -43774,6 +43805,49 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
+    [System.Xml.Serialization.XmlRootAttribute("MailboxCulture", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
+    public partial class MailboxCultureType : System.Web.Services.Protocols.SoapHeader
+    {
+
+        private System.Xml.XmlAttribute[] anyAttrField;
+
+        private string valueField;
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAnyAttributeAttribute()]
+        public System.Xml.XmlAttribute[] AnyAttr
+        {
+            get
+            {
+                return this.anyAttrField;
+            }
+            set
+            {
+                this.anyAttrField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlTextAttribute(DataType = "language")]
+        public string Value
+        {
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
+            }
+        }
+    }
+
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
     public partial class RequestServerVersion : System.Web.Services.Protocols.SoapHeader
@@ -43855,49 +43929,6 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
-    [System.Xml.Serialization.XmlRootAttribute("MailboxCulture", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
-    public partial class MailboxCultureType : System.Web.Services.Protocols.SoapHeader
-    {
-
-        private System.Xml.XmlAttribute[] anyAttrField;
-
-        private string valueField;
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAnyAttributeAttribute()]
-        public System.Xml.XmlAttribute[] AnyAttr
-        {
-            get
-            {
-                return this.anyAttrField;
-            }
-            set
-            {
-                this.anyAttrField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlTextAttribute(DataType = "language")]
-        public string Value
-        {
-            get
-            {
-                return this.valueField;
-            }
-            set
-            {
-                this.valueField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
     [System.Xml.Serialization.XmlRootAttribute("DateTimePrecision", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
     public partial class DateTimePrecisionType : System.Web.Services.Protocols.SoapHeader
     {
@@ -43915,48 +43946,6 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.textField = value;
-            }
-        }
-    }
-
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/types")]
-    [System.Xml.Serialization.XmlRootAttribute("ExchangeImpersonation", Namespace = "http://schemas.microsoft.com/exchange/services/2006/types", IsNullable = false)]
-    public partial class ExchangeImpersonationType : System.Web.Services.Protocols.SoapHeader
-    {
-
-        private ConnectingSIDType connectingSIDField;
-
-        private System.Xml.XmlAttribute[] anyAttrField;
-
-        /// <remarks/>
-        public ConnectingSIDType ConnectingSID
-        {
-            get
-            {
-                return this.connectingSIDField;
-            }
-            set
-            {
-                this.connectingSIDField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAnyAttributeAttribute()]
-        public System.Xml.XmlAttribute[] AnyAttr
-        {
-            get
-            {
-                return this.anyAttrField;
-            }
-            set
-            {
-                this.anyAttrField = value;
             }
         }
     }
