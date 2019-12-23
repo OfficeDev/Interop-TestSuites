@@ -27,11 +27,6 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="GetUserPhotoResponseType">
-    <xs:complexContent>
-      <xs:extension base="m:BaseResponseMessageType"/>
-    </xs:complexContent>
-  </xs:complexType>
   <xs:element name="GetUserPhotoResponse"
         type="m:GetUserPhotoResponseMessageType"/>
   <xs:complexType name="SetUserPhotoType">

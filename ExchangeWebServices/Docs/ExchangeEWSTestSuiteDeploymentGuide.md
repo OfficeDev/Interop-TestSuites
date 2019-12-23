@@ -71,6 +71,7 @@ following versions of Exchange Server:
 -   Microsoft Exchange Server 2010 Service Pack 3 (SP3)
 -   Microsoft Exchange Server 2013 Service Pack 1 (SP1)
 -	Microsoft Exchange Server 2016
+-	Microsoft Exchange Server 2019
 
 The following table describes the required server roles for a
 test suite deployment with Microsoft implementation. Installing
@@ -235,7 +236,8 @@ configuration script will be required.
 |               |  Mailbox  |  MSOXWSMSG\_Room01  |  Mailbox type room|  
 |  **MS-OXWSMTGS** |  Mailbox|  MSOXWSMTGS\_User01 |  Mailbox type user|  
 |                |  Mailbox  |  MSOXWSMTGS\_User02 |  Mailbox type user|  
-|                |  Mailbox  |  MSOXWSMTGS\_Room01 |  Mailbox type room|  
+|                |  Mailbox  |  MSOXWSMTGS\_Room01 |  Mailbox type room|
+|                |  Mailbox  |  MSOXWSMTGS\_User03 |  Mailbox type user|  
 |  **MS-OXWSSYNC** |  Mailbox|  MSOXWSSYNC\_User01 |  Mailbox type user|  
 |                |  Mailbox  |  MSOXWSSYNC\_User02 |  Mailbox type user|  
 |  **MS-OXWSTASK** |  Mailbox|  MSOXWSTASK\_User01 |  Mailbox type user|  
@@ -261,7 +263,7 @@ steps explain what needs to be created or configured on the SUT to run the test 
 	MSOXWSCORE\_User01, MSOXWSCORE\_User02, MSOXWSFOLD\_User01,
 	MSOXWSFOLD\_User02, MSOXWSMSG\_User01, MSOXWSMSG\_User02,
 	MSOXWSMSG\_User03, MSOXWSMSG\_Room01, MSOXWSMTGS\_User01,
-	MSOXWSMTGS\_User02, MSOXWSMTGS\_Room01, MSOXWSSYNC\_User01,
+	MSOXWSMTGS\_User02, MSOXWSMTGS\_Room01, MSOXWSMTGS\_User03, MSOXWSSYNC\_User01,
 	MSOXWSSYNC\_User02, MSOXWSTASK\_User01
 
 1.  Configure Secure Sockets Layer (SSL) as **not required** and set to
@@ -417,6 +419,8 @@ Configuration file | Description
 **MS-XXXX\_ExchangeServer2007\_SHOULDMAY.deployment.ptfconfig** | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2007 Service Pack 3 (SP3).
 **MS-XXXX\_ExchangeServer2010\_SHOULDMAY.deployment.ptfconfig** | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2010 Service Pack 3 (SP3).
 **MS-XXXX\_ExchangeServer2013\_SHOULDMAY.deployment.ptfconfig** | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2013 Service Pack 1 (SP1).
+**MS-XXXX\_ExchangeServer2016\_SHOULDMAY.deployment.ptfconfig** | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2016.
+**MS-XXXX\_ExchangeServer2019\_SHOULDMAY.deployment.ptfconfig** | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2019.
 
 ### Configuring the test suite client using the setup configuration script
 
