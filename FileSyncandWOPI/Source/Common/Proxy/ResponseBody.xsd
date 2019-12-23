@@ -36,7 +36,6 @@
     </xs:union>
   </xs:simpleType>
 
-
   <xs:simpleType name="VersionNumberType">
     <xs:restriction base="xs:unsignedShort">
       <xs:minInclusive value="2"/>
@@ -142,7 +141,6 @@
     </xs:restriction>
   </xs:simpleType>
 
-
   <xs:simpleType name="CoauthStatusType">
     <xs:restriction base="xs:string">
       <!--None-->
@@ -153,8 +151,6 @@
       <xs:enumeration value="Coauthoring"/>
     </xs:restriction>
   </xs:simpleType>
-
-
 
   <xs:simpleType name="UserNameType">
     <xs:restriction base="xs:string">
@@ -180,19 +176,8 @@
 
   <!--definition of attribute groups-->
   <xs:attributeGroup name="SubResponseDataOptionalAttributes">
-    <xs:attribute name="Etag" type="xs:string" use="optional" />
-    <xs:attribute name="CreateTime" type="xs:integer" use="optional"/>
-    <xs:attribute name="LastModifiedTime" type="xs:integer" use="optional"/>
-    <xs:attribute name="ModifiedBy" type="tns:UserNameType" use="optional" />
-    <xs:attribute name="CoalesceErrorMessage" type="xs:string" use="optional"/>
-    <xs:attribute name="CoalesceHResult" type="xs:integer" use="optional"/>
-    <xs:attribute name="ContainsHotboxData" type="tns:TRUEFALSE" use="optional"/>
-    <xs:attribute name="HaveOnlyDemotionChanges" type="tns:TRUEFALSE" use="optional"/>
-    <xs:attribute name="UserName" type="tns:UserNameType" use="optional"/>
-    <xs:attribute name="UserEmailAddress" type="xs:string" use="optional"/>
-    <xs:attribute name="UserSIPAddress" type="xs:string" use="optional" />
-    <xs:attribute name="UserIsAnonymous" type="xs:boolean" use="optional" />
-    <xs:attribute name="UserLogin" type="tns:UserLoginType" use="required"/>
+    <xs:attributeGroup ref="tns:CellSubResponseDataOptionalAttributes"/>
+    <xs:attributeGroup ref="tns:WhoAmISubResponseDataOptionalAttributes"/>
     <xs:attribute name="ServerTime" type="xs:positiveInteger" use="optional"/>
     <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
     <xs:attribute name="CoauthStatus" type="tns:CoauthStatusType" use="optional"/>
@@ -464,12 +449,11 @@
       <xs:extension base="tns:SubResponseType">
         <xs:sequence minOccurs="0" maxOccurs="1">
           <xs:element name="SubResponseData" type="tns:GetDocMetaInfoSubResponseDataType"/>
-
-
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  
   <xs:complexType name="GetVersionsSubResponseType">
     <xs:complexContent>
       <xs:extension base="tns:SubResponseType">
@@ -479,6 +463,7 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  
   <xs:element name="GetVersionsResponse">
     <xs:complexType>
       <xs:sequence>
@@ -579,7 +564,17 @@
      </xs:extension>
    </xs:complexContent>
  </xs:complexType>
-  
+
+ <xs:complexType name="PropertiesSubResponseType">
+  <xs:complexContent>
+    <xs:extension base="tns:SubResponseType">
+      <xs:sequence minOccurs="0" maxOccurs="1">
+        <xs:element name="SubResponseData" type="tns:PropertiesSubResponseDataType" />
+      </xs:sequence>
+    </xs:extension>
+  </xs:complexContent>
+ </xs:complexType>
+
   <!--One SubrequestElement type that encapsulates the defintion of all Subrequest types. -->
   <xs:complexType name="SubResponseElementGenericType">
     <xs:complexContent>
@@ -592,15 +587,6 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-<xs:complexType name="PropertiesSubResponseType">
-   <xs:complexContent>
-     <xs:extension base="tns:SubResponseType">
-       <xs:sequence minOccurs="0" maxOccurs="1">
-          <xs:element name="SubResponseData" type="tns:PropertiesSubResponseDataType" />
-       </xs:sequence>
-     </xs:extension>
-   </xs:complexContent>
- </xs:complexType>
 
   <!--definition of simple elements-->
 
@@ -626,13 +612,13 @@
       </xs:sequence>
       <xs:attribute name="Url" type="xs:string" use="optional"/>
       <xs:attribute name="UrlIsEncoded" type="tns:TRUEFALSE" use="optional"/>
-      <xs:attribute name="RequestToken" type="xs:nonNegativeInteger" use="required" />
+      <xs:attribute name="RequestToken" type="xs:nonNegativeInteger" use="optional" />
       <xs:attribute name="HealthScore" type="xs:integer" use="required"/>
       <xs:attribute name="ErrorCode" type="tns:GenericErrorCodeTypes" use="optional" />
       <xs:attribute name="ErrorMessage" type="xs:string" use="optional"/>
       <xs:attribute name="SuggestedFileName" type="xs:string" use="optional" />
       <xs:attribute name="ResourceID" type="xs:string" use="optional"/>
-      <xs:attribute name="IntervalOverride" type="xs:integer" use="optional"/>
+      <xs:attribute name="IntervalOverride" type="xs:nonNegativeInteger" use="optional"/>
     </xs:complexType>
   </xs:element>
 
@@ -645,7 +631,4 @@
       <xs:attribute name="WebUrlIsEncoded" type="tns:TRUEFALSE" use="optional"/>
     </xs:complexType>
   </xs:element>
-
 </xs:schema>
-
-
