@@ -141,7 +141,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTP",
                          794,
-                         @"[In UserNameType] UserNameType is the type definition of the UserName attribute, which is part of the subresponse for a Who Am I subrequest.");
+                         @"[In UserNameType] UserNameType is the type definition of the UserName attribute.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2130
                 site.CaptureRequirement(

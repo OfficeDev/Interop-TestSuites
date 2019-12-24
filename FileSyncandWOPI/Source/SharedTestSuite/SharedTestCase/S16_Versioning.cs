@@ -252,7 +252,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                     "MS-FSSHTTP",
                     11255,
-                    @"[In Restore Version] The protocol server processes this request by restoring the file to its state in the version specified by the VersionNumber attribute.");
+                    @"[In Restore Version] The protocol server processes this request by restoring the file to its state in the version specified by the Version attribute.");
             }
             else
             {
@@ -322,7 +322,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     SharedTestSuiteHelper.ConvertToErrorCodeType(versioningSubResponse.ErrorCode, this.Site),
                     "MS-FSSHTTP",
                     11256,
-                    @"[In Restore Version] If the VersionNumber attribute specifies a version that doesn't exist, the protocol server returns an error status set to ""VersionNotFound"".");
+                    @"[In Restore Version] If the Version attribute specifies a version that doesn't exist, the protocol server returns an error status set to ""VersionNotFound"".");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11083
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(

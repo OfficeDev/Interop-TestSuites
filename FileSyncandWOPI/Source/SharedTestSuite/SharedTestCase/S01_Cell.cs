@@ -880,7 +880,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     Site.CaptureRequirement(
                              "MS-FSSHTTP",
                              3089,
-                             @"[In Appendix B: Product Behavior] When [GetFileProps is] set to true in Put Changes subrequest, the implementation does return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] When [GetFileProps is] set to true in Put Changes subrequest, the implementation does return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
             }
             else
