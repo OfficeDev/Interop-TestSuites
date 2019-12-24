@@ -92,6 +92,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          10004,
                          @"[In Appendix B: Product Behavior] Implementation does support this operation[GetVersions]. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
 
+                // Capture the requirement MS-FSSHTTP_R2503
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "False",
+                    cellStoreageResponse.ResponseCollection.Response[0].UrlIsEncoded,
+                         "MS-FSSHTTP",
+                         2503,
+                         @"Else[if no], [UrlIsEncoded set to] false.");
+
                 VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
 
                 // MinorVersion 3 indicates the protocol server is capable of performing ResourceID specific behavior.

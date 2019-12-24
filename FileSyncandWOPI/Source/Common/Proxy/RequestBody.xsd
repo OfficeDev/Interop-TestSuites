@@ -12,13 +12,24 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <!--<xs:simpleType name="LockTypes">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="None" />
-      <xs:enumeration value="SchemaLock" /> 
-      <xs:enumeration value="ExclusiveLock" />
-    </xs:restriction>
-  </xs:simpleType>-->
+  <xs:simpleType name="LockTypes">
+    <xs:union>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="None" />
+          <xs:enumeration value="SchemaLock" />
+          <xs:enumeration value="ExclusiveLock" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:enumeration value="0" />
+          <xs:enumeration value="1" />
+          <xs:enumeration value="2" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:union>
+  </xs:simpleType>
 
   <xs:simpleType name="VersionNumberType">
     <xs:restriction base="xs:unsignedShort">
@@ -177,33 +188,19 @@
       <xs:enumeration value="PropertyGet"/>
     </xs:restriction>
   </xs:simpleType>
-  <!--definition of attributes-->
-  <!--definition of attribute groups-->
-  <xs:attributeGroup name="SubRequestDataOptionalAttributes">
-    <!--CellSubRequestDataOptionalAttributes-->
-    <xs:attribute name="Coalesce" type="xs:boolean" use="optional" />
-    <xs:attribute name="GetFileProps" type="xs:boolean" use="optional" />
-    <xs:attribute name="CoauthVersioning" type="xs:boolean" use="optional" />
-    <xs:attribute name="Etag" type="xs:string" use="optional" />
-    <xs:attribute name="ContentChangeUnit" type="xs:string" use="optional" />
-    <xs:attribute name="ClientFileID" type="xs:string" use="optional" />
-    <xs:attribute name="PartitionID" type="tns:guid" use="optional" />
-    <xs:attribute name="ExpectNoFileExists" type="xs:boolean" use="optional" />
-    <xs:attribute name="BypassLockID" type="xs:string" use="optional" />
-    <xs:attribute name="LastModifiedTime" type="xs:integer" use="optional"/>
-    <!--CoauthSubRequestDataOptionalAttributes-->
-    <xs:attribute name="CoauthRequestType" type="tns:CoauthRequestTypes" use="optional"/>
-    <!--SchemaLockSubRequestDataOptionalAttributes-->
-    <xs:attribute name="SchemaLockRequestType" type="tns:SchemaLockRequestTypes" use="optional"/>
-    <!--ExclusiveLockSubRequestDataOptionalAttributes-->
-    <xs:attribute name="ExclusiveLockRequestType" type="tns:ExclusiveLockRequestTypes" use="optional"/>
-    <!--EditorsTableSubRequestDataOptionalAttributes-->
-    <xs:attribute name="EditorsTableRequestType" type="tns:EditorsTableRequestTypes" use="optional"/>
-    <!--FileOperationSubRequestDataOptionalAttributes-->
-    <xs:attribute name="FileOperationRequestType" type="tns:FileOperationRequestTypes" use="optional"/>
-    <!--VersioningSubRequestDataOptionalAttributes-->
-    <xs:attribute name="VersioningRequestType" type="tns:VersioningRequestTypes" use="optional"/>
 
+  <!--definition of attributes-->
+
+  <!--definition of attribute groups-->
+    <xs:attributeGroup name="SubRequestDataOptionalAttributes">
+    <xs:attributeGroup ref="tns:CellSubRequestDataOptionalAttributes"/>
+    <xs:attributeGroup ref="tns:CoauthSubRequestDataOptionalAttributes"/>
+    <xs:attributeGroup ref="tns:SchemaLockSubRequestDataOptionalAttributes"/>
+    <xs:attributeGroup ref="tns:ExclusiveLockSubRequestDataOptionalAttributes"/>
+    <xs:attributeGroup ref="tns:EditorsTableSubRequestDataOptionalAttributes"/>
+    <xs:attributeGroup ref="tns:FileOperationSubRequestDataOptionalAttributes"/>
+    <xs:attributeGroup ref="tns:VersioningSubRequestDataOptionalAttributes"/>
+    <xs:attributeGroup ref="tns:PropertiesSubRequestDataOptionalAttributes"/>
     <xs:attribute name="ClientID" type="xs:string" use="optional"/>
     <xs:attribute name="AllowFallbackToExclusive" type="xs:boolean" use="optional" />
     <xs:attribute name="ReleaseLockOnConversionToExclusiveFailure" type="xs:boolean" use="optional"/>
@@ -224,7 +221,7 @@
       <xs:pattern value="[0-9]+[.][0-9]+" />
     </xs:restriction>
   </xs:simpleType>
-
+  
   <xs:attributeGroup name="CellSubRequestDataOptionalAttributes">
     <xs:attribute name="Coalesce" type="xs:boolean" use="optional" />
     <xs:attribute name="GetFileProps" type="xs:boolean" use="optional" />
@@ -318,6 +315,38 @@
     <xs:attribute name="Timeout" type="xs:integer" use="optional" />
     <xs:attribute name="Key" type="xs:string" use="optional" />
     <xs:attribute name="Value" type="xs:base64Binary" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="FileOperationSubRequestDataType">
+    <xs:attributeGroup ref="tns:FileOperationSubRequestDataOptionalAttributes"/>
+    <xs:attribute name="NewFileName" type="xs:string" use="optional" />
+    <xs:attribute name="ExclusiveLockID" type="xs:string" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="VersioningSubRequestDataType">
+    <xs:attributeGroup ref="tns:VersioningSubRequestDataOptionalAttributes"/>
+    <xs:attribute name="Version" type="tns:FileVersionNumberType" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="AmIAloneSubRequestDataType">
+    <xs:attribute name="TransitionID" type="tns:guid" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="PropertiesSubRequestDataType">
+    <xs:sequence>
+      <xs:element name="PropertyIds" minOccurs="0" maxOccurs="1" type="tns:PropertyIdsType"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="tns:PropertiesSubRequestDataOptionalAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="PropertyIdsType">
+    <xs:sequence>
+      <xs:element name="PropertyId" minOccurs="0" maxOccurs="unbounded" type="tns:PropertyIdType" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PropertyIdType">
+    <xs:attribute name="id" type="xs:string" use="required" />
   </xs:complexType>
 
   <xs:complexType name="SubRequestDataGenericType" mixed="true">
@@ -418,49 +447,29 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <!--One SubrequestElement type that encapsulates the definition of all Subrequest types.  -->
-  <xs:complexType name="SubRequestElementGenericType" mixed="true">
-    <xs:complexContent>
-      <xs:extension base="tns:SubRequestType">
-        <xs:all>
-          <xs:element name="SubRequestData" minOccurs="0" maxOccurs="1" type="tns:SubRequestDataGenericType" />
-        </xs:all>
-        <xs:attribute name="Type" type="tns:SubRequestAttributeType" use="required" />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
+
   <xs:complexType name="FileOperationSubRequestType">
     <xs:complexContent>
       <xs:extension base="tns:SubRequestType">
         <xs:sequence minOccurs="1" maxOccurs="1">
           <xs:element name="SubRequestData" type="tns:FileOperationSubRequestDataType" />
         </xs:sequence>
-        <xs:attribute name="Type" type="tns:SubRequestAttributeType" use="required" />
+        <xs:attribute name="Type" type="tns:SubRequestAttributeType" use="required" fixed="FileOperation" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="FileOperationSubRequestDataType">
-    <xs:attributeGroup ref="tns:FileOperationSubRequestDataOptionalAttributes"/>
-    <xs:attribute name="NewFileName" type="xs:string" use="optional" />
-    <xs:attribute name="ExclusiveLockID" type="xs:string" use="optional"/>
-  </xs:complexType>
+
   <xs:complexType name="VersioningSubRequestType">
     <xs:complexContent>
       <xs:extension base="tns:SubRequestType">
         <xs:sequence minOccurs="1" maxOccurs="1">
           <xs:element name="SubRequestData" type="tns:VersioningSubRequestDataType" />
         </xs:sequence>
-        <xs:attribute name="Type" type="tns:SubRequestAttributeType" use="required" />
+        <xs:attribute name="Type" type="tns:SubRequestAttributeType" use="required" fixed="Versioning" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="VersioningSubRequestDataType">
-    <xs:attributeGroup ref="tns:VersioningSubRequestDataOptionalAttributes"/>
-    <xs:attribute name="Version" type="tns:FileVersionNumberType" use="optional"/>
-  </xs:complexType>
-  <xs:complexType name="AmIAloneSubRequestDataType">
-    <xs:attribute name="TransitionID" type="tns:guid" use="optional"/>
-  </xs:complexType>
+
   <xs:complexType name="AmIAloneSubRequestType">
     <xs:complexContent>
       <xs:extension base="tns:SubRequestType">
@@ -488,21 +497,17 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="PropertiesSubRequestDataType">
-    <xs:sequence>
-      <xs:element name="PropertyIds" minOccurs="0" maxOccurs="1" type="tns:PropertyIdsType"/>
-    </xs:sequence>
-    <xs:attributeGroup ref="tns:PropertiesSubRequestDataOptionalAttributes"/>
-  </xs:complexType>
 
-  <xs:complexType name="PropertyIdsType">
-    <xs:sequence>
-      <xs:element name="PropertyId" minOccurs="0" maxOccurs="unbounded" type="tns:PropertyIdType" />
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="PropertyIdType">
-    <xs:attribute name="id" type="xs:string" use="required" />
+  <!--One SubrequestElement type that encapsulates the definition of all Subrequest types.  -->
+  <xs:complexType name="SubRequestElementGenericType" mixed="true">
+    <xs:complexContent>
+      <xs:extension base="tns:SubRequestType">
+        <xs:all>
+          <xs:element name="SubRequestData" minOccurs="0" maxOccurs="1" type="tns:SubRequestDataGenericType" />
+        </xs:all>
+        <xs:attribute name="Type" type="tns:SubRequestAttributeType" use="required" />
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
 
   <!--definition of simple elements-->

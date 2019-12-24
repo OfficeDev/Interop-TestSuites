@@ -644,7 +644,7 @@
           <xs:attribute name="ErrorMessage" type="xs:string" use="optional"/>
           <xs:attribute name="SuggestedFileName" type="xs:string" use="optional" />
           <xs:attribute name="ResourceID" type="xs:string" use="optional"/>
-           <xs:attribute name="IntervalOverride" type="xs:integer" use="optional"/>
+          <xs:attribute name="IntervalOverride" type="xs:nonNegativeInteger" use="optional"/>
         </xs:complexType>
       </xs:element>
 
