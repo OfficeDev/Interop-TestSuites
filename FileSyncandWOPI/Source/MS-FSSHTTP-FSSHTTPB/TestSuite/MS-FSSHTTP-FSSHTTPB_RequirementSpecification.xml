@@ -1352,9 +1352,9 @@ The RequestVersion element specifies the version-specific information about the 
 		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In Request][ParentFolderResourceID]This attribute SHOULD only be used for the file content upload cell subrequest. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2101</ns1:REQ_ID>
@@ -1769,11 +1769,20 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2103</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response][UrlIsEncoded]Set to true if yes; Else false.</ns1:Description>
+		<ns1:Description>[In Response][UrlIsEncoded]Set to true if yes; </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R2503</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
+		<ns1:Description>[In Response]Else[if no], [UrlIsEncoded set to] false.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R105</ns1:REQ_ID>
@@ -2085,17 +2094,26 @@ An exception occurred during the processing of a subrequest that was not entirel
 		<ns1:Description>[In ResponseCollection]WebUrlIsEncoded: A TRUEFALSE value that specifies whether WebUrl is encoded. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2106</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.6</ns1:Doc_Sect>
-		<ns1:Description>[In ResponseCollection][WebUrlIsEncoded]Set to true if yes; Else false.</ns1:Description>
+		<ns1:Description>[In ResponseCollection][WebUrlIsEncoded]Set to true if yes;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R21051</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.6</ns1:Doc_Sect>
+		<ns1:Description>[In ResponseCollection]Else[if no], [WebUrlIsEncoded set to] false.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R122</ns1:REQ_ID>
@@ -2906,7 +2924,8 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID/>
+		<ns1:REQ_ID>MS-FSSHTTP_R2501</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In SubRequestDataGenericType]AmIAloneSubRequestDataType [describes] type definition for Am I Alone subrequest data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2914,7 +2933,8 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID/>
+		<ns1:REQ_ID>MS-FSSHTTP_R2502</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In SubRequestDataGenericType]PropertiesSubRequestDataType [describes] type definition for properties subrequest data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -3227,7 +3247,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2117</ns1:REQ_ID>
@@ -3236,7 +3256,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2118</ns1:REQ_ID>
@@ -3245,7 +3265,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R196</ns1:REQ_ID>
@@ -13985,10 +14005,9 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Doc_Sect>2.3.1.46</ns1:Doc_Sect>
 		<ns1:Description>[In AmIAloneSubRequestType]The AmIAloneSubRequestType complex type contains information about an AmIAlone subrequest. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R22399.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2240</ns1:REQ_ID>
@@ -14179,10 +14198,9 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Doc_Sect>2.3.1.49</ns1:Doc_Sect>
 		<ns1:Description>[In LockStatusSubRequestType]The LockStatusSubRequestType complex type contains information about a LockStatus subrequest. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R22588.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2259</ns1:REQ_ID>
@@ -14364,7 +14382,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	&lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -14459,10 +14477,9 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Doc_Sect>2.3.1.53</ns1:Doc_Sect>
 		<ns1:Description>[PropertiesSubRequestType]The PropertiesSubRequestType complex type contains information about a Properties subrequest. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R22866.</ns1:VerificationComment>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2287</ns1:REQ_ID>
@@ -14809,7 +14826,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Description>[PropertyValueType]value: A string that identifies the value of the property.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -23665,7 +23682,7 @@ Otherwise[the processing of the GetVersions subrequest by the protocol server ge
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11232</ns1:REQ_ID>
@@ -23902,7 +23919,7 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2345</ns1:REQ_ID>
@@ -24057,7 +24074,7 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2362</ns1:REQ_ID>
@@ -24490,7 +24507,7 @@ Property Get</ns1:Description>
 		<ns1:Description>[Property Get]The properties to be retrieved is specified by the PropertyIds element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -24669,69 +24686,6 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support SuggestedFileName to specify that the suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request. (&lt;13&gt; Section 2.2.3.5:  The SuggestedFileName attribute is not supported by SharePoint Server 2010 and SharePoint Server 2013.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11024:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R22399</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the AmIAlone subrequest. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above support this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R2239:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R22398</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the AmIAlone subrequest. (Microsoft SharePoint Server 2010 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R2239:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R22588</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the LockStatus SubRequest. (Microsoft SharePoint Server 2016 and above support this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R2258:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R22589</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the LockStatus subrequest. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R2258:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R22866</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support the Properties SubRequest. (Microsoft SharePoint Server 2016 and above support this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R2286:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R22867</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the Properties subrequest. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R2286:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30386,7 +30340,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: 1345.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTPB_R1345.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R1214</ns1:REQ_ID>
@@ -30775,7 +30729,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R1217</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request Message Syntax]F – Request Version Token knowledge (1 bit, optional): If set, a bit that specifies to return the Version Token Knowledge (section 2.2.1.13.6); otherwise, Version Token Knowledge is not included.</ns1:Description>
+		<ns1:Description>[In Request Message Syntax]F – Request Version Token knowledge (1 bit, optional): If set, a bit that specifies to return the Version Token Knowledge (section 2.2.1.13.6); </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
