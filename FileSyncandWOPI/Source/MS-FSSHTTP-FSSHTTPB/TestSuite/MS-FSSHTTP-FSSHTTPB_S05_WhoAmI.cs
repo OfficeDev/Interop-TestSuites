@@ -152,7 +152,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                                   m.Success && m.Index > 0,
                                   "MS-FSSHTTP",
                                   3086,
-                                  @"[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute which is part of the subresponse for a Who Am I subrequest. <28> Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
+                                  @"[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute which is part of the subresponse for a Who Am I subrequest. <34> Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
                 }
                 else
                 {
@@ -206,7 +206,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              isR3006Verified,
                              "MS-FSSHTTP",
                              3006,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. <8> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. <11> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3007
@@ -280,7 +280,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              isR3008Verified,
                              "MS-FSSHTTP",
                              3008,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. <8> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. <11> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3009
@@ -290,7 +290,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              response.ResponseCollection,
                              "MS-FSSHTTP",
                              3009,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <11> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
                 }
             }
             else

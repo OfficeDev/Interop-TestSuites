@@ -90,7 +90,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
             site.Log.Add(
                          LogEntryKind.Debug,
-                        "Actual GUID value {0}, expect the value either 327A35F6-0761-4414-9686-51E900667A4D, 3A76E90E-8032-4D0C-B9DD-F3C65029433E, 0ABE4F35-01DF-4134-A24A-7C79F0859844 or 10091F13-C882-40FB-9886-6533F934C21D for MS-FSSHTTPB_R364.",
+                        "Actual GUID value {0}, expect the value either 327A35F6-0761-4414-9686-51E900667A4D, 3A76E90E-8032-4D0C-B9DD-F3C65029433E, 0ABE4F35-01DF-4134-A24A-7C79F0859844 or 10091F13-C882-40FB-9886-6533F934C21D or ,BF12E2C1-E64F-4959-8282-73B9A24A7C44 for MS-FSSHTTPB_R364.",
                          instance.GUID.ToString());
 
             // Capture requirement MS-FSSHTTPB_R364, if the GUID equals the mentioned four values {327A35F6-0761-4414-9686-51E900667A4D}, {3A76E90E-8032-4D0C-B9DD-F3C65029433E}, {0ABE4F35-01DF-4134-A24A-7C79F0859844}, {10091F13-C882-40FB-9886-6533F934C21D}.
@@ -98,7 +98,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      isVerifyR364,
                      "MS-FSSHTTPB",
                      364,
-                     @"[In Specialized Knowledge] The following GUIDs detail the type of Knowledge contained: [Its value must be one of] {327A35F6-0761-4414-9686-51E900667A4D}, {3A76E90E-8032-4D0C-B9DD-F3C65029433E}, {0ABE4F35-01DF-4134-A24A-7C79F0859844}, {10091F13-C882-40FB-9886-6533F934C21D}].");
+                     @"[In Specialized Knowledge] The following GUIDs detail the type of Knowledge contained: [Its value must be one of] {327A35F6-0761-4414-9686-51E900667A4D}, {3A76E90E-8032-4D0C-B9DD-F3C65029433E}, {0ABE4F35-01DF-4134-A24A-7C79F0859844}, {10091F13-C882-40FB-9886-6533F934C21D},{BF12E2C1-E64F-4959-8282-73B9A24A7C44}].");
 
             switch (instance.GUID.ToString("D").ToUpper(CultureInfo.CurrentCulture))
             {
@@ -202,7 +202,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          373,
-                         @"[In Cell Knowledge] Cell Knowledge Data (variable): A Cell Knowledge Entry (section 2.2.1.13.2.2) that specifies one data element Knowledge reference.");
+                         @"[In Cell Knowledge] Cell Knowledge Data (variable): An array of Knowledge Entry (section 2.2.1.13.2.2) that specifies one data element Knowledge reference.");
             }
             else if (instance.CellKnowledgeRangeList != null && instance.CellKnowledgeRangeList.Count != 0)
             {
@@ -210,7 +210,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          3731,
-                         @"[In Cell Knowledge] Cell Knowledge Data (variable): A Cell Knowledge Range (section 2.2.1.13.2.1) that specifies one or more data element Knowledge references.");
+                         @"[In Cell Knowledge] Cell Knowledge Data (variable): An array of Knowledge Range (section 2.2.1.13.2.1) that specifies one or more data element Knowledge references.");
             }
             else
             {
@@ -338,7 +338,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      564,
-                     @"[In Fragment Knowledge] Fragment Knowledge Entries (variable): One or more Fragment Knowledge Entry (section 2.2.1.13.3.1) structures specifying the fragments which have been uploaded.");
+                     @"[In Fragment Knowledge] Fragment Knowledge Entries (variable): An optional array of Fragment Knowledge Entry (section 2.2.1.13.3.1) structures specifying the fragments which have been uploaded.");
 
             // Directly capture requirement MS-FSSHTTPB_R565, if the stream object end is StreamObjectHeaderEnd16bit.
             site.CaptureRequirementIfAreEqual<Type>(
@@ -510,7 +510,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      381,
-                     @"[In Content Tag Knowledge] Content Tag Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies the Content Tag Knowledge start.");
+                     @"[In Content Tag Knowledge] Content Tag Start (2 bytes): A 16-bit Stream Object Header that specifies the Content Tag Knowledge start.");
 
             // Directly capture requirement MS-FSSHTTPB_R382, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -553,7 +553,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                          instance.StreamObjectHeaderStart.GetType(),
                          "MS-FSSHTTPB",
                          385,
-                         @"[In Content Tag Knowledge Entry] Content Tag Knowledge Entry Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Knowledge Entry.");
+                         @"[In Content Tag Knowledge Entry] Content Tag Knowledge Entry Start (variable): A 16-bit or 32-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Knowledge Entry.");
             }
 
             // Directly capture requirement MS-FSSHTTPB_R386, if there are no parsing errors. 

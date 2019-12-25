@@ -820,23 +820,7 @@ The conversion to an exclusive lock failed.");
             SchemaLockSubResponseType schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
             ErrorCodeType errorCode = SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site);
 
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R6661
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.InvalidArgument,
-                         errorCode,
-                         "MS-FSSHTTP",
-                         6661,
-                         @"[In SchemaLockSubRequestDataType] If the specified attributes[SchemaLockID attribute] are not provided, an ""InvalidArgument"" error code MUST be returned as part of the SubResponseData element associated with the schema lock subresponse.<24>");
-            }
-            else
-            {
-                Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.InvalidArgument,
-                    errorCode,
-                    @"[In SchemaLockSubRequestDataType] If the specified attributes[SchemaLockId attribute] are not provided, an ""InvalidArgument"" error code MUST be returned as part of the SubResponseData element associated with the schema lock subresponse.<24>");
-            }
+           
         }
 
         /// <summary>
@@ -994,7 +978,7 @@ The conversion to an exclusive lock failed.");
                          lockType,
                          "MS-FSSHTTP",
                          401,
-                         @"[In LockTypes] SchemaLock: The string value ""SchemaLock"", indicating a shared lock on the file.");
+                         @"[In LockTypes] SchemaLock,1: The string value ""SchemaLock"" or integer value ""1"", indicating a shared lock on the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R403
                 Site.CaptureRequirementIfAreEqual<LockTypes>(
@@ -1002,7 +986,7 @@ The conversion to an exclusive lock failed.");
                          lockType,
                          "MS-FSSHTTP",
                          403,
-                         @"[In LockTypes][SchemaLock] In a cell storage service response message, a shared lock indicates that the current client is granted a shared lock on the file, which allows for coauthoring the file along with other clients.");
+                         @"[In LockTypes][SchemaLock or 1] In a cell storage service response message, a shared lock indicates that the current client is granted a shared lock on the file, which allows for coauthoring the file along with other clients.");
             }
             else
             {
@@ -1141,7 +1125,7 @@ The conversion to an exclusive lock failed.");
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          406,
-                         @"[In LockTypes][ExclusiveLock] In a cell storage service response message, an exclusive lock indicates that an exclusive lock is granted to the current client for that specific file.");
+                         @"[In LockTypes][ExclusiveLock or 2] In a cell storage service response message, an exclusive lock indicates that an exclusive lock is granted to the current client for that specific file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1157 and MS-FSSHTTP_R442
                 Site.CaptureRequirementIfAreEqual<LockTypes>(
@@ -1838,7 +1822,7 @@ The conversion to an exclusive lock failed.");
                              SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3121,
-                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
 
                 // Verify the MS-FSSHTTP requirement: MS-FSSHTTP_R3122
@@ -1849,7 +1833,7 @@ The conversion to an exclusive lock failed.");
                              SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3122,
-                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServer"". (<45> Section 3.1.4.4.3:  SharePoint Foundation 2013 and SharePoint Server 2013 will return an error code value ""FileNotLockedOnServer"".)");
+                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServer"". (<50> Section 3.1.4.4.3:  SharePoint Foundation 2013 and SharePoint Server 2010 will return an error code value ""FileNotLockedOnServerAsCoauthDisabled"".)");
                 }
             }
             else
@@ -1907,7 +1891,7 @@ The conversion to an exclusive lock failed.");
                              SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              158201,
-                             @"[In Appendix B: Product Behavior] Implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (<44> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)");
+                             @"[In Appendix B: Product Behavior] Implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (<49> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)");
                 }
             }
             else
@@ -1947,7 +1931,7 @@ The conversion to an exclusive lock failed.");
                          SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          1608,
-                         @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a current exclusive lock on the file when sending a release lock subrequest. (<44> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is an exclusive lock on the file and valid coauthoring session with more than one clients in it.)");
+                         @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a current exclusive lock on the file when sending a release lock subrequest. (<49> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is an exclusive lock on the file and valid coauthoring session with more than one clients in it.)");
             }
             else
             {
@@ -2022,7 +2006,7 @@ The conversion to an exclusive lock failed.");
                          SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          3120,
-                         @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (<44> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)");
+                         @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (<49> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)");
             }
             else
             {
@@ -2061,7 +2045,7 @@ The conversion to an exclusive lock failed.");
                              SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3129,
-                             @"[In Appendix B: Product Behavior] The implementation does return an error code ""Success"" if the current client is not already present in the coauthoring session and if there are other clients present in the coauthoring session. (<43> Section 3.1.4.4.2:  SharePoint Server 2010 will return an error code of ""Success"" if there are other clients present in the coauthoring session.)");
+                             @"[In Appendix B: Product Behavior] The implementation does return an error code ""Success"" if the current client is not already present in the coauthoring session and if there are other clients present in the coauthoring session. (<48> Section 3.1.4.4.2:  SharePoint Server 2010 will return an error code of ""Success"" if there are other clients present in the coauthoring session.)");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3128, this.Site))
@@ -2188,7 +2172,7 @@ The conversion to an exclusive lock failed.");
                              SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              6662,
-                             @"[In Appendix B: Product Behavior] If the specified attributes[SchemaLockRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the ResponseVersion element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] If the specified attributes[SchemaLockRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the ResponseVersion element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3074
@@ -2199,7 +2183,7 @@ The conversion to an exclusive lock failed.");
                              response.ResponseVersion.ErrorCode,
                              "MS-FSSHTTP",
                              3074,
-                             @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the ResponseVersion element. <24> Section 2.3.1.13: In SharePoint Server 2013, if the SchemaLockRequestType attributes is not provided, a ""HighLevelExceptionThrown"" error code MUST be returned as part of the ResponseVersion element.");
+                             @"[In Appendix B: Product Behavior] \The implementation does return a ""HighLevelExceptionThrown"" error code as part of the ResponseVersion element. <30> Section 2.3.1.13:  In SharePoint Server 2010, if the SchemaLockRequestType attribute is not provided, an ""InvalidArgument"" error code will be returned as part of the SubResponseData element associated with the schema lock subresponse.");
                 }
             }
             else

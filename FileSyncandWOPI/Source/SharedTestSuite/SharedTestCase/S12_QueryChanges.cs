@@ -671,14 +671,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().PartialResult,
                          "MS-FSSHTTPB",
                          444,
-                         @"[In Query Changes] Max Data Elements (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies, in bytes, the limit of data elements at which the server starts breaking up the results into partial results.");
+                         @"[In Query Changes] Maximum Data Elements (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies, in bytes, the limit of data elements at which the server starts breaking up the results into partial results.");
 
                 // For the requirement MS-FSSHTTPB_R990351, it is not fully validated, because it cost too much to validate its size.
                 Site.CaptureRequirementIfIsTrue(
                          queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().PartialResult,
                          "MS-FSSHTTPB",
                          990351,
-                         @"[In Query Changes] Max Data Elements (variable): If the client specifies anything higher [than limit of DoS mitigation], the server truncates it to this value [Max Data Elements].");
+                         @"[In Query Changes] Maximim Data Elements (variable): If the client specifies anything higher [than limit of DoS mitigation], the server truncates it to this value [Max Data Elements].");
             }
             else
             {
@@ -934,7 +934,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          notIncludeStorageManifest,
                          "MS-FSSHTTPB",
                          4115,
-                         @"[In Appendix B: Product Behavior] If D - Include Storage Manifest is not set, the Storage Manifest is not included. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
+                         @"[In Appendix B: Product Behavior] If F - Include Storage Manifest is not set, the Storage Manifest is not included. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
             }
             else
             {
@@ -1539,7 +1539,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     data,
                     "MS-FSSHTTPB",
                     4042,
-                    @"[In Query Changes] F ?Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned.");
+                    @"[In Query Changes] F ?Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned<12>.");
             }
             else
             {

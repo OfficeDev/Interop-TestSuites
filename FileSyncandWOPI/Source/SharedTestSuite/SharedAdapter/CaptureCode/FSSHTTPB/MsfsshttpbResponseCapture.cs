@@ -449,7 +449,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.ReservedQueryChanges,
                      "MS-FSSHTTPB",
                      598,
-                     @"[In Query Changes] Reserved (7 bits): A 7-bit reserved field that MUST be set to zero.");
+                     @"[In Query Changes] Reserved (6 bits): A 6-bit reserved field that MUST be set to zero.");
 
             // Directly capture requirement MS-FSSHTTPB_R601, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -865,7 +865,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      99059,
-                     @"[In Put Changes] Put Changes Response (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a Put Changes response.");
+                     @"[In Put Changes] Put Changes Response (4 bytes):  An optional 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a Put Changes response.");
 
             if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4126, site))
             {
