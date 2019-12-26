@@ -98,7 +98,15 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     cellStoreageResponse.ResponseCollection.Response[0].UrlIsEncoded,
                          "MS-FSSHTTP",
                          2503,
-                         @"Else[if no], [UrlIsEncoded set to] false.");
+                         @"[In Response]Else[if no], [UrlIsEncoded set to] false.");
+
+                // Capture the requirement MS-FSSHTTP_R21051
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "False",
+                    cellStoreageResponse.ResponseCollection.WebUrlIsEncoded,
+                         "MS-FSSHTTP",
+                         21051,
+                         @"[In ResponseCollection]Else[if no], [WebUrlIsEncoded set to] false.");
 
                 VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
 
