@@ -1,15 +1,3 @@
----
-topic: sample
-products:
-- office-365
-- office-sp
-languages:
-- csharp
-extensions:
-  contentType: tools
-  createdDate: 7/24/2015 2:09:29 PM
----
-﻿
 # Interop SharePoint and Exchange Protocol Test Suites
 
 
