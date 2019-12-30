@@ -362,6 +362,53 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
+        /// A method used to create a AmIAloneSubRequest object and initialize it.
+        /// </summary>
+        /// <param name="subRequestToken">A parameter represents the subRequest token.</param>
+        /// <returns>A return value represents the AmIAloneSubRequest object.</returns>
+        public static AmIAloneSubRequestType CreateAmIAloneSubRequest()
+        {
+            AmIAloneSubRequestType amIAloneSubRequest = new AmIAloneSubRequestType();
+            amIAloneSubRequest.SubRequestToken = SequenceNumberGenerator.GetCurrentToken().ToString();
+            amIAloneSubRequest.SubRequestData = new AmIAloneSubRequestDataType();
+ 
+            return amIAloneSubRequest;
+        }
+
+        /// <summary>
+        /// A method used to create a LockStatusSubRequest object and initialize it.
+        /// </summary>
+        /// <param name="subRequestToken">A parameter represents the subRequest token.</param>
+        /// <returns>A return value represents the LockStatusSubRequest object.</returns>
+        public static LockStatusSubRequestType CreateLockStatusSubRequest()
+        {
+            LockStatusSubRequestType lockStatusSubRequest = new LockStatusSubRequestType();
+            lockStatusSubRequest.SubRequestToken = SequenceNumberGenerator.GetCurrentToken().ToString();
+
+            return lockStatusSubRequest;
+        }
+
+        /// <summary>
+        /// A method used to create a PropertiesSubRequest object and initialize it.
+        /// </summary>
+        /// <param name="subRequestToken">A parameter represents the subRequest token.</param>
+        /// <returns>A return value represents the PropertiesSubRequest object.</returns>
+        public static PropertiesSubRequestType CreatePropertiesSubRequest(uint subRequestToken, PropertiesRequestTypes propertiesRequestTypes, PropertyIdType[] propertyIds, ITestSite site)
+        {
+            PropertiesSubRequestType propertiesSubRequest = new PropertiesSubRequestType();
+            propertiesSubRequest.SubRequestToken = subRequestToken.ToString();
+            propertiesSubRequest.SubRequestData = new PropertiesSubRequestDataType();
+            propertiesSubRequest.SubRequestData.PropertiesSpecified = true;
+            propertiesSubRequest.SubRequestData.Properties = propertiesRequestTypes;
+            if (propertiesRequestTypes == PropertiesRequestTypes.PropertyGet)
+            {
+                site.Assert.IsTrue(propertyIds != null, "PropertyIds MUST be specified when the properties subrequest has a PropertiesSubRequestType attribute set to PropertyGet.");
+                propertiesSubRequest.SubRequestData.PropertyIds = propertyIds;
+            }
+            return propertiesSubRequest;
+        }
+
+        /// <summary>
         /// A method used to create a VersioningSubRequestType object and initialize it.
         /// </summary>
         /// <param name="subRequestToken">A parameter represents the subRequest token.</param>
@@ -400,7 +447,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             fileOperationSubRequest.SubRequestToken = SequenceNumberGenerator.GetCurrentToken().ToString();
             fileOperationSubRequest.SubRequestData = new FileOperationSubRequestDataType();
             fileOperationSubRequest.SubRequestData.FileOperation = fileOperationRequestType;
-            fileOperationSubRequest.SubRequestData.FileOperationRequestTypeSpecified = true;
+            fileOperationSubRequest.SubRequestData.FileOperationSpecified = true;
             fileOperationSubRequest.SubRequestData.ExclusiveLockID = exclusiveLock;
 
             if (fileOperationRequestType == FileOperationRequestTypes.Rename)
