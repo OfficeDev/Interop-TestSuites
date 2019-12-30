@@ -424,7 +424,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             this.StatusManager.RecordExclusiveLock(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID);
 
             this.Site.Assert.AreEqual(
-                LockTypes.ExclusiveLock,
+                "ExclusiveLock",
                 response.SubResponseData.LockType,
                 "The test case cannot continue unless the server responses an exclusive lock type when the user join the coauthoring session with allowFallback set to true on an already checked out file by the same user.");
 

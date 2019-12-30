@@ -12,7 +12,7 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="LockTypes">
+  <!--<xs:simpleType name="LockTypes">
     <xs:union>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -29,7 +29,7 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:union>
-  </xs:simpleType>
+  </xs:simpleType>-->
 
   <xs:simpleType name="VersionNumberType">
     <xs:restriction base="xs:unsignedShort">
