@@ -967,22 +967,22 @@ The conversion to an exclusive lock failed.");
                 this.CaptureLockTypeRelatedRequirementsWhenGetLockSucceed(schemaLockSubResponse);
 
                 // Verify the return value whether has LockType attribute.
-                LockTypes lockType = schemaLockSubResponse.SubResponseData.LockType;
+                string lockType = schemaLockSubResponse.SubResponseData.LockType;
 
                 // Add the log information.
                 Site.Log.Add(LogEntryKind.Debug, "For the requirement MS-FSSHTTP_R401 and MS-FSSHTTP_R403, expect the LockType value is SchemaLock, actually the LockType of GetLockInSchemaLockSubRequest is :{0}", lockType);
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R401
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.SchemaLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "SchemaLock",
                          lockType,
                          "MS-FSSHTTP",
                          401,
                          @"[In LockTypes] SchemaLock,1: The string value ""SchemaLock"" or integer value ""1"", indicating a shared lock on the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R403
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.SchemaLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "SchemaLock",
                          lockType,
                          "MS-FSSHTTP",
                          403,
@@ -995,8 +995,8 @@ The conversion to an exclusive lock failed.");
                     errorCode,
                     @"[In SchemaLock Subrequest][The protocol server returns results based on the following conditions:] An ErrorCode value of ""Success"" indicates success in processing the schema lock request.");
 
-                Site.Assert.AreEqual<LockTypes>(
-                    LockTypes.SchemaLock,
+                Site.Assert.AreEqual<string>(
+                   "SchemaLock",
                     schemaLockSubResponse.SubResponseData.LockType,
                     @"[In LockTypes] SchemaLock: The string value ""SchemaLock"", indicating a shared lock on the file.");
             }
@@ -1112,32 +1112,32 @@ The conversion to an exclusive lock failed.");
                 this.CaptureLockTypeRelatedRequirementsWhenGetLockSucceed(schemaLockSubResponse);
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R404
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.ExclusiveLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "SchemaLock",
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          404,
                          @"[In LockTypes] ExclusiveLock: The string value ""ExclusiveLock"", indicating an exclusive lock on the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R406
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.ExclusiveLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "SchemaLock",
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          406,
                          @"[In LockTypes][ExclusiveLock or 2] In a cell storage service response message, an exclusive lock indicates that an exclusive lock is granted to the current client for that specific file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1157 and MS-FSSHTTP_R442
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.ExclusiveLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "SchemaLock",
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          1157,
                          @"[In Get Lock] If the coauthoring feature is disabled on the protocol server, the server does one of the following: 
                          If the AllowFallbackToExclusive attribute is set to true, the protocol server gets an exclusive lock on the file.");
 
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.ExclusiveLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "SchemaLock",
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          442,
@@ -1185,8 +1185,8 @@ The conversion to an exclusive lock failed.");
             }
             else
             {
-                Site.Assert.AreEqual<LockTypes>(
-                    LockTypes.ExclusiveLock,
+                Site.Assert.AreEqual<string>(
+                    "ExclusiveLock",
                     schemaLockSubResponse.SubResponseData.LockType,
                     @"[In LockTypes] ExclusiveLock: The string value ""ExclusiveLock"", indicating an exclusive lock on the file.");
 

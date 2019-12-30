@@ -14092,7 +14092,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2248</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R224811</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.47</ns1:Doc_Sect>
 		<ns1:Description>[In AmIAloneSubResponseDataType]	
 &lt;xs:complexType name="AmIAloneSubResponseDataType"&gt;
@@ -14110,7 +14110,27 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R224911</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.47</ns1:Doc_Sect>
+		<ns1:Description>[In AmIAloneSubResponseDataType]AmIAlone: True means the user is alone in the coauthoring session.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R2249:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R224912</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.47</ns1:Doc_Sect>
+		<ns1:Description>[In AmIAloneSubResponseDataType]AmIAlone: False means the user is not alone in the coauthoring session.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R2249:c</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2250</ns1:REQ_ID>
@@ -14684,7 +14704,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2407</ns1:REQ_ID>
@@ -24145,8 +24165,8 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 		<ns1:Description>[AmIAlone Subrequest]The AmIAloneSubResponseDataType defines the type of the SubResponseData element inside the AmIAloneSubResponse element. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2370</ns1:REQ_ID>
@@ -36173,7 +36193,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification/>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R1363</ns1:REQ_ID>

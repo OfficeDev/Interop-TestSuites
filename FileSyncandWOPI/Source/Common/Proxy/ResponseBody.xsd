@@ -17,7 +17,7 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="LockTypes">
+  <!--<xs:simpleType name="LockTypes">
     <xs:union>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -34,7 +34,7 @@
         </xs:restriction>
       </xs:simpleType>
     </xs:union>
-  </xs:simpleType>
+  </xs:simpleType>-->
 
   <xs:simpleType name="VersionNumberType">
     <xs:restriction base="xs:unsignedShort">
@@ -179,11 +179,11 @@
     <xs:attributeGroup ref="tns:CellSubResponseDataOptionalAttributes"/>
     <xs:attributeGroup ref="tns:WhoAmISubResponseDataOptionalAttributes"/>
     <xs:attribute name="ServerTime" type="xs:positiveInteger" use="optional"/>
-    <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
+    <xs:attribute name="LockType" type="xs:string" use="optional" />
     <xs:attribute name="CoauthStatus" type="tns:CoauthStatusType" use="optional"/>
     <xs:attribute name="TransitionID" type="tns:guid" use="optional"/>
     <xs:attribute name="ExclusiveLockReturnReason" type="tns:ExclusiveLockReturnReasonTypes" use="optional" />
-    <xs:attribute name="AmIAlone" type="xs:boolean" use="optional" />
+    <xs:attribute name="AmIAlone" type="tns:TRUEFALSE" use="optional" />
     <xs:attribute name="LockID" type="tns:guid" use="optional" />
     <xs:attribute name="LockedBy" type="xs:string" use="optional" />
   </xs:attributeGroup>
@@ -214,19 +214,19 @@
     </xs:all>
     <xs:attributeGroup ref="tns:CellSubResponseDataOptionalAttributes" />
 
-    <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
+    <xs:attribute name="LockType" type="xs:string" use="optional" />
   </xs:complexType>
 
   <!--There is no text in this element-->
   <xs:complexType name="CoauthSubResponseDataType">
-    <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
+    <xs:attribute name="LockType" type="xs:string" use="optional" />
     <xs:attribute name="CoauthStatus" type="tns:CoauthStatusType" use="optional"/>
     <xs:attribute name="TransitionID" type="tns:guid" use="optional"/>
     <xs:attribute name="ExclusiveLockReturnReason" type="tns:ExclusiveLockReturnReasonTypes" use="optional" />
   </xs:complexType>
 
   <xs:complexType name="SchemaLockSubResponseDataType">
-    <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
+    <xs:attribute name="LockType" type="xs:string" use="optional" />
     <xs:attribute name="ExclusiveLockReturnReason" type="tns:ExclusiveLockReturnReasonTypes" use="optional" />
   </xs:complexType>
 
@@ -329,10 +329,10 @@
     <xs:attribute name="UserId" type="xs:integer" use="optional" />
   </xs:complexType>
   <xs:complexType name="AmIAloneSubResponseDataType">
-    <xs:attribute name="AmIAlone" type="xs:boolean" use="optional" />
+    <xs:attribute name="AmIAlone" type="tns:TRUEFALSE" use="optional" />
   </xs:complexType>
   <xs:complexType name="LockStatusSubResponseDataType">
-	  <xs:attribute name="LockType" type="tns:LockTypes" use="optional" />
+	  <xs:attribute name="LockType" type="xs:string" use="optional" />
 	  <xs:attribute name="LockID" type="tns:guid" use="optional" />
 	  <xs:attribute name="LockedBy" type="xs:string" use="optional" />
 	</xs:complexType>

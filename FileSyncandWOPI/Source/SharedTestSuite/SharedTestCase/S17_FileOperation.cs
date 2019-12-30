@@ -124,7 +124,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             fileOperationSubRequest.SubRequestToken = SequenceNumberGenerator.GetCurrentToken().ToString();
             fileOperationSubRequest.SubRequestData = new FileOperationSubRequestDataType();
             fileOperationSubRequest.SubRequestData.FileOperation = FileOperationRequestTypes.Rename;
-            fileOperationSubRequest.SubRequestData.FileOperationRequestTypeSpecified = false;
+            fileOperationSubRequest.SubRequestData.FileOperationSpecified = false;
             fileOperationSubRequest.SubRequestData.ExclusiveLockID = null;
 
             CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { fileOperationSubRequest });

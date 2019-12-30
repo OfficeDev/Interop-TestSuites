@@ -187,16 +187,16 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1019
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.ExclusiveLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "ExclusiveLock",
                          firstJoinResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          1019,
                          @"[In Join Coauthoring Session][If the coauthoring feature is disabled on the protocol server, it does one of the following:] If the AllowFallbackToExclusive attribute is set to true, the protocol server gets an exclusive lock on the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R442
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.ExclusiveLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "ExclusiveLock",
                          firstJoinResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          442,
@@ -209,16 +209,16 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          @"[In SubRequestDataOptionalAttributes] AllowFallbackToExclusive: A Boolean value that specifies to a protocol server whether a coauthoring subrequest of type ""Join coauthoring session"" or a schema lock subrequest of type ""Get lock"" is allowed to fall back to an exclusive lock subrequest when shared locking on the file is not supported.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R404
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.ExclusiveLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "ExclusiveLock",
                          firstJoinResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          404,
                          @"[In LockTypes] ExclusiveLock,2: The string value ""ExclusiveLock"" or integer value ""2"", indicating an exclusive lock on the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R406
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.ExclusiveLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "ExclusiveLock",
                          firstJoinResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          406,
@@ -262,8 +262,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             }
             else
             {
-                Site.Assert.AreEqual<LockTypes>(
-                         LockTypes.ExclusiveLock,
+                Site.Assert.AreEqual<string>(
+                         "ExclusiveLock",
                          firstJoinResponse.SubResponseData.LockType,
                          "When the coauthoring feature is disabled on the protocol, if the AllowFallbackToExclusive attribute is set to true, the protocol server should get an exclusive lock on the file.");
 
@@ -402,24 +402,24 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          @"[In CoauthStatusType] Alone [means]: A string value of ""Alone"", indicating a coauthoring status of alone.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R996
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.SchemaLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                          "SchemaLock",
                          joinResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          996,
                          @"[In Coauth Subrequest] If the coauthoring subrequest is of type ""Join coauthoring session"", the protocol server MUST return the lock type granted to the protocol client as part of the response message to the protocol client—if  the ErrorCode attribute that is part of the SubResponse element is set to a value of ""Success"".");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R401
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.SchemaLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "SchemaLock",
                          joinResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          401,
                          @"[In LockTypes] SchemaLock,1: The string value ""SchemaLock"" or integer value ""1"", indicating a shared lock on the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R403
-                Site.CaptureRequirementIfAreEqual<LockTypes>(
-                         LockTypes.SchemaLock,
+                Site.CaptureRequirementIfAreEqual<string>(
+                         "SchemaLock",
                          joinResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          403,
@@ -432,8 +432,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     joinResponse.SubResponseData.CoauthStatus,
                     "When only one client joins the coauth session, the server should return the CoauthStatusType as Alone.");
 
-                Site.Assert.AreEqual<LockTypes>(
-                    LockTypes.SchemaLock,
+                Site.Assert.AreEqual<string>(
+                    "SchemaLock",
                     joinResponse.SubResponseData.LockType,
                     "When one client joins the coauth session, the server should return the LockType as SchemaLock");
             }
@@ -1992,8 +1992,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     "Expect the LockType exist when the server response error code Success when sending the refresh coauthoring session subrequest, actual result is {0}",
                     subResponse.SubResponseData.LockTypeSpecified ? "exist" : "not exist");
 
-                Site.Assert.AreEqual<LockTypes>(
-                    LockTypes.SchemaLock,
+                Site.Assert.AreEqual<string>(
+                    "SchemaLock",
                     subResponse.SubResponseData.LockType,
                     @"When sending the refresh coauthoring session subrequest, the server return the LockType attribute when the error code is ""Success"". ");
             }
