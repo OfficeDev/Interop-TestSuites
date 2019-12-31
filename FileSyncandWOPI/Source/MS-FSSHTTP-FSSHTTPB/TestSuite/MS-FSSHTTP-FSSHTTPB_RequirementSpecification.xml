@@ -7992,6 +7992,15 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R1170</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.8.1</ns1:Doc_Sect>
+		<ns1:Description>[In SubRequestDataOptionalAttributes]TransitionID: A guid that specifies the unique file identifier for that file in the protocol server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R455</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.8.2</ns1:Doc_Sect>
 		<ns1:Description>[In SubResponseDataOptionalAttributes] The SubResponseDataOptionalAttributes attribute group contains attributes that are used in SubResponseData elements associated with a SubResponse element.</ns1:Description>
@@ -31151,7 +31160,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R4042.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R1351.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R1224</ns1:REQ_ID>
