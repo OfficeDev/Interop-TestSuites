@@ -238,7 +238,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            // Invoke "GetVersions"sub-request with correct input parameters.
+            // Invoke "GetVersions"sub-request with correct invalid parameters.
             GetVersionsSubRequestType getVersionsSubRequest = SharedTestSuiteHelper.CreateGetVersionsSubRequest(SequenceNumberGenerator.GetCurrentToken());
             CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(
                invalidUrl,
