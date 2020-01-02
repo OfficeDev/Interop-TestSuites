@@ -79,6 +79,20 @@
             // Verify requirements related with SubResponseDataType
             if (lockStatusSubResponse.SubResponseData != null)
             {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2182
+                site.CaptureRequirementIfIsNotNull(
+                    lockStatusSubResponse.SubResponseData.LockID,
+                    "MS-FSSHTTP",
+                    2182,
+                    @"[In SubResponseDataOptionalAttributes]LockedID: A guid that specifies the id of the lock.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2183
+                site.CaptureRequirementIfIsNotNull(
+                    lockStatusSubResponse.SubResponseData.LockedBy,
+                    "MS-FSSHTTP",
+                    2183,
+                    @"[In SubResponseDataOptionalAttributes]LockedBy: A string that specifies the user that has the file locked, if any.");
+
                 ValidateLockStatusSubResponseDataType(lockStatusSubResponse.SubResponseData, site);
             }
         }

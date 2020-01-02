@@ -214,7 +214,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          firstJoinResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          404,
-                         @"[In LockTypes] ExclusiveLock,2: The string value ""ExclusiveLock"" or integer value ""2"", indicating an exclusive lock on the file.");
+                         @"[In LockTypes] ExclusiveLock: The string value ""ExclusiveLock"", indicating an exclusive lock on the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R406
                 Site.CaptureRequirementIfAreEqual<string>(
@@ -415,7 +415,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          joinResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          401,
-                         @"[In LockTypes] SchemaLock,1: The string value ""SchemaLock"" or integer value ""1"", indicating a shared lock on the file.");
+                         @"[In LockTypes] SchemaLock: The string value ""SchemaLock"", indicating a shared lock on the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R403
                 Site.CaptureRequirementIfAreEqual<string>(
