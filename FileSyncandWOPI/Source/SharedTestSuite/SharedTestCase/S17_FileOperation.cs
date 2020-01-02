@@ -226,6 +226,47 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     resourceID, resourceID2, "ResourceID MUST NOT change over the lifetime of a file, even if the URL of the file changes.");
             }
         }
+
+        /// <summary>
+        /// A method used to verify that an error when neither of the ResourceID and Url attributes identify valid files.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S17_TC04_ResourceIdDoesNotExist()
+        {
+            string invalidUrl = this.DefaultFileUrl + "Invalid";
+
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Invoke "GetVersions"sub-request with correct invalid parameters.
+            GetVersionsSubRequestType getVersionsSubRequest = SharedTestSuiteHelper.CreateGetVersionsSubRequest(SequenceNumberGenerator.GetCurrentToken());
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(
+               invalidUrl,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, "test", true);
+            GetVersionsSubResponseType getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetVersionsSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+
+            VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
+            Site.Assume.AreEqual<ushort>(3, version.MinorVersion, "This test case runs only when MinorVersion is 3 which indicates the protocol server is capable of performing ResourceID specific behavior.");
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2171
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.ResourceIdDoesNotExist,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         2171,
+                         @"[In GenericErrorCodeTypes] InvalidArgument indicates an error when any of the cell storage service subrequests for the targeted URL for the file contains input parameters that are not valid.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.ResourceIdDoesNotExist,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                    @"[In GenericErrorCodeTypes] InvalidArgument indicates an error when any of the cell storage service subrequests for the targeted URL for the file contains input parameters that are not valid.");
+            }
+        }
         #endregion
     }
 }
