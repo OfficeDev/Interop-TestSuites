@@ -34,11 +34,72 @@
 
         #endregion
 
-                /// <summary>
-        /// A method used to verify that AmIAlone sub-request failed.
+        /// <summary>
+        /// A method used to verify that AmIAlone sub-request is false.
         /// </summary>
         [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
         public void MSFSSHTTP_FSSHTTPB_TestCase_S18_TC01_AmIAlone_False()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Join Coauthoring session using the first user
+            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+            CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            CoauthSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(
+                    ErrorCodeType.Success,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                    string.Format("Account {0} with client ID {1} and schema lock ID {2} should join the coauthoring session successfully.", this.UserName01, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID));
+            this.StatusManager.RecordCoauthSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+
+            // Join the Coauthoring session using the second user with same SchemaLockId
+            this.InitializeContext(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
+            string secondClientId = System.Guid.NewGuid().ToString();
+            subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(secondClientId, SharedTestSuiteHelper.ReservedSchemaLockID);
+            cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            CoauthSubResponseType secondResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+            this.StatusManager.RecordCoauthSession(this.DefaultFileUrl, secondClientId, SharedTestSuiteHelper.ReservedSchemaLockID, this.UserName02, this.Password02, this.Domain);
+
+            string transitionId = secondResponse.SubResponseData.TransitionID;
+
+            AmIAloneSubRequestType amIAlone = SharedTestSuiteHelper.CreateAmIAloneSubRequest();
+            amIAlone.SubRequestData.TransitionID = transitionId;
+            CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { amIAlone });
+            AmIAloneSubResponseType amIAloneResponse = SharedTestSuiteHelper.ExtractSubResponse<AmIAloneSubResponseType>(response, 0, 0, this.Site);
+            SubResponseType subresponse = response.ResponseCollection.Response[0].SubResponse[0];
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                 //Verify MS-FSSHTTP requirement: MS-FSSHTTP_R224912
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "False",
+                    amIAloneResponse.SubResponseData.AmIAlone,
+                    "MS-FSSHTTP",
+                    224912,
+                    @"[In AmIAloneSubResponseDataType]AmIAlone: False means the user is not alone in the coauthoring session.");
+           
+                //Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2181012
+                //If MS-FSSHTTP224912 is verified, this requirement can be verified directly
+                Site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    2181012,
+                    @"[In SubResponseDataOptionalAttributes]AmIAlone: False means the user is not alone in the coauthoring session.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<string>(
+                    "False",
+                    amIAloneResponse.SubResponseData.AmIAlone,
+                    "AmIAlone: False means the user is not alone in the coauthoring session.");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify that AmIAlone sub-request failed.
+        /// </summary>
+        [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
+        public void MSFSSHTTP_FSSHTTPB_TestCase_S18_TC02_AmIAlone_Error()
         {
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -50,17 +111,10 @@
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R224912
-                //Site.CaptureRequirementIfIsFalse(
-                //    amIAloneResponse.SubResponseData.AmIAlone,
-                //    "MS-FSSHTTP",
-                //    224912,
-                //    @"[In AmIAloneSubResponseDataType]AmIAlone: False means the user is not alone in the coauthoring session.");
-
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R22522
+                //Verify MS-FSSHTTP requirement: MS-FSSHTTP_R22522
                 Site.CaptureRequirementIfAreNotEqual<string>(
-                    GenericErrorCodeTypes.Success.ToString(),
-                    subresponse.ErrorCode,
+                    "Success",
+                    amIAloneResponse.ErrorCode,
                     "MS-FSSHTTP",
                     22522,
                     @"[In AmIAloneSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. ");
@@ -68,11 +122,12 @@
             else
             {
                 Site.Assert.AreNotEqual<string>(
-                    GenericErrorCodeTypes.Success.ToString(),
-                    subresponse.ErrorCode,
-                    "Error should occur if the user is not alone.");
+                    "Success",
+                    amIAloneResponse.ErrorCode,
+                    "In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. ");
             }
         }
+
         /// <summary>
         /// Initialize the shared context based on the specified request file URL, user name, password and domain for the MS-FSSHTTP test purpose.
         /// </summary>

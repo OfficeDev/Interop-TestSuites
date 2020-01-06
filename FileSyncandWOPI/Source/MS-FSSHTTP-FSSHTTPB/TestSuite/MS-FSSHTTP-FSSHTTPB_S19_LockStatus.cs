@@ -6,7 +6,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// A class which contains test cases used to verify the AmIAlone sub request operation.
+    /// A class which contains test cases used to verify the LockStatus sub request operation.
     /// </summary>
     [TestClass]
     public sealed class MS_FSSHTTP_FSSHTTPB_S19_LockStatus : S19_LockStatus
@@ -34,23 +34,32 @@
 
         #endregion
 
-                /// <summary>
-        /// A method used to verify that AmIAlone sub-request failed.
+        /// <summary>
+        /// A method used to verify that the Locktype is an exclusive lock in LockStatus sub-request.
         /// </summary>
         [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
-        public void MSFSSHTTP_FSSHTTPB_TestCase_S19_TC01_LockStatus_False()
+        public void MSFSSHTTP_FSSHTTPB_TestCase_S19_TC01_LockStatus_ExclusiveLock()
         {
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+            // Disable the Coauthoring Feature
+            bool isSwitchedSuccessfully = SutPowerShellAdapter.SwitchCoauthoringFeature(true);
+            this.Site.Assert.IsTrue(isSwitchedSuccessfully, "The Coauthoring Feature should be disabled.");
+            this.StatusManager.RecordDisableCoauth();
+
+            // Waiting change takes effect
+            System.Threading.Thread.Sleep(30 * 1000);
+
+            // Join a Coauthoring session
+            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, true, SharedTestSuiteHelper.DefaultExclusiveLockID);
             CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
             CoauthSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
             this.Site.Assert.AreEqual(
                     ErrorCodeType.Success,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
-                    string.Format("Account {0} with client ID {1} and schema lock ID {2} should join the coauthoring session successfully.", this.UserName01, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID));
-            this.StatusManager.RecordCoauthSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+                    string.Format("Account {0} with client ID {1} and schema lock ID {2} should join the coauthoring session successfully.", this.UserName01, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.DefaultExclusiveLockID));
+            this.StatusManager.RecordCoauthSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.DefaultExclusiveLockID);
 
             LockStatusSubRequestType lockStatus = SharedTestSuiteHelper.CreateLockStatusSubRequest();
 
@@ -60,20 +69,20 @@
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R22522
-                Site.CaptureRequirementIfAreEqual<string>(
-                    GenericErrorCodeTypes.Success.ToString(),
-                    subresponse.ErrorCode,
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R404011
+                Site.CaptureRequirementIfAreEqual<int>(
+                    2,
+                    int.Parse(lockStatusResponse.SubResponseData.LockType),
                     "MS-FSSHTTP",
-                    22522,
-                    @"[In AmIAloneSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. ");
+                    404011,
+                    @"[In LockTypes] 2: The integer value ""2"", indicating an exclusive lock on the file.");
             }
             else
             {
-                Site.Assert.AreEqual<string>(
-                    GenericErrorCodeTypes.Success.ToString(),
-                    subresponse.ErrorCode,
-                    "Error should occur if call AmIAlone request with empty TransitionID.");
+                Site.Assert.AreEqual<int>(
+                    2,
+                    int.Parse(lockStatusResponse.SubResponseData.LockType),
+                    @"2: The integer value ""2"", indicating an exclusive lock on the file.");
             }
         }
         /// <summary>

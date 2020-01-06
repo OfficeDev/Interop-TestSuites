@@ -6800,7 +6800,16 @@ ExclusiveLock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R401</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.9</ns1:Doc_Sect>
-		<ns1:Description>[In LockTypes] SchemaLock,1: The string value "SchemaLock" or integer value "1", indicating a shared lock on the file.</ns1:Description>
+		<ns1:Description>[In LockTypes] SchemaLock: The string value "SchemaLock", indicating a shared lock on the file.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R401011</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.9</ns1:Doc_Sect>
+		<ns1:Description>[In LockTypes] 1: The integer value "1", indicating a shared lock on the file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6827,7 +6836,16 @@ ExclusiveLock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R404</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.9</ns1:Doc_Sect>
-		<ns1:Description>[In LockTypes] ExclusiveLock,2: The string value "ExclusiveLock" or integer value "2", indicating an exclusive lock on the file.</ns1:Description>
+		<ns1:Description>[In LockTypes] ExclusiveLock: The string value "ExclusiveLock", indicating an exclusive lock on the file.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R404011</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.9</ns1:Doc_Sect>
+		<ns1:Description>[In LockTypes] 2: The integer value "2", indicating an exclusive lock on the file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8413,7 +8431,25 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R2181011</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.8.2</ns1:Doc_Sect>
+		<ns1:Description>[In SubResponseDataOptionalAttributes]AmIAlone: True means the user is alone in the coauthoring session.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R2181012</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.8.2</ns1:Doc_Sect>
+		<ns1:Description>[In SubResponseDataOptionalAttributes]AmIAlone: False means the user is not alone in the coauthoring session.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2182</ns1:REQ_ID>
@@ -8422,7 +8458,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2183</ns1:REQ_ID>
@@ -8431,7 +8467,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R485</ns1:REQ_ID>
@@ -14056,7 +14092,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2243</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R2243011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.46</ns1:Doc_Sect>
 		<ns1:Description>[In AmIAloneSubRequestType][SubRequestData]AmIAloneSubRequestDataType is defined in section 2.3.1.45.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -14065,7 +14101,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2244</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R2244011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.46</ns1:Doc_Sect>
 		<ns1:Description>[In AmIAloneSubRequestType]Type: A SubRequestAttributeType that specifies the type of the subrequest. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -14083,7 +14119,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2246</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R2246011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.46</ns1:Doc_Sect>
 		<ns1:Description>[In AmIAloneSubRequestType][Type]SubRequestAttributeType is defined in section 2.2.5.11.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -14147,7 +14183,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Description>[In AmIAloneSubResponseType]The AmIAloneSubResponseType complex type contains information about the success or failure in processing the AmIAlone subrequest. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -14653,7 +14689,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2301</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R2301011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.55</ns1:Doc_Sect>
 		<ns1:Description>[PropertiesSubResponseType]In the case of success, it contains information requested as part of a Properties subrequest. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -14662,7 +14698,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2302</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R2302011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.55</ns1:Doc_Sect>
 		<ns1:Description>[PropertiesSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -14671,7 +14707,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2303</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R2303011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.55</ns1:Doc_Sect>
 		<ns1:Description>[PropertiesSubResponseType]ErrorCode is specified in section 2.2.4.8. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -14680,7 +14716,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2304</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R2304011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.55</ns1:Doc_Sect>
 		<ns1:Description>[PropertiesSubResponseType]The SubResponseType definition from which PropertiesSubResponseType is extended is defined in section 2.2.4.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -14689,7 +14725,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2305</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R2305011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.55</ns1:Doc_Sect>
 		<ns1:Description>[PropertiesSubResponseType]
 	&lt;xs:complexType name="PropertiesSubResponseType"&gt;
@@ -27350,7 +27386,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTPB_R2202</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTPB_R2202011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5.2</ns1:Doc_Sect>
 		<ns1:Description>[In 32-bit Stream Object Header Start][If the related Stream Object is type of ] Cell Roundtrip Options, [the Type field is set to]0x8D [and the B-Compound field is set to] 0.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -27359,7 +27395,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTPB_R2203</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTPB_R2203011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5.2</ns1:Doc_Sect>
 		<ns1:Description>[In 32-bit Stream Object Header Start][If the related Stream Object is type of ] File Hash, [the Type field is set to]0x8E [and the B-Compound field is set to] 0.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -28007,7 +28043,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID/>
+		<ns1:REQ_ID>MS-FSSHTTPB_R10000</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.9</ns1:Doc_Sect>
 		<ns1:Description>[In Serial Number]Serial number is used by server implementation to relate knowledge to data elements and normalize all identifiers into run length encodable GUID + value range for easier compression. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -28016,7 +28052,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID/>
+		<ns1:REQ_ID>MS-FSSHTTPB_R10001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.9</ns1:Doc_Sect>
 		<ns1:Description>[In Serial Number]When provided by the server implementation, clients can use them to identify cell knowledge and waterline knowledge. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -28025,7 +28061,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID/>
+		<ns1:REQ_ID>MS-FSSHTTPB_R10002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.9</ns1:Doc_Sect>
 		<ns1:Description>[In Serial Number]Because different clients can use different sets of data element identifiers, which makes the space of these identifiers hard to compress, Serial Numbers are used to provide the optimization. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -31160,7 +31196,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R1351.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R4042.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R1224</ns1:REQ_ID>
@@ -31191,7 +31227,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID/>
+		<ns1:REQ_ID>MS-FSSHTTPB_R100031</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
 		<ns1:Description>[In Query Changes][H – Check For File Exists (1 bit)]If set, this attribute will be ignored by the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -36052,7 +36088,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:REQ_ID>MS-FSSHTTPB_R1354</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior][G – Return File Hash (1 bit)]If set, a bit that specifies that the server SHOULD return the file hash in the response.(Microsoft Office 2016/Microsoft SharePoint 2016 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTPB_R1225:I; MS-FSSHTTPB_R1:i</ns1:Derived>
+		<ns1:Derived>MS-FSSHTTPB_R1225:i, MS-FSSHTTPB_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

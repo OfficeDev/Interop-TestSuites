@@ -978,7 +978,7 @@ The conversion to an exclusive lock failed.");
                          lockType,
                          "MS-FSSHTTP",
                          401,
-                         @"[In LockTypes] SchemaLock,1: The string value ""SchemaLock"" or integer value ""1"", indicating a shared lock on the file.");
+                         @"[In LockTypes] SchemaLock: The string value ""SchemaLock"", indicating a shared lock on the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R403
                 Site.CaptureRequirementIfAreEqual<string>(
