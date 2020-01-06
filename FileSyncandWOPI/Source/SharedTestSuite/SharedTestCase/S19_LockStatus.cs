@@ -86,9 +86,9 @@
                     @"[LockStatusSubResponseType]In the case of success, it contains information requested as part of a LockStatus subrequest. ");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R401011
-                Site.CaptureRequirementIfAreEqual<string>(
-                    "1",
-                    lockStatusResponse.SubResponseData.LockType,
+                Site.CaptureRequirementIfAreEqual<int>(
+                    1,
+                    int.Parse(lockStatusResponse.SubResponseData.LockType),
                     "MS-FSSHTTP",
                     401011,
                     @"[In LockTypes] 1: The integer value ""1"", indicating a shared lock on the file.");

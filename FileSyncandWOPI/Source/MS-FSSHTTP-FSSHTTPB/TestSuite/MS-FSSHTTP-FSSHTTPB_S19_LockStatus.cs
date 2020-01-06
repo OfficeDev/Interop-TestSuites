@@ -70,18 +70,18 @@
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R404011
-                Site.CaptureRequirementIfAreEqual<string>(
-                    "2",
-                    lockStatusResponse.SubResponseData.LockType,
+                Site.CaptureRequirementIfAreEqual<int>(
+                    2,
+                    int.Parse(lockStatusResponse.SubResponseData.LockType),
                     "MS-FSSHTTP",
                     404011,
                     @"[In LockTypes] 2: The integer value ""2"", indicating an exclusive lock on the file.");
             }
             else
             {
-                Site.Assert.AreEqual<string>(
-                    "2",
-                    lockStatusResponse.SubResponseData.LockType,
+                Site.Assert.AreEqual<int>(
+                    2,
+                    int.Parse(lockStatusResponse.SubResponseData.LockType),
                     @"2: The integer value ""2"", indicating an exclusive lock on the file.");
             }
         }
