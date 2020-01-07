@@ -84,13 +84,21 @@
                     "MS-FSSHTTP",
                     2272,
                     @"[LockStatusSubResponseType]In the case of success, it contains information requested as part of a LockStatus subrequest. ");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R401011
+                Site.CaptureRequirementIfAreEqual<int>(
+                    1,
+                    int.Parse(lockStatusResponse.SubResponseData.LockType),
+                    "MS-FSSHTTP",
+                    401011,
+                    @"[In LockTypes] 1: The integer value ""1"", indicating a shared lock on the file.");
             }
             else
             {
                 Site.Assert.AreEqual<string>(
                     GenericErrorCodeTypes.Success.ToString(),
                     subresponse.ErrorCode,
-                    "[LockStatusSubResponseType]In the case of success, it contains information requested as part of a LockStatus subrequest. ");
+                    "In the case of success, it contains information requested as part of a LockStatus subrequest. ");
             }
         }
         #endregion

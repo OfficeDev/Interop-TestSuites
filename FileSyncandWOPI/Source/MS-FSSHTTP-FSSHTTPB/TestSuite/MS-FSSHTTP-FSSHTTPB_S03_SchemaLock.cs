@@ -262,7 +262,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          404,
-                         @"[In LockTypes] ExclusiveLock,2: The string value ""ExclusiveLock"" or integer value ""2"", indicating an exclusive lock on the file.");
+                         @"[In LockTypes] ExclusiveLock: The string value ""ExclusiveLock"", indicating an exclusive lock on the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R406
                 Site.CaptureRequirementIfAreEqual<string>(

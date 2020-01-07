@@ -90,6 +90,13 @@
                     224911,
                     @"[In AmIAloneSubResponseDataType]AmIAlone: True means the user is alone in the coauthoring session.");
 
+                //Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2181011
+                //If MS-FSSHTTP224911 is verified, this requirement can be verified directly
+                Site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    2181011,
+                    @"[In SubResponseDataOptionalAttributes]AmIAlone: True means the user is alone in the coauthoring session.");
+
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2251
                 Site.CaptureRequirementIfAreEqual<string>(
                     GenericErrorCodeTypes.Success.ToString(),
@@ -103,7 +110,7 @@
                 Site.Assert.AreEqual<string>(
                     GenericErrorCodeTypes.Success.ToString(),
                     subresponse.ErrorCode,
-                    "[In AmIAloneSubResponseType]In the case of success, it contains information requested as part of an AmIAlone subrequest. ");
+                    "In the case of success, it contains information requested as part of an AmIAlone subrequest. ");
             }
         }
         #endregion
