@@ -153,12 +153,10 @@
   <Property name="R1976Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return an "InvalidArgument" error code as part of the SubResponseData element associated with the file opeartion subresponse. Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R11267Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-  <!--Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return ResourceID attribute when the UseResourceID attribute is set to true. Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-  <Property name="R11275Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-  <!--Set R11276Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does not return ResourceID attribute when the UseResourceID attribute is set to false. Set R11276Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-  <Property name="R11276Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-  <!--Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if UseResourceID set to true and set ResourceID, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute.. Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-  <Property name="R11272Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+   <!--Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support ResourceID attribute. Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+   <Property name="R11275Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+   <!--Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support UseResourceID attribute. Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+   <Property name="R11272Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R4130Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Diagnostic Request Option Output field. Set R4130Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
   <Property name="R4130Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R1102401Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does support SuggestedFileName to specify that the suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request. Set R1102401Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
