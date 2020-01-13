@@ -113,19 +113,19 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 // MinorVersion 3 indicates the protocol server is capable of performing ResourceID specific behavior.
                 if (Common.IsRequirementEnabled(11275, this.Site) && version.MinorVersion == 3)
                 {
-                    // Capture the requirement MS-FSSHTTP_R11275
+                    // Capture the requirement MS-FSSHTTP_R11027
                     Site.CaptureRequirementIfIsNotNull(
                              cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
                              "MS-FSSHTTP",
-                             11275,
-                             @"[In Appendix B: Product Behavior] The ResourceID attribute is present when the UseResourceID attribute is set to true in the corresponding Request element, [and SHOULD NOT be present otherwise]. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                             11027,
+                             @"[In Response] [ResourceID] The ResourceID attribute SHOULD be present when the UseResourceID attribute is set to true in the corresponding Request element, [and SHOULD NOT be present otherwise].");
 
-                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11025
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11275
                     Site.CaptureRequirementIfIsNotNull(
                             cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
                             "MS-FSSHTTP",
-                            11025,
-                            @"[In Response] ResourceID: A string that specifies the invariant ResourceID for a file, which uniquely identifies the file whose response is being generated.");
+                            11275,
+                            @"[In Appendix B: Product Behavior]Implementation does support ResourceID attribute. (Office 2016/Microsoft SharePoint Server 2016 and above follow this behavior.)");
 
                     // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11029
                     Site.CaptureRequirementIfIsTrue(
@@ -134,12 +134,22 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                             11029,
                             @"[In Response] [ResourceID] If present, the string value MUST NOT be an empty string.");
 
-                    // Capture the requirement MS-FSSHTTP_R11271
-                    Site.CaptureRequirementIfIsNotNull(
-                             cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
-                             "MS-FSSHTTP",
-                             11271,
-                             @"[In Appendix B: Product Behavior] [UseResourceID] When true, the implementation sets the ResourceID attribute on the corresponding Response element to the ResourceID of the file. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                    if (Common.IsRequirementEnabled(11272, this.Site))
+                    {
+                        // Capture the requirement MS-FSSHTTP_R11021
+                        Site.CaptureRequirementIfIsNotNull(
+                                 cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
+                                 "MS-FSSHTTP",
+                                 11021,
+                                 @"[In Request] [UseResourceID] When true, the protocol server SHOULD set the ResourceID attribute on the corresponding Response element to the ResourceID of the file.");
+
+                        // Capture the requirement MS-FSSHTTP_R11272
+                        Site.CaptureRequirementIfIsNotNull(
+                                 cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
+                                 "MS-FSSHTTP",
+                                 11272,
+                                 @"[In Appendix B: Product Behavior]Implementation does support UseResourceID Attribute. (Office 2016/Microsoft SharePoint Server 2016 and above follow this behavior.)");
+                    }
                 }
             }
             else
@@ -196,14 +206,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
 
                 // MinorVersion 3 indicates the protocol server is capable of performing ResourceID specific behavior.
-                if (Common.IsRequirementEnabled(11276, this.Site) && version.MinorVersion == 3)
+                if (Common.IsRequirementEnabled(11275, this.Site) && version.MinorVersion == 3)
                 {
-                    // Capture the requirement MS-FSSHTTP_R11276
+                    // Capture the requirement MS-FSSHTTP_R11028
                     Site.CaptureRequirementIfIsNull(
                              cellStoreageResponse.ResponseCollection.Response[0].ResourceID,
                              "MS-FSSHTTP",
-                             11276,
-                             @"[In Appendix B: Product Behavior] The ResourceID attribute [MAY be present when the UseResourceID attribute is set to true in the corresponding Request element, and] is not present otherwise[when the UseResourceID attribute is set to false in the corresponding Request element]. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                             11028,
+                             @"[In Response] [ResourceID] The ResourceID attribute [SHOULD be present when the UseResourceID attribute is set to true in the corresponding Request element, and] SHOULD NOT be present otherwise[when the UseResourceID attribute is set to false in the corresponding Request element].");
                 }
             }
             else
@@ -576,12 +586,12 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11272
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11022
                 Site.CaptureRequirementIfIsTrue(
                      cellStoreageResponse.ResponseCollection.Response[0].Url.Equals(this.DefaultFileUrl, StringComparison.CurrentCultureIgnoreCase),
                      "MS-FSSHTTP",
-                     11272,
-                     @"[In Appendix B: Product Behavior] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                     11022,
+                     @"[In Request] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the protocol server SHOULD use the value of the ResourceID attribute to identify the file instead of the Url attribute.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11074
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
@@ -595,7 +605,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             {
                 Site.Assert.IsTrue(
                     cellStoreageResponse.ResponseCollection.Response[0].Url.Equals(this.DefaultFileUrl, StringComparison.CurrentCultureIgnoreCase),
-                    "[In Appendix B: Product Behavior] [UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and above follow this behavior.)");
+                    "[UseResourceID] Also when true and the ResourceID attribute is set on the Request element, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute.");
                 Site.Assert.AreEqual<ErrorCodeType>(
                      ErrorCodeType.Success,
                      SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
