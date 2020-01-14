@@ -514,6 +514,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 versioningSubResponse.SubResponseData.Versions.Version.Length,
                 "There should be 2 version numbers.");
 
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1117502
+            Site.CaptureRequirementIfIsNull(
+                versioningSubResponse.SubResponseData.Versions.Version[1].IsCurrent,
+                "MS-FSSHTTP",
+                1117502,
+                @"[In FileVersionDataType] IsCurrent: This attribute is not present if this version is not the most recent version of the file.");
+
+
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11189
             Site.CaptureRequirementIfAreEqual<string>(
                 "2",

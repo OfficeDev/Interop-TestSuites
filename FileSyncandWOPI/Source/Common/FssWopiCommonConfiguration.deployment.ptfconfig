@@ -1,54 +1,52 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
   <Properties>
     <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
     <!-- The Domain property specifies the domain name. -->
     <Property name="Domain" value="contoso.com" />
     <!-- The SutComputerName property specifies the name of the SUT. -->
-    <Property name="SutComputerName" value="SUT09" />
+    <Property name="SutComputerName" value="sut03" />
     <!-- The SutVersion property specifies the version of the SUT. If the product version that you want is not listed, enter the value corresponding to the closest version of the product.
          The supported values are:
          "SharePointFoundation2010" (Microsoft® SharePoint® Foundation 2010 Service Pack 2 (SP2));
          "SharePointFoundation2013" (Microsoft® SharePoint® Foundation 2013 Service Pack 1 (SP1));
          "SharePointServer2010" (Microsoft® SharePoint® Server 2010 Service Pack 2 (SP2));
          "SharePointServer2013" (Microsoft® SharePoint® Server 2013 Service Pack 1 (SP1));
-         "SharePointServer2016" (Microsoft® SharePoint® Server 2016). -->
-    <Property name="SutVersion" value="SharePointServer2013"/>
+         "SharePointServer2016" (Microsoft® SharePoint® Server 2016). 
+         "SharePointServer2019" (Microsoft® SharePoint® Server 2019).-->
+    <Property name="SutVersion" value="SharePointServer2019" />
     <!-- The TargetSiteCollectionUrl property specifies the fully qualified URL of the service which the test suite would be run on. -->
     <Property name="TargetSiteCollectionUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]" />
     <!-- The NormalFile property specifies the URL of the normal file (FileSyncWOPI_TestData.txt). -->
-    <Property name="NormalFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPI_TestData.txt"/>
+    <Property name="NormalFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPI_TestData.txt" />
     <!-- The BigFile property specifies the URL of the file which is larger than 1MB. -->
-    <Property name="BigFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPIBigTest.txt"/>
+    <Property name="BigFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPIBigTest.txt" />
     <!-- The ZipFile property specifies the URL of the file which is in zip file format. -->
-    <Property name="ZipFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPI_ZipTestData.zip"/>
+    <Property name="ZipFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPI_ZipTestData.zip" />
     <!-- The OneNoteFile property specifies the URL of the file which is a OneNote notebook. -->
-    <Property name="OneNoteFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPI_OneNoteWithODB.one"/>
+    <Property name="OneNoteFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPI_OneNoteWithODB.one" />
     <!-- The UserName1 property specifies the first domain user which can be used by a client to access the SUT. This user should be an administrator on the SharePoint server. -->
-    <Property name="UserName1" value="User1"/>
+    <Property name="UserName1" value="User1" />
     <!-- The Password1 property specifies the password for the user specified in the UserName1 property. The property value is case-sensitive. -->
-    <Property name="Password1" value="Password01!"/>
+    <Property name="Password1" value="Ap6zF1#uP4l-+" />
     <!-- The UserName2 property specifies the second domain user which can be used by a client to access the SUT. This user should be an administrator on the SharePoint server. -->
-    <Property name="UserName2" value="User2"/>
+    <Property name="UserName2" value="User2" />
     <!-- The Password2 property specifies the password for the user specified in the UserName2 property. The property value is case-sensitive. -->
-    <Property name="Password2" value="Password01!"/>
+    <Property name="Password2" value="Ap6zF1#uP4l-+" />
     <!-- The UserName3 property specifies the third domain user which can be used by a client to access the SUT. -->
-    <Property name="UserName3" value="User3"/>
+    <Property name="UserName3" value="User3" />
     <!-- The Password3 property specifies the password for the user specified in the UserName3 property. The property value is case-sensitive. -->
-    <Property name="Password3" value="Password01!"/>
+    <Property name="Password3" value="Ap6zF1#uP4l-+" />
     <!-- The ReadOnlyUser property specifies the username of a domain user. Note that the user should only have Read permissions. -->
-    <Property name="ReadOnlyUser" value="ReadOnlyUser"/>
+    <Property name="ReadOnlyUser" value="ReadOnlyUser" />
     <!-- The ReadOnlyUserPwd property specifies the password for the user specified in the ReadOnlyUser property. The property value is case-sensitive. -->
-    <Property name="ReadOnlyUserPwd" value="Password01!"/>
+    <Property name="ReadOnlyUserPwd" value="Ap6zF1#uP4l-+" />
     <!-- The NoPermisionToUseRemoteInterfaceUser property specifies the username of a domain user who does not have the permission to use remote interface. -->
-    <Property name="NoPermisionToUseRemoteInterfaceUser" value="NoUseRemoteUser"/>
+    <Property name="NoPermisionToUseRemoteInterfaceUser" value="NoUseRemoteUser" />
     <!-- The NoPermisionToUseRemoteInterfaceUserPwd property specifies the password for the user specified in the NoPermisionToUseRemoteInterfaceUser property. The property value is case-sensitive. -->
-    <Property name="NoPermisionToUseRemoteInterfaceUserPwd" value="Password01!"/>
+    <Property name="NoPermisionToUseRemoteInterfaceUserPwd" value="Ap6zF1#uP4l-+" />
     <!-- SUT section ends. -->
-    
     <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
     <!-- The TransportType property specifies the transport type which is used to transfer messages between the client and the SUT.
          The supported values are:

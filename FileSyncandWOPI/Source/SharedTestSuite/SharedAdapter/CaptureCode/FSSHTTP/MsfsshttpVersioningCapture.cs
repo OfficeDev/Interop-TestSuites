@@ -209,6 +209,27 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     "MS-FSSHTTP",
                     11162,
                     @"[In VersioningVersionListType] Version: An element of type FileVersionDataType (section 2.3.1.43) which describes a single version of the file on the server.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11174
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    11174,
+                    @"[In FileVersionDataType] 
+ <xs:complexType name=""FileVersionDataType"">
+ <xs:sequence>
+    <xs:element name=""Events"" minOccurs=""0"" maxOccurs=""1"" >
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name=""Event"" minOccurs=""1"" maxOccurs=""unbounded"" type=""tns:FileVersionEventDataType"" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+  <xs:attribute name=""IsCurrent"" type=""tns:TRUEFALSE"" use=""optional"" />
+  <xs:attribute name=""Number"" type=""tns:FileVersionNumberType"" use=""required"" />
+  <xs:attribute name=""LastModifiedTime"" type=""xs:positiveInteger"" use=""optional"" />
+  <xs:attribute name=""UserId"" type=""xs:integer"" use=""optional"" />
+ </xs:complexType>");
             }
 
             if (!string.IsNullOrEmpty(versionList.Version[0].Number))
