@@ -14351,11 +14351,20 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2267</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.50</ns1:Doc_Sect>
-		<ns1:Description>[In LockStatusSubResponseDataType]LockType: A LockTypes that specifies the type of lock granted in a coauthoring subresponse or a schema lock subresponse. </ns1:Description>
+		<ns1:Description>[In LockStatusSubResponseDataType]LockType: A LockTypes that specifies the type of lock granted in a coauthoring subresponse. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R22671</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.50</ns1:Doc_Sect>
+		<ns1:Description>[In LockStatusSubResponseDataType]LockType: A LockTypes that specifies the type of lock granted in a schema lock subresponse. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R22681</ns1:REQ_ID>
@@ -14373,7 +14382,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2270</ns1:REQ_ID>
@@ -14382,7 +14391,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2271</ns1:REQ_ID>

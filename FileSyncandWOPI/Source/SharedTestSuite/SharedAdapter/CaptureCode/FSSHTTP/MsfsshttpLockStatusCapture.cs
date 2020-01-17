@@ -86,12 +86,24 @@
                     2182,
                     @"[In SubResponseDataOptionalAttributes]LockedID: A guid that specifies the id of the lock.");
 
+                // MS-FSSHTTP_R2182 is verified,so MS-FSSHTTP_R22699 can be verified directly
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    22699,
+                    @"[In LockStatusSubResponseDataType]LockedID: A guid that specifies the id of the lock.");
+
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2183
                 site.CaptureRequirementIfIsNotNull(
                     lockStatusSubResponse.SubResponseData.LockedBy,
                     "MS-FSSHTTP",
                     2183,
                     @"[In SubResponseDataOptionalAttributes]LockedBy: A string that specifies the user that has the file locked, if any.");
+
+                // MS-FSSHTTP_R2183 is verified,so MS-FSSHTTP_R2270 can be verified directly
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    2270,
+                    @"[In LockStatusSubResponseDataType]LockedBy: A string that specifies the user that has the file locked, if any.");
 
                 ValidateLockStatusSubResponseDataType(lockStatusSubResponse.SubResponseData, site);
             }

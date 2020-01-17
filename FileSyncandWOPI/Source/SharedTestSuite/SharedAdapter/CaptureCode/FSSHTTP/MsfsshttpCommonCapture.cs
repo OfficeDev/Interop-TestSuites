@@ -1185,6 +1185,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTP",
                      467,
                      @"[In SubResponseDataOptionalAttributes] LockType: A LockTypes that specifies the type of lock granted in a coauthoring subresponse.");
+
+            //  MS-FSSHTTP_R467 is verified,so MS-FSSHTTP_R2267 can be verified directly
+            site.CaptureRequirement(
+                     "MS-FSSHTTP",
+                     2267,
+                     @"[In LockStatusSubResponseDataType]LockType: A LockTypes that specifies the type of lock granted in a coauthoring subresponse. ");
+
         }
 
         #endregion 
