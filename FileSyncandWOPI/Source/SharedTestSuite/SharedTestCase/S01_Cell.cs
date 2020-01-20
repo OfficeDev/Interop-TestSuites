@@ -1675,7 +1675,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // If lastModifiedTime1 equals cellSubResponse2.SubResponseData.CreateTime, then capture R11215.
+                // If lastModifiedTime1 equals cellSubResponse2.SubResponseData.LastModifiedTime, then capture R11215.
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11215
                 Site.CaptureRequirementIfIsTrue(
                          lastModifiedTime1 == cellSubResponse2.SubResponseData.LastModifiedTime,
