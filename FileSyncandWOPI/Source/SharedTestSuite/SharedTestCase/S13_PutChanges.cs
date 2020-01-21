@@ -417,7 +417,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                     "MS-FSSHTTPB",
                     4110,
-                    @"[In Appendix B: Product Behavior] Implementation does execute Sub-requests with different or same Priority in any order with respect to each other. (<6> Section 2.2.2.1:  SharePoint Server 2010 and SharePoint Server 2013 execute Sub-requests with different or same Priority in any order with respect to each other.)");
+                    @"[In Appendix B: Product Behavior] Implementation does execute Sub-requests with different or same Priority in any order with respect to each other. (<8> Section 2.2.2.1:  SharePoint Server 2010 and SharePoint Server 2013 execute Sub-requests with different or same Priority in any order with respect to each other.)");
             }
         }
 
@@ -1254,7 +1254,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                          "MS-FSSHTTPB",
                          99047,
-                         @"[Additional Flags] This [check the Put Changes Request for the re-use of previously used Ids] may occur when ID allocations are used and a client rollback occurs.");
+                         @"[Additional Flags] This [check the Put Changes Request for the re-use of previously used Ids] might occur when ID allocations are used and a client rollback occurs.");
             }
             else
             {
