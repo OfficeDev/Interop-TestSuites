@@ -222,5 +222,7 @@
     <Property name="R1253Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R15171Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the user does not have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element, implementation return ErrorCode attribute in ResponseVersion. Enabled15171_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R15171Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1351Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that implementation does ignore the F – Round Knowledge to Whole Cell Changes field. Enabled1351_MS-FSSHTTP-FSSHTTPB to true to disable this requirement. -->
+    <Property name="R1351Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   </Properties>
 </TestSite>

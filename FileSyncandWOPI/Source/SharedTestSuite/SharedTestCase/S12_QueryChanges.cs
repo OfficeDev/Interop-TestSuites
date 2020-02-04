@@ -1532,14 +1532,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
             DataElement data = queryResponse.DataElementPackage.DataElements.FirstOrDefault(dataElement => dataElement.DataElementType == DataElementType.CellManifestDataElementData);
 
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured && Common.IsRequirementEnabled(1351,this.Site))
             {
-                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4042
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R1351
                 Site.CaptureRequirementIfIsNull(
                     data,
                     "MS-FSSHTTPB",
-                    4042,
-                    @"[In Query Changes] F ?Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned<12>.");
+                    1351,
+                    @"[In Appendix B: Product Behavior]If set, a bit that specifies that the knowledge specified in the request SHOULD be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned. (Microsoft Office 2016/Microsoft SharePoint 2016 and above follow this behavior.)");
             }
             else
             {
