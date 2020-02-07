@@ -249,7 +249,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                     "MS-FSSHTTPB",
                     4084,
-                    @"[In EditorElement] HasEditorPermission: A string that specifies if the editor has permission to make edits to the file.");
+                    @"[In EditorElement] HasEditorPermission: A Boolean value that specifies if the editor has permission to make edits to the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTPB_R4085
                 Site.CaptureRequirementIfIsTrue(
@@ -806,7 +806,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse5.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              1976,
-                             @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<49> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
+                             @"[In Appendix B: Product Behavior] The implementation does return an error code value set to ""EditorMetadataQuotaReached"" for an ""Update editor metadata"" request if the client has already exceeded 4 key/value pairs. (<54> Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)");
 
                     Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                              ErrorCodeType.EditorMetadataQuotaReached,
@@ -1087,7 +1087,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     Site.CaptureRequirement(
                              "MS-FSSHTTP",
                              2050,
-                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<48> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a coauthoring lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
+                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<53> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a coauthoring lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
                 }
             }
         }
@@ -1141,7 +1141,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     Site.CaptureRequirement(
                              "MS-FSSHTTP",
                              2051,
-                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<48> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a schema lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
+                             @"[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (<53> Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a schema lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)");
                 }
             }
         }

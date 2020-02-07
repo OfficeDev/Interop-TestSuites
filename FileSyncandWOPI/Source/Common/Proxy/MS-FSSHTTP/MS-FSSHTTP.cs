@@ -211,9 +211,9 @@ namespace Microsoft.Protocols.TestSuites.Common
     public partial class FileOperationSubRequestDataType
     {
 
-        private FileOperationRequestTypes fileOperationRequestTypeField;
+        private FileOperationRequestTypes fileOperationField;
 
-        private bool fileOperationRequestTypeFieldSpecified;
+        private bool fileOperationFieldSpecified;
 
         private string newFileNameField;
 
@@ -225,25 +225,25 @@ namespace Microsoft.Protocols.TestSuites.Common
         {
             get
             {
-                return this.fileOperationRequestTypeField;
+                return this.fileOperationField;
             }
             set
             {
-                this.fileOperationRequestTypeField = value;
+                this.fileOperationField = value;
             }
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool FileOperationRequestTypeSpecified
+        public bool FileOperationSpecified
         {
             get
             {
-                return this.fileOperationRequestTypeFieldSpecified;
+                return this.fileOperationFieldSpecified;
             }
             set
             {
-                this.fileOperationRequestTypeFieldSpecified = value;
+                this.fileOperationFieldSpecified = value;
             }
         }
 
@@ -346,9 +346,9 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private bool editorsTableRequestTypeFieldSpecified;
 
-        private FileOperationRequestTypes fileOperationRequestTypeField;
+        private FileOperationRequestTypes fileOperationField;
 
-        private bool fileOperationRequestTypeFieldSpecified;
+        private bool fileOperationFieldSpecified;
 
         private VersioningRequestTypes versioningRequestTypeField;
 
@@ -385,6 +385,12 @@ namespace Microsoft.Protocols.TestSuites.Common
         private string newFileNameField;
 
         private string versionField;
+
+        private string transitionIDField;
+
+        private PropertiesRequestTypes propertiesField;
+
+        private bool propertiesFieldSpecified;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Include", Namespace = "http://www.w3.org/2004/08/xop/include")]
@@ -742,25 +748,25 @@ namespace Microsoft.Protocols.TestSuites.Common
         {
             get
             {
-                return this.fileOperationRequestTypeField;
+                return this.fileOperationField;
             }
             set
             {
-                this.fileOperationRequestTypeField = value;
+                this.fileOperationField = value;
             }
         }
 
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool FileOperationRequestTypeSpecified
+        public bool FileOperationSpecified
         {
             get
             {
-                return this.fileOperationRequestTypeFieldSpecified;
+                return this.fileOperationFieldSpecified;
             }
             set
             {
-                this.fileOperationRequestTypeFieldSpecified = value;
+                this.fileOperationFieldSpecified = value;
             }
         }
 
@@ -1013,6 +1019,48 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.versionField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string TransitionID
+        {
+            get
+            {
+                return this.transitionIDField;
+            }
+            set
+            {
+                this.transitionIDField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public PropertiesRequestTypes Properties
+        {
+            get
+            {
+                return this.propertiesField;
+            }
+            set
+            {
+                this.propertiesField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool PropertiesSpecified
+        {
+            get
+            {
+                return this.propertiesFieldSpecified;
+            }
+            set
+            {
+                this.propertiesFieldSpecified = value;
             }
         }
     }
@@ -3746,7 +3794,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private string serverTimeField;
 
-        private LockTypes lockTypeField;
+        private string lockTypeField;
 
         private bool lockTypeFieldSpecified;
 
@@ -3757,6 +3805,12 @@ namespace Microsoft.Protocols.TestSuites.Common
         private string transitionIDField;
 
         private ExclusiveLockReturnReasonTypes exclusiveLockReturnReasonField;
+
+        private string amIAloneField;
+
+        private string lockIDField;
+
+        private string lockedByField;
 
         private bool exclusiveLockReturnReasonFieldSpecified;
 
@@ -4079,7 +4133,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public LockTypes LockType
+        public string LockType
         {
             get
             {
@@ -4172,6 +4226,48 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.exclusiveLockReturnReasonFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string AmIAlone
+        {
+            get
+            {
+                return this.amIAloneField;
+            }
+            set
+            {
+                this.amIAloneField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string LockID
+        {
+            get
+            {
+                return this.lockIDField;
+            }
+            set
+            {
+                this.lockIDField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string LockedBy
+        {
+            get
+            {
+                return this.lockedByField;
+            }
+            set
+            {
+                this.lockedByField = value;
             }
         }
     }
@@ -4443,13 +4539,13 @@ namespace Microsoft.Protocols.TestSuites.Common
     public partial class AmIAloneSubResponseDataType
     {
 
-        private bool amIAloneField;
+        private string amIAloneField;
 
         private bool amIAloneFieldSpecified;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public bool AmIAlone
+        public string AmIAlone
         {
             get
             {
@@ -4641,23 +4737,6 @@ namespace Microsoft.Protocols.TestSuites.Common
                 this.propertyValuesField = value;
             }
         }
-    }
-
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.81.0")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
-    public enum LockTypes
-    {
-
-        /// <remarks/>
-        None,
-
-        /// <remarks/>
-        SchemaLock,
-
-        /// <remarks/>
-        ExclusiveLock,
     }
 
     /// <remarks/>
@@ -4915,7 +4994,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     public partial class SchemaLockSubResponseDataType
     {
 
-        private LockTypes lockTypeField;
+        private string lockTypeField;
 
         private bool lockTypeFieldSpecified;
 
@@ -4925,7 +5004,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public LockTypes LockType
+        public string LockType
         {
             get
             {
@@ -4989,7 +5068,7 @@ namespace Microsoft.Protocols.TestSuites.Common
     public partial class CoauthSubResponseDataType
     {
 
-        private LockTypes lockTypeField;
+        private string lockTypeField;
 
         private bool lockTypeFieldSpecified;
 
@@ -5005,7 +5084,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public LockTypes LockType
+        public string LockType
         {
             get
             {
@@ -5131,7 +5210,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private string haveOnlyDemotionChangesField;
 
-        private LockTypes lockTypeField;
+        private string lockTypeField;
 
         private bool lockTypeFieldSpecified;
 
@@ -5277,7 +5356,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public LockTypes LockType
+        public string LockType
         {
             get
             {

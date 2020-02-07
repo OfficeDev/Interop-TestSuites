@@ -243,15 +243,15 @@
    &lt;xs:complexContent&gt;
      &lt;xs:extension base="t:ItemType"&gt;
        &lt;xs:sequence&gt;
-         &lt;xs:element name="AntiLinkInfo" type="xs:string" minOccurs="0"/&gt;
          &lt;xs:element name="PersonIdGuid" type="t:GuidType" minOccurs="0"/&gt;
          &lt;xs:element name="PersonId" type="xs:int" minOccurs="0"/&gt;
-         &lt;xs:element name="ContactHandles" type="t:ArrayOfAbchPersonContactHandlesType" minOccurs="0"/&gt;
-         &lt;xs:element name="ContactCategories" type="t:ArrayOfStringsType" minOccurs="0"/&gt;
+         &lt;xs:element name="FavoriteOrder" type="xs:int" minOccurs="0"/&gt;
+         &lt;xs:element name="TrustLevel" type="xs:int" minOccurs="0"/&gt;
          &lt;xs:element name="RelevanceOrder1" type="xs:string" minOccurs="0"/&gt;
          &lt;xs:element name="RelevanceOrder2" type="xs:string" minOccurs="0"/&gt;
-         &lt;xs:element name="TrustLevel" type="xs:int" minOccurs="0"/&gt;
-         &lt;xs:element name="FavoriteOrder" type="xs:int" minOccurs="0"/&gt;
+         &lt;xs:element name="AntiLinkInfo" type="xs:string" minOccurs="0"/&gt;
+         &lt;xs:element name="ContactCategories" type="t:ArrayOfStringsType" minOccurs="0"/&gt;
+         &lt;xs:element name="ContactHandles" type="t:ArrayOfAbchPersonContactHandlesType" minOccurs="0"/&gt;
          &lt;xs:element name="ExchangePersonIdGuid" type="t:GuidType" minOccurs="0" /&gt;
        &lt;/xs:sequence&gt;
      &lt;/xs:extension&gt;
@@ -288,7 +288,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R16007</ns1:REQ_ID>
@@ -302,7 +302,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R16008</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:AbchPersonItemType Complex Type] PersonIdGuid element: Specifies the ID of this person.</ns1:Description>
+		<ns1:Description>[In t:AbchPersonItemType Complex Type] PersonIdGuid element: A GUID specifies the ID of this person.&lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -423,7 +423,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R16020</ns1:REQ_ID>
@@ -450,7 +450,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R16026</ns1:REQ_ID>
@@ -464,7 +464,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R16027</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:AbchPersonItemType Complex Type] ExchangePersonIdGuid element: Specifies A GUID specifies the person ID.&lt;2&gt;</ns1:Description>
+		<ns1:Description>[In t:AbchPersonItemType Complex Type] ExchangePersonIdGuid element: Specifies A GUID specifies the person ID.&lt;3&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -473,7 +473,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R341</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In t:ArrayOfBinaryType Complex Type] The ArrayOfBinaryType complex type specifies a collection of certificates for a contact(2). &lt;3&gt;</ns1:Description>
+		<ns1:Description>[In t:ArrayOfBinaryType Complex Type] The ArrayOfBinaryType complex type specifies a collection of certificates for a contact(2). &lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1272,6 +1272,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSCONT_R3900301</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:ContactItemType Complex Type] This element [AbchEmailAddresses] is not present in server response. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R40</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhysicalAddresses is t:PhysicalAddressDictionaryType (section 3.1.4.1.1.17).</ns1:Description>
@@ -1653,7 +1662,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R81001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] HasPicture element: This element is read-only for the client.&lt;5&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] HasPicture element: This element is read-only for the client.&lt;6&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1662,7 +1671,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R313</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhoneticFullName is xs:string&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhoneticFullName is xs:string&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1680,7 +1689,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R315</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhoneticFirstName is xs:string&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhoneticFirstName is xs:string&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1689,7 +1698,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R316</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] PhoneticFirstName element: Contains the first name of a contact (2), spelled phonetically.&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] PhoneticFirstName element: Contains the first name of a contact (2), spelled phonetically.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1698,7 +1707,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R317</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhoneticLastName is xs:string&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of PhoneticLastName is xs:string&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1707,7 +1716,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R318</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] PhoneticLastName element: Contains the last name of a contact (2), spelled phonetically.&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] PhoneticLastName element: Contains the last name of a contact (2), spelled phonetically.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1716,7 +1725,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R319</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Alias is xs:string&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Alias is xs:string&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1725,7 +1734,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R320</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] Alias element: Contains the email alias of a contact (2).&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] Alias element: Contains the email alias of a contact (2).&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1734,7 +1743,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R321</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Notes is xs:string&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Notes is xs:string&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1743,7 +1752,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R322</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] Notes element: Contains supplementary contact (2) information.&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] Notes element: Contains supplementary contact (2) information.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1752,7 +1761,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R323</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Photo is xs:base64Binary [XMLSCHEMA2].&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of Photo is xs:base64Binary [XMLSCHEMA2].&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1761,7 +1770,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R324</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] Photo element :Contains a value that encodes the photo of a contact (2).&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] Photo element :Contains a value that encodes the photo of a contact (2).&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1770,7 +1779,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R325</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of UserSMIMECertificate is t:ArrayOfBinaryType (section 2.2.4.2)&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of UserSMIMECertificate is t:ArrayOfBinaryType (section 2.2.4.2)&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1779,7 +1788,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R326</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] UserSMIMECertificate element: Contains a value that encodes a contact's (2) S/MIME certificate.&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] UserSMIMECertificate element: Contains a value that encodes a contact's (2) S/MIME certificate.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1788,7 +1797,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R327</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of MSExchangeCertificate is t:ArrayOfBinaryType&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of MSExchangeCertificate is t:ArrayOfBinaryType&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1797,7 +1806,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R328</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] MSExchangeCertificate element: Contains a value that encodes the server certificate of a contact (2).&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] MSExchangeCertificate element: Contains a value that encodes the server certificate of a contact (2).&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1806,7 +1815,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R329</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of DirectoryId is xs:string&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of DirectoryId is xs:string&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1815,7 +1824,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R330</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] DirectoryId element: Contains the directory identifier of a contact (2).&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] DirectoryId element: Contains the directory identifier of a contact (2).&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1824,7 +1833,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R331</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of ManagerMailbox is t:SingleRecipientType ([MS-OXWSCDATA] section 2.2.4.71).&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of ManagerMailbox is t:SingleRecipientType ([MS-OXWSCDATA] section 2.2.4.71).&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1833,7 +1842,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R332</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] ManagerMailbox element: Contains SMTP information that identifies the mailbox of a contact's (2) manager.&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] ManagerMailbox element: Contains SMTP information that identifies the mailbox of a contact's (2) manager.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1842,7 +1851,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R333</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of DirectReports is t:ArrayOfRecipientsType ([MS-OXWSCDATA] section 2.2.4.11)&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] The type of the element of DirectReports is t:ArrayOfRecipientsType ([MS-OXWSCDATA] section 2.2.4.11)&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1851,7 +1860,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] DirectReports element: Contains SMTP information that identifies the mailboxes of a contact's (2) direct reports.&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] DirectReports element: Contains SMTP information that identifies the mailboxes of a contact's (2) direct reports.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1869,7 +1878,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] AccountName element: Specifies the account name. &lt;6&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] AccountName element: Specifies the account name. &lt;7&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1888,7 +1897,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] IsAutoUpdateDisabled element: Specifies whether auto-update is disabled for this contact.&lt;7&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] IsAutoUpdateDisabled element: Specifies whether auto-update is disabled for this contact.&lt;8&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1925,7 +1934,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334008</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] Comment element : specifies a comment.&lt;8&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] Comment element : specifies a comment.&lt;9&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1944,7 +1953,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334010</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] ContactShortId element: For internal use only.&lt;9&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] ContactShortId element: For internal use only.&lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1962,7 +1971,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334012</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] ContactType element: Specifies the type of the contact.&lt;10&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] ContactType element: Specifies the type of the contact.&lt;11&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1981,7 +1990,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334014</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] Gender element: Specifies the gender of the contact.&lt;11&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] Gender element: Specifies the gender of the contact.&lt;12&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2000,7 +2009,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334016</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] IsHidden element: For internal use only.&lt;12&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] IsHidden element: For internal use only.&lt;13&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2018,7 +2027,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334018</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] ObjectId element: Specifies the handle of the contact.&lt;12&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] ObjectId element: Specifies the handle of the contact.&lt;14&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2037,7 +2046,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334020</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] PassportId element: For internal use only.&lt;14&gt; </ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] PassportId element: For internal use only.&lt;15&gt; </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2055,7 +2064,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R334022</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactItemType Complex Type] PersonId element :Specifies the id of the person.&lt;15&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactItemType Complex Type] PersonId element :Specifies the id of the person.&lt;42&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2881,7 +2890,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R19001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:AbchEmailAddressDictionaryEntryType Complex Type] The AbchEmailAddressDictionaryEntryType complex type specifies an email address entry.&lt;42&gt;</ns1:Description>
+		<ns1:Description>[In t:AbchEmailAddressDictionaryEntryType Complex Type] The AbchEmailAddressDictionaryEntryType complex type specifies an email address entry.&lt;43&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2989,7 +2998,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R19012</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2 </ns1:Doc_Sect>
-		<ns1:Description>[In t:AbchEmailAddressDictionaryType Complex Type] The AbchEmailAddressDictionaryType complex type specifies an email address entry.&lt;43&gt;</ns1:Description>
+		<ns1:Description>[In t:AbchEmailAddressDictionaryType Complex Type] The AbchEmailAddressDictionaryType complex type specifies an email address entry.&lt;44&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3040,7 +3049,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R19016</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:AbchPersonContactHandle Complex Type] The AbchPersonContactHandle complex type specifies the link between a person item and contact.&lt;44&gt;</ns1:Description>
+		<ns1:Description>[In t:AbchPersonContactHandle Complex Type] The AbchPersonContactHandle complex type specifies the link between a person item and contact.&lt;45&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3129,7 +3138,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R19025</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.4 </ns1:Doc_Sect>
-		<ns1:Description>[In t:ArrayOfAbchPersonContactHandlesType Complex Type] The ArrayOfAbchPersonContactHandlesType complex type specifies a contact handle.&lt;45&gt;</ns1:Description>
+		<ns1:Description>[In t:ArrayOfAbchPersonContactHandlesType Complex Type] The ArrayOfAbchPersonContactHandlesType complex type specifies a contact handle.&lt;46&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3509,7 +3518,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R216001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactsFolderType Complex Type] SharingEffectiveRights element: This element is read-only for the client.&lt;46&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactsFolderType Complex Type] SharingEffectiveRights element: This element is read-only for the client.&lt;47&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3545,7 +3554,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R218002</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactsFolderType Complex Type] SourceId element: Specifies the source ID.&lt;47&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactsFolderType Complex Type] SourceId element: Specifies the source ID.&lt;48&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3563,7 +3572,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R218004</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactsFolderType Complex Type] AccountName element: Specifies the account name.&lt;48&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactsFolderType Complex Type] AccountName element: Specifies the account name.&lt;49&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3641,7 +3650,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R224001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.8 </ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactUrlDictionaryEntryType Complex Type] The ContactUrlDictionaryEntryType complex type represents a URL that is associated with a contact.&lt;49&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactUrlDictionaryEntryType Complex Type] The ContactUrlDictionaryEntryType complex type represents a URL that is associated with a contact.&lt;50&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3731,7 +3740,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R224010</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactUrlDictionaryType Complex Type] The ContactUrlDictionaryType complex type specifies a Url associated with a contact  &lt;50&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactUrlDictionaryType Complex Type] The ContactUrlDictionaryType complex type specifies a Url associated with a contact  &lt;51&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3842,7 +3851,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R229</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of Name &lt;51&gt; is xs:string [XMLSCHEMA2]</ns1:Description>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of Name &lt;52&gt; is xs:string [XMLSCHEMA2]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3862,7 +3871,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R231</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of RoutingType &lt;52&gt; is xs:string</ns1:Description>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of RoutingType &lt;53&gt; is xs:string</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3882,7 +3891,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R233</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of MailboxType &lt;53&gt; is t:MailboxTypeType ([MS-OXWSCDATA] section 2.2.5.18)</ns1:Description>
+		<ns1:Description>[In t:EmailAddressDictionaryEntryType Complex Type] The type of the attribute of MailboxType &lt;54&gt; is t:MailboxTypeType ([MS-OXWSCDATA] section 2.2.5.18)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4330,7 +4339,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R120001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In t:AbchEmailAddressTypeType Simple Type] The AbchEmailAddressTypeType simple type specifies an email address type.&lt;54&gt;</ns1:Description>
+		<ns1:Description>[In t:AbchEmailAddressTypeType Simple Type] The AbchEmailAddressTypeType simple type specifies an email address type.&lt;55&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4403,7 +4412,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R120008</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In t:ContactUrlKeyType Simple Type] The ContactUrlKeyType simple type represents types of URLs for a contact.&lt;55&gt;</ns1:Description>
+		<ns1:Description>[In t:ContactUrlKeyType Simple Type] The ContactUrlKeyType simple type represents types of URLs for a contact.&lt;56&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4809,7 +4818,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R143</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In t:FileAsMappingType Simple Type] DisplayName &lt;56&gt;: Indicates that the contact (2) is displayed as the display name.</ns1:Description>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] DisplayName &lt;57&gt;: Indicates that the contact (2) is displayed as the display name.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4819,7 +4828,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R144</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In t:FileAsMappingType Simple Type] FirstName &lt;57&gt;: Indicates that the contact (2) is displayed as the first name.</ns1:Description>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] FirstName &lt;58&gt;: Indicates that the contact (2) is displayed as the first name.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4829,7 +4838,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R145</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In t:FileAsMappingType Simple Type] LastFirstMiddleSuffix &lt;58&gt;: Indicates that the contact (2) is displayed as the last name, the first name, the middle name, and the suffix for the contact.</ns1:Description>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] LastFirstMiddleSuffix &lt;59&gt;: Indicates that the contact (2) is displayed as the last name, the first name, the middle name, and the suffix for the contact.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4839,7 +4848,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R146</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In t:FileAsMappingType Simple Type] LastName &lt;59&gt;: Indicates that the contact (2) is displayed as the last name.</ns1:Description>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] LastName &lt;60&gt;: Indicates that the contact (2) is displayed as the last name.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4849,7 +4858,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R147</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In t:FileAsMappingType Simple Type] Empty &lt;60&gt;: Indicates that the contact (2) is displayed as empty.</ns1:Description>
+		<ns1:Description>[In t:FileAsMappingType Simple Type] Empty &lt;61&gt;: Indicates that the contact (2) is displayed as empty.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5198,7 +5207,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R175001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] BusinessMobile: Identifies the telephone number as a business mobile phone number.&lt;61&gt;</ns1:Description>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] BusinessMobile: Identifies the telephone number as a business mobile phone number.&lt;62&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5208,7 +5217,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R175002</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] IPPhone: Identifies voice over IP phone number.&lt;62&gt;</ns1:Description>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] IPPhone: Identifies voice over IP phone number.&lt;63&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5218,7 +5227,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R175003</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] Mms: Not used. &lt;63&gt;</ns1:Description>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] Mms: Not used. &lt;64&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5227,7 +5236,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R175004</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] Msn: Not used. &lt;64&gt;</ns1:Description>
+		<ns1:Description>[In t:PhoneNumberKeyType Simple Type] Msn: Not used. &lt;65&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6056,24 +6065,6 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCONT_R302038</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7.3</ns1:Doc_Sect>
-		<ns1:Description>[In Complex Types] GetUserPhotoResponseType: Specifies the response for the GetUserPhoto WSDL operation.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCONT_R302039</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7.3</ns1:Doc_Sect>
-		<ns1:Description>[In Complex Types] GetUserPhotoResponseType: This complex type extends the BaseResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.18.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302040</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.1 </ns1:Doc_Sect>
 		<ns1:Description>[In GetUserPhotoType] The GetUserPhotoType complex type specifies a request to retrieve a user photo. </ns1:Description>
@@ -6304,45 +6295,12 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302156</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.2 </ns1:Doc_Sect>
-		<ns1:Description>[In GetUserPhotoResponseMessageType] ContentType element:Specifies the content (MIME) type of the photo.&lt;65&gt;</ns1:Description>
+		<ns1:Description>[In GetUserPhotoResponseMessageType] ContentType element:Specifies the content (MIME) type of the photo.&lt;66&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSCONT_R1275124.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCONT_R302059</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In GetUserPhotoResponseType] The GetUserPhotoResponseType complex type specifies the response for the GetUserPhoto WSDL operation. </ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCONT_R302060</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In GetUserPhotoResponseType] This type extends the BaseResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.18.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXWSCONT_R302061</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.7.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In GetUserPhotoResponseType] The following is the GetUserPhotoResponseType complex type specification.
-   &lt;xs:complexType name="GetUserPhotoResponseType"&gt;
-     &lt;xs:complexContent&gt;
-       &lt;xs:extension base="m:BaseResponseMessageType"/&gt;
-     &lt;/xs:complexContent&gt;
-   &lt;/xs:complexType&gt;
-</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302062</ns1:REQ_ID>
@@ -6496,7 +6454,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R302077</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8 </ns1:Doc_Sect>
-		<ns1:Description>[In SetUserPhoto] The SetUserPhoto WSDL operation adds a photo to a user's account.&lt;66&gt;</ns1:Description>
+		<ns1:Description>[In SetUserPhoto] The SetUserPhoto WSDL operation adds a photo to a user's account.&lt;67&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7007,7 +6965,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R336003</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include this ExchangePersonIdGuid  element. (&lt;2&gt; Section 2.2.4.1:  Exchange 2007, Exchange 2010, and  Exchange  2013  do not include the ExchangePersonIdGuid  element. )</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include this ExchangePersonIdGuid  element. (&lt;3&gt; Section 2.2.4.1:  Exchange 2007, Exchange 2010, and  Exchange  2013  do not include the ExchangePersonIdGuid  element. )</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R16003:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7027,7 +6985,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1274</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include this ArrayOfBinaryType type. (&lt;3&gt; Section 2.2.4.2:  Exchange 2007, Exchange 2010, and Microsoft Exchange Server 2010 Service Pack 1 (SP1) do not include the ArrayOfBinaryType complex type. )</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include this ArrayOfBinaryType type. (&lt;4&gt; Section 2.2.4.2:  Exchange 2007, Exchange 2010, and Microsoft Exchange Server 2010 Service Pack 1 (SP1) do not include the ArrayOfBinaryType complex type. )</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R341:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7037,7 +6995,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R337</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce this type [ArrayOfBinaryType]. (&lt;3&gt;This type was introduced in Microsoft Exchange Server 2010 Service Pack 2 (SP2).)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce this type [ArrayOfBinaryType]. (&lt;4&gt;This type was introduced in Microsoft Exchange Server 2010 Service Pack 2 (SP2).)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R341:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7047,7 +7005,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R339</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include these child elements. (&lt;4&gt; Section 2.2.4.3: Exchange 2007, Exchange 2010, and Exchange 2010 SP1 do not include the following elements: PhoneticFullName, PhoneticFirstName, PhoneticLastName, Alias, Notes, Photo, UserSMIMECertificate, MSExchangeCertificate, DirectoryId, ManagerMailbox, and DirectReports.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not include these child elements. (&lt;5&gt; Section 2.2.4.3: Exchange 2007, Exchange 2010, and Exchange 2010 SP1 do not include the following elements: PhoneticFullName, PhoneticFirstName, PhoneticLastName, Alias, Notes, Photo, UserSMIMECertificate, MSExchangeCertificate, DirectoryId, ManagerMailbox, and DirectReports.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R313:i, MS-OXWSCONT_R314:i, MS-OXWSCONT_R315:i, MS-OXWSCONT_R316:i, MS-OXWSCONT_R317:i, MS-OXWSCONT_R318:i, MS-OXWSCONT_R319:i, MS-OXWSCONT_R320:i, MS-OXWSCONT_R321:i, MS-OXWSCONT_R322:i, MS-OXWSCONT_R323:i, MS-OXWSCONT_R324:i, MS-OXWSCONT_R325:i, MS-OXWSCONT_R326:i, MS-OXWSCONT_R327:i, MS-OXWSCONT_R328:i, MS-OXWSCONT_R329:i, MS-OXWSCONT_R330:i, MS-OXWSCONT_R331:i, MS-OXWSCONT_R332:i, MS-OXWSCONT_R333:i, MS-OXWSCONT_R334:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7057,7 +7015,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce these elements [PhoneticFullName, PhoneticFirstName, PhoneticLastName, Alias, Notes, Photo, UserSMIMECertificate, MSExchangeCertificate, DirectoryId, ManagerMailbox, and DirectReports]. (&lt;4&gt; These elements were introduced in Exchange 2010 SP2 (and above).)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does introduce these elements [PhoneticFullName, PhoneticFirstName, PhoneticLastName, Alias, Notes, Photo, UserSMIMECertificate, MSExchangeCertificate, DirectoryId, ManagerMailbox, and DirectReports]. (&lt;5&gt; These elements were introduced in Exchange 2010 SP2 (and above).)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R313:i, MS-OXWSCONT_R314:i, MS-OXWSCONT_R315:i, MS-OXWSCONT_R316:i, MS-OXWSCONT_R317:i, MS-OXWSCONT_R318:i, MS-OXWSCONT_R319:i, MS-OXWSCONT_R320:i, MS-OXWSCONT_R321:i, MS-OXWSCONT_R322:i, MS-OXWSCONT_R323:i, MS-OXWSCONT_R324:i, MS-OXWSCONT_R325:i, MS-OXWSCONT_R326:i, MS-OXWSCONT_R327:i, MS-OXWSCONT_R328:i, MS-OXWSCONT_R329:i, MS-OXWSCONT_R330:i, MS-OXWSCONT_R331:i, MS-OXWSCONT_R332:i, MS-OXWSCONT_R333:i, MS-OXWSCONT_R334:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7067,7 +7025,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275001</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support element HasPicture. (&lt;5&gt; Section 2.2.4.3:  Exchange 2007 does not support the HasPicture element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support element HasPicture. (&lt;6&gt; Section 2.2.4.3:  Exchange 2007 does not support the HasPicture element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R81:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7088,7 +7046,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275003</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support AccountName element. (&lt;6&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not use the AccountName element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support AccountName element. (&lt;7&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not use the AccountName element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R334002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7109,7 +7067,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275005</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the IsAutoUpdateDisabled element. (&lt;7&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the IsAutoUpdateDisabled element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the IsAutoUpdateDisabled element. (&lt;8&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the IsAutoUpdateDisabled element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R334004:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7130,7 +7088,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275007</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Comment element. (&lt;8&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the Comment element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Comment element. (&lt;9&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the Comment element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R334008:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7151,7 +7109,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275011</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ContactType element. (&lt;10&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ContactType element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ContactType element. (&lt;11&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ContactType element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R334012:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7172,7 +7130,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275013</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Gender element. (&lt;11&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the Gender element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Gender element. (&lt;12&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the Gender element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R334014:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7193,7 +7151,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275017</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ObjectId element. (&lt;13&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ObjectId element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ObjectId element. (&lt;14&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ObjectId element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R334018:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7214,7 +7172,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275021</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the PersonId element. (&lt;14&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the PersonId element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the PersonId element. (&lt;42&gt; Section 2.2.4.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the PersonId element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R334022:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7444,7 +7402,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275067</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the AbchEmailAddressDictionaryEntryType element. (&lt;42&gt; Section 3.1.4.1.1.1:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the AbchEmailAddressDictionaryEntryType complex type.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the AbchEmailAddressDictionaryEntryType element. (&lt;43&gt; Section 3.1.4.1.1.1:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the AbchEmailAddressDictionaryEntryType complex type.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R19001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7464,7 +7422,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275069</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the AbchEmailAddressDictionaryType element. (&lt;43&gt; Section 3.1.4.1.1.2:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the AbchEmailAddressDictionaryType complex type.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the AbchEmailAddressDictionaryType element. (&lt;44&gt; Section 3.1.4.1.1.2:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the AbchEmailAddressDictionaryType complex type.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R19012:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7484,7 +7442,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275071</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the AbchPersonContactHandle element. (&lt;44&gt; Section 3.1.4.1.1.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the AbchPersonContactHandle complex type.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the AbchPersonContactHandle element. (&lt;45&gt; Section 3.1.4.1.1.3:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the AbchPersonContactHandle complex type.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R19016:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7504,7 +7462,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275073</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ArrayOfAbchPersonContactHandlesType element. (&lt;45&gt; Section 3.1.4.1.1.4:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ArrayOfAbchPersonContactHandlesType complex type.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ArrayOfAbchPersonContactHandlesType element. (&lt;46&gt; Section 3.1.4.1.1.4:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ArrayOfAbchPersonContactHandlesType complex type.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R19025:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7524,7 +7482,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275077</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the SourceId element. (&lt;47&gt; Section 3.1.4.1.1.6:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the SourceId element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the SourceId element. (&lt;48&gt; Section 3.1.4.1.1.6:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the SourceId element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R218002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7544,7 +7502,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275079</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the AccountName element. (&lt;48&gt; Section 3.1.4.1.1.6:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the AccountName element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the AccountName element. (&lt;49&gt; Section 3.1.4.1.1.6:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the AccountName element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R218004:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7564,7 +7522,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275081</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ContactUrlDictionaryEntryType complex type. (&lt;49&gt; Section 3.1.4.1.1.8:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ContactUrlDictionaryEntryType complex type.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ContactUrlDictionaryEntryType complex type. (&lt;50&gt; Section 3.1.4.1.1.8:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ContactUrlDictionaryEntryType complex type.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R224001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7585,7 +7543,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275083</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ContactUrlDictionaryType complex type. (&lt;50&gt; Section 3.1.4.1.1.9:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ContactUrlDictionaryType complex type.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ContactUrlDictionaryType complex type. (&lt;51&gt; Section 3.1.4.1.1.9:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ContactUrlDictionaryType complex type.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R224010:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7606,7 +7564,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275085</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Name attribute. (&lt;51&gt; Section 3.1.4.1.1.10: Exchange 2007 does not support the Name attribute.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Name attribute. (&lt;52&gt; Section 3.1.4.1.1.10: Exchange 2007 does not support the Name attribute.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R229:i, MS-OXWSCONT_R230:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7627,7 +7585,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275087</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the RoutingType attribute. (&lt;52&gt; Section 3.1.4.1.1.10: Exchange 2007 does not support the RoutingType attribute.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the RoutingType attribute. (&lt;53&gt; Section 3.1.4.1.1.10: Exchange 2007 does not support the RoutingType attribute.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R231:i, MS-OXWSCONT_R232:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7648,7 +7606,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275089</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the MailboxType attribute. (&lt;53&gt; Section 3.1.4.1.1.10: Exchange 2007 does not support the MailboxType attribute.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the MailboxType attribute. (&lt;54&gt; Section 3.1.4.1.1.10: Exchange 2007 does not support the MailboxType attribute.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R233:i, MS-OXWSCONT_R234:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7669,7 +7627,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275091</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the AbchEmailAddressTypeType simple type. (&lt;54&gt; Section 3.1.4.1.2.1:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the AbchEmailAddressTypeType simple type.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the AbchEmailAddressTypeType simple type. (&lt;55&gt; Section 3.1.4.1.2.1:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the AbchEmailAddressTypeType simple type.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R120001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7689,7 +7647,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275093</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ContactUrlKeyType simple type. (&lt;55&gt; Section 3.1.4.1.2.2:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ContactUrlKeyType simple type.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ContactUrlKeyType simple type. (&lt;56&gt; Section 3.1.4.1.2.2:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the ContactUrlKeyType simple type.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R120008:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7710,7 +7668,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275095</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the DisplayName attribute. (&lt;56&gt; Section 3.1.4.1.2.4: Exchange 2007 does not support the DisplayName attribute.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the DisplayName attribute. (&lt;57&gt; Section 3.1.4.1.2.4: Exchange 2007 does not support the DisplayName attribute.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R143:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7731,7 +7689,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275097</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the FirstName attribute. (&lt;57&gt; Section 3.1.4.1.2.4: Exchange 2007 does not support the FirstName attribute.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the FirstName attribute. (&lt;58&gt; Section 3.1.4.1.2.4: Exchange 2007 does not support the FirstName attribute.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R144:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7752,7 +7710,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275099</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the LastFirstMiddleSuffix attribute. (&lt;58&gt; Section 3.1.4.1.2.4: Exchange 2007 does not support the LastFirstMiddleSuffix attribute.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the LastFirstMiddleSuffix attribute. (&lt;59&gt; Section 3.1.4.1.2.4: Exchange 2007 does not support the LastFirstMiddleSuffix attribute.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R145:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7773,7 +7731,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275101</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the LastName attribute. (&lt;59&gt; Section 3.1.4.1.2.4: Exchange 2007 does not support the LastName attribute.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the LastName attribute. (&lt;60&gt; Section 3.1.4.1.2.4: Exchange 2007 does not support the LastName attribute.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R146:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7794,7 +7752,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275103</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Empty attribute. (&lt;60&gt; Section 3.1.4.1.2.4: Exchange 2007 does not support the Empty attribute.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the Empty attribute. (&lt;61&gt; Section 3.1.4.1.2.4: Exchange 2007 does not support the Empty attribute.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R147:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7815,7 +7773,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275105</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the BusinessMobile value. (&lt;56&gt; Section 3.1.4.1.2.6:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the BusinessMobile value.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the BusinessMobile value. (&lt;62&gt; Section 3.1.4.1.2.6:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the BusinessMobile value.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R175001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7836,7 +7794,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275107</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the IPPhone value. (&lt;62&gt; Section 3.1.4.1.2.6:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the IPPhone value.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the IPPhone value. (&lt;63&gt; Section 3.1.4.1.2.6:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the IPPhone value.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R175002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7857,7 +7815,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275123</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ContentType element.. (&lt;65&gt; Section 3.1.4.7.3.2:  Exchange 2007,and Exchange 2010  do not support the ContentType element.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ContentType element.. (&lt;66&gt; Section 3.1.4.7.3.2:  Exchange 2007,and Exchange 2010  do not support the ContentType element.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R302156:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -7878,7 +7836,7 @@ CompanyLastCommaFirst, LastFirstSuffix, LastSpaceFirstCompany, CompanyLastSpaceF
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCONT_R1275113</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the SetuserPhoto operation. (&lt;66&gt; Section 3.1.4.8:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the SetuserPhoto operation.)</ns1:Description>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the SetuserPhoto operation. (&lt;67&gt; Section 3.1.4.8:  Exchange 2007, Exchange 2010, and Exchange 2013 do not support the SetuserPhoto operation.)</ns1:Description>
 		<ns1:Derived>MS-OXWSCONT_R302077:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

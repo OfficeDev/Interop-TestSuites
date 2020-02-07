@@ -24,7 +24,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
  <xs:complexType name=""FileOperationSubResponseType"">
    <xs:complexContent>
      <xs:extension base=""tns:SubResponseType"">
-     </xs:extension>
+        <xs:sequence minOccurs=""0"" maxOccurs=""1"">
+       < xs:element name = ""SubResponseData"" />
+       </ xs:sequence >
+
+     </ xs:extension>
    </xs:complexContent>
  </xs:complexType>");
         }

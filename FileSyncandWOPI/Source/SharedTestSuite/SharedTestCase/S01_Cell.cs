@@ -880,7 +880,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     Site.CaptureRequirement(
                              "MS-FSSHTTP",
                              3089,
-                             @"[In Appendix B: Product Behavior] When [GetFileProps is] set to true in Put Changes subrequest, the implementation does return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] When [GetFileProps is] set to true in Put Changes subrequest, the implementation does return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
             }
             else
@@ -1027,14 +1027,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                              "MS-FSSHTTPB",
                              213802,
-                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<7> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
+                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<9> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
                 }
                 else
                 {
                     Site.Assert.AreEqual<ErrorCodeType>(
                              ErrorCodeType.Success,
                              SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<7> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
+                             @"[In Appendix B: Product Behavior]  Implementation does support the Target Partition Id field. (<9> Section 2.2.2.1:  SharePoint Server 2013 and above support the Target Partition Id field.)");
                 }
             }
         }
@@ -1645,6 +1645,49 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                             SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                             "[In CellSubRequestDataType] After all the protocol clients have released their lock for that file, the protocol server MUST allow a protocol client with a different schema lock identifier to get a shared lock for that file.");
                 }
+            }
+        }
+
+        /// <summary>
+        /// This method is used to test whether protocol server save the file with LastModifiedTime value in CellSubRequest as the LastModifiedTime instead of the current time.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S01_TC26_UploadContents_LastModifiedTime()
+        {
+            // Initialize the context using user01 and defaultFileUrl.
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Update the file content using the specified user1.
+            CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), SharedTestSuiteHelper.GenerateRandomFileContent(Site));
+            putChange.SubRequestData.GetFilePropsSpecified = true;
+            putChange.SubRequestData.GetFileProps = true;
+
+            //set LastModifiedTime to null 
+            CellStorageResponse response1 = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+            CellSubResponseType cellSubResponse1 = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response1, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse1.ErrorCode, this.Site), "Test case cannot continue unless the operation of updating file content succeeds.");
+            string lastModifiedTime1 = cellSubResponse1.SubResponseData.LastModifiedTime;
+
+            //set LastModifiedTime to lastModifiedTime1 
+            CellStorageResponse response2 = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange }, "1", 2, 2, null, null, lastModifiedTime1, null, null, null, null);
+            CellSubResponseType cellSubResponse2 = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response2, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse2.ErrorCode, this.Site), "Test case cannot continue unless the operation of updating file content succeeds.");
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // If lastModifiedTime1 equals cellSubResponse2.SubResponseData.LastModifiedTime, then capture R11215.
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11215
+                Site.CaptureRequirementIfIsTrue(
+                         lastModifiedTime1 == cellSubResponse2.SubResponseData.LastModifiedTime,
+                         "MS-FSSHTTP",
+                         11215,
+                         @"[In CellSubRequestDataOptionalAttributes][LastModifiedTime] The protocol server MUST save the file with this value as the LastModifiedTime instead of the current time.");
+            }
+            else
+            {
+                Site.Assert.IsTrue(
+                   lastModifiedTime1 == cellSubResponse2.SubResponseData.LastModifiedTime,
+                   @"[In CellSubRequestDataOptionalAttributes][LastModifiedTime] The protocol server MUST save the file with this value as the LastModifiedTime instead of the current time.");
             }
         }
 

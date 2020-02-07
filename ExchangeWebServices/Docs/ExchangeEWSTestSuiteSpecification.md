@@ -134,6 +134,7 @@ suites run against.
 	-   Microsoft Exchange Server 2010 Service Pack 3 (SP3)
 	-   Microsoft Exchange Server 2013 Service Pack 1 (SP1)
 	-	Microsoft Exchange Server 2016
+	-	Microsoft Exchange Server 2019
 
 **Test Suite Client**
 

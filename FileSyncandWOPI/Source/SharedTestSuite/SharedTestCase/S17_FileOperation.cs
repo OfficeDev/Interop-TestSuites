@@ -111,7 +111,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
-        /// A method used to verify that FileOperation sub-request failed with FileOperationRequestType is not specified.
+        /// A method used to verify that FileOperation sub-request failed with FileOperation is not specified.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S17_TC02_FileOperation_ErrorCode()
@@ -124,7 +124,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             fileOperationSubRequest.SubRequestToken = SequenceNumberGenerator.GetCurrentToken().ToString();
             fileOperationSubRequest.SubRequestData = new FileOperationSubRequestDataType();
             fileOperationSubRequest.SubRequestData.FileOperation = FileOperationRequestTypes.Rename;
-            fileOperationSubRequest.SubRequestData.FileOperationRequestTypeSpecified = false;
+            fileOperationSubRequest.SubRequestData.FileOperationSpecified = false;
             fileOperationSubRequest.SubRequestData.ExclusiveLockID = null;
 
             CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { fileOperationSubRequest });
@@ -144,7 +144,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                         errorCode,
                         "MS-FSSHTTP",
                         11267,
-                        @"[In Appendix B: Product Behavior] If the specified attributes[FileOperationRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                        @"[In Appendix B: Product Behavior] If the specified attributes[FileOperation attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
             }
 
@@ -156,7 +156,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.InvalidArgument,
                     errorCode,
-                    @"[In Appendix B: Product Behavior] If the specified attributes[FileOperationRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] If the specified attributes[FileOperation attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
             }
         }
@@ -224,6 +224,56 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             {
                 Site.Assert.AreEqual<string>(
                     resourceID, resourceID2, "ResourceID MUST NOT change over the lifetime of a file, even if the URL of the file changes.");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify that an error when neither of the ResourceID and Url attributes identify valid files.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S17_TC04_ResourceIdDoesNotExist()
+        {
+            string invalidUrl = this.DefaultFileUrl + "Invalid";
+
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Invoke "GetVersions"sub-request with correct invalid parameters.
+            GetVersionsSubRequestType getVersionsSubRequest = SharedTestSuiteHelper.CreateGetVersionsSubRequest(SequenceNumberGenerator.GetCurrentToken());
+            CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(
+               invalidUrl,
+                new SubRequestType[] { getVersionsSubRequest },
+                "1", 2, 2, null, null, null, null, null, "test", true);
+            GetVersionsSubResponseType getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<GetVersionsSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
+
+            VersionType version = cellStoreageResponse.ResponseVersion as VersionType;
+            Site.Assume.AreEqual<ushort>(3, version.MinorVersion, "This test case runs only when MinorVersion is 3 which indicates the protocol server is capable of performing ResourceID specific behavior.");
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2171
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.ResourceIdDoesNotExist,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         2171,
+                         @"[In GenericErrorCodeTypes] InvalidArgument indicates an error when any of the cell storage service subrequests for the targeted URL for the file contains input parameters that are not valid.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11023
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.ResourceIdDoesNotExist,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         11023,
+                         @"[In Request] [UseResourceID]In the case where the protocol server is using the ResourceID attribute but the ResourceID attribute does not identify a valid file the protocol server SHOULD set an error code in the ErrorCode attribute of the corresponding Response attribute.");
+
+            }
+            else
+            {
+                Site.Assert.AreEqual<ErrorCodeType>(
+                    ErrorCodeType.ResourceIdDoesNotExist,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(getVersionsSubResponse.ErrorCode, this.Site),
+                    @"[In GenericErrorCodeTypes] InvalidArgument indicates an error when any of the cell storage service subrequests for the targeted URL for the file contains input parameters that are not valid.");
             }
         }
         #endregion
