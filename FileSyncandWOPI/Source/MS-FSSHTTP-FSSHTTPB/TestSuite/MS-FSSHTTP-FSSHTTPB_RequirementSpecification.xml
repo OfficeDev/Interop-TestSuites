@@ -16310,7 +16310,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R837</ns1:REQ_ID>
@@ -31167,8 +31167,8 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R4042.</ns1:VerificationComment>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R1351.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R1224</ns1:REQ_ID>
@@ -31186,7 +31186,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R1354.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -31234,7 +31234,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTPB_R1356.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>

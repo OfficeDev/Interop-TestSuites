@@ -371,7 +371,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         isRootNode,
                         "MS-FSSHTTPD",
                         8204,
-                        @"[In Appendix A: Product Behavior] If there is only one object in the file,the implementation does return the Intermediate Node Object. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)");          
+                        @"[In Appendix A: Product Behavior] If there is only one object in the file,the implementation does return the Intermediate Node Object. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016/Microsft Office 2019/Microsft SharePoint Server 2019 follow this behavior.)");          
                  }
              }
         }

@@ -1012,7 +1012,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     site.CaptureRequirement(
                              "MS-FSSHTTPB",
                              865,
-                             @"[In Query Changes Sub-Request Processing] The server MUST reply back to the client with a Query Changes sub-response, as specified in section 2.2.3.1.2. [<18>]");
+                             @"[In Query Changes Sub-Request Processing] The server MUST reply back to the client with a Query Changes sub-response, as specified in section 2.2.3.1.2. [<28>]");
 
                     break;
 
