@@ -20575,7 +20575,7 @@ The PropertyTagType is defined as following :
 		<ns1:Description>[In MailboxItemMailboxGuidBased or ConversationIdMailboxGuidBased] If the Id storage type is ConversationIdMailboxGuidBased, the format of the remaining bytes is
 [Short] Moniker Length
 [Variable] Moniker Bytes
-[Byte] Id Processing Instruction (Normal = 0, Recurrence = 1)
+[Byte] Id Processing Instruction (Normal = 0, Recurrence = 1, Series = 2)
 [Short] Store Id Bytes Length
 [Variable] Store Id Bytes</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -20589,7 +20589,7 @@ The PropertyTagType is defined as following :
 		<ns1:Description>[In MailboxItemMailboxGuidBased or ConversationIdMailboxGuidBased] If the Id storage type is MailboxItemMailboxGuidBased&lt;2&gt;, the format of the remaining bytes is
 [Short] Moniker Length
 [Variable] Moniker Bytes
-[Byte] Id Processing Instruction (Normal = 0, Recurrence = 1)
+[Byte] Id Processing Instruction (Normal = 0, Recurrence = 1, Series = 2)
 [Short] Store Id Bytes Length
 [Variable] Store Id Bytes</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>

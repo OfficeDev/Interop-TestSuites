@@ -1036,7 +1036,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 ResponseCodeType.ErrorInvalidPropertySet,
                 createItemResponse.ResponseMessages.Items[0].ResponseCode,
                 81001,
-                @"[In t:ContactItemType Complex Type] HasPicture element: This element is read-only for the client.<4>");
+                @"[In t:ContactItemType Complex Type] HasPicture element: This element is read-only for the client.<6>");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275002");
@@ -1100,11 +1100,12 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             #region Step 1:Create an item
             AbchPersonItemType abchPersonItem = new AbchPersonItemType();
 
+            abchPersonItem.AntiLinkInfo = Common.GenerateResourceName(this.Site, "AntiLinkInfo");
             abchPersonItem.ContactCategories = new string[] {
                                     "test category"
                                 };
             abchPersonItem.FavoriteOrderSpecified = true;
-
+            abchPersonItem.FavoriteOrder = 1;
             ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(abchPersonItem);
             #endregion
 
@@ -1123,6 +1124,15 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             #region Capture code
             // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16006");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R216006
+            Site.CaptureRequirementIfIsNotNull(
+                ((AbchPersonItemType)items.Items[0]).AntiLinkInfo,
+                16006,
+                @"[In t:AbchPersonItemType Complex Type] AntiLinkInfo element: Specifies an ID of a set of people who MUST NOT be linked together automatically.");
+
+            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16012");
 
             // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R216012
@@ -1130,6 +1140,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 ((AbchPersonItemType)items.Items[0]).ContactCategories,
                 16012,
                 @"[In t:AbchPersonItemType Complex Type] ContactCategories element: Specifies the categories of groups that this person belongs to.");
+
+            Site.Assert.IsTrue(((AbchPersonItemType)items.Items[0]).FavoriteOrderSpecified, "FavoriteOrderSpecified element should be True.");
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16022");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16022
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                ((AbchPersonItemType)items.Items[0]).FavoriteOrder,
+                16022,
+                @"[In t:AbchPersonItemType Complex Type] FavoriteOrder element: Otherwise [If this value is not 0], a non-zero value means this person is a favorite. ");
             #endregion
 
             #region Step3:Delete the item

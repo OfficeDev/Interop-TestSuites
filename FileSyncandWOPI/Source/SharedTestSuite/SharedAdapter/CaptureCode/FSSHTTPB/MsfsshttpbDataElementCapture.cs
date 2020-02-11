@@ -415,7 +415,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      278,
-                     @"[In Storage Manifest Data Element] Storage Manifest Root Declare (2 bytes): A 16-bit Stream Object Header that specifies one or more Storage Manifest root declare.");
+                     @"[In Storage Manifest Data Element] Storage Manifest Root Declare (2 bytes): A 16-bit Stream Object Header that specifies one or more Storage Manifest root declare(with Root Extended GUID and Cell ID).");
 
             // Directly capture requirement MS-FSSHTTPB_R279, if there are no parsing errors. 
             site.CaptureRequirement(

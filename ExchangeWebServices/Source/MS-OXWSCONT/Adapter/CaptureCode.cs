@@ -150,15 +150,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
    < xs:complexContent >
      < xs:extension base = ""t:ItemType"" >
        < xs:sequence >
-         < xs:element name = ""AntiLinkInfo"" type = ""xs:string"" minOccurs = ""0"" />
+
          < xs:element name = ""PersonIdGuid"" type = ""t:GuidType"" minOccurs = ""0"" />
          < xs:element name = ""PersonId"" type = ""xs:int"" minOccurs = ""0"" />
-         < xs:element name = ""ContactHandles"" type = ""t:ArrayOfAbchPersonContactHandlesType"" minOccurs = ""0"" />
-         < xs:element name = ""ContactCategories"" type = ""t:ArrayOfStringsType"" minOccurs = ""0"" />
+         < xs:element name = ""FavoriteOrder"" type = ""xs:int"" minOccurs = ""0"" />
+         < xs:element name = ""TrustLevel"" type = ""xs:int"" minOccurs = ""0"" />
          < xs:element name = ""RelevanceOrder1"" type = ""xs:string"" minOccurs = ""0"" />
          < xs:element name = ""RelevanceOrder2"" type = ""xs:string"" minOccurs = ""0"" />
-         < xs:element name = ""TrustLevel"" type = ""xs:int"" minOccurs = ""0"" />
-         < xs:element name = ""FavoriteOrder"" type = ""xs:int"" minOccurs = ""0"" />
+         < xs:element name = ""AntiLinkInfo"" type = ""xs:string"" minOccurs = ""0"" />
+         < xs:element name = ""ContactCategories"" type = ""t:ArrayOfStringsType"" minOccurs = ""0"" />
+         < xs:element name = ""ContactHandles"" type = ""t:ArrayOfAbchPersonContactHandlesType"" minOccurs = ""0"" />
          < xs:element name = ""ExchangePersonIdGuid"" type = ""t:GuidType"" minOccurs = ""0"" />
        </ xs:sequence >
      </ xs:extension >
@@ -176,6 +177,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                     336002,
                     @"[In Appendix C: Product Behavior] Implementation does support the AbchPersonItemType complex type which specifies a person. (Exchange 2016 and above follow this behavior.)");
 
+                if (abchPersonItemType.AntiLinkInfo != null)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16005");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16005
+                    Site.CaptureRequirementIfIsInstanceOfType(
+                        abchPersonItemType.AntiLinkInfo,
+                        typeof(String),
+                        16005,
+                    @"[In t:AbchPersonItemType Complex Type] The type of child element AntiLinkInfo is xs:string ([XMLSCHEMA2]).");
+                }
+
                 if (abchPersonItemType.ContactCategories != null)
                 {
                     // Add the debug information
@@ -187,6 +201,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                         typeof(String[]),
                         16011,
                     @"[In t:AbchPersonItemType Complex Type] The type of child element ContactCategories is t:ArrayOfStringsType ([MS-OXWSCDATA] section 2.2.4.13).");
+                }
+
+                if(abchPersonItemType.FavoriteOrderSpecified == true)
+                {
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16019");
+
+                    // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16019
+                    Site.CaptureRequirementIfIsInstanceOfType(
+                        abchPersonItemType.FavoriteOrder,
+                        typeof(int),
+                        16019,
+                    @"[In t:AbchPersonItemType Complex Type] The type of child element FavoriteOrder is xs:int.");
                 }
             }
         }

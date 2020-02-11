@@ -43,6 +43,9 @@
     <Compile Include="S15_CreateFile.cs" />
     <Compile Include="S16_Versioning.cs" />
     <Compile Include="S17_FileOperation.cs" />
+    <Compile Include="S18_AmIAlone.cs" />
+    <Compile Include="S19_LockStatus.cs" />
+    <Compile Include="S20_Properties.cs" />
     <Compile Include="SharedTestSuiteBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="S01_Cell.cs" />
