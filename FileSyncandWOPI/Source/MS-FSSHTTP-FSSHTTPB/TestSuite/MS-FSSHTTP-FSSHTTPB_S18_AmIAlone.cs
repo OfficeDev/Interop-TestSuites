@@ -67,7 +67,6 @@
             amIAlone.SubRequestData.TransitionID = transitionId;
             CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { amIAlone });
             AmIAloneSubResponseType amIAloneResponse = SharedTestSuiteHelper.ExtractSubResponse<AmIAloneSubResponseType>(response, 0, 0, this.Site);
-            SubResponseType subresponse = response.ResponseCollection.Response[0].SubResponse[0];
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
@@ -107,7 +106,6 @@
             AmIAloneSubRequestType amIAlone = SharedTestSuiteHelper.CreateAmIAloneSubRequest();
             CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { amIAlone });
             AmIAloneSubResponseType amIAloneResponse = SharedTestSuiteHelper.ExtractSubResponse<AmIAloneSubResponseType>(response, 0, 0, this.Site);
-            SubResponseType subresponse = response.ResponseCollection.Response[0].SubResponse[0];
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
