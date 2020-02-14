@@ -85,6 +85,40 @@
                     @"2: The integer value ""2"", indicating an exclusive lock on the file.");
             }
         }
+
+        /// <summary>
+        /// A method used to verify that LockStatus sub-request failed.
+        /// </summary>
+        [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
+        public void MSFSSHTTP_FSSHTTPB_TestCase_S19_TC02_LockStatus_Error()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            LockStatusSubRequestType lockStatus = SharedTestSuiteHelper.CreateLockStatusSubRequest();
+
+            CellStorageResponse response = this.Adapter.CellStorageRequest(null, new SubRequestType[] { lockStatus });
+            LockStatusSubResponseType lockStatusResponse = SharedTestSuiteHelper.ExtractSubResponse<LockStatusSubResponseType>(response, 0, 0, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                //Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2273
+                Site.CaptureRequirementIfAreNotEqual<string>(
+                    "Success",
+                    lockStatusResponse.ErrorCode,
+                    "MS-FSSHTTP",
+                    2273,
+                    @"[LockStatusSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. ");
+            }
+            else
+            {
+                Site.Assert.AreNotEqual<string>(
+                    "Success",
+                    lockStatusResponse.ErrorCode,
+                    "In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. ");
+            }
+        }
+
         /// <summary>
         /// Initialize the shared context based on the specified request file URL, user name, password and domain for the MS-FSSHTTP test purpose.
         /// </summary>
