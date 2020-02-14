@@ -288,7 +288,7 @@
             //  Verify MS-ONESTORE requirement: MS-ONESTORE_R266
             site.CaptureRequirement(
                     266,
-                    @"[In Header]  [crcName] This CRC is always calculated using the CRC algorithm for the .one file (section 2.1.2), regardless of this revision store file format.");
+                    @"[In Header]  [crcName] This CRC is calculated using the CRC algorithm for the .one file (section 2.1.2), regardless of this revision store file format.");
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R267
             site.CaptureRequirementIfIsInstanceOfType(
