@@ -24270,9 +24270,10 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 		<ns1:Doc_Sect>3.1.4.14</ns1:Doc_Sect>
 		<ns1:Description>[LockStatus Subrequest]This operation is used to retrieve information about the lock state of a file.&lt;61&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R246601.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2376</ns1:REQ_ID>
@@ -25933,6 +25934,15 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R246601</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support LockStatus operation. (SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R2375:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:IsNormative/>
+		<ns1:Verification/>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2468</ns1:REQ_ID>
