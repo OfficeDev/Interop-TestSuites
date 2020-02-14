@@ -43,7 +43,7 @@
         [TestInitialize]
         public void S18_AmIAloneInitialization()
         {
-            this.Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 111111, this.Site), "This test case only runs when FileOperation subrequest is supported.");
+            this.Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 246401, this.Site), "This test case only runs when AmIAlone subrequest is supported.");
             this.DefaultFileUrl = this.PrepareFile();
         }
 
