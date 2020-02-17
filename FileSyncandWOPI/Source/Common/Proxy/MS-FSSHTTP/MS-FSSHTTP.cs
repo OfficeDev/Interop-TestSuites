@@ -4583,6 +4583,8 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private string lockTypeField;
 
+        private bool lockTypeFieldSpecified;
+
         private string lockIDField;
 
         private string lockedByField;
@@ -4598,6 +4600,20 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.lockTypeField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool LockTypeSpecified
+        {
+            get
+            {
+                return this.lockTypeFieldSpecified;
+            }
+            set
+            {
+                this.lockTypeFieldSpecified = value;
             }
         }
 

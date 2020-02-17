@@ -226,5 +226,7 @@
     <Property name="R1351Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R246401Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support AmIAlone Subrequest. Enabled246401_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R246401Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R246601Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support LockStatus Subrequest. Enabled246601_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R246601Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   </Properties>
 </TestSite>
