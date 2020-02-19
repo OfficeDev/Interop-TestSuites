@@ -1789,7 +1789,7 @@ The conversion to an exclusive lock failed.");
             subRequest.SubRequestData.Timeout = "60";
             CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
             SchemaLockSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
-            //this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site), "The client {0} should get a schemaLock with schemaLockID {1} on the file {2}", SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, this.DefaultFileUrl);
+            this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site), "The client {0} should get a schemaLock with schemaLockID {1} on the file {2}", SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, this.DefaultFileUrl);
 
             // Sleep 70s to try to wait the timeout expires, due to undefined behavior for time out less than 3600 seconds,
             // this lock will possible be not expired, but it will not affect the test result in the current situation.
