@@ -25477,7 +25477,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3105</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServer". (Microsoft Office 2013 suites/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServer". (Microsoft Office 2013 suites/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1550:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
