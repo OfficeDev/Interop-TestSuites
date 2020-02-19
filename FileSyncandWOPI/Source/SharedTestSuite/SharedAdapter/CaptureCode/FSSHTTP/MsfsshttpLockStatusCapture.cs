@@ -19,12 +19,6 @@
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2276
             site.CaptureRequirement(
                      "MS-FSSHTTP",
-                     246601,
-                     @"[In Appendix B: Product Behavior] Implementation does support LockStatus operation. (SharePoint Server 2016 and above follow this behavior.)");
-
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2276
-            site.CaptureRequirement(
-                     "MS-FSSHTTP",
                      2276,
                      @"[LockStatusSubResponseType]
 	<xs:complexType name=""LockStatusSubResponseType"">
@@ -96,6 +90,13 @@
         /// <param name="site">Instance of ITestSite</param>
         private static void ValidateLockStatusSubResponseDataType(LockStatusSubResponseDataType lockStatusSubResponseData, ITestSite site)
         {
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2382
+            // if can launch this method, the schema matches.
+            site.CaptureRequirement(
+                     "MS-FSSHTTP",
+                     2382,
+                     @"[LockStatus Subrequest]The LockStatusSubResponseDataType defines the type of the SubResponseData element inside the LockStatusSubResponse element. ");
+
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2266
             site.CaptureRequirement(
                      "MS-FSSHTTP",
