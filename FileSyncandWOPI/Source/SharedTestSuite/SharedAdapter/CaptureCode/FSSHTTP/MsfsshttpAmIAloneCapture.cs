@@ -103,7 +103,7 @@
                      224811,
                      @"[In AmIAloneSubResponseDataType]	
 <xs:complexType name=""AmIAloneSubResponseDataType"" >
-    < xs:attribute name = ""AmIAlone"" type = ""xs:boolean"" use = ""optional"" />
+    < xs:attribute name = ""AmIAlone"" type = ""tns:TRUEFALSE"" use = ""optional"" />
 </ xs:complexType > ");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2134
