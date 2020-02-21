@@ -1246,7 +1246,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S12_TC28_QueryChanges_AllowFragments2_One()
         {
-            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 4040, this.Site))
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1348, this.Site))
             {
                 Site.Assume.Inconclusive("Implementation does not support Allow Fragments 2 flag.");
             }
