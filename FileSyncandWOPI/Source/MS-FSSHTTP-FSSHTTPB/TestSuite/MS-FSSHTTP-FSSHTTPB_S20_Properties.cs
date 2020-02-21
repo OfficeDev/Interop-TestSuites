@@ -6,7 +6,7 @@
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>
-    /// A class which contains test cases used to verify the AmIAlone sub request operation.
+    /// A class which contains test cases used to verify the Properties sub request operation.
     /// </summary>
     [TestClass]
     public sealed class MS_FSSHTTP_FSSHTTPB_S20_Properties : S20_Properties
@@ -38,58 +38,40 @@
         /// A method used to verify that Properties sub-request failed.
         /// </summary>
         [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
-        public void MSFSSHTTP_FSSHTTPB_TestCase_S20_TC01_Properties()
+        public void MSFSSHTTP_FSSHTTPB_TestCase_S20_TC01_Properties_ErrorCode()
         {
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+            string fileName = this.DefaultFileUrl.Substring(this.DefaultFileUrl.LastIndexOf("/", System.StringComparison.OrdinalIgnoreCase) + 1);
 
-            PropertiesSubRequestType properties = SharedTestSuiteHelper.CreatePropertiesSubRequest(SequenceNumberGenerator.GetCurrentToken(), PropertiesRequestTypes.PropertyEnumerate, null, this.Site);
+            PropertyIdType property = new PropertyIdType();
+            property.id = fileName;
+            PropertyIdType[] propertyId = new PropertyIdType[] { property };
 
-            CellStorageResponse response = Adapter.CellStorageRequest(
-     this.DefaultFileUrl,
-     new SubRequestType[] { properties },
-     "1", 2, 2, null, null, null, null, null, null, true);
-            PropertiesSubResponseType getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<PropertiesSubResponseType>(response, 0, 0, this.Site);
-
-            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.DefaultExclusiveLockID);
-            CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            CoauthSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
-            this.Site.Assert.AreEqual(
-                    ErrorCodeType.Success,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
-                    string.Format("Account {0} with client ID {1} and schema lock ID {2} should join the coauthoring session successfully.", this.UserName01, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID));
-            this.StatusManager.RecordCoauthSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
-
-            PropertiesSubRequestType propertiess = SharedTestSuiteHelper.CreatePropertiesSubRequest(SequenceNumberGenerator.GetCurrentToken(), PropertiesRequestTypes.PropertyEnumerate, null, this.Site);
-            CellStorageResponse response1 = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { propertiess });
-            PropertiesSubResponseType propertiesResponse = SharedTestSuiteHelper.ExtractSubResponse<PropertiesSubResponseType>(response1, 0, 0, this.Site);
+            PropertiesSubRequestType propertiess = SharedTestSuiteHelper.CreatePropertiesSubRequest(SequenceNumberGenerator.GetCurrentToken(), PropertiesRequestTypes.PropertyGet, propertyId, this.Site);
+            CellStorageResponse response = this.Adapter.CellStorageRequest(null, new SubRequestType[] { propertiess });
+            PropertiesSubResponseType propertiesResponse = SharedTestSuiteHelper.ExtractSubResponse<PropertiesSubResponseType>(response, 0, 0, this.Site);
             SubResponseType subresponse = response.ResponseCollection.Response[0].SubResponse[0];
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                //// Verify MS-FSSHTTP requirement: MS-FSSHTTP_R224912
-                //Site.CaptureRequirementIfIsFalse(
-                //    amIAloneResponse.SubResponseData,
-                //    "MS-FSSHTTP",
-                //    224912,
-                //    @"[In AmIAloneSubResponseDataType]AmIAlone: False means the user is not alone in the coauthoring session.");
-
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R22522
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2302011
                 Site.CaptureRequirementIfAreNotEqual<string>(
                     GenericErrorCodeTypes.Success.ToString(),
                     subresponse.ErrorCode,
                     "MS-FSSHTTP",
-                    22522,
-                    @"[In AmIAloneSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. ");
+                    2302011,
+                    @"[PropertiesSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. ");
             }
             else
             {
                 Site.Assert.AreNotEqual<string>(
                     GenericErrorCodeTypes.Success.ToString(),
                     subresponse.ErrorCode,
-                    "Error should occur if call AmIAlone request with empty TransitionID.");
+                    "In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.");
             }
         }
+
         /// <summary>
         /// Initialize the shared context based on the specified request file URL, user name, password and domain for the MS-FSSHTTP test purpose.
         /// </summary>

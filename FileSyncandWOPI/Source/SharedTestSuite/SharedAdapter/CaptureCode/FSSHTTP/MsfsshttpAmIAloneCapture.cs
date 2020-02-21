@@ -90,6 +90,13 @@
         /// <param name="site">Instance of ITestSite</param>
         private static void ValidateAmIAloneSubResponseDataType(AmIAloneSubResponseDataType amIAloneSubResponseData, ITestSite site)
         {
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2369
+            // if can launch this method, the schema matches.
+            site.CaptureRequirement(
+                     "MS-FSSHTTP",
+                     2369,
+                     @"[AmIAlone Subrequest]The AmIAloneSubResponseDataType defines the type of the SubResponseData element inside the AmIAloneSubResponse element. ");
+
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R224811
             site.CaptureRequirement(
                      "MS-FSSHTTP",

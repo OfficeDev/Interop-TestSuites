@@ -14656,7 +14656,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2297</ns1:REQ_ID>
@@ -14665,7 +14665,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2298</ns1:REQ_ID>
@@ -14787,7 +14787,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2410</ns1:REQ_ID>
@@ -14796,7 +14796,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2311</ns1:REQ_ID>
@@ -14817,7 +14817,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2413</ns1:REQ_ID>
@@ -14826,7 +14826,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2414</ns1:REQ_ID>
@@ -14849,7 +14849,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2316</ns1:REQ_ID>
@@ -14858,7 +14858,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2317</ns1:REQ_ID>
@@ -14880,7 +14880,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2319</ns1:REQ_ID>
@@ -14889,7 +14889,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2320</ns1:REQ_ID>
@@ -14898,7 +14898,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R770</ns1:REQ_ID>
@@ -24217,8 +24217,8 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 		<ns1:Description>[AmIAlone Subrequest]The AmIAloneSubResponseDataType defines the type of the SubResponseData element inside the AmIAloneSubResponse element. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2370</ns1:REQ_ID>
@@ -24254,7 +24254,7 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2374</ns1:REQ_ID>
@@ -24372,7 +24372,7 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2387</ns1:REQ_ID>
@@ -24388,9 +24388,10 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 		<ns1:Doc_Sect>3.1.4.15</ns1:Doc_Sect>
 		<ns1:Description>[Properties Subrequest]This operation is used to request information on properties.&lt;62&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R246801.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2389</ns1:REQ_ID>
@@ -24536,7 +24537,7 @@ Property Get</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2445</ns1:REQ_ID>
@@ -24545,7 +24546,7 @@ Property Get</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2446</ns1:REQ_ID>
@@ -24572,7 +24573,7 @@ Property Get</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2449</ns1:REQ_ID>
@@ -24581,7 +24582,7 @@ Property Get</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2450</ns1:REQ_ID>
@@ -25931,7 +25932,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support LockStatus operation. &lt;61&gt; Section 3.1.4.14:  SharePoint Server 2010 and SharePoint Server 2013 do not support the LockStatus operation.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -25941,17 +25942,30 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support LockStatus operation. (SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R2375:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:IsNormative/>
-		<ns1:Verification/>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2468</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support Properties operation. &lt;62&gt; Section 3.1.4.15:  SharePoint Server 2010 and SharePoint Server 2013 do not support the Properties operation.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R246801</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support Properties operation. (SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R2388:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R2233</ns1:REQ_ID>
