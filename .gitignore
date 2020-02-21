@@ -3,3 +3,7 @@
 ################################################################################
 
 /FileSyncandWOPI/Source/Common/obj/Debug
+/FileSyncandWOPI/Source/MS-FSSHTTP-FSSHTTPB/.vs/MS-FSSHTTP-FSSHTTPB/v16/Server/sqlite3
+/FileSyncandWOPI/Source/MS-FSSHTTP-FSSHTTPB/.vs/MS-FSSHTTP-FSSHTTPB/v16
+/FileSyncandWOPI/Source/MS-FSSHTTP-FSSHTTPB/TestSuite/obj/Debug
+/FileSyncandWOPI/Source/SharedTestSuite/SharedAdapter/obj/Debug
