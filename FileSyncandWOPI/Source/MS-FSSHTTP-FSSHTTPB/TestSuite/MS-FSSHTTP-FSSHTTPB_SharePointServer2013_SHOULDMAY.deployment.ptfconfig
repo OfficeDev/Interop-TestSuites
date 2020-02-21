@@ -232,7 +232,7 @@
    <Property name="R246801Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
    <!--Set R1348Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support AllowFragments2 field. R1348Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
    <Property name="R1348Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R4041Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support AllowFragments2 field. R4041Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R4041Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+   <!--Set R4040Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support AllowFragments2 field. R4040Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+   <Property name="R4040Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
  </Properties>
 </TestSite>

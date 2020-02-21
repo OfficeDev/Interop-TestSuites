@@ -1,8 +1,4 @@
-﻿################################################################################
-# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
-################################################################################
-
-/FileSyncandWOPI/Source/Common/obj/Debug
+﻿/FileSyncandWOPI/Source/Common/obj/Debug
 /FileSyncandWOPI/Source/MS-FSSHTTP-FSSHTTPB/.vs/MS-FSSHTTP-FSSHTTPB/v16/Server/sqlite3
 /FileSyncandWOPI/Source/MS-FSSHTTP-FSSHTTPB/.vs/MS-FSSHTTP-FSSHTTPB/v16
 /FileSyncandWOPI/Source/MS-FSSHTTP-FSSHTTPB/TestSuite/obj/Debug
