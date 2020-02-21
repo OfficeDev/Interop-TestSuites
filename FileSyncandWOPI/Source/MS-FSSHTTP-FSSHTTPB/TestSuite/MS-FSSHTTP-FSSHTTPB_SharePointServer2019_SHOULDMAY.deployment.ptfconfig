@@ -152,6 +152,8 @@
   <Property name="R1976Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return an "InvalidArgument" error code as part of the SubResponseData element associated with the file opeartion subresponse. Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R11267Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R11268Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return a "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file opeartion subresponse. Set R11268Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+  <Property name="R11268Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support ResourceID attribute. Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R11275Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support UseResourceID attribute. Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
