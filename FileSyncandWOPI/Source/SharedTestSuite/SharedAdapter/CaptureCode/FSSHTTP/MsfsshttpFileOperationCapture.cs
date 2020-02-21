@@ -31,6 +31,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
      </ xs:extension>
    </xs:complexContent>
  </xs:complexType>");
+
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2349
+            site.CaptureRequirementIfAreEqual<Type>(
+                     typeof(FileOperationSubResponseType),
+                     fileOperationSubResponse.GetType(),
+                     "MS-FSSHTTP",
+                     2349,
+                     @"[FileOperation SubRequest]The protocol server responds with a FileOperation SubResponse message, which is of type FileOperationSubResponseType as specified in section 2.3.1.35. ");
+
         }
     }
 }
