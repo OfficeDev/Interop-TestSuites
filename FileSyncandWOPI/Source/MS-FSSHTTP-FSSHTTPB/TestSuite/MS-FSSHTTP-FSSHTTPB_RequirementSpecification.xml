@@ -1398,7 +1398,7 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11015</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request] ResourceID: A string that specifies the invariant ResourceID for a file that uniquely identifies the file whose response is being generated.&lt;9&gt;</ns1:Description>
+		<ns1:Description>[In Request] ResourceID: A string that represents a GUID which specifies the invariant ResourceID for a file that uniquely identifies the file whose response is being generated.&lt;9&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1879,7 +1879,7 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1665</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] This attribute[ErrorCode] MUST be present only if any of the following is true: The Url attribute of the corresponding Request element is an empty string.&lt;12&gt;</ns1:Description>
+		<ns1:Description>[In Response] This attribute[ErrorCode] MUST be present only if any of the following is true: The Url attribute of the corresponding Request element is an empty string.&lt;11&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1889,12 +1889,12 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1510</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] This attribute[ErrorCode] MUST be present only if any of the following is true: The RequestToken attribute of the corresponding Request element is an empty string.&lt;12&gt;</ns1:Description>
+		<ns1:Description>[In Response] ErrorCode attribute MAY&lt;12&gt; be present if the RequestToken attribute of the corresponding Request element is an empty string.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3011, MS-FSSHTTP_R2269.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3011.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1667</ns1:REQ_ID>
@@ -1921,10 +1921,8 @@ An exception occurred during the processing of a subrequest that was not entirel
 		<ns1:Description>[In Response] This attribute[ErrorCode] MUST NOT be present if all of the followings are true: 
 1.The Url attribute of the corresponding Request element does exist; 
 2.The Url attribute of the corresponding Request element is not an empty string; 
-3.The RequestToken attribute of the corresponding Request element does exist; 
-4.The RequestToken attribute of the corresponding Request element is not an empty string; 
-5.No exceptions occurred during the processing of a subrequest that was not entirely handled by the subrequest processing logic.</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R1664:i, MS-FSSHTTP_R1665:i, MS-FSSHTTP_R1510:i, MS-FSSHTTP_R1511:i</ns1:Derived>
+3.No exceptions occurred during the processing of a subrequest that was not entirely handled by the subrequest processing logic.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R1664:i, MS-FSSHTTP_R1665:i, MS-FSSHTTP_R1511:i</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1961,7 +1959,7 @@ An exception occurred during the processing of a subrequest that was not entirel
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11025</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] ResourceID: A string that specifies the invariant ResourceID for a file, which uniquely identifies the file whose response is being generated.&lt;14&gt;</ns1:Description>
+		<ns1:Description>[In Response] ResourceID: A string that represents a GUID which specifies the invariant ResourceID for a file, which uniquely identifies the file whose response is being generated.&lt;14&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2279,25 +2277,12 @@ The user does not have permission to issue a cell storage service request to the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1518</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In ResponseVersion] This attribute[ErrorCode] MUST be present only if any one of the following is true.
-This protocol is not enabled on the protocol server.</ns1:Description>
+		<ns1:Description>[In ResponseVersion] This ErrorCode attribute MAY&lt;15&gt; be present if this protocol is not enabled on the protocol server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Partially verified by derived requirements: MS-FSSHTTP_R15181, MS-FSSHTTP_R2268.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R15181</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In ResponseVersion] This attribute[ErrorCode] MUST be present if any one of the following is true.
-This protocol is not enabled on the protocol server.&lt;15&gt;</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R1518:p,MS-FSSHTTP_R2459:i</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R2459.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R15181.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2268</ns1:REQ_ID>
@@ -2307,9 +2292,8 @@ This protocol is not enabled on the protocol server.&lt;15&gt;</ns1:Description>
 2.The Version attribute of the RequestVersion element of the request message has not a value that is less than 2; 
 3.The protocol server identified by the WebUrl attribute of the ResponseCollection element does exist; 
 4.The protocol server identified by the WebUrl attribute of the ResponseCollection element is available; 
-5.The user does have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element; 
-6.This protocol is enabled on the protocol server.</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R1514:p, MS-FSSHTTP_R1668:p, MS-FSSHTTP_R1669:p, MS-FSSHTTP_R1517:p, MS-FSSHTTP_R1518:p</ns1:Derived>
+5.The user does have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R1514:p, MS-FSSHTTP_R1668:p, MS-FSSHTTP_R1669:p, MS-FSSHTTP_R1517:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8054,7 +8038,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
     &lt;xs:attribute name="CoauthStatus" type="tns:CoauthStatusType" use="optional"/&gt;
     &lt;xs:attribute name="TransitionID" type="tns:guid" use="optional"/&gt;
     &lt;xs:attribute name="ExclusiveLockReturnReason" type="tns:ExclusiveLockReturnReasonTypes" use="optional" /&gt; 
-    &lt;xs:attribute name="AmIAlone" type="xs:boolean" use="optional" /&gt;
+    &lt;xs:attribute name="AmIAlone" type="tns:TRUEFALSE" use="optional" /&gt;
     &lt;xs:attribute name="LockID" type="tns:guid" use="optional" /&gt;
     &lt;xs:attribute name="LockedBy" type="xs:string" use="optional" /&gt;
 &lt;/xs:attributeGroup&gt;</ns1:Description>
@@ -8424,7 +8408,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2181</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.8.2</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponseDataOptionalAttributes]AmIAlone: A Boolean value that specifies whether the user is alone in the coauthoring session.</ns1:Description>
+		<ns1:Description>[In SubResponseDataOptionalAttributes]AmIAlone: A TRUEFALSE value that specifies whether the user is alone in the coauthoring session.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14138,7 +14122,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Doc_Sect>2.3.1.47</ns1:Doc_Sect>
 		<ns1:Description>[In AmIAloneSubResponseDataType]	
 &lt;xs:complexType name="AmIAloneSubResponseDataType"&gt;
-    &lt;xs:attribute name="AmIAlone" type="xs:boolean" use="optional" /&gt;
+    &lt;xs:attribute name="AmIAlone" type="tns:TRUEFALSE" use="optional" /&gt;
 &lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14148,7 +14132,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2249</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.47</ns1:Doc_Sect>
-		<ns1:Description>[In AmIAloneSubResponseDataType]AmIAlone: A Boolean value that specifies whether the user is alone in the coauthoring session.</ns1:Description>
+		<ns1:Description>[In AmIAloneSubResponseDataType]AmIAlone: A TRUEFALSE value that specifies whether the user is alone in the coauthoring session.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24890,7 +24874,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3010</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (&lt;12&gt; Section 2.2.3.5:  In SharePoint Foundation 2010 and SharePoint Server 2010, the ErrorCode attribute is present if the RequestToken attribute of the corresponding Request element is an empty string.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1510:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -24901,7 +24885,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3011</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] No matter if the RequestToken attribute of the corresponding Request element is an empty string, the implementation does not return the ErrorCode attribute in Response element. &lt;12&gt; Section 2.2.3.5: The RequestToken attribute is ignored by SharePoint Foundation 2013 , SharePoint Server 2013 and SharePoint Server 2016.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] The implementation does not return the ErrorCode attribute in Response element. (SharePoint Foundation 2013 , SharePoint Server 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1510:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -24931,23 +24915,23 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2458</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R15181</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  ErrorCode attribute is not present if this protocol is not enabled on the protocol server.&lt;15&gt; Section 2.2.3.7:  In SharePoint Server 2016, ErrorCode attribute is not present if this protocol is not enabled on the protocol server.</ns1:Description>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2459</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  ErrorCode attribute is present if this protocol is enabled on the protocol server.(SharePoint Server 2016 follow this behavior)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  ErrorCode attribute is present if this protocol is not enabled on the protocol server.(&lt;15&gt; Section 2.2.3.7:  In SharePoint Foundation 2010, SharePoint Server 2010, SharePoint Foundation 2013 and SharePoint Server 2013, the ErrorCode attribute is present if this protocol is not enabled on the protocol server.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R2458</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]  ErrorCode attribute is not present if this protocol is not enabled on the protocol server.(SharePoint Server 2016 and above follow this behavior)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11263</ns1:REQ_ID>
@@ -31187,7 +31171,6 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R4041</ns1:REQ_ID>

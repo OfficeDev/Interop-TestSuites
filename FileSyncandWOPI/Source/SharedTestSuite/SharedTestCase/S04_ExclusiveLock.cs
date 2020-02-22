@@ -2127,11 +2127,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          2269,
                          @"[In Response] This attribute[ErrorCode] MUST NOT be present if all of the followings are true: 
-                         1.The Url attribute of the corresponding Request element does exist; 
-                         2.The Url attribute of the corresponding Request element is not an empty string; 
-                         3.The RequestToken attribute of the corresponding Request element does exist; 
-                         4.The RequestToken attribute of the corresponding Request element is not an empty string; 
-                         5.No exceptions occurred during the processing of a subrequest that was not entirely handled by the subrequest processing logic.");
+1.The Url attribute of the corresponding Request element does exist; 
+2.The Url attribute of the corresponding Request element is not an empty string; 
+3.No exceptions occurred during the processing of a subrequest that was not entirely handled by the subrequest processing logic.");
 
                 this.Site.Log.Add(
                     LogEntryKind.Debug,
@@ -2144,33 +2142,29 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          2268,
                          @"[In ResponseVersion] This attribute[ErrorCode] MUST NOT be present if all of the followings are true: 
-                         1.The RequestVersion element is not missing from the Body element of the SOAP request message; 
-                         2.The Version attribute of the RequestVersion element of the request message has not a value that is less than 2; 
-                         3.The protocol server identified by the WebUrl attribute of the ResponseCollection element does exist; 
-                         4.The protocol server identified by the WebUrl attribute of the ResponseCollection element is available; 
-                         5.The user does have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element; 
-                         6.This protocol is enabled on the protocol server.");
+1.The RequestVersion element is not missing from the Body element of the SOAP request message; 
+2.The Version attribute of the RequestVersion element of the request message has not a value that is less than 2; 
+3.The protocol server identified by the WebUrl attribute of the ResponseCollection element does exist; 
+4.The protocol server identified by the WebUrl attribute of the ResponseCollection element is available; 
+5.The user does have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element.");
             }
             else
             {
                 Site.Assert.IsFalse(
                     response.ResponseCollection.Response[0].ErrorCodeSpecified,
                     @"[In Response] This attribute[ErrorCode] MUST NOT be present if all of the followings are true: 
-                    1.The Url attribute of the corresponding Request element does exist; 
-                    2.The Url attribute of the corresponding Request element is not an empty string; 
-                    3.The RequestToken attribute of the corresponding Request element does exist; 
-                    4.The RequestToken attribute of the corresponding Request element is not an empty string; 
-                    5.No exceptions occurred during the processing of a subrequest that was not entirely handled by the subrequest processing logic.");
+1.The Url attribute of the corresponding Request element does exist; 
+2.The Url attribute of the corresponding Request element is not an empty string; 
+3.No exceptions occurred during the processing of a subrequest that was not entirely handled by the subrequest processing logic.");
 
                 Site.Assert.IsFalse(
                     response.ResponseVersion.ErrorCodeSpecified,
                     @"[In ResponseVersion] This attribute[ErrorCode] MUST NOT be present if all of the followings are true: 
-                        1.The RequestVersion element is not missing from the Body element of the SOAP request message; 
-                        2.The Version attribute of the RequestVersion element of the request message has not a value that is less than 2; 
-                        3.The protocol server identified by the WebUrl attribute of the ResponseCollection element does exist; 
-                        4.The protocol server identified by the WebUrl attribute of the ResponseCollection element is available; 
-                        5.The user does have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element; 
-                        6.This protocol is enabled on the protocol server.");
+1.The RequestVersion element is not missing from the Body element of the SOAP request message; 
+2.The Version attribute of the RequestVersion element of the request message has not a value that is less than 2; 
+3.The protocol server identified by the WebUrl attribute of the ResponseCollection element does exist; 
+4.The protocol server identified by the WebUrl attribute of the ResponseCollection element is available; 
+5.The user does have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element.");
             }
         }
 

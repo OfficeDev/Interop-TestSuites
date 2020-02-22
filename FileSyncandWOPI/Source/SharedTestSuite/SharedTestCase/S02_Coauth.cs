@@ -988,13 +988,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              response.ErrorCodeSpecified,
                              "MS-FSSHTTP",
                              3011,
-                             @"[In Appendix B: Product Behavior] No matter if the RequestToken attribute of the corresponding Request element is an empty string, the implementation does not return the ErrorCode attribute in Response element. <9> Section 2.2.3.5: The RequestToken attribute is ignored by SharePoint Foundation 2013 and SharePoint Server 2013.");
+                             @"[In Appendix B: Product Behavior] The implementation does not return the ErrorCode attribute in Response element. (SharePoint Foundation 2013 , SharePoint Server 2013 and above follow this behavior.)");
                 }
                 else
                 {
                     Site.Assert.IsFalse(
                             response.ErrorCodeSpecified,
-                            @"[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in ResponseVersion element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010 follow this behavior.)");
+                            @"The implementation does not return the ErrorCode attribute in Response element. (SharePoint Foundation 2013 , SharePoint Server 2013 and above follow this behavior.)");
                 }
             }
         }
@@ -2947,13 +2947,13 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
                              response.ErrorCodeSpecified,
                              "MS-FSSHTTP",
                              3010,
-                             @"[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (<12> Section 2.2.3.5:  In SharePoint Foundation 2010 and SharePoint Server 2010, the ErrorCode attribute is present if the RequestToken attribute of the corresponding Request element is an empty string.)");
                 }
                 else
                 {
                     Site.Assert.IsTrue(
                             response.ErrorCodeSpecified,
-                            @"[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                            @"If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (<12> Section 2.2.3.5:  In SharePoint Foundation 2010 and SharePoint Server 2010, the ErrorCode attribute is present if the RequestToken attribute of the corresponding Request element is an empty string.)");
                 }
             }
         }
