@@ -959,7 +959,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                          <xs:attribute name=""CoauthStatus"" type=""tns:CoauthStatusType"" use=""optional""/>
                          <xs:attribute name=""TransitionID"" type=""tns:guid"" use=""optional""/>
                          <xs:attribute name=""ExclusiveLockReturnReason"" type=""tns:ExclusiveLockReturnReasonTypes"" use=""optional"" />
-                         <xs:attribute name=""AmIAlone"" type=""xs:boolean"" use=""optional""/>
+                         <xs:attribute name=""AmIAlone"" type=""tns:TRUEFALSE"" use=""optional""/>
                          <xs:attribute name=""LockID"" type=""tns:guid"" use=""optional""/>
                          <xs:attribute name=""LockedBy"" type=""xs:string"" use=""optional"" /> 
                      </xs:attributeGroup>");
