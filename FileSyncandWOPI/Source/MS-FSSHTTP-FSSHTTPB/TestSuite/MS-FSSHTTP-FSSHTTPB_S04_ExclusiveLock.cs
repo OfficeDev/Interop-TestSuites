@@ -477,8 +477,6 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
         public void MSFSSHTTP_FSSHTTPB_S04_TC07_ExclusiveLock_CellStorageWebServiceDisabled()
         {
-            Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15181, this.Site), "This test case only runs when WebServiceTurnedOff is returned if this protocol is not enabled on server.");
-
             if (!this.SutPowerShellAdapter.SwitchCellStorageService(false))
             {
                 this.Site.Assert.Fail("Cannot disable the cell storage web service.");
@@ -500,34 +498,47 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15181
-                Site.CaptureRequirementIfIsTrue(
-                         response.ResponseVersion.ErrorCodeSpecified,
-                         "MS-FSSHTTP",
-                         15181,
-                         @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if any one of the following is true.
-                         This protocol is not enabled on the protocol server.");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15181, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15181
+                    Site.CaptureRequirementIfIsTrue(
+                             response.ResponseVersion.ErrorCodeSpecified,
+                             "MS-FSSHTTP",
+                             15181,
+                             @"[In Appendix B: Product Behavior]  ErrorCode attribute is present if this protocol is not enabled on the protocol server.(<15> Section 2.2.3.7:  In SharePoint Foundation 2010, SharePoint Server 2010, SharePoint Foundation 2013 and SharePoint Server 2013, the ErrorCode attribute is present if this protocol is not enabled on the protocol server.)");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R368
-                Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
-                         GenericErrorCodeTypes.WebServiceTurnedOff,
-                         response.ResponseVersion.ErrorCode,
-                         "MS-FSSHTTP",
-                         368,
-                         @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R368
+                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                             GenericErrorCodeTypes.WebServiceTurnedOff,
+                             response.ResponseVersion.ErrorCode,
+                             "MS-FSSHTTP",
+                             368,
+                             @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
+                }
+                else
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2458
+                    Site.CaptureRequirementIfIsFalse(
+                             response.ResponseVersion.ErrorCodeSpecified,
+                             "MS-FSSHTTP",
+                             2458,
+                             @"[In Appendix B: Product Behavior]  ErrorCode attribute is not present if this protocol is not enabled on the protocol server.(SharePoint Server 2016 and above follow this behavior)");
+                }
             }
             else
             {
-                Site.Assert.IsTrue(
-                    response.ResponseVersion.ErrorCodeSpecified,
-                    @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if any one of the following is true.
-                    This protocol is not enabled on the protocol server.");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15181, this.Site))
+                {
+                    Site.Assert.IsTrue(
+                        response.ResponseVersion.ErrorCodeSpecified,
+                        @"ErrorCode attribute is present if this protocol is not enabled on the protocol server.(<15> Section 2.2.3.7:  In SharePoint Foundation 2010, SharePoint Server 2010, SharePoint Foundation 2013 and SharePoint Server 2013, the ErrorCode attribute is present if this protocol is not enabled on the protocol server.)");
 
-                Site.Assert.AreEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.WebServiceTurnedOff,
-                    response.ResponseVersion.ErrorCode,
-                    @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
-            }
+                    Site.Assert.AreEqual<GenericErrorCodeTypes>(
+                        GenericErrorCodeTypes.WebServiceTurnedOff,
+                        response.ResponseVersion.ErrorCode,
+                        @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
+                }
+             }
         }
 
         /// <summary>
