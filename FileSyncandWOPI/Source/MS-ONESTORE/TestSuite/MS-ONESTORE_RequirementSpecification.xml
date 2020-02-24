@@ -8386,7 +8386,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R923</ns1:REQ_ID>
@@ -8436,7 +8436,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R928</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.4</ns1:Doc_Sect>
-		<ns1:Description>[In Revisions] 0x00000001 means Default content root, specifies Root extended GUID: { {4A3717F8- 1C14-49E7-9526-81D942DE1741},  1}</ns1:Description>
+		<ns1:Description>[In Revisions] 0x00000001 means Default content root, specifies Root extended GUID: { {4A3717F8-1C14-49E7-9526-81D942DE1741},  1}</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8445,7 +8445,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R929</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.4</ns1:Doc_Sect>
-		<ns1:Description>[In Revisions] 0x00000002 means Metadata root, specifies Root extended GUID: { {4A3717F8- 1C14-49E7-9526-81D942DE1741},  2}.</ns1:Description>
+		<ns1:Description>[In Revisions] 0x00000002 means Metadata root, specifies Root extended GUID: { {4A3717F8-1C14-49E7-9526-81D942DE1741},  2}.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8454,7 +8454,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R930</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.4</ns1:Doc_Sect>
-		<ns1:Description>[In Revisions] 0x00000003 means Encryption Key root, specifies Root extended GUID: {4A3717F8- 1C14-49E7-9526-81D942DE1741},  3}</ns1:Description>
+		<ns1:Description>[In Revisions] 0x00000003 means Encryption Key root, specifies Root extended GUID: {4A3717F8-1C14-49E7-9526-81D942DE1741},  3}</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8463,7 +8463,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R931</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.4</ns1:Doc_Sect>
-		<ns1:Description>[In Revisions] 0x00000004 means Version metadata root, specifies Root extended GUID: { {4A3717F8- 1C14-49E7-9526-81D942DE1741},  4}</ns1:Description>
+		<ns1:Description>[In Revisions] 0x00000004 means Version metadata root, specifies Root extended GUID: { {4A3717F8-1C14-49E7-9526-81D942DE1741},  4}</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

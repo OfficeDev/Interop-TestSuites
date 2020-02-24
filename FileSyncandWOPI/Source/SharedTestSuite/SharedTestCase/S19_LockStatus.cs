@@ -43,7 +43,7 @@
         [TestInitialize]
         public void S19_LockStatusInitialization()
         {
-            this.Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 111111, this.Site), "This test case only runs when FileOperation subrequest is supported.");
+            this.Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 246601, this.Site), "This test case only runs when FileOperation subrequest is supported.");
             this.DefaultFileUrl = this.PrepareFile();
         }
 
@@ -77,6 +77,12 @@
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
+                // Capture the requirement MS-FSSHTTP_R246601
+                Site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         246601,
+                         @"[In Appendix B: Product Behavior] Implementation does support LockStatus operation. (SharePoint Server 2016 and above follow this behavior.)");
+
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2272
                 Site.CaptureRequirementIfAreEqual<string>(
                     GenericErrorCodeTypes.Success.ToString(),

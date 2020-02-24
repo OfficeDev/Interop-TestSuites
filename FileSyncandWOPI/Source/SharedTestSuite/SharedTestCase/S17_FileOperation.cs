@@ -99,6 +99,33 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     "MS-FSSHTTP",
                     11120,
                     @"[In FileOperationSubResponseType] In the case of success, it contains information requested as part of a file operation subrequest.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2356
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                    ErrorCodeType.Success,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(fileOperationSubResponse.ErrorCode, this.Site),
+                    "MS-FSSHTTP",
+                    2356,
+                    @"[FileOperation SubRequest][The protocol server returns results based on the following conditions:]Otherwise, the protocol server sets the error code value to ""Success"" to indicate success in processing the FileOperation subrequest.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2357
+                Site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         2357,
+                         @"[FileOperation SubRequest]If the FileOperation attribute is set to ""Rename"", the protocol server considers the file operation subrequest to be of type ""Rename"". ");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2358
+                Site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         2358,
+                         @"[FileOperation SubRequest]The protocol server processes this request to request a name change of a file on the server. ");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11125
+                Site.CaptureRequirementIfIsNull(
+                    fileOperationSubResponse.SubResponseData,
+                         "MS-FSSHTTP",
+                         11125,
+                         @"[In FileOperationSubResponseType] The SubResponseData element is empty in a SubResponse element of type FileOperationSubRequestType.");
             }
             else
             {
@@ -129,9 +156,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             CellStorageResponse cellStoreageResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { fileOperationSubRequest });
 
-            FileOperationSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<FileOperationSubResponseType>(cellStoreageResponse, 0, 0, this.Site);
-            ErrorCodeType errorCode = SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site);
-
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11267
@@ -139,12 +163,24 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 {
 
                     // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11267
-                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                        ErrorCodeType.InvalidArgument,
-                        errorCode,
+                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                        GenericErrorCodeTypes.InvalidArgument,
+                        cellStoreageResponse.ResponseVersion.ErrorCode,
                         "MS-FSSHTTP",
                         11267,
-                        @"[In Appendix B: Product Behavior] If the specified attributes[FileOperation attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
+                        @"[In Appendix B: Product Behavior] If the specified attributes[FileOperation attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior.)");
+                }
+
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 11268, this.Site))
+                {
+
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11268
+                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                        GenericErrorCodeTypes.HighLevelExceptionThrown,
+                        cellStoreageResponse.ResponseVersion.ErrorCode,
+                        "MS-FSSHTTP",
+                        11268,
+                        @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the file operation subresponse.(Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
                 }
             }
 
@@ -153,9 +189,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 11267, this.Site))
                 {
                     // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11267
-                    Site.Assert.AreEqual<ErrorCodeType>(
-                    ErrorCodeType.InvalidArgument,
-                    errorCode,
+                    Site.Assert.AreEqual<GenericErrorCodeTypes>(
+                    GenericErrorCodeTypes.HighLevelExceptionThrown,
+                    cellStoreageResponse.ResponseVersion.ErrorCode,
                     @"[In Appendix B: Product Behavior] If the specified attributes[FileOperation attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
             }

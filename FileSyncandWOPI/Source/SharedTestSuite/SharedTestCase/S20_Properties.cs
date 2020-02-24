@@ -41,9 +41,9 @@
         /// A method used to initialize the test class.
         /// </summary>
         [TestInitialize]
-        public void S19_LockStatusInitialization()
+        public void S20_PropertiesInitialization()
         {
-            this.Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 111111, this.Site), "This test case only runs when FileOperation subrequest is supported.");
+            this.Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 246801, this.Site), "This test case only runs when Properties subrequest is supported.");
             this.DefaultFileUrl = this.PrepareFile();
         }
 
@@ -60,37 +60,58 @@
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            PropertiesSubRequestType properties = SharedTestSuiteHelper.CreatePropertiesSubRequest(SequenceNumberGenerator.GetCurrentToken(), PropertiesRequestTypes.PropertyEnumerate, null, this.Site);
+            string[] ids = new string[] { "RealtimeTypingEndpointUrl", "DocumentAccessToken", "DocumentAccessTokenTtl" };
+            PropertyIdType propertyId = new PropertyIdType();
+            PropertyIdType[] propertyIds = new PropertyIdType[3];
 
-            CellStorageResponse response = Adapter.CellStorageRequest(
-     this.DefaultFileUrl,
-     new SubRequestType[] { properties },
-     "1", 2, 2, null, null, null, null, null, null, true);
-            PropertiesSubResponseType getVersionsSubResponse = SharedTestSuiteHelper.ExtractSubResponse<PropertiesSubResponseType>(response, 0, 0, this.Site);
+            for(int i=0; i<ids.Length; i++)
+            {
+               propertyId.id= ids[i];
+               propertyIds[i] = propertyId;
+            }
 
-            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.DefaultExclusiveLockID);
-            CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
-            CoauthSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
-            this.Site.Assert.AreEqual(
-                    ErrorCodeType.Success,
-                    SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
-                    string.Format("Account {0} with client ID {1} and schema lock ID {2} should join the coauthoring session successfully.", this.UserName01, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID));
-            this.StatusManager.RecordCoauthSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
-
-            PropertiesSubRequestType propertiess = SharedTestSuiteHelper.CreatePropertiesSubRequest(SequenceNumberGenerator.GetCurrentToken(), PropertiesRequestTypes.PropertyEnumerate, null, this.Site);
-            CellStorageResponse response1 = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { propertiess });
-            PropertiesSubResponseType propertiesResponse = SharedTestSuiteHelper.ExtractSubResponse<PropertiesSubResponseType>(response1, 0, 0, this.Site);
-            SubResponseType subresponse = response.ResponseCollection.Response[0].SubResponse[0];
+            PropertiesSubRequestType properties = SharedTestSuiteHelper.CreatePropertiesSubRequest(SequenceNumberGenerator.GetCurrentToken(), PropertiesRequestTypes.PropertyGet, propertyIds, this.Site);
+            
+            CellStorageResponse cellStorageResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { properties });
+            PropertiesSubResponseType propertiesResponse = SharedTestSuiteHelper.ExtractSubResponse<PropertiesSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            SubResponseType subresponse = cellStorageResponse.ResponseCollection.Response[0].SubResponse[0];
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2301
+                // Capture the requirement MS-FSSHTTP_R246801
+                Site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         246801,
+                         @"[In Appendix B: Product Behavior] Implementation does support Properties operation. (SharePoint Server 2016 and above follow this behavior.)");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2301011
                 Site.CaptureRequirementIfAreEqual<string>(
                     GenericErrorCodeTypes.Success.ToString(),
                     subresponse.ErrorCode,
                     "MS-FSSHTTP",
-                    2301,
+                    2301011,
                     @"[PropertiesSubResponseType]In the case of success, it contains information requested as part of a Properties subrequest. ");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2443
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                         ErrorCodeType.Success,
+                         SharedTestSuiteHelper.ConvertToErrorCodeType(subresponse.ErrorCode, this.Site),
+                         "MS-FSSHTTP",
+                         2443,
+                         @"[Properties Subrequest][The protocol server returns results based on the following conditions:]An ErrorCode value of ""Success"" indicates success in processing the Properties request.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2447
+                Site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         2447,
+                         @"[Property Get]If the Properties attribute is set to ""PropertyGet"", the protocol server considers the Properties subrequest to be of type ""Property Get "". ");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2299
+                Site.CaptureRequirementIfIsNotNull(
+                    propertiesResponse.SubResponseData.PropertyValues,
+                    "MS-FSSHTTP",
+                    2299,
+                    @"[PropertiesSubResponseDataType][PropertyValues]This element MUST only be included in the response if the Properties attribute value is set to ""PropertyGet"".");
             }
             else
             {

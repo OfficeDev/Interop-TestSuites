@@ -79,32 +79,6 @@
             // Verify requirements related with SubResponseDataType
             if (lockStatusSubResponse.SubResponseData != null)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2182
-                site.CaptureRequirementIfIsNotNull(
-                    lockStatusSubResponse.SubResponseData.LockID,
-                    "MS-FSSHTTP",
-                    2182,
-                    @"[In SubResponseDataOptionalAttributes]LockedID: A guid that specifies the id of the lock.");
-
-                // MS-FSSHTTP_R2182 is verified,so MS-FSSHTTP_R22699 can be verified directly
-                site.CaptureRequirement(
-                    "MS-FSSHTTP",
-                    22699,
-                    @"[In LockStatusSubResponseDataType]LockedID: A guid that specifies the id of the lock.");
-
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2183
-                site.CaptureRequirementIfIsNotNull(
-                    lockStatusSubResponse.SubResponseData.LockedBy,
-                    "MS-FSSHTTP",
-                    2183,
-                    @"[In SubResponseDataOptionalAttributes]LockedBy: A string that specifies the user that has the file locked, if any.");
-
-                // MS-FSSHTTP_R2183 is verified,so MS-FSSHTTP_R2270 can be verified directly
-                site.CaptureRequirement(
-                    "MS-FSSHTTP",
-                    2270,
-                    @"[In LockStatusSubResponseDataType]LockedBy: A string that specifies the user that has the file locked, if any.");
-
                 ValidateLockStatusSubResponseDataType(lockStatusSubResponse.SubResponseData, site);
             }
         }
@@ -116,6 +90,13 @@
         /// <param name="site">Instance of ITestSite</param>
         private static void ValidateLockStatusSubResponseDataType(LockStatusSubResponseDataType lockStatusSubResponseData, ITestSite site)
         {
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2382
+            // if can launch this method, the schema matches.
+            site.CaptureRequirement(
+                     "MS-FSSHTTP",
+                     2382,
+                     @"[LockStatus Subrequest]The LockStatusSubResponseDataType defines the type of the SubResponseData element inside the LockStatusSubResponse element. ");
+
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2266
             site.CaptureRequirement(
                      "MS-FSSHTTP",
@@ -135,6 +116,50 @@
                      "MS-FSSHTTP",
                      2135,
                      @"[In SubResponseDataGenericType][SubResponseDataGenericType MUST take one of the forms described in the following table]LockStatusSubResponseDataType:Type definition for Lock Status subresponse data.");
+
+            if (lockStatusSubResponseData.LockID != null)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2182
+                site.CaptureRequirementIfIsNotNull(
+                    lockStatusSubResponseData.LockID,
+                    "MS-FSSHTTP",
+                    2182,
+                    @"[In SubResponseDataOptionalAttributes]LockedID: A guid that specifies the id of the lock.");
+
+                // MS-FSSHTTP_R2182 is verified,so MS-FSSHTTP_R22699 can be verified directly
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    22699,
+                    @"[In LockStatusSubResponseDataType]LockedID: A guid that specifies the id of the lock.");
+            }
+
+            if (lockStatusSubResponseData.LockedBy != null)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2183
+                site.CaptureRequirementIfIsNotNull(
+                    lockStatusSubResponseData.LockedBy,
+                    "MS-FSSHTTP",
+                    2183,
+                    @"[In SubResponseDataOptionalAttributes]LockedBy: A string that specifies the user that has the file locked, if any.");
+
+                // MS-FSSHTTP_R2183 is verified,so MS-FSSHTTP_R2270 can be verified directly
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    2270,
+                    @"[In LockStatusSubResponseDataType]LockedBy: A string that specifies the user that has the file locked, if any.");
+            }
+
+            if(lockStatusSubResponseData.LockTypeSpecified)
+            {
+                ValidateLockTypes(site);
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2267
+                site.CaptureRequirementIfIsNotNull(
+                    lockStatusSubResponseData.LockType,
+                    "MS-FSSHTTP",
+                    2267,
+                    @"[In LockStatusSubResponseDataType]LockType: A LockTypes that specifies the type of lock granted in a coauthoring subresponse. ");
+            }
         }
     }
 }

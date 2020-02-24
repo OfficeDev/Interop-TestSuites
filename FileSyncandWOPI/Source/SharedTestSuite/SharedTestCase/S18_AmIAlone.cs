@@ -43,7 +43,7 @@
         [TestInitialize]
         public void S18_AmIAloneInitialization()
         {
-            this.Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 111111, this.Site), "This test case only runs when FileOperation subrequest is supported.");
+            this.Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 246401, this.Site), "This test case only runs when AmIAlone subrequest is supported.");
             this.DefaultFileUrl = this.PrepareFile();
         }
 
@@ -82,6 +82,12 @@
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
+                // Capture the requirement MS-FSSHTTP_R246401
+                Site.CaptureRequirement(
+                         "MS-FSSHTTP",
+                         246401,
+                         @"[In Appendix B: Product Behavior] Implementation does support AmIAlone operation. <60> (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
+
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R224911
                 Site.CaptureRequirementIfAreEqual<string>(
                     "True",
@@ -104,6 +110,14 @@
                     "MS-FSSHTTP",
                     2251,
                     @"[In AmIAloneSubResponseType]In the case of success, it contains information requested as part of an AmIAlone subrequest. ");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2374
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                    ErrorCodeType.Success,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(subresponse.ErrorCode, this.Site),
+                    "MS-FSSHTTP",
+                    2374,
+                    @"[AmIAlone Subrequest][The protocol returns results based on the following conditions]Otherwise, the protocol server sets the error code value to ""Success"" to indicate success in processing the AmIAlone subrequest.");
             }
             else
             {

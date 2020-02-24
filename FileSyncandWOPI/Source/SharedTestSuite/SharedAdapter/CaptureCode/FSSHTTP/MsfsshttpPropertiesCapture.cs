@@ -16,10 +16,10 @@
         /// <param name="site">Instance of ITestSite</param>
         public static void ValidatePropertiesSubResponse(PropertiesSubResponseType propertiesSubResponse, ITestSite site)
         {
-            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2305
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2305011
             site.CaptureRequirement(
                      "MS-FSSHTTP",
-                     2305,
+                     2305011,
                      @"[PropertiesSubResponseType]
 	<xs:complexType name=""PropertiesSubResponseType"">
 	  <xs:complexContent>
@@ -90,6 +90,13 @@
         /// <param name="site">Instance of ITestSite</param>
         private static void ValidatePropertiesSubResponseDataType(PropertiesSubResponseDataType propertiesSubResponseData, ITestSite site)
         {
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2399
+            // if can launch this method, the schema matches.
+            site.CaptureRequirement(
+                     "MS-FSSHTTP",
+                     2399,
+                     @"[Properties Subrequest][This is done as follows:]The PropertiesSubRequestDataType defines the type of the SubResponseData element inside the versioning SubResponse element. ");
+
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2295
             site.CaptureRequirement(
                      "MS-FSSHTTP",
@@ -110,6 +117,15 @@
                      "MS-FSSHTTP",
                      2136,
                      @"[In SubResponseDataGenericType][SubResponseDataGenericType MUST take one of the forms described in the following table]PropertiesSubResponseDataType:Type definition for Properties subresponse data.");
+
+            if(propertiesSubResponseData.PropertyValues != null)
+            {
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2298
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    2298,
+                    @"[PropertiesSubResponseDataType]PropertyValues: An element of type PropertyValuesType (section 2.3.1.58) that specifies the property values.");
+            }
         }
     }
 }

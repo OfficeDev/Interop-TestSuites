@@ -988,13 +988,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              response.ErrorCodeSpecified,
                              "MS-FSSHTTP",
                              3011,
-                             @"[In Appendix B: Product Behavior] No matter if the RequestToken attribute of the corresponding Request element is an empty string, the implementation does not return the ErrorCode attribute in Response element. <9> Section 2.2.3.5: The RequestToken attribute is ignored by SharePoint Foundation 2013 and SharePoint Server 2013.");
+                             @"[In Appendix B: Product Behavior] The implementation does not return the ErrorCode attribute in Response element. (SharePoint Foundation 2013 , SharePoint Server 2013 and above follow this behavior.)");
                 }
                 else
                 {
                     Site.Assert.IsFalse(
                             response.ErrorCodeSpecified,
-                            @"[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in ResponseVersion element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010 follow this behavior.)");
+                            @"The implementation does not return the ErrorCode attribute in Response element. (SharePoint Foundation 2013 , SharePoint Server 2013 and above follow this behavior.)");
                 }
             }
         }
@@ -1066,7 +1066,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3104,
-                             @"[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
+                             @"[155 Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (<40> Section 3.1.4.3.1:  SharePoint Server 2010 will return an error code value ""FileNotLockedOnServerAsCoauthDisabled"" if the AllowFallbackToExclusive attribute is set to false.)");
 
                     Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                              ErrorCodeType.FileNotLockedOnServerAsCoauthDisabled,
@@ -1099,7 +1099,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3105,
-                             @"[In Appendix B: Product Behavior]When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (<40> Section 3.1.4.3.1:  SharePoint Server 2010 will return an error code value ""FileNotLockedOnServerAsCoauthDisabled"" if the AllowFallbackToExclusive attribute is set to false.)");
+                             @"[In Appendix B: Product Behavior]When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServer"". (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
             }
             else
@@ -1224,7 +1224,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(exitResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              1556,
-                             @"[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the ""exiting coauthoring session"" operation, the implementation does return an error code of ""Success"", if there are other clients present in the coauthoring session. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.) ");
+                             @"[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the ""exiting coauthoring session"" operation, the implementation does return an error code of ""Success"", if there are other clients present in the coauthoring session. (<41> Section 3.1.4.3.2:  SharePoint Server 2010 will return an error code of ""Success"" if there are other clients present in the coauthoring session.) ");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3107, this.Site))
@@ -1235,7 +1235,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(exitResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3107,
-                             @"[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the ""exiting coauthoring session"" operation, the implementation does return an error code of ""InvalidCoauthSession"", if there are other clients present in the coauthoring session. (<41> Section 3.1.4.3.2:  SharePoint Server 2010 will return an error code of ""Success"" if there are other clients present in the coauthoring session.)");
+                             @"[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the ""exiting coauthoring session"" operation, the implementation does return an error code of ""InvalidCoauthSession"", if there are other clients present in the coauthoring session. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
             }
             else
@@ -1713,7 +1713,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(response.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              1106,
-                             @"[In Appendix B: Product Behavior] If the coauthoring session does not exist when doing the ""Get Coauthoring session"" operation, the implementation does return an error code value set to ""InvalidCoauthSession"". (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] If the coauthoring session does not exist when doing the ""Get Coauthoring session"" operation, the implementation does return an error code value set to ""InvalidCoauthSession"". (<46> Section 3.1.4.3.7:  In SharePoint Server 2010, the protocol server returns an error code value set to ""InvalidCoauthSession"".)");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3115, this.Site))
@@ -1724,7 +1724,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(response.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3115,
-                             @"[In Appendix B: Product Behavior] If the coauthoring session does not exist when doing the ""Get Coauthoring session"" operation, the implementation does return an error code value set to ""Success"". (<46> Section 3.1.4.3.7: In SharePoint Server 2010, the protocol server returns an error code value set to ""InvalidCoauthSession"".)");
+                             @"[In Appendix B: Product Behavior] If the coauthoring session does not exist when doing the ""Get Coauthoring session"" operation, the implementation does return an error code value set to ""Success"". (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
             }
             else
@@ -1773,7 +1773,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(response.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              1107,
-                             @"[In Appendix B: Product Behavior] if the current client is not present in the coauthoring session when doing the ""Get Coauthoring session"" operation, the implementation does return an error code value set to ""InvalidCoauthSession"". (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] if the current client is not present in the coauthoring session when doing the ""Get Coauthoring session"" operation, the implementation does return an error code value set to ""InvalidCoauthSession"". (<46> Section 3.1.4.3.7:  In SharePoint Server 2010, the protocol server returns an error code value set to ""InvalidCoauthSession"".)");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3117, this.Site))
@@ -1784,7 +1784,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(response.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3117,
-                             @"[In Appendix B: Product Behavior] if the current client is not present in the coauthoring session when doing the ""Get Coauthoring session"" operation, the implementation does return an error code value set to ""Success"". (<46> Section 3.1.4.3.7: In SharePoint Server 2010, the protocol server returns an error code value set to ""InvalidCoauthSession"".)");
+                             @"[In Appendix B: Product Behavior] if the current client is not present in the coauthoring session when doing the ""Get Coauthoring session"" operation, the implementation does return an error code value set to ""Success"". (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
             }
             else
@@ -2287,7 +2287,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(refreshSubResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3108,
-                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (<43> Section 3.1.4.3.3:  SharePoint Server 2010 will return an error code value ""FileNotLockedOnServerAsCoauthDisabled"".)");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3109, this.Site))
@@ -2298,7 +2298,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(refreshSubResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3109,
-                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to ""FileNotLockedOnServer"". (<43> Section 3.1.4.3.3:  SharePoint Server 2010 will return an error code value ""FileNotLockedOnServerAsCoauthDisabled"".)");
+                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to ""FileNotLockedOnServer"". (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
             }
             else
@@ -2947,13 +2947,13 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
                              response.ErrorCodeSpecified,
                              "MS-FSSHTTP",
                              3010,
-                             @"[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (<12> Section 2.2.3.5:  In SharePoint Foundation 2010 and SharePoint Server 2010, the ErrorCode attribute is present if the RequestToken attribute of the corresponding Request element is an empty string.)");
                 }
                 else
                 {
                     Site.Assert.IsTrue(
                             response.ErrorCodeSpecified,
-                            @"[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 and Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                            @"If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (<12> Section 2.2.3.5:  In SharePoint Foundation 2010 and SharePoint Server 2010, the ErrorCode attribute is present if the RequestToken attribute of the corresponding Request element is an empty string.)");
                 }
             }
         }
