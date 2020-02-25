@@ -282,7 +282,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public DataNodeObjectData DataNodeObjectData { get; set; }
 
         /// <summary>
-        /// Gets or sets the data size.
+        /// Gets or sets the data hash.
         /// </summary>
         public DataHashObject DataHash { get; set; }
 
