@@ -282,6 +282,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public DataNodeObjectData DataNodeObjectData { get; set; }
 
         /// <summary>
+        /// Gets or sets the data size.
+        /// </summary>
+        public DataHashObject DataHash { get; set; }
+
+        /// <summary>
         /// Get all the content which is represented by the intermediate node object.
         /// </summary>
         /// <returns>Return the byte list of intermediate node object content.</returns>
@@ -676,6 +681,20 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         {
             byteList.AddRange(LittleEndianBitConverter.GetBytes(this.DataSize));
             return 8;
+        }
+    }
+
+    /// <summary>
+    /// Data Hash Object
+    /// </summary>
+    public class DataHashObject : StreamObject
+    {
+        /// <summary>
+        /// Initializes a new instance of the DataHashObject class.
+        /// </summary>
+        public DataHashObject()
+            : base(StreamObjectTypeHeaderStart.DataHashObject)
+        {
         }
     }
 }
