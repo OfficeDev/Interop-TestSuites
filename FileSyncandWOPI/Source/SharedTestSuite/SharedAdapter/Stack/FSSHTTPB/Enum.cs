@@ -338,7 +338,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <summary>
         /// Data Hash Object
         /// </summary>
-        DataHashObject = 0x23, // Defined in MS-FSSHTTPD
+        DataHashObject = 0x2F, // Defined in MS-FSSHTTPD
 
         /// <summary>
         /// Waterline Knowledge

@@ -1168,6 +1168,21 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                                     "DataSizeObject stream object header has compound value 0.");
                     break;
 
+                case StreamObjectTypeHeaderStart.DataHashObject:
+                    site.Assert.AreEqual<Type>(
+                                    typeof(DataHashObject),
+                                    type,
+                                    "DataHashObject stream object header only represents DataHashObject instance.");
+                    site.Assert.AreEqual<int>(
+                                    0x2F,
+                                    (int)header.Type,
+                                    "DataHashObject stream object header has header value 0x2F.");
+                    site.Assert.AreEqual<int>(
+                                    0,
+                                    header.Compound,
+                                    "DataHashObject stream object header has compound value 0.");
+                    break;
+
                 case StreamObjectTypeHeaderStart.DataElement:
                     site.Assert.AreEqual<Type>(
                                     typeof(DataElement),
