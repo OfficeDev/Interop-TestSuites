@@ -33193,7 +33193,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R1341</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Query Changes]File Hash (4 bytes): An optional 32-bit Stream Object Header that specifies the beginning of Query Changes filter flags.</ns1:Description>
+		<ns1:Description>[In Query Changes]File Hash (4 bytes): An optional 32-bit Stream Object Header that specifies the beginning of File Hash.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37131,7 +37131,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R63</ns1:REQ_ID>

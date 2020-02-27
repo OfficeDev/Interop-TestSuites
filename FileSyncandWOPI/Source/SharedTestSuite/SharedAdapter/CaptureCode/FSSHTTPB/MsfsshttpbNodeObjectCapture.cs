@@ -103,6 +103,17 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      8013,
                      @"[In Leaf Node Object Data] Data Size Header (2 bytes): The value of this field[Data Size Header] MUST be 0x1110.");
 
+            // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R1360
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1360, site))
+            {
+            site.CaptureRequirementIfAreEqual<Type>(
+                     typeof(StreamObjectHeaderStart16bit),
+                     instance.DataHash.StreamObjectHeaderStart.GetType(),
+                     "MS-FSSHTTPD",
+                     1360,
+                     @"[In Appendix A: Product Behavior]Implementation does support the Data Hash Header(SharePoint Server 2016 and above follow this behavior.)");
+            }
+
             // Verify the stream object header end related requirements.
             this.ExpectStreamObjectHeaderEnd(instance.StreamObjectHeaderEnd, instance.GetType(), site);
             this.ExpectCompoundObject(instance.StreamObjectHeaderStart, site);
