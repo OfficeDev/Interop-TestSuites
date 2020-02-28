@@ -558,7 +558,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
            if(instance.StreamObjectHeaderStart.GetType() == typeof(StreamObjectHeaderStart16bit) || instance.StreamObjectHeaderStart.GetType() == typeof(StreamObjectHeaderStart32bit))
             {
-                // Capture requirement MS-FSSHTTPB_R385, if stream object start type is StreamObjectHeaderStart16bit. 
+                // Capture requirement MS-FSSHTTPB_R385, if stream object start type is StreamObjectHeaderStart16bit or StreamObjectHeaderStart32bit. 
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          385,
