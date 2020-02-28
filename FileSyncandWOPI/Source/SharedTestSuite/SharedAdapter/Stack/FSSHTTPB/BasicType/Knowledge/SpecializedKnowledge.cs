@@ -28,16 +28,22 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// A GUID value specifies a content tag knowledge.
         /// </summary>
         public static readonly Guid ContentTagKnowledgeGuid = new Guid("10091F13-C882-40FB-9886-6533F934C21D");
-        
+
+        /// <summary>
+        /// A GUID value specifies a Version Token knowledge.
+        /// </summary>
+        public static readonly Guid VersionTokenKnowledgeGuid = new Guid("BF12E2C1-E64F-4959-8282-73B9A24A7C44");
+
         /// <summary>
         /// A mapping that maps the knowledge GUID value and the knowledge types.
-        /// </summary>
+        /// </summary
         public static readonly Dictionary<Guid, Type> KnowledgeTypeGuidMapping = new Dictionary<Guid, Type>
         {
             { CellKnowledgeGuid, typeof(CellKnowledge) },
             { WaterlineKnowledgeGuid, typeof(WaterlineKnowledge) },
             { FragmentKnowledgeGuid, typeof(FragmentKnowledge) },
             { ContentTagKnowledgeGuid, typeof(ContentTagKnowledge) },
+            { VersionTokenKnowledgeGuid,typeof(VersionTokenKnowledge)},
         };
 
         /// <summary>
@@ -49,6 +55,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             { StreamObjectTypeHeaderStart.WaterlineKnowledge, WaterlineKnowledgeGuid },
             { StreamObjectTypeHeaderStart.FragmentKnowledge, FragmentKnowledgeGuid },
             { StreamObjectTypeHeaderStart.ContentTagKnowledge, ContentTagKnowledgeGuid },
+            { StreamObjectTypeHeaderStart.VersionTokenKnowledge, VersionTokenKnowledgeGuid},
         };
 
         /// <summary>
