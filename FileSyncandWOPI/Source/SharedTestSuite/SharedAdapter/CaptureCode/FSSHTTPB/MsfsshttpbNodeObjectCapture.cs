@@ -10,6 +10,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
     public partial class MsfsshttpbAdapterCapture
     {
         /// <summary>
+        /// This method is used to verify the DataHash object related requirements.
+        /// </summary>
+        /// <param name="instance">Specify the DataHash object instance.</param>
+        /// <param name="site">Specify the ITestSite instance.</param>
+        public void VerifyDataHashObject(DataHashObject instance, ITestSite site)
+        {
+            // If the instance is not null and there are no parsing errors, then the SignatureObject related adapter requirements can be directly captured.
+            if (null == instance)
+            {
+                site.Assert.Fail("The instance of type DataHashObject is null due to parsing error or type casting error.");
+            }
+
+            // Verify the stream object header related requirements.
+            this.ExpectStreamObjectHeaderStart(instance.StreamObjectHeaderStart, instance.GetType(), site);
+
+            this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
+        }
+
+        /// <summary>
         /// This method is used to verify the signature object related requirements.
         /// </summary>
         /// <param name="instance">Specify the signature object instance.</param>
