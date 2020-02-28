@@ -26,8 +26,17 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             }
             else
             {
-                context.TargetUrl = Common.GetConfigurationPropertyValue("HttpsTargetServiceUrl", site);
-                context.EndpointConfigurationName = Common.GetConfigurationPropertyValue("HttpsEndPointName", site);
+
+                if (Common.GetConfigurationPropertyValue("SutVersion", site) == "SharePointServer2019")
+                {
+                    context.TargetUrl = Common.GetConfigurationPropertyValue("HttpTargetServiceUrl", site);
+                    context.EndpointConfigurationName = Common.GetConfigurationPropertyValue("HttpsEndPointName", site);
+                }
+                else
+                {
+                    context.TargetUrl = Common.GetConfigurationPropertyValue("HttpsTargetServiceUrl", site);
+                    context.EndpointConfigurationName = Common.GetConfigurationPropertyValue("HttpsEndPointName", site);
+                }
             }
 
             context.Site = site;
