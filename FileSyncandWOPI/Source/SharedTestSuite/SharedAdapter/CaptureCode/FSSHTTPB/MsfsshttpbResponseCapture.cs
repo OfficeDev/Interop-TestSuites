@@ -457,6 +457,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      601,
                      @"[In Query Changes] Knowledge (variable): A Knowledge (section 2.2.1.13) that specifies the current state of the file on the server.");
 
+            // Directly capture requirement MS-FSSHTTPB_R1341, if there are no parsing errors. 
+            site.CaptureRequirement(
+                     "MS-FSSHTTPB",
+                     1341,
+                     @"[In Query Changes]File Hash (4 bytes): An optional 32-bit Stream Object Header that specifies the beginning of File Hash.");
+
             // Verify the compound related requirements.
             this.ExpectSingleObject(instance.QueryChangesResponseStart, site);
         }

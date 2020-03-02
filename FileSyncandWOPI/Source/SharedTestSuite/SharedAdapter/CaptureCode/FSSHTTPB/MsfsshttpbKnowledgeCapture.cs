@@ -148,6 +148,17 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                              @"[In Specialized Knowledge][If the GUID field is set to ] {10091F13-C882-40FB-9886-6533F934C21D}, [it indicates the type of the specialized knowledge is]Content Tag Knowledge (section 2.2.1.13.5).");
                     break;
 
+                case "BF12E2C1-E64F-4959-8282-73B9A24A7C44":
+
+                    // Capture requirement MS-FSSHTTPB_R1212, if the knowledge data type is VersionTokenKnowledge.
+                    site.CaptureRequirementIfAreEqual<Type>(
+                             typeof(VersionTokenKnowledge),
+                             instance.SpecializedKnowledgeData.GetType(),
+                             "MS-FSSHTTPB",
+                             1212,
+                             @"[In Specialized Knowledge][If the GUID field is set to ] {BF12E2C1-E64F-4959-8282-73B9A24A7C44}, [it indicates the type of the specialized knowledge is]Version Token Knowledge (section 2.2.1.13.6).");
+                    break;
+
                 default:
                     site.Assert.Fail("Unsupported specialized knowledge value " + instance.GUID.ToString());
                     break;
@@ -570,6 +581,52 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
             // Verify the stream object header end related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
+        }
+
+        /// <summary>
+        /// This method is used to test Version Token Knowledge related adapter requirements.
+        /// </summary>
+        /// <param name="instance">Specify the instance which need to be verified.</param>
+        /// <param name="site">Specify the ITestSite instance.</param>
+        public void VerifyVersionTokenKnowledge(VersionTokenKnowledge instance, ITestSite site)
+        {
+            // If the instance is not null and there are no parsing errors, then the Version Token Knowledge related adapter requirements can be directly captured.
+            if (null == instance)
+            {
+                site.Assert.Fail("The instance of type VersionTokenKnowledge is null due to parsing error or type casting error.");
+            }
+
+            // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R1345
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1345, site))
+            {
+                // Capture requirement MS-FSSHTTPB_R1345, if instance type is VersionTokenKnowledge. 
+                site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(VersionTokenKnowledge),
+                        instance.GetType(),
+                        "MS-FSSHTTPB",
+                        1345,
+                        @"[In Appendix A: Product Behavior]Implementation does support the Version Token Knowledge(SharePoint Server 2016 and above follow this behavior.)");
+
+                // Capture requirement MS-FSSHTTPB_R1214, if stream object start type is StreamObjectHeaderStart32bit. 
+                site.CaptureRequirementIfAreEqual<Type>(
+                         typeof(StreamObjectHeaderStart32bit),
+                         instance.StreamObjectHeaderStart.GetType(),
+                         "MS-FSSHTTPB",
+                         1214,
+                         @"[In Version Token Knowledge]Version Token Knowledge (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies a Version Token Knowledge.");
+
+                // Capture requirement MS-FSSHTTPB_R1215, if TokenData type is BinaryItem. 
+                site.CaptureRequirementIfAreEqual<Type>(
+                         typeof(BinaryItem),
+                         instance.TokenData.GetType(),
+                         "MS-FSSHTTPB",
+                         1215,
+                         @"[In Version Token Knowledge]Token Data (variable): A byte stream that specifies the version token opaque to this protocol.");
+
+                // Verify the stream object header related requirements.
+                this.ExpectStreamObjectHeaderStart(instance.StreamObjectHeaderStart, instance.GetType(), site);
+                this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
+            }
         }
     }
 }
