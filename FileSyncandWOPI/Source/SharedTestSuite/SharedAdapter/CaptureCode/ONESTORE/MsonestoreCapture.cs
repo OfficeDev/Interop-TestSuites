@@ -393,7 +393,7 @@
                 headerCellRevisionManifest.RevisionManifestRootDeclareList[0].RootExtendedGUID,
                 "MS-ONESTORE",
                 905,
-                @"[In Header Cell] § Root Extended GUID: MUST be ""{{ 4A3717F8- 1C14-49E7-9526-81D942DE1741 },  1}"".");
+                @"[In Header Cell] § Root Extended GUID: MUST be ""{{4A3717F8-1C14-49E7-9526-81D942DE1741},  1}"".");
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R906
             site.CaptureRequirementIfAreEqual<ExGuid>(
@@ -401,7 +401,7 @@
                 headerCellRevisionManifest.RevisionManifestRootDeclareList[0].ObjectExtendedGUID,
                 "MS-ONESTORE",
                 906,
-                @"[In Header Cell] § Object Extended GUID: MUST be ""{{ B4760B1A- FBDF- 4AE3-9D08-53219D8A8D21 }, 1}"".");
+                @"[In Header Cell] § Object Extended GUID: MUST be ""{{B4760B1A-FBDF-4AE3-9D08-53219D8A8D21}, 1}"".");
 
             for (int i = 0; i < instance.ObjectData.Body.RgPrids.Length; i++)
             {
