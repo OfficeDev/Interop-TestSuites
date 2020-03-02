@@ -556,12 +556,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             // Verify the stream object header related requirements.
             this.ExpectStreamObjectHeaderStart(instance.StreamObjectHeaderStart, instance.GetType(), site);
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 385, SharedContext.Current.Site))
+           if(instance.StreamObjectHeaderStart.GetType() == typeof(StreamObjectHeaderStart16bit) || instance.StreamObjectHeaderStart.GetType() == typeof(StreamObjectHeaderStart32bit))
             {
-                // Capture requirement MS-FSSHTTPB_R385, if stream object start type is StreamObjectHeaderStart16bit. 
-                site.CaptureRequirementIfAreEqual<Type>(
-                         typeof(StreamObjectHeaderStart16bit),
-                         instance.StreamObjectHeaderStart.GetType(),
+                // Capture requirement MS-FSSHTTPB_R385, if stream object start type is StreamObjectHeaderStart16bit or StreamObjectHeaderStart32bit. 
+                site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          385,
                          @"[In Content Tag Knowledge Entry] Content Tag Knowledge Entry Start (variable): A 16-bit or 32-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Knowledge Entry.");
