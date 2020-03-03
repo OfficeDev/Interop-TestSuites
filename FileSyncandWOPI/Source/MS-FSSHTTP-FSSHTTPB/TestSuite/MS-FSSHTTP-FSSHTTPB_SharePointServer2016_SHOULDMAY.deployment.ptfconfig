@@ -13,12 +13,10 @@
   <Property name="R1556Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R1107Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server does not return InvalidCoauthSession when the user is not present. Set R1107Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R1107Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-  
   <!--Set R9001Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support editors table operation. Set R9001Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R9001Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R9003Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support GetDocMetaInfo operation. Set R9003Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R9003Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-
   <!--Set R99099Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support AllocateExtendedGuidRange operation. Set R99099Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R99099Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R2050Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does add a client to editors table when taking a coauthoring session. Set R2050Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
@@ -35,7 +33,6 @@
   <Property name="R10004Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R2053Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support Editors table as compressed XML. Set R2053Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R2053Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-
   <!--Set R3104Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for coauth subRequest the server does not return an error code of "FileNotLockedOnServerAsCoauthDisabled" as specified in section 7. Set R3104Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R3104Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R3105Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server does return an error code of "FileNotLockedOnServer" as specified in section 7. Set R3105Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
@@ -94,7 +91,6 @@
   <Property name="R474Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R1903Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server returns InvalidCoauthSession. Set R1903Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R1903Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-
   <!--Set R3071Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for exclusiveLock subRequest the server does not return an "InvalidArgument" error code when the specified attributes[ExclusiveLockRequestType attribute] are not provided. Set R3071Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R3071Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R3072Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for exclusiveLock subRequest the server does return an "HighLevelExceptionThrown" error code when the specified attributes[ExclusiveLockRequestType attribute] are not provided. Set R3072Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
@@ -105,7 +101,6 @@
   <Property name="R3074Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R3086Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server adds an additional authentication prefix for the UserLogin attribute as specified in section 7. Set R3086Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R3086Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-
   <!--Set R3089Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for cell sub request when GetProps is set to true in Put Changes sub-request, the server does not return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. Set R3089Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R3089Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R4001Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the CoalesceHResult attribute in cell sub response is not supported by server. Set R4001Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
@@ -152,8 +147,8 @@
   <Property name="R1976Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return an "InvalidArgument" error code as part of the SubResponseData element associated with the file opeartion subresponse. Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R11267Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-   <!--Set R11268Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return a "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file opeartion subresponse. Set R11268Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-   <Property name="R11268Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R11268Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return a "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file opeartion subresponse. Set R11268Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+  <Property name="R11268Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support ResourceID attribute. Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R11275Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support UseResourceID attribute. Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
@@ -164,14 +159,12 @@
   <Property name="R1102401Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R11274Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does not return error "RequestNotSupported" when coauthoring Feature is disabled. Set R11274Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
   <Property name="R11274Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-  <!--Set R385Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that Content Tag Entry Start (2 bytes)is A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Entry. Set R385Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-  <Property name="R385Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-   <!--Set R8203Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return a Leaf Node Object not the Intermediate Node Object at the beginning. Set R8203Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R8203Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-   <!--Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return the wrong value. Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R4106Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-   <!--Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the Object Data Size match the size of the Binary Item in the corresponding Object Data for this object. Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R4107Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R8203Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return a Leaf Node Object not the Intermediate Node Object at the beginning. Set R8203Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R8203Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return the wrong value. Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R4106Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the Object Data Size match the size of the Binary Item in the corresponding Object Data for this object. Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R4107Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R111341Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate the implementation does support Versioning subrequest. Set R111341Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement.-->
   <Property name="R111341Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R111111Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate the implementation does support FileOperation subrequest. Set R111111Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement.-->
@@ -180,59 +173,61 @@
   <Property name="R4110Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R99045001Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does not return the added data elements When the ReturnDataElementsAdded flag is not set. Set R4110Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R99045001Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-   <!--Set R8213Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for implementation, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabytes, a list of subchunks is generated. Set R8213Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R8213Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-   <!--Set R8207Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for implementation, if the number of .ZIP file bytes represented by a chunk is greater than 3 megabytes, a list of subchunks is generated. Set R8207Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R8207Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R8208Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the size of each subchunk is at most 1 megabyte. Set R8208Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R8208Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-   <!--Set R8209Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the size of each subchunk is at most 3 megabyte. Set R8209Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R8209Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R8210Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that All but the last subchunk MUST be 1 megabyte in size. Set R8210Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R8210Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-   <!--Set R8211Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that All but the last subchunk MUST be 3 megabyte in size. Set R8211Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R8211Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R15181Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the attribute ErrorCode does be present when this protocol is not enabled. Set R15181Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R15181Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-   <!--Set R1566Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that when refresh Coauthoring Session,the implementation return an error code value set to "FileAlreadyCheckedOutOnServer" if the coauthorable file is checked out on the server and checked out by a client with a different user name than the current client.Set R1566Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R1566Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1082Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that when check lock availability,the implementation return an error code value set to "FileAlreadyCheckedOutOnServer" if the coauthorable file is checked out on the server and checked out by a client with a different user name than the current client.Set R1082Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R1082Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R156001Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock on the file with a different schema lock identifier When sending Exit Coauthoring Session subrequest.Set R156001Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R156001Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R158201Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest.Set R158201Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R158201Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1208Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the coauthorable file is checked out on the server and it is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".Set R1208Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R1208Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R15141Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that ErrorCode attribute should be present if the Version attribute of the RequestVersion element of the request message has a value that is less than 2.Set R15141Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R15141Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R350Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation return the string value ""CheckedOutByCurrentUser"", indicating that an exclusive lock is granted on the file because the file is checked out by the current user who sent the cell storage service request message.Set R350Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R350Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1064Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation return an error code value set to ""InvalidCoauthSession"", if there is no Shared lock.Set R1064Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R1064Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1189Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that when call ConvertToExclusive implementation return an error code value set to ""InvalidCoauthSession"", if there is no Shared lock.Set R1189Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R1189Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1738Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation not allow a user with read-only access to join the editing session.Set R1738Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R1738Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1588Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the coauthorable file is checked out on the server and is checked out by a client with a different user name than the current client, the implementation returns an error code value set to ""FileAlreadyCheckedOutOnServer"".Set R1588Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R1588Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1494Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation returns error codes ""FileAlreadyCheckedOutOnServer"", If the file is checked out on the server, but it is checked out by a client with a different user name than that of the current client.Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R1494Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1253Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the protocol server encounters an error because no lock currently exists on the file, implementation returns an error code value set to ""FileNotLockedOnServer"".Enabled1253_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R1253Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R15171Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the user does not have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element, implementation return ErrorCode attribute in ResponseVersion. Enabled15171_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R15171Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1351Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that implementation does ignore the F – Round Knowledge to Whole Cell Changes field. Enabled1351_MS-FSSHTTP-FSSHTTPB to true to disable this requirement. -->
-   <Property name="R1351Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R246401Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support AmIAlone Subrequest. Enabled246401_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R246401Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R246601Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support LockStatus Subrequest. Enabled246601_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R246601Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R246801Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support Properties Subrequest. Enabled246801_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R246801Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1348Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support AllowFragments2 field. R1348Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R1348Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-   <!--Set R1360Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Data Hash Header. R1360Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-   <Property name="R1360Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R8213Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for implementation, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabytes, a list of subchunks is generated. Set R8213Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R8213Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R8207Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for implementation, if the number of .ZIP file bytes represented by a chunk is greater than 3 megabytes, a list of subchunks is generated. Set R8207Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R8207Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R8208Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the size of each subchunk is at most 1 megabyte. Set R8208Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R8208Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R8209Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the size of each subchunk is at most 3 megabyte. Set R8209Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R8209Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R8210Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that All but the last subchunk MUST be 1 megabyte in size. Set R8210Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R8210Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R8211Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that All but the last subchunk MUST be 3 megabyte in size. Set R8211Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R8211Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R15181Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the attribute ErrorCode does be present when this protocol is not enabled. Set R15181Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R15181Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R1566Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that when refresh Coauthoring Session,the implementation return an error code value set to "FileAlreadyCheckedOutOnServer" if the coauthorable file is checked out on the server and checked out by a client with a different user name than the current client.Set R1566Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1566Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1082Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that when check lock availability,the implementation return an error code value set to "FileAlreadyCheckedOutOnServer" if the coauthorable file is checked out on the server and checked out by a client with a different user name than the current client.Set R1082Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1082Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R156001Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock on the file with a different schema lock identifier When sending Exit Coauthoring Session subrequest.Set R156001Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R156001Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R158201Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest.Set R158201Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R158201Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1208Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the coauthorable file is checked out on the server and it is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".Set R1208Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1208Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R15141Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that ErrorCode attribute should be present if the Version attribute of the RequestVersion element of the request message has a value that is less than 2.Set R15141Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R15141Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R350Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation return the string value ""CheckedOutByCurrentUser"", indicating that an exclusive lock is granted on the file because the file is checked out by the current user who sent the cell storage service request message.Set R350Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R350Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1064Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation return an error code value set to ""InvalidCoauthSession"", if there is no Shared lock.Set R1064Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1064Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1189Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that when call ConvertToExclusive implementation return an error code value set to ""InvalidCoauthSession"", if there is no Shared lock.Set R1189Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1189Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1738Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation not allow a user with read-only access to join the editing session.Set R1738Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1738Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1588Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the coauthorable file is checked out on the server and is checked out by a client with a different user name than the current client, the implementation returns an error code value set to ""FileAlreadyCheckedOutOnServer"".Set R1588Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1588Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1494Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation returns error codes ""FileAlreadyCheckedOutOnServer"", If the file is checked out on the server, but it is checked out by a client with a different user name than that of the current client.Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1494Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1253Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the protocol server encounters an error because no lock currently exists on the file, implementation returns an error code value set to ""FileNotLockedOnServer"".Enabled1253_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1253Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R15171Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the user does not have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element, implementation return ErrorCode attribute in ResponseVersion. Enabled15171_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R15171Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1351Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that implementation does ignore the F – Round Knowledge to Whole Cell Changes field. Enabled1351_MS-FSSHTTP-FSSHTTPB to true to disable this requirement. -->
+  <Property name="R1351Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R246401Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support AmIAlone Subrequest. Enabled246401_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R246401Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R246601Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support LockStatus Subrequest. Enabled246601_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R246601Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R246801Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support Properties Subrequest. Enabled246801_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R246801Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1348Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support AllowFragments2 field. R1348Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1348Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1360Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Data Hash Header. R1360Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1360Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1345Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Version Token Knowledge. R1345Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1345Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
  </Properties>
 </TestSite>

@@ -3101,7 +3101,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R343</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In TransactionEntry] [srcID value] 0x00000001: [TransactionEntrySwitch] MUST be equal to CRC (section 2.1.2) of all TransactionEntry structures in the current transaction.</ns1:Description>
+		<ns1:Description>[In TransactionEntry] [srcID value] 0x00000001: [TransactionEntrySwitch] MUST be equal to CRC (section 2.1.2) of all TransactionEntry structures in the current transaction.&lt;8&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8182,7 +8182,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R900</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.2</ns1:Doc_Sect>
-		<ns1:Description>[In Header Cell] The Cell Manifest Current Revision Extended GUID field of the cell’s Cell Manifest Data Element structure, as specified in[MS-FSSHTTPB] section 2.2.1.12.4, SHOULD&lt;8&gt; be derived from the header (section 2.3.1) using the following method:</ns1:Description>
+		<ns1:Description>[In Header Cell] The Cell Manifest Current Revision Extended GUID field of the cell’s Cell Manifest Data Element structure, as specified in[MS-FSSHTTPB] section 2.2.1.12.4, SHOULD&lt;9&gt; be derived from the header (section 2.3.1) using the following method:</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8210,7 +8210,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R903</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.2</ns1:Doc_Sect>
-		<ns1:Description>[In Header Cell] 3. The value of the Cell Manifest Current Revision Extended GUID is "eguid1 XOR eguid2 XOR {{F5367D2F- F167-4830-A9C3-68F8336A2A09} , 0 }".</ns1:Description>
+		<ns1:Description>[In Header Cell] 3. The value of the Cell Manifest Current Revision Extended GUID is "eguid1 XOR eguid2 XOR {{F5367D2F-F167-4830-A9C3-68F8336A2A09} , 0 }".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8228,7 +8228,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R905</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.2</ns1:Doc_Sect>
-		<ns1:Description>[In Header Cell] § Root Extended GUID: MUST be "{{4A3717F8- 1C14-49E7-9526-81D942DE1741},  1}".</ns1:Description>
+		<ns1:Description>[In Header Cell] § Root Extended GUID: MUST be "{{4A3717F8-1C14-49E7-9526-81D942DE1741},  1}".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8237,7 +8237,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R906</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.2</ns1:Doc_Sect>
-		<ns1:Description>[In Header Cell] § Object Extended GUID: MUST be "{{ B4760B1A- FBDF- 4AE3-9D08-53219D8A8D21 }, 1}".</ns1:Description>
+		<ns1:Description>[In Header Cell] § Object Extended GUID: MUST be "{{B4760B1A-FBDF-4AE3-9D08-53219D8A8D21}, 1}".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8246,7 +8246,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R907</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.2</ns1:Doc_Sect>
-		<ns1:Description>[In Header Cell] § Object Group Extended GUID: MUST be calculated as Cell Manifest Current Revision Extended GUID specified previously XOR "{{ 26402DF1-68C7-43C0-A37C-04B9100893CE }, 0x80000000 }".</ns1:Description>
+		<ns1:Description>[In Header Cell] § Object Group Extended GUID: MUST be calculated as Cell Manifest Current Revision Extended GUID specified previously XOR "{{26402DF1-68C7-43C0-A37C-04B9100893CE}, 0x80000000 }".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8752,7 +8752,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R963</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.7</ns1:Doc_Sect>
-		<ns1:Description>[In Encryption] The object MUST be the only one in the object group, and the value of the object group identifier MUST be set to the revision identifier XOR "{{FE4F06F- BB18-4F79-B3D6-BC157D533D23}, 0x00000000 }".</ns1:Description>
+		<ns1:Description>[In Encryption] The object MUST be the only one in the object group, and the value of the object group identifier MUST be set to the revision identifier XOR "{{0FE4F06F- BB18-4F79-B3D6-BC157D533D23}, 0x00000000 }".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8889,7 +8889,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R977</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.8.1</ns1:Doc_Sect>
-		<ns1:Description>[In Packaging Structure] guidLegacyFileVersion (16 bytes): A GUID, as specified by [MS-DTYP], that specifies the version of this package store file. SHOULD be globally unique.&lt;9&gt;</ns1:Description>
+		<ns1:Description>[In Packaging Structure] guidLegacyFileVersion (16 bytes): A GUID, as specified by [MS-DTYP], that specifies the version of this package store file. SHOULD be globally unique.&lt;10&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

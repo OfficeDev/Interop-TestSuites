@@ -1467,6 +1467,58 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTPB",
                          2168,
                          @"[In Put Changes] Expected Storage Index Extended GUID (variable): If the key that is to be updated in the protocol server’s Storage Index does not exist in the expected Storage Index, the Imply Null Expected if No Mapping flag MUST be evaluated.");
+
+                // If the PutChanges operation succeeds, then capture MS-FSSHTTPB_R940
+                Site.CaptureRequirement(
+                         "MS-FSSHTTPB",
+                         940,
+                         @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): otherwise[If Imply Null Expected if No Mapping is not zero], if the flag[Imply Null Expected if No Mapping] specifies one, the protocol server MUST only apply the change if no mapping exists (the key that is to be updated in the protocol server’s Storage Index doesn't exist or it maps to nil).");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify the Put Changes request will fail coherency if any of the supplied Storage Indexes are unrooted.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S13_TC24_PutChanges_RequireStorageMappingsRooted()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Create a putChanges cellSubRequest without specified ExpectedStorageIndexExtendedGUID attribute.
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            ExGuid storageIndexExGuid;
+            List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+
+            putChange.IsAdditionalFlagsUsed = true;
+            cellRequest.AddSubRequest(putChange, dataElements);
+
+            // Put changes to the protocol server 
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+            this.Site.Assert.AreNotEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                "Due to the Invalid Expected StorageIndexExtendedGUID, the put changes should fail.");
+            FsshttpbResponse fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                Site.CaptureRequirementIfAreEqual<CellErrorCode>(
+                            CellErrorCode.Coherencyfailure,
+                            fsshttpbResponse.CellSubResponses[0].ResponseError.GetErrorData<CellError>().ErrorCode,
+                            "MS-FSSHTTPB",
+                        4054,
+                        @"[Additional Flags] F – Require Storage Mappings Rooted (1 bit): A bit that specifies that the Put Changes request will fail coherency if any of the supplied Storage Indexes are unrooted.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<CellErrorCode>(
+                         CellErrorCode.Coherencyfailure,
+                         fsshttpbResponse.CellSubResponses[0].ResponseError.GetErrorData<CellError>().ErrorCode,
+                            @"[Additional Flags] F – Require Storage Mappings Rooted (1 bit): A bit that specifies that the Put Changes request will fail coherency if any of the supplied Storage Indexes are unrooted.");
             }
         }
         #endregion 
