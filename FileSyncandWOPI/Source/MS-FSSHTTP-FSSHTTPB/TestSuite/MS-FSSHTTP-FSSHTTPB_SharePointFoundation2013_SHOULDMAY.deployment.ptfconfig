@@ -9,12 +9,10 @@
     <Property name="R93102Enabled_MS-FSSHTTP-FSSHTTPB" value="true" />
     <!--Set R1106Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does not support the GetCoauthStatus. Set R1106Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
     <Property name="R1106Enabled_MS-FSSHTTP-FSSHTTPB" value="false" />
-              
     <!--Set R1556Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does not return success when exit a coauthoring session when the user is not present. Set R1556Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
     <Property name="R1556Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R1107Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server does not return InvalidCoauthSession when the user is not present. Set R1107Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
     <Property name="R1107Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-
     <!--Set R9001Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support editors table operation. Set R9001Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R9001Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R9003Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support GetDocMetaInfo operation. Set R9003Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
@@ -25,7 +23,6 @@
     <Property name="R2050Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R2051Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does add a client to editors table when taking a schema lock. Set R2051Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R2051Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-
     <!--Set R10003Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support filters in the current test suite properly. Set R10003Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R10003Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R1904Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does return InvalidCoauthSession when there is no shared lock. Set R1904Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
@@ -36,7 +33,6 @@
     <Property name="R10004Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R2053Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server does support Editors table as compressed XML. Set R2053Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R2053Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-
     <!--Set R3104Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for coauth subRequest the server does not return an error code of "FileNotLockedOnServerAsCoauthDisabled" as specified in section 7. Set R3104Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
     <Property name="R3104Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R3105Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server does return an error code of "FileNotLockedOnServer" as specified in section 7. Set R3105Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
@@ -95,7 +91,6 @@
     <Property name="R474Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R1903Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server returns InvalidCoauthSession. Set R1903Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R1903Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-
     <!--Set R3071Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that for exclusiveLock subRequest the server does not return an "InvalidArgument" error code when the specified attributes[ExclusiveLockRequestType attribute] are not provided. Set R3071Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
     <Property name="R3071Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R3072Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that for exclusiveLock subRequest the server does return an "HighLevelExceptionThrown" error code when the specified attributes[ExclusiveLockRequestType attribute] are not provided. Set R3072Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
@@ -106,7 +101,6 @@
     <Property name="R3074Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R3086Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that for coauth subRequest the server adds an additional authentication prefix for the UserLogin attribute as specified in section 7. Set R3086Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R3086Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-
     <!--Set R3089Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that for cell sub request when GetProps is set to true in Put Changes sub-request, the server does not return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. Set R3089Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
     <Property name="R3089Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R4001Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that the CoalesceHResult attribute in cell sub response is not supported by server. Set R4001Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
@@ -115,7 +109,6 @@
     <Property name="R4002Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R3006Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that duplicate attribute ErrorCode will not be returned when the URL is not specified by server. Set R3006Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
     <Property name="R3006Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-    
     <!--Set R3007Enabled_MS-FSSHTTP-FSSHTTPB to  true to indicate that for coauth/schemaLock/ServerTime/WhoAmI/EditorsTable subRequest the server does not return the Response element as specified in section 7. Set R3007Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R3007Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R3008Enabled_MS-FSSHTTP-FSSHTTPB to  false to indicate that duplicate attribute ErrorCode will not be returned when the URL empty string by the server. Set R3008Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
@@ -168,8 +161,6 @@
     <Property name="R11274Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R8203Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return a Leaf Node Object not the Intermediate Node Object at the beginning. Set R8203Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R8203Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
-    <!--Set R385Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that Content Tag Entry Start (2 bytes)is A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Entry. Set R385Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-    <Property name="R385Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return the wrong value. Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R4106Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the Object Data Size match the size of the Binary Item in the corresponding Object Data for this object. Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
