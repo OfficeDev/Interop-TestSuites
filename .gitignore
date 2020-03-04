@@ -3,3 +3,26 @@
 ################################################################################
 
 /FileSyncandWOPI/Source/SharedTestSuite/SharedTestCase/obj/Debug
+/.vs
+/ExchangeWebServices/Source/Common/obj/Debug
+/ExchangeWebServices/Source/Common/obj/Release
+/FileSyncandWOPI/Setup/Test Suite Client/SetupLogs
+/FileSyncandWOPI/Source/.vs/SharePointFileSyncAndWOPIProtocolTestSuites/v15/Server/sqlite3/db.lock
+/FileSyncandWOPI/Source/.vs/SharePointFileSyncAndWOPIProtocolTestSuites/v15
+/FileSyncandWOPI/Source/Common/bin/Debug
+/FileSyncandWOPI/Source/Common/obj/Debug
+/FileSyncandWOPI/Source/MS-FSSHTTP-FSSHTTPB/.vs/MS-FSSHTTP-FSSHTTPB/v15
+/FileSyncandWOPI/Source/MS-FSSHTTP-FSSHTTPB/TestResults
+/FileSyncandWOPI/Source/MS-FSSHTTP-FSSHTTPB/TestSuite/bin/Debug
+/FileSyncandWOPI/Source/MS-FSSHTTP-FSSHTTPB/TestSuite/obj/Debug
+/FileSyncandWOPI/Source/MS-ONESTORE/Adapter/bin/Debug
+/FileSyncandWOPI/Source/MS-ONESTORE/Adapter/obj/Debug
+/FileSyncandWOPI/Source/MS-ONESTORE/TestSuite/bin/Debug
+/FileSyncandWOPI/Source/MS-ONESTORE/TestSuite/obj/Debug
+/FileSyncandWOPI/Source/MS-WOPI/Adapter/bin/Debug
+/FileSyncandWOPI/Source/MS-WOPI/Adapter/obj/Debug
+/FileSyncandWOPI/Source/MS-WOPI/TestSuite/bin/Debug
+/FileSyncandWOPI/Source/MS-WOPI/TestSuite/obj/Debug
+/FileSyncandWOPI/Source/SharedTestSuite/SharedAdapter/bin/Debug
+/FileSyncandWOPI/Source/SharedTestSuite/SharedAdapter/obj/Debug
+/FileSyncandWOPI/Source/SharedTestSuite/SharedTestCase/bin/Debug
