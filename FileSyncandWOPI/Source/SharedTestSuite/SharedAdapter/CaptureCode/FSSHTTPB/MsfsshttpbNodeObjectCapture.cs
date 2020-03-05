@@ -125,12 +125,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R1360
             if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1360, site))
             {
-            site.CaptureRequirementIfAreEqual<Type>(
-                     typeof(StreamObjectHeaderStart16bit),
-                     instance.DataHash.StreamObjectHeaderStart.GetType(),
-                     "MS-FSSHTTPD",
-                     1360,
-                     @"[In Appendix A: Product Behavior]Implementation does support the Data Hash Header(SharePoint Server 2016 and above follow this behavior.)");
+                if (instance.DataHash!=null)
+                {
+                  site.CaptureRequirementIfAreEqual<Type>(
+                      typeof(StreamObjectHeaderStart16bit),
+                      instance.DataHash.StreamObjectHeaderStart.GetType(),
+                      "MS-FSSHTTPD",
+                      1360,
+                      @"[In Appendix A: Product Behavior]Implementation does support the Data Hash Header(SharePoint Server 2016 and above follow this behavior.)");
+                } 
             }
 
             // Verify the stream object header end related requirements.

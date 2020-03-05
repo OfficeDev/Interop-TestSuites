@@ -329,7 +329,17 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
             this.Signature = StreamObject.GetCurrent<SignatureObject>(byteArray, ref index);
             this.DataSize = StreamObject.GetCurrent<DataSizeObject>(byteArray, ref index);
-            this.DataHash = StreamObject.GetCurrent<DataHashObject>(byteArray, ref index);
+
+            // Try to read StreamObjectHeaderStart to see there is data hash object or not
+            StreamObjectHeaderStart streamObjectHeader;
+            if ((StreamObjectHeaderStart.TryParse(byteArray, index, out streamObjectHeader)) != 0)            
+            {
+                if (streamObjectHeader.Type == StreamObjectTypeHeaderStart.DataHashObject)
+                {
+                    this.DataHash = StreamObject.GetCurrent<DataHashObject>(byteArray, ref index);
+                }
+            }
+
             currentIndex = index;
         }
 
