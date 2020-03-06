@@ -52,7 +52,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     index += 4;
                     ResponseError responseError = StreamObject.GetCurrent<ResponseError>(byteArray, ref index);
                 }
-                currentIndex = index + 2;
+
+                // If header type is not 16-bit Stream Object Header End
+                if (headertype != 0x3)
+                {
+                    currentIndex = index + 2;
+                }                
             }
         }
     }
