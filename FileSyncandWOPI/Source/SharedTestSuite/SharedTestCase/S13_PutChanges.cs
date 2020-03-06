@@ -1482,20 +1482,45 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S13_TC24_PutChanges_RequireStorageMappingsRooted()
         {
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 99108, this.Site))
+            {
+                Site.Assume.Inconclusive("Implementation does not support the Additional Flags.");
+            }
+
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            // Create a putChanges cellSubRequest without specified ExpectedStorageIndexExtendedGUID attribute.
-            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
-            ExGuid storageIndexExGuid;
-            List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+            // Query changes from the protocol server
+            CellSubRequestType queryChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
+            CellStorageResponse queryResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { queryChange });
+            CellSubResponseType querySubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(queryResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(querySubResponse.ErrorCode, this.Site), "The operation QueryChanges should succeed.");
+            FsshttpbResponse queryChangeResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(querySubResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(queryChangeResponse, this.Site);
 
-            putChange.IsAdditionalFlagsUsed = true;
-            cellRequest.AddSubRequest(putChange, dataElements);
+            // Put changes to upload the content once to change the server state. In this case, the server expected the storage index value is different with previous returned.
+            CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges((ulong)SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), System.Text.Encoding.UTF8.GetBytes(SharedTestSuiteHelper.GenerateRandomString(5)));
+            CellStorageResponse putResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+            CellSubResponseType putSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(putResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(putSubResponse.ErrorCode, this.Site), "The operation PutChanges should succeed.");
+            FsshttpbResponse putChangeResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(putSubResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(putChangeResponse, this.Site);
+
+            // Create a putChanges cellSubRequest with specified ExpectedStorageIndexExtendedGUID value as the step 1 returned and with the  Require Storage Mappings Rooted flag as 1.
+            FsshttpbCellRequest cellRequestSecond = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            ExGuid storageIndexExGuid;
+            List<DataElement> dataElements = DataElementUtils.BuildDataElements(System.Text.Encoding.UTF8.GetBytes(SharedTestSuiteHelper.GenerateRandomString(5)), out storageIndexExGuid);
+            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+
+            // Specify ExpectedStorageIndexExtendedGUID and RequireStorageMappingsRooted flag.
+            putChangeSecond.ExpectedStorageIndexExtendedGUID = queryChangeResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
+            putChangeSecond.IsAdditionalFlagsUsed = true;
+            putChangeSecond.RequireStorageMappingsRooted = 1;
+            dataElements.AddRange(queryChangeResponse.DataElementPackage.DataElements);
+            cellRequestSecond.AddSubRequest(putChangeSecond, dataElements);
 
             // Put changes to the protocol server 
-            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequestSecond.ToBase64());
             CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
             CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
             this.Site.Assert.AreNotEqual<ErrorCodeType>(
