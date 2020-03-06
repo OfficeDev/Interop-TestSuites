@@ -1113,7 +1113,7 @@ The conversion to an exclusive lock failed.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R404
                 Site.CaptureRequirementIfAreEqual<string>(
-                         "SchemaLock",
+                         "ExclusiveLock",
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          404,
@@ -1121,7 +1121,7 @@ The conversion to an exclusive lock failed.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R406
                 Site.CaptureRequirementIfAreEqual<string>(
-                         "SchemaLock",
+                         "ExclusiveLock",
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          406,
@@ -1129,7 +1129,7 @@ The conversion to an exclusive lock failed.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1157 and MS-FSSHTTP_R442
                 Site.CaptureRequirementIfAreEqual<string>(
-                         "SchemaLock",
+                         "ExclusiveLock",
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          1157,
@@ -1137,7 +1137,7 @@ The conversion to an exclusive lock failed.");
                          If the AllowFallbackToExclusive attribute is set to true, the protocol server gets an exclusive lock on the file.");
 
                 Site.CaptureRequirementIfAreEqual<string>(
-                         "SchemaLock",
+                         "ExclusiveLock",
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          442,
