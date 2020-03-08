@@ -258,7 +258,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             {
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R404
                 Site.CaptureRequirementIfAreEqual<string>(
-                         "SchemaLock",
+                         "ExclusiveLock",
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          404,
@@ -266,7 +266,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R406
                 Site.CaptureRequirementIfAreEqual<string>(
-                         "SchemaLock",
+                         "ExclusiveLock",
                          schemaLockSubResponse.SubResponseData.LockType,
                          "MS-FSSHTTP",
                          406,

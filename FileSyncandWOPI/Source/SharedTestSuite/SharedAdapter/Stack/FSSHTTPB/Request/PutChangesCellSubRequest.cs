@@ -131,6 +131,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public int FullFileReplacePut { get; set; }
 
         /// <summary>
+        /// Gets or sets a value: A bit that specifies that the Put Changes request will fail coherency if any of the supplied Storage Indexes are unrooted. 
+        /// If the IsAdditionalFlagsUsed is false, this property will be ignored.
+        /// </summary>
+        public int RequireStorageMappingsRooted { get; set; }
+
+        /// <summary>
         /// Gets or sets a value:  An 11-bit reserved field that MUST be set to zero.
         /// If the IsAdditionalFlagsUsed is false, this property will be ignored.
         /// </summary>
@@ -230,7 +236,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 additionalFlagsWriter.AppendInit32(this.CheckForIdReuse, 1);
                 additionalFlagsWriter.AppendInit32(this.CoherencyCheckOnlyAppliedIndexEntries, 1);
                 additionalFlagsWriter.AppendInit32(this.FullFileReplacePut, 1);
-                additionalFlagsWriter.AppendInit32(this.Reserve, 11);
+                additionalFlagsWriter.AppendInit32(this.RequireStorageMappingsRooted, 1);
+                additionalFlagsWriter.AppendInit32(this.Reserve, 10);
                 byteList.AddRange(additionalFlagsWriter.Bytes);
             }
 
