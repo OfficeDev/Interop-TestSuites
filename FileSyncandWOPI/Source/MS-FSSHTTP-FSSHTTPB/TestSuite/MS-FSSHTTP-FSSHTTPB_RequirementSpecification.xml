@@ -1453,11 +1453,12 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11023</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request] [UseResourceID]In the case where the protocol server is using the ResourceID attribute but the ResourceID attribute does not identify a valid file the protocol server SHOULD set an error code in the ErrorCode attribute of the corresponding Response attribute.</ns1:Description>
+		<ns1:Description>[In Request] [UseResourceID]In the case where the protocol server is using the ResourceID attribute but the ResourceID attribute does not identify a valid file the protocol server SHOULD set an error code in the ErrorCode attribute of the corresponding Response attribute. (SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R72</ns1:REQ_ID>
@@ -1777,11 +1778,12 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2503</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response]Else[if no], [UrlIsEncoded set to] false.</ns1:Description>
+		<ns1:Description>[In Response]Else[if no], [UrlIsEncoded set to] false. (SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R105</ns1:REQ_ID>
@@ -2104,11 +2106,12 @@ An exception occurred during the processing of a subrequest that was not entirel
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R21051</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.6</ns1:Doc_Sect>
-		<ns1:Description>[In ResponseCollection]Else[if no], [WebUrlIsEncoded set to] false.</ns1:Description>
+		<ns1:Description>[In ResponseCollection]Else[if no], [WebUrlIsEncoded set to] false. (SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R122</ns1:REQ_ID>
@@ -13227,11 +13230,12 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11121</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.35</ns1:Doc_Sect>
-		<ns1:Description>[In FileOperationSubResponseType] In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.</ns1:Description>
+		<ns1:Description>[In FileOperationSubResponseType] In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. (SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11122</ns1:REQ_ID>
@@ -13529,11 +13533,12 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11151</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.39</ns1:Doc_Sect>
-		<ns1:Description>[In VersioningSubResponseType] In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.</ns1:Description>
+		<ns1:Description>[In VersioningSubResponseType] In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. (SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11152</ns1:REQ_ID>
@@ -14398,11 +14403,12 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2273</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.51</ns1:Doc_Sect>
-		<ns1:Description>[LockStatusSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. </ns1:Description>
+		<ns1:Description>[LockStatusSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. (SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2274</ns1:REQ_ID>
@@ -14690,11 +14696,12 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2302011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.55</ns1:Doc_Sect>
-		<ns1:Description>[PropertiesSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. </ns1:Description>
+		<ns1:Description>[PropertiesSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. (SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2303011</ns1:REQ_ID>
@@ -21546,11 +21553,12 @@ Check lock availability</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1926</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In ExclusiveLock Subrequest][The protocol returns results based on the following conditions: ] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to "LockRequestFail " or "Unknown" or "FileNotExistsOrCannotBeCreated"  in the ErrorCode attribute sent back in the SubResponse element.</ns1:Description>
+		<ns1:Description>[In ExclusiveLock Subrequest][The protocol returns results based on the following conditions: ] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to "LockRequestFail " or "Unknown" or "FileNotExistsOrCannotBeCreated"  in the ErrorCode attribute sent back in the SubResponse element. (SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1229</ns1:REQ_ID>
