@@ -52,7 +52,11 @@
                 this.VerifyRevisions(revisionManifest, site);
             }
 
-            this.VerifyHeaderCell(instance.HeaderCell, instance.HeaderCellRevisionManifest, instance.HeaderCellCellManifest, site);
+            if (instance.HeaderCell!=null)
+            {
+                this.VerifyHeaderCell(instance.HeaderCell, instance.HeaderCellRevisionManifest, instance.HeaderCellCellManifest, site);
+            }
+            
             if (instance.DataRoot != null)
             {
                 this.VerifyDataRoot(instance.DataRoot, site);
