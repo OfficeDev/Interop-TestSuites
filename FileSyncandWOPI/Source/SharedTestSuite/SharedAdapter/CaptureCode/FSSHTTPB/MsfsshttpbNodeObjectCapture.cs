@@ -133,6 +133,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                       "MS-FSSHTTPD",
                       1360,
                       @"[In Appendix A: Product Behavior]Implementation does support the Data Hash Header(SharePoint Server 2016 and above follow this behavior.)");
+
+                    site.CaptureRequirementIfAreEqual<Type>(
+                        typeof(BinaryItem),
+                        instance.DataHash.Data.GetType(),
+                        "MS-FSSHTTPD",
+                        202,
+                        @"[In Leaf Node Object Data]Data Hash (variable): A binary item, as specified in [MS-FSSHTTPB] section 2.2.1.3, that specifies the data hash.");
                 } 
             }
 

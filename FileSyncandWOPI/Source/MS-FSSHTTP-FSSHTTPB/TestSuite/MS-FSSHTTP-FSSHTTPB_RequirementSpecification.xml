@@ -38079,7 +38079,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:REQ_ID>MS-FSSHTTPD_R1363</ns1:REQ_ID>
 		<ns1:Doc_Sect>5</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior]Implementation does add an additional unsigned 32-bit integer , which specifies the CRC of the compressed data, after CRC field.(&lt;5&gt; Section 2.4.1:  Office 2010 March 2015 CU adds an additional unsigned 32-bit integer, which specifies the CRC of the compressed data, after CRC field.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTPD_R2028:i</ns1:Derived>
+		<ns1:Derived>MS-FSSHTTPD_R8028:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -38090,7 +38090,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:REQ_ID>MS-FSSHTTPD_R1364</ns1:REQ_ID>
 		<ns1:Doc_Sect>5</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior]Implementation does not add an additional unsigned 32-bit integer , which specifies the CRC of the compressed data, after CRC field.(Microsft Office 2013/Microsft SharePoint Server 2013 and above follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTPD_R2028:i</ns1:Derived>
+		<ns1:Derived>MS-FSSHTTPD_R8028:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
