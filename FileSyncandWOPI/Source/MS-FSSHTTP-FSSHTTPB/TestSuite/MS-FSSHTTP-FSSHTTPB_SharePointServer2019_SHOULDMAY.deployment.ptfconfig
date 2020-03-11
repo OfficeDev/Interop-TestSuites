@@ -229,5 +229,21 @@
   <Property name="R1360Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R1345Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Version Token Knowledge. R1345Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R1345Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R11151Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that in the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. R11151Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R11151Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R11121Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that in the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. R11121Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R11121Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R2273Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that in the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. R2273Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R2273Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R2302011Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that in the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. R2302011Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R2302011Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R2503Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the UrlIsEncoded does return false. R2503Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R2503Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R21051Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the WebUrlIsEncoded does return false. R21051Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R21051Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R11023Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the ResourceID attribute does not identify a valid file the implementation does set an error code in the ErrorCode attribute of the corresponding Response attribute. R11023Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R11023Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R1926Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation reports a failure by returning an error code value set to "LockRequestFail " or "Unknown" or "FileNotExistsOrCannotBeCreated"  in the ErrorCode attribute sent back in the SubResponse element. R1926Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R1926Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
  </Properties>
 </TestSite>
