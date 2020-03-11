@@ -454,20 +454,23 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                 LogEntryKind.Debug,
                 "For requirement MS-FSSHTTP_R1926, expect the error code LockRequestFail or Unknown or FileNotExistsOrCannotBeCreated, but actually error code is " + errorType);
 
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            if (Common.IsRequirementEnabled(1926, this.Site))
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1926
-                Site.CaptureRequirementIfIsTrue(
-                         isR1926Verified,
-                         "MS-FSSHTTP",
-                         1926,
-                         @"[In ExclusiveLock Subrequest][The protocol returns results based on the following conditions: ] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""LockRequestFail "" or ""Unknown"" or ""FileNotExistsOrCannotBeCreated""  in the ErrorCode attribute sent back in the SubResponse element.");
-            }
-            else
-            {
-                Site.Assert.IsTrue(
-                    isR1926Verified,
-                    @"[In ExclusiveLock Subrequest][The protocol returns results based on the following conditions: ] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""LockRequestFail "" or ""Unknown"" or ""FileNotExistsOrCannotBeCreated""  in the ErrorCode attribute sent back in the SubResponse element.");
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1926
+                    Site.CaptureRequirementIfIsTrue(
+                             isR1926Verified,
+                             "MS-FSSHTTP",
+                             1926,
+                             @"[In ExclusiveLock Subrequest][The protocol returns results based on the following conditions: ] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""LockRequestFail "" or ""Unknown"" or ""FileNotExistsOrCannotBeCreated""  in the ErrorCode attribute sent back in the SubResponse element.");
+                }
+                else
+                {
+                    Site.Assert.IsTrue(
+                        isR1926Verified,
+                        @"[In ExclusiveLock Subrequest][The protocol returns results based on the following conditions: ] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""LockRequestFail "" or ""Unknown"" or ""FileNotExistsOrCannotBeCreated""  in the ErrorCode attribute sent back in the SubResponse element.");
+                }
             }
         }
 

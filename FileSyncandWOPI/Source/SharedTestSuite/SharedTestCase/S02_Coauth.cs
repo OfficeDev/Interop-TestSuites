@@ -1066,7 +1066,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3104,
-                             @"[155 Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (<40> Section 3.1.4.3.1:  SharePoint Server 2010 will return an error code value ""FileNotLockedOnServerAsCoauthDisabled"" if the AllowFallbackToExclusive attribute is set to false.)");
+                             @"[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (<40> Section 3.1.4.3.1:  SharePoint Server 2010 will return an error code value ""FileNotLockedOnServerAsCoauthDisabled"" if the AllowFallbackToExclusive attribute is set to false.)");
 
                     Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                              ErrorCodeType.FileNotLockedOnServerAsCoauthDisabled,

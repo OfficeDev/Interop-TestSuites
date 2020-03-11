@@ -50,25 +50,29 @@
 
             PropertiesSubRequestType propertiess = SharedTestSuiteHelper.CreatePropertiesSubRequest(SequenceNumberGenerator.GetCurrentToken(), PropertiesRequestTypes.PropertyGet, propertyId, this.Site);
             CellStorageResponse response = this.Adapter.CellStorageRequest(null, new SubRequestType[] { propertiess });
-            PropertiesSubResponseType propertiesResponse = SharedTestSuiteHelper.ExtractSubResponse<PropertiesSubResponseType>(response, 0, 0, this.Site);
-            SubResponseType subresponse = response.ResponseCollection.Response[0].SubResponse[0];
 
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            if (Common.IsRequirementEnabled(2302011, this.Site))
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2302011
-                Site.CaptureRequirementIfAreNotEqual<string>(
-                    GenericErrorCodeTypes.Success.ToString(),
-                    subresponse.ErrorCode,
-                    "MS-FSSHTTP",
-                    2302011,
-                    @"[PropertiesSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. ");
-            }
-            else
-            {
-                Site.Assert.AreNotEqual<string>(
-                    GenericErrorCodeTypes.Success.ToString(),
-                    subresponse.ErrorCode,
-                    "In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.");
+                PropertiesSubResponseType propertiesResponse = SharedTestSuiteHelper.ExtractSubResponse<PropertiesSubResponseType>(response, 0, 0, this.Site);
+                SubResponseType subresponse = response.ResponseCollection.Response[0].SubResponse[0];
+
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2302011
+                    Site.CaptureRequirementIfAreNotEqual<string>(
+                        GenericErrorCodeTypes.Success.ToString(),
+                        subresponse.ErrorCode,
+                        "MS-FSSHTTP",
+                        2302011,
+                        @"[PropertiesSubResponseType]In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. ");
+                }
+                else
+                {
+                    Site.Assert.AreNotEqual<string>(
+                        GenericErrorCodeTypes.Success.ToString(),
+                        subresponse.ErrorCode,
+                        "In the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest.");
+                }
             }
         }
 
