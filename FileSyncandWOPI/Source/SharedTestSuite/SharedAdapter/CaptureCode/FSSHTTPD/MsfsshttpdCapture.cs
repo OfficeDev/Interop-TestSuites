@@ -145,11 +145,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      8026,
                      @"[In Zip Files] Local File Header Hash: A 20-byte sequence that specifies the SHA-1 hash code of the file bytes represented by the local file header chunk.");
 
-            // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8028
+            // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R1363
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
-                     8028,
-                     @"[In Zip Files][Data file chunk structure] CRC (4 bytes): An unsigned 32-bit integer that specifies the value of the local file header crc-32 field, as specified in [PKWARE-Zip].");
+                     1363,
+                     @"[In Appendix A: Product Behavior]Implementation does add an additional unsigned 32-bit integer , which specifies the CRC of the compressed data, after CRC field.(<5> Section 2.4.1:  Office 2010 March 2015 CU adds an additional unsigned 32-bit integer, which specifies the CRC of the compressed data, after CRC field.)");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8029
             site.CaptureRequirement(
