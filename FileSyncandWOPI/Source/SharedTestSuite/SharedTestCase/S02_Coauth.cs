@@ -2771,13 +2771,13 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R560
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R5601
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                          ErrorCodeType.InvalidArgument,
                          SharedTestSuiteHelper.ConvertToErrorCodeType(response.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          5601,
-                         @"[In CoauthSubRequestDataType] If the specified attributes[SchemaLockID] are not provided, an ""InvalidArgument""<19> error code MUST be returned as part of the SubResponseData element associated with the coauthoring subresponse.");
+                         @"[In CoauthSubRequestDataType]If other attributes are not provided, an ""InvalidArgument"" error code MUST be returned as part of the SubResponseData element associated with the coauthoring subresponse.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R68
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
