@@ -1778,7 +1778,7 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2503</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response]Else[if no], [UrlIsEncoded set to] false. (SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Response]Else[if no], [UrlIsEncoded set to] false. (SharePoint Server 2010 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2106,7 +2106,7 @@ An exception occurred during the processing of a subrequest that was not entirel
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R21051</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.6</ns1:Doc_Sect>
-		<ns1:Description>[In ResponseCollection]Else[if no], [WebUrlIsEncoded set to] false. (SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In ResponseCollection]Else[if no], [WebUrlIsEncoded set to] false. (SharePoint Server 2010 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
