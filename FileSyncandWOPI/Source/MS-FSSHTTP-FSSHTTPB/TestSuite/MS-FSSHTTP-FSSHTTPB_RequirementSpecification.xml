@@ -6132,8 +6132,7 @@ If the other subrequest is not supported. (Microsoft SharePoint Foundation 2010/
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R3023.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R352</ns1:REQ_ID>
@@ -8994,140 +8993,148 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R521</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R508</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType][The SchemaLockID attribute MUST be specified in a cell subrequest if both of the following conditions are true:] The Coalesce attribute is set to true, and the client holds a shared lock on the file; The cell subrequest is for uploading binary file contents in a partition.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R1360</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType][SchemaLockID] The Coalesce attribute is defined in section 2.3.3.1.</ns1:Description>
+		<ns1:Description>[In CellSubRequestDataType] The CellSubRequestDataType complex type contains information about data or input parameters used in processing a cell subrequest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R1717</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R509</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType][SchemaLockID] The string "29358EC1-E813-4793-8E70-ED0344E7B73C" has been reserved for use for this attribute[SchemaLockID].&lt;24&gt;</ns1:Description>
+		<ns1:Description>[In CellSubRequestDataType][CellSubRequestDataType schema is:]
+&lt;xs:complexType name="CellSubRequestDataType" mixed="true"&gt;
+    &lt;xs:all&gt;
+      &lt;xs:element ref="i:Include" minOccurs="0" maxOccurs="1" /&gt;
+    &lt;/xs:all&gt;
+    &lt;xs:attributeGroup ref="tns:CellSubRequestDataOptionalAttributes" /&gt;
+    &lt;xs:attribute name="SchemaLockID" type="xs:string" use="optional" /&gt;
+    &lt;xs:attribute name="ExclusiveLockID" type="xs:string" use="optional"/&gt;
+    &lt;xs:attribute name="Timeout" type="xs:integer" use="optional" /&gt;
+    &lt;xs:attribute name="BinaryDataSize" type="xs:long" use="required" /&gt; 
+&lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R522</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R510</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType] ExclusiveLockID: A string that serves as a unique identifier for the type of exclusive lock on the file when a cell subrequest with the Coalesce attribute set to true is requested.</ns1:Description>
+		<ns1:Description>[In CellSubRequestDataType] Include: A complex type, as specified in [XOP10] section 2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R523</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R511</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType] The Coalesce attribute is defined in section 2.3.3.1.</ns1:Description>
+		<ns1:Description>[In CellSubRequestDataType] [Include: A complex type] that is used for encapsulating and sending large amounts of binary data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R524</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R512</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType] ExclusiveLockID is sent only if the protocol server supports file locking and the cell subrequest is for the first time upload of the file’s binary contents.</ns1:Description>
+		<ns1:Description>[In CellSubRequestDataType] The referenced Include element is specified in section 2.2.3.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R513</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In CellSubRequestDataType] The referenced Include element MUST be sent as part of the SubRequestData element in a cell storage service request message only if the cell subrequest is for the upload of a file’s binary or metadata contents.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R525</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R514</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType] Timeout: An integer that specifies the time, in seconds, after which the exclusive lock on the file will expire.</ns1:Description>
+		<ns1:Description>[In CellSubRequestDataType] CellSubRequestDataOptionalAttributes: An attribute group that specifies the set of attributes that is provided for a SubRequestData element whose parent SubRequest element’s Type attribute is set to "Cell".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R515</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In CellSubRequestDataType][CellSubRequestDataOptionalAttributes] CellSubRequestDataOptionalAttributes is defined in section 2.3.3.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R516</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In CellSubRequestDataType] SchemaLockID: A string that is globally unique and known among all protocol clients that share the same protocol version.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R526</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R517</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType] The Timeout attribute MUST be set to a value ranging from 60 through 120,000.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R527</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType] The Timeout attribute MUST be specified if the ExclusiveLockID attribute is specified.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R1520</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType] BinaryDataSize: A long value that specifies the number of bytes of data in the SubRequestData element of a cell subrequest.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R1521</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType][BinaryDataSize] It MUST be present in the SubRequestData element of a cell subrequest. </ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R1522</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType] The BinaryDataSize attribute MUST be set to a value ranging from 1 through 9,223,372,036,854,775,807.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R1523</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType] It[BinaryDataSize] is ignored by the server.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Partially verified by derived requirement: MS-FSSHTTP_R15231.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R15231</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType] The server returns "Success" error code when the client sends a BinaryDataSize value which is different with the actual value.</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R1523:p</ns1:Derived>
+		<ns1:Description>[In CellSubRequestDataType][SchemaLockID] This schema lock identifier is used by the protocol server to block other clients with a different schema lock identifier.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R1525</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R11278</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataType][BinaryDataSize] The SubRequestData element is defined in section 2.2.3.9.</ns1:Description>
+		<ns1:Description>[In CellSubRequestDataType][SchemaLockID] if the ByPassLockID is not set or not same with this schema lock identified, the SchemaLockID will be ignored by the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R518</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In CellSubRequestDataType][SchemaLockID] After a protocol client is able to get a shared lock for a file with a specific schema lock identifier, the server MUST allow only other protocol clients that specify the same schema lock identifier to share the file lock.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R519</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In CellSubRequestDataType] The protocol server ensures that at any instant in time, only clients having the same schema lock identifier can lock the file.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R520</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In CellSubRequestDataType] After all the protocol clients have released their lock for that file, the protocol server MUST allow a protocol client with a different schema lock identifier to get a shared lock for that file.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R521</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In CellSubRequestDataType][The SchemaLockID attribute MUST be specified in a cell subrequest if both of the following conditions are true:] The Coalesce attribute is set to true, and the client holds a shared lock on the file; The cell subrequest is for uploading binary file contents in a partition.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -9502,13 +9509,13 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R3065.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2230</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R5601</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.5</ns1:Doc_Sect>
 		<ns1:Description>[In CoauthSubRequestDataType]If other attributes are not provided, an "InvalidArgument" error code MUST be returned as part of the SubResponseData element associated with the coauthoring subresponse.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R561</ns1:REQ_ID>
@@ -10339,7 +10346,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3071, MS-FSSHTTP_R3072</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2231</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R6341</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.9</ns1:Doc_Sect>
 		<ns1:Description>[In ExclusiveLockSubRequestDataType]If other attributes are not provided, an "InvalidArgument" error code MUST be returned as part of the SubResponseData element associated with the exclusive lock subresponse. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -24707,7 +24714,6 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:REQ_ID>MS-FSSHTTP_R1102402</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support SuggestedFileName to specify that the suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request. (&lt;13&gt; Section 2.2.3.5:  The SuggestedFileName attribute is not supported by SharePoint Server 2010 and SharePoint Server 2013.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R11024:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24790,7 +24796,6 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:REQ_ID>MS-FSSHTTP_R2451</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not support ShouldReturnDisambiguatedFileName Attribute. &lt;8&gt; Section 2.2.3.2:  Office 2010 and Office 2013 do not support ShouldReturnDisambiguatedFileName attribute.</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R11014:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24905,7 +24910,6 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:REQ_ID>MS-FSSHTTP_R2456</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support ResourceID attribute. &lt;14&gt; Section 2.2.3.5:  The ResourceID attribute is not supported by SharePoint Server 2010 and SharePoint Server 2013.</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R11025:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24963,7 +24967,6 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:REQ_ID>MS-FSSHTTP_R3023</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return value "CurrentUserHasExclusiveLock". &lt;17&gt; Section 2.2.5.5:  SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2016 will never return this value["CurrentUserHasExclusiveLock"] to the client.</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R351:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24973,7 +24976,6 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:REQ_ID>MS-FSSHTTP_R11270</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return value "CurrentUserHasExclusiveLock". (Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-FSSHTTP_R351:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25274,7 +25276,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3086</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute which is part of the subresponse for a Who Am I subrequest. &lt;34&gt; Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute. &lt;34&gt; Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2016/Microsoft SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R791:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -37134,7 +37136,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPD_R63</ns1:REQ_ID>
