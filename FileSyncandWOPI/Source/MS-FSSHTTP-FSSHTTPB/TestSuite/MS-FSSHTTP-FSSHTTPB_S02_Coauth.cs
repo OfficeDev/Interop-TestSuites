@@ -400,17 +400,6 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
-            {
-                // Change the authentication mode
-                if (!this.SutPowerShellAdapter.SwitchClaimsAuthentication(false))
-                {
-                    this.Site.Assert.Fail("Cannot change the authentication mode to windows based.");
-                }
-
-                this.StatusManager.RecordDisableClaimsBasedAuthentication();
-            }
-
             CheckLockAvailability();
 
             // Join a Coauthoring session
