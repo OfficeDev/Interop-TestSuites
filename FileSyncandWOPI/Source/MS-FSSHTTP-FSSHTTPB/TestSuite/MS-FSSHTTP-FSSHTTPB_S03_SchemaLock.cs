@@ -232,17 +232,6 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
             Site.Assert.AreEqual(true, isCheckOutSuccess, "Cannot change the file {0} to check out status using the user name {1} and password{2}", this.DefaultFileUrl, this.UserName01, this.Password01);
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
-            {
-                // Change the authentication mode
-                if (!this.SutPowerShellAdapter.SwitchClaimsAuthentication(false))
-                {
-                    this.Site.Assert.Fail("Cannot change the authentication mode to windows based.");
-                }
-
-                this.StatusManager.RecordDisableClaimsBasedAuthentication();
-            }
-
             CheckLockAvailability();
 
             // Get a schema lock with AllowFallbackToExclusive set to true, expect the server returns the error code "Success".

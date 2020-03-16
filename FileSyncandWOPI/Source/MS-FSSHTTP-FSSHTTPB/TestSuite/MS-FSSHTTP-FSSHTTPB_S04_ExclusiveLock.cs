@@ -122,18 +122,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             // Record the file check out status.
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
-            {
-                // Change the authentication mode
-                if (!this.SutPowerShellAdapter.SwitchClaimsAuthentication(false))
-                {
-                    this.Site.Assert.Fail("Cannot change the authentication mode to windows based.");
-                }
-
-                this.StatusManager.RecordDisableClaimsBasedAuthentication();
-            }
-                      
+                    
             // Initialize the service.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
@@ -247,17 +236,6 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
-            {
-                // Change the authentication mode
-                if (!this.SutPowerShellAdapter.SwitchClaimsAuthentication(false))
-                {
-                    this.Site.Assert.Fail("Cannot change the authentication mode to windows based.");
-                }
-
-                this.StatusManager.RecordDisableClaimsBasedAuthentication();
-            }
-
             CheckLockAvailability();
 
             // Check the exclusive lock availability with all valid parameters on a file which is checked out by the same user, expect the server responds the error code "Success".
@@ -298,17 +276,6 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             // Record the file check out status.
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
-            {
-                // Change the authentication mode
-                if (!this.SutPowerShellAdapter.SwitchClaimsAuthentication(false))
-                {
-                    this.Site.Assert.Fail("Cannot change the authentication mode to windows based.");
-                }
-
-                this.StatusManager.RecordDisableClaimsBasedAuthentication();
-            }
 
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -372,17 +339,6 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             // Record the file check out status.
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
-            {
-                // Change the authentication mode
-                if (!this.SutPowerShellAdapter.SwitchClaimsAuthentication(false))
-                {
-                    this.Site.Assert.Fail("Cannot change the authentication mode to windows based.");
-                }
-
-                this.StatusManager.RecordDisableClaimsBasedAuthentication();
-            }
 
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
