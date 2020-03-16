@@ -21,10 +21,11 @@
     <DeploymentItem filename="..\MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\RemoveWOPIDiscoveryRecord.ps1" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\AddFileToSUT.ps1" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\TriggerWOPIDiscovery.ps1" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\DeleteUploadedFilesOnSUT.ps1" />
+    <DeploymentItem filename="TestSuite\MS-ONESTORE_RequirementSpecification.xml" />
+    <DeploymentItem filename="..\MS-WOPI\Adapter\SUTControlAdapter\Implementation\RemoveWOPIDiscoveryRecord.ps1" />
+    <DeploymentItem filename="..\MS-WOPI\Adapter\SUTControlAdapter\Implementation\AddFileToSUT.ps1" />
+    <DeploymentItem filename="..\MS-WOPI\Adapter\SUTControlAdapter\Implementation\TriggerWOPIDiscovery.ps1" />
+    <DeploymentItem filename="..\MS-WOPI\Adapter\SUTControlAdapter\Implementation\DeleteUploadedFilesOnSUT.ps1" />
     <DeploymentItem filename="TestSuite\MS-ONESTORE_TestSuite.ptfconfig" />
     <DeploymentItem filename="TestSuite\Resources\OneWithFileData.one" />
     <DeploymentItem filename="TestSuite\Resources\OneWithoutFileData.one" />

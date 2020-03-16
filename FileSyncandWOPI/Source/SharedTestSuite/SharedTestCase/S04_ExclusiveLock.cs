@@ -1595,13 +1595,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          1280,
                          @"[In Convert to Schema Lock with Coauthoring Transition Tracked] The protocol server returns error codes according to the following rules: If the protocol server is unable to convert the lock on the file because no lock exists on the server, the protocol server returns an error code value set to ""FileNotLockedOnServer"".");
 
-                // If the error code equals "FileNotLockedOnServer", then capture MS-FSSHTTP requirement: MS-FSSHTTP_R3813
+                // If the error code equals "FileNotLockedOnServer", then capture MS-FSSHTTP requirement: MS-FSSHTTP_R381
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                          ErrorCodeType.FileNotLockedOnServer,
                          SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
-                         3813,
-                         @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock on a file and a conversion of the lock is requested as part of a cell storage service request.");
+                         381,
+                         @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock exists on a file and a release of the lock is requested as part of a cell storage service request.");
             }
             else
             {
