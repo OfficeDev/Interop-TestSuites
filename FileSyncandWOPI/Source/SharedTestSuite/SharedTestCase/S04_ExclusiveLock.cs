@@ -1601,7 +1601,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          381,
-                         @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock on a file and a conversion of the lock is requested as part of a cell storage service request.");
+                         @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock exists on a file and a release of the lock is requested as part of a cell storage service request.");
             }
             else
             {

@@ -68,7 +68,7 @@
   </TestLog>
 
   <!-- The attribute "autoGenerate" can be set to true so that the test report is generated automatically after the test run is complete. The location of the Requirement XML file should be specified in the "location" attribute of the RequirementFile element. -->
-  <TestReport autoGenerate="false">
+  <TestReport autoGenerate="true">
     <RequirementFile location="MS-ONESTORE_RequirementSpecification.xml" />
     <LogFile sink="FileLog" />
     <Report name="MS-ONESTORE_TestResult.html" autoDisplay="false" />
