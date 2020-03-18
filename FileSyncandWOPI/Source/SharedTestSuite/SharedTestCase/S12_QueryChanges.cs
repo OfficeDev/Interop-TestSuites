@@ -671,14 +671,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().PartialResult,
                          "MS-FSSHTTPB",
                          444,
-                         @"[In Query Changes] Max Data Elements (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies, in bytes, the limit of data elements at which the server starts breaking up the results into partial results.");
+                         @"[In Query Changes] Maximum Data Elements (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies, in bytes, the limit of data elements at which the server starts breaking up the results into partial results.");
 
                 // For the requirement MS-FSSHTTPB_R990351, it is not fully validated, because it cost too much to validate its size.
                 Site.CaptureRequirementIfIsTrue(
                          queryResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().PartialResult,
                          "MS-FSSHTTPB",
                          990351,
-                         @"[In Query Changes] Max Data Elements (variable): If the client specifies anything higher [than limit of DoS mitigation], the server truncates it to this value [Max Data Elements].");
+                         @"[In Query Changes] Maximim Data Elements (variable): If the client specifies anything higher [than limit of DoS mitigation], the server truncates it to this value [Max Data Elements].");
             }
             else
             {
@@ -934,7 +934,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          notIncludeStorageManifest,
                          "MS-FSSHTTPB",
                          4115,
-                         @"[In Appendix B: Product Behavior] If D - Include Storage Manifest is not set, the Storage Manifest is not included. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
+                         @"[In Appendix B: Product Behavior] If F - Include Storage Manifest is not set, the Storage Manifest is not included. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
             }
             else
             {
@@ -1164,13 +1164,19 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S12_TC27_QueryChanges_AllowFragments2_Zero()
         {
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1348, this.Site))
+            {
+                Site.Assume.Inconclusive("Implementation does not support Allow Fragments 2 flag.");
+            }
+
             // Initialize the service
             string fileUrl = Common.GetConfigurationPropertyValue("BigFile", this.Site);
             this.InitializeContext(fileUrl, this.UserName01, this.Password01, this.Domain);
 
-            // Create query changes request with allow fragments E flag with the value true.
+            // Create query changes request with allow fragments B flag with the value false.
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             QueryChangesCellSubRequest queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, false, false, true, 0, true, true, 0, null, 10000, null, null);
+            // Create query changes request set allow fragments2 E flag with the value false.
             queryChange.AllowFragments2 = 0;
             cellRequest.AddSubRequest(queryChange, null);
             CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
@@ -1191,18 +1197,20 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirementIfIsNull(
                     fragDataElement,
                     "MS-FSSHTTPB",
-                    4041,
-                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    1348,
+                    @"[In Appendix B: Product Behavior]If E ?Allow Fragments 2 is not set, the Storage Manifest does not allow fragments, unless the bit specified in B is set. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
             }
             else
             {
                 this.Site.Assert.IsNull(
                     fragDataElement,
-                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    @"[In Appendix B: Product Behavior]If E ?Allow Fragments 2 is not set, the Storage Manifest does not allow fragments, unless the bit specified in B is set. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
             }
 
             cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            // Create query changes request with allow fragments B flag with the value true.
             queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, 10000, null, null);
+            // Create query changes request set allow fragments2 E flag with the value false.
             queryChange.AllowFragments2 = 0;
             cellRequest.AddSubRequest(queryChange, null);
             cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
@@ -1221,14 +1229,96 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirementIfIsNotNull(
                     fragDataElement,
                     "MS-FSSHTTPB",
-                    4041,
-                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    1348,
+                    @"[In Appendix B: Product Behavior]If E ?Allow Fragments 2 is not set, the Storage Manifest does not allow fragments, unless the bit specified in B is set. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
             }
             else
             {
                 this.Site.Assert.IsNotNull(
                     fragDataElement,
-                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): otherwise[If E-Allow Fragments 2 is not set], it[E-Allow Fragments 2] does not allow fragments, unless the bit specified in B is set.");
+                    @"[In Appendix B: Product Behavior]If E ?Allow Fragments 2 is not set, the Storage Manifest does not allow fragments, unless the bit specified in B is set. (Microsoft Office 2013 and Microsoft SharePoint 2013 and above follow this behavior.)");
+            }
+        }
+
+        /// <summary>
+        /// This method is used to test query changes with the allow fragment 2 flag is true.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S12_TC28_QueryChanges_AllowFragments2_One()
+        {
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1348, this.Site))
+            {
+                Site.Assume.Inconclusive("Implementation does not support Allow Fragments 2 flag.");
+            }
+
+            // Initialize the service
+            string fileUrl = Common.GetConfigurationPropertyValue("BigFile", this.Site);
+            this.InitializeContext(fileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Create query changes request with allow fragments B flag with the value false.
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            QueryChangesCellSubRequest queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, false, false, true, 0, true, true, 0, null, 10000, null, null);
+            // Create query changes request set allow fragments2 E flag with the value true.
+            queryChange.AllowFragments2 = 1;
+            cellRequest.AddSubRequest(queryChange, null);
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse cellStorageResponse = this.Adapter.CellStorageRequest(fileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the query changes succeed.");
+
+            FsshttpbResponse queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(queryResponse, this.Site);
+
+            DataElement fragDataElement = queryResponse.DataElementPackage.DataElements.FirstOrDefault(e => e.DataElementType == DataElementType.FragmentDataElementData);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                Site.CaptureRequirementIfIsNotNull(
+                    fragDataElement,
+                    "MS-FSSHTTPB",
+                    4040,
+                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): If set, a bit that specifies to allow fragments;( Microsoft SharePoint Server 2013 and above follow this behavior.)");
+            }
+            else
+            {
+                this.Site.Assert.IsNotNull(
+                    fragDataElement,
+                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): If set, a bit that specifies to allow fragments;( Microsoft SharePoint Server 2013 and above follow this behavior.)");
+            }
+
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            // Create query changes request with allow fragments B flag with the value true.
+            queryChange = SharedTestSuiteHelper.BuildFsshttpbQueryChangesSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), 0, true, false, true, 0, true, true, 0, null, 10000, null, null);
+            // Create query changes request set allow fragments2 E flag with the value true.
+            queryChange.AllowFragments2 = 1;
+            cellRequest.AddSubRequest(queryChange, null);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            cellStorageResponse = this.Adapter.CellStorageRequest(fileUrl, new SubRequestType[] { cellSubRequest });
+            subResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(cellStorageResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                "Test case cannot continue unless the query changes succeed.");
+            queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(queryResponse, this.Site);
+            fragDataElement = queryResponse.DataElementPackage.DataElements.FirstOrDefault(e => e.DataElementType == DataElementType.FragmentDataElementData);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                Site.CaptureRequirementIfIsNotNull(
+                    fragDataElement,
+                    "MS-FSSHTTPB",
+                    4040,
+                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): If set, a bit that specifies to allow fragments;( Microsoft SharePoint Server 2013 and above follow this behavior.)");
+            }
+            else
+            {
+                this.Site.Assert.IsNotNull(
+                    fragDataElement,
+                    @"[In Query Changes] E ?Allow Fragments 2 (1 bit): If set, a bit that specifies to allow fragments;( Microsoft SharePoint Server 2013 and above follow this behavior.)");
             }
         }
         #endregion
@@ -1470,7 +1560,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         /// This test method aims to verify flag Round Knowledge to Whole Cell Changes.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S12_TC28_QueryChanges_RoundKnowledgeToWholeCellChanges()
+        public void TestCase_S12_TC29_QueryChanges_RoundKnowledgeToWholeCellChanges()
         {
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1532,14 +1622,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
             DataElement data = queryResponse.DataElementPackage.DataElements.FirstOrDefault(dataElement => dataElement.DataElementType == DataElementType.CellManifestDataElementData);
 
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured && Common.IsRequirementEnabled(1351,this.Site))
             {
-                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R4042
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R1351
                 Site.CaptureRequirementIfIsNull(
                     data,
                     "MS-FSSHTTPB",
-                    4042,
-                    @"[In Query Changes] F ?Round Knowledge to Whole Cell Changes (1 bit): If set, a bit that specifies that the knowledge specified in the request MUST be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned.");
+                    1351,
+                    @"[In Appendix B: Product Behavior]If set, a bit that specifies that the knowledge specified in the request SHOULD be modified, prior to change enumeration, such that any changes under a cell node, as implied by the knowledge, cause the knowledge to be modified such that all changes in that cell are returned. (Microsoft Office 2016/Microsoft SharePoint 2016 and above follow this behavior.)");
             }
             else
             {

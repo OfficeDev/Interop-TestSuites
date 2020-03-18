@@ -122,11 +122,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 11158,
                 @"[In VersioningUserTableType] 
  <xs:complexType name=""VersioningUserTableType"">
-    <s:element name=""UserTable"" minOccurs=""1"" maxOccurs=""1"">
-       <s:complexType>
-          <s:element name=""User"" maxOccurs=""unbounded"" minOccurs=""1"" type=""tns:UserDataType"" />
-       </s:complexType>
-    </s:element>
+       <xs:sequence>
+          <xs:element name=""User"" maxOccurs=""unbounded"" minOccurs=""1"" type=""tns:UserDataType"" />
+       </xs:sequence>
  </xs:complexType>");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11159
@@ -141,10 +139,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 11164,
                 @"[In UserDataType] 
                      <xs:complexType name=""UserDataType"">
-                        < s:attribute name = ""UserId"" type = ""xs:integer"" use = ""required"" />
-                        < s:attribute name = ""UserLogin"" type = ""xs:UserLoginType"" use = ""required"" />
-                        < s:attribute name = ""UserName"" type = ""xs:UserNameType"" use = ""optional"" />
-                        < s:attribute name = ""UserEmailAddress"" type = ""s:string"" use = ""optional"" />
+                        < xs:attribute name = ""UserId"" type = ""xs:integer"" use = ""required"" />
+                        < xs:attribute name = ""UserLogin"" type = ""xs:UserLoginType"" use = ""required"" />
+                        < xs:attribute name = ""UserName"" type = ""xs:UserNameType"" use = ""optional"" />
+                        < xs:attribute name = ""UserEmailAddress"" type = ""s:string"" use = ""optional"" />
                      </ xs:complexType > ");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11165
@@ -199,11 +197,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 11161,
                 @"[In VersioningVersionListType] 
  <xs:complexType name=""VersioningVersionListType"">
-    <s:element name=""Versions"" minOccurs=""1"" maxOccurs=""1"">
-       <s:complexType>
-          <s:element name=""Version"" maxOccurs=""unbounded"" minOccurs=""1"" type=""tns:FileVersionDataType"" />
-       </s:complexType>
-    </s:element>
+       <xs:sequence>
+          <xs:element name=""Version"" maxOccurs=""unbounded"" minOccurs=""1"" type=""tns:FileVersionDataType"" />
+       <xs:sequence>
  </xs:complexType>");
 
             if (versionList.Version != null)
@@ -213,6 +209,27 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                     "MS-FSSHTTP",
                     11162,
                     @"[In VersioningVersionListType] Version: An element of type FileVersionDataType (section 2.3.1.43) which describes a single version of the file on the server.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11174
+                site.CaptureRequirement(
+                    "MS-FSSHTTP",
+                    11174,
+                    @"[In FileVersionDataType] 
+ <xs:complexType name=""FileVersionDataType"">
+ <xs:sequence>
+    <xs:element name=""Events"" minOccurs=""0"" maxOccurs=""1"" >
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name=""Event"" minOccurs=""1"" maxOccurs=""unbounded"" type=""tns:FileVersionEventDataType"" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+  </xs:sequence>
+  <xs:attribute name=""IsCurrent"" type=""tns:TRUEFALSE"" use=""optional"" />
+  <xs:attribute name=""Number"" type=""tns:FileVersionNumberType"" use=""required"" />
+  <xs:attribute name=""LastModifiedTime"" type=""xs:positiveInteger"" use=""optional"" />
+  <xs:attribute name=""UserId"" type=""xs:integer"" use=""optional"" />
+ </xs:complexType>");
             }
 
             if (!string.IsNullOrEmpty(versionList.Version[0].Number))
@@ -256,7 +273,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                 "MS-FSSHTTP",
                 11182,
-                @"[In FileVersionDataType] Event: A FileVersionEventDataType that represents an event that happened to the version of the file.");
+                @"[In FileVersionDataType] Events: An array of events of type FileVersionEventDataType that represents an event that happened to the version of the file.");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11184
                 site.CaptureRequirement(
@@ -264,10 +281,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 11184,
                 @"[In FileVersionEventDataType] 
                  <xs:complexType name=""FileVersionEventDataType"">
-                    < s:attribute name = ""Id"" type = ""xs:integer"" use = ""required"" />
-                    < s:attribute name = ""Type"" type = ""xs:integer"" use = ""required"" />
-                    < s:attribute name = ""CreateTime"" type = ""xs:positiveInteger"" use = ""optional"" />
-                    < s:attribute name = ""UserId"" type = ""xs:integer"" use = ""optional"" />
+                    < xs:attribute name = ""Id"" type = ""xs:integer"" use = ""required"" />
+                    < xs:attribute name = ""Type"" type = ""xs:integer"" use = ""required"" />
+                    < xs:attribute name = ""CreateTime"" type = ""xs:positiveInteger"" use = ""optional"" />
+                    < xs:attribute name = ""UserId"" type = ""xs:integer"" use = ""optional"" />
                  </ xs:complexType > ");
 
                 System.Collections.Generic.List<string> ids = new System.Collections.Generic.List<string>();

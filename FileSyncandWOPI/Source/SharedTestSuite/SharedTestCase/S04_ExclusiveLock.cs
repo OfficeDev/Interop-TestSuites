@@ -1595,13 +1595,13 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          1280,
                          @"[In Convert to Schema Lock with Coauthoring Transition Tracked] The protocol server returns error codes according to the following rules: If the protocol server is unable to convert the lock on the file because no lock exists on the server, the protocol server returns an error code value set to ""FileNotLockedOnServer"".");
 
-                // If the error code equals "FileNotLockedOnServer", then capture MS-FSSHTTP requirement: MS-FSSHTTP_R3813
+                // If the error code equals "FileNotLockedOnServer", then capture MS-FSSHTTP requirement: MS-FSSHTTP_R381
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                          ErrorCodeType.FileNotLockedOnServer,
                          SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
-                         3813,
-                         @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock on a file and a conversion of the lock is requested as part of a cell storage service request.");
+                         381,
+                         @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServer indicates an error when no exclusive lock exists on a file and a release of the lock is requested as part of a cell storage service request.");
             }
             else
             {
@@ -2127,11 +2127,9 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          2269,
                          @"[In Response] This attribute[ErrorCode] MUST NOT be present if all of the followings are true: 
-                         1.The Url attribute of the corresponding Request element does exist; 
-                         2.The Url attribute of the corresponding Request element is not an empty string; 
-                         3.The RequestToken attribute of the corresponding Request element does exist; 
-                         4.The RequestToken attribute of the corresponding Request element is not an empty string; 
-                         5.No exceptions occurred during the processing of a subrequest that was not entirely handled by the subrequest processing logic.");
+1.The Url attribute of the corresponding Request element does exist; 
+2.The Url attribute of the corresponding Request element is not an empty string; 
+3.No exceptions occurred during the processing of a subrequest that was not entirely handled by the subrequest processing logic.");
 
                 this.Site.Log.Add(
                     LogEntryKind.Debug,
@@ -2144,33 +2142,29 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTP",
                          2268,
                          @"[In ResponseVersion] This attribute[ErrorCode] MUST NOT be present if all of the followings are true: 
-                         1.The RequestVersion element is not missing from the Body element of the SOAP request message; 
-                         2.The Version attribute of the RequestVersion element of the request message has not a value that is less than 2; 
-                         3.The protocol server identified by the WebUrl attribute of the ResponseCollection element does exist; 
-                         4.The protocol server identified by the WebUrl attribute of the ResponseCollection element is available; 
-                         5.The user does have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element; 
-                         6.This protocol is enabled on the protocol server.");
+1.The RequestVersion element is not missing from the Body element of the SOAP request message; 
+2.The Version attribute of the RequestVersion element of the request message has not a value that is less than 2; 
+3.The protocol server identified by the WebUrl attribute of the ResponseCollection element does exist; 
+4.The protocol server identified by the WebUrl attribute of the ResponseCollection element is available; 
+5.The user does have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element.");
             }
             else
             {
                 Site.Assert.IsFalse(
                     response.ResponseCollection.Response[0].ErrorCodeSpecified,
                     @"[In Response] This attribute[ErrorCode] MUST NOT be present if all of the followings are true: 
-                    1.The Url attribute of the corresponding Request element does exist; 
-                    2.The Url attribute of the corresponding Request element is not an empty string; 
-                    3.The RequestToken attribute of the corresponding Request element does exist; 
-                    4.The RequestToken attribute of the corresponding Request element is not an empty string; 
-                    5.No exceptions occurred during the processing of a subrequest that was not entirely handled by the subrequest processing logic.");
+1.The Url attribute of the corresponding Request element does exist; 
+2.The Url attribute of the corresponding Request element is not an empty string; 
+3.No exceptions occurred during the processing of a subrequest that was not entirely handled by the subrequest processing logic.");
 
                 Site.Assert.IsFalse(
                     response.ResponseVersion.ErrorCodeSpecified,
                     @"[In ResponseVersion] This attribute[ErrorCode] MUST NOT be present if all of the followings are true: 
-                        1.The RequestVersion element is not missing from the Body element of the SOAP request message; 
-                        2.The Version attribute of the RequestVersion element of the request message has not a value that is less than 2; 
-                        3.The protocol server identified by the WebUrl attribute of the ResponseCollection element does exist; 
-                        4.The protocol server identified by the WebUrl attribute of the ResponseCollection element is available; 
-                        5.The user does have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element; 
-                        6.This protocol is enabled on the protocol server.");
+1.The RequestVersion element is not missing from the Body element of the SOAP request message; 
+2.The Version attribute of the RequestVersion element of the request message has not a value that is less than 2; 
+3.The protocol server identified by the WebUrl attribute of the ResponseCollection element does exist; 
+4.The protocol server identified by the WebUrl attribute of the ResponseCollection element is available; 
+5.The user does have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element.");
             }
         }
 
@@ -2257,7 +2251,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3071,
-                             @"[In Appendix B: Product Behavior] If the specified attributes[ExclusiveLockRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the ResponseVersion element. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] If the specified attributes[ExclusiveLockRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the ResponseVersion element. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3072
@@ -2268,7 +2262,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              response.ResponseVersion.ErrorCode,
                              "MS-FSSHTTP",
                              3072,
-                             @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the ResponseVersion element. <22> Section 2.3.1.9: In SharePoint Server 2013 [and Microsoft SharePoint Foundation 2013], if the ExclusiveLockRequestType attribute is not provided, a ""HighLevelExceptionThrown"" error code MUST be returned as part of the ResponseVersion element.");
+                             @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the ResponseVersion element. <28> Section 2.3.1.9:  In SharePoint Server 2010, if the ExclusiveLockRequestType attribute is not provided, an ""InvalidArgument"" error code will be returned as part of the SubResponseData element associated with the exclusive lock subresponse.");
                 }
             }
             else
