@@ -2518,7 +2518,7 @@
 		<ns1:Description>[In t:EnhancedLocationType Complex Type] The EnhancedLocationType complex type specifies additional location information for a calendar item.&lt;27&gt;
 &lt;xs:complexType name="EnhancedLocationType"&gt;
     &lt;xs:sequence&gt;
-        &lt;xs:element name="DisplayName" type="xs:string"/&gt;
+        &lt;xs:element name="DisplayName" type="xs:string" minOccurs="0"/&gt;
         &lt;xs:element name="Annotation" type="xs:string" minOccurs="0"/&gt;
         &lt;xs:element name="PostalAddress" type="t:PersonaPostalAddressType" minOccurs="0"/&gt;
     &lt;/xs:sequence&gt;
@@ -6243,6 +6243,33 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R116901</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderSendOption] When the value is NotSet, it[NotSet] will be set to either User [or AllAttendees according to the IsOrganizerReminder property (section 2.2.4.13).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R116902</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderSendOption] It will be set to AllAttendees if IsOrganizerReminder is true</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R116903</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderSendOption] otherwise[if IsOrganizerReminder is false, it will be set to] User</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1170</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
 		<ns1:Description>[In t:EmailReminderSendOption] User: Send the email reminder only to the user.</ns1:Description>
@@ -6270,9 +6297,27 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R117201</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderSendOption] This value[Staff] is only applicable for a booking item and for internal use only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1173</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
 		<ns1:Description>[In t:EmailReminderSendOption] Customer: Send the reminder to customer only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R117301</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderSendOption] This value[Customer] is only applicable for a booking item and for internal use only.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10453,7 +10498,7 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the EnhancedLocationType complex type specifies enhanced location information. (Exchange 2013 and above follow this behavior.)
 &lt;xs:complexType name="EnhancedLocationType"&gt;
     &lt;xs:sequence&gt;
-        &lt;xs:element name="DisplayName" type="xs:string"/&gt;
+        &lt;xs:element name="DisplayName" type="xs:string" minOccurs="0"/&gt;
         &lt;xs:element name="Annotation" type="xs:string" minOccurs="0"/&gt;
         &lt;xs:element name="PostalAddress" type="t:PersonaPostalAddressType" minOccurs="0"/&gt;
     &lt;/xs:sequence&gt;
