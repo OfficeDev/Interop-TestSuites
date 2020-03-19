@@ -100,7 +100,7 @@
   <!--Set R3074Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for schemaLock subRequest the server does return an "HighLevelExceptionThrown" error code when the specified attributes[SchemaLockRequestType attribute] are not provided. Set R3074Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R3074Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R3086Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server adds an additional authentication prefix for the UserLogin attribute as specified in section 7. Set R3086Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-  <Property name="R3086Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <Property name="R3086Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R3089Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for cell sub request when GetProps is set to true in Put Changes sub-request, the server does not return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. Set R3089Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R3089Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R4001Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the CoalesceHResult attribute in cell sub response is not supported by server. Set R4001Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
