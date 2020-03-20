@@ -4122,7 +4122,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.Assert.IsNotNull(calendarInOrganizer, "The meeting should be found in organizer's Calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
             #endregion
 
-            System.Threading.Thread.Sleep(25000);
+            System.Threading.Thread.Sleep(30000);
 
             MessageType message = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Note.Reminder.Event", calendarInOrganizer.Subject) as MessageType;
             Site.Assert.IsNotNull(message, "The reminder should be found in attendee's inbox.");
@@ -4154,6 +4154,117 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
             #endregion
         }
+
+        /// <summary>
+        /// This test case is designed to test EmailReminderChangeType simple type.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S01_TC34_VerifyInboxReminderWithEmailReminderSendOptionIsNotSet()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1310, this.Site), "Implementation does support the EmailReminderChangeType simple type.");
+
+            #region Define a meeting to be created
+            int timeInterval = this.TimeInterval;
+            CalendarItemType meetingItem = new CalendarItemType();
+            meetingItem.UID = Guid.NewGuid().ToString();
+            meetingItem.Subject = this.Subject;
+            meetingItem.Start = DateTime.UtcNow;
+
+            meetingItem.StartSpecified = true;
+            timeInterval++;
+            meetingItem.End = DateTime.Now.AddHours(timeInterval);
+            meetingItem.EndSpecified = true;
+            meetingItem.Location = this.Location;
+            meetingItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
+            meetingItem.InboxReminders = new InboxReminderType[] { GetInboxReminder("This is a reminder") };
+            meetingItem.InboxReminders[0].SendOptionSpecified = true;
+            meetingItem.InboxReminders[0].SendOption = EmailReminderSendOption.NotSet;
+            meetingItem.InboxReminders[0].IsOrganizerReminderSpecified = true;
+            meetingItem.InboxReminders[0].IsOrganizerReminder = true;
+            #endregion
+
+            #region Organizer creates a meeting with CalendarItemCreateOrDeleteOperationType value set to SendToAllAndSaveCopy
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, meetingItem, CalendarItemCreateOrDeleteOperationType.SendToAllAndSaveCopy);
+            Site.Assert.IsNotNull(item, "The meeting should be created successfully.");
+
+            Site.Assert.IsNotNull(
+                this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.sentitems, "IPM.Schedule.Meeting.Request", meetingItem.UID),
+                "The meeting request message should be saved to organizer's Sent Items folder after call CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+
+            ItemIdType meetingId = item.Items.Items[0].ItemId;
+
+            CalendarItemType calendarInOrganizer = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+            Site.Assert.IsNotNull(calendarInOrganizer, "The meeting should be found in organizer's Calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+            #endregion
+
+            System.Threading.Thread.Sleep(30000);
+
+            MessageType message = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Note.Reminder.Event", calendarInOrganizer.Subject) as MessageType;
+            Site.Assert.IsNotNull(message, "The reminder should be found in attendee's inbox.");
+
+            #region Capture Code
+            Site.Assert.IsTrue(calendarInOrganizer.InboxReminders[0].SendOptionSpecified, "The value of the SendOptionSpecified element should be true.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R116902");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R116902
+            this.Site.CaptureRequirementIfAreEqual<EmailReminderSendOption>(
+                EmailReminderSendOption.AllAttendees,
+                calendarInOrganizer.InboxReminders[0].SendOption,
+                116902,
+                @"[In t:EmailReminderSendOption] It will be set to AllAttendees if IsOrganizerReminder is true");
+            #endregion
+
+            #region Organizer updates the IsOrganizerReminder to false in the created meeting item.
+            CalendarItemType calendarUpdate = new CalendarItemType();
+            calendarUpdate.InboxReminders = meetingItem.InboxReminders;
+            calendarUpdate.InboxReminders[0].IsOrganizerReminderSpecified = true;
+            calendarUpdate.InboxReminders[0].IsOrganizerReminder = false;
+
+            AdapterHelper itemChangeInfo = new AdapterHelper();
+            itemChangeInfo.FieldURI = UnindexedFieldURIType.calendarInboxReminders;
+            itemChangeInfo.Item = calendarUpdate;
+            itemChangeInfo.ItemId = meetingId;
+
+            // Update the created calendar item.
+            UpdateItemResponseMessageType updatedItem = this.UpdateSingleCalendarItem(Role.Organizer, itemChangeInfo, CalendarItemUpdateOperationType.SendOnlyToAll);
+            Site.Assert.IsNotNull(updatedItem, "Update the meeting item should be successful.");
+            #endregion
+
+            #region Verify the SendOption of the InboxReminders have been updated
+            ItemInfoResponseMessageType getItem = this.GetSingleCalendarItem(Role.Organizer, meetingId);
+            Site.Assert.IsNotNull(getItem, "The updated calendar should exist.");
+
+            CalendarItemType updatedCalendar = getItem.Items.Items[0] as CalendarItemType;
+
+            Site.Assert.IsTrue(calendarInOrganizer.InboxReminders[0].IsOrganizerReminderSpecified, "The value of the IsOrganizerReminderSpecified element should be true.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R116903");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R116903
+            this.Site.CaptureRequirementIfAreEqual<EmailReminderSendOption>(
+                EmailReminderSendOption.User,
+                updatedCalendar.InboxReminders[0].SendOption,
+                116903,
+                @"[In t:EmailReminderSendOption] otherwise[if IsOrganizerReminder is false, it will be set to] User");
+            #endregion
+
+            #region Organizer deletes the single calendar item
+            ResponseMessageType removedItem = this.DeleteSingleCalendarItem(Role.Organizer, meetingId, CalendarItemCreateOrDeleteOperationType.SendToNone);
+
+            Site.Assert.IsNull(
+                this.SearchDeletedSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID),
+                "The removed calendar item should not exist in Organizer's calendar folder.");
+            #endregion
+
+            #region Clean up organizer's inbox, calendar and deleteditems folders, and attendee's inbox, calendar and deleteditems folders
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.deleteditems });
+            #endregion
+        }
+
         #endregion
 
         #region Private methods
