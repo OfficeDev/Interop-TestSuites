@@ -3433,7 +3433,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2099");
 
-                //VerifyMS-OXWSMTGS requirement: MS-OXWSMTGS_R2099
+                //Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2099
                 //If MS-OXWSMTGS_R20911 is verified, it can be verified directly.
                 Site.CaptureRequirement(
                     2099,
@@ -3443,7 +3443,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2093");
 
-            //Verify MS-OXWSMSG requirement: MS - OXWSMTGS_R2093
+            //Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R2093
             Site.CaptureRequirementIfAreEqual<string>(
                 calendarInOrganizer.UID,
                 getRemindersResponse.Reminders[0].UID,
@@ -3771,7 +3771,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1222");
 
-            //Verify MS-OXWSMSG requirement: MS - OXWSMTGS_R1222
+            //Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1222
             Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                 ResponseCodeType.ErrorCalendarCannotUseIdForOccurrenceId,
                 response.ResponseMessages.Items[0].ResponseCode,
@@ -3872,7 +3872,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1212");
 
-            //Verify MS-OXWSMSG requirement: MS - OXWSMTGS_R1212
+            //Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1212
             Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                 ResponseCodeType.ErrorCalendarCannotUseIdForOccurrenceId,
                 response.ResponseMessages.Items[0].ResponseCode,
@@ -4122,7 +4122,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             Site.Assert.IsNotNull(calendarInOrganizer, "The meeting should be found in organizer's Calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
             #endregion
 
-            System.Threading.Thread.Sleep(30000);
+            System.Threading.Thread.Sleep(25000);
 
             MessageType message = this.SearchSingleItem(Role.Attendee, DistinguishedFolderIdNameType.inbox, "IPM.Note.Reminder.Event", calendarInOrganizer.Subject) as MessageType;
             Site.Assert.IsNotNull(message, "The reminder should be found in attendee's inbox.");
@@ -4265,6 +4265,111 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             #endregion
         }
 
+        /// <summary>
+        /// This test case is designed to verify properties related to PerformReminderAction.
+        /// </summary>
+        [TestCategory("MSOXWSMTGS"), TestMethod()]
+        public void MSOXWSMTGS_S01_TC35_CreateSingleCalendarItemWithPerformReminderAction()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(2200, this.Site), "Implementation does support the PerformReminderAction operation.");
+
+            #region Define a meeting to be created
+            int timeInterval = this.TimeInterval;
+            CalendarItemType meetingItem = new CalendarItemType();
+            meetingItem.UID = Guid.NewGuid().ToString();
+            meetingItem.Subject = this.Subject;
+            meetingItem.Start = DateTime.Now.AddHours(timeInterval);
+
+            meetingItem.StartSpecified = true;
+            timeInterval++;
+            meetingItem.End = DateTime.Now.AddHours(timeInterval);
+            meetingItem.EndSpecified = true;
+            meetingItem.Location = this.Location;
+            meetingItem.RequiredAttendees = new AttendeeType[] { GetAttendeeOrResource(this.AttendeeEmailAddress) };
+            meetingItem.ReminderIsSetSpecified = true;
+            meetingItem.ReminderIsSet = true;
+            #endregion
+
+            #region Organizer creates a meeting with CalendarItemCreateOrDeleteOperationType value set to SendToAllAndSaveCopy
+            ItemInfoResponseMessageType item = this.CreateSingleCalendarItem(Role.Organizer, meetingItem, CalendarItemCreateOrDeleteOperationType.SendToAllAndSaveCopy);
+            Site.Assert.IsNotNull(item, "The meeting should be created successfully.");
+
+            Site.Assert.IsNotNull(
+                this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.sentitems, "IPM.Schedule.Meeting.Request", meetingItem.UID),
+                "The meeting request message should be saved to organizer's Sent Items folder after call CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+
+            ItemIdType meetingId = item.Items.Items[0].ItemId;
+
+            CalendarItemType calendarInOrganizer = this.SearchSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID) as CalendarItemType;
+            Site.Assert.IsNotNull(calendarInOrganizer, "The meeting should be found in organizer's Calendar folder after organizer calls CreateItem with CalendarItemCreateOrDeleteOperationType set to SendToAllAndSaveCopy.");
+            #endregion
+
+            #region Organizer gets the reminders
+            PerformReminderActionType performReminderAction = new PerformReminderActionType();
+            ReminderItemActionType reminderItemAction = new ReminderItemActionType();
+            reminderItemAction.ActionType = ReminderActionType.Dismiss;
+            reminderItemAction.ItemId = meetingId;
+            reminderItemAction.NewReminderTime = meetingItem.End.ToLongDateString();
+            performReminderAction.ReminderItemActions = new ReminderItemActionType[] { reminderItemAction};
+
+            PerformReminderActionResponseMessageType performReminderActionResponse = this.MTGSAdapter.PerformReminderAction(performReminderAction);
+            Site.Assert.IsNotNull(performReminderActionResponse, "The response should not be null");
+            #endregion
+
+            #region Capture Code
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2200");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2200
+            this.Site.CaptureRequirementIfIsNotNull(
+                performReminderActionResponse.UpdatedItemIds,
+                2200,
+                @"[In Appendix C: Product Behavior] Implementation does support the PerformReminderAction operation which performs an action on a reminder. (Exchange 2013 and above follow this behavior.)");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2124");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2124
+            this.Site.CaptureRequirementIfAreEqual<ResponseClassType>(
+                ResponseClassType.Success,
+                performReminderActionResponse.ResponseClass,
+                2124,
+                @"[In tns:PerformReminderActionSoapOut Message]If the request is successful, the PerformReminderAction operation returns a PerformReminderActionResponse element with the ResponseClass attribute of the PerformReminderActionResponse element set to ""Success"". ");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2125");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2125
+            this.Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
+                ResponseCodeType.NoError,
+                performReminderActionResponse.ResponseCode,
+                2125,
+                @"[In tns:PerformReminderActionSoapOut Message]The ResponseCode element of the PerformReminderActionResponse element is set to ""NoError"".");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2145");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2145
+            this.Site.CaptureRequirementIfIsNotNull(
+                performReminderActionResponse.UpdatedItemIds,
+                2145,
+                @"In m:PerformReminderActionResponseMessageType Complex Type]UpdatedItemIds:The reminder items that the actions were performed on.");
+            #endregion
+
+            #region Organizer deletes the single calendar item
+            ResponseMessageType removedItem = this.DeleteSingleCalendarItem(Role.Organizer, meetingId, CalendarItemCreateOrDeleteOperationType.SendToNone);
+
+            Site.Assert.IsNull(
+                this.SearchDeletedSingleItem(Role.Organizer, DistinguishedFolderIdNameType.calendar, "IPM.Appointment", meetingItem.UID),
+                "The removed calendar item should not exist in Organizer's calendar folder.");
+            #endregion
+
+            #region Clean up organizer's calendar folders.
+            this.CleanupFoldersByRole(Role.Organizer, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.sentitems, DistinguishedFolderIdNameType.deleteditems });
+            this.CleanupFoldersByRole(Role.Attendee, new List<DistinguishedFolderIdNameType>() { DistinguishedFolderIdNameType.calendar, DistinguishedFolderIdNameType.inbox, DistinguishedFolderIdNameType.sentitems });
+            #endregion
+        }
         #endregion
 
         #region Private methods
@@ -4712,7 +4817,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R997");
 
-                // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R997
+                // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R997
                 this.Site.CaptureRequirementIfAreEqual<int>(
                     5,
                     absoluteMonthly.DayOfMonth,
@@ -4728,7 +4833,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1003");
 
-                    // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R1003
+                    // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R1003
                     this.Site.CaptureRequirementIfAreEqual<MonthNamesType>(
                         MonthNamesType.February,
                         absoluteYearly.Month,
@@ -4739,7 +4844,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1001");
 
-                    // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R1001
+                    // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R1001
                     this.Site.CaptureRequirementIfAreEqual<int>(
                         5,
                         absoluteYearly.DayOfMonth,
@@ -4755,7 +4860,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1263");
 
-                        // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R1263
+                        // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R1263
                         this.Site.CaptureRequirementIfAreEqual<DayOfWeekIndexType>(
                             DayOfWeekIndexType.First,
                             relativeYearly.DayOfWeekIndex,
@@ -4766,7 +4871,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1261");
 
-                        // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R1261
+                        // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R1261
                         this.Site.CaptureRequirementIfAreEqual<string>(
                             "Wednesday",
                             relativeYearly.DaysOfWeek,
@@ -4777,7 +4882,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1265");
 
-                        // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R1265
+                        // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R1265
                         this.Site.CaptureRequirementIfAreEqual<MonthNamesType>(
                             MonthNamesType.January,
                             relativeYearly.Month,
