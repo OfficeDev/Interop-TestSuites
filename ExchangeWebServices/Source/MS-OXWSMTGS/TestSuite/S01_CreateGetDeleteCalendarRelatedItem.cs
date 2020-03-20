@@ -124,7 +124,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     @"[In Appendix C: Product Behavior] Implementation does support the EnhancedLocationType complex type specifies enhanced location information. (Exchange 2013 and above follow this behavior.)
                       <xs:complexType name=""EnhancedLocationType"">
                           <xs:sequence>
-                              <xs:element name=""DisplayName"" type=""xs:string""/>
+                              <xs:element name=""DisplayName"" type=""xs:string"" minOccurs=""0""/>
                               <xs:element name=""Annotation"" type=""xs:string"" minOccurs=""0""/>
                               <xs:element name=""PostalAddress"" type=""t:PersonaPostalAddressType"" minOccurs=""0""/>
                           </xs:sequence>
