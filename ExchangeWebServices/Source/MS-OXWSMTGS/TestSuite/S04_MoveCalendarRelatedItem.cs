@@ -343,7 +343,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1228");
 
-            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1228
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1228
             Site.CaptureRequirementIfAreEqual<ResponseClassType>(
                 ResponseClassType.Error,
                 response.ResponseMessages.Items[0].ResponseClass,
@@ -353,7 +353,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1231");
 
-            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1231
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1231
             Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                 ResponseCodeType.ErrorCalendarCannotMoveOrCopyOccurrence,
                 response.ResponseMessages.Items[0].ResponseCode,
@@ -450,7 +450,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1232");
 
-            //Verify MS-OXWSMSG requirement: MS - OXWSMTGS_R1232
+            //Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1232
             Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                 ResponseCodeType.ErrorCalendarCannotUseIdForOccurrenceId,
                 response.ResponseMessages.Items[0].ResponseCode,

@@ -2518,7 +2518,7 @@
 		<ns1:Description>[In t:EnhancedLocationType Complex Type] The EnhancedLocationType complex type specifies additional location information for a calendar item.&lt;27&gt;
 &lt;xs:complexType name="EnhancedLocationType"&gt;
     &lt;xs:sequence&gt;
-        &lt;xs:element name="DisplayName" type="xs:string"/&gt;
+        &lt;xs:element name="DisplayName" type="xs:string" minOccurs="0"/&gt;
         &lt;xs:element name="Annotation" type="xs:string" minOccurs="0"/&gt;
         &lt;xs:element name="PostalAddress" type="t:PersonaPostalAddressType" minOccurs="0"/&gt;
     &lt;/xs:sequence&gt;
@@ -6243,6 +6243,33 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R116901</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderSendOption] When the value is NotSet, it will be set to either User or AllAttendees according to the IsOrganizerReminder property (section 2.2.4.13).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R116902</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderSendOption] It will be set to AllAttendees if IsOrganizerReminder is true</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R116903</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderSendOption] otherwise[if IsOrganizerReminder is false, it will be set to] User</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1170</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
 		<ns1:Description>[In t:EmailReminderSendOption] User: Send the email reminder only to the user.</ns1:Description>
@@ -6270,9 +6297,27 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R117201</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderSendOption] This value[Staff] is only applicable for a booking item and for internal use only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R1173</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
 		<ns1:Description>[In t:EmailReminderSendOption] Customer: Send the reminder to customer only.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSMTGS_R117301</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.5.7</ns1:Doc_Sect>
+		<ns1:Description>[In t:EmailReminderSendOption] This value[Customer] is only applicable for a booking item and for internal use only.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7796,7 +7841,7 @@ ItemIds ([MS-OXWSCORE] section 3.1.4.4.3.2)</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-OXWSCORE_R2198.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by requirement: MS-OXWSMTGS_R2198.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2012</ns1:REQ_ID>
@@ -8927,7 +8972,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Description>[In PerformReminderAction operation]The following is the WSDL binding specification for the PerformReminderAction operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -8964,7 +9009,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages]PerformReminderActionSoapIn:Specifies the SOAP message that performs an action on a reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -8975,14 +9020,14 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2108</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:PerformReminderActionSoapIn Message]The PerformReminderActionSoapIn WSDL message specifies the PerformReminderAction operation request to perform an action on a reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -8995,16 +9040,16 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 	  &lt;wsdl:part name="RequestVersion" element="t:RequestServerVersion"/&gt;
 	&lt;/wsdl:message&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2110</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:PerformReminderActionSoapIn Message]The PerformReminderActionSoapIn WSDL message is the input message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/PerformReminderAction.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9022,16 +9067,16 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:PerformReminderActionSoapIn Message]The element of request is tns:PerformReminderAction (section 3.1.4.7.2.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2113</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:PerformReminderActionSoapIn Message]request:Specifies the SOAP body of the request to perform an action on a reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9040,16 +9085,16 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:PerformReminderActionSoapIn Message]The element of RequestVersion is tns:PerformReminderAction (section 3.1.4.7.2.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2115</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In tns:PerformReminderActionSoapIn Message]RequestVersion:Specifies a SOAP header that identifies the schema version for an PerformReminderAction operation request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9059,7 +9104,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Description>[In tns:PerformReminderActionSoapOut Message]The PerformReminderActionSoapOut WSDL message specifies the server response to an PerformReminderAction operation request to perform an action on a reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -9081,7 +9126,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Description>[In tns:PerformReminderActionSoapOut Message]The PerformReminderActionSoapOut WSDL message is the output message for the SOAP action http://schemas.microsoft.com/exchange/services/2006/messages/PerformReminderAction.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -9109,7 +9154,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2122</ns1:REQ_ID>
@@ -9127,7 +9172,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2124</ns1:REQ_ID>
@@ -9154,7 +9199,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2127</ns1:REQ_ID>
@@ -9163,7 +9208,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2128</ns1:REQ_ID>
@@ -9179,7 +9224,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.2</ns1:Doc_Sect>
 		<ns1:Description>[In Elements]PerformReminderAction:Specifies a request to perform an action on a reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9197,7 +9242,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In m:PerformReminderAction Element]The PerformReminderAction element specifies a request to perform an action on a reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9206,9 +9251,9 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In m:PerformReminderAction Element][The schema of PerformReminderAction is defined as:]	&lt;xs:element name="PerformReminderAction" type="m:PerformReminderActionType"/&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2133</ns1:REQ_ID>
@@ -9216,7 +9261,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Description>[In m:PerformReminderActionResponse Element]The PerformReminderActionResponse element specifies a response to an PerformReminderAction operation request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -9245,14 +9290,14 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2137</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3</ns1:Doc_Sect>
 		<ns1:Description>[In Complex Types]PerformReminderActionType:Specifies a request to perform an action on a reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9262,7 +9307,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Description>[In Complex Types]NonEmptyArrayOfReminderItemActionType:Specifies an array of reminder actions and new reminder times for items.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -9270,7 +9315,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.3</ns1:Doc_Sect>
 		<ns1:Description>[In Complex Types]ReminderItemActionType:Specifies the action and new reminder time for an item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9281,7 +9326,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2141</ns1:REQ_ID>
@@ -9290,21 +9335,21 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2142</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.1</ns1:Doc_Sect>
 		<ns1:Description>[In m:PerformReminderActionResponseMessageType Complex Type][The schema of PerformReminderActionType is defined as:]
-	&lt;xs:complexType name="PerformReminderActionType"&gt;
-	  &lt;xs:complexContent&gt;
-	    &lt;xs:extension base="m:BaseRequestType"&gt;
-	      &lt;xs:sequence&gt;
-	        &lt;xs:element name="ReminderItemActions" type="t:NonEmptyArrayOfReminderItemActionType" minOccurs="1" maxOccurs="1"/&gt;
-	      &lt;/xs:sequence&gt;
-	    &lt;/xs:extension&gt;
-	  &lt;/xs:complexContent&gt;
-	&lt;/xs:complexType&gt;</ns1:Description>
+&lt;xs:complexType name="PerformReminderActionResponseMessageType"&gt;
+  &lt;xs:complexContent&gt;
+    &lt;xs:extension base="m:ResponseMessageType"&gt;
+      &lt;xs:sequence&gt;
+        &lt;xs:element name="UpdatedItemIds" type="t:NonEmptyArrayOfItemIdsType" minOccurs="1" maxOccurs="1"/&gt;
+      &lt;/xs:sequence&gt;
+    &lt;/xs:extension&gt;
+  &lt;/xs:complexContent&gt;
+&lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9335,14 +9380,14 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2146</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In m:PerformReminderActionType Complex Type]The PerformReminderActionType complex type specifies a request to perform an action on a reminder. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9351,7 +9396,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In m:PerformReminderActionType Complex Type]This type extends the BaseRequestType complex type ([MS-OXWSCDATA] section 2.2.4.17).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9369,9 +9414,9 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 	  &lt;/xs:complexContent&gt;
 	&lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2149</ns1:REQ_ID>
@@ -9387,16 +9432,16 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In m:PerformReminderActionType Complex Type]The type of ReminderItemActions is t:NonEmptyArrayOfReminderItemActionType (section 3.1.4.7.3.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2151</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.2</ns1:Doc_Sect>
 		<ns1:Description>[In m:PerformReminderActionType Complex Type]ReminderItemActions:The actions to perform.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9405,9 +9450,9 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.3.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:NonEmptyArrayOfReminderItemActionType Complex Type]The NonEmptyArrayOfReminderItemActionType complex type specifies an array of reminder actions and new reminder times for items.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2153</ns1:REQ_ID>
@@ -9419,9 +9464,9 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 	  &lt;/xs:sequence&gt;
 	&lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2154</ns1:REQ_ID>
@@ -9437,16 +9482,16 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.3.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:NonEmptyArrayOfReminderItemActionType Complex Type]The type of ReminderItemAction is t:ReminderItemActionType (section 3.1.4.7.3.4).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2156</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.3</ns1:Doc_Sect>
 		<ns1:Description>[In t:NonEmptyArrayOfReminderItemActionType Complex Type]ReminderItemAction:An action and new start time for a reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9455,8 +9500,8 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.3.4</ns1:Doc_Sect>
 		<ns1:Description>[In t:ReminderItemActionType Complex Type]The ReminderItemActionType specifies the action and new reminder time for an item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -9471,7 +9516,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 	  &lt;/xs:sequence&gt;
 	&lt;/xs:complexType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9489,16 +9534,16 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.3.4</ns1:Doc_Sect>
 		<ns1:Description>[In t:ReminderItemActionType Complex Type]The type of the ActionType is t:ReminderActionType (section 3.1.4.7.4.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2161</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.4</ns1:Doc_Sect>
 		<ns1:Description>[In t:ReminderItemActionType Complex Type]ActionType:The action to take.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9507,16 +9552,16 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.3.4</ns1:Doc_Sect>
 		<ns1:Description>[In t:ReminderItemActionType Complex Type]The type of the ItemId is t:ItemIdType ([MS-OXWSCORE] section 2.2.4.25).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2163</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.4</ns1:Doc_Sect>
 		<ns1:Description>[In t:ReminderItemActionType Complex Type]ItemId:The Id of the item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9525,16 +9570,16 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.3.4</ns1:Doc_Sect>
 		<ns1:Description>[In t:ReminderItemActionType Complex Type]The type of the NewReminderTime is xs:string ([XMLSCHEMA2]).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2165</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7.3.4</ns1:Doc_Sect>
 		<ns1:Description>[In t:ReminderItemActionType Complex Type]NewReminderTime:The new time for the reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9552,7 +9597,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.4</ns1:Doc_Sect>
 		<ns1:Description>[In Simple Types]ReminderActionType:Specifies the reminder action.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9561,7 +9606,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In t:ReminderActionType Simple Type]The ReminderActionType simple type specifies the reminder action.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9576,9 +9621,9 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 	  &lt;/xs:restriction&gt;
 	&lt;/xs:simpleType&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSMTGS_R2170</ns1:REQ_ID>
@@ -9594,7 +9639,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In t:ReminderActionType Simple Type]Dismiss:Dismiss the reminder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -9603,7 +9648,7 @@ ItemIds ([MS-OXWSCORE] section 2.2.4.3)</ns1:Description>
 		<ns1:Doc_Sect>3.1.4.7.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In t:ReminderActionType Simple Type]Snooze:Dismiss the reminder temporarily and activate it later.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -10453,7 +10498,7 @@ For the CancelCalendarItemType, AcceptItemType, DeclineItemType, or TentativelyA
 		<ns1:Description>[In Appendix C: Product Behavior] Implementation does support the EnhancedLocationType complex type specifies enhanced location information. (Exchange 2013 and above follow this behavior.)
 &lt;xs:complexType name="EnhancedLocationType"&gt;
     &lt;xs:sequence&gt;
-        &lt;xs:element name="DisplayName" type="xs:string"/&gt;
+        &lt;xs:element name="DisplayName" type="xs:string" minOccurs="0"/&gt;
         &lt;xs:element name="Annotation" type="xs:string" minOccurs="0"/&gt;
         &lt;xs:element name="PostalAddress" type="t:PersonaPostalAddressType" minOccurs="0"/&gt;
     &lt;/xs:sequence&gt;

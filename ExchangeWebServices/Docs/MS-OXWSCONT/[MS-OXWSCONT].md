@@ -1,6 +1,6 @@
 ## [MS-OXWSCONT]: Contacts Web Service Protocol
-- [MS-OXWSCONT] v20181001 is used to develop the test suite.
-- Release date, 10/1/2018.
+- [MS-OXWSCONT] v20191204 is used to develop the test suite.
+- Release date, 12/04/2019.
 
 To find the new landing page for [MS-OXWSCONT], please visit https://msdn.microsoft.com/en-us/library/ee178916(v=exchg.80).aspx
 

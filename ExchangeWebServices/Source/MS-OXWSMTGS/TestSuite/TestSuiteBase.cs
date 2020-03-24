@@ -569,7 +569,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1188");
 
-                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1188    
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1188    
                 Site.CaptureRequirementIfAreEqual<ResponseClassType>(
                     ResponseClassType.Success,
                     responseMessage.ResponseClass,
@@ -579,7 +579,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1189");
 
-                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1189
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1189
                 Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                     ResponseCodeType.NoError,
                     responseMessage.ResponseCode,
@@ -630,7 +630,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1226");
 
-                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1226
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1226
                 Site.CaptureRequirementIfAreEqual<ResponseClassType>(
                     ResponseClassType.Success,
                     item.ResponseClass,
@@ -640,7 +640,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1227");
 
-                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1227
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1227
                 Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                     ResponseCodeType.NoError,
                     item.ResponseCode,
@@ -802,7 +802,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R8852");
 
-                        // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R8852
+                        // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R8852
                         // calendar:ConflictingMeetingCount is included in the request and the operation executes successfully, this requirement can be captured.
                         this.Site.CaptureRequirement(
                             "MS-OXWSCDATA",
