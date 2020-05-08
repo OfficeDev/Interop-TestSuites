@@ -498,7 +498,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 @"[In m:GetRemindersResponseMessageType Complex Type]This type[GetRemindersResponseMessageType] extends the ResponseMessageType ([MS-OXWSCDATA] section 2.2.4.67).");
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R2052");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2052");
 
             // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2052
             Site.CaptureRequirementIfIsTrue(
@@ -524,7 +524,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             if(getReminderResponseMessage.Reminders != null)
             {
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R2054");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2054");
 
                 // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2054
                 Site.CaptureRequirementIfIsInstanceOfType(
@@ -646,6 +646,185 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 getReminderResponseMessage,
                 2044,
                 @"[In m:GetRemindersResponse Element][The schema of GetRemindersResponse is defined as:]	<xs:element name=""GetRemindersResponse"" type =""m: GetRemindersResponseMessageType"" />");
+        }
+
+        /// <summary>
+        /// Captures PerformReminderActionResponseMessageType related requirements.
+        /// </summary>
+        /// <param name="performReminderActionResponseMessage">An PerformReminderActionResponseMessageType instance.</param>
+        /// <param name="isSchemaValidated">A Boolean value indicates the schema validation result.</param>
+        private void VerifyPerformReminderActionResponseMessageType(PerformReminderActionResponseMessageType performReminderActionResponseMessage, bool isSchemaValidated)
+        {
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2136");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2136,
+                @"[In Complex Types]PerformReminderActionResponseMessageType:Specifies the response to a call to the PerformReminderAction operation.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2140");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2140
+            this.Site.CaptureRequirementIfIsNotNull(
+                performReminderActionResponseMessage,
+                2140,
+                @"[In m:PerformReminderActionResponseMessageType Complex Type]The PerformReminderActionResponseMessageType complex type represents a response to a request to perform a reminder action. ");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2141");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2141
+            this.Site.CaptureRequirementIfIsNotNull(
+                performReminderActionResponseMessage,
+                2141,
+                @"[In m:PerformReminderActionResponseMessageType Complex Type]This type[PerformReminderActionResponseMessageType] extends the ResponseMessageType, as specified in [MS-OXWSCDATA] section 2.2.4.67.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2142");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2142
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2142,
+                @"[In m:PerformReminderActionResponseMessageType Complex Type][The schema of PerformReminderActionType is defined as:]
+<xs:complexType name=""PerformReminderActionResponseMessageType"" >
+  < xs:complexContent >
+    < xs:extension base = ""m:ResponseMessageType"" >
+      < xs:sequence >
+        < xs:element name = ""UpdatedItemIds"" type = ""t:NonEmptyArrayOfItemIdsType"" minOccurs = ""1"" maxOccurs = ""1"" />
+      </ xs:sequence >
+    </ xs:extension >
+  </ xs:complexContent >
+</ xs:complexType > ");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2107");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2107,
+                @"[In Messages]PerformReminderActionSoapOut:Specifies the SOAP message that is returned in response to an PerformReminderAction operation request.");
+
+            if (performReminderActionResponseMessage.UpdatedItemIds != null)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2144");
+
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2144
+                Site.CaptureRequirementIfIsInstanceOfType(
+                    performReminderActionResponseMessage.UpdatedItemIds,
+                    typeof(ItemIdType[]),
+                    2144,
+                    @"[In m:PerformReminderActionResponseMessageType Complex Type]The type of UpdatedItemIds is t:NonEmptyArrayOfItemIdsType ([MS-OXWSBTRF] section 3.1.4.1.3.4).");
+
+            }
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2102");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2102,
+                @"[In PerformReminderAction operation]The following is the WSDL port type specification for the PerformReminderAction operation.
+	<wsdl:operation name=""PerformReminderAction"" >
+       < wsdl:input message = ""tns:PerformReminderActionSoapIn"" />
+
+       < wsdl:output message = ""tns:PerformReminderActionSoapOut"" />
+
+    </ wsdl:operation > ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2104");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2104
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2104,
+                @"[In PerformReminderAction operation]
+	<wsdl:operation name=""PerformReminderAction"" >
+       < soap:operation soapAction = ""http://schemas.microsoft.com/exchange/services/2006/messages/PerformReminderAction"" />
+
+       < wsdl:input >
+
+          < soap:header message = ""tns:PerformReminderActionSoapIn"" part = ""RequestVersion"" use = ""literal"" />
+
+          < soap:body parts = ""request"" use = ""literal"" />
+
+       </ wsdl:input >
+
+       < wsdl:output >
+
+          < soap:body parts = ""PerformReminderActionResult"" use = ""literal"" />
+
+          < soap:header message = ""tns:PerformReminderActionSoapOut"" part = ""ServerVersion"" use = ""literal"" />
+
+       </ wsdl:output >
+
+    </ wsdl:operation > ");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2117");
+
+            this.Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2117,
+                @"[In tns:PerformReminderActionSoapOut Message][The schema of PerformReminderActionSoapOut is defined as:]
+	<wsdl:message name=""PerformReminderActionSoapOut"" >
+      < wsdl:part name = ""PerformReminderActionResult"" element = ""tns: PerformReminderActionResponse"" />
+
+      < wsdl:part name = ""ServerVersion"" element = ""t:ServerVersionInfo"" />
+
+    </ wsdl:message > ");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2029");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2121
+            // According to the schema, performReminderActionResponseMessage is the SOAP body of a response message returned by server, this requirement can be verified directly.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2121,
+                @"[In tns:PerformReminderActionSoapOut Message]PerformReminderActionResult:Specifies the SOAP body of a response message.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2120");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2120
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2120,
+                @"[In tns:PerformReminderActionSoapOut Message]The element of PerformReminderActionResult is tns:PerformReminderActionResponse (section 3.1.4.7.2.2).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2122");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2122
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2122,
+                @"[In tns:PerformReminderActionSoapOut Message]The element of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2031");
+
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R2123
+            // According to the schema, ServerVersion is the SOAP header that contains the server version information, this requirement can be verified directly.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaValidated,
+                2123,
+                @"[In tns:PerformReminderActionSoapOut Message]ServerVersion:Specifies a SOAP header that identifies the server version for a response to an PerformReminderAction operation request.");
+
+            // Add the debug information
+            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R2134");
+
+            Site.CaptureRequirementIfIsNotNull(
+                performReminderActionResponseMessage,
+                2134,
+                @"[In m:PerformReminderActionResponse Element][The schema of PerformReminderActionResponse is defined as:]	<xs:element name=""PerformReminderActionResponse""
+
+     type = ""m:PerformReminderActionResponseMessageType"" /> ");
         }
 
         /// <summary>

@@ -307,7 +307,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1190");
 
-            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1190
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1190
             Site.CaptureRequirementIfAreEqual<ResponseClassType>(
                 ResponseClassType.Error,
                 response.ResponseMessages.Items[0].ResponseClass,
@@ -317,7 +317,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1193");
 
-            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1193
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1193
             Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                 ResponseCodeType.ErrorCalendarCannotMoveOrCopyOccurrence,
                 response.ResponseMessages.Items[0].ResponseCode,
@@ -418,7 +418,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1223");
 
-            //Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1223
+            //Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1223
             Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                 ResponseCodeType.ErrorCalendarCannotUseIdForRecurringMasterId,
                 response.ResponseMessages.Items[0].ResponseCode,

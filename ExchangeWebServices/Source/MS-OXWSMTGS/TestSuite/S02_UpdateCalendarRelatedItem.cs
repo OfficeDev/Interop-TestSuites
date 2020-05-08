@@ -134,7 +134,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R4001");
 
-                // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R4001
+                // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R4001
                 this.Site.CaptureRequirementIfAreEqual<LegacyFreeBusyType>(
                     LegacyFreeBusyType.WorkingElsewhere,
                     meetingRequest.IntendedFreeBusyStatus,

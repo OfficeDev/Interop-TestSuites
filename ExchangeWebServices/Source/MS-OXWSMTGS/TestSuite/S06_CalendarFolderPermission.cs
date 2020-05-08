@@ -267,7 +267,7 @@
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R97");
 
-            // Verify MS-OXWSFOLD requirement: MS-OXWSMTGS_R97
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R97
             this.Site.CaptureRequirementIfIsTrue(
                 folderInfo.PermissionSet.CalendarPermissions[2].IsFolderContactSpecified && folderInfo.PermissionSet.CalendarPermissions[2].IsFolderContact,
                 97,
@@ -276,7 +276,7 @@
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R239");
 
-            // Verify MS-OXWSFOLD requirement: MS-OXWSMTGS_R239
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R239
             // This requirement can be captured directly after the verifications in above.
             this.Site.CaptureRequirement(
                 239,

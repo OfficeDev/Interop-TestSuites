@@ -117,5 +117,7 @@
     <Property name="R2198Enabled" value="true" />
     <!--Set R4001Enabled to true to verify that the implementation does support the WorkingElsewhere value. Set R4001Enabled to false to disable this requirement.-->
     <Property name="R4001Enabled" value="true" />
+    <!--Set R2200Enabled to true to verify that the implementation does support the PerformReminderAction operation. Set R2200Enabled to false to disable this requirement.-->
+    <Property name="R2200Enabled" value="true" />
   </Properties>
 </TestSite>
