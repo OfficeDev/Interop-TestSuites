@@ -1,6 +1,6 @@
 ## [MS-OXWSMTGS]: Calendaring Web Service Protocol
-- [MS-OXWSMTGS] v20150914 is used to develop the test suite.
-- Release date, 9/14/2015.
+- [MS-OXWSMTGS] v20200219 is used to develop the test suite.
+- Release date, 2/19/2020.
 
 To find the new landing page for [MS-OXWSMTGS], please visit https://msdn.microsoft.com/en-us/library/ee219567(v=exchg.80).aspx
 

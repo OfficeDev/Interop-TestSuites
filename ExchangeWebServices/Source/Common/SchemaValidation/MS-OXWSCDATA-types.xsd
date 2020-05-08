@@ -256,6 +256,8 @@
       <xs:enumeration value="imcontactlist"/>
       <xs:enumeration value="peopleconnect"/>
       <xs:enumeration value="favorites"/>
+      <xs:enumeration value="mecontact" />
+      <xs:enumeration value="personmetadata" />
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="DistinguishedFolderIdType">
@@ -595,6 +597,7 @@
     <xs:choice maxOccurs="unbounded">
       <xs:element name="ItemAttachment" type="t:ItemAttachmentType"/>
       <xs:element name="FileAttachment" type="t:FileAttachmentType"/>
+      <xs:element name="ReferenceAttachment" type="t:ReferenceAttachmentType"/>  
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="NonEmptyArrayOfPathsToElementType">
@@ -602,6 +605,33 @@
       <xs:element ref="t:Path"/>
     </xs:choice>
   </xs:complexType>
+  <xs:complexType name="NonEmptyArrayOfPredictedActionReasonType">
+    <xs:sequence>
+      <xs:element name="PredictedActionReason" type="t:PredictedActionReasonType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PredictedActionReasonType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="ConversationStarterIsYou"/>
+      <xs:enumeration value="OnlyRecipient"/>
+      <xs:enumeration value="ConversationContributions"/>
+      <xs:enumeration value="MarkedImportantBySender"/>
+      <xs:enumeration value="SenderIsManager"/>
+      <xs:enumeration value="SenderIsInManagementChain"/>
+      <xs:enumeration value="SenderIsDirectReport"/>
+      <xs:enumeration value="ActionBasedOnSender"/>
+      <xs:enumeration value="NameOnToLine"/>
+      <xs:enumeration value="NameOnCcLine"/>
+      <xs:enumeration value="ManagerPosition"/>
+      <xs:enumeration value="ReplyToAMessageFromMe"/>
+      <xs:enumeration value="PreviouslyFlagged"/>
+      <xs:enumeration value="ActionBasedOnRecipients"/>
+      <xs:enumeration value="ActionBasedOnSubjectWords"/>
+      <xs:enumeration value="ActionBasedOnBasedOnBodyWords"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:complexType name="NonEmptyArrayOfRoleType">
     <xs:sequence>
       <xs:element name="Role" type="xs:string" maxOccurs="unbounded"/>
@@ -1084,6 +1114,7 @@
       <xs:enumeration value="distributionlist:Members"/>
       <xs:enumeration value="contacts:PartnerNetworkProfilePhotoUrl" />
       <xs:enumeration value="contacts:PartnerNetworkThumbnailPhotoUrl" />
+      <xs:enumeration value="contacts:contacts:ConversationGuid" />
       <xs:enumeration value="postitem:PostedTime"/>
       <xs:enumeration value="conversation:ConversationId"/>
       <xs:enumeration value="conversation:ConversationTopic"/>

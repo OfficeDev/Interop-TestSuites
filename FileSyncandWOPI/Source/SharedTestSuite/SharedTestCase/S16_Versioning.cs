@@ -252,7 +252,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                     "MS-FSSHTTP",
                     11255,
-                    @"[In Restore Version] The protocol server processes this request by restoring the file to its state in the version specified by the VersionNumber attribute.");
+                    @"[In Restore Version] The protocol server processes this request by restoring the file to its state in the version specified by the Version attribute.");
             }
             else
             {
@@ -322,7 +322,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                     SharedTestSuiteHelper.ConvertToErrorCodeType(versioningSubResponse.ErrorCode, this.Site),
                     "MS-FSSHTTP",
                     11256,
-                    @"[In Restore Version] If the VersionNumber attribute specifies a version that doesn't exist, the protocol server returns an error status set to ""VersionNotFound"".");
+                    @"[In Restore Version] If the Version attribute specifies a version that doesn't exist, the protocol server returns an error status set to ""VersionNotFound"".");
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11083
                 Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
@@ -513,6 +513,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 2,
                 versioningSubResponse.SubResponseData.Versions.Version.Length,
                 "There should be 2 version numbers.");
+
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1117502
+            Site.CaptureRequirementIfIsNull(
+                versioningSubResponse.SubResponseData.Versions.Version[1].IsCurrent,
+                "MS-FSSHTTP",
+                1117502,
+                @"[In FileVersionDataType] IsCurrent: This attribute is not present if this version is not the most recent version of the file.");
+
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11189
             Site.CaptureRequirementIfAreEqual<string>(

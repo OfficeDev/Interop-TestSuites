@@ -27,6 +27,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         GetItemResponseType GetItem(GetItemType getItemRequest);
 
         /// <summary>
+        /// Search specified items.
+        /// </summary>
+        /// <param name="findRequest">Specify a request for a FindItem operation.</param>
+        /// <returns>A response to FindItem operation request.</returns>
+        FindItemResponseType FindItem(FindItemType findRequest);
+
+        /// <summary>
         /// Delete contact item elements on the server.
         /// </summary>
         /// <param name="deleteItemRequest">The request of DeleteItem operation.</param>

@@ -23,6 +23,10 @@
     <Property name="R2149904Enabled" value="true" />
     <!--Set R2149905Enabled to true to verify that the implementation does use the element "BlockExternalImages" which specifies whether external images are blocked, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149905Enabled to false to disable this requirement.-->
     <Property name="R2149905Enabled" value="false" />
+    <!--Set R23091Enabled to true to verify that the implementation does use the element "MimeContent" is applicable for ContactType, TaskType and DistributionListType item when retrieving MIME content.(E2010SP3 and above follow this behavior.). Set R23091Enabled to false to disable this requirement.-->
+    <Property name="R23091Enabled" value="true" />
+    <!--Set R23093Enabled to true to verify that In Exchange 2007, Exchange 2010, Exchange 2010 SP1 and Microsoft Exchange Server 2010 Service Pack 2 (SP2), when retrieving MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object, an ErrorUnsupportedMimeConversion will be returned. Set R23093Enabled to false to disable this requirement.-->
+    <Property name="R23093Enabled" value="false" />
     <!--Set R2149908Enabled to true to verify that the implementation does use the element "AddBlankTargetToLinks" which specifies whether the target attribute is set to a value of blank, as specified in [MS-OXWSCDATA] section 2.2.4.38. Set R2149908Enabled to false to disable this requirement.-->
     <Property name="R2149908Enabled" value="true" />
     <!--Set R1772Enabled to true to verify that the implementation does use the ArrayOfUrlEntitiesType complex type which specifies an array of URL entities, as specified in section 2.2.4.45. Set R1772Enabled to false to disable this requirement.-->
@@ -195,5 +199,37 @@
     <Property name="R2313Enabled" value="true" />
     <!--Set R1839Enabled to true to verify that When the value of ""IsJunk"" is True the implementation adds the sender of the email to the blocked sender list. Set R1839Enabled to false to disable this requirement.-->
     <Property name="R1839Enabled" value="false" />
+    <!--Set R2503Enabled to true to verify that the implementation does Implementation does support the WebClientEditFormQueryString  element. Set R2503Enabled to false to disable this requirement.-->
+    <Property name="R2503Enabled" value="true" />
+    <!--Set R204511Enabled to true to verify that In Exchange 2010 SP2, if the StoreEntryId is specified in a CreateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned. Set R204511Enabled to false to disable this requirement.-->
+    <Property name="R204511Enabled" value="false" />
+    <!--Set R204512Enabled to true to verify that In Exchange 2010 SP2, if the StoreEntryId is specified in a UpdateItem request, an ErrorInvalidPropertySet ([MS-OXWSCDATA] section 2.2.5.24) will be returned. Set R204512Enabled to false to disable this requirement.-->
+    <Property name="R204512Enabled" value="false" />
+    <!--Set R204521Enabled to true to verify that In Exchange 2013 and above, if the StoreEntryId is specified in a CreateItem request, if the StoreEntryId is specified in a CreateItem or UpdateItem request, will be ignored by server. Set R204521Enabled to false to disable this requirement.-->
+    <Property name="R204521Enabled" value="true" />
+    <!--Set R204522Enabled to true to verify that In Exchange 2013 and above, if the StoreEntryId is specified in a UpdateItem request, if the StoreEntryId is specified in a CreateItem or UpdateItem request, will be ignored by server. Set R204522Enabled to false to disable this requirement.-->
+    <Property name="R204522Enabled" value="true" />
+    <!--Set R2919Enabled to true to verify that In Exchange 2016 and above, the implementation does support the MimeContentUTF8 element which specifies an instance of the MimeContentUTF8Type complex type that contains the native MIME stream of an object that is represented in UTF-8. Set R2919Enabled to false to disable this requirement.-->
+    <Property name="R2919Enabled" value="true" />
+    <!--Set R2921Enabled to true to verify that In Exchange 2016 and above, the implementation does support the SearchKey element which specifies a search key. Set R2921Enabled to false to disable this requirement.-->
+    <Property name="R2921Enabled" value="true" />
+    <!--Set R2923Enabled to true to verify that In Exchange 2016 and above, the implementation does support the SortKey element which specifies a sort key. Set R2923Enabled to false to disable this requirement.-->
+    <Property name="R2923Enabled" value="true" />
+    <!--Set R2925Enabled to true to verify that In Exchange 2016 and above, the implementation does support the Hashtags element which specifies hashtags. Set R2925Enabled to false to disable this requirement.-->
+    <Property name="R2925Enabled" value="true" />
+    <!--Set R2927Enabled to true to verify that In Exchange 2016 and above, the implementation does support the Mentions element which specifies mentions. Set R2927Enabled to false to disable this requirement.-->
+    <Property name="R2927Enabled" value="true" />
+    <!--Set R2932Enabled to true to verify that In Exchange 2016 and above, the implementation does support the "MentionedMe" with type "xs:boolean" which Specifies whether the mention applies to the mailbox owner. Set R2932Enabled to false to disable this requirement.-->
+    <Property name="R2932Enabled" value="true" />
+    <!--Set R2931Enabled to true to verify that In Exchange 2016 and above, the implementation does support PendingSocialActivityTagIds element which specifies tag ids to track draft social activity tags. Set R2931Enabled to false to disable this requirement.-->
+    <Property name="R2931Enabled" value="true" />
+    <!--Set R2935Enabled to true to verify that  In Exchange 2013 and above, Exchange 2016, and Exchange 2019  Exchange 2013, Exchange 2016, and Exchange 2019, the implementation will return no data for the Location element which represents the location of the meeting. Set R2935Enabled to false to disable this requirement.-->
+    <Property name="R2935Enabled" value="true" />
+    <!--Set R2936Enabled to true to verify that In Exchange 2010 and above, the implementation will return data for the Location element which represents the location of the meeting. Set R2936Enabled to false to disable this requirement.-->
+    <Property name="R2936Enabled" value="false" />
+    <!--Set R13411Enabled to true to verify that In Exchange 2010 and above, the implementation  Implementation does support the element IsAssociated with type xs:boolean. Set R13411Enabled to false to disable this requirement.-->
+    <Property name="R13411Enabled" value="true" />
+    <!--Set R1881Enabled to true to verify that In Exchange 2010 SP2 and above, the implementation does support the element with type "xs:base64Binary ([XMLSCHEMA2]) which specifies the entry ID of the store that hosts an item. Set R13411Enabled to false to disable this requirement.-->
+    <Property name="R1881Enabled" value="true" />
   </Properties>
 </TestSite>

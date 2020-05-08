@@ -402,6 +402,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             attendeeType.Mailbox = email;
             return attendeeType;
         }
+
+        /// <summary>
+        /// Get an attendeeType or resource instance.
+        /// </summary>
+        /// <param name="emailAddress">The email address related to an attendeeType or resource.</param>
+        /// <returns>An instance of AttendeeType</returns>
+        protected static InboxReminderType GetInboxReminder(string message)
+        {
+            InboxReminderType inboxReminder = new InboxReminderType();
+            inboxReminder.ReminderOffsetSpecified = true;
+            inboxReminder.ReminderOffset = 5;
+            inboxReminder.Message = message;
+            return inboxReminder;
+        }
         #endregion
 
         #region Test case initialize and clean up
@@ -555,7 +569,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1188");
 
-                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1188    
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1188    
                 Site.CaptureRequirementIfAreEqual<ResponseClassType>(
                     ResponseClassType.Success,
                     responseMessage.ResponseClass,
@@ -565,7 +579,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1189");
 
-                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1189
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1189
                 Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                     ResponseCodeType.NoError,
                     responseMessage.ResponseCode,
@@ -616,7 +630,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1226");
 
-                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1226
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1226
                 Site.CaptureRequirementIfAreEqual<ResponseClassType>(
                     ResponseClassType.Success,
                     item.ResponseClass,
@@ -626,7 +640,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1227");
 
-                // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1227
+                // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1227
                 Site.CaptureRequirementIfAreEqual<ResponseCodeType>(
                     ResponseCodeType.NoError,
                     item.ResponseCode,
@@ -669,6 +683,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         {
             UpdateItemType request = this.GetUpdateItemType(itemsChangeInfo, updateOperation);
             this.SwitchMTGSUser(role);
+            request.ConflictResolution = ConflictResolutionType.AlwaysOverwrite;
             UpdateItemResponseType response = this.MTGSAdapter.UpdateItem(request);
             Site.Assert.IsTrue(IsValidResponse(response), "The response messages returned by the UpdateItem operation should succeed.");
 
@@ -787,7 +802,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R8852");
 
-                        // Verify MS-OXWSMTGS requirement: MS-OXWSCDATA_R8852
+                        // Verify MS-OXWSCDATA requirement: MS-OXWSCDATA_R8852
                         // calendar:ConflictingMeetingCount is included in the request and the operation executes successfully, this requirement can be captured.
                         this.Site.CaptureRequirement(
                             "MS-OXWSCDATA",
@@ -1394,6 +1409,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
                     if (meetingResponseMessage.UID == uid)
                     {
                         return meetingResponseMessage;
+                    }
+                }
+                else if (item.Items.Items[0] is MessageType)
+                {
+                    MessageType message = item.Items.Items[0] as MessageType;
+                    if (message.Subject.EndsWith(uid))
+                    {
+                        return message;
                     }
                 }
             }

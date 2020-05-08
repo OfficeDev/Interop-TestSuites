@@ -49,7 +49,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         public void MSOXWSCORE_S06_TC02_CopyPostItemSuccessfully()
         {
             #region Step 1: Create the post item.
-            PostItemType item = new PostItemType();
+            PostItemType item = new PostItemType();            
             ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
             #endregion
 
@@ -79,6 +79,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
 
             ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+
+            PostItemType[] getItems = Common.GetItemsFromInfoResponse<PostItemType>(getItemResponse);
 
             // One post item should be returned.
             Site.Assert.AreEqual<int>(

@@ -8,8 +8,9 @@
     <DeploymentItem filename="TestSuite\MS-OXWSMTGS_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSMTGS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OXWSMTGS.runsettings" />
-    <DeploymentItem filename="..\Common\SchemaValidation\" />
     <DeploymentItem filename="TestSuite\MS-OXWSMTGS_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\SchemaValidation\" />
+    <DeploymentItem filename="TestSuite\MS-OXWSMTGS_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSMTGS_RequirementSpecification.xml" />
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
@@ -34,4 +35,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>

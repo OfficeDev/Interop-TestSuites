@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" elementFormDefault="qualified" version="Exchange2016" id="messages">
+  <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
+  <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSCONT-types.xsd"/>
+  <xs:complexType name="GetUserPhotoType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="Email" type="xs:string" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="SizeRequested" type="t:UserPhotoSizeType" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserPhoto" type="m:GetUserPhotoType"/>
+  <xs:complexType name="GetUserPhotoResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType">
+        <xs:sequence>
+          <xs:element name="HasChanged" type="xs:boolean"
+                minOccurs="1" maxOccurs="1"/>
+          <xs:element name="PictureData" type="xs:base64Binary"
+                minOccurs="0" maxOccurs="1"/>
+          <xs:element name="ContentType" type="xs:string"
+                minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserPhotoResponse"
+        type="m:GetUserPhotoResponseMessageType"/>
+  <xs:complexType name="SetUserPhotoType">
+    <xs:complexContent>
+      <xs:extension base="m:BaseRequestType">
+        <xs:sequence>
+          <xs:element name="Email" type="t:NonEmptyStringType" minOccurs="1" maxOccurs="1"/>
+          <xs:element name="Content" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetUserPhoto" type="m:SetUserPhotoType"/>
+  <xs:complexType name="SetUserPhotoResponseMessageType">
+    <xs:complexContent>
+      <xs:extension base="m:ResponseMessageType"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SetUserPhotoResponse" type="m:SetUserPhotoResponseMessageType"/>
+</xs:schema>

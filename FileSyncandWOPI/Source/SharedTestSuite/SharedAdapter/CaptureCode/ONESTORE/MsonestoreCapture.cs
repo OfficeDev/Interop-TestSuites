@@ -27,7 +27,7 @@
                     site.CaptureRequirement(
                         "MS-ONESTORE",
                         922,
-                        @"[In Cells] This value is converted to ""{{ 84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073} , 1 }"" when transmitted using the File Synchronization via SOAP over HTTP Protocol.");
+                        @"[In Cells] This value is converted to ""{{84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073} , 1 }"" when transmitted using the File Synchronization via SOAP over HTTP Protocol.");
 
                     // If R922 is verified, then R920 will be verified.
                     // Verify MS-ONESTORE requirement: MS-ONESTORE_R920.
@@ -52,7 +52,11 @@
                 this.VerifyRevisions(revisionManifest, site);
             }
 
-            this.VerifyHeaderCell(instance.HeaderCell, instance.HeaderCellRevisionManifest, instance.HeaderCellCellManifest, site);
+            if (instance.HeaderCell!=null)
+            {
+                this.VerifyHeaderCell(instance.HeaderCell, instance.HeaderCellRevisionManifest, instance.HeaderCellCellManifest, site);
+            }
+            
             if (instance.DataRoot != null)
             {
                 this.VerifyDataRoot(instance.DataRoot, site);
@@ -132,7 +136,7 @@
                 instance.StorageManifestRootDeclareList[0].RootExtendedGUID,
                 "MS-ONESTORE",
                 893,
-                @"[In  Storage Manifest] [Root Extended GUID] MUST be ""{{ 1A5A319C-C26b-41AA-B9C5-9BD8C44E07D4 } , 1}"".");
+                @"[In  Storage Manifest] [Root Extended GUID] MUST be ""{{1A5A319C-C26b-41AA-B9C5-9BD8C44E07D4} , 1}"".");
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R894
             if (instance.StorageManifestRootDeclareList[0].RootExtendedGUID.Equals(new ExGuid(1, Guid.Parse("{1A5A319C-C26b-41AA-B9C5-9BD8C44E07D4}"))))
@@ -142,7 +146,7 @@
                     instance.StorageManifestRootDeclareList[0].CellID.ExtendGUID2.Equals(new ExGuid(1, Guid.Parse("{111E4CF3-7FEF-4087-AF6A-B9544ACD334D}"))),
                     "MS-ONESTORE",
                     894,
-                    @"[In  Storage Manifest] § Cell ID: A Cell ID structure (as specified in [MS-FSSHTTPB] section 2.2.1.10) where the EXGUID1 field MUST be equal to ""{{ 84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073} , 1}"" and the EXGUID2 field MUST be equal to ""{{ 111E4CF3-7FEF-4087-AF6A-B9544ACD334D } , 1}"".");
+                    @"[In  Storage Manifest] § Cell ID: A Cell ID structure (as specified in [MS-FSSHTTPB] section 2.2.1.10) where the EXGUID1 field MUST be equal to ""{{84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073} , 1}"" and the EXGUID2 field MUST be equal to ""{{111E4CF3-7FEF-4087-AF6A-B9544ACD334D} , 1}"".");
             }
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R896
@@ -159,7 +163,7 @@
                 instance.StorageManifestRootDeclareList[1].RootExtendedGUID,
                 "MS-ONESTORE",
                  897,
-                @"[In  Storage Manifest] [Root Extended GUID] MUST be the default root ""{{ 84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073} , 2}"".");
+                @"[In  Storage Manifest] [Root Extended GUID] MUST be the default root ""{{84DEFAB9-AAA3-4A0D-A3A8-520C77AC7073} , 2}"".");
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R922
             site.CaptureRequirementIfAreEqual<ExGuid>(
@@ -185,7 +189,7 @@
                     site.CaptureRequirement(
                         "MS-ONESTORE",
                         905,
-                        @"[In Header Cell] § Root Extended GUID: MUST be ""{{ 4A3717F8- 1C14-49E7-9526-81D942DE1741 },  1}"".");
+                        @"[In Header Cell] § Root Extended GUID: MUST be ""{{4A3717F8- 1C14-49E7-9526-81D942DE1741},  1}"".");
 
                     // Verify MS-ONESTORE requirement: MS-ONESTORE_R906
                     site.CaptureRequirement(
@@ -201,28 +205,28 @@
                         site.CaptureRequirement(
                             "MS-ONESTORE",
                             928,
-                            @"[In Revisions] 0x00000001 means Default content root, specifies Root extended GUID: { { 4A3717F8- 1C14-49E7-9526-81D942DE1741 },  1}");
+                            @"[In Revisions] 0x00000001 means Default content root, specifies Root extended GUID: { {4A3717F8-1C14-49E7-9526-81D942DE1741},  1}");
                     }
                     if (revision.RootExtendedGUID.Equals(new ExGuid(2, Guid.Parse("{4A3717F8-1C14-49E7-9526-81D942DE1741}"))))
                     {
                         site.CaptureRequirement(
                             "MS-ONESTORE",
                             929,
-                            @"[In Revisions] 0x00000002 means Metadata root, specifies Root extended GUID: { { 4A3717F8- 1C14-49E7-9526-81D942DE1741 },  2}.");
+                            @"[In Revisions] 0x00000002 means Metadata root, specifies Root extended GUID: { {4A3717F8-1C14-49E7-9526-81D942DE1741},  2}.");
                     }
                     if (revision.RootExtendedGUID.Equals(new ExGuid(3, Guid.Parse("{4A3717F8-1C14-49E7-9526-81D942DE1741}"))))
                     {
                         site.CaptureRequirement(
                             "MS-ONESTORE",
                             930,
-                            @"[In Revisions] 0x00000003 means Encryption Key root, specifies Root extended GUID: { 4A3717F8- 1C14-49E7-9526-81D942DE1741 },  3}");
+                            @"[In Revisions] 0x00000003 means Encryption Key root, specifies Root extended GUID: {4A3717F8-1C14-49E7-9526-81D942DE1741},  3}");
                     }
                     if (revision.RootExtendedGUID.Equals(new ExGuid(4, Guid.Parse("{4A3717F8-1C14-49E7-9526-81D942DE1741}"))))
                     {
                         site.CaptureRequirement(
                             "MS-ONESTORE",
                             931,
-                            @"[In Revisions] 0x00000004 means Version metadata root, specifies Root extended GUID: { { 4A3717F8- 1C14-49E7-9526-81D942DE1741 },  4}");
+                            @"[In Revisions] 0x00000004 means Version metadata root, specifies Root extended GUID: { {4A3717F8-1C14-49E7-9526-81D942DE1741},  4}");
                     }
                 }
             }
@@ -393,7 +397,7 @@
                 headerCellRevisionManifest.RevisionManifestRootDeclareList[0].RootExtendedGUID,
                 "MS-ONESTORE",
                 905,
-                @"[In Header Cell] § Root Extended GUID: MUST be ""{{ 4A3717F8- 1C14-49E7-9526-81D942DE1741 },  1}"".");
+                @"[In Header Cell] § Root Extended GUID: MUST be ""{{4A3717F8-1C14-49E7-9526-81D942DE1741},  1}"".");
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R906
             site.CaptureRequirementIfAreEqual<ExGuid>(
@@ -401,7 +405,7 @@
                 headerCellRevisionManifest.RevisionManifestRootDeclareList[0].ObjectExtendedGUID,
                 "MS-ONESTORE",
                 906,
-                @"[In Header Cell] § Object Extended GUID: MUST be ""{{ B4760B1A- FBDF- 4AE3-9D08-53219D8A8D21 }, 1}"".");
+                @"[In Header Cell] § Object Extended GUID: MUST be ""{{B4760B1A-FBDF-4AE3-9D08-53219D8A8D21}, 1}"".");
 
             for (int i = 0; i < instance.ObjectData.Body.RgPrids.Length; i++)
             {

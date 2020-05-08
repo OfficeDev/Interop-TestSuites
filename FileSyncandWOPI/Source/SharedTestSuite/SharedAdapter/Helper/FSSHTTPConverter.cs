@@ -59,6 +59,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         case "LockStatusSubResponseDataType":
                             subResponseDataValue = ConvertToSpecialSubResponse<LockStatusSubResponseDataType>(propValue);
                             break;
+                        case "AmIAloneSubResponseDataType":
+                            subResponseDataValue = ConvertToSpecialSubResponse<AmIAloneSubResponseDataType>(propValue);
+                            break;
+                        case "PropertiesSubResponseDataType":
+                            subResponseDataValue = ConvertToSpecialSubResponse<PropertiesSubResponseDataType>(propValue);
+                            break;
                         case "Object":
                             subResponseDataValue = null;
                             break;
@@ -150,6 +156,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         break;
                     case "LockStatusSubRequestType":
                         subRequestType = SubRequestAttributeType.LockStatus;
+                        break;
+                    case "AmIAloneSubRequestType":
+                        subRequestType = SubRequestAttributeType.AmIAlone;
+                        break;
+                    case "PropertiesSubRequestType":
+                        subRequestType = SubRequestAttributeType.Properties;
                         break;
                     default:
                         throw new InvalidOperationException("Invalid object type " + value.GetType().Name);

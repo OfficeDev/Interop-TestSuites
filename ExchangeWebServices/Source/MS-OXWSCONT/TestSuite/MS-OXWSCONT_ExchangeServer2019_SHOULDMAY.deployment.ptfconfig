@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!--Set R1275120Enabled to true to implementation does support the YomiSurname element. Set R1275120Enabled to false to disable this requirement-->
+    <Property name="R1275120Enabled" value="true"/>
+    <!--Set R1275118Enabled to true to implementation does support the YomiGivenName element. Set R1275118Enabled to false to disable this requirement-->
+    <Property name="R1275118Enabled" value="true"/>
+    <!--Set R1275116Enabled to true to implementation does support the DisplayNamePrefix operation. Set R1275116Enabled to false to disable this requirement-->
+    <Property name="R1275116Enabled" value="true"/>
+    <!--Set R1275114Enabled to true to implementation does support the SetUserPhoto operation. Set R1275114Enabled to false to disable this requirement-->
+    <Property name="R1275114Enabled" value="true"/>
+    <!--Set R1275002Enabled to true to implementation does support the HasPicture element. Set R1275002Enabled to false to disable this requirement-->
+    <Property name="R1275002Enabled" value="true"/>
+    <!--Set R335001Enabled to true to implementation does use secure communications via HTTPS, as defined in [RFC2818]. Set R335001Enabled to false to disable this requirement-->
+    <Property name="R335001Enabled" value="true"/>
+    <!--Set R1275004Enabled to true to implementation does use AccountName element. Set R1275004Enabled to false to disable this requirement-->
+    <Property name="R1275004Enabled" value="true"/>
+    <!--Set R1275006Enabled to true to implementation does use the IsAutoUpdateDisabled element. Set R1275006Enabled to false to disable this requirement-->
+    <Property name="R1275006Enabled" value="true"/>
+    <!--Set R1275008Enabled to true to implementation does use the Comment element. Set R1275008Enabled to false to disable this requirement-->
+    <Property name="R1275008Enabled" value="true"/>
+    <!--Set R1275012Enabled to true to implementation does use the ContactType element. Set R1275012Enabled to false to disable this requirement-->
+    <Property name="R1275012Enabled" value="true"/>
+    <!--Set R1275014Enabled to true to implementation does use the Gender element. Set R1275014Enabled to false to disable this requirement-->
+    <Property name="R1275014Enabled" value="true"/>
+    <!--Set R1275018Enabled to true to implementation does use the ObjectId element. Set R1275018Enabled to false to disable this requirement-->
+    <Property name="R1275018Enabled" value="true"/>
+    <!--Set R1275022Enabled to true to implementation does use the PersonId element. Set R1275022Enabled to false to disable this requirement-->
+    <Property name="R1275022Enabled" value="true"/>
+    <!--Set R1275026Enabled to true to implementation does use the SourceId element. Set R1275026Enabled to false to disable this requirement-->
+    <Property name="R1275026Enabled" value="true"/>
+    <!--Set R1275032Enabled to true to implementation does use the Urls element. Set R1275032Enabled to false to disable this requirement-->
+    <Property name="R1275032Enabled" value="true"/>
+    <!--Set R1275034Enabled to true to implementation does use the Cid element. Set R1275034Enabled to false to disable this requirement-->
+    <Property name="R1275034Enabled" value="true"/>
+    <!--Set R1275036Enabled to true to implementation does use the SkypeAuthCertificate element. Set R1275036Enabled to false to disable this requirement-->
+    <Property name="R1275036Enabled" value="true"/>
+    <!--Set R1275040Enabled to true to implementation does use the SkypeId element. Set R1275040Enabled to false to disable this requirement-->
+    <Property name="R1275040Enabled" value="true"/>
+    <!--Set R1275044Enabled to true to implementation does use the YomiNickname element. Set R1275044Enabled to false to disable this requirement-->
+    <Property name="R1275044Enabled" value="true"/>
+    <!--Set R1275070Enabled to true to implementation does support the AbchEmailAddressDictionaryType element. Set R1275070Enabled to false to disable this requirement-->
+    <Property name="R1275070Enabled" value="true"/>
+    <!--Set R1275082Enabled to true to implementation does support the ContactUrlDictionaryEntryType complex type. Set R1275082Enabled to false to disable this requirement-->
+    <Property name="R1275082Enabled" value="true"/>
+    <!--Set R1275084Enabled to true to implementation does support the ContactUrlDictionaryType complex type. Set R1275084Enabled to false to disable this requirement-->
+    <Property name="R1275084Enabled" value="true"/>
+    <!--Set R1275086Enabled to true to implementation does support the Name attribute. Set R1275086Enabled to false to disable this requirement-->
+    <Property name="R1275086Enabled" value="true"/>
+    <!--Set R1275088Enabled to true to implementation does support the RoutingType attribute. Set R1275088Enabled to false to disable this requirement-->
+    <Property name="R1275088Enabled" value="true"/>
+    <!--Set R1275090Enabled to true to implementation does support the MailboxType attribute. Set R1275090Enabled to false to disable this requirement-->
+    <Property name="R1275090Enabled" value="true"/>
+    <!--Set R1275092Enabled to true to implementation does support the AbchEmailAddressTypeType simple type. Set R1275092Enabled to false to disable this requirement-->
+    <Property name="R1275092Enabled" value="true"/>
+    <!--Set R1275094Enabled to true to implementation does support the ContactUrlKeyType simple type. Set R1275094Enabled to false to disable this requirement-->
+    <Property name="R1275094Enabled" value="true"/>
+    <!--Set R1275096Enabled to true to implementation does support the DisplayName attribute. Set R1275096Enabled to false to disable this requirement-->
+    <Property name="R1275096Enabled" value="true"/>
+    <!--Set R1275098Enabled to true to implementation does support the FirstName attribute. Set R1275098Enabled to false to disable this requirement-->
+    <Property name="R1275098Enabled" value="true"/>
+    <!--Set R1275100Enabled to true to implementation does support the LastFirstMiddleSuffix attribute. Set R1275100Enabled to false to disable this requirement-->
+    <Property name="R1275100Enabled" value="true"/>
+    <!--Set R1275102Enabled to true to implementation does support the LastName attribute. Set R1275102Enabled to false to disable this requirement-->
+    <Property name="R1275102Enabled" value="true"/>
+    <!--Set R1275104Enabled to true to implementation does support the Empty attribute. Set R1275104Enabled to false to disable this requirement-->
+    <Property name="R1275104Enabled" value="true"/>
+    <!--Set R1275106Enabled to true to implementation does use the BusinessMobile value. Set R1275106Enabled to false to disable this requirement-->
+    <Property name="R1275106Enabled" value="true"/>
+    <!--Set R1275108Enabled to true to implementation does use the IPPhone value. Set R1275108Enabled to false to disable this requirement-->
+    <Property name="R1275108Enabled" value="true"/>
+    <!--Set R336002Enabled to true to implementation does use the AbchPersonItemType complex type. Set R336002Enabled to false to disable this requirement-->
+    <Property name="R336002Enabled" value="true"/>
+  </Properties>
+</TestSite>

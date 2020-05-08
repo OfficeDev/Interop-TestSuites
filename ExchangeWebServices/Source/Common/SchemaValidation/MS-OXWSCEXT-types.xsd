@@ -21,6 +21,7 @@
       <xs:enumeration value="CallerIdentity"/>
       <xs:enumeration value="ExtensionCallback"/>
       <xs:enumeration value="ScopedToken"/>
+      <xs:enumeration value="ExtensionRestApiCallback"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="DisableReasonType">

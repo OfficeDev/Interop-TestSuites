@@ -77,6 +77,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
             this.VerifyGetContactItem(getItemResponse, this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -96,6 +97,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
             this.VerifyDeleteContactItem(this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -115,10 +117,26 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
             this.VerifyCreateContactItem(this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
             return createItemResponse;
+        }
+
+        /// <summary>
+        /// Search specified items.
+        /// </summary>
+        /// <param name="findRequest">A request to the FindItem operation.</param>
+        /// <returns>The response message returned by FindItem operation.</returns>
+        public FindItemResponseType FindItem(FindItemType findRequest)
+        {
+            FindItemResponseType findResponse = this.exchangeServiceBinding.FindItem(findRequest);
+
+            ArrayOfRealItemsType items = ((FindItemResponseMessageType)findResponse.ResponseMessages.Items[0]).RootFolder.Item as ArrayOfRealItemsType;
+
+            this.VerifyAbchPersonItemTypeComplexType((AbchPersonItemType)items.Items[0], this.exchangeServiceBinding.IsSchemaValidated);
+            return findResponse;
         }
 
         /// <summary>
@@ -134,6 +152,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
             this.VerifyUpdateContactItem(this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
@@ -153,7 +172,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
 
             this.VerifySoapVersion();
             this.VerifyTransportType();
-            this.VerifyCopyContactItem(this.exchangeServiceBinding.IsSchemaValidated);
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
+            this.VerifyCopyContactItem(copyItemRespose,this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
             return copyItemRespose;
@@ -190,6 +210,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             #region Verifiy GetUserPhoto opreation requirements
             this.VerifySoapVersion();
             this.VerifyTransportType();
+
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
+            this.VerifyGetUserPhotoResponseMessageType(getUserPhotoResponse, this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
             return getUserPhotoResponse;
@@ -207,6 +230,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             #region Verifiy SetUserPhoto opreation requirements
             this.VerifySoapVersion();
             this.VerifyTransportType();
+
+            this.VerifyServerVersionInfo(this.exchangeServiceBinding.ServerVersionInfoValue, this.exchangeServiceBinding.IsSchemaValidated);
+            this.VerifySetUserPhotoResponseMessageType(setUserPhotoResponse, this.exchangeServiceBinding.IsSchemaValidated);
             #endregion
 
             return setUserPhotoResponse;

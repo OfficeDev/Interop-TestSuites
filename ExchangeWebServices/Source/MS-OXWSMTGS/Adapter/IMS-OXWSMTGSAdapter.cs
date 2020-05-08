@@ -62,6 +62,20 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
         CreateItemResponseType CreateItem(CreateItemType request);
 
         /// <summary>
+        /// Retrieves the profile image for a mailbox
+        /// </summary>
+        /// <param name="getRemindersRequest">The request of GetReminders operation.</param>
+        /// <returns>A response to GetReminders operation request.</returns>
+        GetRemindersResponseMessageType GetReminders(GetRemindersType getRemindersRequest);
+
+        /// <summary>
+        /// Retrieves the profile image for a mailbox
+        /// </summary>
+        /// <param name="PerformReminderActionRequest">The request of PerformReminderAction operation.</param>
+        /// <returns>A response to PerformReminderAction operation request.</returns>
+        PerformReminderActionResponseMessageType PerformReminderAction(PerformReminderActionType PerformReminderActionRequest);
+
+        /// <summary>
         /// Switch the current user to a new one, with the identity of the new user to communicate with Exchange Web Service.
         /// </summary>
         /// <param name="userName">The name of a user.</param>

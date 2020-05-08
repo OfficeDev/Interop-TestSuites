@@ -1979,7 +1979,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 ResponseCodeType.ErrorInvalidPermissionSettings,
                 createFolderResponse.ResponseMessages.Items[0].ResponseCode,
                 54911,
-                @"[In Appendix C: Product Behavior] Implementation does return an ErrorInvalidPermissionSettings response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to ""Custom"". (<7> Section 2.2.4.15:  Exchange 2007 and Exchange 2010 will return an ErrorInvalidPermissionSettings ([MS-OXWSCDATA] section 2.2.5.24) response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to ""Custom"".)");
+                @"[In Appendix C: Product Behavior] Implementation does return an ErrorInvalidPermissionSettings response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to ""Custom"". (<9> Section 2.2.4.15:  Exchange 2007 and Exchange 2010 will return an ErrorInvalidPermissionSettings ([MS-OXWSCDATA] section 2.2.5.24) response code if any field of BasePermissionType other than UserId field is set, and the PermissionLevel field is not set to ""Custom"".)");
         }
 
         /// <summary>
@@ -2041,7 +2041,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
                 this.Site.CaptureRequirementIfIsTrue(
                     canReadItem,
                     1531,
-                    @"[In Appendix C: Product Behavior] The implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder and read those items. (<9> Section 2.2.5.3:  In Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 the user can create items in the folder and read those items.)");
+                    @"[In Appendix C: Product Behavior] The implementation does support Contributor in PermissionLevelType specifies that the user can create items in the folder and read those items. (<11> Section 2.2.5.3:  In Microsoft Exchange Server 2013 Service Pack 1 (SP1) and Exchange 2016 the user can create items in the folder and read those items.)");
             }
 
             if (Common.IsRequirementEnabled(1532, this.Site))

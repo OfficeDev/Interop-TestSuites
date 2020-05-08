@@ -24,9 +24,22 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
  <xs:complexType name=""FileOperationSubResponseType"">
    <xs:complexContent>
      <xs:extension base=""tns:SubResponseType"">
-     </xs:extension>
+        <xs:sequence minOccurs=""0"" maxOccurs=""1"">
+       < xs:element name = ""SubResponseData"" />
+       </ xs:sequence >
+
+     </ xs:extension>
    </xs:complexContent>
  </xs:complexType>");
+
+            // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2349
+            site.CaptureRequirementIfAreEqual<Type>(
+                     typeof(FileOperationSubResponseType),
+                     fileOperationSubResponse.GetType(),
+                     "MS-FSSHTTP",
+                     2349,
+                     @"[FileOperation SubRequest]The protocol server responds with a FileOperation SubResponse message, which is of type FileOperationSubResponseType as specified in section 2.3.1.35. ");
+
         }
     }
 }

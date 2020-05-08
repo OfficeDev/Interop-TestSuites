@@ -1093,6 +1093,405 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMSG
             Site.Assert.IsTrue(isClear, "Sender's drafts folder should be cleaned up.");
             #endregion
         }
+
+        /// <summary>
+        /// This test case is used to verify  related requirement about the ApprovalRequestData is read-only. 
+        /// </summary>
+        [TestCategory("MSOXWSMSG"), TestMethod()]
+        public void MSOXWSMSG_S07_TC08_VerifyApprovalRequestDataIsReadOnly()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(73008, this.Site), "Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ApprovalRequestData element.");
+            #region Create a message which include the ApprovalRequestData element.
+            CreateItemType createItemRequest = new CreateItemType
+            {
+                MessageDisposition = MessageDispositionType.SaveOnly,
+
+                // MessageDispositionSpecified value needs to be set.
+                MessageDispositionSpecified = true,
+
+                SavedItemFolderId = new TargetFolderIdType
+                {
+                    Item = new DistinguishedFolderIdType
+                    {
+                        Id = DistinguishedFolderIdNameType.drafts
+                    }
+                },
+
+                Items = new NonEmptyArrayOfAllItemsType
+                {
+                    Items = new MessageType[]
+                    {
+                        // Create a MessageType instance with all element.
+                        new MessageType
+                        {
+                            // Specify the sender of the message.
+                            Sender = new SingleRecipientType
+                            {
+                                Item = new EmailAddressType
+                                {
+                                    EmailAddress = this.Sender
+                                }
+                            },
+
+                            // Specify the recipient of the message.
+                            ToRecipients = new EmailAddressType[]
+                            {
+                                new EmailAddressType
+                                {
+                                     EmailAddress = this.Recipient1
+                                }
+                            },
+
+                            // Specify the ApprovalRequestData of the message.
+                            ApprovalRequestData = new ApprovalRequestDataType()
+                            {
+                                IsUndecidedApprovalRequest=false
+                            }
+                        }
+                    }
+                },
+            };
+
+            CreateItemResponseType createItemResponse = this.MSGAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidPropertySet, createItemResponse.ResponseMessages.Items[0].ResponseCode, "Since ReceivedRepresenting is read-only, then the The ErrorInvalidPropertySet should be returned by server.");
+            #endregion
+
+            #region Create message
+            createItemRequest = this.GetCreateItemType(MessageDispositionType.SaveOnly, DistinguishedFolderIdNameType.drafts);
+            createItemResponse = this.MSGAdapter.CreateItem(createItemRequest);
+            Site.Assert.IsTrue(this.VerifyCreateItemResponse(createItemResponse, MessageDispositionType.SaveOnly), @"Server should return success for creating the email messages.");
+            this.infoItems = TestSuiteHelper.GetInfoItemsInResponse(createItemResponse);
+            this.firstItemOfFirstInfoItem = TestSuiteHelper.GetItemTypeItemFromInfoItemsByIndex(this.infoItems, 0, 0);
+
+            // Save the ItemId of message responseMessageItem returned from the createItem response.
+            ItemIdType itemIdType = new ItemIdType();
+            Site.Assert.IsNotNull(this.firstItemOfFirstInfoItem.ItemId, @"The ItemId property of the first item should not be null.");
+            itemIdType.Id = this.firstItemOfFirstInfoItem.ItemId.Id;
+            itemIdType.ChangeKey = this.firstItemOfFirstInfoItem.ItemId.ChangeKey;
+            #endregion
+
+            #region update ReceivedRepresenting property of the original message
+            UpdateItemType updateItemRequest = new UpdateItemType
+            {
+                MessageDisposition = MessageDispositionType.SaveOnly,
+                MessageDispositionSpecified = true,
+
+                ItemChanges = new ItemChangeType[]
+                {
+                    new ItemChangeType
+                    {
+                        Item = itemIdType,
+
+                        Updates = new ItemChangeDescriptionType[]
+                        {
+                            new SetItemFieldType
+                            {
+                                Item = new PathToUnindexedFieldType
+                                {
+                                    FieldURI = UnindexedFieldURIType.messageReceivedRepresenting
+                                },
+                                Item1 = new MessageType
+                                {
+                                    // Specify the ApprovalRequestData of the message.
+                                    ApprovalRequestData = new ApprovalRequestDataType()
+                                    {
+                                        IsUndecidedApprovalRequest=false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            UpdateItemResponseType updateItemResponse = this.MSGAdapter.UpdateItem(updateItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidPropertySet, updateItemResponse.ResponseMessages.Items[0].ResponseCode, "Since ReceivedRepresenting is read-only, then the The ErrorInvalidPropertySet should be returned by server.");
+            #endregion
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R73008");
+
+            // If the above steps are pass, the R73008 will be verified.
+            this.Site.CaptureRequirement(
+                73008,
+                @"[In t:MessageType Complex Type] [ApprovalRequestData] This element is read-only.");
+
+            #region Clean up Sender's drafts folder
+            bool isClear = this.MSGSUTControlAdapter.CleanupFolders(
+                Common.GetConfigurationPropertyValue("Sender", this.Site),
+                Common.GetConfigurationPropertyValue("SenderPassword", this.Site),
+                this.Domain,
+                this.Subject,
+                "drafts");
+            Site.Assert.IsTrue(isClear, "Sender's drafts folder should be cleaned up.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is used to verify  related requirement about the VotingInformation is read-only. 
+        /// </summary>
+        [TestCategory("MSOXWSMSG"), TestMethod()]
+        public void MSOXWSMSG_S07_TC09_VerifyVotingInformationIsReadOnly()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(73009, this.Site), "Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the VotingInformation element.");
+            #region Create a message which include the VotingInformation element.
+            CreateItemType createItemRequest = new CreateItemType
+            {
+                MessageDisposition = MessageDispositionType.SaveOnly,
+
+                // MessageDispositionSpecified value needs to be set.
+                MessageDispositionSpecified = true,
+
+                SavedItemFolderId = new TargetFolderIdType
+                {
+                    Item = new DistinguishedFolderIdType
+                    {
+                        Id = DistinguishedFolderIdNameType.drafts
+                    }
+                },
+
+                Items = new NonEmptyArrayOfAllItemsType
+                {
+                    Items = new MessageType[]
+                    {
+                        // Create a MessageType instance with all element.
+                        new MessageType
+                        {
+                            // Specify the sender of the message.
+                            Sender = new SingleRecipientType
+                            {
+                                Item = new EmailAddressType
+                                {
+                                    EmailAddress = this.Sender
+                                }
+                            },
+
+                            // Specify the recipient of the message.
+                            ToRecipients = new EmailAddressType[]
+                            {
+                                new EmailAddressType
+                                {
+                                     EmailAddress = this.Recipient1
+                                }
+                            },
+
+                            // Specify the VotingInformation of the message.
+                            VotingInformation = new VotingInformationType()
+                            {
+                                UserOptions=new VotingOptionDataType[1]
+                            }
+                        }
+                    }
+                },
+            };
+
+            CreateItemResponseType createItemResponse = this.MSGAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidPropertySet, createItemResponse.ResponseMessages.Items[0].ResponseCode, "Since ReceivedRepresenting is read-only, then the The ErrorInvalidPropertySet should be returned by server.");
+            #endregion
+
+            #region Create message
+            createItemRequest = this.GetCreateItemType(MessageDispositionType.SaveOnly, DistinguishedFolderIdNameType.drafts);
+            createItemResponse = this.MSGAdapter.CreateItem(createItemRequest);
+            Site.Assert.IsTrue(this.VerifyCreateItemResponse(createItemResponse, MessageDispositionType.SaveOnly), @"Server should return success for creating the email messages.");
+            this.infoItems = TestSuiteHelper.GetInfoItemsInResponse(createItemResponse);
+            this.firstItemOfFirstInfoItem = TestSuiteHelper.GetItemTypeItemFromInfoItemsByIndex(this.infoItems, 0, 0);
+
+            // Save the ItemId of message responseMessageItem returned from the createItem response.
+            ItemIdType itemIdType = new ItemIdType();
+            Site.Assert.IsNotNull(this.firstItemOfFirstInfoItem.ItemId, @"The ItemId property of the first item should not be null.");
+            itemIdType.Id = this.firstItemOfFirstInfoItem.ItemId.Id;
+            itemIdType.ChangeKey = this.firstItemOfFirstInfoItem.ItemId.ChangeKey;
+            #endregion
+
+            #region update ReceivedRepresenting property of the original message
+            UpdateItemType updateItemRequest = new UpdateItemType
+            {
+                MessageDisposition = MessageDispositionType.SaveOnly,
+                MessageDispositionSpecified = true,
+
+                ItemChanges = new ItemChangeType[]
+                {
+                    new ItemChangeType
+                    {
+                        Item = itemIdType,
+
+                        Updates = new ItemChangeDescriptionType[]
+                        {
+                            new SetItemFieldType
+                            {
+                                Item = new PathToUnindexedFieldType
+                                {
+                                    FieldURI = UnindexedFieldURIType.messageReceivedRepresenting
+                                },
+                                Item1 = new MessageType
+                                {
+                                    // Specify the VotingInformation of the message.
+                                    VotingInformation = new VotingInformationType()
+                                    {
+                                        UserOptions=new VotingOptionDataType[1]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            UpdateItemResponseType updateItemResponse = this.MSGAdapter.UpdateItem(updateItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidPropertySet, updateItemResponse.ResponseMessages.Items[0].ResponseCode, "Since ReceivedRepresenting is read-only, then the The ErrorInvalidPropertySet should be returned by server.");
+            #endregion
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R73009");
+
+            // If the above steps are pass, the R73009 will be verified.
+            this.Site.CaptureRequirement(
+                73009,
+                @"[In t:MessageType Complex Type] [VotingInformation]This element is read-only.");
+
+            #region Clean up Sender's drafts folder
+            bool isClear = this.MSGSUTControlAdapter.CleanupFolders(
+                Common.GetConfigurationPropertyValue("Sender", this.Site),
+                Common.GetConfigurationPropertyValue("SenderPassword", this.Site),
+                this.Domain,
+                this.Subject,
+                "drafts");
+            Site.Assert.IsTrue(isClear, "Sender's drafts folder should be cleaned up.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is used to verify  related requirement about the ReminderMessageData is read-only. 
+        /// </summary>
+        [TestCategory("MSOXWSMSG"), TestMethod()]
+        public void MSOXWSMSG_S07_TC10_VerifyReminderMessageDataIsReadOnly()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(73010, this.Site), "Exchange 2007, Exchange 2010, and the initial release of Exchange 2013 do not support the ReminderMessageData element.");
+            #region Create a message which include the ReminderMessageData element.
+            CreateItemType createItemRequest = new CreateItemType
+            {
+                MessageDisposition = MessageDispositionType.SaveOnly,
+
+                // MessageDispositionSpecified value needs to be set.
+                MessageDispositionSpecified = true,
+
+                SavedItemFolderId = new TargetFolderIdType
+                {
+                    Item = new DistinguishedFolderIdType
+                    {
+                        Id = DistinguishedFolderIdNameType.drafts
+                    }
+                },
+
+                Items = new NonEmptyArrayOfAllItemsType
+                {
+                    Items = new MessageType[]
+                    {
+                        // Create a MessageType instance with all element.
+                        new MessageType
+                        {
+                            // Specify the sender of the message.
+                            Sender = new SingleRecipientType
+                            {
+                                Item = new EmailAddressType
+                                {
+                                    EmailAddress = this.Sender
+                                }
+                            },
+
+                            // Specify the recipient of the message.
+                            ToRecipients = new EmailAddressType[]
+                            {
+                                new EmailAddressType
+                                {
+                                     EmailAddress = this.Recipient1
+                                }
+                            },
+
+                            // Specify the ReminderMessageData of the message.
+                            ReminderMessageData = new ReminderMessageDataType()
+                            {
+                                ReminderText="ReminderText"
+                            }
+                        }
+                    }
+                },
+            };
+
+            CreateItemResponseType createItemResponse = this.MSGAdapter.CreateItem(createItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidPropertySet, createItemResponse.ResponseMessages.Items[0].ResponseCode, "Since ReceivedRepresenting is read-only, then the The ErrorInvalidPropertySet should be returned by server.");
+            #endregion
+
+            #region Create message
+            createItemRequest = this.GetCreateItemType(MessageDispositionType.SaveOnly, DistinguishedFolderIdNameType.drafts);
+            createItemResponse = this.MSGAdapter.CreateItem(createItemRequest);
+            Site.Assert.IsTrue(this.VerifyCreateItemResponse(createItemResponse, MessageDispositionType.SaveOnly), @"Server should return success for creating the email messages.");
+            this.infoItems = TestSuiteHelper.GetInfoItemsInResponse(createItemResponse);
+            this.firstItemOfFirstInfoItem = TestSuiteHelper.GetItemTypeItemFromInfoItemsByIndex(this.infoItems, 0, 0);
+
+            // Save the ItemId of message responseMessageItem returned from the createItem response.
+            ItemIdType itemIdType = new ItemIdType();
+            Site.Assert.IsNotNull(this.firstItemOfFirstInfoItem.ItemId, @"The ItemId property of the first item should not be null.");
+            itemIdType.Id = this.firstItemOfFirstInfoItem.ItemId.Id;
+            itemIdType.ChangeKey = this.firstItemOfFirstInfoItem.ItemId.ChangeKey;
+            #endregion
+
+            #region update ReceivedRepresenting property of the original message
+            UpdateItemType updateItemRequest = new UpdateItemType
+            {
+                MessageDisposition = MessageDispositionType.SaveOnly,
+                MessageDispositionSpecified = true,
+
+                ItemChanges = new ItemChangeType[]
+                {
+                    new ItemChangeType
+                    {
+                        Item = itemIdType,
+
+                        Updates = new ItemChangeDescriptionType[]
+                        {
+                            new SetItemFieldType
+                            {
+                                Item = new PathToUnindexedFieldType
+                                {
+                                    FieldURI = UnindexedFieldURIType.messageReceivedRepresenting
+                                },
+                                Item1 = new MessageType
+                                {
+                                    // Specify the ReminderMessageData of the message.
+                                    ReminderMessageData = new ReminderMessageDataType()
+                                    {
+                                        ReminderText="ReminderText"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            UpdateItemResponseType updateItemResponse = this.MSGAdapter.UpdateItem(updateItemRequest);
+            Site.Assert.AreEqual<ResponseCodeType>(ResponseCodeType.ErrorInvalidPropertySet, updateItemResponse.ResponseMessages.Items[0].ResponseCode, "Since ReceivedRepresenting is read-only, then the The ErrorInvalidPropertySet should be returned by server.");
+            #endregion
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMSG_R73010");
+
+            // If the above steps are pass, the R73010 will be verified.
+            this.Site.CaptureRequirement(
+                73010,
+                @"[In t:MessageType Complex Type] [ReminderMessageData]This element is read-only.");
+
+            #region Clean up Sender's drafts folder
+            bool isClear = this.MSGSUTControlAdapter.CleanupFolders(
+                Common.GetConfigurationPropertyValue("Sender", this.Site),
+                Common.GetConfigurationPropertyValue("SenderPassword", this.Site),
+                this.Domain,
+                this.Subject,
+                "drafts");
+            Site.Assert.IsTrue(isClear, "Sender's drafts folder should be cleaned up.");
+            #endregion
+        }
         #endregion
     }
 }

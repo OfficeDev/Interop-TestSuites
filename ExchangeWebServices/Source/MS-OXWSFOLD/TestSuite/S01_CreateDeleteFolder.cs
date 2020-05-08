@@ -1125,7 +1125,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSFOLD
             this.Site.CaptureRequirement(
                 "MS-OXWSCONT",
                 217,
-                @"[In t:ContactsFolderType Complex Type] The type of the element of PermissionSet is t:PermissionSetType ([MS-OXWSFOLD] section 2.2.4.12)");
+                @"[In t:ContactsFolderType Complex Type] The type of the element of PermissionSet is t:PermissionSetType ([MS-OXWSFOLD] section 2.2.4.14)");
 
             #region Delete the created folder
 

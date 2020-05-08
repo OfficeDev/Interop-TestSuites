@@ -621,7 +621,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R294</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:SyncFolderHierarchySoapIn Message] The Element/type of MailboxCulture is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+		<ns1:Description>[In tns:SyncFolderHierarchySoapIn Message] The Element/type of MailboxCulture is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -648,7 +648,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R297</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:SyncFolderHierarchySoapIn Message] The Element/type of RequestVersion is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:SyncFolderHierarchySoapIn Message] The Element/type of RequestVersion is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -715,7 +715,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R308</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:SyncFolderHierarchySoapOut] The Element/Type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:SyncFolderHierarchySoapOut] The Element/Type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1000,7 +1000,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R101</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of CalendarFolder element is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.8).</ns1:Description>
+		<ns1:Description>[In t:SyncFolderHierarchyCreateOrUpdateType Complex Type] The type of CalendarFolder element is t:CalendarFolderType ([MS-OXWSMTGS] section 2.2.4.5).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1702,7 +1702,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R425</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:SyncFolderItemsSoapIn Message] The Element/type of MailboxCulture is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.7).</ns1:Description>
+		<ns1:Description>[In tns:SyncFolderItemsSoapIn Message] The Element/type of MailboxCulture is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1729,7 +1729,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R428</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:SyncFolderItemsSoapIn Message] The Element/type of RequestVersion is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.11).</ns1:Description>
+		<ns1:Description>[In tns:SyncFolderItemsSoapIn Message] The Element/type of RequestVersion is t:RequestServerVersion ([MS-OXWSCDATA] section 2.2.3.9).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1796,7 +1796,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R439</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:SyncFolderItemsSoapOut] The Element/type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.12).</ns1:Description>
+		<ns1:Description>[In tns:SyncFolderItemsSoapOut] The Element/type of ServerVersion is t:ServerVersionInfo ([MS-OXWSCDATA] section 2.2.3.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2177,7 +2177,25 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R155</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Item] specifies an item to create or update in the client message store.&lt;2&gt;</ns1:Description>
+		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Item] specifies an item to create or update in the client message store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSSYNC_R150</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Item] This element SHOULD NOT be used. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSSYNC_R151</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element Item] . If a client creates or updates an item of this type, an item of t:MessageType type SHOULD&lt;2&gt; be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2187,7 +2205,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R156</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of Message is t:MessageType ([MS-OXWSMSG] section 2.2.4.1).</ns1:Description>
+		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of Message is t:MessageType ([MS-OXWSMSG] section 2.2.4.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2214,7 +2232,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R158</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type]  The type of CalendarItem is t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.9).</ns1:Description>
+		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type]  The type of CalendarItem is t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2296,7 +2314,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R164</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingMessage is t:MeetingMessageType ([MS-OXWSMTGS] section 2.2.4.20).</ns1:Description>
+		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingMessage is t:MeetingMessageType ([MS-OXWSMTGS] section 2.2.4.15).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2305,7 +2323,16 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R165</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingMessage] specifies a meeting message to create or update in the client message store.</ns1:Description>
+		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingMessage] specifies a meeting message to create in the client message store.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSSYNC_R1651</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
+		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] [The element MeetingMessage] specifies a meeting message to update in the client message store.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2314,7 +2341,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R166</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingRequest is t:MeetingRequestMessageType ([MS-OXWSMTGS] section 2.2.4.22).</ns1:Description>
+		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingRequest is t:MeetingRequestMessageType ([MS-OXWSMTGS] section 2.2.4.17).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2341,7 +2368,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R168</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingResponse is t:MeetingResponseMessageType ([MS-OXWSMTGS] section 2.2.4.23).</ns1:Description>
+		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingResponse is t:MeetingResponseMessageType ([MS-OXWSMTGS] section 2.2.4.18).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2368,7 +2395,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R170</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingCancellation is t:MeetingCancellationMessageType ([MS-OXWSMTGS] section 2.2.4.19).</ns1:Description>
+		<ns1:Description>[In t:SyncFolderItemsCreateOrUpdateType Complex Type] The type of MeetingCancellation is t:MeetingCancellationMessageType ([MS-OXWSMTGS] section 2.2.4.14).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3405,8 +3432,8 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811003</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does not support the ItemType complex type. (&lt;2&gt; Section 3.1.4.2.3.3:  Microsoft Exchange Server 2007 Service Pack 1 (SP1), Exchange 2010, and Exchange 2013 do not support the ItemType complex type. )</ns1:Description>
-		<ns1:Derived>MS-OXWSSYNC_R155:i</ns1:Derived>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return the ItemType complex type. (&lt;2&gt; Section 3.1.4.2.3.3:  The initial release of Exchange 2007 returns the item of type t:ItemType. )</ns1:Description>
+		<ns1:Derived>MS-OXWSSYNC_R151:I,MS-OXWSSYNC_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3415,8 +3442,8 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R37811004</ns1:REQ_ID>
 		<ns1:Doc_Sect>8</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a MessageType complex type. (If a client creates an item of this type, a MessageType complex type is returned.)</ns1:Description>
-		<ns1:Derived>MS-OXWSSYNC_R155:i</ns1:Derived>
+		<ns1:Description>[In Appendix C: Product Behavior] Implementation does return a MessageType complex type. (If a client creates an item of this type, a MessageType complex type is returned.)(Exchange Server 2007 Service Pack 1 (SP1) and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-OXWSSYNC_R151:I,MS-OXWSSYNC_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

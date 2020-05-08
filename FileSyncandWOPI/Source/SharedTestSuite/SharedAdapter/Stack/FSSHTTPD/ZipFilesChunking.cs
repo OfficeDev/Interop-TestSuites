@@ -169,7 +169,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                                             isR8213Verified,
                                             "MS-FSSHTTPD",
                                             8213,
-                                            @"[In Appendix A: Product Behavior] For implementation, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabyte, a list of subchunks is generated. <4> Section 2.4.1:  For SharePoint Server 2010, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabyte, a list of subchunks is generated.");
+                                            @"[In Appendix A: Product Behavior] For implementation, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabyte, a list of subchunks is generated. <7> Section 2.4.1:  For SharePoint Server 2010, if the number of .ZIP file bytes represented by a chunk is greater than 1 megabyte, a list of subchunks is generated.");
                                 }
 
                                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8207, SharedContext.Current.Site))
@@ -214,7 +214,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                                             isR8210Verified,
                                             "MS-FSSHTTPD",
                                             8210,
-                                            @"[In Appendix A: Product Behavior] All but the last subchunk MUST be 1 megabyte in size. (Microsfot SharePoint Server 2010 follows this behavior.)");
+                                            @"[In Appendix A: Product Behavior] All but the last subchunk is 1 megabyte in size. (Microsfot SharePoint Server 2010 follows this behavior.)");
                                 }
 
                                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8209, SharedContext.Current.Site) && Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8211, SharedContext.Current.Site))
@@ -244,7 +244,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                                             isR8211Verified,
                                             "MS-FSSHTTPD",
                                             8211,
-                                            @"[In Appendix A: Product Behavior] All but the last subchunk MUST be 3 megabyte in size. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)");
+                                            @"[In Appendix A: Product Behavior] All but the last subchunk is 3 megabyte in size. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)");
                                 }
                             }
                             else if (nodeObject.DataNodeObjectData != null)

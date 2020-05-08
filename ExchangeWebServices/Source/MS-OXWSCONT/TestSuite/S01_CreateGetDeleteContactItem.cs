@@ -1036,7 +1036,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 ResponseCodeType.ErrorInvalidPropertySet,
                 createItemResponse.ResponseMessages.Items[0].ResponseCode,
                 81001,
-                @"[In t:ContactItemType Complex Type] HasPicture element: This element is read-only for the client.<4>");
+                @"[In t:ContactItemType Complex Type] HasPicture element: This element is read-only for the client.<6>");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R1275002");
+
+            // If step above all pass, R1275002 will be verified.
+            this.Site.CaptureRequirement(
+                1275002,
+                @"[In Appendix C: Product Behavior] Implementation does support element HasPicture. (Exchange 2010 and above follow this behavior.)");
+
             #endregion
         }
 
@@ -1077,6 +1086,109 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 createItemResponse.ResponseMessages.Items[0].ResponseCode,
                 301001,
                 @"[In CreateItem] tns:CreateItemSoapIn: The contact (2) item MUST be created in a Contacts folder, or ErrorCannotCreateContactInNonContactFolder ([MS-OXWSCDATA] section 2.2.5.24) will be returned.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is intended to validate the successful response returned by CreateItem, GetItem and DeleteItem operations for person item with required elements.
+        /// </summary>
+        [TestCategory("MSOXWSCONT"), TestMethod()]
+        public void MSOXWSCONT_S01_TC12_VerifyAbchPersonItemType()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(336002, this.Site), "Implementation does support the AbchPersonItemType complex type.");
+
+            #region Step 1:Create an item
+            AbchPersonItemType abchPersonItem = new AbchPersonItemType();
+
+            abchPersonItem.AntiLinkInfo = Common.GenerateResourceName(this.Site, "AntiLinkInfo");
+            abchPersonItem.ContactCategories = new string[] {
+                                    "test category"
+                                };
+            abchPersonItem.FavoriteOrderSpecified = true;
+            abchPersonItem.FavoriteOrder = 1;
+            ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(abchPersonItem);
+            #endregion
+
+            #region Find the item
+            FindItemType findRequest = new FindItemType();
+            findRequest.ItemShape = new ItemResponseShapeType();
+            findRequest.ItemShape.BaseShape = DefaultShapeNamesType.Default;
+            DistinguishedFolderIdType disFolderId = new DistinguishedFolderIdType();
+            disFolderId.Id = DistinguishedFolderIdNameType.contacts;
+            findRequest.ParentFolderIds = new BaseFolderIdType[1];
+            findRequest.ParentFolderIds[0] = disFolderId;
+            FindItemResponseType resp = this.CONTAdapter.FindItem(findRequest);
+
+            ArrayOfRealItemsType items = ((FindItemResponseMessageType)resp.ResponseMessages.Items[0]).RootFolder.Item as ArrayOfRealItemsType;
+            #endregion
+
+            #region Capture code
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16006");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R216006
+            Site.CaptureRequirementIfIsNotNull(
+                ((AbchPersonItemType)items.Items[0]).AntiLinkInfo,
+                16006,
+                @"[In t:AbchPersonItemType Complex Type] AntiLinkInfo element: Specifies an ID of a set of people who MUST NOT be linked together automatically.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16012");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R216012
+            Site.CaptureRequirementIfIsNotNull(
+                ((AbchPersonItemType)items.Items[0]).ContactCategories,
+                16012,
+                @"[In t:AbchPersonItemType Complex Type] ContactCategories element: Specifies the categories of groups that this person belongs to.");
+
+            Site.Assert.IsTrue(((AbchPersonItemType)items.Items[0]).FavoriteOrderSpecified, "FavoriteOrderSpecified element should be True.");
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R16022");
+
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R16022
+            Site.CaptureRequirementIfAreEqual<int>(
+                1,
+                ((AbchPersonItemType)items.Items[0]).FavoriteOrder,
+                16022,
+                @"[In t:AbchPersonItemType Complex Type] FavoriteOrder element: Otherwise [If this value is not 0], a non-zero value means this person is a favorite. ");
+            #endregion
+
+            #region Step3:Delete the item
+            DeleteItemType deleteItemRequest = new DeleteItemType();
+            deleteItemRequest.ItemIds = createdItemIds;
+
+            // Configure the enumeration value that specifies how an person item is to be deleted.
+            deleteItemRequest.DeleteType = DisposalType.HardDelete;
+
+            DeleteItemResponseType deleteItemResponse = this.CONTAdapter.DeleteItem(deleteItemRequest);
+
+
+            // Check the operation response.
+            Common.CheckOperationSuccess(deleteItemResponse, 1, this.Site);
+
+            // Clear ExistItemIds for DeleteItem.
+            this.InitializeCollection();
+            #endregion
+
+            #region Step 4:Get the deleted person item
+            // Call GetItem operation using the deleted item IDs.
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(createdItemIds);
+
+            Site.Assert.AreEqual<int>(
+                 1,
+                 getItemResponse.ResponseMessages.Items.GetLength(0),
+                 "Expected Item Count: {0}, Actual Item Count: {1}",
+                 1,
+                 getItemResponse.ResponseMessages.Items.GetLength(0));
+
+            Site.Assert.AreEqual<ResponseClassType>(
+                ResponseClassType.Error,
+                getItemResponse.ResponseMessages.Items[0].ResponseClass,
+                string.Format(
+                    "Get deleted item should be failed! Expected response code: {0}, actual response code: {1}",
+                    ResponseCodeType.ErrorItemNotFound,
+                    getItemResponse.ResponseMessages.Items[0].ResponseCode));
             #endregion
         }
         #endregion

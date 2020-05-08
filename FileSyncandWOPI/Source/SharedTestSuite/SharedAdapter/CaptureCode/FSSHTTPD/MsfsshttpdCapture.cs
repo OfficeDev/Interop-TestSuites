@@ -95,6 +95,21 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTPD",
                      8063,
                      @"[In Generating Chunks] Files are split into chunks by using the RDC FilterMax algorithm, as specified in [MS-RDC] section 3.1.5.1, using a hash window of 48 and a horizon of 16,384.");
+
+            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 8214, SharedContext.Current.Site))
+            {
+                site.CaptureRequirement(
+                     "MS-FSSHTTPD",
+                     8214,
+                     @"[In Appendix A: Product Behavior] RDC analysis is performed only if the file size is less than 104,857,600 bytes.(Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior)");
+            }
+            else
+            {
+                site.CaptureRequirement(
+                     "MS-FSSHTTPD",
+                     8212,
+                     @"[In Appendix A: Product Behavior] Implementation performs the RDC analysis if the file size is more than or equal to 32768 bytes and less than 262,144,000 bytes. (<9> Section 2.4.2:  SharePoint Server 2010 performs the RDC analysis if the file size is more than or equal to 32768 bytes and less than 262,144,000 bytes.)");
+            }
         }
 
         /// <summary>
@@ -145,11 +160,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      8026,
                      @"[In Zip Files] Local File Header Hash: A 20-byte sequence that specifies the SHA-1 hash code of the file bytes represented by the local file header chunk.");
 
-            // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8028
+            // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R1363
             site.CaptureRequirement(
                      "MS-FSSHTTPD",
-                     8028,
-                     @"[In Zip Files][Data file chunk structure] CRC (4 bytes): An unsigned 32-bit integer that specifies the value of the local file header crc-32 field, as specified in [PKWARE-Zip].");
+                     1363,
+                     @"[In Appendix A: Product Behavior]Implementation does add an additional unsigned 32-bit integer , which specifies the CRC of the compressed data, after CRC field.(<5> Section 2.4.1:  Office 2010 March 2015 CU adds an additional unsigned 32-bit integer, which specifies the CRC of the compressed data, after CRC field.)");
 
             // Verify MS-FSSHTTPD requirement: MS-FSSHTTPD_R8029
             site.CaptureRequirement(
@@ -371,7 +386,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                         isRootNode,
                         "MS-FSSHTTPD",
                         8204,
-                        @"[In Appendix A: Product Behavior] If there is only one object in the file,the implementation does return the Intermediate Node Object. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016 follow this behavior.)");          
+                        @"[In Appendix A: Product Behavior] If there is only one object in the file,the implementation does return the Intermediate Node Object. (Microsoft Office 2013/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2010/Microsft Office 2016/Microsft SharePoint Server 2016/Microsft Office 2019/Microsft SharePoint Server 2019 follow this behavior.)");          
                  }
              }
         }

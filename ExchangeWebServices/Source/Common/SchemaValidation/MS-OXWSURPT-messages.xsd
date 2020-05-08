@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2016" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2016" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="MS-OXWSURPT-types.xsd" namespace="http://schemas.microsoft.com/exchange/services/2006/types"/>
   <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
   <xs:complexType name="GetUserRetentionPolicyTagsType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseRequestType"/>
+      <xs:extension base="tns:BaseRequestType"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetUserRetentionPolicyTags" type="m:GetUserRetentionPolicyTagsType"/>
+  <xs:element name="GetUserRetentionPolicyTags" type="tns:GetUserRetentionPolicyTagsType"/>
   <xs:complexType name="GetUserRetentionPolicyTagsResponseMessageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:ResponseMessageType">
+      <xs:extension base="tns:ResponseMessageType">
         <xs:sequence>
           <xs:element name="RetentionPolicyTags" type="t:ArrayOfRetentionPolicyTagsType"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetUserRetentionPolicyTagsResponse" type="m:GetUserRetentionPolicyTagsResponseMessageType"/>
+  <xs:element name="GetUserRetentionPolicyTagsResponse" type="tns:GetUserRetentionPolicyTagsResponseMessageType"/>
 </xs:schema>

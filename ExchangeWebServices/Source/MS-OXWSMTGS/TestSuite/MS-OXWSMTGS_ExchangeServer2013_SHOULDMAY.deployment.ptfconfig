@@ -61,10 +61,8 @@
     <Property name="R909Enabled" value="true" />
     <!--Set R910Enabled to true to verify that for MeetingResponseMessageType the implementation does support CalendarItemType which is a string element that represents the type of calendar item, as specified in section 2.2.4.14. Set R910Enabled to false to disable this requirement.-->
     <Property name="R910Enabled" value="true" />
-    <!--Set R16505Enabled to true to verify that for CalendarItemType the implementation does support the LegacyFreeBusyStatus which value set to "WorkingElsewhere" specifies the status as working outside the office. Set R16505Enabled to false to disable this requirement.-->
-    <Property name="R16505Enabled" value="true" />
-    <!--Set R28505Enabled to true to verify that for MeetingRequestMessageType the implementation does support the IntendedFreeBusyStatus which value set to "WorkingElsewhere" specifies the status as working outside the office. Set R28505Enabled to false to disable this requirement.-->
-    <Property name="R28505Enabled" value="true" />
+    <!--Set R4001Enabled to true to verify that for MeetingRequestMessageType the implementation does support the IntendedFreeBusyStatus which value set to "WorkingElsewhere" specifies the status as working outside the office. Set R4001Enabled to false to disable this requirement.-->
+    <Property name="R4001Enabled" value="true" />
     <!--Set R80048Enabled to true to verify that the implementation does support complex type "IsOrganizer" with type "xs:boolean" which specifies whether the current user is the organizer and/or owner of the calendar item. Set R80048Enabled to false to disable this requirement.-->
     <Property name="R80048Enabled" value="true" />
     <!--Set R80049Enabled to true to verify that the implementation does support the IsOrganizer, which specifies whether the current user is the organizer of the meeting. Set R80049Enabled to false to disable this requirement.-->
@@ -87,8 +85,8 @@
     <Property name="R1284Enabled" value="true" />
     <!--Set R1282Enabled to true to verify that the implementation does support ResponseType if the recipient has not yet responded to the meeting request. Set R1282Enabled to false to disable this requirement.-->
     <Property name="R1282Enabled" value="true" />
-    <!--Set R2301Enabled to true to verify that the implementation does support the IsOnlineMeeting element. Set R2301Enabled to false to disable this requirement.-->
-    <Property name="R2301Enabled" value="true" />
+    <!--Set R2301Enabled to true to verify that IsOnlineMeeting is read-only. Set R2301Enabled to false to disable this requirement.-->
+    <Property name="R2301Enabled" value="false" />
     <!--Set R1338Enabled to true to verify that the implementation does support the SharingEffectiveRights element. Set R1338Enabled to false to disable this requirement.-->
     <Property name="R1338Enabled" value="true" />
     <!--Set R715Enabled to true to verify that the implementation does support complex type "MeetingTimeZone" in CalendarItemType. Set R715Enabled to false to disable this requirement.-->
@@ -109,5 +107,17 @@
     <Property name="R7512Enabled" value="true" />
     <!--Set R911Enabled to true to verify that the implementation does support the TimeZoneType complex type. Set R911Enabled to false to disable this requirement.-->
     <Property name="R911Enabled" value="false" />
+    <!--Set R1278Enabled to true to verify that the implementation does support the InboxReminder complex type. Set R1278Enabled to false to disable this requirement.-->
+    <Property name="R1278Enabled" value="false" />
+    <!--Set R1310Enabled to true to verify that the implementation does support the EmailReminderChangeType simple type. Set R1310Enabled to false to disable this requirement.-->
+    <Property name="R1310Enabled" value="false" />
+    <!--Set R1312Enabled to true to verify that the implementation does support the EmailReminderSendOption simple type. Set R1312Enabled to false to disable this requirement.-->
+    <Property name="R1312Enabled" value="false" />
+    <!--Set R2198Enabled to true to verify that the implementation does support the GetReminder operation. Set R2198Enabled to false to disable this requirement.-->
+    <Property name="R2198Enabled" value="true" />
+    <!--Set R4001Enabled to true to verify that the implementation does support the WorkingElsewhere value. Set R4001Enabled to false to disable this requirement.-->
+    <Property name="R4001Enabled" value="true" />
+    <!--Set R2200Enabled to true to verify that the implementation does support the PerformReminderAction operation. Set R2200Enabled to false to disable this requirement.-->
+    <Property name="R2200Enabled" value="true" />
   </Properties>
 </TestSite>

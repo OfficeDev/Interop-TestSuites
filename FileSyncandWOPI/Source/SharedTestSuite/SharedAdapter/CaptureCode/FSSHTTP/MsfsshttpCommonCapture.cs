@@ -236,6 +236,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                              < xs:element ref= ""tns:Response"" />
                            </ xs:sequence >
                            < xs:attribute name = ""WebUrl"" type = ""xs:string"" use = ""required"" />
+                           < xs:attribute name = ""WebUrlIsEncoded"" type = ""tns:TRUEFALSE"" use = ""required"" />
                          </ xs:complexType >
                      </ xs:element > ");
 
@@ -400,7 +401,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      341,
                      @"[In ErrorCodeTypes][ErrorCodeTypes schema is:]
                       <xs:simpleType name=""ErrorCodeTypes"">
-                       < xs:union memberTypes = ""tns:GenericErrorCodeTypes tns:CellRequestErrorCodeTypes tns:DependencyCheckRelatedErrorCodeTypes tns:LockAndCoauthRelatedErrorCodeTypes tns:NewEditorsTableCategoryErrorCodeTypes"" tns: VersioningRelatedErrorCodeTypes >
+                       < xs:union memberTypes = ""tns:GenericErrorCodeTypes tns:CellRequestErrorCodeTypes tns:DependencyCheckRelatedErrorCodeTypes tns:LockAndCoauthRelatedErrorCodeTypes tns:NewEditorsTableCategoryErrorCodeTypes tns: VersioningRelatedErrorCodeTypes ""/>
                       </ xs:simpleType > ");
 
             switch (errorCode)
@@ -656,6 +657,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                             < xs:enumeration value = ""FileNotExistsOrCannotBeCreated"" />
                             < xs:enumeration value = ""FileUnauthorizedAccess"" />
                             < xs:enumeration value = ""PathNotFound"" />
+                            < xs:enumeration value = ""ResourceIdDoesNotExist"" />
+                            < xs:enumeration value = ""ResourceIdDoesNotMatch"" />
                             < xs:enumeration value = ""InvalidSubRequest"" />
                             < xs:enumeration value = ""SubRequestFail"" />
                             < xs:enumeration value = ""BlockedFileType"" />
@@ -727,12 +730,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                                    < xs:element name = ""SubResponse"" type = ""tns:SubResponseElementGenericType"" />
                                </ xs:sequence >
                                < xs:attribute name = ""Url"" type = ""xs:string"" use = ""required"" />
-                               < xs:attribute name = ""RequestToken"" type = ""xs:nonNegativeInteger"" use = ""required"" />
+                               < xs:attribute name=""UrlIsEncoded"" type=""tns: TRUEFALSE"" use=""required"" />
+                               < xs:attribute name = ""RequestToken"" type = ""xs:nonNegativeInteger"" use = ""optional"" />
                                < xs:attribute name = ""HealthScore"" type = ""xs:integer"" use = ""required"" />
                                < xs:attribute name = ""ErrorCode"" type = ""tns:GenericErrorCodeTypes"" use = ""optional"" />
                                < xs:attribute name = ""ErrorMessage"" type = ""xs:string"" use = ""optional"" />
                                < xs:attribute name = ""SuggestedFileName"" type = ""xs:string"" use = ""optional"" />
                                < xs:attribute name = ""ResourceID"" type = ""xs:string"" use = ""optional"" />
+                               < xs:attribute name = ""IntervalOverride"" type = ""xs:nonNegativeInteger"" use = ""optional"" />
                            </ xs:complexType >
                        </ xs:element > ");
 
@@ -851,7 +856,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                          < xs:sequence >
                           < xs:element name = ""SubResponseData"" minOccurs = ""0"" maxOccurs = ""1"" type = ""tns:SubResponseDataGenericType"" />
                           < xs:element name = ""SubResponseStreamInvalid"" minOccurs = ""0"" maxOccurs = ""1"" />
-                          < xs:element ref= ""GetVersionsResponse"" minOccurs = ""0"" maxOccurs = ""1"" />
+                          < xs:element ref= ""tns:GetVersionsResponse"" minOccurs = ""0"" maxOccurs = ""1"" />
                          </ xs:sequence >
                         </ xs:extension >
                        </ xs:complexContent >
@@ -953,7 +958,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                          <xs:attribute name=""LockType"" type=""tns:LockTypes"" use=""optional"" />
                          <xs:attribute name=""CoauthStatus"" type=""tns:CoauthStatusType"" use=""optional""/>
                          <xs:attribute name=""TransitionID"" type=""tns:guid"" use=""optional""/>
-                         <xs:attribute name=""ExclusiveLockReturnReason"" type=""tns:ExclusiveLockReturnReasonTypes"" use=""optional"" /> 
+                         <xs:attribute name=""ExclusiveLockReturnReason"" type=""tns:ExclusiveLockReturnReasonTypes"" use=""optional"" />
+                         <xs:attribute name=""AmIAlone"" type=""tns:TRUEFALSE"" use=""optional""/>
+                         <xs:attribute name=""LockID"" type=""tns:guid"" use=""optional""/>
+                         <xs:attribute name=""LockedBy"" type=""xs:string"" use=""optional"" /> 
                      </xs:attributeGroup>");
 
             // Verify requirements related with CellSubResponseDataOptionalAttributes
@@ -1144,12 +1152,23 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      @"[In LockTypes][The Locktypes schema is:]
                      
                      <xs:simpleType name=""LockTypes"">
+                     <xs:union>
+                        <xs:simpleType>
                         <xs:restriction base=""xs:string"">
                            <xs:enumeration value=""None"" />
                            <xs:enumeration value=""SchemaLock"" />
                            <xs:enumeration value=""ExclusiveLock"" />
                         </xs:restriction>
-                     </xs:simpleType>");
+                    </xs:simpleType>
+                     <xs:simpleType>
+                        <xs:restriction base=""xs: integer""> 
+                        < xs:enumeration value = ""0"" />
+                        < xs:enumeration value = ""1"" />
+                        < xs:enumeration value = ""2"" />
+                        </ xs:restriction >
+                    </xs:simpleType>
+                    </xs:union>
+                    </xs:simpleType>");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R399
             // There is only 3 values in the enumeration LockTypes:None, SchemaLock, ExclusiveLock.So if lockType can be a non-null value,
@@ -1166,6 +1185,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      "MS-FSSHTTP",
                      467,
                      @"[In SubResponseDataOptionalAttributes] LockType: A LockTypes that specifies the type of lock granted in a coauthoring subresponse.");
+
+            //  MS-FSSHTTP_R467 is verified,so MS-FSSHTTP_R2267 can be verified directly
+            site.CaptureRequirement(
+                     "MS-FSSHTTP",
+                     2267,
+                     @"[In LockStatusSubResponseDataType]LockType: A LockTypes that specifies the type of lock granted in a coauthoring subresponse. ");
+
         }
 
         #endregion 

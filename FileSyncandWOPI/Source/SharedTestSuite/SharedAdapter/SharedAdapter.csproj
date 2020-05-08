@@ -51,6 +51,9 @@
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpServerTimeCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpVersioningCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTP\MsfsshttpWhoAmICapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpAmIAloneCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpPropertiesCapture.cs" />
+    <Compile Include="CaptureCode\FSSHTTP\MsfsshttpLockStatusCapture.cs" />
     <Compile Include="CaptureCode\ONESTORE\MsonestoreCapture.cs" />
     <Compile Include="CellStorages.cs" />
     <Compile Include="DataStucture\Editor.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Stack\FSSHTTPB\BasicType\FileChunk.cs" />
     <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\CellKnowledge.cs" />
     <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\ContentTagKnowledge.cs" />
+    <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\VersionTokenKnowledge.cs" />
     <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\WaterlineKnowledge.cs" />
     <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\FragmentKnowledge.cs" />
     <Compile Include="Stack\FSSHTTPB\BasicType\Knowledge\Knowledge.cs" />

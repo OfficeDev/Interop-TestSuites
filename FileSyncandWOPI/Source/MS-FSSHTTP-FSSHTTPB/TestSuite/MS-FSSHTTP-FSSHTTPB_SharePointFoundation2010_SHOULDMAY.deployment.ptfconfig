@@ -147,12 +147,12 @@
     <Property name="R1976Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return an "InvalidArgument" error code as part of the SubResponseData element associated with the file opeartion subresponse. Set R11267Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
     <Property name="R11267Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-    <!--Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return ResourceID attribute when the UseResourceID attribute is set to true. Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-    <Property name="R11275Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-    <!--Set R11276Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does not return ResourceID attribute when the UseResourceID attribute is set to false. Set R11276Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-    <Property name="R11276Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-    <!--Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if UseResourceID set to true and set ResourceID, the implementation does use the value of the ResourceID attribute to identify the file instead of the Url attribute.. Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
-    <Property name="R11272Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R11268Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return a "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file opeartion subresponse. Set R11268Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R11268Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support ResourceID attribute. Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R11275Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support UseResourceID attribute. Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
+    <Property name="R11272Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R4130Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Diagnostic Request Option Output field. Set R4130Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
     <Property name="R4130Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R1102401Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does support SuggestedFileName to specify that the suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request. Set R1102401Enabled_MS-FSSHTTP-FSSHTTPB to false to enable this requirement. -->
@@ -161,8 +161,6 @@
     <Property name="R11274Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R8203Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return a Leaf Node Object not the Intermediate Node Object at the beginning. Set R8203Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R8203Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-    <!--Set R385Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that Content Tag Entry Start (2 bytes)is A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Entry. Set R385Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-    <Property name="R385Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
     <!--Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return the wrong value. Set R4106Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R4106Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the Object Data Size match the size of the Binary Item in the corresponding Object Data for this object. Set R4107Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
@@ -217,6 +215,37 @@
     <Property name="R1253Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
     <!--Set R15171Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the user does not have permission to issue a cell storage service request to the file identified by the Url attribute of the Request element, implementation return ErrorCode attribute in ResponseVersion. Enabled15171_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
     <Property name="R15171Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-    
+    <!--Set R1351Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that implementation does ignore the F – Round Knowledge to Whole Cell Changes field. Enabled1351_MS-FSSHTTP-FSSHTTPB to true to disable this requirement. -->
+    <Property name="R1351Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R246401Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support AmIAlone Subrequest. Enabled246401_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R246401Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R246601Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support LockStatus Subrequest. Enabled246601_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R246601Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R246801Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support Properties Subrequest. Enabled246801_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R246801Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R1348Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support AllowFragments2 field. R1348Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1348Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R1360Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Data Hash Header. R1360Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1360Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R1345Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support the Version Token Knowledge. R1345Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1345Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+    <!--Set R11151Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that in the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. R11151Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R11151Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R11121Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that in the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. R11121Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R11121Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R2273Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that in the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. R2273Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R2273Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R2302011Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that in the case of failure, the ErrorCode attribute that is part of a SubResponse element specifies the error code result for this subrequest. R2302011Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R2302011Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R2503Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the UrlIsEncoded does return false. R2503Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R2503Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R21051Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the WebUrlIsEncoded does return false. R21051Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R21051Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R11023Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the ResourceID attribute does not identify a valid file the implementation does set an error code in the ErrorCode attribute of the corresponding Response attribute. R11023Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R11023Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R1926Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation reports a failure by returning an error code value set to "LockRequestFail " or "Unknown" or "FileNotExistsOrCannotBeCreated"  in the ErrorCode attribute sent back in the SubResponse element. R1926Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+    <Property name="R1926Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+    <!--Set R8214Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that SharePoint Server 2013 and above performs RDC analysis.  R8214Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement.-->
+    <Property name="R8214Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   </Properties>
 </TestSite>

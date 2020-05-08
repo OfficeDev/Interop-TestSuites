@@ -49,7 +49,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
         public void MSOXWSCORE_S02_TC02_CopyContactItemSuccessfully()
         {
             #region Step 1: Create the contact item.
-            ContactItemType item = new ContactItemType();
+            ContactItemType item = new ContactItemType();            
             ItemIdType[] createdItemIds = this.CreateItemWithMinimumElements(item);
             #endregion
 
@@ -79,6 +79,8 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
 
             ItemIdType[] getItemIds = Common.GetItemIdsFromInfoResponse(getItemResponse);
+
+            ContactItemType[] getItems = Common.GetItemsFromInfoResponse<ContactItemType>(getItemResponse);
 
             // One contact item should be returned.
             Site.Assert.AreEqual<int>(
@@ -431,6 +433,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 2023,
                 @"[In t:ItemType Complex Type] If invalid values are set for these items in the CreateItem request, an ErrorObjectTypeChanged ([MS-OXWSCDATA] section 2.2.5.24) response code will be returned in the CreateItem response.");
         }
+
+        /// <summary>
+        /// This case is intended to validate the response returned by GetItem operation with the ItemShape element in which IncludeMimeContent element exists.
+        /// </summary>
+        [TestCategory("MSOXWSCORE"), TestMethod()]
+        public void MSOXWSCORE_S02_TC17_VerifyGetItemWithItemResponseShapeType_IncludeMimeContentBoolean()
+        {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(23091, this.Site), "E2010SP3 version below do not support the MimeContent element for ContactType, TaskType and DistributionListType item when retrieving MIME content.");
+
+            ContactItemType item = new ContactItemType();
+            this.TestSteps_VerifyGetItemWithItemResponseShapeType_IncludeMimeContentBoolean(item);
+        }
+
         #endregion
     }
 }
