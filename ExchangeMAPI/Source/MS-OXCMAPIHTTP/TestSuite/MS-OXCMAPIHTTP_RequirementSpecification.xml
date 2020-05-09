@@ -600,7 +600,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMAPIHTTP_R2036</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In AddressBookPropertyRow Structure] [ValueArray] Each structure in the array MUST be interpreted based on the Flag field.</ns1:Description>
+		<ns1:Description>[In AddressBookPropertyRow Structure] [ValueArray] Each structure in the array MUST be interpreted based on the Flags field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
