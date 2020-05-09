@@ -43,26 +43,29 @@
             CellID headerCellID= package.StorageManifest.StorageManifestRootDeclareList[0].CellID;
             StorageIndexCellMapping headerCellStorageIndexCellMapping = package.FindStorageIndexCellMapping(headerCellID);
             storageIndexHashTab.Add(headerCellID);
-            package.HeaderCellCellManifest = this.FindCellManifest(headerCellStorageIndexCellMapping.CellMappingExtendedGUID);
-            StorageIndexRevisionMapping headerCellRevisionManifestMapping =
-                package.FindStorageIndexRevisionMapping(package.HeaderCellCellManifest.CellManifestCurrentRevision.CellManifestCurrentRevisionExtendedGUID);
-            package.HeaderCellRevisionManifest = this.FindRevisionManifestDataElement(headerCellRevisionManifestMapping.RevisionMappingExtendedGUID);
-            package.HeaderCell = this.ParseHeaderCell(package.HeaderCellRevisionManifest);
 
-            // Parse Data root
-            CellID dataRootCellID = package.StorageManifest.StorageManifestRootDeclareList[1].CellID;
-            storageIndexHashTab.Add(dataRootCellID);
-            package.DataRoot = this.ParseObjectGroup(dataRootCellID, package);
-            // Parse other data
-            foreach(StorageIndexCellMapping storageIndexCellMapping in package.StorageIndex.StorageIndexCellMappingList)
+            if (headerCellStorageIndexCellMapping != null)
             {
-                if (storageIndexHashTab.Contains(storageIndexCellMapping.CellID) == false)
+                package.HeaderCellCellManifest = this.FindCellManifest(headerCellStorageIndexCellMapping.CellMappingExtendedGUID);
+                StorageIndexRevisionMapping headerCellRevisionManifestMapping =
+                    package.FindStorageIndexRevisionMapping(package.HeaderCellCellManifest.CellManifestCurrentRevision.CellManifestCurrentRevisionExtendedGUID);
+                package.HeaderCellRevisionManifest = this.FindRevisionManifestDataElement(headerCellRevisionManifestMapping.RevisionMappingExtendedGUID);
+                package.HeaderCell = this.ParseHeaderCell(package.HeaderCellRevisionManifest);
+            
+                // Parse Data root
+                CellID dataRootCellID = package.StorageManifest.StorageManifestRootDeclareList[1].CellID;
+                storageIndexHashTab.Add(dataRootCellID);
+                package.DataRoot = this.ParseObjectGroup(dataRootCellID, package);
+                // Parse other data
+                foreach(StorageIndexCellMapping storageIndexCellMapping in package.StorageIndex.StorageIndexCellMappingList)
                 {
-                    package.OtherFileNodeList.AddRange(this.ParseObjectGroup(storageIndexCellMapping.CellID,package));
-                    storageIndexHashTab.Add(storageIndexCellMapping.CellID);
+                    if (storageIndexHashTab.Contains(storageIndexCellMapping.CellID) == false)
+                    {
+                        package.OtherFileNodeList.AddRange(this.ParseObjectGroup(storageIndexCellMapping.CellID,package));
+                        storageIndexHashTab.Add(storageIndexCellMapping.CellID);
+                    }
                 }
             }
-
             return package;
         }
 

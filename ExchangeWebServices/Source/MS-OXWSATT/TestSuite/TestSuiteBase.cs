@@ -180,7 +180,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                             itemAttachment.Item = new AbchPersonItemType()
                             {
                                 AntiLinkInfo = "",
-                                PersonId = Guid.NewGuid().ToString(),
+                                PersonIdGuid = Guid.NewGuid().ToString(),
                                 ContactHandles = new AbchPersonContactHandle[] { 
                                     new AbchPersonContactHandle(),
                                 },

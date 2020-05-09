@@ -417,7 +417,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.CaptureRequirement(
                     "MS-FSSHTTPB",
                     4110,
-                    @"[In Appendix B: Product Behavior] Implementation does execute Sub-requests with different or same Priority in any order with respect to each other. (<6> Section 2.2.2.1:  SharePoint Server 2010 and SharePoint Server 2013 execute Sub-requests with different or same Priority in any order with respect to each other.)");
+                    @"[In Appendix B: Product Behavior] Implementation does execute Sub-requests with different or same Priority in any order with respect to each other. (<8> Section 2.2.2.1:  SharePoint Server 2010 and SharePoint Server 2013 execute Sub-requests with different or same Priority in any order with respect to each other.)");
             }
         }
 
@@ -1254,7 +1254,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                          "MS-FSSHTTPB",
                          99047,
-                         @"[Additional Flags] This [check the Put Changes Request for the re-use of previously used Ids] may occur when ID allocations are used and a client rollback occurs.");
+                         @"[Additional Flags] This [check the Put Changes Request for the re-use of previously used Ids] might occur when ID allocations are used and a client rollback occurs.");
             }
             else
             {
@@ -1467,6 +1467,83 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                          "MS-FSSHTTPB",
                          2168,
                          @"[In Put Changes] Expected Storage Index Extended GUID (variable): If the key that is to be updated in the protocol server’s Storage Index does not exist in the expected Storage Index, the Imply Null Expected if No Mapping flag MUST be evaluated.");
+
+                // If the PutChanges operation succeeds, then capture MS-FSSHTTPB_R940
+                Site.CaptureRequirement(
+                         "MS-FSSHTTPB",
+                         940,
+                         @"[In Put Changes structure] Expected Storage Index Extended GUID (variable): otherwise[If Imply Null Expected if No Mapping is not zero], if the flag[Imply Null Expected if No Mapping] specifies one, the protocol server MUST only apply the change if no mapping exists (the key that is to be updated in the protocol server’s Storage Index doesn't exist or it maps to nil).");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify the Put Changes request will fail coherency if any of the supplied Storage Indexes are unrooted.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S13_TC24_PutChanges_RequireStorageMappingsRooted()
+        {
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 99108, this.Site))
+            {
+                Site.Assume.Inconclusive("Implementation does not support the Additional Flags.");
+            }
+
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Query changes from the protocol server
+            CellSubRequestType queryChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedQueryChanges(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID());
+            CellStorageResponse queryResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { queryChange });
+            CellSubResponseType querySubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(queryResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(querySubResponse.ErrorCode, this.Site), "The operation QueryChanges should succeed.");
+            FsshttpbResponse queryChangeResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(querySubResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(queryChangeResponse, this.Site);
+
+            // Put changes to upload the content once to change the server state. In this case, the server expected the storage index value is different with previous returned.
+            CellSubRequestType putChange = SharedTestSuiteHelper.CreateCellSubRequestEmbeddedPutChanges((ulong)SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), System.Text.Encoding.UTF8.GetBytes(SharedTestSuiteHelper.GenerateRandomString(5)));
+            CellStorageResponse putResponse = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { putChange });
+            CellSubResponseType putSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(putResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(putSubResponse.ErrorCode, this.Site), "The operation PutChanges should succeed.");
+            FsshttpbResponse putChangeResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(putSubResponse, this.Site);
+            SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(putChangeResponse, this.Site);
+
+            // Create a putChanges cellSubRequest with specified ExpectedStorageIndexExtendedGUID value as the step 1 returned and with the  Require Storage Mappings Rooted flag as 1.
+            FsshttpbCellRequest cellRequestSecond = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            ExGuid storageIndexExGuid;
+            List<DataElement> dataElements = DataElementUtils.BuildDataElements(System.Text.Encoding.UTF8.GetBytes(SharedTestSuiteHelper.GenerateRandomString(5)), out storageIndexExGuid);
+            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+
+            // Specify ExpectedStorageIndexExtendedGUID and RequireStorageMappingsRooted flag.
+            putChangeSecond.ExpectedStorageIndexExtendedGUID = queryChangeResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
+            putChangeSecond.IsAdditionalFlagsUsed = true;
+            putChangeSecond.RequireStorageMappingsRooted = 1;
+            dataElements.AddRange(queryChangeResponse.DataElementPackage.DataElements);
+            cellRequestSecond.AddSubRequest(putChangeSecond, dataElements);
+
+            // Put changes to the protocol server 
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequestSecond.ToBase64());
+            CellStorageResponse response = Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+            this.Site.Assert.AreNotEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                "Due to the Invalid Expected StorageIndexExtendedGUID, the put changes should fail.");
+            FsshttpbResponse fsshttpbResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                Site.CaptureRequirementIfAreEqual<CellErrorCode>(
+                            CellErrorCode.Coherencyfailure,
+                            fsshttpbResponse.CellSubResponses[0].ResponseError.GetErrorData<CellError>().ErrorCode,
+                            "MS-FSSHTTPB",
+                        4054,
+                        @"[Additional Flags] F – Require Storage Mappings Rooted (1 bit): A bit that specifies that the Put Changes request will fail coherency if any of the supplied Storage Indexes are unrooted.");
+            }
+            else
+            {
+                Site.Assert.AreEqual<CellErrorCode>(
+                         CellErrorCode.Coherencyfailure,
+                         fsshttpbResponse.CellSubResponses[0].ResponseError.GetErrorData<CellError>().ErrorCode,
+                            @"[Additional Flags] F – Require Storage Mappings Rooted (1 bit): A bit that specifies that the Put Changes request will fail coherency if any of the supplied Storage Indexes are unrooted.");
             }
         }
         #endregion 

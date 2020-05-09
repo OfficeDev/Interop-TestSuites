@@ -3,14 +3,15 @@
   <wsdl:types>
     <xs:schema id="messages" elementFormDefault="qualified" version="Exchange2016" xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns="http://schemas.microsoft.com/exchange/services/2006/messages">
       <xs:import namespace="http://schemas.microsoft.com/exchange/services/2006/types" schemaLocation="MS-OXWSCORE-types.xsd"/>
-      <xs:include schemaLocation="MS-OXWSCORE-messages.xsd"/>
+      <xs:include schemaLocation="MS-OXWSCORE-messages.xsd"/>      
       <xs:include schemaLocation="MS-OXWSFOLD-messages.xsd"/>
       <xs:include schemaLocation="MS-OXWSATT-messages.xsd" />
       <xs:include schemaLocation="MS-OXWSBTRF-messages.xsd"/>
       <xs:include schemaLocation="MS-OXWSSYNC-messages.xsd"/>
       <xs:include schemaLocation="MS-OXWSSRCH-messages.xsd" />
       <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd" />
-      <xs:include schemaLocation="MS-OXWSUSRCFG-messages.xsd" />      
+      <xs:include schemaLocation="MS-OXWSUSRCFG-messages.xsd" />
+      <xs:include schemaLocation="MS-OXWSMTGS-messages.xsd" />
       <!-- Add global elements and types from messages.xsd -->
     </xs:schema>
     <xs:schema id="types" elementFormDefault="qualified" version="Exchange2016" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/types" xmlns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -176,6 +177,15 @@
       <wsdl:input message="tns:UpdateUserConfigurationSoapIn"/>
       <wsdl:output message="tns:UpdateUserConfigurationSoapOut"/>
     </wsdl:operation>
+    <!--Elements from MS-OXWSMTGS.wsdl-->
+    <wsdl:operation name="GetReminders">
+      <wsdl:input message="tns:GetRemindersSoapIn"/>
+      <wsdl:output message="tns:GetRemindersSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="PerformReminderAction">
+      <wsdl:input message="tns:PerformReminderActionSoapIn"/>
+      <wsdl:output message="tns:PerformReminderActionSoapOut"/>
+ </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ExchangeServiceBinding" type="tns:ExchangeServicePortType">
     <wsdl:documentation>
@@ -689,6 +699,29 @@
         <soap:header message="tns:UpdateUserConfigurationSoapOut" part="ServerVersion" use="literal"/>
       </wsdl:output>
     </wsdl:operation>
+      <!--Elements from MS-OXWSMTGS.wsdl-->
+      <wsdl:operation name="GetReminders">
+       <soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/GetReminders"/>
+       <wsdl:input>
+         <soap:header message="tns:GetRemindersSoapIn" part="RequestVersion" use="literal"/>
+         <soap:body parts="request" use="literal"/>
+       </wsdl:input>
+       <wsdl:output>
+         <soap:body parts="GetRemindersResult" use="literal"/>
+         <soap:header message="tns:GetRemindersSoapOut" part="ServerVersion" use="literal"/>
+       </wsdl:output>
+     </wsdl:operation>
+     <wsdl:operation name="PerformReminderAction">
+       <soap:operation soapAction="http://schemas.microsoft.com/exchange/services/2006/messages/PerformReminderAction"/>
+       <wsdl:input>
+         <soap:header message="tns:PerformReminderActionSoapIn" part="RequestVersion" use="literal"/>
+         <soap:body parts="request" use="literal"/>
+       </wsdl:input>
+       <wsdl:output>
+         <soap:body parts="PerformReminderActionResult" use="literal"/>
+         <soap:header message="tns:PerformReminderActionSoapOut" part="ServerVersion" use="literal"/>
+       </wsdl:output>
+     </wsdl:operation>
   </wsdl:binding>
   <!--Elements from MS-OXWSCORE.wsdl-->
   <wsdl:message name="GetItemSoapIn">
@@ -1028,19 +1061,19 @@
   </wsdl:message>
   <!--Elements from MS-OXWSCONT.wsdl-->
   <wsdl:message name="GetUserPhotoSoapIn">
-    <wsdl:part name="request" element="t:GetUserPhoto"/>
+    <wsdl:part name="request" element="tns:GetUserPhoto"/>
     <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
   </wsdl:message>
   <wsdl:message name="GetUserPhotoSoapOut">
-    <wsdl:part name="GetUserPhotoResult" element="t:GetUserPhotoResponse"/>
+    <wsdl:part name="GetUserPhotoResult" element="tns:GetUserPhotoResponse"/>
     <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
   </wsdl:message>
   <wsdl:message name="SetUserPhotoSoapIn">
-    <wsdl:part name="request" element="t:SetUserPhoto"/>
+    <wsdl:part name="request" element="tns:SetUserPhoto"/>
     <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
   </wsdl:message>
   <wsdl:message name="SetUserPhotoSoapOut">
-    <wsdl:part name="SetUserPhotoResult" element="t:SetUserPhotoResponse"/>
+    <wsdl:part name="SetUserPhotoResult" element="tns:SetUserPhotoResponse"/>
     <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
   </wsdl:message>
   <!--Elements from MS-OXWSUSRCFG.wsdl-->
@@ -1082,6 +1115,23 @@
   </wsdl:message>
   <wsdl:message name="UpdateUserConfigurationSoapOut">
     <wsdl:part name="UpdateUserConfigurationResult" element="tns:UpdateUserConfigurationResponse"/>
+    <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
+  </wsdl:message>
+  <!--Elements from MS-OXWSMTGS.wsdl-->
+  <wsdl:message name="GetRemindersSoapIn">
+    <wsdl:part name="request" element="tns:GetReminders"/>
+    <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
+  </wsdl:message>
+  <wsdl:message name="GetRemindersSoapOut">
+    <wsdl:part name="GetRemindersResult" element="tns:GetRemindersResponse"/>
+    <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
+  </wsdl:message>
+  <wsdl:message name="PerformReminderActionSoapIn">
+    <wsdl:part name="request" element="tns:PerformReminderAction"/>
+    <wsdl:part name="RequestVersion" element="t:RequestServerVersion"/>
+  </wsdl:message>
+  <wsdl:message name="PerformReminderActionSoapOut">
+    <wsdl:part name="PerformReminderActionResult" element="tns:PerformReminderActionResponse"/>
     <wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/>
   </wsdl:message>
 </wsdl:definitions>

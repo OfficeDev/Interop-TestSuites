@@ -3,6 +3,7 @@
   <Description>These are the default test settings for running all MS-OXWSBTRF test cases.</Description>
   <Deployment>
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OXWSBTRF_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSBTRF_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OXWSBTRF_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-OXWSBTRF.runsettings" />
@@ -34,4 +35,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>

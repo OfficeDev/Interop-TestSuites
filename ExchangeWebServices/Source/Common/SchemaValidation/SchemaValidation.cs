@@ -59,6 +59,7 @@ namespace Microsoft.Protocols.TestSuites.Common
             "MS-OXWSMSG-types.xsd", 
             "MS-OXWSMSHR-messages.xsd",
             "MS-OXWSMSHR-types.xsd",
+            "MS-OXWSMTGS-messages.xsd",
             "MS-OXWSMTGS-types.xsd",
             "MS-OXWSNTIF-messages.xsd", 
             "MS-OXWSNTIF-types.xsd", 
@@ -79,7 +80,8 @@ namespace Microsoft.Protocols.TestSuites.Common
             "MS-OXWSURPT-types.xsd",
             "MS-OXWSXPROP-types.xsd",
             "MS-OXWSUSRCFG-messages.xsd",
-            "MS-OXWSUSRCFG-types.xsd"
+            "MS-OXWSUSRCFG-types.xsd",
+            "MS-OXWSCONT-messages.xsd"
         };
 
         /// <summary>

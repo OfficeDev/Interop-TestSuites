@@ -138,7 +138,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             213,
-                            @"[In t:TaskType Complex Type] The type of ActualWork is xs:int [XMLSCHEMA2] section 3.3.17.");
+                            @"[In t:TaskType Complex Type] The type of ActualWork is xs:int [XMLSCHEMA2/2] section 3.3.17.");
                     }
 
                     if (taskItem.BillingInformation != null)
@@ -150,7 +150,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             215,
-                            @"[In t:TaskType Complex Type] The type of BillingInformation is xs:string [XMLSCHEMA2] section 3.2.1.");
+                            @"[In t:TaskType Complex Type] The type of BillingInformation is xs:string [XMLSCHEMA2/2] section 3.2.1.");
                     }
 
                     // If the ChangeCountSpecified field of task item is true means ChangeCount is specified, then verify the related requirements about ChangeCount.
@@ -263,7 +263,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             224,
-                            @"[In t:TaskType Complex Type] The type of IsComplete is xs:boolean [XMLSCHEMA2] section 3.2.2.");
+                            @"[In t:TaskType Complex Type] The type of IsComplete is xs:boolean [XMLSCHEMA2/2] section 3.2.2.");
                     }
 
                     // If the IsRecurringSpecified field of task item is true means IsRecurring is specified, then verify the related requirements about IsRecurring.
@@ -301,7 +301,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSTASK
                         Site.CaptureRequirementIfIsTrue(
                             isSchemaValidated,
                             229,
-                            @"[In t:TaskType Complex Type] The type of PercentComplete is xs:double [XMLSCHEMA2] section 3.2.5.");
+                            @"[In t:TaskType Complex Type] The type of PercentComplete is xs:double [XMLSCHEMA2/2] section 3.2.5.");
 
                         // Add the debug information.
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSTASK_R60");

@@ -73,7 +73,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              isR3006Verified,
                              "MS-FSSHTTP",
                              3006,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. <8> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. <11> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3007
@@ -122,18 +122,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             // Record the file check out status.
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
-            {
-                // Change the authentication mode
-                if (!this.SutPowerShellAdapter.SwitchClaimsAuthentication(false))
-                {
-                    this.Site.Assert.Fail("Cannot change the authentication mode to windows based.");
-                }
-
-                this.StatusManager.RecordDisableClaimsBasedAuthentication();
-            }
-                      
+                    
             // Initialize the service.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
@@ -247,17 +236,6 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
-            {
-                // Change the authentication mode
-                if (!this.SutPowerShellAdapter.SwitchClaimsAuthentication(false))
-                {
-                    this.Site.Assert.Fail("Cannot change the authentication mode to windows based.");
-                }
-
-                this.StatusManager.RecordDisableClaimsBasedAuthentication();
-            }
-
             CheckLockAvailability();
 
             // Check the exclusive lock availability with all valid parameters on a file which is checked out by the same user, expect the server responds the error code "Success".
@@ -298,17 +276,6 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             // Record the file check out status.
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
-            {
-                // Change the authentication mode
-                if (!this.SutPowerShellAdapter.SwitchClaimsAuthentication(false))
-                {
-                    this.Site.Assert.Fail("Cannot change the authentication mode to windows based.");
-                }
-
-                this.StatusManager.RecordDisableClaimsBasedAuthentication();
-            }
 
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -372,17 +339,6 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             // Record the file check out status.
             this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
-
-            if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3086, this.Site))
-            {
-                // Change the authentication mode
-                if (!this.SutPowerShellAdapter.SwitchClaimsAuthentication(false))
-                {
-                    this.Site.Assert.Fail("Cannot change the authentication mode to windows based.");
-                }
-
-                this.StatusManager.RecordDisableClaimsBasedAuthentication();
-            }
 
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -454,20 +410,23 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                 LogEntryKind.Debug,
                 "For requirement MS-FSSHTTP_R1926, expect the error code LockRequestFail or Unknown or FileNotExistsOrCannotBeCreated, but actually error code is " + errorType);
 
-            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            if (Common.IsRequirementEnabled(1926, this.Site))
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1926
-                Site.CaptureRequirementIfIsTrue(
-                         isR1926Verified,
-                         "MS-FSSHTTP",
-                         1926,
-                         @"[In ExclusiveLock Subrequest][The protocol returns results based on the following conditions: ] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""LockRequestFail "" or ""Unknown"" or ""FileNotExistsOrCannotBeCreated""  in the ErrorCode attribute sent back in the SubResponse element.");
-            }
-            else
-            {
-                Site.Assert.IsTrue(
-                    isR1926Verified,
-                    @"[In ExclusiveLock Subrequest][The protocol returns results based on the following conditions: ] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""LockRequestFail "" or ""Unknown"" or ""FileNotExistsOrCannotBeCreated""  in the ErrorCode attribute sent back in the SubResponse element.");
+                if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1926
+                    Site.CaptureRequirementIfIsTrue(
+                             isR1926Verified,
+                             "MS-FSSHTTP",
+                             1926,
+                             @"[In ExclusiveLock Subrequest][The protocol returns results based on the following conditions: ] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""LockRequestFail "" or ""Unknown"" or ""FileNotExistsOrCannotBeCreated""  in the ErrorCode attribute sent back in the SubResponse element.");
+                }
+                else
+                {
+                    Site.Assert.IsTrue(
+                        isR1926Verified,
+                        @"[In ExclusiveLock Subrequest][The protocol returns results based on the following conditions: ] If the protocol server was unable to find the URL for the file specified in the Url attribute, the protocol server reports a failure by returning an error code value set to ""LockRequestFail "" or ""Unknown"" or ""FileNotExistsOrCannotBeCreated""  in the ErrorCode attribute sent back in the SubResponse element.");
+                }
             }
         }
 
@@ -477,8 +436,6 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
         [TestCategory("MSFSSHTTP_FSSHTTPB"), TestMethod()]
         public void MSFSSHTTP_FSSHTTPB_S04_TC07_ExclusiveLock_CellStorageWebServiceDisabled()
         {
-            Site.Assume.IsTrue(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15181, this.Site), "This test case only runs when WebServiceTurnedOff is returned if this protocol is not enabled on server.");
-
             if (!this.SutPowerShellAdapter.SwitchCellStorageService(false))
             {
                 this.Site.Assert.Fail("Cannot disable the cell storage web service.");
@@ -500,34 +457,47 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15181
-                Site.CaptureRequirementIfIsTrue(
-                         response.ResponseVersion.ErrorCodeSpecified,
-                         "MS-FSSHTTP",
-                         15181,
-                         @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if any one of the following is true.
-                         This protocol is not enabled on the protocol server.");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15181, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R15181
+                    Site.CaptureRequirementIfIsTrue(
+                             response.ResponseVersion.ErrorCodeSpecified,
+                             "MS-FSSHTTP",
+                             15181,
+                             @"[In Appendix B: Product Behavior]  ErrorCode attribute is present if this protocol is not enabled on the protocol server.(<15> Section 2.2.3.7:  In SharePoint Foundation 2010, SharePoint Server 2010, SharePoint Foundation 2013 and SharePoint Server 2013, the ErrorCode attribute is present if this protocol is not enabled on the protocol server.)");
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R368
-                Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
-                         GenericErrorCodeTypes.WebServiceTurnedOff,
-                         response.ResponseVersion.ErrorCode,
-                         "MS-FSSHTTP",
-                         368,
-                         @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R368
+                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                             GenericErrorCodeTypes.WebServiceTurnedOff,
+                             response.ResponseVersion.ErrorCode,
+                             "MS-FSSHTTP",
+                             368,
+                             @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
+                }
+                else
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2458
+                    Site.CaptureRequirementIfIsFalse(
+                             response.ResponseVersion.ErrorCodeSpecified,
+                             "MS-FSSHTTP",
+                             2458,
+                             @"[In Appendix B: Product Behavior]  ErrorCode attribute is not present if this protocol is not enabled on the protocol server.(SharePoint Server 2016 and above follow this behavior)");
+                }
             }
             else
             {
-                Site.Assert.IsTrue(
-                    response.ResponseVersion.ErrorCodeSpecified,
-                    @"[In ResponseVersion] This attribute[ErrorCode] MUST be present if any one of the following is true.
-                    This protocol is not enabled on the protocol server.");
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 15181, this.Site))
+                {
+                    Site.Assert.IsTrue(
+                        response.ResponseVersion.ErrorCodeSpecified,
+                        @"ErrorCode attribute is present if this protocol is not enabled on the protocol server.(<15> Section 2.2.3.7:  In SharePoint Foundation 2010, SharePoint Server 2010, SharePoint Foundation 2013 and SharePoint Server 2013, the ErrorCode attribute is present if this protocol is not enabled on the protocol server.)");
 
-                Site.Assert.AreEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.WebServiceTurnedOff,
-                    response.ResponseVersion.ErrorCode,
-                    @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
-            }
+                    Site.Assert.AreEqual<GenericErrorCodeTypes>(
+                        GenericErrorCodeTypes.WebServiceTurnedOff,
+                        response.ResponseVersion.ErrorCode,
+                        @"[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.");
+                }
+             }
         }
 
         /// <summary>
@@ -621,7 +591,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              isR3008Verified,
                              "MS-FSSHTTP",
                              3008,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. <8> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. <11> Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3009
@@ -631,7 +601,7 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                              response.ResponseCollection,
                              "MS-FSSHTTP",
                              3009,
-                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <8> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
+                             @"[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. <11> Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.");
                 }
             }
             else

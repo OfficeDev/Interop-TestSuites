@@ -67,7 +67,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSATT
                 @"[In Message Processing Events and Sequencing Rules][The CreateAttachment operation] Creates an item and attaches it to the specified item.");
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R53201");
+            Site.Log.Add(LogEntryKind.Debug, "Verify  MS-OXWSATT_R53201");
 
             // Verify MS-OXWSATT requirement: MS-OXWSATT_R53201
             Site.CaptureRequirementIfAreEqual<ResponseClassType>(
@@ -328,7 +328,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 ResponseClassType.Success,
                 getAttachmentInfoResponse.ResponseClass,
                 349,
-                @"[In t:ItemAttachmentType Complex Type][The type of Message element is] t:MessageType ([MS-OXWSMSG] section 2.2.4.1)");
+                @"[In t:ItemAttachmentType Complex Type][The type of Message element is] t:MessageType ([MS-OXWSMSG] section 2.2.4.3)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R83");
@@ -390,7 +390,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item.DateTimeCreated,
                 "MS-OXWSCDATA",
                 1234,
-                @"[In t:NonEmptyArrayOfPathsToElementType Complex Type] The element ""t:Path"" with type ""t:Path"" specifies a property to be returned in a response.");
+                @"[In t:NonEmptyArrayOfPathsToElementType Complex Type] The element ""t: Path"" with type ""t: BasePathToElementType "" specifies a property to be returned in a response.");
 
             this.VerifyGetAttachmentSuccessfulResponse(getAttachmentResponse);
 
@@ -549,7 +549,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                 ResponseClassType.Success,
                 getAttachmentInfoResponse.ResponseClass,
                 350,
-                @"[In t:ItemAttachmentType Complex Type][The type of CalendarItem element is] t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.9)");
+                @"[In t:ItemAttachmentType Complex Type][The type of CalendarItem element is] t:CalendarItemType ([MS-OXWSMTGS] section 2.2.4.6)");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSATT_R85");
@@ -976,7 +976,7 @@ Contains the status and result of a single DeleteAttachment operation.");
                     ((ItemAttachmentType)getAttachmentInfoResponse.Attachments[0]).Item,
                     typeof(MessageType),
                     318014,
-                    @"[In Appendix C: Product Behavior] Implementation does return a MessageType item.(<3> Section 2.2.4.6:  In Microsoft Exchange Server 2007 Service Pack 1 (SP1), Exchange 2010, Exchange 2013, and Exchange 2016, generic items will be returned as MessageType items.)");
+                    @"[In Appendix C: Product Behavior] Implementation does return the items of type t:ItemType as a t:MessageType type.(Microsoft Exchange Server 2007 Service Pack 1 (SP1) starts to return the items of type t:ItemType as a t:MessageType type.)");
             }
 
             // Add the debug information
@@ -1420,7 +1420,7 @@ Contains the status and result of a single DeleteAttachment operation.");
             this.Site.CaptureRequirement(
                 "MS-OXWSCDATA",
                 713,
-                @"[In m:ResponseCodeType Simple Type] The value ""ErrorUnsupportedMimeConversion"" occurs when you are trying to retrieve or set MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object.");
+                @"[In m:ResponseCodeType Simple Type] The value ""ErrorUnsupportedMimeConversion"" occurs when an attempt is made to retrieve  MIME content for an item other than a PostItemType, MessageType, or CalendarItemType object.");
              #endregion
 
             #region Step 3 Delete the attachment created in step 1 by the DeleteAttachment operation.

@@ -1,4 +1,3 @@
-﻿
 # Interop SharePoint and Exchange Protocol Test Suites
 
 
@@ -200,3 +199,6 @@ suite has run successfully, which include a .trx file containing the
 pass/fail information of the run in the TestResults folder along with an
 associated directory named user\_MACHINENAME DateTimeStamp that
 contains a log file and an HTML report.
+
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.

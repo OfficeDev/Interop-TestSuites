@@ -94,7 +94,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1207");
 
-            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1207
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1207
             // This requirement can be captured after above assert.
             Site.CaptureRequirement(
                 1207,
@@ -103,7 +103,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1208");
 
-            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1208
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1208
             // This requirement can be captured after above assert.
             Site.CaptureRequirement(
                 1208,
@@ -137,7 +137,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1198");
 
-            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1198
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1198
             // The calendars are gotten successfully, it means the calendars are created successfully.
             Site.CaptureRequirement(
                 1198,
@@ -146,7 +146,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1199");
 
-            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1199
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1199
             // The calendars are gotten successfully, it means the calendars are created successfully.
             Site.CaptureRequirement(
                 1199,
@@ -155,7 +155,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1217");
 
-            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1217
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1217
             // The calendars are gotten successfully, this requirement can be captured.
             Site.CaptureRequirement(
                 1217,
@@ -164,7 +164,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSMTGS
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSMTGS_R1218");
 
-            // Verify MS-OXWSMSG requirement: MS-OXWSMTGS_R1218
+            // Verify MS-OXWSMTGS requirement: MS-OXWSMTGS_R1218
             // The calendars are gotten successfully, this requirement can be captured.
             Site.CaptureRequirement(
                 1218,

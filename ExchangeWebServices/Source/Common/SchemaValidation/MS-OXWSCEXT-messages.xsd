@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:m="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2016" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.microsoft.com/exchange/services/2006/messages" xmlns:t="http://schemas.microsoft.com/exchange/services/2006/types" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/exchange/services/2006/messages" version="Exchange2016" id="messages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:include schemaLocation="MS-OXWSCDATA-messages.xsd"/>
   <xs:include schemaLocation="MS-OXWSCEXT-messages.xsd"/>
   <xs:import schemaLocation="MS-OXWSCEXT-types.xsd" namespace="http://schemas.microsoft.com/exchange/services/2006/types"/>
@@ -8,10 +8,10 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Manifest" type="xs:base64Binary"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="GetClientAccessToken" type="m:GetClientAccessTokenType"/>
+  <xs:element name="GetClientAccessToken" type="tns:GetClientAccessTokenType"/>
   <xs:complexType name="GetClientAccessTokenResponseMessageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:ResponseMessageType">
+      <xs:extension base="tns:ResponseMessageType">
         <xs:sequence>
           <xs:element minOccurs="0" name="Token" type="t:ClientAccessTokenType"/>
         </xs:sequence>
@@ -20,45 +20,45 @@
   </xs:complexType>
   <xs:complexType name="GetClientAccessTokenResponseType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseResponseMessageType"/>
+      <xs:extension base="tns:BaseResponseMessageType"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetClientAccessTokenResponse" type="m:GetClientAccessTokenResponseType"/>
+  <xs:element name="GetClientAccessTokenResponse" type="tns:GetClientAccessTokenResponseType"/>
   <xs:complexType name="GetClientAccessTokenType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseRequestType">
+      <xs:extension base="tns:BaseRequestType">
         <xs:sequence>
           <xs:element minOccurs="1" maxOccurs="1" name="TokenRequests" type="t:NonEmptyArrayOfClientAccessTokenRequestsType"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetAppManifestsResponse" type="m:GetAppManifestsResponseType"/>
+  <xs:element name="GetAppManifestsResponse" type="tns:GetAppManifestsResponseType"/>
   <xs:complexType name="GetAppManifestsResponseType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:ResponseMessageType">
+      <xs:extension base="tns:ResponseMessageType">
         <xs:sequence>
-          <xs:element maxOccurs="1" name="Manifests" type="m:ArrayOfAppManifestsType"/>
+          <xs:element maxOccurs="1" name="Manifests" type="tns:ArrayOfAppManifestsType"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetAppManifests" type="m:GetAppManifestsType"/>
+  <xs:element name="GetAppManifests" type="tns:GetAppManifestsType"/>
   <xs:complexType name="GetAppManifestsType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseRequestType"/>
+      <xs:extension base="tns:BaseRequestType"/>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="GetAppMarketplaceUrlType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseRequestType"/>
+      <xs:extension base="tns:BaseRequestType"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="GetAppMarketplaceUrl" type="m:GetAppMarketplaceUrlType"/>
-  <xs:element name="GetAppMarketplaceUrlResponse" type="m:GetAppMarketplaceUrlResponseMessageType"/>
+  <xs:element name="GetAppMarketplaceUrl" type="tns:GetAppMarketplaceUrlType"/>
+  <xs:element name="GetAppMarketplaceUrlResponse" type="tns:GetAppMarketplaceUrlResponseMessageType"/>
   <xs:complexType name="GetAppMarketplaceUrlResponseMessageType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:ResponseMessageType">
+      <xs:extension base="tns:ResponseMessageType">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="1" name="AppMarketplaceUrl" type="xs:string"/>
         </xs:sequence>
@@ -67,7 +67,7 @@
   </xs:complexType>
   <xs:complexType name="InstallAppType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseRequestType">
+      <xs:extension base="tns:BaseRequestType">
         <xs:sequence>
           <xs:element minOccurs="1" maxOccurs="1" name="Manifest" type="xs:base64Binary"/>
           <xs:element minOccurs="0" maxOccurs="1" name="MarketplaceAssetId" type="xs:string"/>
@@ -77,36 +77,36 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="InstallApp" type="m:InstallAppType"/>
+  <xs:element name="InstallApp" type="tns:InstallAppType"/>
   <xs:complexType name="InstallAppResponseType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:ResponseMessageType">
+      <xs:extension base="tns:ResponseMessageType">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="1" name="WasFirstInstall" type="xs:boolean"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="InstallAppResponse" type="m:InstallAppResponseType"/>
+  <xs:element name="InstallAppResponse" type="tns:InstallAppResponseType"/>
   <xs:complexType name="UninstallAppType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseRequestType">
+      <xs:extension base="tns:BaseRequestType">
         <xs:sequence>
           <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:string"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="UninstallApp" type="m:UninstallAppType"/>
+  <xs:element name="UninstallApp" type="tns:UninstallAppType"/>
   <xs:complexType name="UninstallAppResponseType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:ResponseMessageType"/>
+      <xs:extension base="tns:ResponseMessageType"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="UninstallAppResponse" type="m:UninstallAppResponseType"/>
+  <xs:element name="UninstallAppResponse" type="tns:UninstallAppResponseType"/>
   <xs:complexType name="DisableAppType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:BaseRequestType">
+      <xs:extension base="tns:BaseRequestType">
         <xs:sequence>
           <xs:element minOccurs="1" maxOccurs="1" name="ID" type="xs:string"/>
           <xs:element minOccurs="1" maxOccurs="1" name="DisableReason" type="t:DisableReasonType"/>
@@ -114,11 +114,11 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="DisableApp" type="m:DisableAppType"/>
+  <xs:element name="DisableApp" type="tns:DisableAppType"/>
   <xs:complexType name="DisableAppResponseType">
     <xs:complexContent mixed="false">
-      <xs:extension base="m:ResponseMessageType"/>
+      <xs:extension base="tns:ResponseMessageType"/>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="DisableAppResponse" type="m:DisableAppResponseType"/>
+  <xs:element name="DisableAppResponse" type="tns:DisableAppResponseType"/>
 </xs:schema>

@@ -282,6 +282,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public DataNodeObjectData DataNodeObjectData { get; set; }
 
         /// <summary>
+        /// Gets or sets the data hash.
+        /// </summary>
+        public DataHashObject DataHash { get; set; }
+
+        /// <summary>
         /// Get all the content which is represented by the intermediate node object.
         /// </summary>
         /// <returns>Return the byte list of intermediate node object content.</returns>
@@ -324,6 +329,16 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
             this.Signature = StreamObject.GetCurrent<SignatureObject>(byteArray, ref index);
             this.DataSize = StreamObject.GetCurrent<DataSizeObject>(byteArray, ref index);
+
+            // Try to read StreamObjectHeaderStart to see there is data hash object or not
+            StreamObjectHeaderStart streamObjectHeader;
+            if ((StreamObjectHeaderStart.TryParse(byteArray, index, out streamObjectHeader)) != 0)            
+            {
+                if (streamObjectHeader.Type == StreamObjectTypeHeaderStart.DataHashObject)
+                {
+                    this.DataHash = StreamObject.GetCurrent<DataHashObject>(byteArray, ref index);
+                }
+            }
 
             currentIndex = index;
         }
@@ -676,6 +691,121 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         {
             byteList.AddRange(LittleEndianBitConverter.GetBytes(this.DataSize));
             return 8;
+        }
+    }
+
+    /// <summary>
+    /// Data Hash Object
+    /// </summary>
+    public class DataHashObject : StreamObject
+    {
+        /// <summary>
+        /// Initializes a new instance of the DataHashObject class.
+        /// </summary>
+        public DataHashObject()
+            : base(StreamObjectTypeHeaderStart.DataHashObject)
+        {
+            this.Data = new BinaryItem();
+        }
+
+        /// <summary>
+        ///  Gets or sets a binary item as specified in [MS-FSSHTTPB] section 2.2.1.3 that specifies a value that is unique to the file data represented by this root node object. 
+        ///  The value of this item depends on the file chunking algorithm used, as specified in section 2.4. 
+        /// </summary>
+        public BinaryItem Data { get; set; }
+
+        /// <summary>
+        /// Override the equals method.
+        /// </summary>
+        /// <param name="obj">Specify the compared instance.</param>
+        /// <returns>If equals return true, otherwise return false.</returns>
+        public override bool Equals(object obj)
+        {
+            DataHashObject so = obj as DataHashObject;
+
+            if (so == null)
+            {
+                return false;
+            }
+
+            if (so.Data != null && this.Data != null)
+            {
+                return so.Data.Equals(this.Data);
+            }
+            else if (so.Data == null && this.Data == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Override the GetHashCode method.
+        /// </summary>
+        /// <returns>Return the hash code value.</returns>
+        public override int GetHashCode()
+        {
+            if (this.Data != null)
+            {
+                return this.Data.GetHashCode();
+            }
+            else
+            {
+                return base.GetHashCode();
+            }
+        }
+
+        /// <summary>
+        /// Override the ToString method.
+        /// </summary>
+        /// <returns>Return the string represent the instance.</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (byte value in this.Data.Content)
+            {
+                sb.Append(value);
+                sb.Append(",");
+            }
+
+            sb.Remove(sb.Length - 1, 1);
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Used to de-serialize the element.
+        /// </summary>
+        /// <param name="byteArray">A Byte array</param>
+        /// <param name="currentIndex">Start position</param>
+        /// <param name="lengthOfItems">The length of the items</param>
+        protected override void DeserializeItemsFromByteArray(byte[] byteArray, ref int currentIndex, int lengthOfItems)
+        {
+            int index = currentIndex;
+
+            this.Data = BasicObject.Parse<BinaryItem>(byteArray, ref index);
+
+            if (index - currentIndex != lengthOfItems)
+            {
+                throw new StreamObjectParseErrorException(currentIndex, "Signature", "Stream Object over-parse error", null);
+            }
+
+            currentIndex = index;
+        }
+
+        /// <summary>
+        /// Used to convert the element into a byte List.
+        /// </summary>
+        /// <param name="byteList">A Byte list</param>
+        /// <returns>The number of elements</returns>
+        protected override int SerializeItemsToByteList(List<byte> byteList)
+        {
+            int length = byteList.Count;
+            byteList.AddRange(this.Data.SerializeToByteList());
+            return byteList.Count - length;
         }
     }
 }

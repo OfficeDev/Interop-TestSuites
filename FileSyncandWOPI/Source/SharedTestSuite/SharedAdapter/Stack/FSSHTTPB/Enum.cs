@@ -336,6 +336,11 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         DataSizeObject = 0x22, // Defined in MS-FSSHTTPD
 
         /// <summary>
+        /// Data Hash Object
+        /// </summary>
+        DataHashObject = 0x2F, // Defined in MS-FSSHTTPD
+
+        /// <summary>
         /// Waterline Knowledge
         /// </summary>
         WaterlineKnowledge = 0x29,
@@ -573,6 +578,22 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// Put changes lock id
         /// </summary>
         PutChangesLockId = 0x85,
+
+        /// <summary>
+        /// Version Token Knowledge
+        /// </summary>
+        VersionTokenKnowledge = 0x8C,
+
+        /// <summary>
+        /// Cell Roundtrip Options
+        /// </summary>
+        CellRoundtripOptions = 0x8D,
+
+        /// <summary>
+        /// File Hash
+        /// </summary>
+        FileHash =0x8E,
+
     }
 
     /// <summary>
@@ -704,16 +725,6 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// User Agent Client and Platform
         /// </summary>
         UserAgentClientandPlatform=0x8B,
-
-        /// <summary>
-        /// Version Token Knowledge
-        /// </summary>
-        VersionTokenKnowledge = 0x8C,
-
-        /// <summary>
-        /// Cell Roundtrip Options
-        /// </summary>
-        CellRoundtripOptions = 0x8D,
     }
 
     /// <summary>
