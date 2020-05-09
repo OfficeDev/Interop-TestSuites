@@ -1424,7 +1424,7 @@ As values of MetaTagFXDelProp meta-properties(as specified in section 2.2.4.1.5.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R3050</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In Properties That Denote Subobjects] When the folder properties is PidTagContainerHierarchy ([MS-OXPROPS] section 2.715), clients use this property in inclusion and exclusion lists, but do not use this property as a value of the MetaTagFXDelProp meta-property.</ns1:Description>
+		<ns1:Description>[In Properties That Denote Subobjects] When the folder properties is PidTagContainerHierarchy ([MS-OXPROPS] section 2.645), clients use this property in inclusion and exclusion lists, but do not use this property as a value of the MetaTagFXDelProp meta-property.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8237,7 +8237,7 @@ RopFastTransferSourceGetBuffer ROP (section 2.2.3.1.1.5).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1300</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2.4.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopSynchronizationImportMessageChange ROP Request Buffer] [ PropertyValues (variable)] PidTagLastModificationTime ([MS-OXPROPS] section 2.758) MUST be present in the array list.</ns1:Description>
+		<ns1:Description>[In RopSynchronizationImportMessageChange ROP Request Buffer] [ PropertyValues (variable)] PidTagLastModificationTime ([MS-OXPROPS] section 2.764) MUST be present in the array list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11790,7 +11790,7 @@ state = IncrSyncStateBegin propList IncrSyncStateEnd</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1113</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.6</ns1:Doc_Sect>
-		<ns1:Description>[In folderContent Element] Under conditions specified in section 3.2.5.10, the PidTagContainerHierarchy property ([MS-OXPROPS] section 2.639) included in a subFolder element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).</ns1:Description>
+		<ns1:Description>[In folderContent Element] Under conditions specified in section 3.2.5.10, the PidTagContainerHierarchy property ([MS-OXPROPS] section 2.645) included in a subFolder element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11809,7 +11809,7 @@ state = IncrSyncStateBegin propList IncrSyncStateEnd</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2620</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In folderMessages Element] Under conditions specified in section 3.2.5.10, when included in the folderMessages element, the PidTagFolderAssociatedContents ([MS-OXPROPS] section 2.693) and PidTagContainerContents ([MS-OXPROPS] section 2.637) properties MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).</ns1:Description>
+		<ns1:Description>[In folderMessages Element] Under conditions specified in section 3.2.5.10, when included in the folderMessages element, the PidTagFolderAssociatedContents ([MS-OXPROPS] section 2.699) and PidTagContainerContents ([MS-OXPROPS] section 2.643) properties MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12927,7 +12927,7 @@ MUST adhere to the following restrictions:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1392</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3.23</ns1:Doc_Sect>
-		<ns1:Description>[In recipient Element] [PidTagRowid, Fixed position] The position [1] of the property PidTagRowid ([MS-OXPROPS] section 2.1002) within the array propList is fixed and MUST correspond to the position of the corresponding restriction in the property list restriction table.</ns1:Description>
+		<ns1:Description>[In recipient Element] [PidTagRowid, Fixed position] The position [1] of the property PidTagRowid ([MS-OXPROPS] section 2.939) within the array propList is fixed and MUST correspond to the position of the corresponding restriction in the property list restriction table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15789,7 +15789,7 @@ PidTagChangeNumber = CN8</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R1826</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.6.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Last Writer Wins Algorithm] The last writer wins algorithm uses the PidTagLastModificationTime ([MS-OXPROPS] section 2.758) property to determine the winning version of the folder or message, as specified in the following steps:
+		<ns1:Description>[In Last Writer Wins Algorithm] The last writer wins algorithm uses the PidTagLastModificationTime ([MS-OXPROPS] section 2.764) property to determine the winning version of the folder or message, as specified in the following steps:
 1.	The version with the most recent PidTagLastModificationTime wins.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -18934,7 +18934,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2267</ns1:REQ_ID>
@@ -18995,7 +18995,7 @@ Specifying a property in the PropertyTags field of the request buffer of a RopFa
 		<ns1:REQ_ID>MS-OXCFXICS_R3515</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.10</ns1:Doc_Sect>
 		<ns1:Description>[In Effect of Property and Subobject Filters on Download] For example:
-Specifying the PidTagFolderAssociatedContents property ([MS-OXPROPS] section 2.693) in the PropertyTags field of the request buffer of a RopFastTransferSourceCopyTo ROP (section 2.2.3.1.1.1)whose InputServerObject field contains a Folder object only excludes FAI Message objects from copying this specific folder, but not any of its descendant folders.</ns1:Description>
+Specifying the PidTagFolderAssociatedContents property ([MS-OXPROPS] section 2.699) in the PropertyTags field of the request buffer of a RopFastTransferSourceCopyTo ROP (section 2.2.3.1.1.1)whose InputServerObject field contains a Folder object only excludes FAI Message objects from copying this specific folder, but not any of its descendant folders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -19005,7 +19005,7 @@ Specifying the PidTagFolderAssociatedContents property ([MS-OXPROPS] section 2.6
 		<ns1:REQ_ID>MS-OXCFXICS_R3516</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.10</ns1:Doc_Sect>
 		<ns1:Description>[In Effect of Property and Subobject Filters on Download] For example:
-Specifying the PidTagMessageRecipients property ([MS-OXPROPS] section 2.789) in the PropertyTags fields of the request buffer of a RopSynchronizationConfigure ROP (section 2.2.3.2.1.1) excludes recipient subobjects from all message changes downloaded in that operation, but it does not affect recipients of embedded messages that their attachments might have.</ns1:Description>
+Specifying the PidTagMessageRecipients property ([MS-OXPROPS] section 2.795) in the PropertyTags fields of the request buffer of a RopSynchronizationConfigure ROP (section 2.2.3.2.1.1) excludes recipient subobjects from all message changes downloaded in that operation, but it does not affect recipients of embedded messages that their attachments might have.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -19072,7 +19072,7 @@ Specifying the SendEntryId flag of the CopyFlag field includes all identificatio
 		<ns1:REQ_ID>MS-OXCFXICS_R3518</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.10</ns1:Doc_Sect>
 		<ns1:Description>[In Effect of Property and Subobject Filters on Download] For example:
-Specifying the PidTagMessageRecipients meta-property ([MS-OXPROPS] section 2.789) in the PropertyTags field of the request buffer of the RopFastTransferSourceCopyProperties ROP (section 2.2.3.1.1.2) where the InputServerObject field contains a Message object, directs the server to output the MetaTagFXDelProp (section 2.2.4.1.5.1) and PidTagMessageRecipients properties before outputting recipients of that message, even if there are no recipients.</ns1:Description>
+Specifying the PidTagMessageRecipients meta-property ([MS-OXPROPS] section 2.795) in the PropertyTags field of the request buffer of the RopFastTransferSourceCopyProperties ROP (section 2.2.3.1.1.2) where the InputServerObject field contains a Message object, directs the server to output the MetaTagFXDelProp (section 2.2.4.1.5.1) and PidTagMessageRecipients properties before outputting recipients of that message, even if there are no recipients.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
