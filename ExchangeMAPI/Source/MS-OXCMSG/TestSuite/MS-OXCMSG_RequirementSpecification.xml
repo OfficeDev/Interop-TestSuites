@@ -10495,7 +10495,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R3021</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] [PartialCompletion] A nonzero value indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field. (Exchange 2007 and exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] [PartialCompletion] A nonzero value indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field. (Exchange 2007 follows this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1674:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10590,7 +10590,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R164102</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2:  Implementation does initialize the following properties:PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2010 and Exchange 2013 followin this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2:  Implementation does initialize the following properties:PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2010 and Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1:i,MS-OXCMSG_R340:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
