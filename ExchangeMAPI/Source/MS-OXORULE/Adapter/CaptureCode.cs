@@ -563,7 +563,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagRuleMessageSequenceValue,
                     169,
-                    @"[In PidTagRuleMessageSequence Property] The PidTagRuleMessageSequence property ([MS-OXPROPS] section 2.950) MUST be set on the FAI message.");
+                    @"[In PidTagRuleMessageSequence Property] The PidTagRuleMessageSequence property ([MS-OXPROPS] section 2.952) MUST be set on the FAI message.");
 
                 // Add the debug information.
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R172.");
