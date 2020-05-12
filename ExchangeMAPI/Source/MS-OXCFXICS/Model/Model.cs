@@ -4199,7 +4199,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                                 abstractFastTransferStream.AbstractFolderContent.IsSubFolderPrecededByPidTagFXDelProp = true;
                                                 ModelHelper.CaptureRequirement(
                                                     1113,
-                                                    @"[In folderContent Element] Under conditions specified in section 3.2.5.10, the PidTagContainerHierarchy property ([MS-OXPROPS] section 2.639) included in a subFolder element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
+                                                    @"[In folderContent Element] Under conditions specified in section 3.2.5.10, the PidTagContainerHierarchy property ([MS-OXPROPS] section 2.645) included in a subFolder element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
                                             }
                                         }
                                     }
@@ -4213,7 +4213,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                                 abstractFastTransferStream.AbstractFolderContent.IsSubFolderPrecededByPidTagFXDelProp = true;
                                                 ModelHelper.CaptureRequirement(
                                                     1113,
-                                                     @"[In folderContent Element] Under conditions specified in section 3.2.5.10, the PidTagContainerHierarchy property ([MS-OXPROPS] section 2.639) included in a subFolder element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
+                                                     @"[In folderContent Element] Under conditions specified in section 3.2.5.10, the PidTagContainerHierarchy property ([MS-OXPROPS] section 2.645) included in a subFolder element MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
                                             }
                                         }
                                     }
@@ -4230,7 +4230,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                             abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.IsFolderMessagesPrecededByPidTagFXDelProp = true;
                                             ModelHelper.CaptureRequirement(
                                                 2620,
-                                                @"[In folderMessages Element] Under conditions specified in section 3.2.5.10, when included in the folderMessages element, the PidTagFolderAssociatedContents ([MS-OXPROPS] section 2.693) and PidTagContainerContents ([MS-OXPROPS] section 2.637) properties MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
+                                                @"[In folderMessages Element] Under conditions specified in section 3.2.5.10, when included in the folderMessages element, the PidTagFolderAssociatedContents ([MS-OXPROPS] section 2.699) and PidTagContainerContents ([MS-OXPROPS] section 2.637) properties MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
                                         }
                                     }
                                     else
@@ -4241,7 +4241,7 @@ abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.MessageList.Ab
                                             abstractFastTransferStream.AbstractFolderContent.AbsFolderMessage.IsFolderMessagesPrecededByPidTagFXDelProp = true;
                                             ModelHelper.CaptureRequirement(
                                                 2620,
-                                                @"[In folderMessages Element] Under conditions specified in section 3.2.5.10, when included in the folderMessages element, the PidTagFolderAssociatedContents ([MS-OXPROPS] section 2.693) and PidTagContainerContents ([MS-OXPROPS] section 2.637) properties MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
+                                                @"[In folderMessages Element] Under conditions specified in section 3.2.5.10, when included in the folderMessages element, the PidTagFolderAssociatedContents ([MS-OXPROPS] section 2.699) and PidTagContainerContents ([MS-OXPROPS] section 2.637) properties MUST be preceded by a MetaTagFXDelProp meta-property (section 2.2.4.1.5.1).");
                                         }
                                     }
 
