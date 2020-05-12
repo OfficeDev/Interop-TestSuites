@@ -1,6 +1,6 @@
 ## [MS-OXCNOTIF]: Core Notifications Protocol
-- [MS-OXCNOTIF] v20180724 is used to develop the test suite. 
-- Release date, 7/24/2018.
+- [MS-OXCNOTIF] v20181001 is used to develop the test suite. 
+- Release date, 10/1/2018.
 
 To find the new landing page for [MS-OXCNOTIF], please visit https://msdn.microsoft.com/en-us/library/cc463898(v=exchg.80).aspx
 
