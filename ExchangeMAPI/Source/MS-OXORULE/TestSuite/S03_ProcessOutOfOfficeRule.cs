@@ -439,7 +439,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR517,
                 517,
-                @"[In Processing Incoming Messages to a Folder] The server MUST evaluate rules (2) that have the ST_ONLY_WHEN_OOF flag set in the PidTagRuleState property only when the mailbox is in an OOF state as specified in [MS-OXWOOF] section 2.2.4.1.");
+                @"[In Processing Incoming Messages to a Folder] The server MUST evaluate rules (2) that have the ST_ONLY_WHEN_OOF flag set in the PidTagRuleState property only when the mailbox is in an OOF state as specified in [MS-OXWOOF] section 2.2.4.2.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R553: whether rule is executed or not when it is not in out of office state is {0}, and when it is in out of office state is {1}", isRuleNotExecuteWhenNotInOOFState, isRuleExecuteWhenInOOFState);
@@ -450,7 +450,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR553,
                 553,
-                @"[In Processing Out of Office Rules] The server evaluates and executes Out of Office rules only when the mailbox is in an Out of Office state, as specified in [MS-OXWOOF] section 2.2.4.1.");
+                @"[In Processing Out of Office Rules] The server evaluates and executes Out of Office rules only when the mailbox is in an Out of Office state, as specified in [MS-OXWOOF] section 2.2.4.2.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R582: whether rule is executed or not when it is not in out of office state is {0}, and when it is in out of office state is {1}", isRuleNotExecuteWhenNotInOOFState, isRuleExecuteWhenInOOFState);
@@ -461,7 +461,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR582,
                 582,
-                @"[In Entering and Exiting the Out of Office State] When the mailbox enters the Out of Office state as specified in [MS-OXWOOF] section 2.2.4.1, the server MUST start processing rules (2) marked with the ST_ONLY_WHEN_OOF flag in the PidTagRuleState property (section 2.2.1.3.1.3).");
+                @"[In Entering and Exiting the Out of Office State] When the mailbox enters the Out of Office state as specified in [MS-OXWOOF] section 2.2.4.2, the server MUST start processing rules (2) marked with the ST_ONLY_WHEN_OOF flag in the PidTagRuleState property (section 2.2.1.3.1.3).");
             #endregion
             #endregion
 

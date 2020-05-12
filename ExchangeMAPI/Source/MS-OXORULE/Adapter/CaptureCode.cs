@@ -107,7 +107,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                             Site.CaptureRequirementIfIsTrue(
                                 isVerifyR748,
                                 748,
-                                @"[In PidTagRuleError Property] The PidTagRuleError property ([MS-OXPROPS] section 2.941) MUST be set to one of the following values [0x00000001, 0x00000002, 0x00000003, 0x00000004, 0x00000005, 0x00000006, 0x00000007, 0x00000008, 0x00000009, 0x0000000a, 0x0000000b, 0x0000000c, 0x0000000d, and 0x0000000e], indicating the cause of the error encountered during the execution of the rule (2).");
+                                @"[In PidTagRuleError Property] The PidTagRuleError property ([MS-OXPROPS] section 2.943) MUST be set to one of the following values [0x00000001, 0x00000002, 0x00000003, 0x00000004, 0x00000005, 0x00000006, 0x00000007, 0x00000008, 0x00000009, 0x0000000a, 0x0000000b, 0x0000000c, 0x0000000d, and 0x0000000e], indicating the cause of the error encountered during the execution of the rule (2).");
 
                             if (propertyValue != null)
                             {
@@ -573,7 +573,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagRuleMessageStateValue,
                     172,
-                    @"[In PidTagRuleMessageState Property] The PidTagRuleMessageState property ([MS-OXPROPS] section 2.951) MUST be set on the FAI message.");
+                    @"[In PidTagRuleMessageState Property] The PidTagRuleMessageState property ([MS-OXPROPS] section 2.953) MUST be set on the FAI message.");
 
                 if (Common.IsRequirementEnabled(891, this.Site))
                 {
@@ -608,7 +608,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagRuleMessageProviderValue,
                     183,
-                    @"[In PidTagRuleMessageProvider Property] The PidTagRuleMessageProvider property ([MS-OXPROPS] section 2.948) MUST be set on the FAI message.");
+                    @"[In PidTagRuleMessageProvider Property] The PidTagRuleMessageProvider property ([MS-OXPROPS] section 2.950) MUST be set on the FAI message.");
 
                 if (Common.IsRequirementEnabled(893, this.Site))
                 {
@@ -631,7 +631,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagExtendedRuleMessageActionsValue,
                     190,
-                    @"[In PidTagExtendedRuleMessageActions Property] The PidTagExtendedRuleMessageActions property ([MS-OXPROPS] section 2.686) MUST be set on the FAI message.");
+                    @"[In PidTagExtendedRuleMessageActions Property] The PidTagExtendedRuleMessageActions property ([MS-OXPROPS] section 2.688) MUST be set on the FAI message.");
 
                 // Add the debug information.
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R196");
@@ -641,7 +641,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsNotNull(
                     pidTagExtendedRuleMessageConditionValue,
                     196,
-                    @"[In PidTagExtendedRuleMessageCondition Property] The PidTagExtendedRuleMessageCondition property ([MS-OXPROPS] section 2.687) MUST be set on the FAI message.");
+                    @"[In PidTagExtendedRuleMessageCondition Property] The PidTagExtendedRuleMessageCondition property ([MS-OXPROPS] section 2.689) MUST be set on the FAI message.");
             }
         }
 
