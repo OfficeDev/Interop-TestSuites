@@ -1701,7 +1701,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R1180</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.3: Outlook 2010, Outlook 2013, Outlook 2016, Outlook 2019 Preview  do not use the PidTagAccessControlListData property (section 2.2.3).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;2&gt; Section 2.2.3: Outlook 2010, Outlook 2013, Outlook 2016, Outlook 2019  do not use the PidTagAccessControlListData property (section 2.2.3).</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1753,7 +1753,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R1182</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.7: Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview include the FreeBusySimple flag by default on the Calendar folder for any entry in the permissions list except the anonymous user and add the FreeBusyDetailed flag to any entries that have the ReadAny flag set. Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview use these defaults until the client modifies the permissions list with the IncludeFreeBusy flag set in the RopModifyPermissions ROP request to override the default value.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 2.2.7: Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 include the FreeBusySimple flag by default on the Calendar folder for any entry in the permissions list except the anonymous user and add the FreeBusyDetailed flag to any entries that have the ReadAny flag set. Exchange 2007, Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 use these defaults until the client modifies the permissions list with the IncludeFreeBusy flag set in the RopModifyPermissions ROP request to override the default value.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
