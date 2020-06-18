@@ -54,7 +54,7 @@
                 nextFragment.DoDeserializeFromByteArray(byteArray, (int)nextFragmentRef.Stp);
                 nextFragmentRef = nextFragment.nextFragment;
                 this.FileNodeListFragments.Add(nextFragment);
-                this.FileNodeSequence.AddRange(fragment.rgFileNodes.Where(f => f.FileNodeID != FileNodeIDValues.ChunkTerminatorFND).ToArray());
+                this.FileNodeSequence.AddRange(nextFragment.rgFileNodes.Where(f => f.FileNodeID != FileNodeIDValues.ChunkTerminatorFND).ToArray());
             }
 
             FileNode[] objectSpaceManifestListReferences = this.FileNodeSequence.Where(obj => obj.FileNodeID == FileNodeIDValues.ObjectSpaceManifestListReferenceFND).ToArray();
