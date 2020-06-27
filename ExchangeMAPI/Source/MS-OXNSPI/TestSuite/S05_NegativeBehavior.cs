@@ -2615,17 +2615,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             this.Result = this.ProtocolAdatper.NspiResortRestriction(reservedOfResortRestriction, ref stat, inmids, ref outMIds, false);
 
             #region Capture
-            if (Common.IsRequirementEnabled(119401, this.Site))
+            if (Common.IsRequirementEnabled(1194001, this.Site))
             {
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R119401");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1194001");
 
-                // Verify MS-OXNSPI requirement: MS-OXNSPI_R119401
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R1194001
                 Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
                     ErrorCodeValue.GeneralFailure,
                     this.Result,
-                    119401,
-                    @"[In Appendix A: Product Behavior] Implementation does return the value ""GeneralFailure"" when SortType field in the input parameter pStat has any value other than SortTypeDisplayName. (Exchange Server 2010, Exchange Server 2013, Exchange Server 2016 follow this behavior.)");
+                    1194001,
+                    @"[In Appendix A: Product Behavior] Implementation does return the value ""GeneralFailure"" if SortType field in the input parameter pStat has any value other than SortTypeDisplayName .(Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 follows this behavior)");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1189");
@@ -2677,17 +2677,17 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                     1757,
                     @"[In NspiResortRestriction] If the server returns any return values other than ""Success"", the server MUST NOT modify the value of the parameter pStat.");
             }
-            if (Common.IsRequirementEnabled(119402, this.Site))
+            if (Common.IsRequirementEnabled(1194002, this.Site))
             {
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R119402");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXNSPI_R1194002");
 
-                // Verify MS-OXNSPI requirement: MS-OXNSPI_R119402
+                // Verify MS-OXNSPI requirement: MS-OXNSPI_R1194002
                 Site.CaptureRequirementIfAreEqual<ErrorCodeValue>(
                     ErrorCodeValue.Success,
                     this.Result,
-                    119402,
-                    @"[In Appendix A: Product Behavior] Implementation does return the value ""Success"" when SortType field in the input parameter pStat has any value other than SortTypeDisplayName. <6> Section 3.1.4.1.11:  Exchange 2019 returns ""Success"".");
+                    1194002,
+                    @"[In Appendix A: Product Behavior] Implementation does return the value "Success" if SortType field in the input parameter pStat has any value other than SortTypeDisplayName .&lt;6&gt; Section 3.1.4.1.1411:  Exchange 2019 returns ""Success"".");
 
             }
                 #endregion
@@ -2999,7 +2999,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 AdapterHelper.AreTwoPropertyRowSetEqual(rows, rows1),
                 750001,
-                @"[In Appendix A: Product Behavior] Implementation does not set the output parameter lpVersion to the version of the server's address book hierarchy table.<4> Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016, and Exchange 2019 Preview do not set the output parameter lpVersion to the version of the server's address book hierarchy table.");
+                @"[In Appendix A: Product Behavior] Implementation does not set the output parameter lpVersion to the version of the server's address book hierarchy table.<4> Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016, and Exchange 2019 do not set the output parameter lpVersion to the version of the server's address book hierarchy table.");
 
             if(Common.IsRequirementEnabled(748001,this.Site))
             {
@@ -3008,7 +3008,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 Site.CaptureRequirementIfIsTrue(
                     AdapterHelper.AreTwoPropertyRowSetEqual(rows, rows1),
                     748001,
-                    @"[In Appendix A: Product Behavior] Implementation does proceed as if the address book hierarchy table had no rows wheather the version number of the address book hierarchy table  matches this version number specified by lpVersion. &lt;3&gt; Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview: the input parameter lpVersion does not impact the search results.");
+                    @"[In Appendix A: Product Behavior] Implementation does proceed as if the address book hierarchy table had no rows wheather the version number of the address book hierarchy table  matches this version number specified by lpVersion. &lt;3&gt; Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019: the input parameter lpVersion does not impact the search results.");
 
             }
             #endregion
@@ -3574,7 +3574,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
             Site.CaptureRequirementIfIsTrue(
                 isR2003005Verified,
                 2003005,
-                @"[In Appendix A: Product Behavior] Implementation does return the value ""ErrorsReturned"" (0x00040380). <5> Section 3.1.4.1.7:  Microsoft Exchange Server 2010 Service Pack 3 (SP3), Exchange 2013, Exchange 2016, and Exchange 2019 Preview return ""ErrorsReturned"" (0x00040380).");
+                @"[In Appendix A: Product Behavior] Implementation does return the value ""ErrorsReturned"" (0x00040380). <5> Section 3.1.4.1.7:  Microsoft Exchange Server 2010 Service Pack 3 (SP3), Exchange 2013, Exchange 2016, and Exchange 2019 return ""ErrorsReturned"" (0x00040380).");
             #endregion
 
             #region Call NspiUpdateStat to update the STAT block to make CurrentRec point to the first row of the table.
