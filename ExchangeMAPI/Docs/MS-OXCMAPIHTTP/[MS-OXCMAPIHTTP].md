@@ -1,6 +1,6 @@
 ## [MS-OXCMAPIHTTP]: Messaging Application Programming Interface (MAPI) Extension for HTTP
-- [MS-OXCMAPIHTTP] v20180724 is used to develop the test suite. 
-- Release date, 7/24/2018.
+- [MS-OXCMAPIHTTP] v20181211 is used to develop the test suite. 
+- Release date, 12/11/2018.
 
 To find the new landing page for [MS-OXCMAPIHTTP], please visit https://msdn.microsoft.com/en-us/library/dn530952(v=exchg.80).aspx
 

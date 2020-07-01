@@ -2687,7 +2687,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                     ErrorCodeValue.Success,
                     this.Result,
                     1194002,
-                    @"[In Appendix A: Product Behavior] Implementation does return the value "Success" if SortType field in the input parameter pStat has any value other than SortTypeDisplayName .&lt;6&gt; Section 3.1.4.1.1411:  Exchange 2019 returns ""Success"".");
+                    @"[In Appendix A: Product Behavior] Implementation does return the value ""Success"" if SortType field in the input parameter pStat has any value other than SortTypeDisplayName .&lt;6&gt; Section 3.1.4.1.1411:  Exchange 2019 returns ""Success"".");
 
             }
                 #endregion
