@@ -8889,7 +8889,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:REQ_ID>MS-OXCFOLD_R764001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] If this bit [DELETE_HARD_DELETE] is set, implement does not hard delete the folder. (Microsoft Exchange server 2013 and above follow this behavior).</ns1:Description>
-		<ns1:Derived>MS-OXCFOLD_R114:I;MS-OXCFOLD_R764:i</ns1:Derived>
+		<ns1:Derived>MS-OXCFOLD_R114:I,MS-OXCFOLD_R764:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8900,7 +8900,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:REQ_ID>MS-OXCFOLD_R764002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] If this bit [DELETE_HARD_DELETE] is set, implement does hard delete the folder. &lt;4&gt; Section 2.2.1.3.1:  For Exchange 2003, Exchange 2007 and Exchange 2010, if DELETE_HARD_DELETE is set, the folder is hard deleted.</ns1:Description>
-		<ns1:Derived>MS-OXCFOLD_R114:I;MS-OXCFOLD_R764:i</ns1:Derived>
+		<ns1:Derived>MS-OXCFOLD_R114:I,MS-OXCFOLD_R764:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9189,6 +9189,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R116003</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] If the client sets an invalid bit in the SearchFlags field, implementation does fail the RopSetSearchCriteria ROP operation with a ecNotSupported error code. (&lt;19&gt; Section 3.2.5.4: Exchange 2019 returns a ecNotSupported error code.)</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R116:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
