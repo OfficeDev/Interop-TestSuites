@@ -206,7 +206,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 Common.CompareByteArray(temp.ToArray(), pidTagRuleIds),
                 368,
-                @"[In PidTagRuleIds] The PidTagRuleIds property ([MS-OXPROPS] section 2.944) is a buffer contains the PidTagRuleId (section 2.2.1.3.1.1) value (8 bytes) from the first rules (2) that contributed actions (2) in the PidTagClientActions property (section 2.2.6.6), and repeats that value once for each rule (2) that contributed actions (2).");
+                @"[In PidTagRuleIds] The PidTagRuleIds property ([MS-OXPROPS] section 2.946) is a buffer contains the PidTagRuleId (section 2.2.1.3.1.1) value (8 bytes) from the first rules (2) that contributed actions (2) in the PidTagClientActions property (section 2.2.6.6), and repeats that value once for each rule (2) that contributed actions (2).");
             #endregion
             #endregion
         }
@@ -514,7 +514,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR371,
                 371,
-                "[In PidTagDeferredActionMessageOriginalEntryId Property] The PidTagDeferredActionMessageOriginalEntryId property ([MS-OXPROPS] section 2.655) contains the server EntryID for the DAM message on the server.");
+                "[In PidTagDeferredActionMessageOriginalEntryId Property] The PidTagDeferredActionMessageOriginalEntryId property ([MS-OXPROPS] section 2.657) contains the server EntryID for the DAM message on the server.");
             #endregion
 
             #region TestUser1 verifies whether the associated properties on each DAM are changed after updating.
@@ -1085,7 +1085,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 1,
                 ruleActionNumber,
                 707,
-                @"[In PidTagRuleActionNumber Property] The PidTagRuleActionNumber property ([MS-OXPROPS] section 2.937) MUST be set to the zero-based index of the action (2) that failed. (For example, if specific to an action (2), a property value of 0x00000000 means that the first action (2) failed, 0x00000001 means that the second action (2) failed.)");
+                @"[In PidTagRuleActionNumber Property] The PidTagRuleActionNumber property ([MS-OXPROPS] section 2.939) MUST be set to the zero-based index of the action (2) that failed. (For example, if specific to an action (2), a property value of 0x00000000 means that the first action (2) failed, 0x00000001 means that the second action (2) failed.)");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R709");
@@ -1115,7 +1115,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 (uint)ActionType.OP_MOVE,
                 ruleActionType,
                 1009,
-                @"[In PidTagRuleActionType Property] The PidTagRuleActionType property ([MS-OXPROPS] section 2.936) specifies the action (2) of the rule (2) that failed.");
+                @"[In PidTagRuleActionType Property] The PidTagRuleActionType property ([MS-OXPROPS] section 2.941) specifies the action (2) of the rule (2) that failed.");
             #endregion
             #endregion
 
@@ -1476,7 +1476,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR740,
                     740,
-                    @"[In PidTagDamOriginalEntryId Property] This PidTagDamOriginalEntryId property ([MS-OXPROPS] section 2.653) MUST be set to the EntryID of the delivered (target) message that the client has to process.");
+                    @"[In PidTagDamOriginalEntryId Property] This PidTagDamOriginalEntryId property ([MS-OXPROPS] section 2.655) MUST be set to the EntryID of the delivered (target) message that the client has to process.");
             }
 
             if (Common.IsRequirementEnabled(741, this.Site))
@@ -1509,7 +1509,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR741,
                     741,
-                    @"[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property ([MS-OXPROPS] section 2.942) MUST be set to the EntryID of the folder where the rule (2) that triggered the generation of this DAM is stored.");
+                    @"[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property ([MS-OXPROPS] section 2.944) MUST be set to the EntryID of the folder where the rule (2) that triggered the generation of this DAM is stored.");
             }
 
             RuleAction pidTagClientActionsOfDAM = AdapterHelper.PropertyValueConvertToRuleAction(pidTagClientActionsOfDAMOfBytes);
@@ -1543,7 +1543,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                 ruleProperties.Provider,
                 pidTagRuleProviderOfDAM,
                 359,
-                @"[In PidTagRuleProvider] The PidTagRuleProvider property ([MS-OXPROPS] section 2.954) MUST be set to the same value as the PidTagRuleProvider property on the rule or rules that have generated the DAM.");
+                @"[In PidTagRuleProvider] The PidTagRuleProvider property ([MS-OXPROPS] section 2.956) MUST be set to the same value as the PidTagRuleProvider property on the rule or rules that have generated the DAM.");
 
             // Add the debug information.
             string pidTagMessageClassOfDAM = AdapterHelper.PropertyValueConvertToString(pidTagMessageClassOfDAMOfBytes);
@@ -1630,7 +1630,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR354,
                 354,
-                @"[In PidTagDamBackPatched property] The PidTagDamBackPatched property ([MS-OXPROPS] section 2.652) MUST be set to ""FALSE"" when the DAM is generated.");
+                @"[In PidTagDamBackPatched property] The PidTagDamBackPatched property ([MS-OXPROPS] section 2.654) MUST be set to ""FALSE"" when the DAM is generated.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R565: there is {0} DAM generated, PidTagMessageClass is {1}, PidTagRuleProvider is {2}, and is DAM under DAF folder is {3}", ropQueryRowsResponseOfDAM.RowCount, pidTagMessageClassOfDAM, pidTagRuleProviderOfDAM, isDAMUnderDAFFolder);

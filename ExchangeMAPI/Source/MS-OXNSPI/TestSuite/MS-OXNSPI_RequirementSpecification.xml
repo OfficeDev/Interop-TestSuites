@@ -6481,13 +6481,13 @@ long NspiGetSpecialTable (
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1863</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The server MUST return the following properties for each container in the hierarchy, in the order listed: PidTagEntryId ([MS-OXPROPS] section 2.677)
-PidTagContainerFlags ([MS-OXPROPS] section 2.638)
-PidTagDepth ([MS-OXPROPS] section 2.670)
-PidTagAddressBookContainerId ([MS-OXPROPS] section 2.506)
-PidTagDisplayName ([MS-OXPROPS] section 2.667)
-PidTagAddressBookIsMaster ([MS-OXPROPS] section 2.539)
-PidTagAddressBookParentEntryId ([MS-OXPROPS] section 2.553) (optional, and MUST be the seventh column if it [property PidTagAddressBookParentEntryId] is included)</ns1:Description>
+		<ns1:Description>[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The server MUST return the following properties for each container in the hierarchy, in the order listed: PidTagEntryId ([MS-OXPROPS] section 2.679)
+PidTagContainerFlags ([MS-OXPROPS] section 2.640)
+PidTagDepth ([MS-OXPROPS] section 2.669)
+PidTagAddressBookContainerId ([MS-OXPROPS] section 2.508)
+PidTagDisplayName ([MS-OXPROPS] section 2.672)
+PidTagAddressBookIsMaster ([MS-OXPROPS] section 2.541)
+PidTagAddressBookParentEntryId ([MS-OXPROPS] section 2.555) (optional, and MUST be the seventh column if it [property PidTagAddressBookParentEntryId] is included)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9597,11 +9597,12 @@ long NspiResortRestriction(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1194</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.11</ns1:Doc_Sect>
-		<ns1:Description>[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the SortType field in the input parameter pStat has any value other than SortTypeDisplayName the server MUST return the value "GeneralFailure".</ns1:Description>
+		<ns1:Description>[In NspiResortRestriction] [Server Processing Rules: Upon receiving message NspiResortRestriction, the server MUST process the data from the message subject to the following constraints:] [Constraint 5] If the SortType field in the input parameter pStat has any value other than SortTypeDisplayName the server SHOULD&lt;6&gt; return the value "GeneralFailure".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-OXNSPI_R1194001, MS-OXNSPI_R1194002</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1641</ns1:REQ_ID>
@@ -10139,7 +10140,7 @@ long NspiDNToMId(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1268</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1048) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.569) properties.</ns1:Description>
+		<ns1:Description>[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1050) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.571) properties.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10353,7 +10354,7 @@ long NspiModProps(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1301</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In NspiModProps] [Server Processing Rules: Upon receiving message NspiModProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 10] The server SHOULD&lt;6&gt; add all values for all properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat.</ns1:Description>
+		<ns1:Description>[In NspiModProps] [Server Processing Rules: Upon receiving message NspiModProps, the server MUST process the data from the message subject to the following constraints:] [Constraint 10] The server SHOULD&lt;7&gt; add all values for all properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10548,7 +10549,7 @@ long NspiModLinkAtt(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1321</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.15</ns1:Doc_Sect>
-		<ns1:Description>[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the server returns any return value other than "Success" (0x00000000), , the server MUST NOT modify any properties of any objects in the address book.&lt;7&gt;</ns1:Description>
+		<ns1:Description>[In NspiModLinkAtt] [Server Processing Rules: Upon receiving message NspiModLinkAtt, the server MUST process the data from the message subject to the following constraints:] [Constraint 1] If the server returns any return value other than "Success" (0x00000000), , the server MUST NOT modify any properties of any objects in the address book.&lt;8&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14042,7 +14043,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1878</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support RPC over TCP. &lt;1&gt; Section 2.1: Exchange 2013 NSPI server and  Exchange 2016 and Exchange 2019 Preview NSPI server does not using RPC over TCP.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support RPC over TCP. &lt;1&gt; Section 2.1: Exchange 2013 NSPI server and  Exchange 2016 and Exchange 2019 NSPI server does not using RPC over TCP.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1989:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14052,7 +14053,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003003</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not follow the ABNF format. &lt;2&gt; Section 2.2.9.3:  Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not follow the ABNF format that is specified in [MS-OXOABK] section 2.2.1.1.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not follow the ABNF format. &lt;2&gt; Section 2.2.9.3:  Exchange 2013, Exchange 2016 and Exchange 2019 do not follow the ABNF format that is specified in [MS-OXOABK] section 2.2.1.1.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R412:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14073,7 +14074,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R748001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does proceed as if the address book hierarchy table had no rows wheather the version number of the address book hierarchy table  matches this version number specified by lpVersion. &lt;3&gt; Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 Preview: the input parameter lpVersion does not impact the search results.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does proceed as if the address book hierarchy table had no rows wheather the version number of the address book hierarchy table  matches this version number specified by lpVersion. &lt;3&gt; Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019: the input parameter lpVersion does not impact the search results.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R748:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14083,7 +14084,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R750001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not set the output parameter lpVersion to the version of the server's address book hierarchy table.&lt;4&gt; Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016, and Exchange 2019 Preview do not set the output parameter lpVersion to the version of the server's address book hierarchy table.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not set the output parameter lpVersion to the version of the server's address book hierarchy table.&lt;4&gt; Section 3.1.4.1.3:  Exchange 2010, Exchange 2013, Exchange 2016, and Exchange 2019 do not set the output parameter lpVersion to the version of the server's address book hierarchy table.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R750:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14093,8 +14094,30 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003005</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the value "ErrorsReturned" (0x00040380). &lt;5&gt; Section 3.1.4.1.7:  Microsoft Exchange Server 2010 Service Pack 3 (SP3), Exchange 2013, Exchange 2016, and Exchange 2019 Preview return "ErrorsReturned" (0x00040380).</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the value "ErrorsReturned" (0x00040380). &lt;5&gt; Section 3.1.4.1.7:  Microsoft Exchange Server 2010 Service Pack 3 (SP3), Exchange 2013, Exchange 2016, and Exchange 2019 return "ErrorsReturned" (0x00040380).</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R882:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXNSPI_R1194001</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the value "GeneralFailure" if SortType field in the input parameter pStat has any value other than SortTypeDisplayName .(Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 follows this behavior)</ns1:Description>
+		<ns1:Derived>MS-OXNSPI_R1527:i, MS-OXNSPI_R1194:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXNSPI_R1194002</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the value "Success" if SortType field in the input parameter pStat has any value other than SortTypeDisplayName .&lt;6&gt; Section 3.1.4.1.1411:  Exchange 2019 returns "Success".</ns1:Description>
+		<ns1:Derived>MS-OXNSPI_R1527:i, MS-OXNSPI_R1194:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14104,7 +14127,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003007</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not add the values for PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat.&lt;6&gt; Section 3.1.4.1.14:  Exchange 2010 SP3, Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not add values for the PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not add the values for PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties specified in the input parameter pRow to the object specified by the field CurrentRec in the input parameter pStat.&lt;7&gt; Section 3.1.4.1.14:  Exchange 2010 SP3, Exchange 2013, Exchange 2016 and Exchange 2019 do not add values for the PidTagUserX509Certificate and PidTagAddressBookX509Certificate properties.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1527:i, MS-OXNSPI_R1301:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14114,7 +14137,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R2003009</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return "GeneralFailure" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. &lt;7&gt; Section 3.1.4.1.15:  Exchange 2013  Exchange 2016 and Exchange 2019 PReview return "GeneralFailure" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return "GeneralFailure" when modify either the PidTagAddressBookMember property or the PidTagAddressBookPublicDelegates property of any objects in the address book. &lt;8&gt; Section 3.1.4.1.15:  Exchange 2013  Exchange 2016 and Exchange 2019 return "GeneralFailure" (0x80004005) when modification of either the PidTagAddressBookMember property ([MS-OXOABK] section 2.2.6.1) or the PidTagAddressBookPublicDelegates property ([MS-OXOABK] section 2.2.5.5) is attempted.</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1321:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

@@ -99,8 +99,6 @@
     <Property name="R5472Enabled" value="true"/>
     <!-- Set R5572Enabled to true to verify that the implementation does not evaluate the rule (2) when the sender is on the list. Set R5572Enabled to false to disable this requirement.-->
     <Property name="R5572Enabled" value="false"/>
-    <!-- Set R7032Enabled to true to verify that the implementation does set this field (FolderInThisStore) to 0x01 if the destination folder is in the user's mailbox. Set R7032Enabled to false to disable this requirement.-->
-    <Property name="R7032Enabled" value="false"/>
     <!-- Set R618Enabled to true to verify that the implementation MUST find all DAMs that have the value of the PidTagDeferredActionMessageOriginalEntryId property (section 2.2.6.8) equal to the value in the ServerEntryId field of the RopUpdateDeferredActionMessages ROP request buffer. Set R618Enabled to false to disable this requirement.-->
     <Property name="R618Enabled" value="true"/>
   </Properties>
