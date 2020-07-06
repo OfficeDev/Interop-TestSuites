@@ -2306,7 +2306,7 @@ function SetServerAuthenticationMode
     </configuration>
 "@       
     
-    if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -ge $SharePointServer2016[0])
+    if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0])
     {
         $mumberShip = "LdapMember"
         $roleManager = "LdapRole"
@@ -2370,7 +2370,7 @@ function SetServerAuthenticationMode
             }
         }
         
-        if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -ge $SharePointServer2016[0])
+        if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0])
         {
             $stsRoleProviders = $stsRoot."system.web".roleManager.providers.add
             $stsRoleProvider = $stsRoleProviders | where {$_.name -eq $roleManager} 
@@ -2472,7 +2472,7 @@ function CreateWebApplication
 
     $memberShipProvider = "AspNetActiveDirectoryMembershipProvider"
     $roleProviderName = "temp"
-    if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -ge $SharePointServer2016[0])
+    if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0])
     {        
         $memberShipProvider = "LdapMember"
         $roleProviderName = "LdapRole"
