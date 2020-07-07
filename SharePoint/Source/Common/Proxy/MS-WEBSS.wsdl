@@ -57,7 +57,9 @@ xmlns:core="http://schemas.microsoft.com/sharepoint/soap/">
         <s:attribute name="Language" type="s:string" />
         <s:attribute name="Theme" type="s:string" />
         <s:attribute name="FarmId" type="core:UniqueIdentifierWithBraces" />
-        <s:attribute name="Id" type="core:UniqueIdentifierWithBraces" />
+		<s:attribute name="SiteId" type="core:UniqueIdentifierWithBraces" />
+		<s:attribute name="IsSPO" type="core:TRUEFALSE" />
+		<s:attribute name="Id" type="core:UniqueIdentifierWithBraces" />
         <s:attribute name="ExcludeFromOfflineClient" type="core:TRUEFALSE" />
         <s:attribute name="CellStorageWebServiceEnabled" type="core:TRUEFALSE" />
         <s:attribute name="AlternateUrls" type="s:string" />
