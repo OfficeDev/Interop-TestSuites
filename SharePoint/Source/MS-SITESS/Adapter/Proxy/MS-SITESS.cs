@@ -38,7 +38,9 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         private System.Threading.SendOrPostCallback ExportSolutionOperationCompleted;
         
         private System.Threading.SendOrPostCallback ExportWorkflowTemplateOperationCompleted;
-        
+
+        private System.Threading.SendOrPostCallback IsScriptSafeUrlUsingCustomizedDomainOperationCompleted;
+
         /// <remarks/>
         public SitesSoap() {
         }
@@ -75,6 +77,9 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         
         /// <remarks/>
         public event ExportWorkflowTemplateCompletedEventHandler ExportWorkflowTemplateCompleted;
+        
+        /// <remarks/>
+        public event IsScriptSafeUrlUsingCustomizedDomainCompletedEventHandler IsScriptSafeUrlUsingCustomizedDomainCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/sharepoint/soap/CreateWeb", RequestNamespace="http://schemas.microsoft.com/sharepoint/soap/", ResponseNamespace="http://schemas.microsoft.com/sharepoint/soap/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -701,6 +706,48 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://schemas.microsoft.com/sharepoint/soap/IsScriptSafeUrlUsingCustomizedDomain" +
+            "", RequestNamespace="http://schemas.microsoft.com/sharepoint/soap/", ResponseNamespace="http://schemas.microsoft.com/sharepoint/soap/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool[] IsScriptSafeUrlUsingCustomizedDomain(string[] urls) {
+            object[] results = this.Invoke("IsScriptSafeUrlUsingCustomizedDomain", new object[] {
+                        urls});
+            return ((bool[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginIsScriptSafeUrlUsingCustomizedDomain(string[] urls, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("IsScriptSafeUrlUsingCustomizedDomain", new object[] {
+                        urls}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public bool[] EndIsScriptSafeUrlUsingCustomizedDomain(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((bool[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void IsScriptSafeUrlUsingCustomizedDomainAsync(string[] urls) {
+            this.IsScriptSafeUrlUsingCustomizedDomainAsync(urls, null);
+        }
+        
+        /// <remarks/>
+        public void IsScriptSafeUrlUsingCustomizedDomainAsync(string[] urls, object userState) {
+            if ((this.IsScriptSafeUrlUsingCustomizedDomainOperationCompleted == null)) {
+                this.IsScriptSafeUrlUsingCustomizedDomainOperationCompleted = new System.Threading.SendOrPostCallback(this.OnIsScriptSafeUrlUsingCustomizedDomainOperationCompleted);
+            }
+            this.InvokeAsync("IsScriptSafeUrlUsingCustomizedDomain", new object[] {
+                        urls}, this.IsScriptSafeUrlUsingCustomizedDomainOperationCompleted, userState);
+        }
+        
+        private void OnIsScriptSafeUrlUsingCustomizedDomainOperationCompleted(object arg) {
+            if ((this.IsScriptSafeUrlUsingCustomizedDomainCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.IsScriptSafeUrlUsingCustomizedDomainCompleted(this, new IsScriptSafeUrlUsingCustomizedDomainCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -1268,6 +1315,32 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
+    public delegate void IsScriptSafeUrlUsingCustomizedDomainCompletedEventHandler(object sender, IsScriptSafeUrlUsingCustomizedDomainCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.8.3928.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class IsScriptSafeUrlUsingCustomizedDomainCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal IsScriptSafeUrlUsingCustomizedDomainCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool[])(this.results[0]));
             }
         }
     }

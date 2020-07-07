@@ -153,6 +153,20 @@ xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.
 	          </s:sequence>
 	        </s:complexType>
 	      </s:element>
+    <s:element name="IsScriptSafeUrlUsingCustomizedDomain">
+		  <s:complexType>
+		    <s:sequence>
+		      <s:element name="urls" type="tns:ArrayOfString" maxOccurs="1" minOccurs="0"/>
+		    </s:sequence>
+		  </s:complexType>
+		</s:element>
+    <s:element name="IsScriptSafeUrlUsingCustomizedDomainResponse">
+		  <s:complexType>
+		    <s:sequence>
+		      <s:element minOccurs="1" maxOccurs="1" name="IsScriptSafeUrlUsingCustomizedDomainResult" type="tns:ArrayOfBoolean" />
+		    </s:sequence>
+		  </s:complexType>
+		</s:element>
       <s:element name="ExportWeb">
         <s:complexType>
           <s:sequence>
@@ -326,6 +340,12 @@ xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.
   <wsdl:message name="ExportSolutionSoapOut">
     <wsdl:part name="parameters" element="tns:ExportSolutionResponse" />
   </wsdl:message>
+  <wsdl:message name="IsScriptSafeUrlUsingCustomizedDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:IsScriptSafeUrlUsingCustomizedDomain" />
+  </wsdl:message>
+  <wsdl:message name="IsScriptSafeUrlUsingCustomizedDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:IsScriptSafeUrlUsingCustomizedDomainResponse" />
+  </wsdl:message>
   <wsdl:message name="ExportWorkflowTemplateSoapIn">
     <wsdl:part name="parameters" element="tns:ExportWorkflowTemplate" />
   </wsdl:message>
@@ -373,11 +393,24 @@ xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.
       <wsdl:input message="tns:ExportWorkflowTemplateSoapIn" />
       <wsdl:output message="tns:ExportWorkflowTemplateSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="IsScriptSafeUrlUsingCustomizedDomain">
+		  <wsdl:input message="tns:IsScriptSafeUrlUsingCustomizedDomainSoapIn" />
+		  <wsdl:output message="tns:IsScriptSafeUrlUsingCustomizedDomainSoapOut" />
+		</wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="SitesSoap" type="tns:SitesSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CreateWeb">
       <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/CreateWeb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsScriptSafeUrlUsingCustomizedDomain">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/IsScriptSafeUrlUsingCustomizedDomain" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -476,6 +509,15 @@ xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.
       </wsdl:input>
       <wsdl:output>
         <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsScriptSafeUrlUsingCustomizedDomain">
+      <soap:operation soapAction="http://schemas.microsoft.com/sharepoint/soap/IsScriptSafeUrlUsingCustomizedDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DeleteWeb">
