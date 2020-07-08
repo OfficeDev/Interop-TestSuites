@@ -1063,6 +1063,10 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS {
         
         private string farmIdField;
         
+        private string siteIdField;
+        
+        private string isSPOField;
+        
         private string idField;
         
         private string excludeFromOfflineClientField;
@@ -1134,6 +1138,28 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS {
             }
             set {
                 this.farmIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string SiteId {
+            get {
+                return this.siteIdField;
+            }
+            set {
+                this.siteIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string IsSPO {
+            get {
+                return this.isSPOField;
+            }
+            set {
+                this.isSPOField = value;
             }
         }
         
