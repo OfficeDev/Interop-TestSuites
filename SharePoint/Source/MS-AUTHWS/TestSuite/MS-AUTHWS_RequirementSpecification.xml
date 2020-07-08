@@ -159,7 +159,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R19</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The namespace URI of prefix "soap12" is "http://schemas.xmlsoap.org/wsdl/soap12/", which refers to "[SOAP1.2/1]" and "[SOAP1.2/2]".</ns1:Description>
+		<ns1:Description>[In Namespaces] The namespace URI of prefix "soap12" is "http://schemas.xmlsoap.org/wsdl/soap12/", which refers to "[SOAP1.2-1/2007]" and "[SOAP1.2-2/2007]".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -168,7 +168,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R17</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The namespace URI of prefix "soap12" is "http://schemas.xmlsoap.org/wsdl/soap12/", which refers to "[SOAP1.2/1] and [SOAP1.2/2]".</ns1:Description>
+		<ns1:Description>[In Namespaces] The namespace URI of prefix "soap12" is "http://schemas.xmlsoap.org/wsdl/soap12/", which refers to "[SOAP1.2-1/2007] and [SOAP1.2-2/2007]".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1140,7 +1140,7 @@ http://schemas.microsoft.com/sharepoint/soap/Mode</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R118</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term "MAY" implies that the product does not follow the prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
