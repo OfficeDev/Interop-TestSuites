@@ -94,7 +94,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R4</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] SOAP Envelope section 4, or in [SOAP1.2/1] SOAP Message Construct section 5. </ns1:Description>
+		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] SOAP Envelope section 4, or in [SOAP1.2-1/2007] SOAP Message Construct section 5. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -103,7 +103,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R698</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol server faults MUST be returned by using HTTP status codes as specified in [RFC2616] Status Code Definitions section 10 or SOAP faults as specified in [SOAP1.1] SOAP Fault section 4.4 or in [SOAP1.2/1] SOAP Fault section 5.4.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol server faults MUST be returned by using HTTP status codes as specified in [RFC2616] Status Code Definitions section 10 or SOAP faults as specified in [SOAP1.1] SOAP Fault section 4.4 or in [SOAP1.2-1/2007] SOAP Fault section 5.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -112,7 +112,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R331</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Syntax] The syntax[Common Message Syntax] of the definitions uses XML schema, as specified in [XMLSCHEMA1] and [XMLSCHEMA2], and WSDL, as specified in [WSDL].</ns1:Description>
+		<ns1:Description>[In Common Message Syntax] The syntax[Common Message Syntax] of the definitions uses XML schema, as specified in [XMLSCHEMA1/2] and [XMLSCHEMA2/2], and WSDL, as specified in [WSDL].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6609,7 +6609,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R310</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term "MAY" implies that the product does not follow the prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6778,7 +6778,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1680</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error if the authenticated user is not permitted to access this information. (Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return the "NoAccess" error code; instead, these product versions will return HTTP status code 401 with a response body containing the text "401 Unauthorized".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error if the authenticated user is not permitted to access this information. (Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, and SharePoint Server 2016 will never return the "NoAccess" error code; instead, these product versions will return HTTP status code 401 with a response body containing the text "401 Unauthorized".)</ns1:Description>
 		<ns1:Derived>MS-DWSS_R243:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6789,7 +6789,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R16801</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return NoAccess if the authenticated user is not permitted to access this information. (Microsoft SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return NoAccess if the authenticated user is not permitted to access this information. (Microsoft SharePoint Server 2019 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-DWSS_R243:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
