@@ -20,7 +20,7 @@
     <!-- Set R1279Enabled to true to verify that implementation does set the DocUrl to be empty if the value of document is not specified in the GetDwsMetaData request. Set R1279Enabled to false to disable this requirement. -->
     <Property name="R1279Enabled" value="true" />
     <!-- Set R1680Enabled to true to verify that implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error if the authenticated user is not permitted to access this information. Set R1680Enabled to false to disable this requirement. -->
-    <Property name="R1680Enabled" value="true" />
+    <Property name="R1680Enabled" value="false" />
     <!-- Set R1682Enabled to true to verify that implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error if the current user does not have sufficient permissions to access list permission information. Set R1682Enabled to false to disable this requirement. -->
     <Property name="R1682Enabled" value="false" />
     <!-- Set R1683Enabled to true to verify that implementation does return error ServerFailure when a site with the specified name already exists on this site. Set R1683Enabled to false to disable this requirement. -->

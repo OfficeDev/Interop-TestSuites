@@ -1486,7 +1486,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                         // Verify MS-DWSS requirement: MS-DWSS_R4
                         Site.CaptureRequirement(
                             4,
-                            @"[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] SOAP Envelope section 4, or in [SOAP1.2/1] SOAP Message Construct section 5. ");
+                            @"[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] SOAP Envelope section 4, or in [SOAP1.2-1/2007] SOAP Message Construct section 5.");
                     }
 
                     break;
