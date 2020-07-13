@@ -24,6 +24,7 @@
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VIEWSS\Adapter\ViewHtmlFile\ViewHtmlConfigure.xml" />
     <DeploymentItem filename="MS-DWSS\TestSuite\MS-DWSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\MS-AUTHWS.wsdl" />
