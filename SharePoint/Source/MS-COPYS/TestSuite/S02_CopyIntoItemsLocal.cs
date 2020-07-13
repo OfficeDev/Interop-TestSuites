@@ -732,6 +732,8 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 copyIntoItemsLocalResponse.Results[0].ErrorCode,
                 270,
                 @"[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location does not point to a existing folder or file, the protocol server MUST report a failure by returning the CopyResult element (section 2.2.4.2) with the ErrorCode attribute set to ""Unknown"" for this destination location.");
+
+
         }
 
         /// <summary>
@@ -764,6 +766,62 @@ namespace Microsoft.Protocols.TestSuites.MS_COPYS
                 copyIntoItemsLocalResponse.Results[0].ErrorCode,
                 98,
                 @"[In CopyErrorCode] SourceInvalid: This value is used to indicate an error when the source location for the copy operation does not reference an existing file in the source location.");
+        }
+        /// <summary>
+        /// This test case is used to verify if the source location does not point to an existing file and the protocol client does not have permission to access 
+        /// the destionation location, "Unknown" error code should be returned.
+        /// </summary>
+        [TestCategory("MSCOPYS"), TestMethod()]
+        public void MSCOPYS_S02_TC15_CopyIntoItemsLocal_SourceLoationNotExistAndNoPermisonDestinationLocation()
+        {
+            string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnDesSUT);
+            string invalidSourceFileUrl = sourceFileUrl.Insert(sourceFileUrl.LastIndexOf("."), DateTime.Now.Ticks.ToString());
+
+            string desFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnDesSUT);
+            string[] desUrls = new string[] { desFileUrl };
+
+            MSCopysAdapter.SwitchUser(
+                Common.GetConfigurationPropertyValue("MSCOPYSNoPermissionUser", this.Site),
+                Common.GetConfigurationPropertyValue("PasswordOfNoPermissionUser", this.Site),
+                Common.GetConfigurationPropertyValue("Domain", this.Site));
+            CopyIntoItemsLocalResponse copyIntoItemsLocalResponse = MSCopysAdapter.CopyIntoItemsLocal(
+                invalidSourceFileUrl,
+                desUrls);
+
+            // Verify MS-COPYS requirement: MS-COPYS_R273
+            this.Site.CaptureRequirementIfAreEqual<CopyErrorCode>(
+                CopyErrorCode.Unknown,
+                copyIntoItemsLocalResponse.Results[0].ErrorCode,
+                271002,
+                @"[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location points to an existing file whose permission setting does not allow access by the protocol client, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to ""Unknown"" for this destination location.");
+        }
+
+        /// <summary>
+        /// This test case is used to verify if the source location does not point to an existing file and the protocol client does not have permission to access 
+        /// the destionation location, "Unknown" error code should be returned.
+        /// </summary>
+        [TestCategory("MSCOPYS"), TestMethod()]
+        public void MSCOPYS_S02_TC16_CopyIntoItemsLocal_NoPermisonSourceLoationExistAndNoPermisonDestinationLocationExist()
+        {
+            string sourceFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnDesSUT);
+
+            string desFileUrl = this.GetSourceFileUrl(SourceFileUrlType.SourceFileOnDesSUT);
+            string[] desUrls = new string[] { desFileUrl };
+
+            MSCopysAdapter.SwitchUser(
+                Common.GetConfigurationPropertyValue("MSCOPYSNoPermissionUser", this.Site),
+                Common.GetConfigurationPropertyValue("PasswordOfNoPermissionUser", this.Site),
+                Common.GetConfigurationPropertyValue("Domain", this.Site));
+            CopyIntoItemsLocalResponse copyIntoItemsLocalResponse = MSCopysAdapter.CopyIntoItemsLocal(
+                sourceFileUrl,
+                desUrls);
+
+            // Verify MS-COPYS requirement: MS-COPYS_R273
+            this.Site.CaptureRequirementIfAreEqual<CopyErrorCode>(
+                CopyErrorCode.Unknown,
+                copyIntoItemsLocalResponse.Results[0].ErrorCode,
+                271001,
+                @"[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location points to an existing file whose permission setting does not allow access by the protocol client, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to ""Unknown"" for this destination location.");
         }
         #endregion Test cases
     }

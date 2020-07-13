@@ -2275,6 +2275,15 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-COPYS_R271002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location points to an existing file whose permission setting does not allow access by the protocol client, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "Unknown" for this destination location.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R272</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location points to an existing file whose permission setting allows writing by the protocol client, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "SourceInvalid" for this destination location. </ns1:Description>
