@@ -76,7 +76,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R303</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as specified in [XMLSCHEMA1] and [XMLSCHEMA2], [and WSDL, as specified in [WSDL] ].</ns1:Description>
+		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as specified in [XMLSCHEMA1/2] and [XMLSCHEMA2/2], [and WSDL, as specified in [WSDL] ].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -85,7 +85,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R9</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses [XML schema, as specified in [XMLSCHEMA1] and [XMLSCHEMA2], and] WSDL, as specified in [WSDL].</ns1:Description>
+		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses [XML schema, as specified in [XMLSCHEMA1/2] and [XMLSCHEMA2/2], and] WSDL, as specified in [WSDL].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -166,7 +166,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R18</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The prefix "xs" is used for namespace URI "http://www.w3.org/2001/XMLSchema", which refers to [XMLSCHEMA1] and [XMLSCHEMA2].</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "xs" is used for namespace URI "http://www.w3.org/2001/XMLSchema", which refers to [XMLSCHEMA1/2] and [XMLSCHEMA2/2].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
