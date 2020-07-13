@@ -1145,6 +1145,37 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             // Call DeleteSite method to delete the site collection created in above steps.
             this.adminsAdapter.DeleteSite(result);
         }
+
+        /// <summary>
+        /// This test case is used to create the specified site collection with Lcid is zero.
+        /// </summary>
+        [TestCategory("MSADMINS"), TestMethod()]
+        public void MSADMINS_S01_TC30_CreateSiteSuccessfully_LCIDIsZero()
+        {
+            // Call CreateSite method to create a site collection with Lcid is zero.
+            int lcid = 0;
+            string title = TestSuiteBase.GenerateUniqueSiteTitle();
+            string url = Common.GetConfigurationPropertyValue("UrlWithOutPort", this.Site) + TestSuiteBase.GenerateUniqueSiteTitle();
+            string description = TestSuiteBase.GenerateRandomString(20);
+            string webTemplate = Common.GetConfigurationPropertyValue("CustomizedTemplate", this.Site);
+            string ownerLogin = Common.GetConfigurationPropertyValue("OwnerLogin", this.Site);
+            string ownerName = TestSuiteBase.GenerateUniqueOwnerName();
+            string ownerEmail = TestSuiteBase.GenerateEmail(20);
+            string portalUrl = TestSuiteBase.GeneratePortalUrl(20);
+            string portalName = TestSuiteBase.GenerateUniquePortalName();
+
+            string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
+            Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
+
+            // If CreateSite succeed and the returned value is a well formatted URL. That is to say, the server create the site with currect server language. MS-ADMINS_R18001 can be verified.
+            Site.CaptureRequirementIfIsTrue(
+                Uri.IsWellFormedUriString(result, UriKind.Absolute),
+                18001,
+                @"[In CreateSiteSoapIn] If the LCID is zero, the server MUST create the site with current server language.");
+
+            // Call DeleteSite method to delete the site collection created in above steps.
+            this.adminsAdapter.DeleteSite(result);
+        }
         #endregion
 
         #region Test Case Initialization and Cleanup
