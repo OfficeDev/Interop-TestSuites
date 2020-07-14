@@ -59,6 +59,6 @@
     <!-- Set R326001002Enabled to true to verify that implementation does support IsScriptSafeUrl method. Set R326001002Enabled to false to disable this requirement. -->
     <Property name="R326001002Enabled" value="false"/>
     <!-- Set R327001002Enabled to true to verify that implementation does support IsScriptSafeUrlUsingCustomizedDomain method. Set R327001002Enabled to false to disable this requirement. -->
-    <Property name="R327001002Enabled" value="false"/>
+    <Property name="R327001002Enabled" value="true"/>    
   </Properties>
 </TestSite>
