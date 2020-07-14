@@ -121,7 +121,16 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R503</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The prefix "tns1" is used for namespace URI "http://schemas.microsoft.com/sharepoint/claims/Imports".</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "tns1" is used for namespace URI "http://schemas.microsoft.com/sharepoint/soap/".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-CPSWS_R50301</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The prefix "tns2" is used for namespace URI "http://schemas.microsoft.com/sharepoint/claims/Imports".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -166,7 +175,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R508</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The namespace URI of prefix "xs" is "http://www.w3.org/2001/XMLSchema", which refers to "[XMLSCHEMA1] " and "[XMLSCHEMA2] ".</ns1:Description>
+		<ns1:Description>[In Namespaces] The namespace URI of prefix "xs" is "http://www.w3.org/2001/XMLSchema", which refers to "[XMLSCHEMA1/2] " and "[XMLSCHEMA2/2] ".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -851,7 +860,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R532</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In SPClaim] OriginalIssuer: A valid identifier MUST not begin or end with spaces.</ns1:Description>
+		<ns1:Description>[In SPClaim] OriginalIssuer: A valid identifier MUST NOT begin or end with spaces.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -860,7 +869,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R533</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In SPClaim] OriginalIssuer:  [A valid identifier]  MUST not contain any control character or  character that can be used as XML markup.</ns1:Description>
+		<ns1:Description>[In SPClaim] OriginalIssuer:  [A valid identifier]  MUST NOT contain any control character or  character that can be used as XML markup.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -869,7 +878,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R534</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In SPClaim] OriginalIssuer: [A valid identifier]  and MUST not contain any of the following characters: colon (:), comma (,) or semicolon (;).</ns1:Description>
+		<ns1:Description>[In SPClaim] OriginalIssuer: [A valid identifier]  and MUST NOT contain any of the following characters: colon (:), comma (,) or semicolon (;).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1914,7 +1923,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ClaimTyp
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R157001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ClaimTypesResponse] The claim type should format as a URI.</ns1:Description>
+		<ns1:Description>[In ClaimTypesResponse] The claim type SHOULD format as a URI.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2115,7 +2124,7 @@ http://schemas.microsoft.com/sharepoint/claims/IClaimProviderWebService/ClaimVal
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R174001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ClaimValueTypesResponse] The claim value type should format as a URI. </ns1:Description>
+		<ns1:Description>[In ClaimValueTypesResponse] The claim value type SHOULD format as a URI. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2363,7 +2372,7 @@ The claims provider supports hierarchy.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-CPSWS_R578</ns1:REQ_ID>

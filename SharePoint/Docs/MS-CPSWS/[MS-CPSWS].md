@@ -1,6 +1,6 @@
 ## [MS-CPSWS]: SharePoint Claim Provider Web Service Protocol
-- [MS-CPSWS] v20160715 is used to develop the test suite.
-- Release date, 07/15/2016.
+- [MS-CPSWS] v20181211 is used to develop the test suite.
+- Release date, 12/11/2018.
 
 To find the new landing page for [MS-CPSWS], please visit https://msdn.microsoft.com/en-us/library/dd921005(v=office.12).aspx
 

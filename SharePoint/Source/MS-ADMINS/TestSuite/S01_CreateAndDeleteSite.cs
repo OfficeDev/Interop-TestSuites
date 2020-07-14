@@ -506,40 +506,33 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
         }
 
         /// <summary>
-        /// This test case is used to create the specified site collection with portalUrl exceeding max length.
+        /// This test case is used to create the specified site collection with Lcid is zero.
         /// </summary>
         [TestCategory("MSADMINS"), TestMethod()]
-        public void MSADMINS_S01_TC11_CreateSiteSuccessfully_PortalUrlExceedMaxLength()
+        public void MSADMINS_S01_TC11_CreateSiteSuccessfully_LcidIsZero()
         {
-            // Call GetLanguages method to obtain LCID values used in the protocol server deployment. 
-            GetLanguagesResponseGetLanguagesResult lcids = this.adminsAdapter.GetLanguages();
-            Site.Assert.IsNotNull(lcids, "Get languages should succeed and a list of LCIDs should return. If no LCID returns the get languages method is failed.");
-
-            int lcid = lcids.Languages[0];
+            // Call CreateSite method to create a site collection with Lcid is zero.
+            int lcid = 0;
             string title = TestSuiteBase.GenerateUniqueSiteTitle();
-            string url = TestSuiteBase.GenerateUrlPrefixWithPortNumber() + title;
+            string url = Common.GetConfigurationPropertyValue("UrlWithOutPort", this.Site) + TestSuiteBase.GenerateUniqueSiteTitle();
             string description = TestSuiteBase.GenerateRandomString(20);
             string webTemplate = Common.GetConfigurationPropertyValue("CustomizedTemplate", this.Site);
             string ownerLogin = Common.GetConfigurationPropertyValue("OwnerLogin", this.Site);
             string ownerName = TestSuiteBase.GenerateUniqueOwnerName();
             string ownerEmail = TestSuiteBase.GenerateEmail(20);
-            string portalUrl = TestSuiteBase.GeneratePortalUrl(261);
+            string portalUrl = TestSuiteBase.GeneratePortalUrl(20);
             string portalName = TestSuiteBase.GenerateUniquePortalName();
 
-            // Call CreateSite method to create a site collection with portalUrl exceeding max length.
             string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
             Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            string portalUrlReturned = sutAdapter.GetSiteProperty(result, "PortalUrl");
+            // If CreateSite succeed and the returned value is a well formatted URL. That is to say, the server create the site with currect server language. MS-ADMINS_R18001 can be verified.
+            Site.CaptureRequirementIfIsTrue(
+                Uri.IsWellFormedUriString(result, UriKind.Absolute),
+                18001,
+                @"[In CreateSiteSoapIn] If the LCID is zero, the server MUST create the site with current server language.");
 
-            // If the site collection is created successfully. The PortalUrl returned contains 260 characters and the exceeds characters are truncated, then MS-ADMINS_R3028 can be captured.
-            Site.CaptureRequirementIfAreEqual<string>(
-                portalUrl.Substring(0, 260),
-                portalUrlReturned,
-                3028,
-                @"[In CreateSite]If the length of the PortalUrl exceeds 260 characters, the CreateSite operation will succeed  without exception, the exceeds characters are truncated.");
-
-            // Call DeleteSite to delete the site collection created in above steps.
+            // Call DeleteSite method to delete the site collection created in above steps.
             this.adminsAdapter.DeleteSite(result);
         }
 
@@ -1141,37 +1134,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
                 2048,
                 @"[In CreateSite]If no template[WebTemplate] is specified, then no template will be applied to the site at creation time.");
 
-
-            // Call DeleteSite method to delete the site collection created in above steps.
-            this.adminsAdapter.DeleteSite(result);
-        }
-
-        /// <summary>
-        /// This test case is used to create the specified site collection with Lcid is zero.
-        /// </summary>
-        [TestCategory("MSADMINS"), TestMethod()]
-        public void MSADMINS_S01_TC30_CreateSiteSuccessfully_LCIDIsZero()
-        {
-            // Call CreateSite method to create a site collection with Lcid is zero.
-            int lcid = 0;
-            string title = TestSuiteBase.GenerateUniqueSiteTitle();
-            string url = Common.GetConfigurationPropertyValue("UrlWithOutPort", this.Site) + TestSuiteBase.GenerateUniqueSiteTitle();
-            string description = TestSuiteBase.GenerateRandomString(20);
-            string webTemplate = Common.GetConfigurationPropertyValue("CustomizedTemplate", this.Site);
-            string ownerLogin = Common.GetConfigurationPropertyValue("OwnerLogin", this.Site);
-            string ownerName = TestSuiteBase.GenerateUniqueOwnerName();
-            string ownerEmail = TestSuiteBase.GenerateEmail(20);
-            string portalUrl = TestSuiteBase.GeneratePortalUrl(20);
-            string portalName = TestSuiteBase.GenerateUniquePortalName();
-
-            string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
-            Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
-
-            // If CreateSite succeed and the returned value is a well formatted URL. That is to say, the server create the site with currect server language. MS-ADMINS_R18001 can be verified.
-            Site.CaptureRequirementIfIsTrue(
-                Uri.IsWellFormedUriString(result, UriKind.Absolute),
-                18001,
-                @"[In CreateSiteSoapIn] If the LCID is zero, the server MUST create the site with current server language.");
 
             // Call DeleteSite method to delete the site collection created in above steps.
             this.adminsAdapter.DeleteSite(result);
