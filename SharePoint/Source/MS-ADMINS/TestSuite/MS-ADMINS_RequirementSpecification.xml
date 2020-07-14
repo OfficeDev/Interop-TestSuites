@@ -1113,7 +1113,7 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Partially verified by derived requirements: MS-ADMINS_R3027, MS-ADMINS_R3038, MS-ADMINS_R3028.</ns1:VerificationComment>
+		<ns1:VerificationComment>Partially verified by derived requirements: MS-ADMINS_R3027, MS-ADMINS_R3038.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R3027</ns1:REQ_ID>
@@ -1129,16 +1129,6 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:REQ_ID>MS-ADMINS_R3038</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In CreateSite]If the length of the PortalUrl is 260 characters, the CreateSite operation will succeed.</ns1:Description>
-		<ns1:Derived>MS-ADMINS_R71:p</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ADMINS_R3028</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSite]If the length of the PortalUrl exceeds 260 characters, the CreateSite operation will succeed without exception, the exceeds characters are truncated.</ns1:Description>
 		<ns1:Derived>MS-ADMINS_R71:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
