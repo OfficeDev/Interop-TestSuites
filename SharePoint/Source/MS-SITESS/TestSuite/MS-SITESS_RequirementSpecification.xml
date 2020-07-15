@@ -134,7 +134,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R351</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "soap12" is used for namespace URI: "http://schemas.xmlsoap.org/wsdl/soap12/" and the reference is [SOAP1.2/1] and [SOAP1.2/2].</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "soap12" is used for namespace URI: "http://schemas.xmlsoap.org/wsdl/soap12/" and the reference is [SOAP1.2-1/2007] and [SOAP1.2-2/2007].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -336,7 +336,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R356</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
-		<ns1:Description>[In Protocol Details] This protocol [MS-SITESS] allows protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4, or a Detail element as specified in [SOAP1.2/1] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.1.</ns1:Description>
+		<ns1:Description>[In Protocol Details] This protocol [MS-SITESS] allows protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4, or a Detail element as specified in [SOAP1.2-1/2007] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -453,7 +453,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R23</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules] The ImportWeb operation specifies importing a site (2).</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] The ImportWeb operation specifies importing a site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -723,7 +723,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R430</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ExportSolution] [includeWebContent:] If set to true, all contents of lists (1) and document libraries MUST be packaged in the solution.</ns1:Description>
+		<ns1:Description>[In ExportSolution] [includeWebContent:] If set to true, all contents of lists and document libraries MUST be packaged in the solution.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -775,7 +775,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R53</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In ExportWeb] This operation [ExportWeb] saves the files to the server, which can be used to migrate or restore a site (2).</ns1:Description>
+		<ns1:Description>[In ExportWeb] This operation [ExportWeb] saves the files to the server, which can be used to migrate or restore a site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1214,7 +1214,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R93</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ExportWebResponse] If the value of ExportWebResult is 7, it specifies ExportError: An error other than the errors listed in this table occurred while exporting the site (2).</ns1:Description>
+		<ns1:Description>[In ExportWebResponse] If the value of ExportWebResult is 7, it specifies ExportError: An error other than the errors listed in this table occurred while exporting the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2940,7 +2940,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R506</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In ImportWeb] Upon successful completion of the operation, the site (2) at the specified URL MUST contain all the content from the specified content migration package files.</ns1:Description>
+		<ns1:Description>[In ImportWeb] Upon successful completion of the operation, the site at the specified URL MUST contain all the content from the specified content migration package files.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3257,11 +3257,20 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R271</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ImportWebResponse] [ImportWebResult:] If the value of ImportWebResult is 6, it specifies ImportWebNoAccess: The user has insufficient permission to import to the location specified in webUrl.</ns1:Description>
+		<ns1:Description>[In ImportWebResponse] [ImportWebResult:] If the value of ImportWebResult is 6, it specifies ImportWebCantCreate: The user has insufficient permission to import to the location specified in webUrl.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R271001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ImportWebResponse] [ImportWebResult:] If the value of ImportWebResult is 7, it specifies ImportWebNotEmpty: The site specified in the webUrl cannot be created.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R272</ns1:REQ_ID>
@@ -3276,6 +3285,15 @@
 		<ns1:REQ_ID>MS-SITESS_R273</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In ImportWebResponse] [ImportWebResult:] If the value of ImportWebResult is 11, it specifies LogFileNoAccess: The location specified by logPath is not accessible.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R271002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ImportWebResponse] [ImportWebResult:] If the value of ImportWebResult is 12, it specifies ImportWebNoAccess: There was an error importing the site. See message for details.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4158,6 +4176,292 @@
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain] This operation [IsScriptSafeUrlUsingCustomizedDomain]&lt;20&gt; is used to validate whether the specified URLs are valid script safe URLS for the current site by checking against CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-SITESS_R327001002.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain] Script safe URLs are URLs the server trusts as valid sources for IFRAMEs in Hypertext Markup Language (HTML) content.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327003</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain] [The IsScriptSafeUrlUsingCustomizedDomain operation is defined as:]&lt;wsdl:operation name="IsScriptSafeUrlUsingCustomizedDomain"&gt;
+		  &lt;wsdl:input message="tns:IsScriptSafeUrlUsingCustomizedDomainSoapIn" /&gt;
+		  &lt;wsdl:output message="tns:IsScriptSafeUrlUsingCustomizedDomainSoapOut" /&gt;
+		&lt;/wsdl:operation&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327004</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain] The client sends an IsScriptSafeUrlUsingCustomizedDomainSoapIn  request message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327005</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain] [The client sends an IsScriptSafeUrlUsingCustomizedDomainSoapOut  request message, and] the server responds with an IsScriptSafeUrlUsingCustomizedDomainSoapOut response message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327006</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.1</ns1:Doc_Sect>
+		<ns1:Description>[In Messages] The following WSDL message definitions are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327007</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainSoapIn] This message [IsScriptSafeUrlUsingCustomizedDomainSoapIn] is the request message for validating whether the specified URLs are valid script safe URLs for the current site by checking against the CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327008</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainSoapIn] The SOAP action value of the message is defined as:
+ http://schemas.microsoft.com/sharepoint/soap/IsScriptSafeUrlUsingCustomizedDomain
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327009</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainSoapIn] The SOAP body contains an IsScriptSafeUrlUsingCustomizedDomain  element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327010</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainSoapOut] This message [IsScriptSafeUrlUsingCustomizedDomainSoapOut] is the response message for validating whether the specified URLs are valid script safe URLs for the current site by checking against CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327011</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainSoapOut] The SOAP body contains an IsScriptSafeUrlUsingCustomizedDomainResponse  element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327012</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The following XML schema element definitions are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327013</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain]This element [IsScriptSafeUrlUsingCustomizedDomain] defines the input parameter for the IsScriptSafeUrlUsingCustomizedDomain operation</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327014</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain] [The IsScriptSafeUrlUsingCustomizedDomain element is defined as:]		&lt;s:element name="IsScriptSafeUrlUsingCustomizedDomain"&gt;
+		  &lt;s:complexType&gt;
+		    &lt;s:sequence&gt;
+		      &lt;s:element name="urls" type="tns:ArrayOfString" maxOccurs="1" minOccurs="0"/&gt;
+		    &lt;/s:sequence&gt;
+		  &lt;/s:complexType&gt;
+		&lt;/s:element&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327015</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain ] urls: An ArrayOfString as defined in section 2.2.4.2. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327016</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain] This element [urls] contains all URLs that need to be validated. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327017</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain] Each URL in urls MUST NOT be null or empty, and MUST be relative or absolute Uniform Resource Locator (URL) values. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327018</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain] Relative URLs MUST be site-relative URLs.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327019</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainResponse] Defines the output of the IsScriptSafeUrlUsingCustomizedDomain  operation, which contains an IsScriptSafeUrlUsingCustomizedDomainResponse element with the following definition.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327020</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2.2</ns1:Doc_Sect>
+		<ns1:Description> [In IsScriptSafeUrlUsingCustomizedDomainResponse] [The IsScriptSafeUrlUsingCustomizedDomainResponse element is defined as:]&lt;s:element name="IsScriptSafeUrlUsingCustomizedDomainResponse"&gt;
+		  &lt;s:complexType&gt;
+		    &lt;s:sequence&gt;
+		      &lt;s:element minOccurs="1" maxOccurs="1" name="IsScriptSafeUrlUsingCustomizedDomainResult" type="tns:ArrayOfBoolean" /&gt;
+		    &lt;/s:sequence&gt;
+		  &lt;/s:complexType&gt;
+		&lt;/s:element&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327021</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainResponse] IsScriptSafeUrlUsingCustomizedDomainResult: An ArrayOfBoolean as defined in section 3.1.4.12.3.1, </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327022</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainResponse] it [IsScriptSafeUrlUsingCustomizedDomainResult element] contains results for validating the URLs specified by the parameter urls in section 3.1.4.12.2.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327023</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.3</ns1:Doc_Sect>
+		<ns1:Description>[In Complex Types]The following XML schema complex type definitions are specific to this operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327024</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.3.1</ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean] This complex type contains an array of boolean elements. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327025</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean] It is used for the response element IsScriptSafeUrlUsingCustomizedDomainResult for the IsScriptSafeUrlUsingCustomizedDomain operation.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327026</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean]  [The ArrayOfBoolean complexType is defined as:]&lt;s:complexType name="ArrayOfBoolean"&gt;
+    &lt;s:sequence&gt;
+       &lt;s:element minOccurs="0" maxOccurs="unbounded" name="boolean" type="s:boolean" /&gt;
+    &lt;/s:sequence&gt;
+ &lt;/s:complexType&gt;
+</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327027</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean]  boolean: Indicates whether a URL is a valid script safe URL for the current site by checking against CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R32702701</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean]  boolean: [True] Indicates a URL is a valid script safe URL for the current site by checking against CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R32702702</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.12.3.1 </ns1:Doc_Sect>
+		<ns1:Description>[InArrayOfBoolean]  boolean: [False] Indicates a URL is not a URL is a valid script safe URL for the current site by checking against CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R1</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
@@ -4639,6 +4943,17 @@
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this method [IsScriptSafeUrl]. &lt;19&gt; Section 3.1.4.11:  Only SharePoint Foundation 2013 supports this method.</ns1:Description>
 		<ns1:Derived>MS-SITESS_R326001:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-SITESS_R327001002</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this method [IsScriptSafeUrlUsingCustomizedDomain]. &lt;20&gt; Section 3.1.4.12: Only SharePoint Server 2019 supports this method</ns1:Description>
+		<ns1:Derived>MS-SITESS_R327001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

@@ -58,5 +58,6 @@
     <Property name="R391Enabled" value="false"/>
     <!-- Set R326001002Enabled to true to verify that implementation does support IsScriptSafeUrl method. Set R326001002Enabled to false to disable this requirement. -->
     <Property name="R326001002Enabled" value="false"/>
+    
   </Properties>
 </TestSite>
