@@ -893,7 +893,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             this.Site.Assert.IsTrue(isAddLinksList, "Failed to add the Links list.");
 
             // The documents list name in MOSS15 and WSS15 is "Documents".
-            if (string.Equals(sutVersion, "SharePointFoundation2013") || string.Equals(sutVersion, "SharePointServer2013") || string.Equals(sutVersion, "SharePointServer2016"))
+            if (string.Equals(sutVersion, "SharePointFoundation2013") || string.Equals(sutVersion, "SharePointServer2013") || string.Equals(sutVersion, "SharePointServer2016") || string.Equals(sutVersion, "SharePointServer2019"))
             {
                 bool isAddDocList = this.sutControlAdapterInstance.AddList("Documents", 101, baseUrl);
                 this.Site.Assert.IsTrue(isAddDocList, "Failed to add the Documents list.");
@@ -973,7 +973,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
             this.Site.Assert.IsTrue(isDeleteLinksList, "Failed to delete the Links List.");
             
             // The documents list name in MOSS15 and WSS15 is "Documents".
-            if (string.Equals(sutVersion, "SharePointFoundation2013") || string.Equals(sutVersion, "SharePointServer2013") || string.Equals(sutVersion, "SharePointServer2016"))
+            if (string.Equals(sutVersion, "SharePointFoundation2013") || string.Equals(sutVersion, "SharePointServer2013") || string.Equals(sutVersion, "SharePointServer2016") || string.Equals(sutVersion, "SharePointServer2019"))
             {
                 bool isDeleteDocList = this.sutControlAdapterInstance.DeleteList("Documents", baseUrl);
                 this.Site.Assert.IsTrue(isDeleteDocList, "Failed to delete the Documents List.");
