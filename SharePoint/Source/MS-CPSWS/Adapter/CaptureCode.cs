@@ -85,7 +85,7 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
                 Site.CaptureRequirementIfIsTrue(
                     Uri.IsWellFormedUriString(claim, UriKind.Absolute),
                     157001,
-                    @"[In ClaimTypesResponse] The claim type should format as a URI.");
+                    @"[In ClaimTypesResponse] The claim type SHOULD format as a URI.");
             }
         }
 
@@ -142,7 +142,7 @@ namespace Microsoft.Protocols.TestSuites.MS_CPSWS
                 Site.CaptureRequirementIfIsTrue(
                     Uri.IsWellFormedUriString(claim, UriKind.Absolute),
                     174001,
-                    @"[In ClaimValueTypesResponse] The claim value type should format as a URI. ");
+                    @"[In ClaimValueTypesResponse] The claim value type SHOULD format as a URI. ");
             }
         }
 
