@@ -35,7 +35,7 @@ Implementation does additionally support SOAP over HTTPS for securing communicat
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SHDACCWS_R3</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified either in [SOAP1.1], Section 4, SOAP envelope or in [SOAP1.2/1],  Section 5, SOAP Message Construct.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified either in [SOAP1.1], Section 4, SOAP envelope or in [SOAP1.2-1/2007],  Section 5, SOAP Message Construct.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -44,7 +44,7 @@ Implementation does additionally support SOAP over HTTPS for securing communicat
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SHDACCWS_R4</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol server faults MUST be returned either using HTTP Status Codes as specified in [RFC2616], Section 10, Status Code Definitions, or using SOAP faults as specified either in [SOAP1.1], Section 4.4. or in [SOAP1.2/1], Section 5.4.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol server faults MUST be returned either using HTTP Status Codes as specified in [RFC2616], Section 10, Status Code Definitions, or using SOAP faults as specified either in [SOAP1.1], Section 4.4. or in [SOAP1.2-1/2007], Section 5.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -62,7 +62,7 @@ Implementation does additionally support SOAP over HTTPS for securing communicat
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SHDACCWS_R7</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as specified in [XMLSCHEMA1] and [XMLSCHEMA2], and WSDL, as specified in [WSDL].</ns1:Description>
+		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as specified in [XMLSCHEMA1/2] and [XMLSCHEMA2/2], and WSDL, as specified in [WSDL].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -129,7 +129,7 @@ http://www.w3.org/2001/XMLSchema ", reference is [XMLSCHEMA1].</ns1:Description>
 		<ns1:REQ_ID>MS-SHDACCWS_R14</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In Namespaces] [http] Prefix "soap12" is used for namespace URI "
-http://schemas.xmlsoap.org/wsdl/soap12/ ", references are [SOAP1.2/1] and [SOAP1.2/2].</ns1:Description>
+http://schemas.xmlsoap.org/wsdl/soap12/ ", references are [SOAP1.2-1/2007] and [SOAP1.2-2/2007].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>

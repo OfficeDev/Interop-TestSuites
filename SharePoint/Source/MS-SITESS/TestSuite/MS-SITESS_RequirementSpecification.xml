@@ -3212,7 +3212,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R266</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ImportWebResponse] ImportWebResult: The result of the operation is in the range [1, 2, 4 , 5, 6, 8, 11]  as specified in the table in section 3.1.4.8.2.2.</ns1:Description>
+		<ns1:Description>[In ImportWebResponse] ImportWebResult: The result of the operation is in the range [1, 2, 4 , 5, 6, 7, 8, 11,12]  as specified in the table in section 3.1.4.8.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4619,7 +4619,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R400</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;7&gt; Section 3.1.4.5.2.2: Implementation does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element.(Microsoft SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;7&gt; Section 3.1.4.5.2.2: Implementation does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element.(Microsoft SharePoint Foundation 2010 SharePoint Foundation 2013 and SharePoint Server 2016 above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-SITESS_R156:i,MS-SITESS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

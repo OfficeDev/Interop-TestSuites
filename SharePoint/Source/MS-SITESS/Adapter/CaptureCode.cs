@@ -865,18 +865,19 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
               </s:complexType>
               </s:element>");
 
-            // Specifies whether the ImportWebResult is one of the following values:1,2,4,5,6,8,11.
-            bool isRS266Satisfied = importWebResult == 1 ||
+            // Specifies whether the ImportWebResult is one of the following values:1,2,4,5,6,7,8,11,12.
+            bool isRS266Satisfied = (importWebResult == 1 ||
                         importWebResult == 2 || importWebResult == 4 ||
                         importWebResult == 5 || importWebResult == 6 ||
-                        importWebResult == 8 || importWebResult == 11;
+                        importWebResult == 7 || importWebResult == 8 || 
+                        importWebResult == 11|| importWebResult == 12);
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R266, the value of isRS266Satisfied is:{0}, importWebResult = {1}", isRS266Satisfied, importWebResult);
 
             // Verify MS-SITESS requirement: MS-SITESS_R266
             Site.CaptureRequirementIfIsTrue(
                 isRS266Satisfied,
                 266,
-                @"[In ImportWebResponse] ImportWebResult: The result of the operation is in the range [1, 2, 4 , 5, 6, 8, 11]  as specified in the table in section 3.1.4.8.2.2.");
+                @"[In ImportWebResponse] ImportWebResult: The result of the operation is in the range [1, 2, 4 , 5, 6, 7, 8, 11,12]  as specified in the table in section 3.1.4.8.2.2.");
         }
 
         /// <summary>

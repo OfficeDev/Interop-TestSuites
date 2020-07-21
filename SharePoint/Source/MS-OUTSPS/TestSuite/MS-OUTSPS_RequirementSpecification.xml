@@ -555,7 +555,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R9037</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In RepeatPattern complex type]Weekly: If the recurrence is a daily recurrence, the Weekly element will be present.</ns1:Description>
+		<ns1:Description>[In RepeatPattern complex type]Weekly: If the recurrence is a weekly recurrence, the Weekly element will be present.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

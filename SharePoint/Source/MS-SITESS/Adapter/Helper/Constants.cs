@@ -221,6 +221,11 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         public const string SharePointServer2016 = "SharePointServer2016";
 
         /// <summary>
+        /// Microsoft SharePoint Server 2019 Preview.
+        /// </summary>
+        public const string SharePointServer2019 = "SharePointServer2019";
+
+        /// <summary>
         /// The name of the property which specifies the language code identifier (LCID) for the display language of the specified subsite got by SUT control adapter.
         /// </summary>
         public const string SubSitePropertyLanguage = "SubSitePropertyLanguage";
