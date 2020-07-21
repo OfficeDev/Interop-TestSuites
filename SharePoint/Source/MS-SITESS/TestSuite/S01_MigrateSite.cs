@@ -1070,6 +1070,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
 
             #endregion Capture requirements
 
+            
             files = TestSuiteHelper.VerifyExportAndImportFile(null, 2, this.Site, this.sutAdapter);
             exportWebAndImportWebFiles = files == null ? null : files.TrimEnd(new char[] { ';' }).Split(';');
 
@@ -1087,10 +1088,11 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 @"[In ImportWeb] [logPath:] If this element is omitted, the server MUST NOT create any files describing the progress or status of the operation.");
 
             #endregion Capture requirements
+            
 
             bool isErrorOccured = false;
             SoapException soapException = null;
-            if (Common.IsRequirementEnabled(391,this.Site))
+            if (Common.IsRequirementEnabled(391,this.Site)|| Common.IsRequirementEnabled(271001, this.Site))
             {
                 try
                 {
@@ -1102,13 +1104,29 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                     soapException = ex;
                     isErrorOccured = true;
                 }
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R391");
+                
+                if (Common.IsRequirementEnabled(391, this.Site))
+                {
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R391");
 
-                // Verify MS-SITESS requirement: MS-SITESS_R391
-                Site.CaptureRequirementIfIsTrue(
-                    isErrorOccured,
-                    391,
-                    @"[In ImportWeb] [logPath:] If this element is omitted, the server MUST NOT create any files describing the progress or status of the operation.");
+                    // Verify MS-SITESS requirement: MS-SITESS_R391
+                    Site.CaptureRequirementIfIsTrue(
+                        isErrorOccured,
+                        391,
+                        @"[In ImportWeb] [logPath:] If this element is omitted, the server MUST NOT create any files describing the progress or status of the operation.");
+
+                }
+
+                if (Common.IsRequirementEnabled(271001, this.Site))
+                {
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R271001");
+
+                    // Verify MS-SITESS requirement: MS-SITESS_R271001
+                    Site.CaptureRequirementIfIsTrue(
+                        importWebResult==7,
+                        271001,
+                        @"[In ImportWebResponse] [ImportWebResult:] If the value of ImportWebResult is 7, it specifies ImportWebNotEmpty: The site specified in the webUrl cannot be created.");
+                }               
             }
 
             this.isWebImportedSuccessfully = true;

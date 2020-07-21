@@ -56,6 +56,8 @@
     <Property name="R557002Enabled" value="true"/>
     <!-- Set R391Enabled to true to verify that implementation does returns an error if logPath is set to an empty string. Set R391Enabled to false to disable this requirement. -->
     <Property name="R391Enabled" value="false"/>
+    <!-- Set R271001Enabled to true to verify that implementation does not returns an error if logPath is set to an empty string. Set R271001Enabled to false to disable this requirement. -->
+    <Property name="R271001Enabled" value="true"/>
     <!-- Set R326001002Enabled to true to verify that implementation does support IsScriptSafeUrl method. Set R326001002Enabled to false to disable this requirement. -->
     <Property name="R326001002Enabled" value="false"/>
     <!-- Set R327001002Enabled to true to verify that implementation does support IsScriptSafeUrlUsingCustomizedDomain method. Set R327001002Enabled to false to disable this requirement. -->
