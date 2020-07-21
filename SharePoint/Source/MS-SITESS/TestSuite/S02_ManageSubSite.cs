@@ -884,7 +884,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             }
 
             // If R3781 is not enabled, that means the CreateWeb operation is not supported, so there is no web to be deleted here.
-            if (Common.IsRequirementEnabled(3781, this.Site) && Common.IsRequirementEnabled(3791, this.Site)&& Common.IsRequirementEnabled(557002, this.Site))
+            if (Common.IsRequirementEnabled(3781, this.Site) && Common.IsRequirementEnabled(3791, this.Site))
             {
                 // Invoke the DeleteWeb operation.
                 this.sitessAdapter.DeleteWeb(webUrl);
