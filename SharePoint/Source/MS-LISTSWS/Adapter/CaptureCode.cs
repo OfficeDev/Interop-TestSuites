@@ -827,6 +827,52 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     2416,
                     @"Implementation does not return this attribute[ListDefinitionCT.EnforceDataValidation]. [In Appendix B: Product Behavior] <15> Section 2.2.4.11: This attribute[ListDefinitionCT.EnforceDataValidation] is not returned in Windows SharePoint Services 3.0.");
             }
+
+            if(Common.IsRequirementEnabled(542000101, this.Site))
+            {
+                // Verify R542000101
+                Site.CaptureRequirementIfIsNotNull(
+                    list.Acl,
+                    542000101,
+                    @"Implementation does return this element[ListDefinitionCT.Acl]. [In Appendix B: Product Behavior] (SharePoint Server 2016 and above support this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(542000201, this.Site))
+            {
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R5420003.
+                // If the actual BaseType value is contained in the expected domain of 
+                // values, then the requirement can be captured.
+                string[] Flags2 = { "0", "0x0000000000000001", "0x0000000000000002", "0x0000000000000004", "0x0000000000000008" };
+
+                Site.CaptureRequirementIfIsTrue(
+                    new List<string>(Flags2).Contains(list.BaseType),
+                    5420003,
+                    @"[ListDefinitionCT.Flags2:]This element MUST be one of the following values:[0, 0x0000000000000001, 0x0000000000000002, 0x0000000000000004, 0x0000000000000008]");
+
+                // Verify R542000201
+                Site.CaptureRequirementIfIsNotNull(
+                    list.Flags2,
+                    542000201,
+                    @"Implementation does return this attribute[ListDefinitionCT.Flags2]. [In Appendix B: Product Behavior] (SharePoint Server 2016 and above support this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(542000901, this.Site))
+            {
+                // Verify R542000901
+                Site.CaptureRequirementIfIsNotNull(
+                    list.RootFolderId,
+                    542000901,
+                    @"Implementation does return this attribute[ListDefinitionCT.RootFolderId]. [In Appendix B: Product Behavior] (SharePoint Server 2016 and above support this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(542001001, this.Site))
+            {
+                // Verify R542001001
+                Site.CaptureRequirementIfIsNotNull(
+                    list.IrmSyncable,
+                    542001001,
+                    @"Implementation does return this attribute[ListDefinitionCT.IrmSyncable]. [In Appendix B: Product Behavior] (SharePoint Server 2016 and above support this behavior.)");
+            }
         }
 
         /// <summary>
