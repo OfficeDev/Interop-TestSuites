@@ -1929,6 +1929,11 @@ elementFormDefault='qualified'>
         <s:attribute name="Flags2" type="s:string" use="optional"/>
         <s:attribute name="RootFolderId" type="s:string" use="optional"/>
         <s:attribute name="IrmSyncable" type="core:TRUEFALSE" use="optional"/>
+        <s:attribute name="ComplianceTag" type="s:string" use="optional"/>
+        <s:attribute name="ComplianceFlags" type="s:string" use="optional"/>
+        <s:attribute name="UserModified" type="s:string" use="optional"/>
+        <s:attribute name="ListSchemaVersion" type="s:string" use="optional"/>
+        <s:attribute name="AclVersion" type="s:string" use="optional"/>
       </s:complexType>
 
       <!--Add a UpdateListFieldsRequest complexType described in [MS-LISTSWS] section 2.2.4.15 -->

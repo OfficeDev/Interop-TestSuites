@@ -149,8 +149,6 @@
     <Property name="R2418Enabled" value="false" />
     <!-- Set R5417Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.Followable] on [ListDefinitionCT] in section 7. Set R5417Enabled to false to disable this requirement. -->
     <Property name="R5417Enabled" value="true" />
-    <!-- Set R2485Enabled to true to verify that GetListItemChangesSinceToken operation does only return the first 40 items that changed, if the changeToken parameter is specified and the total number of list items that have been updated is greater than 40 as specified in section 7. Set R2485Enabled to false to disable this requirement. -->
-    <Property name="R2485Enabled" value="true" />
     <!-- Set R2484Enabled to true to verify that GetListItemChangesSinceToken operation does only return the first 40 items that changed, if the changeToken parameter is specified and the total number of list items that have been inserted is greater than 40 as specified in section 7. Set R2484Enabled to false to disable this requirement. -->
     <Property name="R2484Enabled" value="true" />
     <!-- Set R2462Enabled to true to verify that GetListContentTypes operation does not return this attribute[GetListContentTypesResult.ContentTypes.ContentTypeOrder] on [GetListContentTypesResponse] in section 7. Set R2462Enabled to false to disable this requirement. -->
