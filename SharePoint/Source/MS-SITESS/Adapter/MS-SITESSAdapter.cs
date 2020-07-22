@@ -275,6 +275,22 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             this.VerifyIsScriptSafeUrl(isScriptSafeUrResult);
             return isScriptSafeUrResult;
         }
+
+        /// <summary>
+        /// This operation is used to validate whether the specified URLs are valid script safe URLS for the current site by checking against CustomScriptSafeDomains property of the site collection. 
+        /// </summary>
+        /// <param name="urls">An array of string contains all URLs that need to be validated. </param>
+        /// <returns>An array of boolean contains results for validating the URLs </returns>
+        public bool[] IsScriptSafeUrlUsingCustomizedDomain(string[] urls)
+        {
+            // Check whether IsScriptSafeUrlUsingCustomizedDomain operation succeeds.
+            bool[] isScriptSafeUrlUsingCustomizedDomainResult = null;
+            isScriptSafeUrlUsingCustomizedDomainResult = this.service.IsScriptSafeUrlUsingCustomizedDomain(urls);
+
+            // Verify the IsScriptSafeUrlUsingCustomizedDomainResponses structure.
+            //this.IsScriptSafeUrlUsingCustomizedDomain(isScriptSafeUrlUsingCustomizedDomainResult);
+            return isScriptSafeUrlUsingCustomizedDomainResult;
+        }
         #endregion
 
         #region Initialize the web service
