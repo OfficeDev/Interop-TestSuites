@@ -4877,7 +4877,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R523002</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not be enabled for the subsite to be created, when presence set to false. (SharePoint Foundation 2013 and above follow this hebavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not be enabled for the subsite to be created, when presence set to false. (SharePoint Foundation 2013 and above follow this hebavior.)  &lt;17&gt; Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will not be enabled on SharePoint Foundation 2013 and above.</ns1:Description>
 		<ns1:Derived>MS-SITESS_R523:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4899,7 +4899,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R557002</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not be enabled for the subsite to be created, when presence set to omitted. (SharePoint Foundation 2013 and above follow this hebavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not be enabled for the subsite to be created, when presence set to omitted. (SharePoint Foundation 2013 and above follow this hebavior.)  &lt;17&gt; Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will not be enabled on SharePoint Foundation 2013 and above.</ns1:Description>
 		<ns1:Derived>MS-SITESS_R557:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
