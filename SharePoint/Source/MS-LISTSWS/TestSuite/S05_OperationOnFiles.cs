@@ -279,7 +279,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsTrue(
                                          isVerifiedR3921,
                                          1641,
-                                         @"[In CheckInFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD<32> return a SOAP fault with error string ""Invalid URI: The format of the URI could not be determined"".] This indicates that the parameter pageUrl is invalid.");
+                                         @"[In CheckInFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD<36> return a SOAP fault with error string ""Invalid URI: The format of the URI could not be determined"".] This indicates that the parameter pageUrl is invalid.");
             }
 
             if (Common.IsRequirementEnabled(3922, this.Site))
@@ -287,7 +287,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsFalse(
                     isSoapFaultExisted,
                     3922,
-                    @"[In CheckInFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(<32> Section 3.1.4.7:  Windows SharePoint Services 3.0 does not return a SOAP fault..)");
+                    @"[In CheckInFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(<36> Section 3.1.4.7:  Windows SharePoint Services 3.0 does not return a SOAP fault..)");
             }
 
             #endregion
@@ -529,7 +529,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsTrue(
                                          string.IsNullOrEmpty(errorCode),
                                          1664,
-                                         @"[In CheckOutFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD<34> return a SOAP fault with error string ""Invalid URI: The format of the URI could not be determined."". ]There is no error code for this fault.");
+                                         @"[In CheckOutFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD<38> return a SOAP fault with error string ""Invalid URI: The format of the URI could not be determined."". ]There is no error code for this fault.");
             }
 
             if (Common.IsRequirementEnabled(4082, this.Site))
@@ -537,7 +537,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsFalse(
                     isSoapFaultExist,
                     4082,
-                    @"[In CheckOutFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(<34> Section 3.1.4.8:  wss3 does not return a SOAP fault.)");
+                    @"[In CheckOutFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(<38> Section 3.1.4.8:  wss3 does not return a SOAP fault.)");
             }
 
             #endregion
@@ -778,7 +778,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsFalse(
                     isSoapFaultExist,
                     7851,
-                    @"[In UndoCheckOut operation] Implementation does not return a SOAP fault if the pageUrl is an invalid URL. <71> Section 3.1.4.26: wss3 does not return a SOAP fault.");
+                    @"[In UndoCheckOut operation] Implementation does not return a SOAP fault if the pageUrl is an invalid URL. <74> Section 3.1.4.26: wss3 does not return a SOAP fault.");
             }
 
             if (Common.IsRequirementEnabled(7852, this.Site))

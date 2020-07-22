@@ -186,7 +186,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 isSoapFaultGenerated
                 && "Guid should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).".Equals(errorstring, StringComparison.OrdinalIgnoreCase),
                 2429,
-                @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<26> Section 3.1.4.2: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                @"[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (<30> Section 3.1.4.2: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
         }
 
         /// <summary>
@@ -462,10 +462,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     100,
                     count,
                     6981,
-                    @"[In GetListItemChangesSinceToken operation] [In GetListItemChangesSinceToken element] [In changeToken field] "
-                   + @"Implementation does only return the first 100 items that changed, if the changeToken parameter is specified "
-                   + @"and the total number of list items that have been inserted or updated is greater than 100."
-                   + @"(The 2007 Microsoft® Office system and Windows® SharePoint® Services 3.0 follow this behavior.)");
+                    @"[In GetListItemChangesSinceToken operation] [In GetListItemChangesSinceToken element] [In changeToken field] Implementation does only return the first 40 items that changed, if the changeToken parameter is specified and the total number of list items that have been [inserted or] updated is greater than 40.(SharePoint Foundation 2010 and above follow this behavior.)");
             }
 
             // Here all the 120 changes cannot be returned at once, so MoreChanges is TRUE.
@@ -809,7 +806,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsFalse(
                     getListItemChangesresult.listitems.MaxRecommendedEmbeddedFileSizeSpecified,
                     7081,
-                    @"Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] <62> Section 3.1.4.22.2.2: This attribute is not returned by Windows SharePoint Services 3.0, and SharePoint Foundation 2010.");
+                    @"Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior]  (Section 3.1.4.22.2.2: This attribute is not returned by Windows SharePoint Services 3.0, and SharePoint Foundation 2010.)");
             }
             #endregion
             #region CaptureRequirement 1906
@@ -1403,7 +1400,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                         isR6612Verified,
                         6612,
                         @"[In GetListItemChangesSinceToken operation] Implementation does return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"", "
-                        + @"if the viewFields parameter is not specified and the viewName parameter contains an invalid GUID.  (<58> Section 3.1.4.22:  Windows SharePoint Services 3.0 returns the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"") ");
+                        + @"if the viewFields parameter is not specified and the viewName parameter contains an invalid GUID.  (<62> Section 3.1.4.22:  Windows SharePoint Services 3.0 returns the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"") ");
                 }
             }
         }
@@ -1452,7 +1449,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2483,
                     2483,
-                    @"[In Appendix B: Product Behavior]  Implementation does not ignore the changeToken parameter. (<59> Section 3.1.4.22: In Windows SharePoint Services 3.0, if the value of the changeToken parameter is empty, the protocol server will return a SOAP fault. There is no error code for this fault.)");
+                    @"[In Appendix B: Product Behavior]  Implementation does not ignore the changeToken parameter. (<63> Section 3.1.4.22: In Windows SharePoint Services 3.0, if the value of the changeToken parameter is empty, the protocol server will return a SOAP fault. There is no error code for this fault.)");
             }
 
             this.Site.Assert.IsTrue(isSoapFaultExist, "Call GetListItemChangesSinceToken operation with invalid ListName must generate a Soap Fault");
@@ -1465,8 +1462,8 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
         public void MSLISTSWS_S03_TC17_GetListItemChangesSinceToken_changeTokenParameterSpecified()
         {
             Site.Assume.IsTrue(
-                Common.IsRequirementEnabled(2484, this.Site) || Common.IsRequirementEnabled(2485, this.Site),
-                @"Test is executed only when R2484Enabled is set to true or R2485Enabled is set to true.");
+                Common.IsRequirementEnabled(2484, this.Site),
+                @"Test is executed only when R2484Enabled is set to true.");
 
             string listName = TestSuiteHelper.GetUniqueListName();
             string listID = TestSuiteHelper.CreateList(listName);
@@ -1497,7 +1494,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     40,
                     AdapterHelper.ExtractData(result.listitems.data.Any).Rows.Count,
                     2484,
-                    @"Implementation does only return the first 40 items that changed. [In Appendix B: Product Behavior] <60> Section 3.1.4.22.2.1: In SharePoint Foundation 2010 and SharePoint Foundation 2013, if the changeToken parameter is specified and the total number of list items that have been inserted is greater than 40, only the first 40 items that changed are returned.");
+                    @"[In GetListItemChangesSinceToken operation] [In GetListItemChangesSinceToken element] [In changeToken field] Implementation does only return the first 40 items that changed, if the changeToken parameter is specified and the total number of list items that have been inserted [or updated] is greater than 40.(SharePoint Foundation 2010 and above follow this behavior.)");
 
                 int leftInsertListItemCount = addedItemUnmber - 40;
 
@@ -1519,31 +1516,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                             AdapterHelper.ExtractData(result.listitems.data.Any).Rows.Count,
                             "All left  inserted list items should be clean up. The remaining [{0}] inserted list items",
                             leftInsertListItemCount);
-            }
-
-            if (Common.IsRequirementEnabled(2485, this.Site))
-            {
-                // Make another 45 items update.
-                TestSuiteHelper.UpdateListItems(listName, ids, OnErrorEnum.Return);
-
-                // Get the updated items changes without row limit but with the latest change token
-                token = result.listitems.Changes.LastChangeToken;
-                result = this.listswsAdapter.GetListItemChangesSinceToken(
-                                                listID,
-                                                null,
-                                                null,
-                                                null,
-                                                null,
-                                                null,
-                                                token,
-                                                null);
-
-                // If only return the first 40 rows, then capture R2485.
-                Site.CaptureRequirementIfAreEqual<int>(
-                    40,
-                    AdapterHelper.ExtractData(result.listitems.data.Any).Rows.Count,
-                    2485,
-                    @"Implementation does only return the first 40 items that changed. [In Appendix B: Product Behavior] <60> Section 3.1.4.22.2.1: In SharePoint Foundation 2010 and SharePoint Foundation 2013, if the changeToken parameter is specified and the total number of list items that have been updated is greater than 40, only the first 40 items that changed are returned.");
             }
         }
 
@@ -1600,7 +1572,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsNull(
                         errorCode,
                         6581,
-                        @"[In GetListItemChangesSinceToken operation] Implementation does not return error code in the SOAP fault, if the specified listName does not correspond to a list from either of these checks. (<57> Section 3.1.4.22: In Windows SharePoint Services 3.0, this error code is not returned in the SOAP fault.)");
+                        @"[In GetListItemChangesSinceToken operation] Implementation does not return error code in the SOAP fault, if the specified listName does not correspond to a list from either of these checks. (<61> Section 3.1.4.22: In Windows SharePoint Services 3.0, this error code is not returned in the SOAP fault.)");
                 }
             }
 
@@ -2314,7 +2286,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsFalse(
                     getListItemChangesresult.listitems.MaxRecommendedEmbeddedFileSizeSpecified,
                     11461,
-                    @"Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] <64> Section 3.1.4.23.2.2: This attribute is not returned by wss3 and wss4.");
+                    @"Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] <67> Section 3.1.4.23.2.2: This attribute is not returned by wss3 and wss4.");
             }
 
             #endregion
@@ -3083,7 +3055,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2480,
                     2480,
-                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<55> Section 3.1.4.21: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<59> Section 3.1.4.21: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
             }
 
             this.Site.Assert.IsTrue(isSoapFaultExist, "Call GetListItemChanges operation with invalid ListName must generate a Soap Fault.");
@@ -3183,7 +3155,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isR5882Verified,
                     5882,
-                    @"[In Appendix B: Product Behavior] [In GetListItemChanges operation] Implementation does return a SOAP fault with no error code, if the specified listName is an empty string. ( <54> Section 3.1.4.21: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010 this error code is not returned in the SOAP fault.)");
+                    @"[In Appendix B: Product Behavior] [In GetListItemChanges operation] Implementation does return a SOAP fault with no error code, if the specified listName is an empty string. ( <58> Section 3.1.4.21: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010 this error code is not returned in the SOAP fault.)");
             }
 
             // If error code "0x82000006" is returned, capture R30183.
@@ -3381,7 +3353,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isR5894Verified,
                     5894,
-                    @"[In Appendix B: Product Behavior][In GetListItems operation] Implementation does return a SOAP fault with no error code, if listName and viewName are both empty. (<66> Section 3.1.4.24: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010, this error code is not returned in the SOAP fault.)");
+                    @"[In Appendix B: Product Behavior][In GetListItems operation] Implementation does return a SOAP fault with no error code, if listName and viewName are both empty. (<69> Section 3.1.4.24: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010, this error code is not returned in the SOAP fault.)");
             }
 
             // If error code "0x82000006" is returned, capture R30193.
@@ -8480,7 +8452,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                         isR30231Verified,
                         30231,
                         @"[In UpdateListItems operation] Implementation does return the SOAP fault: ""Object reference not set to an instance of an object."", if listName is an empty string. "
-                        + @"(<82> Section 3.1.4.31:  Windows SharePoint Services 3.0 returns the SOAP fault: ""Object reference not set to an instance of an object"".)");
+                        + @"(<85> Section 3.1.4.31:  Windows SharePoint Services 3.0 returns the SOAP fault: ""Object reference not set to an instance of an object"".)");
                 }
 
                 if (Common.IsRequirementEnabled(30232, this.Site))
