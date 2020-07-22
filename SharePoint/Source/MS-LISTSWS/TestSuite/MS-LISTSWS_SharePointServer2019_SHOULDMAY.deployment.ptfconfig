@@ -265,5 +265,13 @@
     <Property name="R742001001Enabled" value="true" />
     <!-- Set R3010001Enabled to true to verify that implementation does return the "False". when the  list has any related lists. Set R3010001Enabled to false to disable this requirement. -->
     <Property name="R3010001Enabled" value="false" />
+    <!-- Set R542000101Enabled to true to verify that implementation does return the ListDefinitionCT.Acl attribute. Set R542000101Enabled to false to disable this requirement. -->
+    <Property name="R542000101Enabled" value="true" />
+    <!-- Set R542000201Enabled to true to verify that implementation does return the ListDefinitionCT.Flags2 attribute. Set R542000201Enabled to false to disable this requirement. -->
+    <Property name="R542000201Enabled" value="true" />
+    <!-- Set R542000901Enabled to true to verify that implementation does return the ListDefinitionCT.RootFolderId attribute. Set R542000901Enabled to false to disable this requirement. -->
+    <Property name="R542000901Enabled" value="true" />
+    <!-- Set R542001001Enabled to true to verify that implementation does return the ListDefinitionCT.IrmSyncable attribute. Set R542001001Enabled to false to disable this requirement. -->
+    <Property name="R542001001Enabled" value="true" />
   </Properties>
 </TestSite>
