@@ -845,7 +845,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 string[] Flags2 = { "0", "0x0000000000000001", "0x0000000000000002", "0x0000000000000004", "0x0000000000000008" };
 
                 Site.CaptureRequirementIfIsTrue(
-                    new List<string>(Flags2).Contains(list.BaseType),
+                    new List<string>(Flags2).Contains(list.Flags2),
                     5420003,
                     @"[ListDefinitionCT.Flags2:]This element MUST be one of the following values:[0, 0x0000000000000001, 0x0000000000000002, 0x0000000000000004, 0x0000000000000008]");
 
