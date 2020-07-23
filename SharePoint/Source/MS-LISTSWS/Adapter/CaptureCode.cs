@@ -64,7 +64,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirement(
                     4,
                     @"[In Transport]Protocol messages MUST be formatted as specified either in "
-                    + @"[SOAP1.1], ""SOAP Envelope"", or in [SOAP1.2/1], ""SOAP Message Construct"".");
+                    + @"[SOAP1.1], ""SOAP Envelope"", or in [SOAP1.2-1/2017], ""SOAP Message Construct"".");
             }
 
             // Verify R1177
@@ -73,7 +73,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             Site.CaptureRequirement(
                 1177,
                 @"[In Common Message Syntax]The syntax of the definitions uses XML schema, "
-                + "as specified in [XMLSCHEMA1] and [XMLSCHEMA2], and WSDL, as specified in [WSDL].");
+                + "as specified in [XMLSCHEMA1/2] and [XMLSCHEMA2/2], and WSDL, as specified in [WSDL].");
 
             // Verify R1178
             // The response have been received successfully, then the following requirement can be captured.
@@ -97,7 +97,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 @"[In Transport]Protocol server faults MUST be returned either by using HTTP "
                 + @"Status Codes as specified in [RFC2616], section 10, ""Status Code Definitions"", "
                 + "or by using SOAP faults as specified either in [SOAP1.1], section 4.4, "
-                + @"""SOAP Fault"", or in [SOAP1.2/1], section 5.4, ""SOAP Fault"".");
+                + @"""SOAP Fault"", or in [SOAP1.2-1/2017], section 5.4, ""SOAP Fault"".");
         }
 
         #region Capture Adapter requirements of Complex Types
@@ -463,6 +463,10 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                   <s:attribute name=""MaxItemsPerThrottledOperation"" type=""s:int"" />
                   <s:attribute name=""EnableAssignedToEmail"" type=""core:TRUEFALSE"" use=""optional""/>
                   <s:attribute name=""Followable"" type=""core:TRUEFALSE"" />
+                  <s:attribute name=""Acl"" type =""s: string"" use =""optional""/>
+                  <s:attribute name=""Flags2"" type = ""s:int"" use = ""optional""/>
+                  <s:attribute name=""RootFolderId"" type = ""s:string"" use = ""optional""/>
+                  <s:attribute name=""IrmSyncable"" type = ""core:TRUEFALSE"" use = ""optional""/>/>
                   </s:complexType> ");
 
             if (Common.IsRequirementEnabled(5417, this.Site))
@@ -743,7 +747,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     list.CanOpenFileAsync,
                     1401002002,
-                    @"Implementation does not return to the client, when the client attempts to open files asynchronously from the server. (SharePoint Foundation 2010 follows this behavior.)");
+                    @"Implementation does not return to the client, when the client attempts to open files asynchronously from the server. (<8> Section 2.2.4.11:  This attribute is not returned by Windows SharePoint Services 2.0, Windows SharePoint Services 3.0 and SharePoint Foundation 2010.)");
             }
             if (Common.IsRequirementEnabled(1401002001, this.Site))
             {
@@ -751,7 +755,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNotNull(
                     list.CanOpenFileAsync,
                     1401002001,
-                    @"Implementation does return to the client, when the client attempts to open files asynchronously from the server. (SharePoint Foundation 2013 and SharePoint Server 2016 follow this behavior.)");
+                    @"Implementation does return to the client, when the client attempts to open files asynchronously from the server. (SharePoint Foundation 2013 and above follow this behavior.)");
 
                 //Verify requirement: MS-LISTSWS_R1401001
                 Site.CaptureRequirementIfIsNotNull
@@ -822,6 +826,52 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     list.EnforceDataValidation,
                     2416,
                     @"Implementation does not return this attribute[ListDefinitionCT.EnforceDataValidation]. [In Appendix B: Product Behavior] <15> Section 2.2.4.11: This attribute[ListDefinitionCT.EnforceDataValidation] is not returned in Windows SharePoint Services 3.0.");
+            }
+
+            if(Common.IsRequirementEnabled(542000101, this.Site))
+            {
+                // Verify R542000101
+                Site.CaptureRequirementIfIsNotNull(
+                    list.Acl,
+                    542000101,
+                    @"Implementation does return this element[ListDefinitionCT.Acl]. [In Appendix B: Product Behavior] (SharePoint Server 2016 and above support this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(542000201, this.Site))
+            {
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R5420003.
+                // If the actual BaseType value is contained in the expected domain of 
+                // values, then the requirement can be captured.
+                string[] Flags2 = { "0", "0x0000000000000001", "0x0000000000000002", "0x0000000000000004", "0x0000000000000008" };
+
+                Site.CaptureRequirementIfIsTrue(
+                    new List<string>(Flags2).Contains(list.BaseType),
+                    5420003,
+                    @"[ListDefinitionCT.Flags2:]This element MUST be one of the following values:[0, 0x0000000000000001, 0x0000000000000002, 0x0000000000000004, 0x0000000000000008]");
+
+                // Verify R542000201
+                Site.CaptureRequirementIfIsNotNull(
+                    list.Flags2,
+                    542000201,
+                    @"Implementation does return this attribute[ListDefinitionCT.Flags2]. [In Appendix B: Product Behavior] (SharePoint Server 2016 and above support this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(542000901, this.Site))
+            {
+                // Verify R542000901
+                Site.CaptureRequirementIfIsNotNull(
+                    list.RootFolderId,
+                    542000901,
+                    @"Implementation does return this attribute[ListDefinitionCT.RootFolderId]. [In Appendix B: Product Behavior] (SharePoint Server 2016 and above support this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(542001001, this.Site))
+            {
+                // Verify R542001001
+                Site.CaptureRequirementIfIsNotNull(
+                    list.IrmSyncable,
+                    542001001,
+                    @"Implementation does return this attribute[ListDefinitionCT.IrmSyncable]. [In Appendix B: Product Behavior] (SharePoint Server 2016 and above support this behavior.)");
             }
         }
 
@@ -1060,7 +1110,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsNull(
                         listDefinitionSchema.Validation,
                         2418,
-                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation]. [In Appendix B: Product Behavior] <17> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation] is not returned in Windows SharePoint Services 3.0.");
+                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation]. [In Appendix B: Product Behavior] <21> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation] is not returned in Windows SharePoint Services 3.0.");
                 }
 
                 if (Common.IsRequirementEnabled(2420, this.Site))
@@ -1069,7 +1119,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsNull(
                         listDefinitionSchema.Validation,
                         2420,
-                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation.Message]. [In Appendix B: Product Behavior] <18> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation.Message] is not returned in Windows SharePoint Services 3.0.");
+                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation.Message]. [In Appendix B: Product Behavior] <22> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation.Message] is not returned in Windows SharePoint Services 3.0.");
                 }
 
                 if (Common.IsRequirementEnabled(2422, this.Site))
@@ -1078,7 +1128,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsNull(
                         listDefinitionSchema.ValidationDisplayNames,
                         2422,
-                        @"Implementation does not return this attribute[ListDefinitionSchema.ValidationDisplayNames]. [In Appendix B: Product Behavior] <19> Section 2.2.4.12: This attribute[ListDefinitionSchema.ValidationDisplayNames] is not returned in Windows SharePoint Services 3.0.");
+                        @"Implementation does not return this attribute[ListDefinitionSchema.ValidationDisplayNames]. [In Appendix B: Product Behavior] <23> Section 2.2.4.12: This attribute[ListDefinitionSchema.ValidationDisplayNames] is not returned in Windows SharePoint Services 3.0.");
                 }
             }
         }
@@ -1148,7 +1198,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     change.UniqueId,
                     2423,
-                    @"Implementation does not return this attribute[ListItemChangeDefinition.UniqueId]. [In Appendix B: Product Behavior] <20> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListItemChangeDefinition.UniqueId]. [In Appendix B: Product Behavior] <24> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
             }
 
             if (Common.IsRequirementEnabled(2424, this.Site))
@@ -1157,7 +1207,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     change.MetaInfo_vti_clientid,
                     2424,
-                    @"Implementation does not return this attribute[ListItemChangeDefinition.MetaInfo_vti_clientid]. [In Appendix B: Product Behavior] <21> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListItemChangeDefinition.MetaInfo_vti_clientid]. [In Appendix B: Product Behavior] <25> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
             }
 
             if (Common.IsRequirementEnabled(2425, this.Site))
@@ -1167,7 +1217,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     change.ServerChangeUnit,
                     2425,
                     @"[In Appendix B: Product Behavior] Implemementation does not return this attribute[ServerChangeUnit]. "
-                    + "<22> Section 2.2.4.13: This attribute[ServerChangeUnit] is not returned in Windows SharePoint Services 3.0.");
+                    + "<26> Section 2.2.4.13: This attribute[ServerChangeUnit] is not returned in Windows SharePoint Services 3.0.");
             }
         }
 
@@ -3103,7 +3153,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsFalse(
                         isFileFragmentExist,
                         2486,
-                        @"[In GetListItemChangesSinceToken operation]Implementation does not return the FileFragment element.[In Appendix B: Product Behavior] <61> Section 3.1.4.22.2.2: In Windows SharePoint Services 3.0, the FileFragment element is not returned.");
+                        @"[In GetListItemChangesSinceToken operation]Implementation does not return the FileFragment element.[In Appendix B: Product Behavior] <65> Section 3.1.4.22.2.2: In Windows SharePoint Services 3.0, the FileFragment element is not returned.");
                 }
             }
 

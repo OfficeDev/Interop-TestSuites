@@ -286,6 +286,7 @@
     <DeploymentItem filename="MS-DWSS\Adapter\Schemas\SimpleTypes.xsd" />
     <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointFoundation2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
