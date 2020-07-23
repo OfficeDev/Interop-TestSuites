@@ -11678,6 +11678,16 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private string irmSyncableField;
 
+        private string complianceTagField;
+
+        private string complianceFlagsField;
+
+        private string userModifiedField;
+
+        private string listSchemaVersionField;
+
+        private string aclVersionField;
+
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string DocTemplateUrl
@@ -12739,6 +12749,76 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.irmSyncableField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ComplianceTag
+        {
+            get
+            {
+                return this.complianceTagField;
+            }
+            set
+            {
+                this.complianceTagField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ComplianceFlags
+        {
+            get
+            {
+                return this.complianceFlagsField;
+            }
+            set
+            {
+                this.complianceFlagsField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string UserModified
+        {
+            get
+            {
+                return this.userModifiedField;
+            }
+            set
+            {
+                this.userModifiedField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ListSchemaVersion
+        {
+            get
+            {
+                return this.listSchemaVersionField;
+            }
+            set
+            {
+                this.listSchemaVersionField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string AclVersion
+        {
+            get
+            {
+                return this.aclVersionField;
+            }
+            set
+            {
+                this.aclVersionField = value;
             }
         }
     }

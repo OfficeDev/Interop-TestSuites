@@ -149,8 +149,6 @@
     <Property name="R2418Enabled" value="true" />
     <!-- Set R5417Enabled to true to verify that for type "ListDefinitionCT" in operations "AddList","AddListFromFeature","GetListCollection", "GetList","GetListAndView", "GetListItemChangesSinceToken"and "UpdateList", protocol server does not return this attribute[ListDefinitionCT.Followable] on [ListDefinitionCT] in section 7. Set R5417Enabled to false to disable this requirement. -->
     <Property name="R5417Enabled" value="true" />
-    <!-- Set R2485Enabled to true to verify that GetListItemChangesSinceToken operation does only return the first 40 items that changed, if the changeToken parameter is specified and the total number of list items that have been updated is greater than 40 as specified in section 7. Set R2485Enabled to false to disable this requirement. -->
-    <Property name="R2485Enabled" value="false" />
     <!-- Set R2484Enabled to true to verify that GetListItemChangesSinceToken operation does only return the first 40 items that changed, if the changeToken parameter is specified and the total number of list items that have been inserted is greater than 40 as specified in section 7. Set R2484Enabled to false to disable this requirement. -->
     <Property name="R2484Enabled" value="false" />
     <!-- Set R2462Enabled to true to verify that GetListContentTypes operation does not return this attribute[GetListContentTypesResult.ContentTypes.ContentTypeOrder] on [GetListContentTypesResponse] in section 7. Set R2462Enabled to false to disable this requirement. -->
@@ -261,5 +259,13 @@
     <Property name="R267001Enabled" value="false" />
     <!-- Set R27701Enabled to true to verify that implementation does return a SOAP fault with error code 0x81020026, when the specified listName is a valid GUID and does not correspond to the identification of a list on the site. Set R27701Enabled to false to disable this requirement. -->
     <Property name="R27701Enabled" value="false" />
+    <!-- Set R542000101Enabled to true to verify that implementation does return the ListDefinitionCT.Acl attribute. Set R542000101Enabled to false to disable this requirement. -->
+    <Property name="R542000101Enabled" value="false" />
+    <!-- Set R542000201Enabled to true to verify that implementation does return the ListDefinitionCT.Flags2 attribute. Set R542000201Enabled to false to disable this requirement. -->
+    <Property name="R542000201Enabled" value="false" />
+    <!-- Set R542000901Enabled to true to verify that implementation does return the ListDefinitionCT.RootFolderId attribute. Set R542000901Enabled to false to disable this requirement. -->
+    <Property name="R542000901Enabled" value="false" />
+    <!-- Set R542001001Enabled to true to verify that implementation does return the ListDefinitionCT.IrmSyncable attribute. Set R542001001Enabled to false to disable this requirement. -->
+    <Property name="R542001001Enabled" value="false" />
   </Properties>
 </TestSite>

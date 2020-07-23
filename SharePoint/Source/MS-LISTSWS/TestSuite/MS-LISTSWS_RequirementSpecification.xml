@@ -1871,7 +1871,7 @@ ShowInEditForm: When FALSE, indicates that the field is not included in the form
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1348</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
-		<ns1:Description>	&lt;s:complexType name="ListDefinitionCT"&gt;
+		<ns1:Description>[The schema of ListDefinitionCT is defined as:]&lt;s:complexType name="ListDefinitionCT"&gt;
 	  &lt;s:attribute name="DocTemplateUrl" type="s:string" /&gt;
 	  &lt;s:attribute name="DefaultViewUrl" type="s:string" use="required" /&gt;
 	  &lt;s:attribute name="MobileDefaultViewUrl" type="s:string" /&gt;
@@ -20638,7 +20638,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-LISTSWS_R542000101</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-LISTSWS_R542000102</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>Implementation does not return this element[ListDefinitionCT.Acl]. [In Appendix B: Product Behavior] &lt;17&gt; Section 2.2.4.11:  This attribute is not returned in Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R5420001:i</ns1:Derived>
