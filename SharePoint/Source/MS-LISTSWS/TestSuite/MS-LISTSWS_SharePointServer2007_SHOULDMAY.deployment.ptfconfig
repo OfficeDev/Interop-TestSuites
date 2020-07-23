@@ -259,5 +259,13 @@
     <Property name="R267001Enabled" value="false" />
     <!-- Set R27701Enabled to true to verify that implementation does return a SOAP fault with error code 0x81020026, when the specified listName is a valid GUID and does not correspond to the identification of a list on the site. Set R27701Enabled to false to disable this requirement. -->
     <Property name="R27701Enabled" value="false" />
+    <!-- Set R542000101Enabled to true to verify that implementation does return the ListDefinitionCT.Acl attribute. Set R542000101Enabled to false to disable this requirement. -->
+    <Property name="R542000101Enabled" value="false" />
+    <!-- Set R542000201Enabled to true to verify that implementation does return the ListDefinitionCT.Flags2 attribute. Set R542000201Enabled to false to disable this requirement. -->
+    <Property name="R542000201Enabled" value="false" />
+    <!-- Set R542000901Enabled to true to verify that implementation does return the ListDefinitionCT.RootFolderId attribute. Set R542000901Enabled to false to disable this requirement. -->
+    <Property name="R542000901Enabled" value="false" />
+    <!-- Set R542001001Enabled to true to verify that implementation does return the ListDefinitionCT.IrmSyncable attribute. Set R542001001Enabled to false to disable this requirement. -->
+    <Property name="R542001001Enabled" value="false" />
   </Properties>
 </TestSite>
