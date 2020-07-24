@@ -40,7 +40,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R8030</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[[In Transport] Protocol server faults MUST be returned via HTTP status codes, as specified in [RFC2616] section 10 (Status Code Definitions)[, or via SOAP faults, as specified either in [SOAP1.1] section 4.4 (SOAP Fault) or in [SOAP1.2/1] section 5.4 (SOAP Fault).]</ns1:Description>
+		<ns1:Description>[[In Transport] Protocol server faults MUST be returned via HTTP status codes, as specified in [RFC2616] section 10 (Status Code Definitions)[, or via SOAP faults, as specified either in [SOAP1.1] section 4.4 (SOAP Fault) or in [SOAP1.2-1/2007] section 5.4 (SOAP Fault).]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -112,7 +112,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R216</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The prefix "soap12" is associated with the namespace URI "http://schemas.xmlsoap.org/wsdl/soap12/" referring to [SOAP1.2/1] and [SOAP1.2/2].</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "soap12" is associated with the namespace URI "http://schemas.xmlsoap.org/wsdl/soap12/" referring to [SOAP1.2-1/2007] and [SOAP1.2-2/2007].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -927,7 +927,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VIEWSS_R89</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
-		<ns1:Description>[In Protocol Details] This protocol allows protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a Detail element &lt;1&gt; as specified in [SOAP1.2/1] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.2.</ns1:Description>
+		<ns1:Description>[In Protocol Details] This protocol allows protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a Detail element &lt;1&gt; as specified in [SOAP1.2-1/2007] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
