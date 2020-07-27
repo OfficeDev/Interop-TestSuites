@@ -811,7 +811,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R71</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
-		<ns1:Description>[In Protocol Details] This protocol allows protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a Detail element as specified in [SOAP1.2/1] section 5.4.5.</ns1:Description>
+		<ns1:Description>[In Protocol Details] This protocol allows protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a Detail element as specified in [SOAP1.2-1/2007] section 5.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2607,7 +2607,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R19302</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName. (&lt;4&gt; Section 3.1.4.1.2.2: The tab (\t) character is ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName. (&lt;4&gt; Section 3.1.4.1.2.2: The tab (\t) character is ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R172:i,MS-VERSS_R1:i,MS-VERSS_R17203:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
