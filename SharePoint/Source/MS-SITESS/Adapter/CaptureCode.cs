@@ -1012,7 +1012,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             // When code can run to this line, it indicates the soap out message for this operation is received, else the operation will throw exception above.
             // So this operation's description is consistent with server.
             Site.CaptureRequirement(
-                326001021,
+                326021,
                 @" [In IsScriptSafeUrlResponse] IsScriptSafeUrlResult: An ArrayOfBoolean as defined in section 3.1.4.11.3.1, ");
 
             // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R326026.
@@ -1032,5 +1032,86 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             }
         }
 
+        /// <summary>
+        /// Verify IsScriptSafeUrlUsingCustomizedDomain related requirements.
+        /// </summary>
+        /// <param name="isScriptSafeUrlUsingCustomizedDomainResult">The result of IsScriptSafeUrlUsingCustomizedDomain.</param>
+        private void IsScriptSafeUrlUsingCustomizedDomain(Boolean[] isScriptSafeUrlUsingCustomizedDomainResult)
+        {
+            Site.Log.Add(LogEntryKind.Comment, "Verify common requirements in IsScriptSafeUrlUsingCustomizedDomain operation.");
+            this.VerifyCommonReqs();
+
+            // If code can run to here, it means Microsoft SharePoint Server 2019 supports operation IsScriptSafeUrlUsingCustomizedDomain.
+            Site.CaptureRequirement(
+                327001002,
+                @"[In Appendix B: Product Behavior] Implementation does support this method [IsScriptSafeUrlUsingCustomizedDomain]. <20> Section 3.1.4.12: Only SharePoint Server 2019 supports this method");
+
+            // When code can run to this line, it indicates the soap out message for this operation is received, else the operation will throw exception above.
+            // So this operation's description is consistent with server.
+            Site.CaptureRequirement(
+                327003,
+                @"[In IsScriptSafeUrlUsingCustomizedDomain] [The IsScriptSafeUrlUsingCustomizedDomain operation is defined as:]<wsdl:operation name=""IsScriptSafeUrlUsingCustomizedDomain"">
+                < wsdl:input message = ""tns:IsScriptSafeUrlUsingCustomizedDomainSoapIn"" />
+                < wsdl:output message = ""tns:IsScriptSafeUrlUsingCustomizedDomainSoapOut"" />
+                </ wsdl:operation >");
+
+            bool isSchemaRight = SchemaValidation.XmlValidationErrors.Count == 0 && SchemaValidation.XmlValidationWarnings.Count == 0;
+
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R327005.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R327005");
+
+            // Verify MS-SITESS requirement: MS-SITESS_R327005
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaRight,
+                327005,
+                @"[In IsScriptSafeUrlUsingCustomizedDomain] [The client sends an IsScriptSafeUrlUsingCustomizedDomainSoapOut  request message, and] the server responds with an IsScriptSafeUrlUsingCustomizedDomainSoapOut response message.");
+
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R327011.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R327011");
+
+            // Verify MS-SITESS requirement: MS-SITESS_R327011
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaRight,
+                327011,
+                @"[In IsScriptSafeUrlUsingCustomizedDomainSoapOut] The SOAP body contains an IsScriptSafeUrlUsingCustomizedDomainResponse  element.");
+
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R326020.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R326020");
+
+            // Verify MS-SITESS requirement: MS-SITESS_R327020
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaRight,
+                327020,
+                @" [In IsScriptSafeUrlUsingCustomizedDomainResponse] [The IsScriptSafeUrlUsingCustomizedDomainResponse element is defined as:]
+                <s:element name=""IsScriptSafeUrlUsingCustomizedDomainResponse"">
+                    < s:complexType >
+                        < s:sequence >
+                            < s:element minOccurs = ""1"" maxOccurs = ""1"" name = ""IsScriptSafeUrlUsingCustomizedDomainResult"" type = ""tns:ArrayOfBoolean"" />
+                        </ s:sequence >
+                    </ s:complexType >
+                </ s:element >");
+
+            // When code can run to this line, it indicates the soap out message for this operation is received, else the operation will throw exception above.
+            // So this operation's description is consistent with server.
+            Site.CaptureRequirement(
+                327021,
+                @"[In IsScriptSafeUrlUsingCustomizedDomainResponse] IsScriptSafeUrlUsingCustomizedDomainResult: An ArrayOfBoolean as defined in section 3.1.4.12.3.1, ");
+
+            // When the variable isSchemaRight is true, it exposes that the message's format described in the Open Specification is consistent with server. So we can verify R326026.
+            Site.CaptureRequirementIfIsTrue(
+                isSchemaRight,
+                327026,
+                @"[InArrayOfBoolean]  [The ArrayOfBoolean complexType is defined as:]
+                <s:complexType name=""ArrayOfBoolean"">
+                    < s:sequence >
+                        < s:element minOccurs = ""0"" maxOccurs = ""unbounded"" name = ""boolean"" type = ""s:boolean"" />
+                    </ s:sequence >
+                </ s:complexType >");
+
+            if (isScriptSafeUrlUsingCustomizedDomainResult != null)
+            {
+                this.ValidArrayOfStringComplexType();
+            }
+        }
     }
 }
