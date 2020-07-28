@@ -101,7 +101,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SHDACCWS
                         // Verify MS-WWSP requirement: MS-WWSP_R3
                         this.Site.CaptureRequirement(
                                                3,
-                                               @"[In Transport] Protocol messages MUST be formatted as specified either in [SOAP1.1], Section 4, SOAP envelope or in [SOAP1.2/1],  Section 5, SOAP Message Construct.");
+                                               @"[In Transport] Protocol messages MUST be formatted as specified either in [SOAP1.1], Section 4, SOAP envelope or in [SOAP1.2-1/2007],  Section 5, SOAP Message Construct.");
                         break;
                     }
 
