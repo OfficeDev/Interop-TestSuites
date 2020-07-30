@@ -9,5 +9,7 @@
     <Property name="MS-SHDACCWS_Supported" value="true" />
     <!-- Set R52Enabled to true to verify that the value of this element MUST be false if there was a co-authoring transition request for the document.. Set R52Enabled to false to disable this requirement. -->
     <Property name="R52Enabled" value="true" />
+    <!-- Set R57Enabled to true to verify that the value of IsOnlyClientResult MUST be true if the file specified by the input id can't be found on server. Set R57Enabled to false to disable this requirement. -->
+    <Property name="R57Enabled" value="true" />
   </Properties>  
 </TestSite>
