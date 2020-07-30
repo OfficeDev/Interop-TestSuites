@@ -42,6 +42,8 @@ namespace Microsoft.Protocols.TestSuites.MS_SHDACCWS
         [TestCategory("MSSHDACCWS"), TestMethod()]
         public void MSSHDACCWS_S01_TC01_CoAuthoringIsAsked()
         {
+            this.Site.Assume.IsTrue(Common.IsRequirementEnabled(52, this.Site), "Test is executed only when R52Enabled is set to true.");
+
             // Set the Co-authoring status for the specified file which is identified by the property "FileIdOfCoAuthoring".
             bool isSetCoauthoringSuccess = SHDACCWSSUTControlAdapter.SUTSetCoAuthoringStatus();
             Site.Assert.IsTrue(isSetCoauthoringSuccess, "The Co-authoring status should be set on the specified file.");
@@ -51,15 +53,14 @@ namespace Microsoft.Protocols.TestSuites.MS_SHDACCWS
 
             // Call method IsOnlyClient with the identifier of the document which there was a co-authoring transition request for.
             bool allCoAuthoringStatus = SHDACCWSAdapter.IsOnlyClient(Guid.Parse(fileIdOfCoAuthoring));
-            
+
             // If server returns "false", then capture MS-SHDACCWS requirement: MS-SHDACCWS_R52.
-            if (Common.IsRequirementEnabled(52, this.Site))
-            {
+
+
             this.Site.CaptureRequirementIfIsFalse(
                 allCoAuthoringStatus,
                 52,
                 @"[In IsOnlyClientResponse] IsOnlyClientResult : The value of this element MUST be false if there was a co-authoring transition request for the document.");
-            }
         }
         #endregion
 
@@ -116,6 +117,8 @@ namespace Microsoft.Protocols.TestSuites.MS_SHDACCWS
         [TestCategory("MSSHDACCWS"), TestMethod()]
         public void MSSHDACCWS_S01_TC04_FileNotExistOnServer()
         {
+            this.Site.Assume.IsTrue(Common.IsRequirementEnabled(57, this.Site), "Test is executed only when R57Enabled is set to true.");
+
             // Call method IsOnlyClient with the identifier of the document that specified by the id can't be found on the server.
             bool nonExistStatus = SHDACCWSAdapter.IsOnlyClient(Guid.NewGuid());
 
