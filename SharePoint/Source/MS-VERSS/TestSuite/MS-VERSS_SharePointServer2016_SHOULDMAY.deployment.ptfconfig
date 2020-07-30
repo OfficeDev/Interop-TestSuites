@@ -95,6 +95,6 @@
     <!-- Set R19707Enable to true to verify that the server returns error code 0x80131600 if fileName contains equals sign (=) for DeleteAllVersions. Set R19707Enable to false to disable this requirement. -->
     <Property name="R19707Enabled" value="true"/>
     <!-- Set R19708Enable to ture to verify that the server returns a SOAP exception without an error code if fileName contains equals sign (=) for DeleteAllVersions. Set R1930208Enabled to false to disable this requirement. -->
-    <Property name="R19708Enabled" value="true"/>
+    <Property name="R19708Enabled" value="false"/>
   </Properties>
 </TestSite>

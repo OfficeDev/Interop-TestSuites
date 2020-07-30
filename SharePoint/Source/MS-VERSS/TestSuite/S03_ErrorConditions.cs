@@ -1930,7 +1930,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         }
                          else if (invalidCharacter == "=")
                         {
-                            if (isR19602Enabled)
+                            if (Common.IsRequirementEnabled(19708, this.Site))
                             {
                                 // Add the debug information
                                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R19708");
