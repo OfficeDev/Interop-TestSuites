@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
 {
     using System;
     using System.Net;
+    using System.Security.Policy;
     using System.Web.Services.Protocols;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
@@ -1059,7 +1060,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                             Site.CaptureRequirementIfIsTrue(
                                 isDeleteAllVersionWithoutDeleteAnyVersions,
                                 19302,
-                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName. (<4> Section 3.1.4.1.2.2: The tab (\t) character is ignored at the end of the fileName.)");
+                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character and the backward slash(\) are at the end of the fileName. (<4> Section 3.1.4.1.2.2: The tab (\t) character and the backward slash(\) ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, and SharePoint Server 2016.)");
                         }
                     }
                     else if (truncatedCharacter == "\\")
@@ -1146,7 +1147,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                 Site.CaptureRequirementIfIsNotNull(
                                     errorString,
                                     1930213,
-                                    @"[In Appendix B: Product Behavior] Implementation does return a SOAP exception. (<4> Section 3.1.4.1.2.2:  [Windows SharePoint Services truncates all characters after the first ""#"" in the file name. ] If the truncated file name does not exist on the server, SharePoint Foundation 2010 and SharePoint Foundation 2013 returns a SOAP server exception.)");
+                                    @"[In Appendix B: Product Behavior] Implementation does return a SOAP exception. (<4> Section 3.1.4.1.2.2:  [Windows SharePoint Services truncates all characters after the first ""#"" in the file name. ] If the truncated file name does not exist on the server, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 returns a SOAP server exception.)");
                             }
 
                             if (Common.IsRequirementEnabled(1930203, this.Site))
@@ -1304,7 +1305,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                 Site.CaptureRequirementIfIsNull(
                                     errorCode,
                                     1930208,
-                                    @"[In Appendix B: Product Behavior] Implementation does return a SOAP exception without an error code if fileName contains equals sign (=). (<4> Section 3.1.4.1.2.2: If fileName contains equals sign (=), SharePoint Foundation 2010 and SharePoint Foundation 2013 return a SOAP exception without an error code.)");
+                                    @"[In Appendix B: Product Behavior] Implementation does return a SOAP exception without an error code if fileName contains equals sign (=). (<4> Section 3.1.4.1.2.2: If fileName contains equals sign (=), SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 return a SOAP exception without an error code.)");
                             }
                         }
                         else if (invalidCharacter == ">")
@@ -1348,7 +1349,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                 Site.CaptureRequirementIfIsNotNull(
                                     errorString,
                                         1930214,
-                                        @"[In Appendix B: Product Behavior] Implementation does return a SOAP exception. (<4> Section 3.1.4.1.2.2:  [Windows SharePoint Services truncates all characters after the first ""?"" in the file name. ] If the truncated file name does not exist on the server, SharePoint Foundation 2010 and SharePoint Foundation 2013 returns a SOAP server exception.)");
+                                        @"[In Appendix B: Product Behavior] Implementation does return a SOAP exception. (<4> Section 3.1.4.1.2.2:  [Windows SharePoint Services truncates all characters after the first ""?"" in the file name. ] If the truncated file name does not exist on the server, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016returns a SOAP server exception.)");
                             }
 
                             if (Common.IsRequirementEnabled(1930204, this.Site))
@@ -1678,7 +1679,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                             Site.CaptureRequirementIfIsTrue(
                                 isVersionDelete,
                                 19704,
-                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName. (<6> Section 3.1.4.2.2.2: The tab (\t) character is ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010,and SharePoint Foundation 2013.)");
+                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character and the backward slash (\) character are ignored at the end of the fileName. (<6> Section 3.1.4.2.2.2: The tab (\t) character and the backward slash (\) character are are ignored ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Foundation 2016.)");
                         }
                     }
                     else if (truncatedCharacter == "\\")
@@ -1692,7 +1693,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                             Site.CaptureRequirementIfIsTrue(
                                 isVersionDelete,
                                 19705,
-                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the backward slash (\) character is at the end of the fileName. (<6> Section 3.1.4.2.2.2: The backward slash (\) character is ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013.)");
+                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the backward slash (\) character is at the end of the fileName. (<6> Section 3.1.4.2.2.2: The backward slash (\) character is ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016.)");
                         }
                     }
                 }
@@ -1707,9 +1708,12 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
 
             bool isR17601Enabled = Common.IsRequirementEnabled(17601, this.Site);
             bool isR19602Enabled = Common.IsRequirementEnabled(19602, this.Site);
+            //bool isR19707Enabled = Common.IsRequirementEnabled(19707, this.Site);
+            //bool isR19708Enabled = Common.IsRequirementEnabled(19708, this.Site);
 
             if (isR17601Enabled || isR19602Enabled || Common.IsRequirementEnabled(17602, this.Site) || Common.IsRequirementEnabled(19701, this.Site) || Common.IsRequirementEnabled(17621, this.Site)
-                || Common.IsRequirementEnabled(19703, this.Site) || Common.IsRequirementEnabled(17600, this.Site) || Common.IsRequirementEnabled(19620, this.Site))
+                || Common.IsRequirementEnabled(19703, this.Site) || Common.IsRequirementEnabled(17600, this.Site) || Common.IsRequirementEnabled(19620, this.Site)
+                || Common.IsRequirementEnabled(19707, this.Site))
             {
                 foreach (string invalidCharacter in invalidCharacters)
                 {
@@ -1722,8 +1726,8 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                     {
                         deleteVersionResponse =
                             this.protocolAdapterInstance.DeleteVersion(fileRelativeUrlWithInvalidCharacter, deleteFileVersionForVerifyInvalidCharacters);
-                        Site.Assert.Fail(
-                            "The DeleteVersion operation should fail. The invalid character is {0}",
+                        Site.Assert.Pass(
+                            "The DeleteVersion operation should pass. The invalid character is {0}",
                             invalidCharacter);
                     }
                     catch (SoapException ex)
@@ -1924,25 +1928,31 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left angle bracket (<). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
                             }
                         }
-                        else if (invalidCharacter == "=")
+                         else if (invalidCharacter == "=")
                         {
-                            string sutVersion = Common.GetConfigurationPropertyValue("SutVersion", this.Site);
-                            if (sutVersion == "SharePointFoundation2013" || sutVersion == "SharePointServer2013"
-                                || sutVersion == "SharePointFoundation2010" || sutVersion == "SharePointServer2010"
-                                || sutVersion == "SharePointServer2016")
+                            if (isR19602Enabled)
                             {
-                                Site.Assert.AreEqual<string>(
-                                    "0x80131600",
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R19708");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R19708
+                                Site.CaptureRequirementIfIsNull(
                                     errorCode,
-                                    "{0} returns error code, the error code is {1}.",
-                                    sutVersion,
-                                    errorCode);
+                                    19708,
+                                    @"[In Appendix B: Product Behavior] Implementation does return a SOAP exception without an error code if fileName contains equals sign (=). (<6> Section 3.1.4.1.2.2: If fileName contains equals sign (=), Windows SharePoint Services 3.0 returns a SOAP exception without an error code.)");
                             }
 
-                            if (sutVersion == "WindowsSharePointServices3" || sutVersion == "SharePointServer2007")
+                            if (Common.IsRequirementEnabled(19707, this.Site))
                             {
-                                Site.Assert.IsNull(errorCode, "{0} does not return an error code element, the errorCode is {1}.", sutVersion, errorCode);
-                                Site.Assert.IsNotNull(errorString, "{0} returns a SOAP exception without an error code, the errorString is {1}.", sutVersion, errorString);
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R19707");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R19707 
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                    "0x80131600",
+                                    errorCode,
+                                    19707,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x80131600 if fileName contains equals sign (=). (<6> Section 3.1.4.1.2.2: If fileName contains equals sign (=), SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 return error code 0x80131600.)");
                             }
                         }
                         else if (invalidCharacter == ">")
@@ -1975,6 +1985,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         }
                         else if (invalidCharacter == "=")
                         {
+                            
                             if (isR17601Enabled)
                             {
                                 // Add the debug information
@@ -1987,6 +1998,20 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     17610,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81020073 to indicate that the fileName element of the DeleteVersion element contains invalid character Equal sign (=). (SharePoint Foundation 2010 and above follow this behavior.)");
                             }
+                            /* if (isR19707Enabled)
+                            {
+                                Console.WriteLine("test line 2222");
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R19707");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R19707
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                    "0x80131600",
+                                    errorCode,
+                                    19707,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x80131600 if fileName contains equals sign (=). (<6> Section 3.1.4.1.2.2: If fileName contains equals sign (=), SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 return error code 0x80131600.)");
+                            } */
+
                         }
                         else if (invalidCharacter == "?")
                         {
