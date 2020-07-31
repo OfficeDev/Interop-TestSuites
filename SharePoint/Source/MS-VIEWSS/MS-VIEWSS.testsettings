@@ -20,6 +20,7 @@
     <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VIEWSS.runsettings" />
     <DeploymentItem filename="TestSuite\MS-VIEWSS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-VIEWSS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

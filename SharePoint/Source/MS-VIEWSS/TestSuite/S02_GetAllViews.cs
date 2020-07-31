@@ -39,7 +39,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VIEWSS
         {            
             // Call AddView method twice to add two views for the specified list on the server.           
             this.AddView(false, Query.AvailableQueryInfo, ViewType.Grid);
-            this.AddView(false, Query.AvailableQueryInfo, ViewType.Calendar);
+            this.AddView(false, Query.AvailableQueryInfo, ViewType.Html);
 
             // Call GetViewCollection to retrieve the collection of list views of a specified list in the server.
             string listName = TestSuiteBase.ListGUID;
