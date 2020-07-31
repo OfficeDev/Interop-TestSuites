@@ -43,7 +43,7 @@
     <!-- Set R9302Enabled to true to verify that the server will return no error code for the specified file cannot be find. Set R9302Enabled to false to disable this requirement. -->
     <Property name="R9302Enabled" value="false"/>
     <!-- Set R9303Enabled to true to verify that the server will return error string without error code for the specified file cannot be find. Set R9303Enabled to false to disable this requirement. -->
-    <Property name="R9303Enabled" value="false"/>
+    <Property name="R9303Enabled" value="true"/>
     <!-- Set R1930213Enabled to true to verify that the server returns a soap exception for DeleteAllVersions the pound sign (#) truncated file name does not exist on the server. Set R1930213Enabled to false to disable this requirement. -->
     <Property name="R1930213Enabled" value="false"/>
     <!-- Set R1930203Enabled to true to verify that the server returns error code 0x81070906 for DeleteAllVersions the pound sign (#) truncated file name does not exist on the server. Set R1930203Enabled to false to disable this requirement. -->
@@ -76,11 +76,9 @@
     <Property name="R19704Enabled" value="false"/>
     <!-- Set R19705Enabled to true to verify that the server will return no error code for Backward Slash (\) is at the end of fileName for DeleteVersion element. Set R19705Enabled to false to disable this requirement. -->
     <Property name="R19705Enabled" value="false"/>
-	<!-- Set R19707Enabled to true to verify that the server will return error code 0x80131600 if fileName contains equals sign (=). Set R19707Enabled to false to disable this requirement. -->
-	<Property name="R19707Enabled" value="false"/>
-	<!-- Set R19708Enabled to true to verify that the server will return a SOAP exception without an error code if fileName contains equals sign (=). Set R19708Enabled to false to disable this requirement. -->
-    <Property name="R19708Enabled" value="false"/>
-	<!-- Set R24902Enabled to true to verify that the server will return no error code for Forward Slash (/) is at the end of fileName for RestoreVersion element. Set R24902Enabled to false to disable this requirement. -->
+    <!-- Set R19707Enabled to true to verify that the server will return error code 0x80131600 if fileName contains equals sign (=). Set R19707Enabled to false to disable this requirement. -->
+    <Property name="R19707Enabled" value="false"/>
+    <!-- Set R24902Enabled to true to verify that the server will return no error code for Forward Slash (/) is at the end of fileName for RestoreVersion element. Set R24902Enabled to false to disable this requirement. -->
     <Property name="R24902Enabled" value="false"/>
     <!-- Set R19302Enabled to true to verify that the server does not return an error to indicate that the tab (\t) character is at the end of the fileName for DeleteAllVersions. Set R19302Enabled to false to disable this requirement. -->
     <Property name="R19302Enabled" value="false"/>

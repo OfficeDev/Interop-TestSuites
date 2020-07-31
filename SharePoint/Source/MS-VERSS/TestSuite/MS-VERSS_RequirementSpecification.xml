@@ -2607,7 +2607,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R19302</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName. (&lt;4&gt; Section 3.1.4.1.2.2: The tab (\t) character is ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is ignored at the end of the fileName. (&lt;4&gt; Section 3.1.4.1.2.2: The tab (\t) character and the backward slash(\) ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, and SharePoint Server 2016.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R172:i,MS-VERSS_R1:i,MS-VERSS_R17203:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2618,7 +2618,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1930205</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the backward slash (\) character is at the end of the fileName. (&lt;4&gt; Section 3.1.4.1.2.2: The backward slash (\) character is ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the backward slash (\) character is at the end of the fileName. (&lt;4&gt; Section 3.1.4.1.2.2: The tab (\t) character and the backward slash(\) are ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, and SharePoint Server 2016. )</ns1:Description>
 		<ns1:Derived>MS-VERSS_R172:i,MS-VERSS_R1:i,MS-VERSS_R17203:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3070,7 +3070,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R19704</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName. (&lt;6&gt; Section 3.1.4.2.2.2: The tab (\t) character is ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010,SharePoint Foundation 2013 and SharePoint Server 2016.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character and the backward slash (\) character are ignored at the end of the fileName. (&lt;6&gt; Section 3.1.4.2.2.2: The tab (\t) character and the backward slash (\) character are ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R176:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3118,8 +3118,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1780200</ns1:REQ_ID>
