@@ -1059,7 +1059,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                             Site.CaptureRequirementIfIsTrue(
                                 isDeleteAllVersionWithoutDeleteAnyVersions,
                                 19302,
-                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName. (<4> Section 3.1.4.1.2.2: The tab (\t) character and the backward slash(\) ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, and SharePoint Server 2016.)");
+                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName. (<4> Section 3.1.4.1.2.2: The tab (\t) character and the backward slash(\) are ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, and SharePoint Server 2016.)");
                         }
                     }
                     else if (truncatedCharacter == "\\")
