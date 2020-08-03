@@ -616,7 +616,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                 // this requirement is directly verified when SoapException is received. 
                 Site.CaptureRequirement(
                     1103,
-                    @"[In Transport] Protocol server faults can be returned via SOAP faults, as specified in [SOAP1.2/1] section 5.4.");
+                    @"[In Transport] Protocol server faults can be returned via SOAP faults, as specified in [SOAP1.2/-1/2007] section 5.4.");
             }
 
             string detailBody = SchemaValidation.GetSoapFaultDetailBody(responseString);
@@ -707,7 +707,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                 // If this operation is invoked successfully, then this requirement can be verified.
                 Site.CaptureRequirement(
                     702,
-                    @"[In Transport] Protocol messages can be formatted as specified in [SOAP1.2/1] section 5.");
+                    @"[In Transport] Protocol messages can be formatted as specified in [SOAP1.2/-1/2007] section 5.");
             }
         }
 
