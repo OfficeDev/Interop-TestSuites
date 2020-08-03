@@ -13,6 +13,7 @@
     <DeploymentItem filename="TestSuite\Resources\" />
     <DeploymentItem filename="TestSuite\MS-WDVMODUU_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-WDVMODUU_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="TestSuite\MS-WDVMODUU_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-WDVMODUU_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-WDVMODUU_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
