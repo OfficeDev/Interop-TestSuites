@@ -22,7 +22,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R6</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] section 4[, or [SOAP1.2/1] section 5].</ns1:Description>
+		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] section 4[, or [SOAP1.2-1/2007] section 5].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -31,7 +31,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R7</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [[SOAP1.1] section 4, or] [SOAP1.2/1] section 5.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [[SOAP1.1] section 4, or] [SOAP1.2-1/2007] section 5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -40,7 +40,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R368</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol server faults MUST be returned either using HTTP Status Codes as specified in [RFC2616] section 10 or using SOAP faults as specified in [SOAP1.1] section 4.4, or [SOAP1.2/1] section 5.4, SOAP Fault.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol server faults MUST be returned either using HTTP Status Codes as specified in [RFC2616] section 10 or using SOAP faults as specified in [SOAP1.1] section 4.4, or [SOAP1.2-1/2007] section 5.4, SOAP Fault.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -58,7 +58,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R369</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as specified in [XMLSCHEMA1] and [XMLSCHEMA2], and WSDL, as specified in [WSDL].</ns1:Description>
+		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as specified in [XMLSCHEMA1/2] and [XMLSCHEMA2/2], and WSDL, as specified in [WSDL].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -972,7 +972,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/AlterToDo</ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R418002</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AlterToDo] taskData: If taskData is not present, then the server will return a SOAP fault with error string "Value cannot be null. Parameter name: taskData".</ns1:Description>
+		<ns1:Description>[In AlterToDo] taskData: If taskData is not present, then the server will return a SOAP fault with error string "Value cannot be null. \nParameter name: taskData".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3442,7 +3442,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R1</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms "SHOULD" or "SHOULD NOT" implies product behavior in accordance with the "SHOULD" or "SHOULD NOT" prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3451,7 +3451,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/StartWorkflow</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R2</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term "MAY" implies that the product does not follow the prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
