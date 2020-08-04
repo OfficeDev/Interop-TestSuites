@@ -831,7 +831,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
                 // Verify MS-WWSP requirement: MS-WWSP_R6
                 this.Site.CaptureRequirement(
                                        6,
-                                       @"[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] section 4[, or [SOAP1.2/1] section 5].");
+                                       @"[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.1] section 4[, or [SOAP1.2-1/2007] section 5].");
             }
             else
             {
@@ -839,7 +839,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
                 // Verify MS-WWSP requirement: MS-WWSP_R7
                 this.Site.CaptureRequirement(
                                        7,
-                                       @"[In Transport] Protocol messages MUST be formatted as specified in [[SOAP1.1] section 4, or] [SOAP1.2/1] section 5.");
+                                       @"[In Transport] Protocol messages MUST be formatted as specified in [[SOAP1.1] section 4, or] [SOAP1.2-1/2007] section 5.");
             }
         }
 
@@ -852,7 +852,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
             // Verify MS-WWSP requirement: MS-WWSP_R368 
             this.Site.CaptureRequirement(
                                 368,
-                                @"[In Transport] Protocol server faults MUST be returned either using HTTP Status Codes as specified in [RFC2616] section 10 or using SOAP faults as specified in [SOAP1.1] section 4.4, or [SOAP1.2/1] section 5.4, SOAP Fault.");
+                                @"[In Transport] Protocol server faults MUST be returned either using HTTP Status Codes as specified in [RFC2616] section 10 or using SOAP faults as specified in [SOAP1.1] section 4.4, or [SOAP1.2-1/2007] section 5.4, SOAP Fault.");
         }
 
         /// <summary>
