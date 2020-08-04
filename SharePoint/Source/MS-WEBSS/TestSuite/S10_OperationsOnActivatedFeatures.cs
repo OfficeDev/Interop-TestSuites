@@ -49,7 +49,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 //  exception when invoke GetActivatedFeatures operation, then the requirement can be captured.
                 this.Site.CaptureRequirement(
                     1026,
-                    @"[In Appendix B: Product Behavior] Implementation does support this[GetActivatedFeatures] operation.(<11> Windows SharePoint Services 3.0 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does support this[GetActivatedFeatures] operation.(<13> Windows SharePoint Services 3.0 and above follow this behavior.)");
             }
         }
 

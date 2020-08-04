@@ -8756,7 +8756,8 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R69700100</ns1:REQ_ID>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[SiteId]. (&lt;3&gt; Section 2.2.4.2: This attribute[FarmId] is not returned in Windows SharePoint Services 2.0, Windows SharePoint Services 3.0 , SharePoint Foundation 2010 and SharePoint Foundation 2013.)</ns1:Description>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[SiteId]. (&lt;3&gt; Section 2.2.4.2:  This attribute is not returned in Windows SharePoint Services 2.0, Windows SharePoint Services 3.0 and SharePoint Foundation 2010.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R697001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8765,7 +8766,8 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R69700101</ns1:REQ_ID>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [IsSPO]. (&lt;3&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [SiteId]. (&lt;3&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R697001:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8775,7 +8777,8 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R69700200</ns1:REQ_ID>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[IsSPO]. (&lt;3&gt; Section 2.2.4.2: This attribute[FarmId] is not returned in Windows SharePoint Services 2.0, Windows SharePoint Services 3.0 and SharePoint Foundation 2010.)</ns1:Description>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[IsSPO]. (&lt;4&gt; Section 2.2.4.2:  This attribute is not returned in Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R697002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8784,7 +8787,8 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R69700201</ns1:REQ_ID>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [SiteId]. (&lt;3&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [IsSPO]. (&lt;3&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R697002:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
