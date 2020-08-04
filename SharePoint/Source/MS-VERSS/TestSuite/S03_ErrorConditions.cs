@@ -2362,15 +2362,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                             Site.CaptureRequirementIfIsTrue(
                                 isCurrentVersionIncreased,
                                 24901,
-                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that two consecutive dots (..) is at the end of the fileName. (<10> Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010, two consecutive dots (..) are ignored at the end of the fileName.)");
-                        }
-
-                        if (sutVersion == "SharePointFoundation2013" || sutVersion == "SharePointServer2013")
-                        {
-                            Site.Assert.IsTrue(
-                                isCurrentVersionIncreased,
-                                "{0} does not return an error to indicate that two consecutive dots (..) is at the end of the fileName.",
-                                sutVersion);
+                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that two consecutive dots (..) is at the end of the fileName. (<10> Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016, two consecutive dots (..) are ignored at the end of the fileName.)");
                         }
                     }
                 }
