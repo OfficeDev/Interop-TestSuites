@@ -1,6 +1,6 @@
 ## [MS-WWSP]: Workflow Web Service Protocol
-- [MS-WWSP] v20160914 is used to develop the test suite.
-- Release date, 09/14/2016.
+- [MS-WWSP] v20190618 is used to develop the test suite.
+- Release date, 06/18/2019
 
 To find the new landing page for [MS-WWSP], please visit https://msdn.microsoft.com/en-us/library/cc313159(v=office.12).aspx
 
