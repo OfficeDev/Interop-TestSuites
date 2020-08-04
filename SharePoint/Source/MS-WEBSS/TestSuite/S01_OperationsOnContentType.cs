@@ -64,7 +64,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                     //  positive information when invoke CreateContentType operation, then the requirement can be captured.
                     Site.CaptureRequirement(
                         1023,
-                        @"[In Appendix B: Product Behavior] Implementation does support this[CreateContentType] operation. (<7> Windows SharePoint Services 3.0 and above follow this behavior.)");
+                        @"[In Appendix B: Product Behavior] Implementation does support this[CreateContentType] operation. (<9> Windows SharePoint Services 3.0 and above follow this behavior.)");
                 }
             }
 
@@ -102,7 +102,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                     //  positive information when invoke DeleteContentType operation, then the requirement can be captured.
                     this.Site.CaptureRequirement(
                         1025,
-                        @"[In Appendix B: Product Behavior] Implementation does support this[DeleteContentType] operation. (<10>Windows SharePoint Services 3.0 and above follow this behavior.)");
+                        @"[In Appendix B: Product Behavior] Implementation does support this[DeleteContentType] operation. (<12>Windows SharePoint Services 3.0 and above follow this behavior.)");
                 }
             }
 
@@ -1100,7 +1100,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR1038,
                     1038,
-                    @"[In Appendix B: Product Behavior] Implementation does support this[UpdateContentType] operation.(<22>Windows SharePoint Services 3.0 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does support this[UpdateContentType] operation.(<24>Windows SharePoint Services 3.0 and above follow this behavior.)");
             }
         }
 
@@ -1585,7 +1585,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                     //  positive information when invoke GetContentType operation, then the requirement can be captured.
                     Site.CaptureRequirement(
                         1029,
-                        @"[In Appendix B: Product Behavior] Implementation does support this[GetContentTypes] operation.(<14>Windows SharePoint Services 3.0 and above follow this behavior.)");
+                        @"[In Appendix B: Product Behavior] Implementation does support this[GetContentTypes] operation.(<16>Windows SharePoint Services 3.0 and above follow this behavior.)");
                 }
             }
         }

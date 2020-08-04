@@ -50,7 +50,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             // If the product is Microsoft SharePoint Foundation 2010 and above, Verify MS-WEBSS requirement: MS-WEBSS_R1032 when invokes the operation "GetObjectIdFromUrl" successfully.
             Site.CaptureRequirement(
                 1032,
-                @"[In Appendix B: Product Behavior]  Implementation does support this[GetObjectIdFromUrl] operation.(<16>Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
+                @"[In Appendix B: Product Behavior]  Implementation does support this[GetObjectIdFromUrl] operation.(<18>Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
 
             #region Capture List Related Requirement
 
@@ -191,7 +191,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             // If the product is Microsoft SharePoint Foundation 2010 and above, Verify MS-WEBSS requirement: MS-WEBSS_R1032 when invokes the operation "GetObjectIdFromUrl" successfully.
             Site.CaptureRequirement(
                 1032,
-                @"[In Appendix B: Product Behavior]  Implementation does support this[GetObjectIdFromUrl] operation.(<16>Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
+                @"[In Appendix B: Product Behavior]  Implementation does support this[GetObjectIdFromUrl] operation.(<18>Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
 
             #region Capture ListItem Related Requirement
 
