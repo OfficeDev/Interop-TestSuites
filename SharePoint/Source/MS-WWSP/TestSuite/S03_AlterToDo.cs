@@ -246,6 +246,50 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
         }
         #endregion
 
+        #region MSWWSP_S03_TC04_AlterToDo_TaskDataNotPresent
+        /// <summary>
+        /// This test case is used to verify AlterToDo operation, modify the values of Fields on a workflow task successful.
+        /// </summary>
+        [TestCategory("MSWWSP"), TestMethod()]
+        public void MSWWSP_S03_TC04_AlterToDo_TaskDataNotPresent()
+        {
+            // Upload a file. 
+            string uploadFileUrl = this.UploadFileToSut(DocLibraryName);
+            this.VerifyTaskDataOfNewUploadFile(uploadFileUrl);
+
+            // Start a normal work flow 
+            string taskIdValue = this.StartATaskWithNewFile(uploadFileUrl, false);
+
+            // Verify whether the task is assign to expected user group. for new uploaded file, only have one task currently.
+            this.VerifyAssignToValueForSingleTodoItem(uploadFileUrl, 0);
+
+            // initialize the value which will be updated in AlterToDo operation, and this value is unique.
+            string alaterValue = this.GenerateRandomValue();
+
+            // initialize a SoapException instance.
+            bool isSuccessAlterToDo = false;
+            AlterToDoResponseAlterToDoResult alterToDoResult = new AlterToDoResponseAlterToDoResult();
+            try
+            {
+                // Call method AlterToDo to modify the values of fields on a workflow task. 
+                XmlElement taskData = this.GetAlerToDoTaskData(this.Site, alaterValue);
+                alterToDoResult = ProtocolAdapter.AlterToDo(uploadFileUrl, int.Parse(taskIdValue), new Guid(TaskListId), taskData);
+                isSuccessAlterToDo = true;
+                alterToDoResult = ProtocolAdapter.AlterToDo(uploadFileUrl, int.Parse(taskIdValue), new Guid(TaskListId), null);
+            }
+            catch (SoapException ex)
+            {
+                // Verify MS-WWSP requirement: MS-WWSP_R418002
+                Site.CaptureRequirementIfAreEqual(
+                "Value cannot be null.\nParameter name: taskData",
+                ex.Detail.InnerText.ToString(),
+                418002,
+                @"[In AlterToDo] taskData: If taskData is not present, then the server will return a SOAP fault with error string ""Value cannot be null. \nParameter name: taskData"".");
+            }
+
+        }
+        #endregion
+
         #endregion
     }
 }
