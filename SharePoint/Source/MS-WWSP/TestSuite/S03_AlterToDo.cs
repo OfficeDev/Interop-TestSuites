@@ -248,7 +248,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
 
         #region MSWWSP_S03_TC04_AlterToDo_TaskDataNotPresent
         /// <summary>
-        /// This test case is used to verify AlterToDo operation, modify the values of Fields on a workflow task successful.
+        /// This test case is used to verify AlterToDo operation, when the parameter 'taskData' is not present.
         /// </summary>
         [TestCategory("MSWWSP"), TestMethod()]
         public void MSWWSP_S03_TC04_AlterToDo_TaskDataNotPresent()
