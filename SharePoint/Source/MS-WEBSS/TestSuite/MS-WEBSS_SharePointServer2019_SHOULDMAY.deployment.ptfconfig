@@ -8,9 +8,9 @@
     <!-- Set R1092Enabled to true to verify that [In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (<2> Section 2.2.4.2: This attribute is returned in Microsoft® SharePoint® Foundation 2010 and above follow this behavior.) as specified in section 7. Set R1092Enabled to false to disable this requirement. -->
     <Property name="R1092Enabled" value="true" />
     <!-- Set R69700101Enabled to true to verify that [In Appendix B: Product Behavior]Implementation does support this method [SiteId]. (<3> Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2013 and above follow this behavior.) as specified in section 7. Set R69700101Enabled to false to disable this requirement. -->
-    <Property name="R69700101Enabled" value="false" />
+    <Property name="R69700101Enabled" value="true" />
     <!-- Set R69700201Enabled to true to verify that [In Appendix B: Product Behavior]Implementation does support this method [IsSPO]. (<4> Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Server 2016 and above follow this behavior) as specified in section 7. Set R69700101Enabled to false to disable this requirement. -->
-    <Property name="R69700201Enabled" value="false" />
+    <Property name="R69700201Enabled" value="true" />
     <!-- Set R1093Enabled to true to verify that [In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (<5> Section 2.2.4.2: This attribute is returned in Microsoft® SharePoint® Foundation 2010 and above follow this behavior.) as specified in section 7. Set R1093Enabled to false to disable this requirement. -->
     <Property name="R1093Enabled" value="true" />
     <!-- Set R1094Enabled to true to verify that [In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (<6> Section 2.2.4.2: This attribute is returned in Microsoft® SharePoint® Foundation 2010 and above follow this behavior.) as specified in section 7. Set R1094Enabled to false to disable this requirement. -->
@@ -27,9 +27,9 @@
     <!-- Set R100Enabled to true to verify that [In CustomizeCssResponse]In case implementation does encounter the following error condition when running this operation, a SOAP fault with the error code 0x80131600 does be returned: Occurs when no webUrl element is supplied for the site as specified in section 7. Set R100Enabled to false to disable this requirement. -->
     <Property name="R100Enabled" value="true" />
     <!-- Set R101Enabled to true to verify that [In CustomizeCssResponse]In case implementation does encounter the following error condition when running this operation, a SOAP fault with the error code 0x80131600 does be returned: Occurs when no webUrl element is supplied for the site as specified in section 7. Set R101Enabled to false to disable this requirement. -->
-    <Property name="R101Enabled" value="true" />
+    <Property name="R101Enabled" value="false" />
     <!-- Set R102Enabled to true to verify that [In CustomizeCssResponse]In case implementation does encounter the following error condition when running this operation, a SOAP fault with the error code 0x80131600 does be returned: Occurs when no webUrl element is supplied for the site as specified in section 7. Set R102Enabled to false to disable this requirement. -->
-    <Property name="R102Enabled" value="true" />
+    <Property name="R102Enabled" value="false" />
 
     <!-- Set R1067Enabled to true to verify that [In GetCustomizedPageStatusResponse] If implementation does  encounter the following error condition while running this operation[GetCustomizedPageStatus], a SOAP fault with the error code 0x80070002 is returned as follows:
  Occurs when relative to the protocol server address, the value of fileUrl does not specify a valid page as specified in section 7. Set R1067Enabled to false to disable this requirement. -->
@@ -83,7 +83,7 @@
     <!-- Set R1039Enabled to true to verify that [In Appendix B: Product Behavior] <25> Implementation does support this[UpdateContentTypeXmlDocument] operation.(Windows® SharePoint® Services 3.0 and above follow this behavior.) as specified in section 7. Set R1039Enabled to false to disable this requirement. -->
     <Property name="R1039Enabled" value="true" />
     <!-- Set R691Enabled to true to verify that type of complex type WebDefinition. Set R691Enabled to false to disable this requirement. -->
-    <Property name="R691Enabled" value="true" />
+    <Property name="R691Enabled" value="false" />
   </Properties>
 
 </TestSite>

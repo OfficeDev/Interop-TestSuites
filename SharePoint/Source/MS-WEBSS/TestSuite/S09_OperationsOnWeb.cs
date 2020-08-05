@@ -145,7 +145,7 @@ The response to the request for the title, URL, description, language, and theme
                 // can be captured.
                 Site.CaptureRequirement(
                     1042,
-                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2/1] section 5.4, SOAP Fault.");
+                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2-1/2007] section 5.4, SOAP Fault.");
 
                 // Verify MS-WEBSS requirement: MS-WEBSS_R350       
                 Site.CaptureRequirementIfIsNotNull(
@@ -219,7 +219,7 @@ Microsoft® SharePoint® Foundation 2013]");
                 // can be captured.
                 Site.CaptureRequirement(
                     1042,
-                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2/1] section 5.4, SOAP Fault.");
+                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2-1/2007] section 5.4, SOAP Fault.");
 
                 // Catch the exception, then the following requirements will be captured.
                 if ((exp.Detail.LastChild.Name == ConstString.ErrorCode)
