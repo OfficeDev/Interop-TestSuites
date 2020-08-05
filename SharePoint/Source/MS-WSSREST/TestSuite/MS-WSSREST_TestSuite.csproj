@@ -67,7 +67,7 @@
     <None Include="MS-WSSREST_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WSSREST_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WSSREST_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
-      <SubType>Designer</SubType>
+    <None Include="MS-WSSREST_TestSuite.deployment.ptfconfig" />
     </None>
     <None Include="MS-WSSREST_TestSuite.ptfconfig" />
     <None Include="MS-WSSREST_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
