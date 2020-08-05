@@ -48,7 +48,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             // If the product is Windows® SharePoint® Services 3.0 and above, Verify MS-WEBSS requirement: MS-WEBSS_R1030 when invokes the operation "GetCustomizedPageStatus" successfully.
             Site.CaptureRequirement(
                  1030,
-                @"[In Appendix B: Product Behavior] Implementation does support this[GetCustomizedPageStatus] operation.(<15> Windows SharePoint Services 3.0 and above follow this behavior.)");
+                @"[In Appendix B: Product Behavior] Implementation does support this[GetCustomizedPageStatus] operation.(<17> Windows SharePoint Services 3.0 and above follow this behavior.)");
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R929
             Site.CaptureRequirementIfAreEqual<CustomizedPageStatus>(
@@ -123,7 +123,7 @@ Microsoft® SharePoint® Foundation 2013]");
                     // if the server return exception, then the requirement can be captured. 
                     Site.CaptureRequirement(
                         1030,
-                        @"[In Appendix B: Product Behavior] Implementation does support this[GetCustomizedPageStatus] operation.(<15> Windows SharePoint Services 3.0 and above follow this behavior.)");
+                        @"[In Appendix B: Product Behavior] Implementation does support this[GetCustomizedPageStatus] operation.(<17> Windows SharePoint Services 3.0 and above follow this behavior.)");
                 }
             }
         }

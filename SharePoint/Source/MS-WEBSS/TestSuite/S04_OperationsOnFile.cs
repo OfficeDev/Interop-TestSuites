@@ -50,7 +50,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // If the product is Windows® SharePoint® Services 3.0 and above, Verify MS-WEBSS requirement: MS-WEBSS_R1034
                 Site.CaptureRequirement(
                     1034,
-                    @"[In Appendix B: Product Behavior]  Implementation does support this[RevertAllFileContentStreams] operation.(<18>Windows SharePoint Services 3.0 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior]  Implementation does support this[RevertAllFileContentStreams] operation.(<20>Windows SharePoint Services 3.0 and above follow this behavior.)");
             }
         }
 
@@ -68,7 +68,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             // If the product is Windows® SharePoint® Services 3.0 and above, Verify MS-WEBSS requirement: MS-WEBSS_R1036 when invokes the operation "RevertFileContentStream" successfully.
             Site.CaptureRequirement(
                  1036,
-                @"[In Appendix B: Product Behavior] Implementation does support this[RevertFileContentStream] operation.(<20>Windows SharePoint Services 3.0 and above follow this behavior.)");
+                @"[In Appendix B: Product Behavior] Implementation does support this[RevertFileContentStream] operation.(<22>Windows SharePoint Services 3.0 and above follow this behavior.)");
         }
 
         /// <summary>

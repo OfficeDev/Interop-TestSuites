@@ -100,7 +100,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // can be captured.
                 Site.CaptureRequirement(
                     1042,
-                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2/1] section 5.4, SOAP Fault.");
+                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2-1/2007] section 5.4, SOAP Fault.");
 
                 if (Common.IsRequirementEnabled(99, this.Site))
                 {
@@ -135,7 +135,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // can be captured.
                 Site.CaptureRequirement(
                     1042,
-                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2/1] section 5.4, SOAP Fault.");
+                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2-1/2007] section 5.4, SOAP Fault.");
 
                 if (Common.IsRequirementEnabled(100, this.Site))
                 {
@@ -169,7 +169,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // can be captured.
                 Site.CaptureRequirement(
                     1042,
-                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2/1] section 5.4, SOAP Fault.");
+                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2-1/2007] section 5.4, SOAP Fault.");
 
                 if (Common.IsRequirementEnabled(101, this.Site))
                 {
@@ -204,8 +204,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // can be captured.
                 Site.CaptureRequirement(
                     1042,
-                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2/1] section 5.4, SOAP Fault.");
-
+                    @"[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2-1/2007] section 5.4, SOAP Fault.");
+                      
                 if (Common.IsRequirementEnabled(102, this.Site))
                 {
                     // Verify MS-WEBSS requirement: MS-WEBSS_R102
@@ -267,7 +267,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // exception when invoke RevertCss operation, then the requirement can be captured.
                 Site.CaptureRequirement(
                     1035,
-                    @"[In Appendix B: Product Behavior]Implementation does support this[RevertCss] operation.(<19> Windows SharePoint Services 3.0 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior]Implementation does support this[RevertCss] operation.(<21> Windows SharePoint Services 3.0 and above follow this behavior.)");
             }
         }
 
@@ -347,14 +347,14 @@ Microsoft® SharePoint® Foundation 2013].");
                 if (exp.Detail.InnerText.Contains(".css"))
                 {
                     isVerifiedR92 = true;
+
+                    // Verify MS-WEBSS requirement: MS-WEBSS_R92
+                    Site.CaptureRequirementIfIsTrue(
+                        isVerifiedR92,
+                        92,
+                        @"[In CustomizeCss] This file[cssFile] name MUST match the file name on the protocol server, including the file extension "".css"", for example: ""core.css"".");
                 }
             }
-
-            // Verify MS-WEBSS requirement: MS-WEBSS_R92
-            Site.CaptureRequirementIfIsTrue(
-                isVerifiedR92,
-                92,
-                @"[In CustomizeCss] This file[cssFile] name MUST match the file name on the protocol server, including the file extension "".css"", for example: ""core.css"".");
         }
 
         /// <summary>
@@ -363,6 +363,8 @@ Microsoft® SharePoint® Foundation 2013].");
         [TestCategory("MSWEBSS"), TestMethod()]
         public void MSWEBSS_S08_TC11_CustomizeCss_Succeed()
         {
+            this.Site.Assume.IsFalse(Common.GetConfigurationPropertyValue("SutVersion", this.Site) == "SharePointServer2019", "It doesn't support on SharePoint Server 2019");
+
             Adapter.CustomizeCss(Common.GetConfigurationPropertyValue("CssFile_Valid", this.Site));
         }
     }
