@@ -241,6 +241,7 @@
     <DeploymentItem filename="MS-VERSS\Adapter\SUTControlAdapter\Implementation\AddFolder.ps1" />
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-LISTSWS\Adapter\SUTControlAdapter\Implementation\GetListRootFolder.ps1" />
     <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VERSS\TestSuite\MS-VERSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
