@@ -486,6 +486,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         [TestCategory("MSSITESS"), TestMethod()]
         public void MSSITESS_S01_TC04_ExportingFailureInvalidExportUrl()
         {
+            Thread.Sleep(10000);
             Site.Assume.IsTrue(Common.IsRequirementEnabled(5311, this.Site), @"Test is executed only when R5311Enabled is set to true.");
 
             #region Variables
@@ -933,6 +934,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         [TestCategory("MSSITESS"), TestMethod()]
         public void MSSITESS_S01_TC11_ImportingFailureImportWebNotEmpty()
         {
+            Thread.Sleep(10000);
             Site.Assume.IsTrue(Common.IsRequirementEnabled(5311, this.Site) && Common.IsRequirementEnabled(5391, this.Site), @"Test is executed only when R5311Enabled and R5391Enabled are set to true.");
 
             #region Variables
