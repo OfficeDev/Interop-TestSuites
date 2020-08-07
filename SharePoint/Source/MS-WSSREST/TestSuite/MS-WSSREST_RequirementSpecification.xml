@@ -562,7 +562,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R63</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Abstract Data Model] The Site and list data structure: ID Field maps to the Entity Data Model term: EntityKey.</ns1:Description>
+		<ns1:Description>[In Abstract Data Model] The Site and list data structure: ID Field maps to the Entity Data Model term: Entity Key.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -741,7 +741,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R79</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Attachment] All the three properties ["EntitySet", "ItemId" and "Name"] together serve as its [EntitySet's] EntityKey as specified in [MC-CSDL] section 2.1.5.</ns1:Description>
+		<ns1:Description>[In Attachment] All the three properties ["EntitySet", "ItemId" and "Name"] together serve as its [EntitySet's] Entity Key as specified in [MC-CSDL] section 2.1.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -750,7 +750,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R80</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Attachment] The protocol client MUST include a SLUG header (as specified in [RFC5023] section 9.7) whose value is the name of the EntitySet followed by the identifier of the entity the attachment belongs to as well as the name of the attachment.</ns1:Description>
+		<ns1:Description>[In Attachment] The protocol client MUST include a Slug header (as specified in [RFC5023] section 9.7) whose value is the name of the EntitySet followed by the identifier of the entity the attachment belongs to as well as the name of the attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -832,7 +832,7 @@ filename     = *pchar                ; section 3.3 of [RFC3986]
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R89</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Choice or Multi-Choice Field] The EntityType for this EntitySet [of choice] as specified in [MC-CSDL] section 2.1.18 contains a single property "Value", which also serves as its [EntitySet's] EntityKey as specified in [MC-CSDL] section 2.1.5.</ns1:Description>
+		<ns1:Description>[In Choice or Multi-Choice Field] The EntityType for this EntitySet [of choice] as specified in [MC-CSDL] section 2.1.18 contains a single property "Value", which also serves as its [EntitySet's] Entity Key as specified in [MC-CSDL] section 2.1.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -904,7 +904,7 @@ filename     = *pchar                ; section 3.3 of [RFC3986]
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WSSREST_R97</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Document] The client MAY include the content type identifier of the document.</ns1:Description>
+		<ns1:Description>[In Document] The client can include the content type identifier of the document.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

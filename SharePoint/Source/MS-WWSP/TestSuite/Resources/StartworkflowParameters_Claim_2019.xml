@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<dfs:myFields xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dms="http://schemas.microsoft.com/office/2009/documentManagement/types" xmlns:dfs="http://schemas.microsoft.com/office/infopath/2003/dataFormSolution" xmlns:q="http://schemas.microsoft.com/office/infopath/2009/WSSList/queryFields" xmlns:d="http://schemas.microsoft.com/office/infopath/2009/WSSList/dataFields" xmlns:ma="http://schemas.microsoft.com/office/2009/metadata/properties/metaAttributes" xmlns:pc="http://schemas.microsoft.com/office/infopath/2007/PartnerControls" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <dfs:queryFields></dfs:queryFields>
+  <dfs:dataFields>
+    <d:SharePointListItem_RW>
+      <d:Approvers>
+        <d:Assignment>
+          <d:Assignee>
+            <pc:Person>
+              <pc:DisplayName></pc:DisplayName>
+              <pc:AccountId>[AssignedTo]</pc:AccountId>
+              <pc:AccountType>SecGroup</pc:AccountType>
+            </pc:Person>
+          </d:Assignee>
+          <d:Stage xsi:nil="true" />
+          <d:AssignmentType>Parallel</d:AssignmentType>
+        </d:Assignment>
+      </d:Approvers>
+      <d:ExpandGroups>false</d:ExpandGroups>
+      <d:NotificationMessage />
+      <d:DueDateforAllTasks xsi:nil="true" />
+      <d:DurationforSerialTasks xsi:nil="true" />
+      <d:DurationUnits>Day</d:DurationUnits>
+      <d:CC />
+      <d:CancelonRejection>false</d:CancelonRejection>
+      <d:CancelonChange>false</d:CancelonChange>
+      <d:EnableContentApproval>false</d:EnableContentApproval>
+    </d:SharePointListItem_RW>
+  </dfs:dataFields>
+</dfs:myFields>

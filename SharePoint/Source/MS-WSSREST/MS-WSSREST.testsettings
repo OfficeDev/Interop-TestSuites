@@ -5,6 +5,7 @@
     <DeploymentItem filename="MS-WSSREST.runsettings" />
     <DeploymentItem filename="TestSuite\MS-WSSREST_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-WSSREST_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="TestSuite\MS-WSSREST_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-WSSREST_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-WSSREST_TestSuite.deployment.ptfconfig" />
