@@ -143,20 +143,20 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                     SchemaValidation.ValidationResult,
                     691,
                     @"[In WebDefinition] This type[WebDefinition] is defined as follows:
- <s:complexType name=""WebDefinition"">
-  <s:attribute name=""Title"" type=""s:string"" use=""required"" />
-  <s:attribute name=""Url"" type=""s:string"" use=""required"" />
-  <s:attribute name=""Description"" type=""s:string"" />
-  <s:attribute name=""Language"" type=""s:string"" />
-  <s:attribute name=""Theme"" type=""s:string"" />
-  <s:attribute name=""FarmId"" type=""core:UniqueIdentifierWithBraces"" />
-  <s:attribute name=""Id"" type=""core:UniqueIdentifierWithBraces"" />
-  <s:attribute name=""SiteId"" type =""core: UniqueIdentifierWithBraces"" />
-  <s:attribute name = ""IsSPO"" type = ""core:TRUEFALSE"" />
-  <s:attribute name=""ExcludeFromOfflineClient"" type=""core:TRUEFALSE"" />
-  <s:attribute name=""CellStorageWebServiceEnabled"" type=""core:TRUEFALSE"" />
-  <s:attribute name=""AlternateUrls"" type=""s:string"" />
-</s:complexType>");
+ <s:complexType name=""WebDefinition"" >
+  < s:attribute name = ""Title"" type = ""s:string"" use = ""required"" />
+  < s:attribute name = ""Url"" type = ""s:string"" use = ""required"" />
+  < s:attribute name = ""Description"" type = ""s:string"" />
+  < s:attribute name = ""Language"" type = ""s:string"" />
+  < s:attribute name = ""Theme"" type = ""s:string"" />
+  < s:attribute name = ""FarmId"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""Id"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""SiteId"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""IsSPO"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""ExcludeFromOfflineClient"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""CellStorageWebServiceEnabled"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""AlternateUrls"" type = ""s:string"" />
+</ s:complexType >");
             }
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R1092
@@ -257,18 +257,20 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                     SchemaValidation.ValidationResult,
                     691,
                     @"[In WebDefinition] This type[WebDefinition] is defined as follows:
- <s:complexType name=""WebDefinition"">
-  <s:attribute name=""Title"" type=""s:string"" use=""required"" />
-  <s:attribute name=""Url"" type=""s:string"" use=""required"" />
-  <s:attribute name=""Description"" type=""s:string"" />
-  <s:attribute name=""Language"" type=""s:string"" />
-  <s:attribute name=""Theme"" type=""s:string"" />
-  <s:attribute name=""FarmId"" type=""core:UniqueIdentifierWithBraces"" />
-  <s:attribute name=""Id"" type=""core:UniqueIdentifierWithBraces"" />
-  <s:attribute name=""ExcludeFromOfflineClient"" type=""core:TRUEFALSE"" />
-  <s:attribute name=""CellStorageWebServiceEnabled"" type=""core:TRUEFALSE"" />
-  <s:attribute name=""AlternateUrls"" type=""s:string"" />
-</s:complexType>");
+ <s:complexType name=""WebDefinition"" >
+  < s:attribute name = ""Title"" type = ""s:string"" use = ""required"" />
+  < s:attribute name = ""Url"" type = ""s:string"" use = ""required"" />
+  < s:attribute name = ""Description"" type = ""s:string"" />
+  < s:attribute name = ""Language"" type = ""s:string"" />
+  < s:attribute name = ""Theme"" type = ""s:string"" />
+  < s:attribute name = ""FarmId"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""Id"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""SiteId"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""IsSPO"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""ExcludeFromOfflineClient"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""CellStorageWebServiceEnabled"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""AlternateUrls"" type = ""s:string"" />
+</ s:complexType >");
             }
         }
 
