@@ -47,7 +47,8 @@
     <None Include="MS-ADMINS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ADMINS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ADMINS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
-	<None Include="MS-ADMINS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ADMINS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ADMINS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ADMINS_TestSuite.deployment.ptfconfig" />
     <None Include="MS-ADMINS_TestSuite.ptfconfig" />
     <None Include="MS-ADMINS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
