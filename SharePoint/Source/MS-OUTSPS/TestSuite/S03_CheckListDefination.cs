@@ -803,11 +803,14 @@ namespace Microsoft.Protocols.TestSuites.MS_OUTSPS
                                             "{53101f38-dd2e-458c-b245-0c236cc13d1a}",
                                             "User");
 
-            // Verify MS-OUTSPS requirement: MS-OUTSPS_R6983
-            this.Site.CaptureRequirementIfIsTrue(
+            if (Common.IsRequirementEnabled(6983, this.Site))
+            {
+                // Verify MS-OUTSPS requirement: MS-OUTSPS_R6983
+                this.Site.CaptureRequirementIfIsTrue(
                                             isVerifyR6983,
                                             6983,
                                             @"[In Appendix B: Product Behavior] Implementation does set the default value of AssignedTo to User. (<37> Section 3.2.4.2.8:  For  SharePoint Server 2010 and above, [In Task-Specific Schema][One of the task properties appears as the attributes of the element GetListResponse.GetListResult.List.Fields.Field. Field.Name:]AssignedTo[ Field.ID:]{53101f38-dd2e-458c-b245-0c236cc13d1a}[Field.Type:]User.)");
+            }
 
             // Verify Body field's id and type.
             bool isVerifyR699 = this.VerifyFieldTypeAndId(
