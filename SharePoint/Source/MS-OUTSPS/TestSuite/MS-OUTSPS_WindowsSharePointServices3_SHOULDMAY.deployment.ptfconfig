@@ -36,5 +36,7 @@
     <Property name="R12552Enabled" value="true" />
     <!-- Set R732Enabled to true to verify that the RootFolder attributev does appear at the beginning of the FileDirRef value. Set R732Enabled to false to disable this requirement. -->
     <Property name="R732Enabled" value="true" />
+    <!-- Set R6983Enabled to true to verify that implementationImplementation does set the default value of AssignedTo to User. -->
+    <Property name="R6983Enabled" value="true" />
   </Properties>
 </TestSite>

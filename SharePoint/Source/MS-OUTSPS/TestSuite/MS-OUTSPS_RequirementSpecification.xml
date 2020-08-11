@@ -9125,7 +9125,7 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OUTSPS_R6981,MS-OUTSPS_R6982.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-OUTSPS_R6983</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R699</ns1:REQ_ID>
@@ -9903,136 +9903,6 @@ EndDate,EventDate,RecurrenceData,UID,XMLTZone</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90391</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.mo is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9039:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90401</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.tu is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9040:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90411</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.we is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9041:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90421</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.th is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9042:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90431</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.fr is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9043:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90441</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute weekly.sa is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9044:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90501</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.su is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9050:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90511</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.mo is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9051:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90521</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.tu is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9052:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90531</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.we is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9053:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90541</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.th is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9054:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90551</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.fr is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9055:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OUTSPS_R90561</ns1:REQ_ID>
-		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does interpret it as true if the attribute monthlyByDay.sa is present. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
-		<ns1:Derived>MS-OUTSPS_R9056:i,MS-OUTSPS_R144:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R90571</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does format the transitionTime as "hour:minute:second" with no extra leading zeroes. (Windows® SharePoint® Services 3.0 and above products follow this behavior.)</ns1:Description>
@@ -10557,7 +10427,7 @@ Description,Duration,EndDate,EventDate,EventType,FooterInfo,fRecurrence,HeaderIn
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R833</ns1:REQ_ID>
@@ -10712,8 +10582,7 @@ Birthday,CellPhone,Comments,Company,CompanyPhonetic,Email,FileAs,FirstName,First
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R6982</ns1:REQ_ID>
@@ -10723,8 +10592,17 @@ Birthday,CellPhone,Comments,Company,CompanyPhonetic,Email,FileAs,FirstName,First
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R6983</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does set the default value of AssignedTo to User. (&lt;37&gt; Section 3.2.4.2.8:  For  SharePoint Server 2010 and above, [In Task-Specific Schema][One of the task properties appears as the attributes of the element GetListResponse.GetListResult.List.Fields.Field. Field.Name:]AssignedTo[ Field.ID:]{53101f38-dd2e-458c-b245-0c236cc13d1a}[Field.Type:]User.)</ns1:Description>
+		<ns1:Derived>MS-OUTSPS_R698:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R848</ns1:REQ_ID>

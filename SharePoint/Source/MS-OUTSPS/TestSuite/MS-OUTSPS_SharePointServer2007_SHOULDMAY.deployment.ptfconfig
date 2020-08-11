@@ -38,5 +38,7 @@
     <Property name="R732Enabled" value="true" />
     <!-- Set R90571Enabled to true to verify that implementation does format the transitionTime as "hour:minute:second" with no extra leading zeroes. Set R90571Enabled to false to disable this requirement. -->
     <Property name="R90571Enabled" value="true" />
+    <!-- Set R6983Enabled to true to verify that implementationImplementation does set the default value of AssignedTo to User. -->
+    <Property name="R6983Enabled" value="false" />
   </Properties>
 </TestSite>
