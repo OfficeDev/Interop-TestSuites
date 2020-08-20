@@ -45,12 +45,13 @@
                 this.OSIDs = new ObjectSpaceObjectStreamOfOSIDs();
                 len = this.OSIDs.DoDeserializeFromByteArray(byteArray, index);
                 index += len;
-            }
-            if (this.OIDs.Header.OsidStreamNotPresent == 0 && this.OIDs.Header.ExtendedStreamsPresent == 1)
-            {
-                this.ContextIDs = new ObjectSpaceObjectStreamOfContextIDs();
-                len = this.ContextIDs.DoDeserializeFromByteArray(byteArray, index);
-                index += len;
+
+                if (this.OSIDs.Header.ExtendedStreamsPresent == 1)
+                {
+                    this.ContextIDs = new ObjectSpaceObjectStreamOfContextIDs();
+                    len = this.ContextIDs.DoDeserializeFromByteArray(byteArray, index);
+                    index += len;
+                }
             }
             this.Body = new PropertySet();
             len = this.Body.DoDeserializeFromByteArray(byteArray, index);
