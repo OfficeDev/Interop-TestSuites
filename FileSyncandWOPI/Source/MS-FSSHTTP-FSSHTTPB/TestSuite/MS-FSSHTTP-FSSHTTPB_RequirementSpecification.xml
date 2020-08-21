@@ -3461,7 +3461,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2123</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequestElementGenericType][The SubRequestData element MUST be sent as part of the SubRequest element in a cell storage service request message if one of the following conditions is true:]The Type attribute that is specified in the SubRequest element is set to a value of "Properties" and the Properties attribute value is set to "PropertyGet".</ns1:Description>
+		<ns1:Description>[In SubRequestElementGenericType][The SubRequestData element MUST be sent as part of the SubRequest element in a cell storage service request message if one of the following conditions is true:]The Type attribute that is specified in the SubRequest element is set to a value of "Properties".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3507,15 +3507,6 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 		<ns1:REQ_ID>MS-FSSHTTP_R2125</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
 		<ns1:Description>[In SubRequestElementGenericType][The SubRequestData element MUST NOT be sent as part of the SubRequest element in a cell storage service request message if one of the following conditions is true:]The Type attribute that is specified in the SubRequest element is set to a value of "LockStatus".</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R2126</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequestElementGenericType][The SubRequestData element MUST NOT be sent as part of the SubRequest element in a cell storage service request message if one of the following conditions is true:]The Type attribute that is specified in the SubRequest element is set to a value of "Properties" and the Properties attribute value is set to "PropertyEnumerate".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9501,12 +9492,12 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R5602</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In CoauthSubRequestDataType] If the CoauthRequestType attribute is not provided, a "HighLevelExceptionThrown" error code SHOULD&lt;25&gt; be returned as part of the ResponseVersion element. </ns1:Description>
+		<ns1:Description>[In CoauthSubRequestDataType] If the CoauthRequestType attribute is not provided, an error code SHOULD&lt;25&gt; be returned. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R3065.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R30651,MS-FSSHTTP_R30652,MS-FSSHTTP_R3066.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R5601</ns1:REQ_ID>
@@ -10338,12 +10329,12 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R6342</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In ExclusiveLockSubRequestDataType]If the ExclusiveLockRequestType attribute is not provided, a "HighLevelExceptionThrown" error code SHOULD&lt;28&gt; be returned as part of the ResponseVersion element.</ns1:Description>
+		<ns1:Description>[In ExclusiveLockSubRequestDataType]If the ExclusiveLockRequestType attribute is not provided, an error code SHOULD&lt;28&gt; be returned. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3071, MS-FSSHTTP_R3072</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3071, MS-FSSHTTP_R3072, MS-FSSHTTP_R30711</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R6341</ns1:REQ_ID>
@@ -10890,12 +10881,12 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3073</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.13</ns1:Doc_Sect>
-		<ns1:Description>[In SchemaLockSubRequestDataType] If the SchemaLockRequestType attribute is not provided, a "HighLevelExceptionThrown" error code SHOULD&lt;30&gt; be returned as part of the ResponseVersion element.</ns1:Description>
+		<ns1:Description>[In SchemaLockSubRequestDataType] If the SchemaLockRequestType attribute is not provided, an error code SHOULD&lt;30&gt; be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R6662, MS-FSSHTTP_R3074</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R6662, MS-FSSHTTP_R3074, MS-FSSHTTP_R30741</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2233</ns1:REQ_ID>
@@ -13031,12 +13022,12 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11101</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.33</ns1:Doc_Sect>
-		<ns1:Description>[In FileOperationSubRequestDataType]If the FileOperation attribute is not provided, a "HighLevelExceptionThrown" error code SHOULD&lt;33&gt; be returned as part of the ResponseVersion element. </ns1:Description>
+		<ns1:Description>[In FileOperationSubRequestDataType]If the FileOperation attribute is not provided,  an error code SHOULD&lt;33&gt; be returned. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R11267.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R11267, MS-FSSHTTP_R11268, MS-FSSHTTP_R112671.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2234</ns1:REQ_ID>
@@ -19350,7 +19341,7 @@ Returns an error code value set to "Success".</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3106</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Exit Coauthoring Session] If the current client is not already present in the coauthoring session, the protocol server does one of the following: Return an error code of "InvalidCoauthSession"&lt;41&gt;, if there are other clients present in the coauthoring session.</ns1:Description>
+		<ns1:Description>[In Exit Coauthoring Session] If the current client is not already present in the coauthoring session, the protocol server does one of the following: Return an error code of "Success"&lt;41&gt;, if there are other clients present in the coauthoring session.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24487,7 +24478,7 @@ Property Get</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2399</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.15</ns1:Doc_Sect>
-		<ns1:Description>[Properties Subrequest][This is done as follows:]The PropertiesSubRequestDataType defines the type of the SubResponseData element inside the versioning SubResponse element. </ns1:Description>
+		<ns1:Description>[Properties Subrequest][This is done as follows:]The PropertiesSubResponseDataType defines the type of the SubResponseData element inside the Properties SubResponse element. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24496,7 +24487,7 @@ Property Get</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2440</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.15</ns1:Doc_Sect>
-		<ns1:Description>[Properties Subrequest][This is done as follows:]The PropertiesSubRequestDataType is defined in section 2.3.1.52.</ns1:Description>
+		<ns1:Description>[Properties Subrequest][This is done as follows:]The PropertiesSubResponseDataType is defined in section 2.3.1.54.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -25109,9 +25100,9 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R3065</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-FSSHTTP_R30651</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the specified attributes[CoauthRequestType] are not provided, the implementation does return "InvalidArgument" error code as part of the ResponseVersion element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;25&gt; Section 2.3.1.5:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R5602:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25122,7 +25113,18 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3066</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] The implementation does return "HighLevelExceptionThrown" error code as part of the ResponseVersion element. &lt;25&gt; Section 2.3.1.5:  In SharePoint Server 2010, if the CoauthRequestType attribute is not provided, an "InvalidArgument" error code will be returned as part of the SubResponseData element associated with the coauthoring subresponse.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;25&gt; Section 2.3.1.5:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the coauthoring subresponse(Microsoft Sharepoint 2013/Microsoft Office 2016/Microsoft Sharepoint Server 2016).</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R5602:i,MS-FSSHTTP_R1345:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R3065</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;25&gt; Section 2.3.1.5:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the coauthoring subresponse(Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R5602:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25174,7 +25176,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3071</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the specified attributes[ExclusiveLockRequestType attribute] are not provided, the implementation does return an "InvalidArgument" error code as part of the ResponseVersion element. (Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[ExclusiveLockRequestType] are not provided, the implementation does return error code. &lt;28&gt; Section 2.3.1.9:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the exclusive lock subresponse(Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R6342:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25185,7 +25187,18 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3072</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] The implementation does return a "HighLevelExceptionThrown" error code as part of the ResponseVersion element. &lt;28&gt; Section 2.3.1.9:  In SharePoint Server 2010, if the ExclusiveLockRequestType attribute is not provided, an "InvalidArgument" error code will be returned as part of the SubResponseData element associated with the exclusive lock subresponse.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[ExclusiveLockRequestType] are not provided, the implementation does return error code. &lt;28&gt; Section 2.3.1.9:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the exclusive lock subresponse(Microsoft Sharepoint 2013/Microsoft Office 2016/Microsoft Sharepoint Server 2016).</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R6342:i,MS-FSSHTTP_R1345:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R30711</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[ExclusiveLockRequestType] are not provided, the implementation does return error code. &lt;28&gt; Section 2.3.1.9:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R6342:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25205,7 +25218,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R6662</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the specified attributes[SchemaLockRequestType attribute] are not provided, the implementation does return an "InvalidArgument" error code as part of the ResponseVersion element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;30&gt; Section 2.3.1.13:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the schema lock subresponse(Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3073:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25216,7 +25229,18 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3074</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] The implementation does return a "HighLevelExceptionThrown" error code as part of the ResponseVersion element. &lt;30&gt; Section 2.3.1.13:  In SharePoint Server 2010, if the SchemaLockRequestType attribute is not provided, an "InvalidArgument" error code will be returned as part of the SubResponseData element associated with the schema lock subresponse.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;30&gt; Section 2.3.1.13:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the schema lock subresponse(SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016).</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R3073:i,MS-FSSHTTP_R1345:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R30741</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;30&gt; Section 2.3.1.13:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3073:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25254,7 +25278,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11267</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the specified attributes[FileOperation attribute] are not provided, the implementation does return an "InvalidArgument" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11101:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25265,7 +25289,18 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11268</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] The implementation does return a "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file operation subresponse.(Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Server 2016 follow this behavior).</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R11101:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R112671</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2019 returns HTTP status code 302(Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11101:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25485,7 +25520,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1556</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the "exiting coauthoring session" operation, the implementation does return an error code of "Success", if there are other clients present in the coauthoring session. (&lt;41&gt; Section 3.1.4.3.2:  SharePoint Server 2010 will return an error code of "Success" if there are other clients present in the coauthoring session.) </ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the "exiting coauthoring session" operation, the implementation does return an error code of "Success", if there are other clients present in the coauthoring session. (&lt;41&gt; Section 3.1.4.3.2:  Microsoft SharePoint Foundation 2010/SharePoint Server 2010 /Microsoft Office 2019/Microsoft SharePoint Server 2019 InvalidCoauthSession.) </ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3106:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25496,7 +25531,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3107</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the "exiting coauthoring session" operation, the implementation does return an error code of "InvalidCoauthSession", if there are other clients present in the coauthoring session. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the "exiting coauthoring session" operation, the implementation does return an error code of "Success", if there are other clients present in the coauthoring session. (&lt;41&gt; Section 3.1.4.3.2: Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016  will return an error code of "InvalidCoauthSession", if there are other clients present in the coauthoring session.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3106:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
