@@ -2265,17 +2265,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              3072,
                              @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the ResponseVersion element. &lt;28&gt; Section 2.3.1.9:  In SharePoint Server 2010, if the ExclusiveLockRequestType attribute is not provided, an ""InvalidArgument"" error code will be returned as part of the SubResponseData element associated with the exclusive lock subresponse.");
                 }
-
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R30711
-                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 30711, this.Site))
-                {
-                    Site.CaptureRequirementIfAreEqual<string>(
-                             "302",
-                             response.ResponseVersion.ErrorCode.ToString(),
-                             "MS-FSSHTTP",
-                             30711,
-                             @"[In Appendix B: Product Behavior]  If the specified attributes[ExclusiveLockRequestType] are not provided, the implementation does return error code. <28> Section 2.3.1.9:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior).");
-                }
             }
             else
             {

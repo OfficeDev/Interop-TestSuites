@@ -71,8 +71,6 @@
   <Property name="R3065Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R3066Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server returns error code "HighLevelExceptionThrown" as specified in section 7. Set R3066Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R3066Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-  <!--Set R30651Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server returns HTTP status code 302 as specified in section 7. Set R30651Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-  <Property name="R30651Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R3128Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the server returns InvalidCoauthSession when release the schema lock and the user is not present. Set R3128Enabled_MS-FSSHTTP-FSSHTTPB to true to disable this requirement. -->
   <Property name="R3128Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R3129Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that the server returns success when release the schema lock and the user is not present. Set R3129Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
@@ -97,14 +95,10 @@
   <Property name="R3071Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R3072Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for exclusiveLock subRequest the server does return an "HighLevelExceptionThrown" error code when the specified attributes[ExclusiveLockRequestType attribute] are not provided. Set R3072Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R3072Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-  <!--Set R30711Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for exclusiveLock subRequest the server returns HTTP status code 302 as specified in section 7. Set R30711Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-  <Property name="R30711Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R6662Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for schemaLock subRequest the server does not return an "InvalidArgument" error code when the specified attributes[SchemaLockRequestType attribute] are not provided. Set R6662Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R6662Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R3074Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for schemaLock subRequest the server does return an "HighLevelExceptionThrown" error code when the specified attributes[SchemaLockRequestType attribute] are not provided. Set R3074Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R3074Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-  <!--Set R30741Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for schemaLock subRequest the server returns HTTP status code 302 as specified in section 7. Set R30741Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-  <Property name="R30741Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R3086Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server adds an additional authentication prefix for the UserLogin attribute as specified in section 7. Set R3086Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R3086Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R3089Enabled_MS-FSSHTTP-FSSHTTPB to false to indicate that for cell sub request when GetProps is set to true in Put Changes sub-request, the server does not return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element. Set R3089Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
@@ -155,8 +149,6 @@
   <Property name="R11267Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R11268Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does return a "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file opeartion subresponse. Set R11268Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R11268Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
-  <!--Set R112671Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for FileOperation subRequest the server returns HTTP status code 302 as specified in section 7. Set R112671Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
-  <Property name="R112671Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support ResourceID attribute. Set R11275Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->
   <Property name="R11275Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that the implementation does support UseResourceID attribute. Set R11272Enabled_MS-FSSHTTP-FSSHTTPB to true to enable this requirement. -->

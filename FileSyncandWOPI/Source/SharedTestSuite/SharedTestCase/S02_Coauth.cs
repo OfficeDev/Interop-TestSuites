@@ -822,17 +822,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              @"[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;25&gt; Section 2.3.1.5:  SharePoint Server 2013 and SharePoint Server 2016, return ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the coauthoring subresponse(Microsoft Sharepoint 2013/Microsoft Office 2016/Microsoft Sharepoint Server 2016).");
                 }
 
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R30651
-                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 30651, this.Site))
-                {
-                    Site.CaptureRequirementIfAreEqual<string>(
-                             "302",
-                             response.ResponseVersion.ErrorCode.ToString(),
-                             "MS-FSSHTTP",
-                             30651,
-                             @"[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. <25> Section 2.3.1.5:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior)."); 
-                }
-
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3025, this.Site))
                 {
                     Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(

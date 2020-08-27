@@ -9497,7 +9497,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R30651,MS-FSSHTTP_R30652,MS-FSSHTTP_R3066.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R3065,MS-FSSHTTP_R3066.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R5601</ns1:REQ_ID>
@@ -10334,7 +10334,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3071, MS-FSSHTTP_R3072, MS-FSSHTTP_R30711</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3071, MS-FSSHTTP_R3072</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R6341</ns1:REQ_ID>
@@ -10886,7 +10886,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R6662, MS-FSSHTTP_R3074, MS-FSSHTTP_R30741</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R6662, MS-FSSHTTP_R3074</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2233</ns1:REQ_ID>
@@ -13027,7 +13027,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R11267, MS-FSSHTTP_R11268, MS-FSSHTTP_R112671.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R11267, MS-FSSHTTP_R11268.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2234</ns1:REQ_ID>
@@ -25107,8 +25107,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3066</ns1:REQ_ID>
@@ -25203,8 +25202,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2034</ns1:REQ_ID>
@@ -25245,8 +25243,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2035</ns1:REQ_ID>
@@ -25305,8 +25302,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3086</ns1:REQ_ID>

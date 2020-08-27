@@ -2185,17 +2185,6 @@ The conversion to an exclusive lock failed.");
                              3074,
                              @"[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;30&gt; Section 2.3.1.13:  SharePoint Server 2013 and SharePoint Server 2016, return ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the schema lock subresponse(SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016).");
                 }
-
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R30741
-                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 30741, this.Site))
-                {
-                    Site.CaptureRequirementIfAreEqual<string>(
-                             "302",
-                             response.ResponseVersion.ErrorCode.ToString(),
-                             "MS-FSSHTTP",
-                             30741,
-                             @"[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;30&gt; Section 2.3.1.13:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior).");
-                }
             }
             else
             {

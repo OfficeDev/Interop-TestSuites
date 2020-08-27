@@ -182,18 +182,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                         11268,
                         @"[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2013 and SharePoint Server 2016, return ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Server 2016 follow this behavior).");
                 }
-
-                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R112671
-                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 112671, this.Site))
-                {
-                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R112671
-                    Site.CaptureRequirementIfAreEqual<string>(
-                        "302",
-                        cellStoreageResponse.ResponseVersion.ErrorCode.ToString(),
-                        "MS-FSSHTTP",
-                        112671,
-                        @"[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2019 returns HTTP status code 302(Microsoft SharePoint Server 2019 follow this behavior).");
-                }
             }
 
             else
