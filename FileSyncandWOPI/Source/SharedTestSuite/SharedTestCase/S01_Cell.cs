@@ -59,7 +59,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S01_TC01_DownloadContents_Success()
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(6000);
             // Initialize the context using user01 and defaultFileUrl.
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
 
