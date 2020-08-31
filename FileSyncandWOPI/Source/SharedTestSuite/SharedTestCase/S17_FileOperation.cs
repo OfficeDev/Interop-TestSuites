@@ -168,19 +168,19 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                         cellStoreageResponse.ResponseVersion.ErrorCode,
                         "MS-FSSHTTP",
                         11267,
-                        @"[In Appendix B: Product Behavior] If the specified attributes[FileOperation attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior.)");
+                        @"[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2010 returns an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior.)");
                 }
 
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11268
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 11268, this.Site))
                 {
-
                     // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11268
                     Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
                         GenericErrorCodeTypes.HighLevelExceptionThrown,
                         cellStoreageResponse.ResponseVersion.ErrorCode,
                         "MS-FSSHTTP",
                         11268,
-                        @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the file operation subresponse.(Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)");
+                        @"[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2013 and SharePoint Server 2016, return ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Server 2016 follow this behavior).");
                 }
             }
 

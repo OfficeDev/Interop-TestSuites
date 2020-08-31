@@ -2172,7 +2172,7 @@ The conversion to an exclusive lock failed.");
                              SharedTestSuiteHelper.ConvertToErrorCodeType(exclusiveResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              6662,
-                             @"[In Appendix B: Product Behavior] If the specified attributes[SchemaLockRequestType attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the ResponseVersion element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. <30> Section 2.3.1.13:  SharePoint Server 2010 returns an ""InvalidArgument"" error code as part of the SubResponseData element associated with the schema lock subresponse(Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior).");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3074
@@ -2183,7 +2183,7 @@ The conversion to an exclusive lock failed.");
                              response.ResponseVersion.ErrorCode,
                              "MS-FSSHTTP",
                              3074,
-                             @"[In Appendix B: Product Behavior] \The implementation does return a ""HighLevelExceptionThrown"" error code as part of the ResponseVersion element. <30> Section 2.3.1.13:  In SharePoint Server 2010, if the SchemaLockRequestType attribute is not provided, an ""InvalidArgument"" error code will be returned as part of the SubResponseData element associated with the schema lock subresponse.");
+                             @"[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;30&gt; Section 2.3.1.13:  SharePoint Server 2013 and SharePoint Server 2016, return ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the schema lock subresponse(SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016).");
                 }
             }
             else

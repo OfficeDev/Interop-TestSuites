@@ -1,6 +1,7 @@
 namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 {
     using System;
+    using System.Net;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestSuites.SharedAdapter;
     using Microsoft.Protocols.TestTools;
@@ -2262,7 +2263,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              response.ResponseVersion.ErrorCode,
                              "MS-FSSHTTP",
                              3072,
-                             @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the ResponseVersion element. <28> Section 2.3.1.9:  In SharePoint Server 2010, if the ExclusiveLockRequestType attribute is not provided, an ""InvalidArgument"" error code will be returned as part of the SubResponseData element associated with the exclusive lock subresponse.");
+                             @"[In Appendix B: Product Behavior] The implementation does return a ""HighLevelExceptionThrown"" error code as part of the ResponseVersion element. &lt;28&gt; Section 2.3.1.9:  In SharePoint Server 2010, if the ExclusiveLockRequestType attribute is not provided, an ""InvalidArgument"" error code will be returned as part of the SubResponseData element associated with the exclusive lock subresponse.");
                 }
             }
             else
