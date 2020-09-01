@@ -95,7 +95,7 @@
             site.CaptureRequirement(
                      "MS-FSSHTTP",
                      2399,
-                     @"[Properties Subrequest][This is done as follows:]The PropertiesSubRequestDataType defines the type of the SubResponseData element inside the versioning SubResponse element. ");
+                     @"[Properties Subrequest][This is done as follows:]The PropertiesSubResponseDataType defines the type of the SubResponseData element inside the Properties SubResponse element. ");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R2295
             site.CaptureRequirement(

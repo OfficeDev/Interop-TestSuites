@@ -808,9 +808,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              errorCode,
                              "MS-FSSHTTP",
                              3065,
-                             @"[In Appendix B: Product Behavior] If the specified attributes[CoauthRequestType] are not provided, the implementation does return ""InvalidArgument"" error code as part of the ResponseVersion element. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;25&gt; Section 2.3.1.5:  SharePoint Server 2010 returns an ""InvalidArgument"" error code as part of the SubResponseData element associated with the coauthoring subresponse(Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 follow this behavior).");
                 }
 
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R3066
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3066, this.Site))
                 {
                     Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
@@ -818,7 +819,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              response.ResponseVersion.ErrorCode,
                              "MS-FSSHTTP",
                              3066,
-                             @"[In Appendix B: Product Behavior] The implementation does return ""HighLevelExceptionThrown"" error code as part of the ResponseVersion element. <19> Section 2.3.1.5: In SharePoint Server 2013, if the CoauthRequestType attribute is not provided, a ""HighLevelExceptionThrown"" error code MUST be returned as part of the ResponseVersion element.");
+                             @"[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;25&gt; Section 2.3.1.5:  SharePoint Server 2013 and SharePoint Server 2016, return ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the coauthoring subresponse(Microsoft Sharepoint 2013/Microsoft Office 2016/Microsoft Sharepoint Server 2016).");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3025, this.Site))
@@ -1224,7 +1225,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(exitResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              1556,
-                             @"[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the ""exiting coauthoring session"" operation, the implementation does return an error code of ""Success"", if there are other clients present in the coauthoring session. (<41> Section 3.1.4.3.2:  SharePoint Server 2010 will return an error code of ""Success"" if there are other clients present in the coauthoring session.) ");
+                             @"[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the ""exiting coauthoring session"" operation, the implementation does return an error code of ""Success"", if there are other clients present in the coauthoring session. (&lt;41&gt; Section 3.1.4.3.2:  Microsoft SharePoint Foundation 2010/SharePoint Server 2010 /Microsoft Office 2019/Microsoft SharePoint Server 2019 InvalidCoauthSession.) ");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3107, this.Site))
@@ -1235,7 +1236,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(exitResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3107,
-                             @"[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the ""exiting coauthoring session"" operation, the implementation does return an error code of ""InvalidCoauthSession"", if there are other clients present in the coauthoring session. (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the ""exiting coauthoring session"" operation, the implementation does return an error code of ""Success"", if there are other clients present in the coauthoring session. (&lt;41&gt; Section 3.1.4.3.2: Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016  will return an error code of ""InvalidCoauthSession"", if there are other clients present in the coauthoring session.)");
                 }
             }
             else
