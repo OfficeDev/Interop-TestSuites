@@ -75,7 +75,8 @@ support two SUTs depending on the protocol requirements:
 -   Microsoft Office SharePoint Server 2007 Service Pack 3 (SP3)
 -   Microsoft SharePoint Server 2010 Service Pack 2 (SP2)
 -   Microsoft SharePoint Server 2013 Service Pack (SP1)
--	Microsoft SharePoint Server 2016
+-   Microsoft SharePoint Server 2016
+-   Microsoft SharePoint Server 2019
 
 For the MS-WDVMODUU test suite, you have to install a virus scanner software in order to test the
 X-Virus-Infected header. You will also require a virus file to perform a
@@ -101,7 +102,8 @@ clean and virus-free.
 
 	-   Microsoft SharePoint Foundation 2013 Service Pack (SP1)
 	-   Microsoft SharePoint Server 2013 Service Pack (SP1)
-  -	  Microsoft SharePoint Server 2016
+  	-   Microsoft SharePoint Server 2016
+	-   Microsoft SharePoint Server 2019
 
 **Note**   The anti-virus software should implement [Virus Scan Engine
 API](http://go.microsoft.com/fwlink/?LinkId=518352). A number of ISVs
@@ -511,7 +513,8 @@ The MS-WWSP test suite supports only the following versions of SharePoint:
 -   Microsoft Office SharePoint Server 2007
 -   Microsoft SharePoint Server 2010
 -   Microsoft SharePoint Server 2013
--	Microsoft SharePoint Server 2016
+-   Microsoft SharePoint Server 2016
+-   Microsoft SharePoint Server 2019
 
 1.  Create a group with the name **MSWWSP\_UserGroup** on the
     domain controller.
@@ -533,7 +536,7 @@ The MS-WWSP test suite supports only the following versions of SharePoint:
 
 8.  Activate the **Workflows** feature on the site features page.
 
-	**Note** This step applies only to Microsoft SharePoint Server 2010, Microsoft SharePoint Server 2013 and Microsoft SharePoint Server 2016 only.
+	**Note** This step applies only to Microsoft SharePoint Server 2010, Microsoft SharePoint Server 2013, Microsoft SharePoint Server 2016 and Microsoft SharePoint Server 2019 only.
 
 1.  Create a workflow association named **MSWWSP\_Workflow**
     in MSWWSP\_DocumentLibrary.
@@ -546,7 +549,7 @@ The MS-WWSP test suite supports only the following versions of SharePoint:
 
 	**Note** The workflow association template name and task name will be used in the MS-XXX\_TestSuite.deployment.ptfconfig file in the test suite.
 
-	The workflow association template name must be **Approval** for Microsoft SharePoint Server 2007, and **Approval - SharePoint 2010** for Microsoft SharePoint Server 2010, Microsoft SharePoint Server 2013 and Microsoft SharePoint Server 2016.
+	The workflow association template name must be **Approval** for Microsoft SharePoint Server 2007, and **Approval - SharePoint 2010** for Microsoft SharePoint Server 2010, Microsoft SharePoint Server 2013, Microsoft SharePoint Server 2016 and Microsoft SharePoint Server 2019.
 
 #### MS-MEETS
 
@@ -631,7 +634,7 @@ The MS-WWSP test suite supports only the following versions of SharePoint:
     None, and Passport respectively.
 
 	**Note** If you are using Microsoft SharePoint Foundation 2013 or
-	Microsoft SharePoint Server 2013 or Microsoft SharePoint Server 2016, you will need to create a fourth web
+	Microsoft SharePoint Server 2013 or Microsoft SharePoint Server 2016 or Microsoft SharePoint Server 2019, you will need to create a fourth web
 	application named MSAUTHWS\_WindowsAPP with authentication mode set to
 	Windows.
 
@@ -656,7 +659,8 @@ versions of SharePoint:
 -   Microsoft SharePoint Server 2010
 -   Microsoft SharePoint Foundation 2013
 -   Microsoft SharePoint Server 2013
--	Microsoft SharePoint Server 2016
+-   Microsoft SharePoint Server 2016
+-   Microsoft SharePoint Server 2019
 
 1.  Create a site collection named **MSSHDACCWS\_SiteCollection**.
 
@@ -676,7 +680,8 @@ versions of SharePoint:
 -   Microsoft SharePoint Server 2010
 -   Microsoft SharePoint Foundation 2013
 -   Microsoft SharePoint Server 2013
--	Microsoft SharePoint Server 2016
+-   Microsoft SharePoint Server 2016
+-   Microsoft SharePoint Server 2019
 
 1.  Create a user with the name **MSCPSWS\_User** and set the password
     to never expire on the domain controller.
@@ -699,7 +704,8 @@ versions of SharePoint:
 -   Microsoft SharePoint Server 2010
 -   Microsoft SharePoint Foundation 2013
 -   Microsoft SharePoint Server 2013
--	Microsoft SharePoint Server 2016
+-   Microsoft SharePoint Server 2016
+-   Microsoft SharePoint Server 2019
 
 1.  Create a site collection named **MSWSSREST\_SiteCollection**.
 
@@ -753,7 +759,8 @@ versions of SharePoint:
 -  Microsoft Office SharePoint Server 2007
 -  Microsoft SharePoint Server 2010
 -  Microsoft SharePoint Server 2013
--	Microsoft SharePoint Server 2016
+-  Microsoft SharePoint Server 2016
+-  Microsoft SharePoint Server 2019
 
 For Microsoft Office SharePoint Server 2007, you will only need to
 configure the steps from 1 to 7.
@@ -1089,6 +1096,7 @@ Configuration file  | Description
 **MS-XXXX\_SharePointServer2010\_SHOULDMAY.deployment.ptfconfig**        | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Server 2010 Service Pack 2 (SP2).
 **MS-XXXX\_SharePointServer2013\_SHOULDMAY.deployment.ptfconfig**        | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Server 2013 Service Pack 1 (SP1).
 **MS-XXXX\_SharePointServer2016\_SHOULDMAY.deployment.ptfconfig**        | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Server 2016.
+**MS-XXXX\_SharePointServer2019\_SHOULDMAY.deployment.ptfconfig**        | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft SharePoint Server 2019.
 ### Configuring the test suite client using the setup configuration script
 
 The setup configuration script is only implemented for

@@ -33,7 +33,7 @@ into one scenario.
 
 The technical specifications listed in the following table are included
 in the SharePoint Protocol Test Suites package. The version of these
-technical specifications is v20160715.
+technical specifications is v20190618.
 
 SharePoint Protocol technical specifications
 
@@ -163,6 +163,8 @@ protocol, which test suites run against.
     -   Microsoft SharePoint Server 2013 SP1
 
     -   Microsoft SharePoint Server 2016
+
+    -   Microsoft SharePoint Server 2019
 
 **Test Suite Client**
 
