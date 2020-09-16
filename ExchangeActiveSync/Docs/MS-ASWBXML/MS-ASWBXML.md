@@ -1,5 +1,5 @@
 ## [MS-ASWBXML]: Exchange ActiveSync: Exchange ActiveSync: Wireless Application Protocol (WAP) Binary XML (WBXML) Algorithm
-- [MS-ASWBXML] v2019319 is used for WBXML encoding.
+- [MS-ASWBXML] v20190319 is used for WBXML encoding.
 - Release date, 3/19/2019.
 
 To find the new landing page for [MS-ASWBXML], please visit https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-aswbxml/39973eb1-1e40-4eb5-ac74-42781c5a33bc
