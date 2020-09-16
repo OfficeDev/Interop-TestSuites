@@ -51,6 +51,7 @@
   <ItemGroup>
     <None Include="MS-ASCON_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASCON_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ASCON_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASCON_TestSuite.deployment.ptfconfig" />
     <None Include="MS-ASCON_TestSuite.ptfconfig" />
     <None Include="MS-ASCON_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
