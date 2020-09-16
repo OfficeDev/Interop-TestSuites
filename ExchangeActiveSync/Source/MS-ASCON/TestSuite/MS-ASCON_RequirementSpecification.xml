@@ -138,9 +138,18 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R2310</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] Elements for conversations are defined in five namespaces: Email2, AirSyncBase, AirSync, ItemOperations, and Search.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R2311</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>Elements for conversations are defined in five namespaces: Email2, AirSyncBase, AirSync, ItemOperations, and Search. The namespace in which an element is defined is indicated by the presence of a namespace prefix, as defined in section 2.2.1.</ns1:Description>
+		<ns1:Description>[In Elements] The namespace in which an element is defined is indicated by the presence of a namespace prefix, as defined in section 2.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -293,7 +302,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R500</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The functionality of conversations is supported only by protocol versions 16.1,16.0, 14.1, and 14.0.</ns1:Description>
+		<ns1:Description>[In Elements] The functionality of conversations is supported only by protocol versions 16.1, 16.0, 14.1, and 14.0.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
