@@ -48,7 +48,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] The elements specified in the following sections are sent and received by using the ItemOperations, Search, and Sync commands, as specified in [MS-ASCMD].</ns1:Description>
+		<ns1:Description>[In Transport] The elements specified in the following sections are sent and received by using the ItemOperations, MeetingResponse, Search, SmartForward, and Sync commands, as specified in [MS-ASCMD].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -93,7 +93,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R11</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The prefix "airsync" is used for namespace URI "AirSync", which refers to "[MS-ASCMD] section 2.2.2.19".</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "airsync" is used for namespace URI "AirSync", which refers to "[MS-ASCMD] section 2.2.2.21".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -111,7 +111,16 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R12</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The prefix "itemoperations" is used for namespace URI "ItemOperations", which refers to "[MS-ASCMD] section 2.2.2.8".</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "itemoperations" is used for namespace URI "ItemOperations", which refers to "[MS-ASCMD] section 2.2.1.10".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R120910</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The prefix "meetingresponse" is used for namespace URI "MeetingResponse", which refers to "[MS-ASCMD] section 2.2.1.11".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -120,7 +129,16 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R13</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The prefix "search" is used for namespace URI "Search", which refers to "[MS-ASCMD] section 2.2.2.14".</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "search" is used for namespace URI "Search", which refers to "[MS-ASCMD] section 2.2.1.16".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R130910</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Namespaces] The prefix "composemail" is used for namespace URI "ComposeMail", which refers to "[MS-ASCMD] section 2.2.1.19".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -154,37 +172,19 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R17</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R26</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The FileReference (section 2.2.2.13.2) element specifies a unique identifier that is assigned by the server to each attachment to a message.</ns1:Description>
+		<ns1:Description>[In Elements] The Accuracy (section 2.2.2.1) element specifies the accuracy of the values of the Latitude and Longitude elements</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R18</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R260910</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The BodyPreference (section 2.2.2.7) specifies a collection of elements that sets the preference information related to the type and size of information that is returned from searching, synchronizing, or fetching.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R19</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Type (section 2.2.2.22.4) element specifies the preferred format type of the body content of the item.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R20</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The TruncationSize (section 2.2.2.21.2) element specifies the size, in bytes, of the content that the client wants to search, synchronize, or fetch.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Description>[In Elements] The Add (section 2.2.2.2) element specifies adds an attachment to a calendar item or to a draft email item.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
@@ -192,187 +192,43 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R21</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The AllOrNone (section 2.2.2.1.2) element specifies whether to search, synchronize, or retrieve all or none of the content based on the TruncationSize element.</ns1:Description>
+		<ns1:Description>[In Elements] The AllOrNone (section 2.2.2.3) element specifies whether to search, synchronize, or retrieve all or none of the content based on the TruncationSize element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R22</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R210910</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Preview (section 2.2.2.18.4) element specifies the preferred length of the message preview to be returned to the client.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R23</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The BodyPartPreference (section 2.2.2.6) element specifies a collection of elements that sets the preference information related to the type and size of information that is returned from searching, synchronizing, or fetching a BodyPart.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R24</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Type (section 2.2.2.22.3) element specifies the preferred format type of the body part content of the item.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R25</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The TruncationSize (section 2.2.2.21.1) element specifies the size, in bytes, of the content that the client wants to search, synchronize, or fetch.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R26</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The AllOrNone (section 2.2.2.1.1) element specifies whether to search, synchronize, or retrieve all or none of the content based on the TruncationSize element.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R27</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Preview (section 2.2.2.18.3) element specifies the preferred length of the message preview to be returned to the client.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R28</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Body (section 2.2.2.4) element specifies a collection of elements that specifies a free-form, variable-length data field associated with a stored item on the server.</ns1:Description>
+		<ns1:Description>[In Elements] The Altitude (section 2.2.2.4) element specifies the altitude of an event's location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R29</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R210911</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Type (section 2.2.2.22.1) element specifies the format type of the body content of the item.</ns1:Description>
+		<ns1:Description>[In Elements] The AltitudeAccuracy (section 2.2.2.5) element specifies the accuracy of the value of the Altitude element altitude of an event's location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R30</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R210912</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The EstimatedDataSize (section 2.2.2.12.2) element specifies an informational estimate of the size of the data associated with the item's Body element.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R31</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Truncated (section 2.2.2.20.1) element specifies whether the body of the item has been truncated according to the BodyPreference element indicated by the client.</ns1:Description>
+		<ns1:Description>[In Elements] The Annotation (section 2.2.2.6) element specifies a note about the location of an event.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R32</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R42</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Data (section 2.2.2.10.1) element specifies the body of the calendar item, contact, document, e-mail, or task.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R33</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Preview (section 2.2.2.18.1) element specifies the length of the message preview to be returned to the client.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R10005</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Part (section 2.2.2.17) element specifies the integer index into the metadata of the multipart response.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R34</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The BodyPart (section 2.2.2.5) element specifies a collection of elements that contains the message part of the body of an e-mail.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R35</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Status (section 2.2.2.19) element specifies the status of the Data element within the BodyPart response.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R36</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Type (section 2.2.2.22.2) element specifies the format type of the body part content of the item.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R37</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The EstimatedDataSize (section 2.2.2.12.3) element specifies an informational estimate of the size of the data associated with the item's BodyPart element.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R38</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Truncated (section 2.2.2.20.2) element specifies whether the body of the item has been truncated according to the BodyPartPreference element indicated by the client.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R39</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Data (section 2.2.2.10.2) element specifies the body part of the calendar item, contact, document, e-mail, note, or task.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R40</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Preview (section 2.2.2.18.2) element specifies the length of the message preview to be returned to the client.</ns1:Description>
+		<ns1:Description>[In Elements] The Attachment (section 2.2.2.7) element specifies the attachment information for a single attachment item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -381,61 +237,79 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R41</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Attachments (section 2.2.2.3) element specifies a collection of elements that contains one or more attachment items.</ns1:Description>
+		<ns1:Description>[In Elements] The Attachments (section 2.2.2.8) element contains a collection of elements that contains one or more attachment items.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R42</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R28</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Attachment (section 2.2.2.2) element specifies the attachment information for a single attachment item.</ns1:Description>
+		<ns1:Description>[In Elements] The Body (section 2.2.2.9) element specifies a collection of elements that specifies a free-form, variable-length data field associated with a stored item on the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R34</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The BodyPart (section 2.2.2.10) element specifies a collection of elements that contains the message part of the body of an e-mail.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R43</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R23</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The DisplayName (section 2.2.2.11) element specifies the display name of the attachment.</ns1:Description>
+		<ns1:Description>[In Elements] The BodyPartPreference (section 2.2.2.11) element specifies a collection of elements that sets the preference information related to the type and size of information that is returned from searching, synchronizing, or fetching a BodyPart.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R44</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R18</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The FileReference (section 2.2.2.13.1) element specifies the location of an item on the server to retrieve.</ns1:Description>
+		<ns1:Description>[In Elements] The BodyPreference (section 2.2.2.12) specifies a collection of elements that sets the preference information related to the type and size of information that is returned from searching, synchronizing, or fetching.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R45</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R180910</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The Method (section 2.2.2.15) element identifies the method in which the attachment was attached.</ns1:Description>
+		<ns1:Description>[In Elements] The City (section 2.2.2.13) specifies  the city in which an event occurs.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R46</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R180911</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The EstimatedDataSize (section 2.2.2.12.1) element specifies an informational estimate of the size of the data associated with the attachment.</ns1:Description>
+		<ns1:Description>[In Elements] The ClientId (section 2.2.2.14) specifies  a client-generated temporary identifier that links to the file that is being added as an attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R180912</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Content (section 2.2.2.15) contains the content of the attachment that is being added.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R47</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The ContentId (section 2.2.2.8) element contains the unique object ID for an attachment.</ns1:Description>
+		<ns1:Description>[In Elements] The ContentId (section 2.2.2.16) element contains an attachment's unique object that is used to reference the attachment within the item to which the attachment belongs.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -444,7 +318,106 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R48</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The ContentLocation (section 2.2.2.9) element contains the relative URI for an attachment, which is used to match a reference to an inline attachment in an HTML message to the attachment in the attachments table.</ns1:Description>
+		<ns1:Description>[In Elements] The ContentLocation (section 2.2.2.17) element contains an attachment's relative URI, which is used to associate the attachment in other items.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R480910</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The ContentType (section 2.2.2.18) element specifies the type of data that is contained either in the Content element or in the itemoperation:Data element ([MS-ASCMD] section 2.2.3.39.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R480911</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Country (section 2.2.2.19) element specifies the country in which an event occurs.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R32</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Data (section 2.2.2.20) element specifies the data associated with an item's Body element or BodyPart element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R320909</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Data (section 2.2.2.20) element specifies the data associated with an item's BodyPart element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R320910</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Delete (section 2.2.2.21) element deletes an attachment from a calendar item or from a draft email item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R43</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The DisplayName (section 2.2.2.22) element specifies the display name of an attachment or the display name of an event's location.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R30</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The EstimatedDataSize (section 2.2.2.23) element specifies an informational estimate of the size of the data associated with the item's Body element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R37</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The EstimatedDataSize (section 2.2.2.23) element specifies an informational estimate of the size of the data associated with the item's BodyPart element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R46</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The EstimatedDataSize (section 2.2.2.23) element specifies an informational estimate of the size of the data associated with the attachment.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R17</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The FileReference (section 2.2.2.24) element specifies a unique identifier that is assigned by the server to each attachment to a message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R170910</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The InstanceId (section 2.2.2.25) element specifies the original, unmodified, UTC date and time of a particular instance of a recurring series.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -453,7 +426,52 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R49</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The IsInline (section 2.2.2.14) element specifies whether the attachment is embedded in the message.</ns1:Description>
+		<ns1:Description>[In Elements] The IsInline (section 2.2.2.26) element specifies whether the attachment is embedded in the message.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R490910</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The latitude (section 2.2.2.27) element specifies the latitude of the event's location.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R490911</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Location (section 2.2.2.28) element specifies details about the location of an event.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R490912</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The LocationUri  (section 2.2.2.29) element specifies the URI for the location of an event.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R490913</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Longitude  (section 2.2.2.30) element specifies the longitude of the event's location.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R45</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Method (section 2.2.2.31) element identifies the method in which the attachment was attached.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -462,16 +480,106 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R50</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The NativeBodyType (section 2.2.2.16) element specifies the original format type of the item.</ns1:Description>
+		<ns1:Description>[In Elements] The NativeBodyType (section 2.2.2.32) element specifies the original format type of the item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R500910</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Part (section 2.2.2.33) element specifies the integer index into the metadata of the multipart response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R500911</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The PostalCode (section 2.2.2.34) element specifies the postal code for the address of the event's location.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R22</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Preview (section 2.2.2.35) element specifies the preferred length of the message preview to be returned to the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R220910</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The State (section 2.2.2.36) element specifies the state or province in which an event occurs.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R35</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Status (section 2.2.2.37) element specifies the status of the Data element within the BodyPart response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R350910</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Street (section 2.2.2.38) element specifies the street address of the event's location.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R31</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Truncated (section 2.2.2.39) element specifies whether the body of the item has been truncated according to the BodyPreference element indicated by the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R38</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Truncated (section 2.2.2.39) element specifies whether the body of the item has been truncated according to the BodyPartPreference element indicated by the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R20</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The TruncationSize (section 2.2.2.40) element specifies the size, in bytes, of the content that the client wants to search, synchronize, or fetch.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R36</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The Type (section 2.2.2.41) element specifies the format type of the body part content of the item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1000</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Accuracy] The Accuracy element is an optional child element of the Location element (section 2.2.2.28) that specifies the accuracy of the values of the Latitude element (section 2.2.2.27) and the Longitude element (section 2.2.2.29).</ns1:Description>
+		<ns1:Description>[In Accuracy] The Accuracy element is an optional child element of the Location element (section 2.2.2.28) that specifies the accuracy of the values of the Latitude element (section 2.2.2.27) and the Longitude element (section 2.2.2.30).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -523,6 +631,15 @@
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000914</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Accuracy] Protocol version 16.1 supports this [Accuracy] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1006</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In Add] The Add element is an optional child element of the Attachments element (section 2.2.2.8) that adds an attachment to a calendar item or to a draft email item.</ns1:Description>
@@ -562,7 +679,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1010</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Add] Content (section 2.2.2.15) — — This element is required.</ns1:Description>
+		<ns1:Description>[In Add] Content (section 2.2.2.15) —  This element is required.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -607,7 +724,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1015</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Add] IsInline (section 2.2.2.25.1) — This element is optional.</ns1:Description>
+		<ns1:Description>[In Add] IsInline (section 2.2.2.26.1) — This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -616,7 +733,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1016</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Add] Method (section 2.2.2.30.1) — This element is required.</ns1:Description>
+		<ns1:Description>[In Add] Method (section 2.2.2.31.1) — This element is required.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -659,9 +776,18 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000919</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Add] Protocol version 16.1 supports this [Add] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R51</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In AllOrNone] The AllOrNone element is a child element of the BodyPartPreference element (section 2.2.2.6) and the BodyPreference element (section 2.2.2.7) that specifies whether to search, synchronize, or retrieve all or none of the content based on the TruncationSize element (section 2.2.2.21).</ns1:Description>
+		<ns1:Description>[In AllOrNone] The AllOrNone element is a child element of the BodyPartPreference element (section 2.2.2.11) and the BodyPreference element (section 2.2.2.12) that specifies whether to search, synchronize, or retrieve all or none of the content based on the TruncationSize element (section 2.2.2.40).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -787,7 +913,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R56</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In AllOrNone (BodyPartPreference)] The AllOrNone element is an optional child element of the BodyPartPreference element (section 2.2.2.6).</ns1:Description>
+		<ns1:Description>[In AllOrNone (BodyPartPreference)] The AllOrNone element is an optional child element of the BodyPartPreference element (section 2.2.2.11).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1001,6 +1127,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1024</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3.1</ns1:Doc_Sect>
 		<ns1:Description>[In AllOrNone (BodyPartPreference)] Protocol version 16.0 supports this [AllOrNone (BodyPartPreference)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000924</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In AllOrNone (BodyPartPreference)] Protocol version 16.1 supports this [AllOrNone (BodyPartPreference)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1229,6 +1364,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000929</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3.2</ns1:Doc_Sect>
+		<ns1:Description>[In AllOrNone (BodyPreference)] Protocol version 16.1 supports this [AllOrNone (BodyPreference)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1029</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
 		<ns1:Description>[In Altitude] The Altitude element is an optional child element of the Location element (section 2.2.2.28) that specifies the altitude of an event's location.</ns1:Description>
@@ -1292,9 +1436,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000934</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Altitude] Protocol version 16.1 supports this [Altitude] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1036</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In AltitudeAccuracy] The AltitudeAccuracy element is an optional child element of the Location element (section 2.2.2.27) that specifies the accuracy of the value of the Altitude element (section 2.2.2.4).</ns1:Description>
+		<ns1:Description>[In AltitudeAccuracy] The AltitudeAccuracy element is an optional child element of the Location element (section 2.2.2.28) that specifies the accuracy of the value of the Altitude element (section 2.2.2.4).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1346,9 +1499,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000939</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In AltitudeAccuracy] Protocol version 16.1 supports this [AltitudeAccuracy] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1042</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In Annotation] The Annotation element is an optional child element of the Location element (section 2.2.2.27) that specifies a note about the location of an event.</ns1:Description>
+		<ns1:Description>[In Annotation] The Annotation element is an optional child element of the Location element (section 2.2.2.28) that specifies a note about the location of an event.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1394,6 +1556,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1047</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
 		<ns1:Description>[In Annotation] Protocol version 16.0 supports this [Annotation] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000944</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In Annotation] Protocol version 16.1 supports this [Annotation] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1528,7 +1699,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1324</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In Attachment] The Attachment element has the following child elements [ClientId], in any order, in a Sync command response with a Responses element ([MS-ASCMD] section 2.2.3.145):</ns1:Description>
+		<ns1:Description>[In Attachment] The Attachment element has the following child elements [ClientId], in any order, in a Sync command response with a Responses element ([MS-ASCMD] section 2.2.3.154):</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1589,6 +1760,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000949</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Attachment] Protocol version 16.1 supports this [Attachment] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1052</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
 		<ns1:Description>[In Attachment] The server returns the Attachment element in a Sync command response with a Responses element only when protocol version 16.0 is used.</ns1:Description>
@@ -1598,9 +1778,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000955</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Attachment] The server returns the Attachment element in a Sync command response with a Responses element only when protocol version 16.1 is used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R97</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In Attachments] The Attachments element is an optional child element of the Properties element ([MS-ASCMD] section 2.2.3.128) in the ItemOperations command response that contains one or more attachment items.</ns1:Description>
+		<ns1:Description>[In Attachments] The Attachments element is an optional child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11), the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.139.2), and the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) that contains one or more attachment items.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1688,9 +1877,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000951</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Attachments] Protocol version 16.1 supports this [Attachments] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R103</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In Body] The Body element is an optional child element of the airsync:ApplicationData element (as specified in [MS-ASCMD] section 2.2.3.11), the itemoperations:Properties element (as specified in [MS-ASCMD] section 2.2.3.128.1), and the search:Properties element (as specified in [MS-ASCMD] section 2.2.3.128.2) that specifies a free-form, variable-length data field associated with a stored item on the server.</ns1:Description>
+		<ns1:Description>[In Body] The Body element is an optional child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11), the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.139.2), the search:Properties element ([MS-ASCMD] section 2.2.3.139.3), the meetingresponse:SendResponse element ([MS-ASCMD] section 2.2.3.163), and the composemail:SmartForward element ([MS-ASCMD] section 2.2.3.169) that specifies a free-form, variable-length data field associated with an item stored on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1789,7 +1987,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R115</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In Body] Truncated (section 2.2.2.39.1). This element[Truncated] has no effect in a command request [and is optional in the response].</ns1:Description>
+		<ns1:Description>[In Body] Truncated (section 2.2.2.39.1):This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1897,9 +2095,27 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000953</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In Body] Protocol version 16.1 supports this [Body] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1333</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
 		<ns1:Description>[In Body] The Body element is a child of the meetingresponse:SendResponse element and the composemail:SmartForward element only when protocol version 16.0 is used.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000954</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In Body] The Body element is a child of the meetingresponse:SendResponse element and the composemail:SmartForward element only when protocol version 16.1 is used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2059,6 +2275,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000957</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In BodyPart] Protocol version 16.1 supports this [BodyPart] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R133</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
 		<ns1:Description>[In BodyPartPreference] The BodyPartPreference element is an optional element that sets preference information related to the type and size of information that is returned from searching, synchronizing, or fetching a message part.</ns1:Description>
@@ -2097,7 +2322,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R137</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
-		<ns1:Description>[In BodyPartPreference] The Options element ([MS-ASCMD] section 2.2.3.119) MUST be the parent element of the BodyPartPreference element.</ns1:Description>
+		<ns1:Description>[In BodyPartPreference] The Options element ([MS-ASCMD] section 2.2.3.125) MUST be the parent element of the BodyPartPreference element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2215,6 +2440,16 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1068</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
 		<ns1:Description>[In BodyPartPreference] Protocol version 16.0 supports this [BodyPartPreference] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>
+MS-ASAIRS_R1000959</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In BodyPartPreference] Protocol version 16.1 supports this [BodyPartPreference] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2365,9 +2600,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000961</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In BodyPreference] Protocol version 16.1 supports this [BodyPreference] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1073</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
-		<ns1:Description>[In City] The City element is an optional child element of the Location element (section 2.2.2.27) that specifies the city in which an event occurs.</ns1:Description>
+		<ns1:Description>[In City] The City element is an optional child element of the Location element (section 2.2.2.28) that specifies the city in which an event occurs.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2419,9 +2663,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000963</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In City] Protocol version 16.1 supports this [City] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1079</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
-		<ns1:Description>[In ClientId] The ClientId element is a required child element of the Add element (section 2.2.2.2) in a Sync command request ([MS-ASCMD] section 2.2.2.20) and a required child element of the Attachment element (section 2.2.2.7) in a Sync command response. </ns1:Description>
+		<ns1:Description>[In ClientId] The ClientId element is a required child element of the Add element (section 2.2.2.2) in a Sync command request ([MS-ASCMD] section 2.2.2.21) and a required child element of the Attachment element (section 2.2.2.7) in a Sync command response. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2500,6 +2753,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000965</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In ClientId] Protocol version 16.1 supports this [ClientId] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1087</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
 		<ns1:Description>[In Content] The Content element is a required child element of the Add element (section 2.2.2.2) that contains the content of the attachment that is being added.</ns1:Description>
@@ -2548,6 +2810,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1092</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
 		<ns1:Description>[In Content] Protocol version 16.0 supports this [Content] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R10920912</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In Content] Protocol version 16.1 supports this [Content] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2644,6 +2915,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000967</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentId (Add)] Protocol version 16.1 supports this [ContentId (Add)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R160</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.16.2</ns1:Doc_Sect>
 		<ns1:Description>[In ContentId (Attachment)] The ContentId element is an optional child element of the Attachment element (section 2.2.2.7) that contains the unique object ID for an attachment.</ns1:Description>
@@ -2710,6 +2990,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1100</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.16.2</ns1:Doc_Sect>
 		<ns1:Description>[In ContentId (Attachment)] Protocol version 16.0 supports this [ContentId (Attachment)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000969</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentId (Attachment)] Protocol version 16.1 supports this [ContentId (Attachment)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2806,6 +3095,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000971</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentLocation (Add)] Protocol version 16.1 supports this [ContentLocation (Add)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R166</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17.2</ns1:Doc_Sect>
 		<ns1:Description>[In ContentLocation (Attachment)] The ContentLocation element is an optional child element of the Attachment element (section 2.2.2.2) that contains the relative URI for an attachment.</ns1:Description>
@@ -2887,9 +3185,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000973</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentLocation (Attachment)] Protocol version 16.1 supports this [ContentLocation (Attachment)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1109</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
-		<ns1:Description>[In ContentType] The ContentType element is a child element of the Add element (section 2.2.2.2) and the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.128.1).</ns1:Description>
+		<ns1:Description>[In ContentType] The ContentType element is a child element of the Add element (section 2.2.2.2) and the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.139.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2968,9 +3275,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000975</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentType (Add)] Protocol version 16.1 supports this [ContentType (Add)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1118</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18.2</ns1:Doc_Sect>
-		<ns1:Description>[In ContentType (Properties)] The ContentType element is an optional child element of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.132.1) that specifies the type of data returned in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.1) of an ItemOperations command response ([MS-ASCMD] section 2.2.2.9).</ns1:Description>
+		<ns1:Description>[In ContentType (Properties)] The ContentType element is an optional child element of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.139.2) that specifies the type of data returned in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.2) of an ItemOperations command response ([MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3022,9 +3338,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000977</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentType (Properties)] Protocol version 16.1 supports this [ContentType (Properties)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1124</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
-		<ns1:Description>[In Country] The Country element is an optional child element of the Location element (section 2.2.2.27) that specifies the country in which an event occurs.</ns1:Description>
+		<ns1:Description>[In Country] The Country element is an optional child element of the Location element (section 2.2.2.28) that specifies the country in which an event occurs.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3070,6 +3395,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1129</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
 		<ns1:Description>[In Country] Protocol version 16.0 supports this [Country] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000979</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In Country] Protocol version 16.1 supports this [Country] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3123,7 +3457,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R176</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20.1</ns1:Doc_Sect>
-		<ns1:Description>[In Data (Body)] This element [the Data (Body) element] MUST NOT be present in multipart responses, as specified in [MS-ASCMD] section 2.2.2.9.1.</ns1:Description>
+		<ns1:Description>[In Data (Body)] This element [the Data (Body) element] MUST NOT be present in multipart responses, as specified in [MS-ASCMD] section 2.2.2.10.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3159,7 +3493,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R181</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20.1</ns1:Doc_Sect>
-		<ns1:Description>[In Data (Body)] The EstimatedDataSize element (section 2.2.2.12.2) provides a rough estimation of the actual size of the complete content of the Data string.</ns1:Description>
+		<ns1:Description>[In Data (Body)] The EstimatedDataSize element (section 2.2.2.23.2) provides a rough estimation of the actual size of the complete content of the Data string.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3202,9 +3536,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000981</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.1</ns1:Doc_Sect>
+		<ns1:Description>[In Data (Body)] Protocol version 16.1 supports this [Data (Body)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R182</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20.2</ns1:Doc_Sect>
-		<ns1:Description>[In Data (BodyPart)] The Data element is an optional child element of the BodyPart element (section 2.2.2.5).</ns1:Description>
+		<ns1:Description>[In Data (BodyPart)] The Data element is an optional child element of the BodyPart element (section 2.2.2.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3301,6 +3644,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000983</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.2</ns1:Doc_Sect>
+		<ns1:Description>[In Data (BodyPart)] Protocol version 16.1 supports this [Data (BodyPart)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1138</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In Delete] The Delete element is an optional child element of the Attachments element (section 2.2.2.8) that deletes an attachment from a calendar item or from a draft email item.</ns1:Description>
@@ -3367,6 +3719,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1145</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
 		<ns1:Description>[In Delete] Protocol version 16.0 supports this [Delete] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000985</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
+		<ns1:Description>[In Delete] Protocol version 16.1 supports this [Delete] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3454,6 +3815,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000987</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.22.1</ns1:Doc_Sect>
+		<ns1:Description>[In DisplayName (Add)] Protocol version 16.1 supports this [DisplayName (Add)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R190</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.22.2</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayName (Attachment)] The DisplayName element is an optional child element of the Attachment element (section 2.2.2.2) that specifies the display name of the attachment.</ns1:Description>
@@ -3526,6 +3896,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R100089</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.22.2</ns1:Doc_Sect>
+		<ns1:Description>[In DisplayName (Attachment)] Protocol version 16.1 supports this [DisplayName (Attachment)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1360</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.22.3</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayName (Location)] The DisplayName element is an optional child element of the Location element (section 2.2.2.27) that specifies the display name of an event's location.</ns1:Description>
@@ -3583,6 +3962,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1366</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.22.3</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayName (Location)] Protocol version 16.0 supports this [DisplayName (Location)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000991</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.22.3</ns1:Doc_Sect>
+		<ns1:Description>[In DisplayName (Location)] Protocol version 16.1 supports this [DisplayName (Location)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3688,6 +4076,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000993</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.23.1</ns1:Doc_Sect>
+		<ns1:Description>[In EstimatedDataSize (Attachment)] Protocol version 16.1 supports this [EstimatedDataSize (Attachment)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R201</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.23.2</ns1:Doc_Sect>
 		<ns1:Description>[In EstimatedDataSize (Body)] The EstimatedDataSize element is an optional child element of the Body element (section 2.2.2.9).</ns1:Description>
@@ -3755,6 +4152,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1157</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.23.2</ns1:Doc_Sect>
 		<ns1:Description>[In EstimatedDataSize (Body)] Protocol version 16.0 supports this [EstimatedDataSize (Body)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000995</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.23.2</ns1:Doc_Sect>
+		<ns1:Description>[In EstimatedDataSize (Body)] Protocol version 16.1 supports this [EstimatedDataSize (Body)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3834,9 +4240,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000997</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.23.3</ns1:Doc_Sect>
+		<ns1:Description>[In EstimatedDataSize (BodyPart)] Protocol version 16.1 supports this [EstimatedDataSize (BodyPart)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R209</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.24</ns1:Doc_Sect>
-		<ns1:Description>[In FileReference] The FileReference element is a child element of the itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.63.1), the Delete element (section 2.2.2.21), and the Attachment element (section 2.2.2.2).</ns1:Description>
+		<ns1:Description>The FileReference element is a child element of the itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.67.1), the Delete element (section 2.2.2.21), and the Attachment element (section 2.2.2.7). For more details about the FileReference element, see sections 2.2.2.24.1 through 2.2.2.24.3. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3845,7 +4260,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R211</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.24.1</ns1:Doc_Sect>
-		<ns1:Description>[In FileReference (Attachment)] The FileReference element is a required child element of the Attachment element (section 2.2.2.2) that specifies the location of an item on the server to retrieve.</ns1:Description>
+		<ns1:Description>[In FileReference (Attachment)] The FileReference element is a required child element of the Attachment element (section 2.2.2.7) that specifies the location of an item on the server to retrieve.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3897,6 +4312,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1000999</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.24.1</ns1:Doc_Sect>
+		<ns1:Description>[In FileReference (Attachment)] Protocol version 16.1 supports this [FileReference (Attachment)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1367</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.24.1</ns1:Doc_Sect>
 		<ns1:Description>[In FileReference (Attachment)] In protocol version 16.0, the server will return the FileReference element along with the ClientId element (section 2.2.2.14) as child elements of the Attachment element in response to a Sync command request ([MS-ASCMD] section 2.2.2.20) that adds an attachment [either] to a calendar item [or to a draft email item]. </ns1:Description>
@@ -3908,7 +4332,16 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1368</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.24.1</ns1:Doc_Sect>
-		<ns1:Description>[In FileReference (Attachment)] In protocol version 16.0, the server will return the FileReference element along with the ClientId element (section 2.2.2.14) as child elements of the Attachment element in response to a Sync command request ([MS-ASCMD] section 2.2.2.20) that adds an attachment [either to a calendar item or] to a draft email item. </ns1:Description>
+		<ns1:Description>In protocol version 16.0, the server will return the FileReference element along with the ClientId element (section 2.2.2.14) as child elements of the Attachment element in response to a Sync command request ([MS-ASCMD] section 2.2.1.21) that adds an attachment either to a calendar item or to a draft email item. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001000</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.24.1</ns1:Doc_Sect>
+		<ns1:Description>In protocol version 16.1, the server will return the FileReference element along with the ClientId element (section 2.2.2.14) as child elements of the Attachment element in response to a Sync command request ([MS-ASCMD] section 2.2.1.21) that adds an attachment either to a calendar item or to a draft email item. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4014,6 +4447,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.24.2</ns1:Doc_Sect>
+		<ns1:Description>[In FileReference (Delete)] Protocol version 16.1 supports this [FileReference (Delete)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1375</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.24.2</ns1:Doc_Sect>
 		<ns1:Description>[In FileReference (Delete)] The FileReference element is not supported as a child of the Delete element in protocol versions 2.5, 12.0, 12.1, 14.0, and 14.1.</ns1:Description>
@@ -4104,6 +4546,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.24.3</ns1:Doc_Sect>
+		<ns1:Description>[In FileReference (Fetch)] Protocol version 16.1 supports this [FileReference (Fetch)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1175</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
 		<ns1:Description>[In InstanceId] The InstanceId element specifies the original, unmodified, UTC date and time of a particular instance of a recurring series.</ns1:Description>
@@ -4115,7 +4566,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1176</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
-		<ns1:Description>[In InstanceId] The InstanceId element is a child element of the calendar:Exception element ([MS-ASCAL] section 2.2.2.21) in a Sync command request and response ([MS-ASCMD] section 2.2.2.20) and a child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in a Sync command response for an orphan instance. </ns1:Description>
+		<ns1:Description>[In InstanceId] The InstanceId element is a child element of the calendar:Exception element ([MS-ASCAL] section 2.2.2.21) in a Sync command request and response ([MS-ASCMD] section 2.2.1.21) and a child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in a Sync command response for an orphan instance.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4133,7 +4584,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1178</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
-		<ns1:Description>[In InstanceId] The server will include the InstanceId element along with the ServerId element ([MS-ASCMD] section 2.2.3.156.7) in any Sync command response to the client's Sync command request.</ns1:Description>
+		<ns1:Description>[In InstanceId] The server will include the InstanceId element along with the ServerId element ([MS-ASCMD] section 2.2.3.166.8) in any Sync command response to the client's Sync command request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4188,6 +4639,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1184</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
 		<ns1:Description>[In InstanceId] Protocol version 16.0 supports this [InstanceId] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001006</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
+		<ns1:Description>[In InstanceId] Protocol version 16.1 supports this [InstanceId] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4302,6 +4762,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001008</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.26.1</ns1:Doc_Sect>
+		<ns1:Description>[In IsInline (Add)] Protocol version 16.1 supports this [IsInline (Add)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R216</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.26.2</ns1:Doc_Sect>
 		<ns1:Description>[In IsInline (Attachment)] The IsInline element is an optional child element of the Attachment element (section 2.2.2.7).</ns1:Description>
@@ -4403,9 +4872,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001010</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.26.2</ns1:Doc_Sect>
+		<ns1:Description>[In IsInline (Attachment)] Protocol version 16.1 supports this [IsInline (Attachment)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1193</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
-		<ns1:Description>[In Latitude] The Latitude element is an optional child element of the Location element (section 2.2.2.27) that specifies the latitude of the event's location.</ns1:Description>
+		<ns1:Description>[In Latitude] The Latitude element is an optional child element of the Location element (section 2.2.2.28) that specifies the latitude of the event's location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4457,6 +4935,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001012</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In Latitude] Protocol version 16.1 supports this [Latitude] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1199</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
 		<ns1:Description>[In Location] The Location element specifies details about the location of an event. </ns1:Description>
@@ -4486,7 +4973,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1202</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] itemoperations:Schema ([MS-ASCMD] section 2.2.3.145), in a command request</ns1:Description>
+		<ns1:Description>[In Location] itemoperations:Schema ([MS-ASCMD] section 2.2.3.158), in a command request</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4495,7 +4982,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1203</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] itemoperations:Properties ([MS-ASCMD] section 2.2.3.128.1), in a command response</ns1:Description>
+		<ns1:Description>[In Location] itemoperations:Properties ([MS-ASCMD] section 2.2.3.139.2), in a command response</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4504,7 +4991,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1204</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] search:Properties ([MS-ASCMD] section 2.2.3.128.2), in a command response</ns1:Description>
+		<ns1:Description>[In Location] search:Properties ([MS-ASCMD] section 2.2.3.139.3), in a command response</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4513,7 +5000,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1205</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] calendar:Exception ([MS-ASCAL] section 2.2.2.20), in a command request or a command response</ns1:Description>
+		<ns1:Description>[In Location] calendar:Exception ([MS-ASCAL] section 2.2.2.21), in a command request or a command response</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4522,7 +5009,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1206</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] email:MeetingRequest ([MS-ASEMAIL] section 2.2.2.46), in a command request or a command response</ns1:Description>
+		<ns1:Description>[In Location] email:MeetingRequest ([MS-ASEMAIL] section 2.2.2.48), in a command request or a command response</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4538,9 +5025,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001013</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In Location] The client's request can include an empty Location element to remove the location from an item. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1208</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] It has the following child elements [Accuracy, Altitude, AltitudeAccuracy, Annotation, City, Country, DisplayName, Latitude, LocationUri, Longitude, PostalCode, State, Street], all of which are optional:</ns1:Description>
+		<ns1:Description>[In Location] he Location element has the following child elements [Accuracy, Altitude, AltitudeAccuracy, Annotation, City, Country, DisplayName, Latitude, LocationUri, Longitude, PostalCode, State, Street], all of which are optional:</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4621,7 +5117,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1217</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] LocationUri (section 2.2.2.28)</ns1:Description>
+		<ns1:Description>[In Location] LocationUri (section 2.2.2.29)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4630,7 +5126,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1218</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] Longitude (section 2.2.2.29)</ns1:Description>
+		<ns1:Description>[In Location] Longitude (section 2.2.2.30)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4639,7 +5135,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1219</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] PostalCode (section 2.2.2.33)</ns1:Description>
+		<ns1:Description>[In Location] PostalCode (section 2.2.2.34)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4648,7 +5144,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1220</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] State (section 2.2.2.35)</ns1:Description>
+		<ns1:Description>[In Location] State (section 2.2.2.36)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4657,7 +5153,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1221</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] Street (section 2.2.2.37)</ns1:Description>
+		<ns1:Description>[In Location] Street (section 2.2.2.38)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4700,6 +5196,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001015</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In Location] Protocol version 16.1 supports this [Location] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1226</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
 		<ns1:Description>[In Location] The calendar:Location element, as specified in [MS-ASCAL] section 2.2.2.26, and the email:Location element, as specified in [MS-ASEMAIL] section 2.2.2.44, are used with protocol versions 2.5, 12.0, 12.1, 14.0, and 14.1 instead of the Location element of the AirSyncBase namespace.</ns1:Description>
@@ -4711,7 +5216,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1227</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
-		<ns1:Description>[In LocationUri] The LocationUri element is an optional child element of the Location element (section 2.2.2.27) that specifies the URI for the location of an event.</ns1:Description>
+		<ns1:Description>[In LocationUri] The LocationUri element is an optional child element of the Location element (section 2.2.2.28) that specifies the URI for the location of an event.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4763,9 +5268,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001017</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
+		<ns1:Description>[In LocationUri] Protocol version 16.1 supports this [LocationUri] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1233</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.30</ns1:Doc_Sect>
-		<ns1:Description>[In Longitude] The Longitude element is an optional child element of the Location element (section 2.2.2.27) that specifies the longitude of the event's location.</ns1:Description>
+		<ns1:Description>[In Longitude] The Longitude element is an optional child element of the Location element (section 2.2.2.28) that specifies the longitude of the event's location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4811,6 +5325,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1238</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.30</ns1:Doc_Sect>
 		<ns1:Description>[In Longitude] Protocol version 16.0 supports this [Longitude] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001019</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.30</ns1:Doc_Sect>
+		<ns1:Description>[In Longitude] Protocol version 16.1 supports this [Longitude] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4946,6 +5469,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1242</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.31.1</ns1:Doc_Sect>
 		<ns1:Description>[In Method (Add)] Protocol version 16.0 supports this [Method (Add)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001022</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.31.1</ns1:Doc_Sect>
+		<ns1:Description>[In Method (Add)] Protocol version 16.1 supports this [Method (Add)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5090,6 +5622,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1246</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.31.2</ns1:Doc_Sect>
 		<ns1:Description>[In Method (Attachment)] Protocol version 16.0 supports this [Method (Attachment)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001025</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.31.2</ns1:Doc_Sect>
+		<ns1:Description>[In Method (Attachment)] Protocol version 16.1 supports this [Method (Attachment)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5251,9 +5792,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001028</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.32</ns1:Doc_Sect>
+		<ns1:Description>[In NativeBodyType] Protocol version 16.1 supports this [NativeBodyType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R243</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
-		<ns1:Description>[In Part] The Part element ([MS-ASCMD] section 2.2.3.120) is an optional child element of the Body element (section 2.2.2.4) that contains an integer index into the metadata of the multipart response.</ns1:Description>
+		<ns1:Description>[In Part] The Part element ([MS-ASCMD] section 2.2.3.130) is an optional child element of the Body element (section 2.2.2.4) that contains an integer index into the metadata of the multipart response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5332,9 +5882,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001031</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
+		<ns1:Description>[In Part] Protocol version 16.1 supports this [Part] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1255</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.34</ns1:Doc_Sect>
-		<ns1:Description>[In PostalCode] The PostalCode element is an optional child element of the Location element (section 2.2.2.27) that specifies the postal code for the address of the event's location.</ns1:Description>
+		<ns1:Description>[In PostalCode] The PostalCode element is an optional child element of the Location element (section 2.2.2.28) that specifies the postal code for the address of the event's location.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5350,7 +5909,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASAIRS_R1257</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASAIRS_R1001034</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.34</ns1:Doc_Sect>
 		<ns1:Description>[In PostalCode] Protocol version 12.1 does not support this [PostalCode] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -5380,6 +5939,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1260</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.34</ns1:Doc_Sect>
 		<ns1:Description>[In PostalCode] Protocol version 16.0 supports this [PostalCode] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001035</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.34</ns1:Doc_Sect>
+		<ns1:Description>[In PostalCode] Protocol version 16.1 supports this [PostalCode] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5431,6 +5999,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001036</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.35.1</ns1:Doc_Sect>
+		<ns1:Description>[In Preview (Body)] If the Body element in the request contains a Type element of value 1 (Plain text) and there is valid data returned in the Data element (section 2.2.2.20.1), then the Preview element will not be returned in the same response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R252</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.35.1</ns1:Doc_Sect>
 		<ns1:Description>[In Preview (Body)] The Preview element MUST have no child elements.</ns1:Description>
@@ -5470,6 +6047,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1264</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.35.1</ns1:Doc_Sect>
 		<ns1:Description>[In Preview (Body)] Protocol version 16.0 supports this [Preview (Body)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001039</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.35.1</ns1:Doc_Sect>
+		<ns1:Description>[In Preview (Body)] Protocol version 16.1 supports this [Preview (Body)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5566,9 +6152,18 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001042</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.35.2</ns1:Doc_Sect>
+		<ns1:Description>[In Preview (BodyPart)] Protocol version 16.1 supports this [Preview (BodyPart)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R259</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.35.3</ns1:Doc_Sect>
-		<ns1:Description>[In Preview (BodyPartPreference)] The Preview element is an optional child element of the BodyPartPreference element (section 2.2.2.6).</ns1:Description>
+		<ns1:Description>[In Preview (BodyPartPreference)] The Preview element is an optional child element of the BodyPartPreference element (section 2.2.2.11).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5650,6 +6245,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1272</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.35.3</ns1:Doc_Sect>
 		<ns1:Description>[In Preview (BodyPartPreference)] Protocol version 16.0 supports this [Preview (BodyPartPreference)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001045</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.35.3</ns1:Doc_Sect>
+		<ns1:Description>[In Preview (BodyPartPreference)] Protocol version 16.1 supports this [Preview (BodyPartPreference)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5746,6 +6350,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001048</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.35.4</ns1:Doc_Sect>
+		<ns1:Description>[In Preview (BodyPreference)] Protocol version 16.1 supports this [Preview (BodyPreference)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1277</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.36</ns1:Doc_Sect>
 		<ns1:Description>[In State] The State element is an optional child element of the Location element (section 2.2.2.27) that specifies the state or province in which an event occurs.</ns1:Description>
@@ -5794,6 +6407,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1282</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.36</ns1:Doc_Sect>
 		<ns1:Description>[In State] Protocol version 16.0 supports this [State] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001051</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.36</ns1:Doc_Sect>
+		<ns1:Description>[In State] Protocol version 16.1 supports this [State] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5872,6 +6494,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001054</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
+		<ns1:Description>[In Status] Protocol version 16.1 supports this [Status] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1287</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.38</ns1:Doc_Sect>
 		<ns1:Description>[In Street] The Street element is an optional child element of the Location element (section 2.2.2.27) that specifies the street address of the event's location.</ns1:Description>
@@ -5920,6 +6551,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1292</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.38</ns1:Doc_Sect>
 		<ns1:Description>[In Street] Protocol version 16.0 supports this [Street] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001057</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.38</ns1:Doc_Sect>
+		<ns1:Description>[In Street] Protocol version 16.1 supports this [Street] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6036,6 +6676,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001059</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.39.1</ns1:Doc_Sect>
+		<ns1:Description>[In Truncated (Body)] Protocol version 16.1 supports this [Truncated (Body)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R281</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.39.2</ns1:Doc_Sect>
 		<ns1:Description>[In Truncated (BodyPart)] The Truncated element is an optional child element of the BodyPart element (section 2.2.2.5) that specifies whether the body of the item has been truncated according to the BodyPartPreference element (section 2.2.2.6) indicated by the client.</ns1:Description>
@@ -6102,6 +6751,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1399</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.39.2</ns1:Doc_Sect>
 		<ns1:Description>[In Truncated (BodyPart)] Protocol version 16.0 supports this [Truncated (BodyPart)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001062</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.39.2</ns1:Doc_Sect>
+		<ns1:Description>[In Truncated (BodyPart)] Protocol version 16.1 supports this [Truncated (BodyPart)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6216,6 +6874,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001064</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.40.1</ns1:Doc_Sect>
+		<ns1:Description>[InTruncationSize (BodyPartPreference)] Protocol version 16.1 supports this [TruncationSize (BodyPartPreference)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R295</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.40.2</ns1:Doc_Sect>
 		<ns1:Description>[In TruncationSize (BodyPreference)] The TruncationSize element is an optional child element of the BodyPreference type (section 2.2.2.7).</ns1:Description>
@@ -6300,6 +6967,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1304</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.40.2</ns1:Doc_Sect>
 		<ns1:Description>[In TruncationSize (BodyPreference)] Protocol version 16.0 supports this [TruncationSize (BodyPreference)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001067</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.40.2</ns1:Doc_Sect>
+		<ns1:Description>[In TruncationSize (BodyPreference)] Protocol version 16.1 supports this [TruncationSize (BodyPreference)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6441,6 +7117,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001070</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.41.1</ns1:Doc_Sect>
+		<ns1:Description>[In Type (Body)] Protocol version 16.1 supports this [Type (Body)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1400</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.41.1</ns1:Doc_Sect>
 		<ns1:Description>[In Type (Body)] For calendar items in protocol version 16.0, the only valid values for this element [Type] is 1 (plain text).</ns1:Description>
@@ -6452,7 +7137,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1401</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.41.1</ns1:Doc_Sect>
-		<ns1:Description>[In Type (Body)] For calendar items in protocol version 16.0, the only valid values for this element [Type] is 2 (HTML).</ns1:Description>
+		<ns1:Description>[In Type (Body)] For calendar items in protocol version 16.1, the only valid values for this element [Type] is 2 (HTML).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6516,6 +7201,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1312</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.41.2</ns1:Doc_Sect>
 		<ns1:Description>[In Type (BodyPart)] Protocol version 16.0 supports this [Type (BodyPart)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001073</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.41.2</ns1:Doc_Sect>
+		<ns1:Description>[In Type (BodyPart)] Protocol version 16.1 supports this [Type (BodyPart)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6594,6 +7288,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001076</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.41.3</ns1:Doc_Sect>
+		<ns1:Description>[In Type (BodyPartPreference)] Protocol version 16.1 supports this [Type (BodyPartPreference)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R325</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.41.4</ns1:Doc_Sect>
 		<ns1:Description>[In Type (BodyPreference)] The Type element is a required child element of the BodyPreference element (section 2.2.2.12).</ns1:Description>
@@ -6651,6 +7354,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R1320</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.41.4</ns1:Doc_Sect>
 		<ns1:Description>[In Type (BodyPreference)] Protocol version 16.0 supports this [Type (BodyPreference)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001079</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.41.4</ns1:Doc_Sect>
+		<ns1:Description>[In Type (BodyPreference)] Protocol version 16.1 supports this [Type (BodyPreference)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6738,6 +7450,15 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R1001082</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In TopLevelSchemaProps] Protocol version 16.1 supports this [TopLevelSchemaProps] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R10010</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
 		<ns1:Description>[In Commands] The following table lists the commands[ItemOperations, Search, Sync] that use the XML elements specified by this protocol[MS-ASAIRS].</ns1:Description>
@@ -6777,15 +7498,31 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R338</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In ItemOperations] The request message for the ItemOperations command can include the following elements:
- FileReference (section 2.2.2.13.2)
- BodyPreference (section 2.2.2.7)
- Type (section 2.2.2.22.4)
- TruncationSize (section 2.2.2.21.2)
- AllOrNone (section 2.2.2.1.2)
- BodyPartPreference (section 2.2.2.6)
- Type (section 2.2.2.22.3)
- TruncationSize (section 2.2.2.21.1)
- AllOrNone (section 2.2.2.1.1)</ns1:Description>
+§	FileReference (section 2.2.2.24.3)
+§	BodyPreference (section 2.2.2.12)
+§	Type (section 2.2.2.41.4)
+§	TruncationSize (section 2.2.2.40.2)
+§	AllOrNone (section 2.2.2.3.2)
+§	Preview (section 2.2.2.35.4)
+§	BodyPartPreference (section 2.2.2.11) 
+§	Type (section 2.2.2.41.3)
+§	TruncationSize (section 2.2.2.40.1)
+§	AllOrNone (section 2.2.2.3.1)
+§	Preview (section 2.2.2.35.3)
+§	Location (section 2.2.2.28)
+§	DisplayName (section 2.2.2.22.3)
+§	Annotation (section 2.2.2.6)
+§	Street (section 2.2.2.38)
+§	City (section 2.2.2.13)
+§	State (section 2.2.2.36)
+§	Country (section 2.2.2.19)
+§	PostalCode (section 2.2.2.34)
+§	Latitude (section 2.2.2.27)
+§	Longitude (section 2.2.2.30)
+§	Accuracy (section 2.2.2.1)
+§	Altitude (section 2.2.2.4)
+§	AltitudeAccuracy (section 2.2.2.5)
+§	LocationUri (section 2.2.2.29)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6807,14 +7544,16 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R339</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1.3</ns1:Doc_Sect>
 		<ns1:Description>[In Search] The request message for the Search command can include the following elements and types:
- BodyPreference (section 2.2.2.7)
- Type (section 2.2.2.22.4)
- TruncationSize (section 2.2.2.21.2)
- AllOrNone (section 2.2.2.1.2)
- BodyPartPreference (section 2.2.2.6)
- Type (section 2.2.2.22.3)
- TruncationSize (section 2.2.2.21.1)
- AllOrNone (section 2.2.2.1.1)</ns1:Description>
+§	BodyPreference (section 2.2.2.12)
+§	Type (section 2.2.2.41.4)
+§	TruncationSize (section 2.2.2.40.2)
+§	AllOrNone (section 2.2.2.3.2) 
+§	Preview (section 2.2.2.35.4)
+§	BodyPartPreference (section 2.2.2.11)
+§	Type (section 2.2.2.41.3)
+§	TruncationSize (section 2.2.2.40.1)
+§	AllOrNone (section 2.2.2.3.1) 
+§	Preview (section 2.2.2.35.3)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6845,21 +7584,43 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R340</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1.5</ns1:Doc_Sect>
 		<ns1:Description>[In Sync] The request message for the Sync command can include the following elements and types: 
- BodyPreference (section 2.2.2.7)
- Type (section 2.2.2.22.4)
- TruncationSize (section 2.2.2.21.2)
- AllOrNone (section 2.2.2.1.2)
- Preview (section 2.2.2.18.3)
- BodyPartPreference (section 2.2.2.6)
- Type (section 2.2.2.22.3)
- TruncationSize (section 2.2.2.21.1)
- AllOrNone (section 2.2.2.1.1)
- Preview (section 2.2.2.18.3)
- Attachments (section 2.2.2.3)
- Attachment (section 2.2.2.2)
- FileReference (section 2.2.2.13.1)
- Method (section 2.2.2.15)
- EstimatedDataSize (section 2.2.2.12.1)</ns1:Description>
+§	BodyPreference (section 2.2.2.12)
+§	Type (section 2.2.2.41.4)
+§	TruncationSize (section 2.2.2.40.2)
+§	AllOrNone (section 2.2.2.3.2)
+§	Preview (section 2.2.2.35.4)
+§	BodyPartPreference (section 2.2.2.11)
+§	Type (section 2.2.2.41.3)
+§	TruncationSize (section 2.2.2.40.1)
+§	AllOrNone (section 2.2.2.3.1)
+§	Preview (section 2.2.2.35.3)
+§	InstanceId (section 2.2.2.25) 
+§	Location (section 2.2.2.28)
+§	DisplayName (section 2.2.2.22.3)
+§	Annotation (section 2.2.2.6)
+§	Street (section 2.2.2.38)
+§	City (section 2.2.2.13)
+§	State (section 2.2.2.36)
+§	Country (section 2.2.2.19)
+§	PostalCode (section 2.2.2.34)
+§	Latitude (section 2.2.2.27)
+§	Longitude (section 2.2.2.30)
+§	Accuracy (section 2.2.2.1)
+§	Altitude (section 2.2.2.4)
+§	AltitudeAccuracy (section 2.2.2.5)
+§	LocationUri (section 2.2.2.29)
+§	Attachments (section 2.2.2.8)
+§	Add (section 2.2.2.2)
+§	ClientId (section 2.2.2.14)
+§	Method (section 2.2.2.31.1)
+§	ContentType (section 2.2.2.18.1)
+§	Content (section 2.2.2.15)
+§	DisplayName (section 2.2.2.22.1)
+§	ContentId (section 2.2.2.16.1)
+§	ContentLocation (section 2.2.2.17.1)
+§	IsInline (section 2.2.2.26.1)
+§	Delete (section 2.2.2.21)
+§	FileReference (section 2.2.2.24.2)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6898,7 +7659,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R345</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding data type] specified for that element, the server SHOULD return protocol status error 2 for an ItemOperations command (as specified in [MS-ASCMD] section 2.2.2.9).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding data type] specified for that element, the server SHOULD return protocol status error 2 for an ItemOperations command (as specified in [MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6908,7 +7669,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R10021</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding number of instances] specified for that element, the server SHOULD return protocol status error 2 for an ItemOperations command (as specified in [MS-ASCMD] section 2.2.2.9).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding number of instances] specified for that element, the server SHOULD return protocol status error 2 for an ItemOperations command (as specified in [MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6918,7 +7679,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R10022</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding order] specified for that element, the server SHOULD return protocol status error 2 for an ItemOperations command (as specified in [MS-ASCMD] section 2.2.2.9).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding order] specified for that element, the server SHOULD return protocol status error 2 for an ItemOperations command (as specified in [MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6928,7 +7689,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R10023</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding placement] specified for that element, the server SHOULD return protocol status error 2 for an ItemOperations command (as specified in [MS-ASCMD] section 2.2.2.9).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding placement] specified for that element, the server SHOULD return protocol status error 2 for an ItemOperations command (as specified in [MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6938,7 +7699,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R10012</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding data type] specified for that element, the server SHOULD return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.15).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding data type] specified for that element, the server SHOULD return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.1.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6948,7 +7709,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R10024</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding number of instances] specified for that element, the server SHOULD return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.15).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding number of instances] specified for that element, the server SHOULD return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.1.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6958,7 +7719,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R10025</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding order] specified for that element, the server SHOULD return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.15).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding order] specified for that element, the server SHOULD return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.1.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6968,7 +7729,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R10026</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding placement] specified for that element, the server SHOULD return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.15).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding placement] specified for that element, the server SHOULD return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.1.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6978,7 +7739,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R347</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding data type] specified for that element, the server SHOULD return protocol status error 6 for a Sync command (as specified in [MS-ASCMD] section 2.2.2.20).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding data type] specified for that element, the server SHOULD return protocol status error 6 for a Sync command (as specified in [MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6988,7 +7749,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R10027</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding number of instances] specified for that element, the server SHOULD return protocol status error 6 for a Sync command (as specified in [MS-ASCMD] section 2.2.2.20).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding number of instances] specified for that element, the server SHOULD return protocol status error 6 for a Sync command (as specified in [MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6998,7 +7759,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R10028</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding order] specified for that element, the server SHOULD return protocol status error 6 for a Sync command (as specified in [MS-ASCMD] section 2.2.2.20).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding order] specified for that element, the server SHOULD return protocol status error 6 for a Sync command (as specified in [MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7008,7 +7769,7 @@ If the client requests a text body whose native format is HTML, and the size of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R10029</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding placement] specified for that element, the server SHOULD return protocol status error 6 for a Sync command (as specified in [MS-ASCMD] section 2.2.2.20).</ns1:Description>
+		<ns1:Description>[In Validating XML] Unless specified in the following table, if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding placement] specified for that element, the server SHOULD return protocol status error 6 for a Sync command (as specified in [MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7122,19 +7883,46 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R355</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In ItemOperations] The response message for the ItemOperations command can include the following:
- Body (section 2.2.2.4)
- Type (section 2.2.2.22.1)
- EstimatedDataSize (section 2.2.2.12.2)
- Truncated (section 2.2.2.20.1)
- Data (section 2.2.2.10.1)
- Preview (section 2.2.2.18.1)
- BodyPart (section 2.2.2.5)
- Status (section 2.2.2.19)
- Type (section 2.2.2.22.2)
- EstimatedDataSize (section 2.2.2.12.3)
- Truncated (section 2.2.2.20.2)
- Data (section 2.2.2.10.2)
- Preview (section 2.2.2.18.2)</ns1:Description>
+§	Attachments (section 2.2.2.8)
+§	Attachment (section 2.2.2.7)
+§	DisplayName (section 2.2.2.22.2)
+§	FileReference (section 2.2.2.24.1)
+§	Method (section 2.2.2.31.2)
+§	EstimatedDataSize (section 2.2.2.23.1)
+§	ContentId (section 2.2.2.16.2)
+§	ContentLocation (section 2.2.2.17.2)
+§	IsInline (section 2.2.2.26.2)
+§	email2:UmAttDuration ([MS-ASEMAIL] section 2.2.2.81)
+§	email2:UmAttOrder ([MS-ASEMAIL] section 2.2.2.82)
+§	Body (section 2.2.2.9)
+§	Type (section 2.2.2.41.1)
+§	EstimatedDataSize (section 2.2.2.23.2)
+§	Truncated (section 2.2.2.39.1)
+§	Data (section 2.2.2.20.1)
+§	itemoperations:Part (section 2.2.2.33) 
+§	Preview (section 2.2.2.35.1)
+§	BodyPart (section 2.2.2.10)
+§	Status (section 2.2.2.37)
+§	Type (section 2.2.2.41.2)
+§	EstimatedDataSize (section 2.2.2.23.3)
+§	Truncated (section 2.2.2.39.2)
+§	Data (section 2.2.2.20.2)
+§	Preview (section 2.2.2.35.2)
+§	ContentType (section 2.2.2.18.2) 
+§	Location (section 2.2.2.28)
+§	DisplayName (section 2.2.2.22.3)
+§	Annotation (section 2.2.2.6)
+§	Street (section 2.2.2.38)
+§	City (section 2.2.2.13)
+§	State (section 2.2.2.36)
+§	Country (section 2.2.2.19)
+§	PostalCode (section 2.2.2.34)
+§	Latitude (section 2.2.2.27)
+§	Longitude (section 2.2.2.30)
+§	Accuracy (section 2.2.2.1)
+§	Altitude (section 2.2.2.4)
+§	AltitudeAccuracy (section 2.2.2.5)
+§	LocationUri (section 2.2.2.29)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -7144,28 +7932,44 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R356</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In Search] The response message for the Search command can include the following:
- Attachments (section 2.2.2.3)
- Attachment (section 2.2.2.2)
- DisplayName (section 2.2.2.11)
- FileReference (section 2.2.2.13.1)
- Method (section 2.2.2.15)
- EstimatedDataSize (section 2.2.2.12.1)
- ContentId (section 2.2.2.8)
- ContentLocation (section 2.2.2.9)
- IsInline (section 2.2.2.14)
- Body (section 2.2.2.4)
- Type (section 2.2.2.22.1)
- EstimatedDataSize (section 2.2.2.12.2)
- Truncated (section 2.2.2.20.1)
- Data (section 2.2.2.10.1)
- Preview (section 2.2.2.18.1)
- BodyPart (section 2.2.2.5)
- Status (section 2.2.2.19)
- Type (section 2.2.2.22.2)
- EstimatedDataSize (section 2.2.2.12.3)
- Truncated (section 2.2.2.20.2)
- Data (section 2.2.2.10.2)
- Preview (section 2.2.2.18.2)</ns1:Description>
+§	Attachments (section 2.2.2.8)
+§	Attachment (section 2.2.2.7)
+§	DisplayName (section 2.2.2.22.2)
+§	FileReference (section 2.2.2.24.1)
+§	Method (section 2.2.2.31.2)
+§	EstimatedDataSize (section 2.2.2.23.1)
+§	ContentId (section 2.2.2.16.2)
+§	ContentLocation (section 2.2.2.17.2)
+§	IsInline (section 2.2.2.26.2)
+§	email2:UmAttDuration ([MS-ASEMAIL] section 2.2.2.81)
+§	email2:UmAttOrder ([MS-ASEMAIL] section 2.2.2.82)
+§	Body (section 2.2.2.9)
+§	Type (section 2.2.2.41.1)
+§	EstimatedDataSize (section 2.2.2.23.2)
+§	Truncated (section 2.2.2.39.1)
+§	Data (section 2.2.2.20.1) 
+§	Preview (section 2.2.2.35.1)
+§	BodyPart (section 2.2.2.10)
+§	Status (section 2.2.2.37)
+§	Type (section 2.2.2.41.2)
+§	EstimatedDataSize (section 2.2.2.23.3)
+§	Truncated (section 2.2.2.39.2)
+§	Data (section 2.2.2.20.2)
+§	Preview (section 2.2.2.35.2)
+§	Location (section 2.2.2.28)
+§	DisplayName (section 2.2.2.22.3)
+§	Annotation (section 2.2.2.6)
+§	Street (section 2.2.2.38)
+§	City (section 2.2.2.13)
+§	State (section 2.2.2.36)
+§	Country (section 2.2.2.19)
+§	PostalCode (section 2.2.2.34)
+§	Latitude (section 2.2.2.27)
+§	Longitude (section 2.2.2.30)
+§	Accuracy (section 2.2.2.1)
+§	Altitude (section 2.2.2.4)
+§	AltitudeAccuracy (section 2.2.2.5)
+§	LocationUri (section 2.2.2.29)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -7175,24 +7979,48 @@ If the client requests a text body whose native format is HTML, and the size of 
 		<ns1:REQ_ID>MS-ASAIRS_R357</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In Sync] The response message for the Sync command can include the following:
- Attachments (section 2.2.2.3)
- Attachment (section 2.2.2.2)
- DisplayName (section 2.2.2.11)
- FileReference (section 2.2.2.13.1)
- Method (section 2.2.2.15)
- EstimatedDataSize (section 2.2.2.12.1)
- ContentId (section 2.2.2.8)
- ContentLocation (section 2.2.2.9)
- IsInline (section 2.2.2.14)
- Body (section 2.2.2.4)
- Type (section 2.2.2.22.1)
- Truncated (section 2.2.2.20.1)
- Data (section 2.2.2.10.1)
- BodyPart (section 2.2.2.5)
- Type (section 2.2.2.22.2)
- Truncated (section 2.2.2.20.2)
- Data (section 2.2.2.10.2)
- NativeBodyType (section 2.2.2.16)</ns1:Description>
+§	Attachments (section 2.2.2.8)
+§	Attachment (section 2.2.2.7)
+§	DisplayName (section 2.2.2.22.2)
+§	ClientId (section 2.2.2.14)
+§	FileReference (section 2.2.2.24.1)
+§	Method (section 2.2.2.31.2)
+§	EstimatedDataSize (section 2.2.2.23.1)
+§	ContentId (section 2.2.2.16.2)
+§	ContentLocation (section 2.2.2.17.2)
+§	IsInline (section 2.2.2.26.2)
+§	email2:UmAttDuration ([MS-ASEMAIL] section 2.2.2.81)
+§	email2:UmAttOrder ([MS-ASEMAIL] section 2.2.2.82)
+§	Body (section 2.2.2.9)
+§	Type (section 2.2.2.41.1)
+§	EstimatedDataSize (section 2.2.2.23.2) 
+§	Truncated (section 2.2.2.39.1)
+§	Data (section 2.2.2.20.1) 
+§	Preview (section 2.2.2.35.1)
+§	BodyPart (section 2.2.2.10)
+§	Status (section 2.2.2.37)
+§	Type (section 2.2.2.41.2) 
+§	EstimatedDataSize (section 2.2.2.23.3)
+§	Truncated (section 2.2.2.39.2)
+§	Data (section 2.2.2.20.2) 
+§	Preview (section 2.2.2.35.2)
+§	InstanceId (section 2.2.2.25) 
+§	NativeBodyType (section 2.2.2.32)
+§	Location (section 2.2.2.28)
+§	DisplayName (section 2.2.2.22.3)
+§	Annotation (section 2.2.2.6)
+§	Street (section 2.2.2.38)
+§	City (section 2.2.2.13)
+§	State (section 2.2.2.36)
+§	Country (section 2.2.2.19)
+§	PostalCode (section 2.2.2.34)
+§	Latitude (section 2.2.2.27)
+§	Longitude (section 2.2.2.30)
+§	Accuracy (section 2.2.2.1)
+§	Altitude (section 2.2.2.4)
+§	AltitudeAccuracy (section 2.2.2.5)
+§	LocationUri (section 2.2.2.29)
+</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
