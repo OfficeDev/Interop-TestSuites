@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set MS-ASCON_Supported to true to indicate the product version of the SUT supports the MS-ASCON service. Otherwise set MS-ASCON_Supported to false. -->
+    <Property name="MS-ASCON_Supported" value="true" />
+  </Properties>
+</TestSite>

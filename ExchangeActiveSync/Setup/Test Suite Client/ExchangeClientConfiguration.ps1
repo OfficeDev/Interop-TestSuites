@@ -208,8 +208,9 @@ OutputQuestion "1: Microsoft Exchange Server 2007"
 OutputQuestion "2: Microsoft Exchange Server 2010" 
 OutputQuestion "3: Microsoft Exchange Server 2013" 
 OutputQuestion "4: Microsoft Exchange Server 2016" 
+OutputQuestion "5: Microsoft Exchange Server 2019"
 
-$sutVersions =@('1','2','3','4')
+$sutVersions =@('1','2','3','4','5')
 $sutVersion = ReadUserChoice $sutVersions "sutVersion" 
 Switch ($sutVersion)
 {
@@ -217,6 +218,7 @@ Switch ($sutVersion)
     "2" { $sutVersion = "ExchangeServer2010"; break }
     "3" { $sutVersion = "ExchangeServer2013"; break }
     "4" { $sutVersion = "ExchangeServer2016"; break }
+    "5" { $sutVersion = "ExchangeServer2019"; break }
 }
 OutputText "The SUT version you selected is $sutVersion." 
 
@@ -227,7 +229,8 @@ if($sutVersion -ge "ExchangeServer2010")
     OutputQuestion "2: Protocol version is 14.0" 
     OutputQuestion "3: Protocol version is 14.1" 
     OutputQuestion "4: Protocol version is 16.0" 
-    $protocolVersions =@('1','2','3',4)
+    OutputQuestion "5: Protocol version is 16.1" 
+    $protocolVersions =@('1','2','3','4','5')
     $protocolVersion = ReadUserChoice $protocolVersions "protocolVersion"
     Switch ($protocolVersion)
     {
@@ -235,6 +238,7 @@ if($sutVersion -ge "ExchangeServer2010")
         "2" {$protocolVersion = "14.0"; break}
         "3" {$protocolVersion = "14.1"; break}
         "4" {$protocolVersion = "16.0"; break}
+        "5" {$protocolVersion = "16.1"; break}
     }
 }
 OutputText "The ActiveSync protocol version you selected is $protocolVersion." 
