@@ -117,21 +117,24 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone] When the value [of the AllOrNone element] is set to 1 (TRUE) and the content has not been truncated, all of the content is retrieved.");
             #endregion
 
-            #region Verify Search command related elements
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command related elements
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
 
-            this.VerifyBodyElements(searchItem.Email.Body, true, false, true);
+                this.VerifyBodyElements(searchItem.Email.Body, true, false, true);
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R53");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R53");
 
-            // Verify MS-ASAIRS requirement: MS-ASAIRS_R53
-            Site.CaptureRequirementIfAreEqual<string>(
-                allContentItem.Email.Body.Data,
-                searchItem.Email.Body.Data,
-                53,
-                @"[In AllOrNone] When the value [of the AllOrNone element] is set to 1 (TRUE) and the content has not been truncated, all of the content is searched.");
-            #endregion
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R53
+                Site.CaptureRequirementIfAreEqual<string>(
+                    allContentItem.Email.Body.Data,
+                    searchItem.Email.Body.Data,
+                    53,
+                    @"[In AllOrNone] When the value [of the AllOrNone element] is set to 1 (TRUE) and the content has not been truncated, all of the content is searched.");
+                #endregion
+            }
         }
         #endregion
 
@@ -192,20 +195,23 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone] When the value is set to 1 (TRUE) and the content has been truncated, the content is not retrieved. ");
             #endregion
 
-            #region Verify Search command related elements
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command related elements
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
 
-            this.VerifyBodyElements(searchItem.Email.Body, true, true, true);
+                this.VerifyBodyElements(searchItem.Email.Body, true, true, true);
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R375");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R375");
 
-            // Verify MS-ASAIRS requirement: MS-ASAIRS_R375
-            Site.CaptureRequirementIfIsNull(
-                searchItem.Email.Body.Data,
-                375,
-                @"[In AllOrNone] When the value is set to 1 (TRUE) and the content has been truncated, the content is not searched. ");
-            #endregion
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R375
+                Site.CaptureRequirementIfIsNull(
+                    searchItem.Email.Body.Data,
+                    375,
+                    @"[In AllOrNone] When the value is set to 1 (TRUE) and the content has been truncated, the content is not searched. ");
+                #endregion
+            }
 
             #region Verify common requirements
             // According to above steps, requirement MS-ASAIRS_R78 can be covered directly
@@ -279,21 +285,24 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone] When the value is set to 0 (FALSE), the truncated is retrieved. ");
             #endregion
 
-            #region Verify Search command related elements
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command related elements
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
 
-            this.VerifyBodyElements(searchItem.Email.Body, false, true, true);
+                this.VerifyBodyElements(searchItem.Email.Body, false, true, true);
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R55");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R55");
 
-            // Verify MS-ASAIRS requirement: MS-ASAIRS_R55
-            Site.CaptureRequirementIfAreEqual<string>(
-                body.Substring(0, (int)bodyPreference[0].TruncationSize),
-                searchItem.Email.Body.Data,
-                55,
-                @"[In AllOrNone] When the value is set to 0 (FALSE), the truncated is searched. ");
-            #endregion
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R55
+                Site.CaptureRequirementIfAreEqual<string>(
+                    body.Substring(0, (int)bodyPreference[0].TruncationSize),
+                    searchItem.Email.Body.Data,
+                    55,
+                    @"[In AllOrNone] When the value is set to 0 (FALSE), the truncated is searched. ");
+                #endregion
+            }
 
             #region Verify requirement
             // According to above steps, requirement MS-ASAIRS_R180 can be captured directly
@@ -369,21 +378,24 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone] When the value is set to 0 (FALSE), the nontruncated content is retrieved. ");
             #endregion
 
-            #region Verify Search command related elements
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command related elements
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
 
-            this.VerifyBodyElements(searchItem.Email.Body, false, false, true);
+                this.VerifyBodyElements(searchItem.Email.Body, false, false, true);
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R380");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R380");
 
-            // Verify MS-ASAIRS requirement: MS-ASAIRS_R380
-            Site.CaptureRequirementIfAreEqual<string>(
-                allContentItem.Email.Body.Data,
-                searchItem.Email.Body.Data,
-                380,
-                @"[In AllOrNone] When the value is set to 0 (FALSE), the nontruncated content is searched. ");
-            #endregion
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R380
+                Site.CaptureRequirementIfAreEqual<string>(
+                    allContentItem.Email.Body.Data,
+                    searchItem.Email.Body.Data,
+                    380,
+                    @"[In AllOrNone] When the value is set to 0 (FALSE), the nontruncated content is searched. ");
+                #endregion
+            }
         }
         #endregion
 
@@ -450,24 +462,27 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone (BodyPreference)] If the AllOrNone element is not included in the request, then the truncated content is retrieved as if the value was set to 0 (FALSE).");
             #endregion
 
-            #region Verify Search command related elements
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command related elements
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
 
-            this.VerifyBodyElements(searchItem.Email.Body, null, true, true);
+                this.VerifyBodyElements(searchItem.Email.Body, null, true, true);
 
-            Site.Assert.AreEqual<string>(
-                body.Substring(0, (int)bodyPreference[0].TruncationSize),
-                searchItem.Email.Body.Data,
-                "The server should return the data truncated to the size requested by TruncationSize when the AllOrNone element is not included in the request and the available data exceeds the truncation size.");
+                Site.Assert.AreEqual<string>(
+                    body.Substring(0, (int)bodyPreference[0].TruncationSize),
+                    searchItem.Email.Body.Data,
+                    "The server should return the data truncated to the size requested by TruncationSize when the AllOrNone element is not included in the request and the available data exceeds the truncation size.");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R73");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R73");
 
-            // Verify MS-ASAIRS requirement: MS-ASAIRS_R73
-            Site.CaptureRequirement(
-                73,
-                @"[In AllOrNone (BodyPreference)] If the AllOrNone element is not included in the request, then the truncated content is searched as if the value was set to 0 (FALSE).");
-            #endregion
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R73
+                Site.CaptureRequirement(
+                    73,
+                    @"[In AllOrNone (BodyPreference)] If the AllOrNone element is not included in the request, then the truncated content is searched as if the value was set to 0 (FALSE).");
+                #endregion
+            }
 
             #region Verify common requirements
             // According to above steps, requirements MS-ASAIRS_R276 and MS-ASAIRS_R77 can be captured directly
@@ -549,21 +564,24 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone (BodyPreference)] If the AllOrNone element is not included in the request, then the non-truncated content is retrieved as if the value was set to 0 (FALSE).");
             #endregion
 
-            #region Verify Search command related elements
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command related elements
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
 
-            this.VerifyBodyElements(searchItem.Email.Body, null, false, true);
+                this.VerifyBodyElements(searchItem.Email.Body, null, false, true);
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R422");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R422");
 
-            // Verify MS-ASAIRS requirement: MS-ASAIRS_R422
-            Site.CaptureRequirementIfAreEqual<string>(
-                allContentItem.Email.Body.Data,
-                searchItem.Email.Body.Data,
-                422,
-                @"[In AllOrNone (BodyPreference)] If the AllOrNone element is not included in the request, then the non-truncated content is searched as if the value was set to 0 (FALSE).");
-            #endregion
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R422
+                Site.CaptureRequirementIfAreEqual<string>(
+                    allContentItem.Email.Body.Data,
+                    searchItem.Email.Body.Data,
+                    422,
+                    @"[In AllOrNone (BodyPreference)] If the AllOrNone element is not included in the request, then the non-truncated content is searched as if the value was set to 0 (FALSE).");
+                #endregion
+            }
 
             #region Verify common requirements
             // According to above steps, requirement MS-ASAIRS_R277 can be captured directly
@@ -661,28 +679,31 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 "Server should return the entire content for the request and same response no matter AllOrNone is true or false if the TruncationSize element is absent in ItemOperations command request.");
             #endregion
 
-            #region Verify Search command related elements
-            // Call Search command with AllOrNone setting to true
-            DataStructures.Search searchItemAllNoneTrue = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItemAllOrNoneTrue.Email.ConversationId, bodyPreferenceAllOrNoneTrue, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command related elements
+                // Call Search command with AllOrNone setting to true
+                DataStructures.Search searchItemAllNoneTrue = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItemAllOrNoneTrue.Email.ConversationId, bodyPreferenceAllOrNoneTrue, null);
 
-            this.VerifyBodyElements(searchItemAllNoneTrue.Email.Body, true, false, false);
+                this.VerifyBodyElements(searchItemAllNoneTrue.Email.Body, true, false, false);
 
-            // Call Search command with AllOrNone setting to false
-            DataStructures.Search searchItemAllNoneFalse = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItemAllOrNoneTrue.Email.ConversationId, bodyPreferenceAllOrNoneFalse, null);
+                // Call Search command with AllOrNone setting to false
+                DataStructures.Search searchItemAllNoneFalse = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItemAllOrNoneTrue.Email.ConversationId, bodyPreferenceAllOrNoneFalse, null);
 
-            this.VerifyBodyElements(searchItemAllNoneFalse.Email.Body, false, false, false);
+                this.VerifyBodyElements(searchItemAllNoneFalse.Email.Body, false, false, false);
 
-            Site.Log.Add(
-                LogEntryKind.Debug,
-                "Entire content: {0}, content for AllOrNone TRUE when TruncationSize element is absent: {1}, content for AllOrNone FALSE when TruncationSize element is absent: {2}.",
-                allContentItem.Email.Body.Data,
-                searchItemAllNoneTrue.Email.Body.Data,
-                searchItemAllNoneFalse.Email.Body.Data);
+                Site.Log.Add(
+                    LogEntryKind.Debug,
+                    "Entire content: {0}, content for AllOrNone TRUE when TruncationSize element is absent: {1}, content for AllOrNone FALSE when TruncationSize element is absent: {2}.",
+                    allContentItem.Email.Body.Data,
+                    searchItemAllNoneTrue.Email.Body.Data,
+                    searchItemAllNoneFalse.Email.Body.Data);
 
-            Site.Assert.IsTrue(
-                allContentItem.Email.Body.Data == searchItemAllNoneTrue.Email.Body.Data && searchItemAllNoneTrue.Email.Body.Data == searchItemAllNoneFalse.Email.Body.Data,
-                "Server should return the entire content for the request and same response no matter AllOrNone is true or false if the TruncationSize element is absent in Search command request.");
-            #endregion
+                Site.Assert.IsTrue(
+                    allContentItem.Email.Body.Data == searchItemAllNoneTrue.Email.Body.Data && searchItemAllNoneTrue.Email.Body.Data == searchItemAllNoneFalse.Email.Body.Data,
+                    "Server should return the entire content for the request and same response no matter AllOrNone is true or false if the TruncationSize element is absent in Search command request.");
+                #endregion
+            }
 
             #region Verify common requirements
             // According to above steps, requirements MS-ASAIRS_R300 and MS-ASAIRS_R401 can be captured directly
@@ -750,11 +771,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             this.VerifyMultipleBodyPreference(itemOperationsItem.Email, body, bodyPreferences);
             #endregion
 
-            #region Verify Search command related elements
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreferences, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command related elements
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreferences, null);
 
-            this.VerifyMultipleBodyPreference(searchItem.Email, body, bodyPreferences);
-            #endregion
+                this.VerifyMultipleBodyPreference(searchItem.Email, body, bodyPreferences);
+                #endregion
+            }
 
             #region Verify common requirements
             // According to above steps, requirement MS-ASAIRS_R80 can be captured directly
@@ -810,11 +834,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             this.VerifyBodyPreview(itemOperationsItem.Email, allContentItem.Email, bodyPreference);
             #endregion
 
-            #region Verify Search command related elements
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command related elements
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
 
-            this.VerifyBodyPreview(searchItem.Email, allContentItem.Email, bodyPreference);
-            #endregion
+                this.VerifyBodyPreview(searchItem.Email, allContentItem.Email, bodyPreference);
+                #endregion
+            }
 
             #region Verify common requirements
             // According to above steps, the following requirements can be captured directly
@@ -874,13 +901,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 "The Body element should be included in a response message whenever new items are created.");
             #endregion
 
-            #region Verify Search command related elements
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, null, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command related elements
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, null, null);
 
-            Site.Assert.IsNotNull(
-                searchItem.Email.Body,
-                "The Body element should be included in a response message whenever new items are created.");
-            #endregion
+                Site.Assert.IsNotNull(
+                    searchItem.Email.Body,
+                    "The Body element should be included in a response message whenever new items are created.");
+                #endregion
+            }
 
             #region Verify requirements
             // Add the debug information
@@ -1118,28 +1148,31 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             this.VerifyType(itemOperationsItem.Email, bodyPreference[0].Type);
             #endregion
 
-            #region Verify Search command
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
-
-            this.VerifyType(searchItem.Email, bodyPreference[0].Type);
-
-            try
+            if (Common.IsRequirementEnabled(1234, this.Site))
             {
-                Convert.FromBase64String(searchItem.Email.Body.Data);
+                #region Verify Search command
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
 
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R179");
+                this.VerifyType(searchItem.Email, bodyPreference[0].Type);
 
-                // Verify MS-ASAIRS requirement: MS-ASAIRS_R179
-                Site.CaptureRequirement(
-                    179,
-                    @"[In Data (Body)] If the value of the Type element is 3 (RTF), the value of the Data element is encoded using base64 encoding.");
+                try
+                {
+                    Convert.FromBase64String(searchItem.Email.Body.Data);
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R179");
+
+                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R179
+                    Site.CaptureRequirement(
+                        179,
+                        @"[In Data (Body)] If the value of the Type element is 3 (RTF), the value of the Data element is encoded using base64 encoding.");
+                }
+                catch (FormatException)
+                {
+                    Site.Assert.Fail("The value of Data element should be encoded using base64 encoding.");
+                }
+                #endregion
             }
-            catch (FormatException)
-            {
-                Site.Assert.Fail("The value of Data element should be encoded using base64 encoding.");
-            }
-            #endregion
 
             #region Verify requirements
             // According to above steps, requirement MS-ASAIRS_R306 can be captured directly
@@ -1216,11 +1249,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             this.VerifyType(itemOperationsItem.Email, bodyPreference[0].Type);
             #endregion
 
-            #region Verify Search command
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);
 
-            this.VerifyType(searchItem.Email, bodyPreference[0].Type);
-            #endregion
+                this.VerifyType(searchItem.Email, bodyPreference[0].Type);
+                #endregion
+            }
 
             #region Verify requirements
             // According to above steps, requirement MS-ASAIRS_R305 can be captured directly
@@ -1335,7 +1371,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             Site.CaptureRequirementIfIsNull(
                 itemOperationsItemMultiPart.Email.Body.Data,
                 176,
-                @"[In Data (Body)] This element [the Data (Body) element] MUST NOT be present in multipart responses, as specified in [MS-ASCMD] section 2.2.2.9.1.");
+                @"[In Data (Body)] This element [the Data (Body) element] MUST NOT be present in multipart responses, as specified in [MS-ASCMD] section 2.2.2.10.1.");
             #endregion
         }
         #endregion

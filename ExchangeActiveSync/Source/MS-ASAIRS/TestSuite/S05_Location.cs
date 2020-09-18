@@ -101,9 +101,12 @@
             this.GetItemOperationsResult(this.User1Information.CalendarCollectionId, syncItem.ServerId, null, null, null, null);
             #endregion
 
-            #region Call Search command to search the added calendar item.
-            this.GetSearchResult(subject, this.User1Information.CalendarCollectionId, null, null, null);
-            #endregion
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Call Search command to search the added calendar item.
+                this.GetSearchResult(subject, this.User1Information.CalendarCollectionId, null, null, null);
+                #endregion
+            }
         }
         #endregion
     }
