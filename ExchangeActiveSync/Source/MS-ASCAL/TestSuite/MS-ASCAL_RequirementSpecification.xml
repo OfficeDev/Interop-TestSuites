@@ -1957,7 +1957,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2235</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In BusyStatus] The value 4 (working elsewhere) is not supported in protocol versions 2.5, 12.0, 12.1[, 14.0, and 14.1].</ns1:Description>
+		<ns1:Description>[In BusyStatus] The value 4 (working elsewhere) is not supported in protocol versions [2.5, 12.0,] 12.1[, 14.0, and 14.1].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1966,7 +1966,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2235001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In BusyStatus] The value -1 (Status Unknow) is not supported in protocol versions 2.5, 12.0, 12.1[, 14.0, and 14.1].</ns1:Description>
+		<ns1:Description>[In BusyStatus] The value -1 (Status Unknow) is not supported in protocol versions [2.5, 12.0,] 12.1[, 14.0, and 14.1].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6553,7 +6553,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R372</ns1:REQ_ID>
@@ -6585,7 +6585,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R374</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
-		<ns1:Description>[In Recurrence] [The Recurrence element can have the following child elements:]Type (section 2.2.2.45): One instance of this element is required in protocol version 2.5, 12.0, 12.1[, 14.0 and 14.1.]</ns1:Description>
+		<ns1:Description>[In Recurrence] [The Recurrence element can have the following child elements:]Type (section 2.2.2.45): One instance of this element is required in protocol version 2.5, 12.0, 12.1, 14.0 and 14.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6594,28 +6594,10 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R374001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
-		<ns1:Description>[In Recurrence] [The Recurrence element can have the following child elements:]Type (section 2.2.2.45): One instance of this element is required in protocol version [2.5, 12.0, 12.1, ]14.0 [and 14.1.]</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCAL_R374002</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
-		<ns1:Description>[In Recurrence] [The Recurrence element can have the following child elements:]Type (section 2.2.2.45): One instance of this element is required in protocol version [2.5, 12.0, 12.1, 14.0 and] 14.1.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCAL_R374003</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
 		<ns1:Description>[In Recurrence] [The Recurrence element can have the following child elements:]Type (section 2.2.2.45): optional in protocol versions 16.0 and 16.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -8205,7 +8187,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R448</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.45</ns1:Doc_Sect>
-		<ns1:Description>[In Type] The Type element is a required child element of the Recurrence element (section 2.2.2.35) in protocol version 2.5, 12.0, 12.1, 14.4, and 14.1; it is an optional child element of the Recurrence element in protocol versions 16.0 and 16.1.</ns1:Description>
+		<ns1:Description>[In Type] The Type element is a required child element of the Recurrence element (section 2.2.2.35) in protocol version 2.5, 12.0, 12.1, 14.4, and 14.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8217,7 +8199,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Description>[In Type] [The Type element is a required child element of the Recurrence element (section 2.2.2.35) in protocol version 2.5, 12.0, 12.1, 14.4, and 14.1; ]it is an optional child element of the Recurrence element in protocol versions 16.0 and 16.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
