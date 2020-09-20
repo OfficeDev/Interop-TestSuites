@@ -901,17 +901,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 "The Body element should be included in a response message whenever new items are created.");
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
-            {
-                #region Verify Search command related elements
-                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, null, null);
-
-                Site.Assert.IsNotNull(
-                    searchItem.Email.Body,
-                    "The Body element should be included in a response message whenever new items are created.");
-                #endregion
-            }
-
             #region Verify requirements
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R105");
@@ -978,20 +967,57 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 "The Body element should be included in a response message whenever an item has changes.");
             #endregion
 
-            #region Verify Search command after update item
-            DataStructures.Search updateSearchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, updatedItemOperationItem.Email.ConversationId, null, null);
+            if (Common.IsRequirementEnabled(1234, this.Site))
+            {
+                #region Verify Search command related elements
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, null, null);
 
-            // Assert the Read has been changed to the new value
-            Site.Assert.AreEqual<bool?>(
-               !searchItem.Email.Read,
-               updateSearchItem.Email.Read,
-               "The Read property of the item should be updated.");
+                Site.Assert.IsNotNull(
+                    searchItem.Email.Body,
+                    "The Body element should be included in a response message whenever new items are created.");
+                #endregion
 
-            // Assert the body is not null when the item property is changed
-            Site.Assert.IsNotNull(
-                updateSearchItem.Email.Body,
-                "The Body element should be included in a response message whenever an item has changes.");
-            #endregion
+                #region Update Read property of the item again
+                changeData = new Request.SyncCollectionChange
+                {
+                    ServerId = syncItem.ServerId,
+                    ApplicationData =
+                        new Request.SyncCollectionChangeApplicationData
+                        {
+                            Items = new object[] { !syncItem.Email.Read },
+                            ItemsElementName = new Request.ItemsChoiceType7[] { Request.ItemsChoiceType7.Read }
+                        }
+                };
+
+                syncCollection = TestSuiteHelper.CreateSyncCollection(this.SyncKey, this.User2Information.InboxCollectionId);
+                syncCollection.Commands = new object[] { changeData };
+
+                request = Common.CreateSyncRequest(new Request.SyncCollection[] { syncCollection });
+
+                // Call Sync command to update the item
+                syncStore = this.ASAIRSAdapter.Sync(request);
+
+                Site.Assert.AreEqual<byte>(
+                    1,
+                    syncStore.CollectionStatus,
+                    "The server should return status 1 in the Sync command response to indicate sync command executes successfully.");
+                #endregion
+
+                #region Verify Search command after update item
+                DataStructures.Search updateSearchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, updatedItemOperationItem.Email.ConversationId, null, null);
+
+                // Assert the Read has been changed to the new value
+                Site.Assert.AreEqual<bool?>(
+                   !searchItem.Email.Read,
+                   updateSearchItem.Email.Read,
+                   "The Read property of the item should be updated.");
+
+                // Assert the body is not null when the item property is changed
+                Site.Assert.IsNotNull(
+                    updateSearchItem.Email.Body,
+                    "The Body element should be included in a response message whenever an item has changes.");
+                #endregion
+            }
 
             #region Verify requirements
             // According to above steps, requirement MS-ASAIRS_R386 can be captured directly
