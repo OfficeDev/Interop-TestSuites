@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R509Enabled to true to verify that implementation does require that the client device has requested and acknowledged the security policy settings before the client is allowed to synchronize with the server, unless a security policy is set on the implementation to allow it [client is allowed to synchronize with the implementation]. Set R509Enabled to false to disable this requirement.-->
+    <Property name="R509Enabled" value="true"/>
+    <!-- Set R535Enabled to true to verify that implementation does respond to a security policy settings request in an initial Provision command request with a response in the following format. Set R535Enabled to false to disable this requirement.-->
+    <Property name="R535Enabled" value="true"/>
+    <!-- Set R537Enabled to true to verify that implementation does return a status code in the next command response if the policy key in the command is mismatched. Set R537Enabled to false to disable this requirement.-->
+    <Property name="R537Enabled" value="true"/>
+    <!-- Set R695Enabled to true to verify that implementation does return a value of 5 in the Status element if the policy key in the policy acknowledgment is mismatched. Set R695Enabled to false to disable this requirement.-->
+    <Property name="R695Enabled" value="true"/>
+    <!-- Set R697Enabled to true to verify that if the level of compliance does not meet the server's requirements, the implementation does return an appropriate value in the Status (section 2.2.2.53.2) element. Set R697Enabled to false to disable this requirement.-->
+    <Property name="R697Enabled" value="true"/>
+    <!-- Set R702Enabled to true to verify that implementation does respond to the next command request from the client with a remote wipe directive if the client reports failure. Set R702Enabled to false to disable this requirement.-->
+    <Property name="R702Enabled" value="true"/>
+    <!-- Set R711Enabled to true to verify that the PolicyKey element is a string representation of a 32-bit unsigned integer. Set R711Enabled to false to disable this requirement.-->
+    <Property name="R711Enabled" value="true"/>
+    <!-- Set R758Enabled to true to verify that implementation does respond to an empty initial Provision command request with a response in the following format. Set R758Enabled to false to disable this requirement.-->
+    <Property name="R758Enabled" value="true"/>
+    <!-- Set R1044Enabled to true to verify that when a policy setting that was previously set is unset on the server, the  implementation does specify the element that represents the setting as an empty tag. Set R1044Enabled to false to disable this requirement.-->
+    <Property name="R1044Enabled" value="true"/>
+    <!-- Set R1045Enabled to true to verify that when a policy setting that was previously set is unset on the server, the  implementation does specify the element that represents the setting as a default value. Set R1045Enabled to false to disable this requirement.-->
+    <Property name="R1045Enabled" value="true"/>
+    <!-- Set R1042Enabled to true to verify that if the client reports failure, the implementation does return a value of 1 in the Status element. Set R1042Enabled to false to disable this requirement.-->
+    <Property name="R1042Enabled" value="false"/>
+    <!-- Set R1048Enabled to true to verify that if the client reports failure, the implementation does return a value of 2 in the Status element. Set R1048Enabled to false to disable this requirement.-->
+    <Property name="R1048Enabled" value="true"/>
+    <!-- Set R1046Enabled to true to verify that if The client returned a value of 2 in the Status child element of the Policy element in a request, the implementation does return a value of 139 in the Status element. Set R1046Enabled to false to disable this requirement.-->
+    <Property name="R1046Enabled" value="true"/>
+    <!-- Set R1041Enabled to true to verify that if the client reports success, the implementation does return a value of 1 in the Status element. Set R1041Enabled to false to disable this requirement.-->
+    <Property name="R1041Enabled" value="false"/>
+    <!-- Set R1047Enabled to true to verify that if the client reports success, the implementation does return a value of 1 in the Status element. Set R1047Enabled to false to disable this requirement.-->
+    <Property name="R1047Enabled" value="true"/>
+  </Properties>
+</TestSite>

@@ -42,6 +42,7 @@
     <None Include="MS-ASTASK_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASTASK_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASTASK_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ASTASK_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASTASK_TestSuite.deployment.ptfconfig" />
     <None Include="MS-ASTASK_TestSuite.ptfconfig" />
   </ItemGroup>

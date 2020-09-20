@@ -2,18 +2,19 @@
 <TestSettings name="MS-ASHTTP" id="d61b449c-4242-467e-b1aa-ebfe1587760c" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-ASHTTP test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="MS-ASHTTP.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASHTTP_TestSuite.ptfconfig" />
     <DeploymentItem filename="..\Common\Common\CommonScript\ConfigureSSLSetting.ps1" />
+    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASHTTP_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASHTTP_RequirementSpecification.xml" />
-    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
+    <DeploymentItem filename="MS-ASHTTP.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\Resources\EmailWithAttachment.txt" />
-    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-
-    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />    <DeploymentItem filename="TestSuite\MS-ASHTTP_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
@@ -36,4 +37,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>
