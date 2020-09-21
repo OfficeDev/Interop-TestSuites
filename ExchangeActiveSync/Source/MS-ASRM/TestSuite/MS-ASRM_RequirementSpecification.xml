@@ -511,7 +511,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R471</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In EditAllowed] Conversely, if [EditAllowed is set to FALSE and] composemail:ReplaceMime] is present[in a SmartReply command], the server will not attach the original rights-managed email message as an attachment.</ns1:Description>
+		<ns1:Description>[In EditAllowed] Conversely, if [EditAllowed is set to FALSE and] composemail:ReplaceMime is present[in a SmartReply command], the server will not attach the original rights-managed email message as an attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3468,7 +3468,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R217</ns1:REQ_ID>
