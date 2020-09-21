@@ -52,6 +52,7 @@
     <None Include="MS-ASRM_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASRM_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASRM_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ASRM_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASRM_TestSuite.deployment.ptfconfig" />
     <None Include="MS-ASRM_TestSuite.ptfconfig" />
   </ItemGroup>
@@ -67,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MS-ASRM_RequirementSpecification.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

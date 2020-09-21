@@ -4,14 +4,15 @@
   <Deployment>
     <DeploymentItem filename="TestSuite\MS-ASRM_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASRM_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASRM_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASRM_RequirementSpecification.xml" />
     <DeploymentItem filename="..\Common\Common\CommonScript\ConfigureSSLSetting.ps1" />
     <DeploymentItem filename="TestSuite\MS-ASRM_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
+    <DeploymentItem filename="TestSuite\MS-ASRM_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASRM_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-ASRM.runsettings" />
     <DeploymentItem filename="TestSuite\MS-ASRM_TestSuite.ptfconfig" />
+    <DeploymentItem filename="MS-ASRM.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-ASRM_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
   <Execution>
@@ -35,4 +36,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>
