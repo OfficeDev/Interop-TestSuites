@@ -67,9 +67,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MS-ASRM_RequirementSpecification.xml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="MS-ASRM_RequirementSpecification.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
