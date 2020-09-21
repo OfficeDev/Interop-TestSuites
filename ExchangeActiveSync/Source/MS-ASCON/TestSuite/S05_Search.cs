@@ -42,6 +42,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
         [TestCategory("MSASCON"), TestMethod()]
         public void MSASCON_S05_TC01_Search()
         {
+            //This test case is blocked by TDI, so skip this case.
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1234, this.Site), "Blocked by TDI.");
+
             #region Create a conversation and get the created conversation item.
             string conversationSubject = Common.GenerateResourceName(Site, "Conversation");
             ConversationItem sourceConversationItem = this.CreateConversation(conversationSubject);
@@ -65,7 +68,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             // The Search command executed successfully, so this requirement can be captured.
             Site.CaptureRequirement(
                 221,
-                @"[In Processing a Search Command] The server sends a Search command response, as specified in [MS-ASCMD] section 2.2.2.14.");
+                @"[In Processing a Search Command] The server sends a Search command response, as specified in [MS-ASCMD] section 2.2.1.16.");
 
             Site.Assert.AreEqual<int>(searchResponse.Results.Count, sourceConversationItem.ServerId.Count, "The count of the search result should be equal to the count of items in the conversation.");
 
@@ -102,6 +105,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
         [TestCategory("MSASCON"), TestMethod()]
         public void MSASCON_S05_TC02_Search_MessagePart()
         {
+            //This test case is blocked by TDI, so skip this case.
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(1234, this.Site), "Blocked by TDI.");
             this.CheckActiveSyncVersionIsNot140();
 
             #region User2 sends an email to User1
@@ -171,7 +176,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             Site.CaptureRequirementIfIsNotNull(
                 searchStore.Results[0].Email.BodyPart,
                 235,
-                @"[In Sending a Message Part] If the client [Sync command request ([MS-ASCMD] section 2.2.2.19.1),] Search command request ([MS-ASCMD] section 2.2.2.14.1) [or ItemOperations command request 9([MS-ASCMD] section 2.2.2.8.2)] includes the airsyncbase:BodyPartPreference element, then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.");
+                @"[In Sending a Message Part] If the client [Sync command request ([MS-ASCMD] section 2.2.1.21),] Search command request ([MS-ASCMD] section 2.2.1.16) [or ItemOperations command request 9([MS-ASCMD] section 2.2.1.10)] includes the airsyncbase:BodyPartPreference element(section 2.2.2.2), then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R40");
@@ -179,7 +184,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             // A message part and its meta-data are encapsulated by BodyPart element in the Search response, so this requirement can be captured.
             Site.CaptureRequirement(
                 40,
-                @"[In BodyPart] The airsyncbase:BodyPart element<1> ([MS-ASAIRS] section 2.2.2.5) encapsulates a message part and its meta-data in [a Sync command response ([MS-ASCMD] section 2.2.2.19), an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) or] a Search command response ([MS-ASCMD] section 2.2.2.14).");
+                @"[In BodyPart] The airsyncbase:BodyPart element ([MS-ASAIRS] section 2.2.2.10) encapsulates a message part and its meta-data in [a Sync command response ([MS-ASCMD] section 2.2.1.21), an ItemOperations command response ([MS-ASCMD] section 2.2.1.10) or] a Search command response ([MS-ASCMD] section 2.2.1.16).");
             #endregion
 
             #region Call Search command with both BodyPreference and BodyPartPreference elements.
