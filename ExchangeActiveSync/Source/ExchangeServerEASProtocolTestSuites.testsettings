@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <TestSettings name="ExchangeServerEASProtocolTestSuites" id="b8f75a2b-d228-4cf6-8ab4-5f135c2fc57d" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all EAS protocol test cases.</Description>
   <Deployment>
@@ -98,6 +98,7 @@
     <DeploymentItem filename="TestSuite\MS-ASCON_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCNTC\TestSuite\MS-ASCNTC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASTASK\TestSuite\MS-ASTASK_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ASRM\TestSuite\MS-ASRM_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
