@@ -42,6 +42,7 @@
     <None Include="MS-ASCAL_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASCAL_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASCAL_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ASCAL_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASCAL_TestSuite.deployment.ptfconfig">
     </None>
     <None Include="MS-ASCAL_TestSuite.ptfconfig" />

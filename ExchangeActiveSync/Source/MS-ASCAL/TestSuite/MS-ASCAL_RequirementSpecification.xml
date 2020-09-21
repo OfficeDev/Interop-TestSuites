@@ -76,7 +76,7 @@
 		<ns1:REQ_ID>MS-ASCAL_R553</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In Namespaces] [Prefix is ] airsync[and Namespace URI is]
-AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+AirSync [and reference is] [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -85,7 +85,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R554</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] [Prefix is] itemoperations[and Namespace URI is] ItemOperations[and reference is:] [MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Description>[In Namespaces] [Prefix is] itemoperations[and Namespace URI is] ItemOperations[and reference is:] [MS-ASCMD] section 2.2.1.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -94,7 +94,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R555</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] [Prefix is:] search[and Namespace URI is:] Search[and reference is:] [MS-ASCMD] section 2.2.2.14.</ns1:Description>
+		<ns1:Description>[In Namespaces] [Prefix is:] search[and Namespace URI is:] Search[and reference is:] [MS-ASCMD] section 2.2.1.16.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -103,7 +103,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R556</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] [Prefix is:] xs[and Namespace URI is:] http://www.w3.org/2001/XMLSchema[and reference is:] [XMLSCHEMA1].</ns1:Description>
+		<ns1:Description>[In Namespaces] [Prefix is:] xs[and Namespace URI is:] http://www.w3.org/2001/XMLSchema[and reference is:] [XMLSCHEMA1/2].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -148,7 +148,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R558</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] [Except where otherwise specified in the following sections, each top-level element of the Calendar class is used in ActiveSync command requests and responses as follows:] As an optional child element of the itemoperations:Schema element ([MS-ASCMD] section 2.2.3.145) in ItemOperations command requests ([MS-ASCMD] section 2.2.2.8)</ns1:Description>
+		<ns1:Description>[In Elements] [Except where otherwise specified in the following sections, each top-level element of the Calendar class is used in ActiveSync command requests and responses as follows:] As an optional child element of the itemoperations:Schema element ([MS-ASCMD] section 2.2.3.158) in ItemOperations command requests ([MS-ASCMD] section 2.2.1.10)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -157,7 +157,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R559</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Calendar class is used in ActiveSync command requests and responses as follows:] As an optional child element of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.128.1) in ItemOperations command responses ([MS-ASCMD] section 2.2.2.8)</ns1:Description>
+		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Calendar class is used in ActiveSync command requests and responses as follows:] As an optional child element of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.139.2) in ItemOperations command responses ([MS-ASCMD] section 2.2.1.10)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -166,7 +166,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R560</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] [Except where otherwise specified in the following sections, each top-level element of the Calendar class is used in ActiveSync command requests and responses as follows:]As an optional child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) in Search command responses ([MS-ASCMD] section 2.2.2.14)</ns1:Description>
+		<ns1:Description>[In Elements] [Except where otherwise specified in the following sections, each top-level element of the Calendar class is used in ActiveSync command requests and responses as follows:]As an optional child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) in Search command responses ([MS-ASCMD] section 2.2.1.16)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -175,7 +175,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R561</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] [Except where otherwise specified in the following sections, each top-level element of the Calendar class is used in ActiveSync command requests and responses as follows:]As an optional child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in Sync command requests ([MS-ASCMD] section 2.2.2.19)</ns1:Description>
+		<ns1:Description>[In Elements] [Except where otherwise specified in the following sections, each top-level element of the Calendar class is used in ActiveSync command requests and responses as follows:]As an optional child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in Sync command requests ([MS-ASCMD] section 2.2.1.21)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -184,7 +184,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R562</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] [Except where otherwise specified in the following sections, each top-level element of the Calendar class is used in ActiveSync command requests and responses as follows:]As an optional child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in Sync command responses ([MS-ASCMD] section 2.2.2.19)</ns1:Description>
+		<ns1:Description>[In Elements] [Except where otherwise specified in the following sections, each top-level element of the Calendar class is used in ActiveSync command requests and responses as follows:]As an optional child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in Sync command responses ([MS-ASCMD] section 2.2.1.21)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -652,7 +652,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R563</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AllDayEvent] [AllDayEvent] As an optional child element of the Exception element (section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In AllDayEvent] [AllDayEvent] As an optional child element of the Exception element (section 2.2.2.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -785,9 +785,18 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2003001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AllDayEvent] Protocol version 16.1 supports this [AllDayEvent] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AllDayEvent] When protocol version 16.0 is used, the AllDayEvent element affects behavior as follows.</ns1:Description>
+		<ns1:Description>[In AllDayEvent] When protocol version 16.0 or 16.1 is used, the AllDayEvent element affects behavior as follows.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -796,7 +805,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2005</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AllDayEvent] [When protocol version 16.0 is used, the AllDayEvent element affects behavior as follows.] If a client includes the Change element ([MS-ASCMD] section 2.2.3.24) in a Sync command request ([MS-ASCMD] section 2.2.2.20) with AllDayEvent set to 1, the client MUST NOT include the TimeZone element (section 2.2.2.44) and MUST set the StartTime (section 2.2.2.42), EndTime (section 2.2.2.20), and Until (section 2.2.2.47) elements to values that have no time component.</ns1:Description>
+		<ns1:Description>[In AllDayEvent] [When protocol version 16.0 or 16.1 is used, the AllDayEvent element affects behavior as follows.] If a client includes an  Add element ([MS-ASCMD] section 2.2.3.7.2) or a Change element ([MS-ASCMD] section 2.2.3.24) in a Sync command request ([MS-ASCMD] section 2.2.2.21) with AllDayEvent set to 1, the client MUST NOT include the TimeZone element (section 2.2.2.44) and MUST set the StartTime (section 2.2.2.42), EndTime (section 2.2.2.20), and Until (section 2.2.2.47) elements to values that have no time component.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -805,7 +814,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2006</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AllDayEvent] [When protocol version 16.0 is used, the AllDayEvent element affects behavior as follows.] If the server includes an Add element ([MS-ASCMD] section 2.2.3.7.2) [or a Change element] in a Sync command response with AllDayEvent set to 1, the server will not include the TimeZone element.</ns1:Description>
+		<ns1:Description>[In AllDayEvent] [When protocol version 16.0 or 16.1 is used, the AllDayEvent element affects behavior as follows.] If the server includes an Add element [or a Change element] in a Sync command response with AllDayEvent set to 1, the server will not include the TimeZone element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -814,7 +823,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2007</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AllDayEvent] [When protocol version 16.0 is used, the AllDayEvent element affects behavior as follows.] If the server includes [an Add element ([MS-ASCMD] section 2.2.3.7.2) or] a Change element in a Sync command response with AllDayEvent set to 1, the server will not include the TimeZone element.</ns1:Description>
+		<ns1:Description>[In AllDayEvent] [When protocol version 16.0 or 16.1 is used, the AllDayEvent element affects behavior as follows.] If the server includes [an Add element or] a Change element in a Sync command response with AllDayEvent set to 1, the server will not include the TimeZone element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -823,7 +832,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2008</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AllDayEvent] [When protocol version 16.0 is used, the AllDayEvent element affects behavior as follows.] In this case [If the server includes an Add element ([MS-ASCMD] section 2.2.3.7.2) or a Change element in a Sync command response with AllDayEvent set to 1, the server will not include the TimeZone element.], a client SHOULD interpret this event to be at the given date(s) regardless of the timezone used.</ns1:Description>
+		<ns1:Description>[In AllDayEvent] [When protocol version 16.0 or 16.1 is used, the AllDayEvent element affects behavior as follows.] In this case [If the server includes an Add element or a Change element in a Sync command response with AllDayEvent set to 1, the server will not include the TimeZone element.], a client SHOULD interpret this event to be at the given date(s) regardless of the time zone used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -832,7 +841,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2009</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In AllDayEvent] [When protocol version 16.0 is used, the AllDayEvent element affects behavior as follows.] When a client edits an exception item, the AllDayEvent element of the exception MUST match the value on the master item of the recurring series.</ns1:Description>
+		<ns1:Description>[In AllDayEvent] [When protocol version 16.0 or 16.1 is used, the AllDayEvent element affects behavior as follows.] When a client edits an exception item, the AllDayEvent element of the exception MUST match the value on the master item of the recurring series.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -886,7 +895,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R91</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In AppointmentReplyTime] The value of this element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.6.5).</ns1:Description>
+		<ns1:Description>[In AppointmentReplyTime] The value of this element is a string data type, represented as a Compact DateTime.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -931,7 +940,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R97</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In AppointmentReplyTime] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In AppointmentReplyTime] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -968,6 +977,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2013</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In AppointmentReplyTime] Protocol version 16.0 supports this [AppointmentReplyTime] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2013001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In AppointmentReplyTime] Protocol version 16.1 supports this [AppointmentReplyTime] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1012,7 +1030,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R100</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Attendee] [The Attendee element can have the following child elements:] Email (section 2.2.2.17): One instance of this element is required.</ns1:Description>
+		<ns1:Description>[In Attendee] [The Attendee element can have the following child elements:] Email (section 2.2.2.19): One instance of this element is required.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1021,7 +1039,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R101</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Attendee][The Attendee element can have the following child elements:] Name (section 2.2.2.28): One instance of this element is required.</ns1:Description>
+		<ns1:Description>[In Attendee][The Attendee element can have the following child elements:] Name (section 2.2.2.30): One instance of this element is required.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1040,6 +1058,24 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R103</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In Attendee][The Attendee element can have the following child elements:] AttendeeType (section 2.2.2.6): This element is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R103001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Attendee][The Attendee element can have the following child elements:] ProposedStartTime ([MS-ASCMD] section 2.2.3.141): This element is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R103002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Attendee][The Attendee element can have the following child elements:] ProposedEndTime ([MS-ASCMD] section 2.2.3.140): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1076,6 +1112,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2017</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In Attendee] Protocol version 16.0 supports this [Attendee] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2017001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Attendee] Protocol version 16.1 supports this [Attendee] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1192,7 +1237,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R112</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Attendees] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In Attendees] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1229,6 +1274,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2022</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
 		<ns1:Description>[In Attendees] Protocol version 16.0 supports this [Attendees] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2022001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Attendees] Protocol version 16.1 supports this [Attendees] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1415,9 +1469,18 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2027001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In AttendeeStatus] Protocol version 16.1 supports this [AttendeeStatus] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2028</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In AttendeeStatus] The client MUST NOT include the AttendeeStatus element in a command request when protocol version 16.0 is used.</ns1:Description>
+		<ns1:Description>[In AttendeeStatus] The client MUST NOT include the AttendeeStatus element in a command request when protocol version 16.0 or 16.1 is used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1541,6 +1604,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2032001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In AttendeeType] Protocol version 16.1 supports this [AttendeeType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2033</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
 		<ns1:Description>[In Body] It [The Body element] is defined in the AirSyncBase namespace, as specified in section 2.2.2.7.1, for use by protocol versions 12.0, 12.1, 14.0, and 14.1.</ns1:Description>
@@ -1624,7 +1696,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R129</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7.1</ns1:Doc_Sect>
-		<ns1:Description>[In Body (AirSyncBase Namespace)] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In Body (AirSyncBase Namespace)] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1670,6 +1742,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2037001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7.1</ns1:Doc_Sect>
 		<ns1:Description>[In Body (AirSyncBase Namespace)] Protocol version 16.0 supports this [Body (AirSyncBase Namespace)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2037002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In Body (AirSyncBase Namespace)] Protocol version 16.1 supports this [Body (AirSyncBase Namespace)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1775,6 +1856,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R13810</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In BusyStatus] [The value is] -1 [meaning] Status Unknown.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R13811</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
 		<ns1:Description>[In BusyStatus] [The value is] 0 [meaning] Free.</ns1:Description>
@@ -1856,9 +1946,27 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2042001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In BusyStatus] Protocol version 16.1 supports this [BusyStatus] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2235</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In BusyStatus] The value 4 (working elsewhere) is not supported in protocol versions 2.5, 12.0, 12.1[, 14.0, and 14.1].</ns1:Description>
+		<ns1:Description>[In BusyStatus] The value 4 (working elsewhere) is not supported in protocol versions [2.5, 12.0,] 12.1[, 14.0, and 14.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2235001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In BusyStatus] The value -1 (Status Unknow) is not supported in protocol versions [2.5, 12.0,] 12.1[, 14.0, and 14.1].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1874,9 +1982,63 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2043001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In BusyStatus] The value -1 (Status Unknow) is not supported in protocol versions [2.5, 12.0, 12.1,] 14.0[, and 14.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2044</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
 		<ns1:Description>[In BusyStatus] The value 4 (working elsewhere) is not supported in protocol versions [2.5, 12.0, 12.1, 14.0, and] 14.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2044001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In BusyStatus] The value -1 (Status Unknow) is not supported in protocol versions [2.5, 12.0, 12.1, 14.0, and] 14.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2044002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In BusyStatus] The value 4 (working elsewhere) is not supported in a command request in protocol versions 16.0</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2044003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In BusyStatus] The value –1 (Status Unknown) is not supported in a command request in protocol versions 16.0</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2044004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In BusyStatus] The value 4 (working elsewhere) is not supported in a command request in protocol versions 16.1</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2044005</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In BusyStatus] The value –1 (Status Unknown) is not supported in a command request in protocol versions 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2352,6 +2514,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2048001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In CalendarType] Protocol version 16.1 supports this [CalendarType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R177</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
 		<ns1:Description>[In Categories] As a top-level element of the Calendar class, the Categories element is an optional container ([MS-ASDTYPE] section 2.2) element.</ns1:Description>
@@ -2469,6 +2640,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2052001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In Categories] Protocol version 16.1 supports this [Categories] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R183</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
 		<ns1:Description>[In Category] The Category element is an optional child element of the Categories element (section 2.2.2.10).</ns1:Description>
@@ -2569,6 +2749,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2056001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In Category] Protocol version 16.1 supports this [Category] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2057</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
 		<ns1:Description>[In ClientUid] The ClientUid element is an optional element in the command request that specifies a random ID generated by the client when the calendar item is created.</ns1:Description>
@@ -2580,7 +2769,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2058</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
-		<ns1:Description>[In ClientUid] It is defined as an element in the Calendar namespace and is used in command requests and responses, as specified in section 2.2.2.</ns1:Description>
+		<ns1:Description>[In ClientUid] It is defined as an element in the Calendar namespace and is used in command requests, as specified in section 2.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2589,7 +2778,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2059</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
-		<ns1:Description>[In ClientUid] The ClientUid element is a string data type, as specified in [MS-ASDTYPE] section 2.7 [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In ClientUid] The ClientUid element is a string data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2653,6 +2842,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2066</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
 		<ns1:Description>[In ClientUid] Protocol version 16.0 supports this [ClientUid] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2066001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In ClientUid] Protocol version 16.1 supports this [ClientUid] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2733,7 +2931,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R192</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
-		<ns1:Description>[In DayOfMonth] The value of the DayOfMonth element is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In DayOfMonth] The value of the DayOfMonth element is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2851,6 +3049,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2070</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
 		<ns1:Description>[In DayOfMonth] Protocol version 16.0 supports this [DayOfMonth] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2070001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In DayOfMonth] Protocol version 16.1 supports this [DayOfMonth] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3153,6 +3360,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2074001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In DayOfWeek] Protocol version 16.1 supports this [DayOfWeek] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R206</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
 		<ns1:Description>[In Deleted] The Deleted element is an optional child element of the Exception element (section 2.2.2.19).</ns1:Description>
@@ -3252,6 +3468,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2078001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In Deleted] Protocol version 16.1 supports this [Deleted] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R211</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
 		<ns1:Description>[In DisallowNewTimeProposal] The DisallowNewTimeProposal&lt;4&gt; element is an optional element.</ns1:Description>
@@ -3326,7 +3551,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R218</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In DisallowNewTimeProposal] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In DisallowNewTimeProposal] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3363,6 +3588,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2082</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
 		<ns1:Description>[In DisallowNewTimeProposal] Protocol version 16.0 supports this [DisallowNewTimeProposal] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2082001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In DisallowNewTimeProposal] Protocol version 16.1 supports this [DisallowNewTimeProposal] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3443,7 +3677,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R600</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
-		<ns1:Description>[In DtStamp] If the DtStamp element is not specified as a child element of an Exception element, the value of the DtStamp element is assumed to be the same as the value of the top-level DtStamp element (section 2.2.2.16).</ns1:Description>
+		<ns1:Description>[In DtStamp] If the DtStamp element is not specified as a child element of an Exception element, the value of the DtStamp element is assumed to be the same as the value of the top-level DtStamp element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3461,7 +3695,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R224</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
-		<ns1:Description>[In DtStamp] The value of this element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.6.5).</ns1:Description>
+		<ns1:Description>[In DtStamp] The value of this element is a string data type, represented as a Compact DateTime.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3504,9 +3738,18 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2087001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
+		<ns1:Description>[In DtStamp] Protocol version 16.1 supports this [DtStamp] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2088</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
-		<ns1:Description>[In DtStamp] The client MUST NOT include the DtStamp element in command requests when protocol version 16.0 is used.</ns1:Description>
+		<ns1:Description>[In DtStamp] The client MUST NOT include the DtStamp element in command requests when protocol version 16.0 or 16.1 is used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3569,7 +3812,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R231</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
-		<ns1:Description>[In Email] It is recommended that the string format adhere to the format specified in [MS-ASDTYPE] section 2.6.2.</ns1:Description>
+		<ns1:Description>[In Email] It is recommended that the string format adhere to the format specified in [MS-ASDTYPE] section 2.7.23.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3612,6 +3855,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2092001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In Email] Protocol version 16.1 supports this [Email] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R233</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In EndTime] As a top-level element of the Calendar class, the EndTime element is an optional element.</ns1:Description>
@@ -3632,7 +3884,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R234</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In EndTime] The client SHOULD include the EndTime element in a Sync command request ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In EndTime] The client SHOULD include the EndTime element in a Sync command request ([MS-ASCMD] section 2.2.2.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3713,7 +3965,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R240</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In EndTime] The value of this element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.6.5).</ns1:Description>
+		<ns1:Description>[In EndTime] The value of this element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.7.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3750,6 +4002,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2096</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In EndTime] Protocol version 16.0 supports this [EndTime] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2096001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
+		<ns1:Description>[In EndTime] Protocol version 16.1 supports this [EndTime] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4071,9 +4332,18 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2102001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
+		<ns1:Description>[In Exception] Protocol version 16.1 supports this [Exception] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2103</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
-		<ns1:Description>[In Exception] The airsyncbase:Body element is used instead of the calendar:Body element with protocol versions 12.0, 12.1, 14.0, 14.1, and 16.0.</ns1:Description>
+		<ns1:Description>[In Exception] The airsyncbase:Body element is used instead of the calendar:Body element with protocol versions 12.0, 12.1, 14.0, 14.1, 16.0, 16.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4082,7 +4352,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2104</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
-		<ns1:Description>[In Exception] The following elements are supported as a child elements of the Exception element only when protocol version 14.0, 14.1, or 16.0 is used: Attendees, AppointmentReplyTime, and ResponseType.</ns1:Description>
+		<ns1:Description>[In Exception] The following elements are supported as a child elements of the Exception element only when protocol version 14.0, 14.1, 16.0, or 16.1 is used: Attendees, AppointmentReplyTime, and ResponseType.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4091,7 +4361,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2105</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
-		<ns1:Description>[In Exception] The following elements are supported as a child elements of the Exception element only when protocol version 14.1 or 16.0 is used: OnlineMeetingConfLink and OnlineMeetingExternalLink.</ns1:Description>
+		<ns1:Description>[In Exception] The following elements are supported as a child elements of the Exception element only when protocol version 14.1, 16.0 or 16.1 is used: OnlineMeetingConfLink and OnlineMeetingExternalLink.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4100,7 +4370,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2106</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
-		<ns1:Description>[In Exception] The ExceptionStartTime element is a required child element of the the Exception element only when protocol version 2.5, 12.0, 12.1, 14.0, or 14.1 is used.</ns1:Description>
+		<ns1:Description>[In Exception] The ExceptionStartTime element is a required child element of the Exception element only when protocol version 2.5, 12.0, 12.1, 14.0, or 14.1 is used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4109,7 +4379,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2107</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
-		<ns1:Description>[In Exception] The InstanceId, airsyncbase:Location, and airsyncbase:Attachments elements are supported as child elements of the Exception element only when protocol version 16.0 is used.</ns1:Description>
+		<ns1:Description>[In Exception] The InstanceId, airsyncbase:Location, and airsyncbase:Attachments elements are supported as child elements of the Exception element only when protocol version 16.0 or 16.1 is used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4253,7 +4523,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R268</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.23</ns1:Doc_Sect>
-		<ns1:Description>[In ExceptionStartTime] The value of the ExceptionStartTime element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.6.5).</ns1:Description>
+		<ns1:Description>[In ExceptionStartTime] The value of the ExceptionStartTime element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.7.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4290,6 +4560,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2118</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In ExceptionStartTime] Protocol version 16.0 does not support this [ExceptionStartTime] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2118001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.23</ns1:Doc_Sect>
+		<ns1:Description>[In ExceptionStartTime] Protocol version 16.1 does not support this [ExceptionStartTime] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4458,6 +4737,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2122001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.24</ns1:Doc_Sect>
+		<ns1:Description>[In FirstDayOfWeek] Protocol version 16.1 supports this [FirstDayOfWeek] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R280</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
 		<ns1:Description>[In Interval] The Interval element is an optional child element of the Recurrence element (section 2.2.2.35).</ns1:Description>
@@ -4551,6 +4839,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2126</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
 		<ns1:Description>[In Interval] Protocol version 16.0 supports this [Interval] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2126001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
+		<ns1:Description>[In Interval] Protocol version 16.1 supports this [Interval] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4710,6 +5007,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2130001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Description>[In IsLeapMonth] Protocol version 16.1 supports this [IsLeapMonth] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R294</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
 		<ns1:Description>[In Location] As a top-level element of the Calendar class, the Location element is an optional element.</ns1:Description>
@@ -4811,7 +5117,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R302</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
-		<ns1:Description>[In Location] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In Location] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4854,9 +5160,27 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2134001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In Location] Protocol version 16.1 does not support this [Location] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2135</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
-		<ns1:Description>[In Location] The airsyncbase:Location element ([MS-ASAIRS] section 2.2.2.27) is used instead of the calendar:Location element in protocol version 16.0.</ns1:Description>
+		<ns1:Description>[In Location] The airsyncbase:Location element ([MS-ASAIRS] section 2.2.2.28) is used instead of the calendar:Location element in protocol version 16.0 [and 16.1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2135001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In Location] The airsyncbase:Location element ([MS-ASAIRS] section 2.2.2.28) is used instead of the calendar:Location element in protocol version [16.0 and] 16.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5117,7 +5441,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R320</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In MeetingStatus] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In MeetingStatus] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5154,6 +5478,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2139</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
 		<ns1:Description>[In MeetingStatus] Protocol version 16.0 supports this [MeetingStatus] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2139001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In MeetingStatus] Protocol version 16.1 supports this [MeetingStatus] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5349,6 +5682,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2143001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
+		<ns1:Description>[In MonthOfYear] Protocol version 16.1 supports this [MonthOfYear] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R329</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.30</ns1:Doc_Sect>
 		<ns1:Description>[In Name] The Name element is a required child element of the Attendee element (section 2.2.2.3) that specifies the name of an attendee.</ns1:Description>
@@ -5430,6 +5772,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2147001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.30</ns1:Doc_Sect>
+		<ns1:Description>[In Name] Protocol version 16.1 supports this [Name] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R334</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.31</ns1:Doc_Sect>
 		<ns1:Description>[In NativeBodyType] The airsyncbase:NativeBodyType element is an optional element.</ns1:Description>
@@ -5505,6 +5856,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2151</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.31</ns1:Doc_Sect>
 		<ns1:Description>[In NativeBodyType] Protocol version 16.0 supports this [NativeBodyType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2151001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.31</ns1:Doc_Sect>
+		<ns1:Description>[In NativeBodyType] Protocol version 16.1 supports this [NativeBodyType] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5628,6 +5988,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2155001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.32</ns1:Doc_Sect>
+		<ns1:Description>[In Occurrences] Protocol version 16.1 supports this [Occurrences] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R346</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
 		<ns1:Description>[In OnlineMeetingConfLink] The OnlineMeetingConfLink element&lt;13&gt; is an optional element.</ns1:Description>
@@ -5729,7 +6098,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R353</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
-		<ns1:Description>[In OnlineMeetingConfLink] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In OnlineMeetingConfLink] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5766,6 +6135,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2159</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
 		<ns1:Description>[In OnlineMeetingConfLink] Protocol version 16.0 supports this [OnlineMeetingConfLink] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2159001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
+		<ns1:Description>[In OnlineMeetingConfLink] Protocol version 16.1 supports this [OnlineMeetingConfLink] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5874,7 +6252,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R361</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.34</ns1:Doc_Sect>
-		<ns1:Description>[In OnlineMeetingExternalLink] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In OnlineMeetingExternalLink] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5911,6 +6289,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2163</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.34</ns1:Doc_Sect>
 		<ns1:Description>[In OnlineMeetingExternalLink] Protocol version 16.0 supports this [OnlineMeetingExternalLink] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2163001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.34</ns1:Doc_Sect>
+		<ns1:Description>[In OnlineMeetingExternalLink] Protocol version 16.1 supports this [OnlineMeetingExternalLink] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5964,7 +6351,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R366</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.35</ns1:Doc_Sect>
-		<ns1:Description>[In OrganizerEmail] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In OrganizerEmail] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6007,9 +6394,18 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2167001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.35</ns1:Doc_Sect>
+		<ns1:Description>[In OrganizerEmail] Protocol version 16.1 supports this [OrganizerEmail] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2168</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.35</ns1:Doc_Sect>
-		<ns1:Description>[In OrganizerEmail] When protocol version 16.0 is used, the client MUST NOT include the OrganizerEmail element in command requests.</ns1:Description>
+		<ns1:Description>[In OrganizerEmail] When protocol version 16.0 or 16.1 is used, the client MUST NOT include the OrganizerEmail element in command requests.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6019,6 +6415,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2169</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.35</ns1:Doc_Sect>
 		<ns1:Description>[In OrganizerEmail] [When protocol version 16.0 is used, the client MUST NOT include the OrganizerEmail element in command requests and] the server will use the email address of the current user.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2169001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.35</ns1:Doc_Sect>
+		<ns1:Description>[In OrganizerEmail] [When protocol version 16.1 is used, the client MUST NOT include the OrganizerEmail element in command requests and] the server will use the email address of the current user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6072,7 +6477,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R371</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.36</ns1:Doc_Sect>
-		<ns1:Description>[In OrganizerName] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In OrganizerName] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6115,9 +6520,18 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2173001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.36</ns1:Doc_Sect>
+		<ns1:Description>[In OrganizerName] Protocol version 16.1 supports this [OrganizerName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2174</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.36</ns1:Doc_Sect>
-		<ns1:Description>[In OrganizerName] When protocol version 16.0 is used, the client MUST NOT include the OrganizerName element in command requests.</ns1:Description>
+		<ns1:Description>[In OrganizerName] When protocol version 16.0 or 16.1 is used, the client MUST NOT include the OrganizerName element in command requests.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6130,7 +6544,16 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2175001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.36</ns1:Doc_Sect>
+		<ns1:Description>[In OrganizerName] [When protocol version 16.1 is used, the client MUST NOT include the OrganizerName element in command requests and] the server will use the name of the current user.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R372</ns1:REQ_ID>
@@ -6162,11 +6585,20 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R374</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
-		<ns1:Description>[In Recurrence] [The Recurrence element can have the following child elements:]Type (section 2.2.2.43): One instance of this element is required.</ns1:Description>
+		<ns1:Description>[In Recurrence] [The Recurrence element can have the following child elements:]Type (section 2.2.2.45): One instance of this element is required in protocol version 2.5, 12.0, 12.1, 14.0 and 14.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R374001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
+		<ns1:Description>[In Recurrence] [The Recurrence element can have the following child elements:]Type (section 2.2.2.45): optional in protocol versions 16.0 and 16.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R375</ns1:REQ_ID>
@@ -6340,11 +6772,38 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCAL_R2180</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCAL_R2179001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
-		<ns1:Description>[In Recurrence] In protocol version 16.0, changing the recurrence pattern of a recurring series will delete any exceptions present on the calendar item.</ns1:Description>
+		<ns1:Description>[In Recurrence] Protocol version 16.1 supports this [Recurrence] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2180</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
+		<ns1:Description>[In Recurrence] In protocol version 16.0 and 16.1: Changing the recurrence pattern of a recurring series will delete any exceptions present on the calendar item.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2180001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
+		<ns1:Description>[In Recurrence] In protocol version 16.0 and 16.1: the type element is optional in client requests.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2180002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
+		<ns1:Description>[In Recurrence] In protocol version 16.0 and 16.1: the client can change a recurring event to a single event by including an empt Recurrence element it its request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -6979,6 +7438,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2189001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.39</ns1:Doc_Sect>
+		<ns1:Description>[In ResponseRequested] Protocol version 16.1 supports this [ResponseRequested] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R401</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.40</ns1:Doc_Sect>
 		<ns1:Description>[In ResponseType] As a top-level element of the Calendar class, the ResponseType&lt;17&gt; element is an optional element.</ns1:Description>
@@ -7143,7 +7611,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R420</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.40</ns1:Doc_Sect>
-		<ns1:Description>[In ResponseType] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In ResponseType] For details about the use of ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -7180,6 +7648,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2193</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.40</ns1:Doc_Sect>
 		<ns1:Description>[In ResponseType] Protocol version 16.0 supports this [ResponseType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2193001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.40</ns1:Doc_Sect>
+		<ns1:Description>[In ResponseType] Protocol version 16.1 supports this [ResponseType] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7357,6 +7834,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2197001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.41</ns1:Doc_Sect>
+		<ns1:Description>[In Sensitivity] Protocol version 16.1 supports this [Sensitivity] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R429</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.42</ns1:Doc_Sect>
 		<ns1:Description>[In StartTime] As a top-level element of the Calendar class, the StartTime element is an optional element.</ns1:Description>
@@ -7377,7 +7863,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R430</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.42</ns1:Doc_Sect>
-		<ns1:Description>[In StartTime] The client SHOULD include the StartTime element in a Sync command request ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In StartTime] The client SHOULD include the StartTime element in a Sync command request ([MS-ASCMD] section 2.2.2.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7395,7 +7881,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R434</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.42</ns1:Doc_Sect>
-		<ns1:Description>[In StartTime] A Sync command response MUST contain one instance of the StartTime element.</ns1:Description>
+		<ns1:Description>[In StartTime] In protocol version 12.0, 12.1, 14.0, 14.1, 16.0, and 16.1, a Sync command response MUST contain one instance of the StartTime element if more than just DyStamp (section 2.2.2.18) or AttendeeType (section 2.2.2.6) has changed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7440,7 +7926,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R438</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.42</ns1:Doc_Sect>
-		<ns1:Description>[In StartTime] The value of this element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.6.5).</ns1:Description>
+		<ns1:Description>[In StartTime] The value of this element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.7.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7483,9 +7969,18 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2201001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.42</ns1:Doc_Sect>
+		<ns1:Description>[In StartTime] Protocol version 16.1 supports this [StartTime] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2202</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.42</ns1:Doc_Sect>
-		<ns1:Description>[In StartTime] In protocol version 16.0, changing the start time of a recurring series will delete any exceptions present on the calendar item.</ns1:Description>
+		<ns1:Description>[In StartTime] In protocol version 16.0 and 16.1, changing the start time of a recurring series will delete any exceptions present on the calendar item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7600,6 +8095,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2206001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.43</ns1:Doc_Sect>
+		<ns1:Description>[In Subject] Protocol version 16.1 supports this [Subject] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R445</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.44</ns1:Doc_Sect>
 		<ns1:Description>[In Timezone] The Timezone element is an optional element.</ns1:Description>
@@ -7629,7 +8133,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R447</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.44</ns1:Doc_Sect>
-		<ns1:Description>[In Timezone] The value of the Timezone element is a TimeZone data type, as specified in [MS-ASDTYPE] section 2.6.4.</ns1:Description>
+		<ns1:Description>[In Timezone] The value of the Timezone element is a TimeZone data type, as specified in [MS-ASDTYPE] section 2.6.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7672,13 +8176,40 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2210001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.44</ns1:Doc_Sect>
+		<ns1:Description>[In Timezone] Protocol version 16.1 supports this [Timezone] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R448</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.45</ns1:Doc_Sect>
-		<ns1:Description>[In Type] The Type element is a required child element of the Recurrence element (section 2.2.2.35) that specifies the type of the recurrence.</ns1:Description>
+		<ns1:Description>[In Type] The Type element is a required child element of the Recurrence element (section 2.2.2.35) in protocol version 2.5, 12.0, 12.1, 14.4, and 14.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R448001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.45</ns1:Doc_Sect>
+		<ns1:Description>[In Type] [The Type element is a required child element of the Recurrence element (section 2.2.2.35) in protocol version 2.5, 12.0, 12.1, 14.4, and 14.1; ]it is an optional child element of the Recurrence element in protocol versions 16.0 and 16.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R448001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.45</ns1:Doc_Sect>
+		<ns1:Description>[In Type] It[Type] specifies the type of the recurrence.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R449</ns1:REQ_ID>
@@ -7816,6 +8347,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2214001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.45</ns1:Doc_Sect>
+		<ns1:Description>[In Type] Protocol version 16.1 supports this [Type] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R460</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.46</ns1:Doc_Sect>
 		<ns1:Description>[In UID] The UID element is an optional element in the command request.</ns1:Description>
@@ -7906,6 +8446,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2218001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.46</ns1:Doc_Sect>
+		<ns1:Description>[In UID] Protocol version 16.1 supports this [UID] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2219</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.46</ns1:Doc_Sect>
 		<ns1:Description>[In UID] When protocol version 2.5, 12.0, 12.1, 14.0, or 14.1 is used, the UID element is generated by the client when the calendar item is created and is included in a command request.</ns1:Description>
@@ -7944,7 +8493,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2223</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.46</ns1:Doc_Sect>
-		<ns1:Description>[In UID] When a calendar item is created, the server will generate a unique identifier for the calendar item and return the identifier in the UID element of the Sync command response ([MS-ASCMD] section 2.2.2.20) for an add operation.</ns1:Description>
+		<ns1:Description>[In UID] When a calendar item is created, the server will generate a unique identifier for the calendar item and return the identifier in the UID element of the Sync command response ([MS-ASCMD] section 2.2.2.21) for an add operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8016,7 +8565,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R470</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.47</ns1:Doc_Sect>
-		<ns1:Description>[In Until] The value of the Until element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.6.5).</ns1:Description>
+		<ns1:Description>[In Until] The value of the Until element is a string data type, represented as a Compact DateTime ([MS-ASDTYPE] section 2.7.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8053,6 +8602,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2227</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.47</ns1:Doc_Sect>
 		<ns1:Description>[In Until] Protocol version 16.0 supports this [Until] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2227001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.47</ns1:Doc_Sect>
+		<ns1:Description>[In Until] Protocol version 16.1 supports this [Until] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8237,6 +8795,15 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 		<ns1:REQ_ID>MS-ASCAL_R2230001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.48</ns1:Doc_Sect>
 		<ns1:Description>[In WeekOfMonth] Protocol version 16.0 supports this [WeekOfMonth] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R2230002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.48</ns1:Doc_Sect>
+		<ns1:Description>[In WeekOfMonth] Protocol version 16.1 supports this [WeekOfMonth] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8461,7 +9028,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R47835</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In TopLevelSchemaProps] The TopLevelSchemaProps group is used by the ItemOperations command request specified in [MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Description>[In TopLevelSchemaProps] The TopLevelSchemaProps group is used by the ItemOperations command request specified in [MS-ASCMD] section 2.2.2.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8533,7 +9100,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R486</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Synchronizing Calendar Data Between Client and Server] A client initiates synchronization of Calendar class data with the server by sending a Sync command request ([MS-ASCMD] section 2.2.2.19) to the server.</ns1:Description>
+		<ns1:Description>[In Synchronizing Calendar Data Between Client and Server] A client initiates synchronization of Calendar class data with the server by sending a Sync command request ([MS-ASCMD] section 2.2.2.21) to the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8542,7 +9109,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R487</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Searching a Server for Calendar Data] A client searches for Calendar class data on the server by sending a Search command request ([MS-ASCMD] section 2.2.2.14) to the server.</ns1:Description>
+		<ns1:Description>[In Searching a Server for Calendar Data] A client searches for Calendar class data on the server by sending a Search command request ([MS-ASCMD] section 2.2.2.16) to the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8551,7 +9118,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R488</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting Details for One or More Calendar Items] A client requests Calendar class data for one or more individual calendar items by sending an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) to the server that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.63.1).</ns1:Description>
+		<ns1:Description>[In Requesting Details for One or More Calendar Items] A client requests Calendar class data for one or more individual calendar items by sending an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) to the server that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.67.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8605,7 +9172,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R494</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Request] A client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.63.1) to retrieve data from the server for one or more specific calendar items.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Request] A client uses an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.67.1) to retrieve data from the server for one or more specific calendar items.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8623,7 +9190,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R496</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Request] Top-level Calendar class elements, as specified in section 2.2.2, MUST be transmitted as child elements of the itemoperations:Schema element ([MS-ASCMD] section 2.2.3.145).</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Request] Top-level Calendar class elements, as specified in section 2.2.2, MUST be transmitted as child elements of the itemoperations:Schema element ([MS-ASCMD] section 2.2.3.158).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8632,7 +9199,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R497</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Request] For more details about the ItemOperations command, see [MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Request] For more details about the ItemOperations command, see [MS-ASCMD] section 2.2.1.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8641,7 +9208,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R498</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Request] A client uses the Search command request ([MS-ASCMD] section 2.2.2.14) to retrieve Calendar class items from the server that match the criteria specified by the client.</ns1:Description>
+		<ns1:Description>[In Search Command Request] A client uses the Search command request ([MS-ASCMD] section 2.2.2.16) to retrieve Calendar class items from the server that match the criteria specified by the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8659,7 +9226,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R500</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Request] For more details about the Search command, see [MS-ASCMD] section 2.2.2.14.</ns1:Description>
+		<ns1:Description>[In Search Command Request] For more details about the Search command, see [MS-ASCMD] section 2.2.2.16.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8668,7 +9235,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R501</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Request] A client uses the Sync command request ([MS-ASCMD] section 2.2.2.19) to synchronize its Calendar class items for a specified user with the calendar items that are currently stored by the server.</ns1:Description>
+		<ns1:Description>[In Sync Command Request] A client uses the Sync command request ([MS-ASCMD] section 2.2.2.21) to synchronize its Calendar class items for a specified user with the calendar items that are currently stored by the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8695,7 +9262,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R504</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Request] Top-level Calendar class elements can be transmitted as child elements of the airsync:Supported element ([MS-ASCMD] section 2.2.3.164) in order to support ghosted elements.</ns1:Description>
+		<ns1:Description>[In Sync Command Request] Top-level Calendar class elements can be transmitted as child elements of the airsync:Supported element ([MS-ASCMD] section 2.2.3.179) in order to support ghosted elements.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8713,7 +9280,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R506</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Request] The full list is specified in [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In Sync Command Request] The full list is specified in [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8722,7 +9289,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2231</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Request] In protocol version 16.0, all top-level Calendar class elements are ghosted when they are not present.</ns1:Description>
+		<ns1:Description>[In Sync Command Request] In protocol version 16.0 and 16.1, all top-level Calendar class elements are ghosted when they are not present.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8731,7 +9298,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R507</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Request] For more details about the Sync command, see [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Description>[In Sync Command Request] For more details about the Sync command, see [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8740,7 +9307,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R508</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Indicating Deleted Elements in Exceptions] If an element in a recurring calendar item has been deleted in an Exception element (section 2.2.2.19), the client sends an empty tag for this element to remove the inherited value from the server.&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In Indicating Deleted Elements in Exceptions] If an element in a recurring calendar item has been deleted in an Exception element (section 2.2.1.21), the client sends an empty tag for this element to remove the inherited value from the server.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8750,7 +9317,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R509</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Indicating Deleted Elements in Exceptions] For example, if the Location element (section 2.2.2.25) has been deleted for an exception, the client sends an empty Location element in a Sync command request ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In Indicating Deleted Elements in Exceptions] For example, if the Location element (section 2.2.2.25) has been deleted for an exception, the client sends an empty Location element in a Sync command request ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8768,7 +9335,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R511</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Omitting Ghosted Properties from a Sync Change Request] When the client sends a Sync command request ([MS-ASCMD] section 2.2.2.19) to the server that contains a nonzero airsync:SyncKey element ([MS-ASCMD] section 2.2.3.166.4) value, the client uses the airsync:Supported element ([MS-ASCMD] section 2.2.3.164) within the Sync command request to specify which properties are not ghosted.</ns1:Description>
+		<ns1:Description>[In Omitting Ghosted Properties from a Sync Change Request] When the client sends a Sync command request ([MS-ASCMD] section 2.2.1.21) to the server that contains a nonzero airsync:SyncKey element ([MS-ASCMD] section 2.2.3.181.4) value, the client uses the airsync:Supported element ([MS-ASCMD] section 2.2.3.179) within the Sync command request to specify which properties are not ghosted.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8786,7 +9353,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R2232</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Omitting Ghosted Properties from a Sync Change Request] In protocol version 16.0, Calendar class elements are ghosted by default.</ns1:Description>
+		<ns1:Description>[In Omitting Ghosted Properties from a Sync Change Request] In protocol version 16.0 and 16.1, Calendar class elements are ghosted by default and clients SHOULD NOT send unchanged elements in Sync command requests.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8795,7 +9362,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R513</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Omitting Ghosted Properties from a Sync Change Request] For more details about ghosted properties, see [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In Omitting Ghosted Properties from a Sync Change Request] For more details about ghosted properties, see [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8876,7 +9443,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R521</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Synchronizing Calendar Data Between Client and Server] The server responds with a Sync command response ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In Synchronizing Calendar Data Between Client and Server] The server responds with a Sync command response ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8894,7 +9461,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R523</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Searching for Calendar Data] The server responds with a Search command response ([MS-ASCMD] section 2.2.2.14).</ns1:Description>
+		<ns1:Description>[In Searching for Calendar Data] The server responds with a Search command response ([MS-ASCMD] section 2.2.2.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8912,7 +9479,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R525</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Retrieving Details for One or More Calendar Items] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.2.8).</ns1:Description>
+		<ns1:Description>[In Retrieving Details for One or More Calendar Items] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8921,7 +9488,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R52511</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Creating Calendar Events when the StartTime Element or EndTime Element is Absent] If the server receives a Sync command request ([MS-ASCMD] section 2.2.2.19) to add a calendar event that is missing either the StartTime element (section 2.2.2.40), the EndTime element (section 2.2.2.18), or both, the server attempts to substitute values based on the current time, rounded to the nearest half hour, for the missing values.</ns1:Description>
+		<ns1:Description>[In Creating Calendar Events when the StartTime Element or EndTime Element is Absent] If the server receives a Sync command request ([MS-ASCMD] section 2.2.1.21) to add a calendar event that is missing either the StartTime element (section 2.2.2.42), the EndTime element (section 2.2.2.20), or both, the server attempts to substitute values based on the current time, rounded to the nearest half hour, for the missing values.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8957,7 +9524,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R52515</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Creating Calendar Events when the StartTime Element or EndTime Element is Absent] If StartTime is absent and EndTime is in the past the server includes a Status element with a value of 6 in the response, as specified in [MS-ASCMD] section 2.2.3.162.16, indicating an error occurred.</ns1:Description>
+		<ns1:Description>[In Creating Calendar Events when the StartTime Element or EndTime Element is Absent] If StartTime is absent and EndTime is in the past the server includes a Status element with a value of 6 in the response, as specified in [MS-ASCMD] section 2.2.3.177.17, indicating an error occurred.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9002,7 +9569,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R52521</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules][The following information pertains to all command responses:] A server MUST recognize when the value of the Email element is not formatted as specified in [MS-ASDTYPE] section 2.6.2</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules][The following information pertains to all command responses:] A server MUST recognize when the value of the Email element is not formatted as specified in [MS-ASDTYPE] section 2.7.3</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9011,7 +9578,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R52528</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In Message Processing Events and Sequencing Rules][The following information pertains to all command responses:] [A server MUST recognize when the value of the Email element is not formatted as specified in [MS-ASDTYPE] section 2.6.2], and MAY replace it [Email element] with suitable placeholder text.</ns1:Description>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules][The following information pertains to all command responses:] [A server MUST recognize when the value of the Email element is not formatted as specified in [MS-ASDTYPE] section 2.7.3], and MAY replace it [Email element] with suitable placeholder text.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9085,7 +9652,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R528</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.8), as specified in section 3.1.5.1, to retrieve data from the server for one or more specific calendar items, the server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.2.8).</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.1.10), as specified in section 3.1.5.1, to retrieve data from the server for one or more specific calendar items, the server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9103,7 +9670,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R530</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] If an airsync:Schema element ([MS-ASCMD] section 2.2.3.145) is included in the ItemOperations command request, the elements returned in the ItemOperations command response MUST be restricted to the elements that were included as child elements of the airsync:Schema element in the command request.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] If an airsync:Schema element ([MS-ASCMD] section 2.2.3.158) is included in the ItemOperations command request, the elements returned in the ItemOperations command response MUST be restricted to the elements that were included as child elements of the airsync:Schema element in the command request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9112,7 +9679,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R531</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] Top-level Calendar class elements, as specified in section 2.2.2, MUST be returned as child elements of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.128) in the ItemOperations command response.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] Top-level Calendar class elements, as specified in section 2.2.2, MUST be returned as child elements of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.139) in the ItemOperations command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9121,7 +9688,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R532</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] For more details about the ItemOperations command, see [MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] For more details about the ItemOperations command, see [MS-ASCMD] section 2.2.1.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9130,7 +9697,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R533</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Response] When a client uses the Search command request ([MS-ASCMD] section 2.2.2.14), as specified in section 3.1.5.2, to retrieve Calendar class items from the server that match the criteria specified by the client, the server responds with a Search command response ([MS-ASCMD] section 2.2.2.14).</ns1:Description>
+		<ns1:Description>[In Search Command Response] When a client uses the Search command request ([MS-ASCMD] section 2.2.1.16), as specified in section 3.1.5.2, to retrieve Calendar class items from the server that match the criteria specified by the client, the server responds with a Search command response ([MS-ASCMD] section 2.2.1.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9148,7 +9715,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R535</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Response] Top-level Calendar class elements MUST be returned as child elements of the search:Properties element ([MS-ASCMD] section 2.2.3.128) in the Search command response.</ns1:Description>
+		<ns1:Description>[In Search Command Response] Top-level Calendar class elements MUST be returned as child elements of the search:Properties element ([MS-ASCMD] section 2.2.3.139) in the Search command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9157,7 +9724,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R536</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Response] For more details about the Search command, see [MS-ASCMD] section 2.2.2.14.</ns1:Description>
+		<ns1:Description>[In Search Command Response] For more details about the Search command, see [MS-ASCMD] section 2.2.1.16.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9166,7 +9733,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R537</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Response] When a client uses the Sync command request ([MS-ASCMD] section 2.2.2.19), as specified in section 3.1.5.3, to synchronize its Calendar class items for a specified user with the calendar items that are currently stored by the server, the server responds with a Sync command response ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In Sync Command Response] When a client uses the Sync command request ([MS-ASCMD] section 2.2.1.21), as specified in section 3.1.5.3, to synchronize its Calendar class items for a specified user with the calendar items that are currently stored by the server, the server responds with a Sync command response ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9211,7 +9778,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R53912</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.162.16) with a value of 6 in the following cases:] A command request has more than one CalendarType element (section 2.2.2.9) per Recurrence element (section 2.2.2.35) when the Type element (section 2.2.2.43) value is 2, 3, 5, or 6.</ns1:Description>
+		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.177.17) with a value of 6 in the following cases:] A command request has more than one CalendarType element (section 2.2.2.9) per Recurrence element (section 2.2.2.35) when the Type element (section 2.2.2.43) value is 2, 3, 5, or 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9220,7 +9787,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R53913</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.162.16) with a value of 6 in the following cases:] The CalendarType element is set to one of the following values in the request: 13, 16, 17, 18, 19, 21, 22, or 23.</ns1:Description>
+		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.177.17) with a value of 6 in the following cases:] The CalendarType element is set to one of the following values in the request: 13, 16, 17, 18, 19, 21, 22, or 23.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9229,7 +9796,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R53914</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.162.16) with a value of 6 in the following cases:] The value of the FirstDayOfWeek element (section 2.2.2.22) is outside the range 0 (zero) through 6 (inclusive).</ns1:Description>
+		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.177.17) with a value of 6 in the following cases:] The value of the FirstDayOfWeek element (section 2.2.2.22) is outside the range 0 (zero) through 6 (inclusive).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9238,7 +9805,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R53915</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.162.16) with a value of 6 in the following cases:] The EndTime element (section 2.2.2.18) is included in a request and the StartTime element is not included in the request.</ns1:Description>
+		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.177.17) with a value of 6 in the following cases:] The EndTime element (section 2.2.2.18) is included in a request and the StartTime element is not included in the request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9247,7 +9814,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R53916</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.162.16) with a value of 6 in the following cases:] The DayOfMonth element (section 2.2.2.12) is included in a request when the value of the Type element is not 2 or 5.</ns1:Description>
+		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.177.17) with a value of 6 in the following cases:] The DayOfMonth element (section 2.2.2.12) is included in a request when the value of the Type element is not 2 or 5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9256,7 +9823,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R53917</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.162.16) with a value of 6 in the following cases:] The DayOfWeek element (section 2.2.2.13) is included in a request when the value of the Type element is not 0 (zero), 1, 3, or 6.</ns1:Description>
+		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.177.17) with a value of 6 in the following cases:] The DayOfWeek element (section 2.2.2.13) is included in a request when the value of the Type element is not 0 (zero), 1, 3, or 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9265,7 +9832,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R53918</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.162.16) with a value of 6 in the following cases:] The MonthOfYear element (section 2.2.2.27) is included in a request when the value of the Type element is not 5 or 6.</ns1:Description>
+		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.177.17) with a value of 6 in the following cases:] The MonthOfYear element (section 2.2.2.27) is included in a request when the value of the Type element is not 5 or 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9274,7 +9841,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R53919</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.162.16) with a value of 6 in the following cases:] The WeekOfMonth element (section 2.2.2.46) is included in a request when the value of the Type element is not 3 or 6.</ns1:Description>
+		<ns1:Description>[In Sync Command Response][The Sync command response contains an airsync:Status element ([MS-ASCMD] section 2.2.3.177.17) with a value of 6 in the following cases:] The WeekOfMonth element (section 2.2.2.46) is included in a request when the value of the Type element is not 3 or 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9283,7 +9850,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R540</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Response] For more details about the Sync command, see [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Description>[In Sync Command Response] For more details about the Sync command, see [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9292,7 +9859,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R541</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Removing Exceptions] If an Exceptions element (section 2.2.2.20) is not specified in a Sync command request ([MS-ASCMD] section 2.2.2.19), then any exceptions previously defined are unchanged.</ns1:Description>
+		<ns1:Description>[In Removing Exceptions] If an Exceptions element (section 2.2.2.22) is not specified in a Sync command request ([MS-ASCMD] section 2.2.2.21), then any exceptions previously defined are unchanged.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9301,7 +9868,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R54111</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Removing Exceptions] [If an Exceptions element (section 2.2.2.20) is not specified in a Sync command request ([MS-ASCMD] section 2.2.2.19.2), then] any exceptions previously defined are unchanged, even if the client included the Exceptions element as a child of the Supported element, as specified in [MS-ASCMD] section 2.2.3.164.</ns1:Description>
+		<ns1:Description>[In Removing Exceptions] [If an Exceptions element (section 2.2.2.22) is not specified in a Sync command request ([MS-ASCMD] section 2.2.1.21), then] any exceptions previously defined are unchanged, even if the client included the Exceptions element as a child of the Supported element, as specified in [MS-ASCMD] section 2.2.3.179.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9310,7 +9877,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R542</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Removing Exceptions] If a particular Exception element (section 2.2.2.19) is excluded in a Sync command request, then that particular exception remains unchanged.</ns1:Description>
+		<ns1:Description>[In Removing Exceptions] If a particular Exception element (section 2.2.2.21) is excluded in a Sync command request, then that particular exception remains unchanged.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9319,7 +9886,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R543</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Indicating Deleted Elements in Exceptions] If an element of a recurring calendar item has been deleted in an Exception element (section 2.2.2.19), the server MUST send an empty tag for this element in the Sync command response ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In Indicating Deleted Elements in Exceptions] If an element of a recurring calendar item has been deleted in an Exception element (section 2.2.2.21), the server MUST send an empty tag for this element in the Sync command response ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9328,7 +9895,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R544</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Indicating Deleted Elements in Exceptions] For example, if the Location element (section 2.2.2.25) has been deleted for an exception, the server sends an empty Location element in the Sync command response.</ns1:Description>
+		<ns1:Description>[In Indicating Deleted Elements in Exceptions] For example, if the Location element (section 2.2.2.27) has been deleted for an exception, the server sends an empty Location element in the Sync command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9443,7 +10010,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R4</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;2&gt; Section 2.2.2.25:  If Interval is set to 0 in command request, Microsoft Exchange Server 2007 returns Status value 6;</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;1&gt; Section 2.2.2.25:  If Interval is set to 0 in command request, Exchange 2007 SP1 and Exchange 2010 return Status value 6;</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9453,7 +10020,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R5</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [&lt;2&gt; Section 2.2.2.25:  If Interval is set to 0 in command request,] Exchange 2010, Exchange 2013, and Exchange 2016 Preview return Interval value 1.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [&lt;2&gt; Section 2.2.2.25:  If Interval is set to 0 in command request,] Microsoft Exchange Server 2010 Service Pack 1 (SP1), Exchange 2013, Exchange 2016 and Exchange 2019 return Interval value 1.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9463,7 +10030,16 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R6</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;3&gt; Section 2.2.2.37.1:  In Exchange 2007, the DayOfWeek element is not supported when the Type element is set to zero (0).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;3&gt; Section 2.2.2.37.1:  In Exchange 2007 SP1, the DayOfWeek element is not supported when the Type element is set to zero (0).</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCAL_R6001</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;4&gt; Section 2.2.2.46:  If the UID element is not included in the command request, Exchange 2007 SP1 creates a value and includes it in the command reponse.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9472,7 +10048,7 @@ AirSync [and reference is] [MS-ASCMD] section 2.2.2.19.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCAL_R7</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;4&gt; Section 3.1.5.3.1:  Exchange 2007 does not support deleting elements of a recurring calendar item in an Exception element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;5&gt; Section 3.1.5.3.1:  Exchange 2007 does not support deleting elements of a recurring calendar item in an Exception element.</ns1:Description>
 		<ns1:Derived>MS-ASCAL_R508:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
