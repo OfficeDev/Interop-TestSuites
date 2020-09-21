@@ -511,7 +511,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R471</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In EditAllowed] Conversely, if EditAllowed is set to FALSE [andcomposemail:ReplaceMime] is present[in a SmartReply command], the server will not attach the original rights-managed email message as an attachment.</ns1:Description>
+		<ns1:Description>[In EditAllowed] Conversely, if [EditAllowed is set to FALSE and] composemail:ReplaceMime] is present[in a SmartReply command], the server will not attach the original rights-managed email message as an attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -637,7 +637,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R345</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In ExportAllowed] if the value is FALSE (0), the user cannot remove the IRM protection of the original message’s content in the outgoing message when the user replies to the original e-mail message.</ns1:Description>
+		<ns1:Description>[In ExportAllowed] if the value is FALSE (0), the user cannot remove the IRM protection of the original message’s content in the outgoing message when the user replies all to the original e-mail message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -955,15 +955,6 @@
 		<ns1:REQ_ID>MS-ASRM_R66</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
 		<ns1:Description>[In ModifyRecipientsAllowed] The value of this element[ModifyRecipientsAllowed] is a boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASRM_R661</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In ModifyRecipientsAllowed] This element[ModifyRecipientsAllowed] is a boolean data type, as specified in [MS-ASDTYPE] section 2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3476,7 +3467,7 @@
 		<ns1:Description>[In Message Processing Events and Sequencing Rules] For details about the XML elements for this protocol  and the protocol versions that support them, see section 2.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
