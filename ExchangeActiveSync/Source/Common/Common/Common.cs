@@ -1130,9 +1130,13 @@ MIME-Version: 1.0
             {
                 convertedVersion = "160";
             }
+            else if (string.Equals(originalVersion, "16.1", StringComparison.CurrentCultureIgnoreCase))
+            {
+                convertedVersion = "161";
+            }
             else
             {
-                site.Assert.Fail(originalVersion + " is not a valid value of ActiveSyncProtocolVersion property, the value should be 12.1, 14.0, 14.1 or 16.0.");
+                site.Assert.Fail(originalVersion + " is not a valid value of ActiveSyncProtocolVersion property, the value should be 12.1, 14.0, 14.1, 16.0 or 16.1.");
             }
 
             return convertedVersion;
