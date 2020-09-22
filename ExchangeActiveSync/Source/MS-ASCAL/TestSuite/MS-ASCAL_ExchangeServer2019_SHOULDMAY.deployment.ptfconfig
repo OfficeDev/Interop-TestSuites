@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R11026Enabled to true to verify that implementation command response includes no more than 300 Category child elements per Categories element. Set R11026Enabled to false to disable this requirement.-->
+    <Property name="R11026Enabled" value="true"/>
+    <!-- Set R11028Enabled to true to verify that the first day of the week for any recurrence according to the preconfigured options of the user creating the calendar item, if the FirstDayOfWeek element is not included in the client request. Set R11028Enabled to false to disable this requirement.-->
+    <Property name="R11028Enabled" value="true"/>
+    <!-- Set R4Enabled to true to verify that implementation returns status value 6 if Interval is set to 0 in command request. Set R4Enabled to false to disable this requirement.-->
+    <Property name="R4Enabled" value="false"/>
+    <!-- Set R5Enabled to true to verify that implementation returns Interval value 1 if Interval is set to 0 in command request. Set R5Enabled to false to disable this requirement.-->
+    <Property name="R5Enabled" value="true"/>
+    <!-- Set R3Enabled to true to verify that the implementation return a value of 0 (Default) when a client specifies a value of 1 (Gregorian). Set R3Enabled to false to disable this requirement.-->
+    <Property name="R3Enabled" value="false"/>
+    <!-- Set R2239Enabled to true to verify that the implementation does not return a value of 0 (Default) when a client specifies a value of 1 (Gregorian). Set R2239Enabled to false to disable this requirement.-->
+    <Property name="R2239Enabled" value="true"/>
+    <!-- Set R2242Enabled to true to verify that implementation supports deleting elements of a recurring calendar item in an Exception element. Set R2242Enabled to false to disable this requirement.-->
+    <Property name="R2242Enabled" value="true"/>
+    <!-- Set R52529Enabled to true to verify that implementation does not replace Email element with suitable placeholder text if the value of the Email element is not formatted as specified in [MS-ASDTYPE] section 2.6.2. Set R52529Enabled to false to disable this requirement.-->
+    <Property name="R52529Enabled" value="true"/>
+  </Properties>
+</TestSite>
