@@ -56,7 +56,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             Site.CaptureRequirementIfIsNotNull(
                 moveItemsResponse.ResponseData,
                 218,
-                @"[In Processing a MoveItems Command] The server sends a MoveItems command response, as specified in [MS-ASCMD] section 2.2.2.10.");
+                @"[In Processing a MoveItems Command] The server sends a MoveItems command response, as specified in [MS-ASCMD] section 2.2.1.12.");
             #endregion
 
             #region Synchronize emails in the Inbox folder and Sent Items folder after conversation moved.
