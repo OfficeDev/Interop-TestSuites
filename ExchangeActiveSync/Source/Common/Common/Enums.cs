@@ -25,9 +25,9 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// </summary>
         ExchangeServer2016,
 
-       /// <summary>
-       /// The SUT is Exchange Server 2019
-       /// </summary>
+        /// <summary>
+        /// The SUT is Exchange Server 2019
+        /// </summary>
         ExchangeServer2019
     }
 
