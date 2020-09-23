@@ -31,7 +31,6 @@
     <Property name="Locale" value="1033" />
     <!-- The ActiveSyncProtocolVersion property specifies the version of ActiveSync protocol used to communicate with the server.
            The supported values are:
-		   "16.1", the protocol version is 16.1;
            "16.0", the protocol version is 16.0;
            "14.1", the protocol version is 14.1;
            "14.0", the protocol version is 14.0;
