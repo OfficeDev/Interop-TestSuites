@@ -869,6 +869,23 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 2644,
                 @"[In Preview (BodyPreference)] [The Preview element] specifies the maximum length of the Unicode plain text message or message part preview to be returned to the client.");
             #endregion
+
+            #region Set BodyPreference element
+            bodyPreference = new Request.BodyPreference[]
+            {
+                new Request.BodyPreference()
+                {
+                    Type =1,
+                    Preview = 18,
+                    PreviewSpecified = true
+                }
+            };
+            #endregion
+
+            #region Verify Sync command related elements
+            syncItem = this.GetSyncResult(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);
+            this.VerifyBodyPreview(syncItem.Email, allContentItem.Email, bodyPreference);
+            #endregion
         }
         #endregion
 
@@ -1525,22 +1542,37 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
         /// <param name="bodyPreference">A BodyPreference object.</param>
         private void VerifyBodyPreview(DataStructures.Email email, DataStructures.Email allContentEmail, Request.BodyPreference[] bodyPreference)
         {
-            Site.Assert.IsNotNull(
+            if (bodyPreference[0].Type == 2)
+            {
+                Site.Assert.IsNotNull(
                 email.Body,
                 "The Body element should be included in command response when the BodyPreference element is specified in command request.");
 
-            Site.Assert.IsNotNull(
-                email.Body.Preview,
-                "The Preview element should be included in command response when the Preview element is specified in command request.");
+                Site.Assert.IsNotNull(
+                    email.Body.Preview,
+                    "The Preview element should be included in command response when the Preview element is specified in command request.");
 
-            Site.Assert.IsTrue(
-                email.Body.Preview.Length <= bodyPreference[0].Preview,
-                "The Preview element in a response should contain no more than the number of characters specified in the request. The length of Preview element in response is: {0}.",
-                email.Body.Preview.Length);
+                Site.Assert.IsTrue(
+                    email.Body.Preview.Length <= bodyPreference[0].Preview,
+                    "The Preview element in a response should contain no more than the number of characters specified in the request. The length of Preview element in response is: {0}.",
+                    email.Body.Preview.Length);
 
-            Site.Assert.IsTrue(
-                allContentEmail.Body.Data.Contains(email.Body.Preview),
-                "The Preview element in a response should contain the message part preview returned to the client.");
+                Site.Assert.IsTrue(
+                    allContentEmail.Body.Data.Contains(email.Body.Preview),
+                    "The Preview element in a response should contain the message part preview returned to the client.");
+            }
+
+            if (bodyPreference[0].Type == 1)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1001036");
+
+                // Verify MS-ASAIRS requirement: MS-ASAIRS_R1001036
+                Site.CaptureRequirementIfIsTrue(
+                    allContentEmail.Body.Data == email.Body.Data && email.Body.Preview == null,
+                    402,
+                    @"[In Preview (Body)] If the Body element in the request contains a Type element of value 1 (Plain text) and there is valid data returned in the Data element (section 2.2.2.20.1), then the Preview element will not be returned in the same response.");
+            }
         }
 
         /// <summary>
