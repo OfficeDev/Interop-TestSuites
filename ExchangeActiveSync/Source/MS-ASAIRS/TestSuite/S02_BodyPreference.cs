@@ -1570,7 +1570,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 // Verify MS-ASAIRS requirement: MS-ASAIRS_R1001036
                 Site.CaptureRequirementIfIsTrue(
                     allContentEmail.Body.Data == email.Body.Data && email.Body.Preview == null,
-                    402,
+                    1001036,
                     @"[In Preview (Body)] If the Body element in the request contains a Type element of value 1 (Plain text) and there is valid data returned in the Data element (section 2.2.2.20.1), then the Preview element will not be returned in the same response.");
             }
         }
