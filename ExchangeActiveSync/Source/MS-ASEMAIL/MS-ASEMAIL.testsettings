@@ -35,6 +35,5 @@
     </TestTypeSpecific>
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
-  </Execution>
-  <Properties />
+  </Execution>  
 </TestSettings>
