@@ -1237,7 +1237,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
                         if (null != syncResponse.AddElements[i].Calendar.Recurrence)
                         {
-                            if (activeSyncProtocolVersion.Equals("12.1")
+                            if (activeSyncProtocolVersion.Equals("2.5")
+                                || activeSyncProtocolVersion.Equals("12.0")
+                                || activeSyncProtocolVersion.Equals("12.1")
                                 || activeSyncProtocolVersion.Equals("14.0")
                                 || activeSyncProtocolVersion.Equals("14.1"))
                             {
