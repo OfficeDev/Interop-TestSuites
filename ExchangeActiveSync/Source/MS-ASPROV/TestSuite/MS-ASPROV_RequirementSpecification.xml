@@ -779,8 +779,10 @@ Status (section 2.2.2.54.3): One element of this type is required.</ns1:Descript
 		<ns1:REQ_ID>MS-ASPROV_R7601</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In AllowBluetooth] Protocol version 16.1 supports this [AllowBluetooth] element.</ns1:Description>
-		<ns1:IsNormative/>
-		<ns1:Verification/>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R80</ns1:REQ_ID>
