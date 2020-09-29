@@ -5351,7 +5351,7 @@ AccountOnlyRemoteWipe (section 2.2.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R32401</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.45</ns1:Doc_Sect>
-		<ns1:Description>[In RemoteWipe] Protocol version 16.0 supports this [RemoteWipe] element.</ns1:Description>
+		<ns1:Description>[In RemoteWipe] Protocol version 16.1 supports this [RemoteWipe] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5450,7 +5450,7 @@ AccountOnlyRemoteWipe (section 2.2.2.1).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R33001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.46</ns1:Doc_Sect>
-		<ns1:Description>[In RequireDeviceEncryption] Protocol version 16.0 supports this [RequireDeviceEncryption] element.</ns1:Description>
+		<ns1:Description>[In RequireDeviceEncryption] Protocol version 16.1 supports this [RequireDeviceEncryption] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8505,7 +8505,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R77</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8514,7 +8514,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R78</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8523,7 +8523,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R711</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The value of the PolicyKey element is a string representation of a 32-bit unsigned integer. (Exchange 2007 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] The value of the PolicyKey element is a string representation of a 32-bit unsigned integer. (Exchange 2007 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-ASPROV_R606:i,MS-ASPROV_R77:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -8534,7 +8534,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R509</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does require that the client device has requested and acknowledged the security policy settings before the client is allowed to synchronize with the server, unless a security policy is set on the implementation to allow it [client is allowed to synchronize with the implementation]. (Exchange 2007 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] The implementation does require that the client device has requested and acknowledged the security policy settings before the client is allowed to synchronize with the server, unless a security policy is set on the implementation to allow it [client is allowed to synchronize with the implementation]. (Exchange 2007 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-ASPROV_R483:i,MS-ASPROV_R77:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8545,7 +8545,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R535</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does respond to a security policy settings request in an initial Provision command request with a response in the following format. (Exchange 2007 and above follow this behavior.)
+		<ns1:Description>[In Appendix B: Product Behavior] The implementation does respond to a security policy settings request in an initial Provision command request with a response in the following format. (Exchange 2007 and above follow this behavior.)
 &lt;Provision&gt;
    &lt;settings:DeviceInformation&gt;
       &lt;settings:Status&gt;...&lt;/settings:Status&gt;
@@ -8644,7 +8644,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R667</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;1&gt; Section 3.1.5.1:  Windows 8.1 does not send a Provision command when contacting the server for the first time.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;1&gt; Section 3.1.5.1:  Windows 8.1 does not send a Provision command when contacting the server for the first time.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8653,7 +8653,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R1040</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] [The cause of status value 139 is] The client returned a value of 2 in the Status child element of the Policy element in a request to the implementation to acknowledge a policy. (&lt;2&gt; Section 3.1.5.2:  In Microsoft Exchange Server 2007 and Exchange 2010, this does not cause status code 139.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [The cause of status value 139 is] The client returned a value of 2 in the Status child element of the Policy element in a request to the implementation to acknowledge a policy. (&lt;2&gt; Section 3.1.5.2:  In Microsoft Exchange Server 2007 and Exchange 2010, this does not cause status code 139.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8662,7 +8662,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R1046</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] [The cause of status value 139 is] The client returned a value of 2 in the Status child element of the Policy element in a request to the implementation to acknowledge a policy. (Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [The cause of status value 139 is] The client returned a value of 2 in the Status child element of the Policy element in a request to the implementation to acknowledge a policy. (Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-ASPROV_R455:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -8673,7 +8673,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R1041</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client reports success, the implementation does return a value of 1 in the Status element (section 2.2.2.54.2). (&lt;3&gt; Section 3.2.5.1.2.2:  In Exchange 2007 and Exchange 2010, if the client reports success, the server returns a value of 1 in the Status element and a remote wipe directive.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the client reports success, the implementation does return a value of 1 in the Status element (section 2.2.2.54.2). (&lt;3&gt; Section 3.2.5.1.2.2:  In Exchange 2007 and Exchange 2010, if the client reports success, the server returns a value of 1 in the Status element and a remote wipe directive.)</ns1:Description>
 		<ns1:Derived>MS-ASPROV_R664:i,MS-ASPROV_R77:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -8684,7 +8684,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R1047</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client reports success, the implementation does return a value of 1 in the Status element (section 2.2.2.54.2). (Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the client reports success, the implementation does return a value of 1 in the Status element (section 2.2.2.54.2). (Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-ASPROV_R664:i,MS-ASPROV_R77:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -8695,7 +8695,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R1042</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior]  If the client reports failure, the implementation does return a value of 2 in the Status element [and a remote wipe directive]. (&lt;4&gt; Section 3.2.5.1.2.2:  In Exchange 2007 and Exchange 2010, if the client reports failure, the server returns a value of 1 in the Status element.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the client reports failure, the implementation does return a value of 2 in the Status element [and a remote wipe directive]. (&lt;4&gt; Section 3.2.5.1.2.2:  In Exchange 2007 and Exchange 2010, if the client reports failure, the server returns a value of 1 in the Status element.)</ns1:Description>
 		<ns1:Derived>MS-ASPROV_R665:i,MS-ASPROV_R77:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -8706,7 +8706,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R1048</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the client reports failure, the implementation does return a value of 2 in the Status element [and a remote wipe directive]. (Exchange 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the client reports failure, the implementation does return a value of 2 in the Status element [and a remote wipe directive]. (Exchange 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-ASPROV_R665:i,MS-ASPROV_R77:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -8717,7 +8717,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R537</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If the policy key received from the client does not match the stored policy key on the server [, or if the server determines that policy settings need to be updated on the client], the implementation does return a status code, as specified in [MS-ASCMD] section 2.2.4, in the next command response indicating that the client needs to send another Provision command to request the security policy settings and obtain a new policy key. (Exchange 2007 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the policy key received from the client does not match the stored policy key on the server [, or if the server determines that policy settings need to be updated on the client], the implementation does return a status code, as specified in [MS-ASCMD] section 2.2.4, in the next command response indicating that the client needs to send another Provision command to request the security policy settings and obtain a new policy key. (Exchange 2007 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-ASPROV_R487:i,MS-ASPROV_R77:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
