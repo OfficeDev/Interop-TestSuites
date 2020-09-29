@@ -30,7 +30,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R3</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Message Syntax] The markup that is used by this protocol MUST be well-formed XML, as specified in [XML].</ns1:Description>
+		<ns1:Description>[In Message Syntax] The markup that is used by this protocol MUST be well-formed XML, as specified in [XML10/5].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -66,7 +66,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R13</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] None prefix is used for namespace URI "Tasks".</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "tasks" is used for namespace URI "Tasks".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -75,7 +75,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R14</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The prefix "airsync" is used for namespace URI "AirSync", which refers to [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "airsync" is used for namespace URI "AirSync", which refers to [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -93,7 +93,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R16</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The prefix "itemoperations" is used for namespace URI "ItemOperations", which refers to [MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "itemoperations" is used for namespace URI "ItemOperations", which refers to [MS-ASCMD] section 2.2.1.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -102,7 +102,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R17</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The prefix "search" is used for namespace URI "Search", which refers to [MS-ASCMD] section 2.2.2.14.</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "search" is used for namespace URI "Search", which refers to [MS-ASCMD] section 2.2.1.16.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -111,7 +111,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R18</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The prefix "xs" is used for namespace URI "http://www.w3.org/2001/XMLSchema", which refers to [XMLSCHEMA1].</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "xs" is used for namespace URI "http://www.w3.org/2001/XMLSchema", which refers to [XMLSCHEMA1/2].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -148,20 +148,20 @@
 		<ns1:REQ_ID>MS-ASTASK_R378</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In Elements] The following elements are top-level elements of the Task class:
- 	airsyncbase:Body (section 2.2.2.1)
- 	Categories (section 2.2.2.3)
-	Complete (section 2.2.2.5)
-	DateCompleted (section 2.2.2.6)
-	DueDate (section 2.2.2.10)
-	Importance (section 2.2.2.12)
-	Recurrence (section 2.2.2.18)
-ReminderSet (section 2.2.2.20)
-	ReminderTime (section 2.2.2.21)
-	Sensitivity (section 2.2.2.22)
+ 	airsyncbase:Body (section 2.2.2.1.1)
+ 	Categories (section 2.2.2.5)
+	Complete (section 2.2.2.7)
+	DateCompleted (section 2.2.2.8)
+	DueDate (section 2.2.2.12)
+	Importance (section 2.2.2.14)
+	Recurrence (section 2.2.2.20)
+ReminderSet (section 2.2.2.22)
+	ReminderTime (section 2.2.2.23)
+	Sensitivity (section 2.2.2.24)
 	StartDate (section 2.2.2.24)
-	Subject (section 2.2.2.25)
-	UtcDueDate (section 2.2.2.29)
-	UtcStartDate (section 2.2.2.30)</ns1:Description>
+	Subject (section 2.2.2.27)
+	UtcDueDate (section 2.2.2.31)
+	UtcStartDate (section 2.2.2.32)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -179,7 +179,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R38</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Task class is used in ActiveSync command requests and responses as follows:] As an optional child element of the itemoperations:Schema element ([MS-ASCMD] section 2.2.3.145) in ItemOperations command requests ([MS-ASCMD] section 2.2.2.8)</ns1:Description>
+		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Task class is used in ActiveSync command requests and responses as follows:] As an optional child element of the itemoperations:Schema element ([MS-ASCMD] section 2.2.3.158) in ItemOperations command requests ([MS-ASCMD] section 2.2.1.10)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -188,7 +188,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R39</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Task class is used in ActiveSync command requests and responses as follows:] As an optional child element of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.128.1) in ItemOperations command responses ([MS-ASCMD] section 2.2.2.8)</ns1:Description>
+		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Task class is used in ActiveSync command requests and responses as follows:] As an optional child element of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.139.2) in ItemOperations command responses ([MS-ASCMD] section 2.2.1.10)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -197,7 +197,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R40</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Task class is used in ActiveSync command requests and responses as follows:] As an optional child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) in Search command responses ([MS-ASCMD] section 2.2.2.14)</ns1:Description>
+		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Task class is used in ActiveSync command requests and responses as follows:] As an optional child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) in Search command responses ([MS-ASCMD] section 2.2.1.16)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -206,7 +206,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R41</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Task class is used in ActiveSync command requests and responses as follows:] As an optional child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in Sync command requests ([MS-ASCMD] section 2.2.2.19)</ns1:Description>
+		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Task class is used in ActiveSync command requests and responses as follows:] As an optional child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in Sync command requests ([MS-ASCMD] section 2.2.1.21)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -215,7 +215,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R42</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Task class is used in ActiveSync command requests and responses as follows:] As an optional child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in Sync command responses ([MS-ASCMD] section 2.2.2.19)</ns1:Description>
+		<ns1:Description>[In Elements][Except where otherwise specified in the following sections, each top-level element of the Task class is used in ActiveSync command requests and responses as follows:] As an optional child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in Sync command responses ([MS-ASCMD] section 2.2.1.21)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -224,7 +224,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R43</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The following table summarizes the set of common XML schema element [airsyncbase:Body,Subject,Importance,UtcStartDate,StartDate,UtcDueDate,DueDate,Categories,Category,Recurrence,Type,Start,Until,Occurrences,Interval,DayOfWeek,DayOfMonth,WeekOfMonth,MonthOfYear,Regenerate,DeadOccur,CalendarType,IsLeapMonth,FirstDayOfWeek,Complete,DateCompleted,Sensitivity,ReminderTime,ReminderSet] definitions defined in or used by this specification.</ns1:Description>
+		<ns1:Description>[In Elements] The following table summarizes the set of common XML schema element [airsyncbase:Body,Subject,Importance,UtcStartDate,StartDate,UtcDueDate,DueDate,Categories,Category,Recurrence,Type,Start,Until,Occurrences,Interval,DayOfWeek,DayOfMonth,WeekOfMonth,MonthOfYear,Regenerate,DeadOccur,CalendarType,IsLeapMonth,FirstDayOfWeek,Complete,DateCompleted,Sensitivity,ReminderTime,ReminderSet,OrdinalDate] definitions defined in or used by this specification.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -242,7 +242,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R45</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element airsyncbase:Body specifies the text for the task item.</ns1:Description>
+		<ns1:Description>[In Elements] The element airsyncbase:Body specifies details about the body of a task item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -314,7 +314,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R53</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element Category (section 2.2.2.4) specifies one of the user-selected labels that has been applied to the task item.</ns1:Description>
+		<ns1:Description>[In Elements] The element Category (section 2.2.2.6) specifies one of the user-selected labels that has been applied to the task item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -332,7 +332,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R55</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element Type (section 2.2.2.27) specifies the recurrence type.</ns1:Description>
+		<ns1:Description>[In Elements] The element Type (section 2.2.2.29) specifies the recurrence type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -341,7 +341,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R56</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element Start (section 2.2.2.23) specifies the start time of a series of recurrence items.</ns1:Description>
+		<ns1:Description>[In Elements] The element Start (section 2.2.2.25) specifies the start time of a series of recurrence items.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -350,7 +350,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R57</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element Until (section 2.2.2.28) specifies the end time of a series of recurrence items.</ns1:Description>
+		<ns1:Description>[In Elements] The element Until (section 2.2.2.30) specifies the end time of a series of recurrence items.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -359,7 +359,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R58</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element Occurrences (section 2.2.2.16) specifies the number of occurrences before the series ends.</ns1:Description>
+		<ns1:Description>[In Elements] The element Occurrences (section 2.2.2.18) specifies the number of occurrences before the series ends.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -368,7 +368,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R59</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element Interval (section 2.2.2.13) specifies the interval between recurrences.</ns1:Description>
+		<ns1:Description>[In Elements] The element Interval (section 2.2.2.15) specifies the interval between recurrences.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -377,7 +377,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R60</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element DayOfWeek (section 2.2.2.8) specifies the day of the week for the recurrence.</ns1:Description>
+		<ns1:Description>[In Elements] The element DayOfWeek (section 2.2.2.10) specifies the day of the week for the recurrence.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -386,7 +386,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R61</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element DayOfMonth (section 2.2.2.7) specifies the day of the month for the recurrence.</ns1:Description>
+		<ns1:Description>[In Elements] The element DayOfMonth (section 2.2.2.9) specifies the day of the month for the recurrence.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -395,7 +395,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R62</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element WeekOfMonth (section 2.2.2.31) specifies the week of the month for the recurrence.</ns1:Description>
+		<ns1:Description>[In Elements] The element WeekOfMonth (section 2.2.2.33) specifies the week of the month for the recurrence.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -404,7 +404,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R63</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element MonthOfYear (section 2.2.2.15) specifies the month of the year for the recurrence.</ns1:Description>
+		<ns1:Description>[In Elements] The element MonthOfYear (section 2.2.2.17) specifies the month of the year for the recurrence.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -413,7 +413,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R64</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element Regenerate (section 2.2.2.19) specifies whether the task item regenerates after each task instance is complete.</ns1:Description>
+		<ns1:Description>[In Elements] The element Regenerate (section 2.2.2.21) specifies whether the task item regenerates after each task instance is complete.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -422,7 +422,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R65</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element DeadOccur (section 2.2.2.9) specifies whether the task is a recurring instance.</ns1:Description>
+		<ns1:Description>[In Elements] The element DeadOccur (section 2.2.2.11) specifies whether the task is a recurring instance.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -431,7 +431,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R66</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element CalendarType (section 2.2.2.2) specifies the calendar system used by this recurrence".</ns1:Description>
+		<ns1:Description>[In Elements] The element CalendarType (section 2.2.2.4) specifies the calendar system used by this recurrence".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -440,7 +440,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R67</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element IsLeapMonth (section 2.2.2.14) specifies whether this recurrence takes place during a leap month.</ns1:Description>
+		<ns1:Description>[In Elements] The element IsLeapMonth (section 2.2.2.16) specifies whether this recurrence takes place during a leap month.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -449,7 +449,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R68</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element FirstDayOfWeek (section 2.2.2.11) specifies which day is considered the first day of the calendar week for this recurrence.</ns1:Description>
+		<ns1:Description>[In Elements] The element FirstDayOfWeek (section 2.2.2.13) specifies which day is considered the first day of the calendar week for this recurrence.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -503,7 +503,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R2113</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element OrdinalDate (section 2.2.2.17) specifies the time at which the client set the flag.</ns1:Description>
+		<ns1:Description>[In Elements] The element OrdinalDate (section 2.2.2.19) specifies the time at which the client set the flag.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -512,7 +512,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R2114</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The element SubOrdinalDate (section 2.2.2.26) specifies a value that can be used for sorting.</ns1:Description>
+		<ns1:Description>[In Elements] The element SubOrdinalDate (section 2.2.2.28) specifies a value that can be used for sorting.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -539,7 +539,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R76</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Body (AirSyncBase Namespace)] For more details about the airsyncbase:Body element, see [MS-ASAIRS] section 2.2.2.4.</ns1:Description>
+		<ns1:Description>[In Body (AirSyncBase Namespace)] For more details about the airsyncbase:Body element, see [MS-ASAIRS] section 2.2.2.9.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -582,9 +582,18 @@ ReminderSet (section 2.2.2.20)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5041</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Body (AirSyncBase Namespace)] Protocol version 16.1 supports this [Body (AirSyncBase Namespace)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R77</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In CalendarType] The CalendarType element&lt;1&gt; is a child element of the Recurrence element (section 2.2.2.18) that specifies the calendar system used by the task recurrence.</ns1:Description>
+		<ns1:Description>[In CalendarType] The CalendarType element is a child element of the Recurrence element (section 2.2.2.20) that specifies the calendar system used by the task recurrence.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -602,7 +611,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R79</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In CalendarType] The value of this element[CalendarType] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In CalendarType] The value of this element[CalendarType] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -611,7 +620,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R80</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In CalendarType] A command request has a maximum of one CalendarType child element per Recurrence element when the Type element (section 2.2.2.27) is set to a value of 2, 3, 5, or 6.</ns1:Description>
+		<ns1:Description>[In CalendarType] A command request has a maximum of one CalendarType child element per Recurrence element when the Type element (section 2.2.2.29) is set to a value of 2, 3, 5, or 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -692,7 +701,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R86</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In CalendarType] The value 01 means Gregorian</ns1:Description>
+		<ns1:Description>[In CalendarType] The value 1 means Gregorian</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -798,9 +807,18 @@ ReminderSet (section 2.2.2.20)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASTASK_R98</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASTASK_R981</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
 		<ns1:Description>[In CalendarType] The value 14 means Japanese Lunar</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R98</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In CalendarType] The value 15 means Chinese Lunar</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -818,7 +836,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R382</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In CalendarType] This value[Saka Era] is not supported; MUST not be used.</ns1:Description>
+		<ns1:Description>[In CalendarType] This value[Saka Era] is not supported; MUST NOT be used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -836,7 +854,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R384</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In CalendarType] This value [Chinese Lunar (Eto) ] is not supported; MUST not be used.</ns1:Description>
+		<ns1:Description>[In CalendarType] This value [Chinese Lunar (Eto) ] is not supported; MUST NOT be used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -854,7 +872,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R386</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In CalendarType] This value [Korean Lunar (Eto) ] is not supported; MUST not be used.</ns1:Description>
+		<ns1:Description>[In CalendarType] This value [Korean Lunar (Eto) ] is not supported; MUST NOT be used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -872,7 +890,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R388</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In CalendarType] This value [Japanese Rokuyou Lunar ] is not supported; MUST not be used.</ns1:Description>
+		<ns1:Description>[In CalendarType] This value [Japanese Rokuyou Lunar ] is not supported; MUST NOT be used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -899,7 +917,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R390</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In CalendarType] This value[Um al-Qura] is not supported; MUST not be used.</ns1:Description>
+		<ns1:Description>[In CalendarType] This value[Um al-Qura] is not supported; MUST NOT be used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -936,6 +954,15 @@ ReminderSet (section 2.2.2.20)
 		<ns1:REQ_ID>MS-ASTASK_R508</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
 		<ns1:Description>[In CalendarType] Protocol version 16.0 supports this [CalendarType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5081</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In CalendarType] Protocol version 16.1 supports this [CalendarType] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -989,7 +1016,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R110</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In Categories][The Categories element can have the following child element:] Category (section 2.2.2.4): This element is optional.</ns1:Description>
+		<ns1:Description>[In Categories][The Categories element can have the following child element:] Category (section 2.2.2.6): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1050,9 +1077,18 @@ ReminderSet (section 2.2.2.20)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5121</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Categories] Protocol version 16.1 supports this [Categories] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R112</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In Category] The Category element is an optional child element of the Categories element (section 2.2.2.3) that specifies a category that is assigned to the task item, such as Business, Holiday, Personal, or Waiting.</ns1:Description>
+		<ns1:Description>[In Category] The Category element is an optional child element of the Categories element (section 2.2.2.5) that specifies a category that is assigned to the task item, such as Business, Holiday, Personal, or Waiting.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1070,7 +1106,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R114</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In Category] The value of this element[Category] is a string data type, as specified in [MS-ASDTYPE] section 2.6.</ns1:Description>
+		<ns1:Description>[In Category] The value of this element[Category] is a string data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1123,6 +1159,15 @@ ReminderSet (section 2.2.2.20)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5161</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In Category] Protocol version 16.1 supports this [Category] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R116</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
 		<ns1:Description>[In Complete] The Complete element is a required element that specifies whether the task has been completed.</ns1:Description>
@@ -1143,7 +1188,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R118</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In Complete] The value of this element[Complete] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In Complete] The value of this element[Complete] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1152,7 +1197,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R119</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In Complete] The value of the Complete element MUST be one of the following values[The value is 0 or1].</ns1:Description>
+		<ns1:Description>[In Complete] The value of the Complete element MUST be one of the following values[The value is 0 or 1].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1213,6 +1258,15 @@ ReminderSet (section 2.2.2.20)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5201</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In Complete] Protocol version 16.1 supports this [Complete] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R122</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
 		<ns1:Description>[In DateCompleted] The DateCompleted element specifies the date and time at which the task was completed.</ns1:Description>
@@ -1233,7 +1287,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R124</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In DateCompleted] The DateCompleted element MUST be included in the response if the Complete element (section 2.2.2.5) value is 1.</ns1:Description>
+		<ns1:Description>[In DateCompleted] The DateCompleted element MUST be included in the response if the Complete element (section 2.2.2.7) value is 1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1285,9 +1339,18 @@ ReminderSet (section 2.2.2.20)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5241</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In DateCompleted] Protocol version 16.1 supports this [DateCompleted] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R126</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In DayofMonth] The DayOfMonth element is an optional child element of the Recurrence element (section 2.2.2.18) that specifies the day of the month for the task recurrence.</ns1:Description>
+		<ns1:Description>[In DayofMonth] The DayOfMonth element is an optional child element of the Recurrence element (section 2.2.2.20) that specifies the day of the month for the task recurrence.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1305,7 +1368,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R128</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In DayOfMonth] The value of this element[DayOfMonth] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In DayOfMonth] The value of this element[DayOfMonth] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1323,7 +1386,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R404</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In DayOfMonth] A command [request or] response has a minimum of one DayOfMonth element per Recurrence element if the value of the Type element (section 2.2.2.27) is 2 [or 5].</ns1:Description>
+		<ns1:Description>[In DayOfMonth] A command [request or] response has a minimum of one DayOfMonth element per Recurrence element if the value of the Type element (section 2.2.2.29) is 2 [or 5].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1332,7 +1395,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R405</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In DayOfMonth] A command request [or response] has a minimum of one DayOfMonth element per Recurrence element if the value of the Type element (section 2.2.2.27) is [2 or] 5.</ns1:Description>
+		<ns1:Description>[In DayOfMonth] A command request [or response] has a minimum of one DayOfMonth element per Recurrence element if the value of the Type element (section 2.2.2.29) is [2 or] 5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1341,7 +1404,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R406</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In DayOfMonth] A command [request or] response has a minimum of one DayOfMonth element per Recurrence element if the value of the Type element (section 2.2.2.27) is [2 or] 5.</ns1:Description>
+		<ns1:Description>[In DayOfMonth] A command [request or] response has a minimum of one DayOfMonth element per Recurrence element if the value of the Type element (section 2.2.2.29) is [2 or] 5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1350,7 +1413,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R129</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In DayOfMonth] A command request [or response] has a minimum of one DayOfMonth element per Recurrence element if the value of the Type element (section 2.2.2.27) is 2 [or 5] .</ns1:Description>
+		<ns1:Description>[In DayOfMonth] A command request [or response] has a minimum of one DayOfMonth element per Recurrence element if the value of the Type element (section 2.2.2.29) is 2 [or 5] .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1456,9 +1519,18 @@ ReminderSet (section 2.2.2.20)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5291</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In DayofMonth] Protocol version 16.1 supports this [DayofMonth] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R133</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
-		<ns1:Description>[In DayofWeek] The DayOfWeek element is an optional child element of the Recurrence element (section 2.2.2.18) that specifies the day of the week for the task recurrence.</ns1:Description>
+		<ns1:Description>[In DayofWeek] The DayOfWeek element is an optional child element of the Recurrence element (section 2.2.2.11) that specifies the day of the week for the task recurrence.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1558,7 +1630,7 @@ ReminderSet (section 2.2.2.20)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R140</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
-		<ns1:Description>[In DayOfWeek] The value of this element [DayOfWeek] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In DayOfWeek] The value of this element [DayOfWeek] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1640,7 +1712,7 @@ ReminderSet (section 2.2.2.20)
 		<ns1:REQ_ID>MS-ASTASK_R149</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
 		<ns1:Description>[In DayOfWeek] The value 127 means 
-Specifies the last day of the month when the value of the WeekOfMonth element (section 2.2.2.31) is 5.</ns1:Description>
+Specifies the last day of the month when the value of the WeekOfMonth element (section 2.2.2.33) is 5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1683,9 +1755,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5371</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In DayOfWeek] Protocol version 16.1 supports this [DayOfWeek] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R152</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
-		<ns1:Description>[In DeadOccur] The DeadOccur element is an optional child element of the Recurrence element (section 2.2.2.18) that specifies whether the task is an instance of a recurring task.</ns1:Description>
+		<ns1:Description>[In DeadOccur] The DeadOccur element is an optional child element of the Recurrence element (section 2.2.2.20) that specifies whether the task is an instance of a recurring task.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1703,7 +1784,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R154</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
-		<ns1:Description>[In DeadOccur] The value of this element [DeadOccur] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In DeadOccur] The value of this element [DeadOccur] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1791,6 +1872,15 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5411</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In DeadOccur] Protocol version 16.1 supports this [DeadOccur] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R159</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
 		<ns1:Description>[In DueDate] The DueDate element specifies the local due date of the task item.</ns1:Description>
@@ -1854,9 +1944,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5451</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In DueDate] Protocol version 16.1 supports this [DueDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R162</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
-		<ns1:Description>[In FirstDayOfWeek] The FirstDayOfWeek element is a child element of the Recurrence element (section 2.2.2.18) that specifies which day is considered the first day of the calendar week for this recurrence.</ns1:Description>
+		<ns1:Description>[In FirstDayOfWeek] The FirstDayOfWeek element is a child element of the Recurrence element (section 2.2.2.20) that specifies which day is considered the first day of the calendar week for this recurrence.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1874,7 +1973,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R164</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
-		<ns1:Description>[In FirstDayOfWeek] The value of this element[FirstDayOfWeek] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In FirstDayOfWeek] The value of this element[FirstDayOfWeek] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1901,7 +2000,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R167</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
-		<ns1:Description>[In FirstDayOfWeek] The server MUST return a FirstDayOfWeek element when the value of the Type element (section 2.2.2.27) is 1.</ns1:Description>
+		<ns1:Description>[In FirstDayOfWeek] The server MUST return a FirstDayOfWeek element when the value of the Type element (section 2.2.2.29) is 1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1937,7 +2036,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R171</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
-		<ns1:Description>[In FirstDayOfWeek] If the client uses the Sync command request ([MS-ASCMD] section 2.2.2.19) to transmit a value not included in this table[the value is between 0 to 6], then the server MUST return protocol status error 6.</ns1:Description>
+		<ns1:Description>[In FirstDayOfWeek] If the client uses the Sync command request ([MS-ASCMD] section 2.2.1.21) to transmit a value not included in this table[the value is between 0 to 6], then the server MUST return protocol status error 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1946,7 +2045,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R172</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
-		<ns1:Description>[In FirstDayOfWeek] Sync command status values are specified in [MS-ASCMD] section 2.2.3.162.16.</ns1:Description>
+		<ns1:Description>[In FirstDayOfWeek] Sync command status values are specified in [MS-ASCMD] section 2.2.3.177.17.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2052,6 +2151,15 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5491</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In FirstDayOfWeek] Protocol version 16.1 supports this [FirstDayOfWeek] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R180</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
 		<ns1:Description>[In Importance] The Importance element specifies the importance or priority of the task item.</ns1:Description>
@@ -2072,7 +2180,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R182</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
-		<ns1:Description>[In Importance] The value of this element [Importance] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In Importance] The value of this element [Importance] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2170,9 +2278,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5541</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In Importance] Protocol version 16.1 supports this [Importance] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R188</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
-		<ns1:Description>[In Interval] The Interval element is an optional child element of the Recurrence element (section 2.2.2.18) that specifies the interval between task recurrences.</ns1:Description>
+		<ns1:Description>[In Interval] The Interval element is an optional child element of the Recurrence element (section 2.2.2.20) that specifies the interval between task recurrences.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2260,9 +2377,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5581</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In Interval] Protocol version 16.1 supports this [Interval] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R193</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
-		<ns1:Description>[In IsLeapMonth] The IsLeapMonth element&lt;3&gt;is an optional child element of the Recurrence element (section 2.2.2.18) that specifies whether the recurrence patterns should occur within the leap month of the current year.</ns1:Description>
+		<ns1:Description>[In IsLeapMonth] The IsLeapMonth element is an optional child element of the Recurrence element (section 2.2.2.20) that specifies whether the recurrence patterns should occur within the leap month of the current year.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2280,7 +2406,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R195</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
-		<ns1:Description>[In IsLeapMonth] The value of this element[IsLeapMonth] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In IsLeapMonth] The value of this element[IsLeapMonth] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2289,7 +2415,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R196</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
-		<ns1:Description>[In IsLeapMonth] A command request [or response] has a maximum of one IsLeapMonth child element per Recurrence element.</ns1:Description>
+		<ns1:Description>[In IsLeapMonth] A command request has a maximum of one IsLeapMonth child element per Recurrence element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2298,7 +2424,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R197</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
-		<ns1:Description>[In IsLeapMonth] A command [request or] response has a maximum of one IsLeapMonth child element per Recurrence element.</ns1:Description>
+		<ns1:Description>[In IsLeapMonth] A command response has a maximum of one IsLeapMonth child element per Recurrence element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2307,7 +2433,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R198</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
-		<ns1:Description>[In IsLeapMonth] This element [IsLeapMonth] is applied when the CalendarType element (section 2.2.2.2) specifies a calendar system that incorporates an embolismic (leap) month.</ns1:Description>
+		<ns1:Description>[In IsLeapMonth] This element [IsLeapMonth] is applied when the CalendarType element (section 2.2.2.4) specifies a calendar system that incorporates an embolismic (leap) month.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2404,9 +2530,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5621</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In IsLeapMonth] Protocol version 16.1 supports this [IsLeapMonth] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R205</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In MonthOfYear] The MonthofYear element is an optional child element of the Recurrence element (section 2.2.2.17) that specifies the month of the year for the task recurrence.</ns1:Description>
+		<ns1:Description>[In MonthOfYear] The MonthofYear element is an optional child element of the Recurrence element (section 2.2.2.20) that specifies the month of the year for the task recurrence.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2424,7 +2559,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R207</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In MonthOfYear] The value of this element[MonthOfYear] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7</ns1:Description>
+		<ns1:Description>[In MonthOfYear] The value of this element[MonthOfYear] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2433,7 +2568,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R208</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In MonthOfYear] A command request [or response] has a minimum of one MonthofYear child element per Recurrence element if the value of the Type element (section 2.2.2.27) is [either] 5 [or 6].</ns1:Description>
+		<ns1:Description>[In MonthOfYear] A command request [or response] has a minimum of one MonthofYear child element per Recurrence element if the value of the Type element (section 2.2.2.29) is [either] 5 [or 6].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2442,7 +2577,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R416</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In MonthOfYear] A command request [or response] has a minimum of one MonthofYear child element per Recurrence element if the value of the Type element (section 2.2.2.27) is [either 5 or] 6.</ns1:Description>
+		<ns1:Description>[In MonthOfYear] A command request [or response] has a minimum of one MonthofYear child element per Recurrence element if the value of the Type element (section 2.2.2.29) is [either 5 or] 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2451,7 +2586,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R417</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In MonthOfYear] A command [request or] response has a minimum of one MonthofYear child element per Recurrence element if the value of the Type element (section 2.2.2.27) is [either] 5 [or 6].</ns1:Description>
+		<ns1:Description>[In MonthOfYear] A command [request or] response has a minimum of one MonthofYear child element per Recurrence element if the value of the Type element (section 2.2.2.29) is [either] 5 [or 6].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2460,7 +2595,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R418</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In MonthOfYear] A command [request or] response has a minimum of one MonthofYear child element per Recurrence element if the value of the Type element (section 2.2.2.27) is [either 5 or] 6.</ns1:Description>
+		<ns1:Description>[In MonthOfYear] A command [request or] response has a minimum of one MonthofYear child element per Recurrence element if the value of the Type element (section 2.2.2.29) is [either 5 or] 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2530,9 +2665,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5661</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In MonthOfYear] Protocol version 16.1 supports this [MonthOfYear] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R211</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
-		<ns1:Description>[In Occurrences] The Occurrences element is an optional child element of the Recurrence element (section 2.2.2.18) that specifies the number of occurrences before the series ends.</ns1:Description>
+		<ns1:Description>[In Occurrences] The Occurrences element is an optional child element of the Recurrence element (section 2.2.2.20) that specifies the number of occurrences before the series ends.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2550,7 +2694,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R213</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
-		<ns1:Description>[In Occurrences] The value of this element[Occurrences] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In Occurrences] The value of this element[Occurrences] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2577,7 +2721,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R215</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
-		<ns1:Description>[In Occurrences] The Occurrences element and the Until element (section 2.2.2.28) are mutually exclusive.</ns1:Description>
+		<ns1:Description>[In Occurrences] The Occurrences element and the Until element (section 2.2.2.30) are mutually exclusive.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2586,7 +2730,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R216</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
-		<ns1:Description>[In Occurrences][The Occurrences element and the Until element (section 2.2.2.28) are mutually exclusive.] It is recommended that only one of these elements be included as a child element of the Recurrence element in a Sync command request ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In Occurrences][The Occurrences element and the Until element (section 2.2.2.30) are mutually exclusive.] It is recommended that only one of these elements be included as a child element of the Recurrence element in a Sync command request ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2638,9 +2782,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5701</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
+		<ns1:Description>[In Occurrences] Protocol version 16.1 supports this [Occurrences] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R218</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
-		<ns1:Description>[In OrdinalDate] The OrdinalDate element is an optional child element of the email:Flag element, as defined in [MS-ASEMAIL] section 2.2.2.27, that specifies the time at which the client set the flag.</ns1:Description>
+		<ns1:Description>[In OrdinalDate] The OrdinalDate element is an optional child element of the email:Flag element, as defined in [MS-ASEMAIL] section 2.2.2.34, that specifies the time at which the client set the flag.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2701,6 +2854,15 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5741</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In OrdinalDate] Protocol version 16.1 supports this [OrdinalDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R221</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In Recurrence] The Recurrence element is a container ([MS-ASDTYPE] section 2.2) element that specifies when and how often the task recurs.</ns1:Description>
@@ -2748,7 +2910,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R225</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Type (section 2.2.2.25): This element is required.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Type (section 2.2.2.29): This element is required.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2757,7 +2919,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R226</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Start (section 2.2.2.22): This element is required.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Start (section 2.2.2.25): This element is required.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2766,7 +2928,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R227</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Until (section 2.2.2.26): This element is optional.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Until (section 2.2.2.30): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2775,7 +2937,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R228</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Occurrences (section 2.2.2.16): This element is optional.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Occurrences (section 2.2.2.18): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2784,7 +2946,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R229</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Interval (section 2.2.2.13): This element is optional.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Interval (section 2.2.2.15): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2793,7 +2955,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R230</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] DayOfWeek (section 2.2.2.8): This element is optional.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] DayOfWeek (section 2.2.2.10): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2802,7 +2964,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R231</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] DayOfMonth (section 2.2.2.7): This element is optional.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] DayOfMonth (section 2.2.2.9): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2811,7 +2973,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R232</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] WeekOfMonth (section 2.2.2.29): This element is optional.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] WeekOfMonth (section 2.2.2.33): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2820,7 +2982,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R233</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] MonthOfYear (section 2.2.2.15): This element is optional.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] MonthOfYear (section 2.2.2.17): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2829,7 +2991,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R234</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Regenerate (section 2.2.2.19): This element is optional.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] Regenerate (section 2.2.2.21): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2838,7 +3000,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R235</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] DeadOccur (section 2.2.2.9): This element is optional.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] DeadOccur (section 2.2.2.11): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2847,7 +3009,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R236</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] CalendarType (section 2.2.2.2): This element is optional.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] CalendarType (section 2.2.2.4): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2856,7 +3018,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R237</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] IsLeapMonth (section 2.2.2.14): This element is optional.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] IsLeapMonth (section 2.2.2.16): This element is optional.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2865,7 +3027,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R238</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] FirstDayOfWeek (section 2.2.2.11): This element is required in server's responses for weekly recurrences.</ns1:Description>
+		<ns1:Description>[In Recurence][The Recurrence element can have the following child elements:] FirstDayOfWeek (section 2.2.2.13): This element is required in server's responses for weekly recurrences.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2908,9 +3070,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5781</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
+		<ns1:Description>[In Recurrence] Protocol version 16.1 supports this [Recurrence] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R239</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
-		<ns1:Description>[In Regenerate] The Regenerate element is an optional child element of the Recurrence element (section 2.2.2.18) that specifies whether this task item regenerates after it[this task] is completed.</ns1:Description>
+		<ns1:Description>[In Regenerate] The Regenerate element is an optional child element of the Recurrence element (section 2.2.2.20) that specifies whether this task item regenerates after it[this task] is completed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2928,7 +3099,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R241</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
-		<ns1:Description>[In Regenerate] The value of this element [Regenerate] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In Regenerate] The value of this element [Regenerate] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2950,6 +3121,33 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R4221</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
+		<ns1:Description>The value of the Regenerate element MUST be one of the following values [the value is 0 or 1].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R4222</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
+		<ns1:Description>[In Regenerate] Value is 0 means False (do not regenerate).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R4223</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
+		<ns1:Description>[In Regenerate] Value is 1 means True (regenerate).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -3007,6 +3205,15 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5821</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
+		<ns1:Description>[In Regenerate] Protocol version 16.0 supports this [Regenerate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R246</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In ReminderSet] The ReminderSet element specifies whether a reminder for the task item has been set to appear.</ns1:Description>
@@ -3027,7 +3234,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R248</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.22</ns1:Doc_Sect>
-		<ns1:Description>[In ReminderSet] The value of this element[ReminderSet] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In ReminderSet] The value of this element[ReminderSet] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3106,6 +3313,15 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5861</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.22</ns1:Doc_Sect>
+		<ns1:Description>[In ReminderSet] Protocol version 16.1 supports this [ReminderSet] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R253</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.23</ns1:Doc_Sect>
 		<ns1:Description>[In ReminderTime] The ReminderTime element specifies the time and date at which the reminder for the task item will appear.</ns1:Description>
@@ -3169,6 +3385,15 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5901</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.23</ns1:Doc_Sect>
+		<ns1:Description>[In ReminderTime] Protocol version 16.1 supports this [ReminderTime] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R256</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.24</ns1:Doc_Sect>
 		<ns1:Description>[In Sensitivity] The Sensitivity element specifies the sensitivity level of the task.</ns1:Description>
@@ -3189,7 +3414,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R258</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.24</ns1:Doc_Sect>
-		<ns1:Description>[In Sensitivity] The value of this element[Sensitivity] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In Sensitivity] The value of this element[Sensitivity] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3286,9 +3511,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5941</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.24</ns1:Doc_Sect>
+		<ns1:Description>[In Sensitivity] Protocol version 16.1 supports this [Sensitivity] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R265</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
-		<ns1:Description>[In Start] The Start element is a required child element of the Recurrence element (section 2.2.2.18) that specifies the local start date for the recurrence.&lt;2&gt;</ns1:Description>
+		<ns1:Description>[In Start] The Start element is a required child element of the Recurrence element (section 2.2.2.20) that specifies the local start date for the recurrence.&lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3395,6 +3629,15 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R5981</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
+		<ns1:Description>[In Start] Protocol version 16.0 supports this [Start] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R272</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
 		<ns1:Description>[In StartDate] The StartDate element specifies the local start date of the task item.</ns1:Description>
@@ -3458,6 +3701,15 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R6021</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Description>[In StartDate] Protocol version 16.0 supports this [StartDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R275</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
 		<ns1:Description>[In Subject] The Subject element is an element that specifies the subject of the task item.</ns1:Description>
@@ -3478,7 +3730,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R277</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
-		<ns1:Description>[In Subject] The value of this element [Subject] is a string data type, as specified in [MS-ASDTYPE] section 2.6.</ns1:Description>
+		<ns1:Description>[In Subject] The value of this element [Subject] is a string data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3487,7 +3739,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R278</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
-		<ns1:Description>[In Subject] The Subject element is an optional element in a Sync command request ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In Subject] The Subject element is an optional element in a Sync command request ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3496,7 +3748,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R279</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
-		<ns1:Description>[In Subject] The Subject element is an optional element in a Sync command response ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In Subject] The Subject element is an optional element in a Sync command response ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3539,9 +3791,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R6061</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In Subject] Protocol version 16.1 supports this [Subject] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R280</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In SubOrdinalDate] The SubOrdinalDate element is an optional child element of the email:Flag element, as defined in [MS-ASEMAIL] section 2.2.2.27, that specifies a value that can be used for sorting.</ns1:Description>
+		<ns1:Description>[In SubOrdinalDate] The SubOrdinalDate element is an optional child element of the email:Flag element, as defined in [MS-ASEMAIL] section 2.2.2.34, that specifies a value that can be used for sorting.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3559,7 +3820,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R282</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In SubOrdinalDate] The value of this element[SubOrdinalDate] is a string data type, as specified in [MS-ASDTYPE] section 2.6.</ns1:Description>
+		<ns1:Description>[In SubOrdinalDate] The value of this element[SubOrdinalDate] is a string data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3577,7 +3838,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R284</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In SubOrdinalDate] For details about the OrdinalDate element, see section 2.2.2.17.</ns1:Description>
+		<ns1:Description>[In SubOrdinalDate] For details about the OrdinalDate element, see section 2.2.2.19.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3620,9 +3881,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R6101</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In SubOrdinalDate] Protocol version 16.1 supports this [SubOrdinalDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R285</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
-		<ns1:Description>[In Type] The Type element is a required child element of the Recurrence element (section 2.2.2.18) that specifies the type of the recurrence item.</ns1:Description>
+		<ns1:Description>[In Type] The Type element is a required child element of the Recurrence element (section 2.2.2.20) that specifies the type of the recurrence item.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3676,7 +3946,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R289</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
-		<ns1:Description>[In Type] If a client does not include this element[Type] in a Sync command request ([MS-ASCMD] section 2.2.2.19) whenever a Recurrence element is present, then the server MUST respond with status error 6.</ns1:Description>
+		<ns1:Description>[In Type] If a client does not include this element[Type] in a Sync command request ([MS-ASCMD] section 2.2.1.21) whenever a Recurrence element is present, then the server MUST respond with status error 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3685,7 +3955,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R290</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
-		<ns1:Description>[In Type] Status errors for the Sync command are specified in [MS-ASCMD] section 2.2.3.162.16.</ns1:Description>
+		<ns1:Description>[In Type] Status errors for the Sync command are specified in [MS-ASCMD] section 2.2.3.177.17.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3694,7 +3964,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R291</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
-		<ns1:Description>[In Type] The value of this element[Type] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In Type] The value of this element[Type] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3800,9 +4070,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R6141</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
+		<ns1:Description>[In Type] Protocol version 16.1 supports this [Type] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R299</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.30</ns1:Doc_Sect>
-		<ns1:Description>[In Until] The Until element is an optional child element of the Recurrence element (section 2.2.2.18) that specifies the end time of a series of recurrence items.</ns1:Description>
+		<ns1:Description>[In Until] The Until element is an optional child element of the Recurrence element (section 2.2.2.20) that specifies the end time of a series of recurrence items.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3838,7 +4117,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R302</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.30</ns1:Doc_Sect>
-		<ns1:Description>[In Until] The Occurrences element (section 2.2.2.16) and the Until element are mutually exclusive.</ns1:Description>
+		<ns1:Description>[In Until] The Occurrences element (section 2.2.2.18) and the Until element are mutually exclusive.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3847,7 +4126,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R303</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.30</ns1:Doc_Sect>
-		<ns1:Description>[In Until] [The Occurrences element (section 2.2.2.16) and the Until element are mutually exclusive.] It is recommended that only one of these elements be included as a child element of the Recurrence element (section 2.2.2.18) in a Sync command request ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In Until] [The Occurrences element (section 2.2.2.18) and the Until element are mutually exclusive.] It is recommended that only one of these elements be included as a child element of the Recurrence element (section 2.2.2.20) in a Sync command request ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3902,6 +4181,15 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:REQ_ID>MS-ASTASK_R618</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.30</ns1:Doc_Sect>
 		<ns1:Description>[In Until] Protocol version 16.0 supports this [Until] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R6181</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.30</ns1:Doc_Sect>
+		<ns1:Description>[In Until] Protocol version 16.1 supports this [Until] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3971,6 +4259,15 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R6221</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.31</ns1:Doc_Sect>
+		<ns1:Description>[In UtcDueDate] Protocol version 16.1 supports this [UtcDueDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R309</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.32</ns1:Doc_Sect>
 		<ns1:Description>[In UtcStartDate] The UtcStartDate element specifies the UTC start date of the task item.</ns1:Description>
@@ -4034,9 +4331,18 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R6261</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.32</ns1:Doc_Sect>
+		<ns1:Description>[In UtcStartDate] Protocol version 16.1 supports this [UtcStartDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R312</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
-		<ns1:Description>[In WeekOfMonth] The WeekOfMonth element is an optional child element of the Recurrence element (section 2.2.2.18) that specifies the week of the month for the task recurrence.</ns1:Description>
+		<ns1:Description>[In WeekOfMonth] The WeekOfMonth element is an optional child element of the Recurrence element (section 2.2.2.20) that specifies the week of the month for the task recurrence.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4054,7 +4360,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R314</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
-		<ns1:Description>[In WeekOfMonth] The value of this element [WeekOfMonth] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In WeekOfMonth] The value of this element [WeekOfMonth] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4063,7 +4369,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R315</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
-		<ns1:Description>[In WeekOfMonth] A command request [or response] has a minimum of one WeekOfMonth child element per Recurrence element when the value of the Type element (section 2.2.2.27) is [either] 3 [or 6].</ns1:Description>
+		<ns1:Description>[In WeekOfMonth] A command request [or response] has a minimum of one WeekOfMonth child element per Recurrence element when the value of the Type element (section 2.2.2.29) is [either] 3 [or 6].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4072,7 +4378,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R429</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
-		<ns1:Description>[In WeekOfMonth] A command request [or response] has a minimum of one WeekOfMonth child element per Recurrence element when the value of the Type element (section 2.2.2.27) is [either 3 or] 6.</ns1:Description>
+		<ns1:Description>[In WeekOfMonth] A command request [or response] has a minimum of one WeekOfMonth child element per Recurrence element when the value of the Type element (section 2.2.2.29) is [either 3 or] 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4081,7 +4387,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R430</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
-		<ns1:Description>[In WeekOfMonth] A command [request or] response has a minimum of one WeekOfMonth child element per Recurrence element when the value of the Type element (section 2.2.2.27) is [either] 3 [or 6].</ns1:Description>
+		<ns1:Description>[In WeekOfMonth] A command [request or] response has a minimum of one WeekOfMonth child element per Recurrence element when the value of the Type element (section 2.2.2.29) is [either] 3 [or 6].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4090,7 +4396,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R431</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
-		<ns1:Description>[In WeekOfMonth] A command [request or] response has a minimum of one WeekOfMonth child element per Recurrence element when the value of the Type element (section 2.2.2.27) is [either 3 or] 6.</ns1:Description>
+		<ns1:Description>[In WeekOfMonth] A command [request or] response has a minimum of one WeekOfMonth child element per Recurrence element when the value of the Type element (section 2.2.2.29) is [either 3 or] 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4214,6 +4520,15 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASTASK_R6301</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
+		<ns1:Description>[In WeekOfMonth] Protocol version 16.1 supports this [WeekOfMonth] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R321</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.1</ns1:Doc_Sect>
 		<ns1:Description>[In Abstract Data Model] This section describes a conceptual model of possible data organization that an implementation maintains to participate in this protocol.</ns1:Description>
@@ -4270,7 +4585,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R327</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Synchronizing Task Data Between Client and Server] A client initiates synchronization of Task class data with the server by sending a Sync command request ([MS-ASCMD] section 2.2.2.19) to the server.</ns1:Description>
+		<ns1:Description>[In Synchronizing Task Data Between Client and Server] A client initiates synchronization of Task class data with the server by sending a Sync command request ([MS-ASCMD] section 2.2.1.21) to the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4279,7 +4594,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R328</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Searching a Server for Task Data] A client searches for Task class data on the server by sending a Search command request ([MS-ASCMD] section 2.2.2.14) to the server.</ns1:Description>
+		<ns1:Description>[In Searching a Server for Task Data] A client searches for Task class data on the server by sending a Search command request ([MS-ASCMD] section 2.2.1.16) to the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4288,7 +4603,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R329</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting Details for Specific Tasks] A client requests Task class data for one or more individual task items by sending an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) to the server that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.63.1).</ns1:Description>
+		<ns1:Description>[In Requesting Details for Specific Tasks] A client requests Task class data for one or more individual task items by sending an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) to the server that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.67.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4315,7 +4630,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R332</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Request] A client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.63.1) to retrieve data from the server for one or more specific Task items.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Request] A client uses an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.67.1) to retrieve data from the server for one or more specific Task items.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4324,7 +4639,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R333</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Request] The client can restrict the elements returned in the ItemOperations command response ([MS-ASCMD] section 2.2.2.8) by including the airsyncbase:Attachments element ([MS-ASAIRS] section 2.2.2.3) and the airsyncbase:Body element ([MS-ASAIRS] section 2.2.2.4) as child elements of the itemoperations:Schema element ([MS-ASCMD] section 2.2.3.145) in the ItemOperations command request.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Request] The client can restrict the elements returned in the ItemOperations command response ([MS-ASCMD] section 2.2.1.10) by including the airsyncbase:Attachments element ([MS-ASAIRS] section 2.2.2.8) and the airsyncbase:Body element ([MS-ASAIRS] section 2.2.2.9) as child elements of the itemoperations:Schema element ([MS-ASCMD] section 2.2.3.158) in the ItemOperations command request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4333,7 +4648,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R334</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Request] For more details about the ItemOperations command, see [MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Request] For more details about the ItemOperations command, see [MS-ASCMD] section 2.2.1.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4342,7 +4657,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R335</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Request] A client uses the Search command request ([MS-ASCMD] section 2.2.2.14) to retrieve Task class items that match the criteria specified by the client.</ns1:Description>
+		<ns1:Description>[In Search Command Request] A client uses the Search command request ([MS-ASCMD] section 2.2.2.16) to retrieve Task class items that match the criteria specified by the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4360,7 +4675,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R337</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Request] For more details about the Search command, see [MS-ASCMD] section 2.2.2.14.</ns1:Description>
+		<ns1:Description>[In Search Command Request] For more details about the Search command, see [MS-ASCMD] section 2.2.2.16.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4369,7 +4684,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R338</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Request] A client uses the Sync command request ([MS-ASCMD] section 2.2.2.19) to synchronize its Task class items for a specified user with the tasks currently stored by the server.</ns1:Description>
+		<ns1:Description>[In Sync Command Request] A client uses the Sync command request ([MS-ASCMD] section 2.2.1.21) to synchronize its Task class items for a specified user with the tasks currently stored by the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4396,7 +4711,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R341</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Request] For more details about the Sync command, see [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Description>[In Sync Command Request] For more details about the Sync command, see [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4468,7 +4783,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R349</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Synchronizing Task Data Between Client and Server][If the client sends a Sync command request to the server] The server responds with a Sync command response ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In Synchronizing Task Data Between Client and Server][If the client sends a Sync command request to the server] The server responds with a Sync command response ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4486,7 +4801,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R351</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Searching for Task Data][If the client sends a search command request to the server] The server responds with a Search command response ([MS-ASCMD] section 2.2.2.14).</ns1:Description>
+		<ns1:Description>[In Searching for Task Data][If the client sends a search command request to the server] The server responds with a Search command response ([MS-ASCMD] section 2.2.1.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4504,7 +4819,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R353</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting Details for Specific Tasks][If the client sends an ItemOperations command request to the server] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.2.8).</ns1:Description>
+		<ns1:Description>[In Requesting Details for Specific Tasks][If the client sends an ItemOperations command request to the server] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4531,7 +4846,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R356</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) to retrieve data from the server for one or more specific Task items, as specified in section 3.1.5.1, the server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.2.8).</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) to retrieve data from the server for one or more specific Task items, as specified in section 3.1.5.1, the server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4558,7 +4873,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R359</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] Top-level Task class elements, as specified in section 2.2, MUST be returned as child elements of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.128) in the ItemOperations command response.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] Top-level Task class elements, as specified in section 2.2, MUST be returned as child elements of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.139) in the ItemOperations command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4567,7 +4882,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R360</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] For more information about the ItemOperations command, see [MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] For more information about the ItemOperations command, see [MS-ASCMD] section 2.2.1.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4576,7 +4891,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R361</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Response] When a client uses the Search command request ([MS-ASCMD] section 2.2.2.14) to retrieve Task class items from the server that match the criteria specified by the client, as specified in section 3.1.5.2, the server responds with a Search command response ([MS-ASCMD] section 2.2.2.14).</ns1:Description>
+		<ns1:Description>[In Search Command Response] When a client uses the Search command request ([MS-ASCMD] section 2.2.1.16) to retrieve Task class items from the server that match the criteria specified by the client, as specified in section 3.1.5.2, the server responds with a Search command response ([MS-ASCMD] section 2.2.1.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4594,7 +4909,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R363</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Response] Top-level Task class elements, as specified in section 2.2, are returned as child elements of the search:Properties element ([MS-ASCMD] section 2.2.3.128) in the Search command response.</ns1:Description>
+		<ns1:Description>[In Search Command Response] Top-level Task class elements, as specified in section 2.2, are returned as child elements of the search:Properties element ([MS-ASCMD] section 2.2.3.139) in the Search command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4603,7 +4918,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R364</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Response] If elements that belong to the Task class are included in a Search command request, the server MUST return a Status value of 2 in the Store element, as specified in [MS-ASCMD] section 2.2.3.162.12.</ns1:Description>
+		<ns1:Description>[In Search Command Response] If elements that belong to the Task class are included in a Search command request, the server MUST return a Status value of 2 in the Store element, as specified in [MS-ASCMD] section 2.2.3.177.13.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4612,7 +4927,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R365</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Response] For more details about the Search command, see [MS-ASCMD] section 2.2.2.14.</ns1:Description>
+		<ns1:Description>[In Search Command Response] For more details about the Search command, see [MS-ASCMD] section 2.2.1.16.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4621,7 +4936,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R366</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sync Command Response] When a client uses the Sync command request ([MS-ASCMD] section 2.2.2.19) to synchronize its Task class items for a specified user with the tasks currently stored by the server, as specified in section 3.1.5.3, the server responds with a Sync command response ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In Sync Command Response] When a client uses the Sync command request ([MS-ASCMD] section 2.2.1.21) to synchronize its Task class items for a specified user with the tasks currently stored by the server, as specified in section 3.1.5.3, the server responds with a Sync command response ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4657,7 +4972,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R369</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Importance Element] If the Importance element (section 2.2.2.12) is not included as a child element of the airsync:Change element in a Sync command request, the server MUST NOT delete the element from its message store, but rather keep its value unchanged.</ns1:Description>
+		<ns1:Description>[In Importance Element] If the Importance element (section 2.2.2.5) is not included as a child element of the airsync:Change element in a Sync command request, the server MUST NOT delete the element from its message store, but rather keep its value unchanged.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4666,7 +4981,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R370</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In ReminderSet Element] If the ReminderSet element (section 2.2.2.20) was previously set on a task but is not included as a child element of the airsync:Change element in a Sync command request, the server MUST NOT delete the element from its message store but rather keep its value unchanged.</ns1:Description>
+		<ns1:Description>[In ReminderSet Element] If the ReminderSet element (section 2.2.2.16) was previously set on a task but is not included as a child element of the airsync:Change element in a Sync command request, the server MUST NOT delete the element from its message store but rather keep its value unchanged.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4675,7 +4990,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R37011</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In Start Element] If a client does not include the Start element, as specified in section 2.2.2.23, in a Sync command request ([MS-ASCMD] section 2.2.2.19) whenever a Recurrence element is present, then the server MUST respond with status error 6.</ns1:Description>
+		<ns1:Description>[In Start Element] If a client does not include the Start element, as specified in section 2.2.2.25, in a Sync command request ([MS-ASCMD] section 2.2.1.21) whenever a Recurrence element is present, then the server MUST respond with status error 6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4684,7 +4999,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R37012</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In Start Element] Status errors for the Sync command are specified in [MS-ASCMD] section 2.2.3.162.16.</ns1:Description>
+		<ns1:Description>[In Start Element] Status errors for the Sync command are specified in [MS-ASCMD] section 2.2.3.177.17.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4693,7 +5008,7 @@ Specifies the last day of the month when the value of the WeekOfMonth element (s
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASTASK_R37013</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.4</ns1:Doc_Sect>
-		<ns1:Description>[In Occurrences and Until Elements] If both the Occurrences element, as specified in section 2.2.2.16, and the Until element, as specified in section 2.2.2.28, are included in a Sync command request ([MS-ASCMD] section 2.2.2.19), the server MUST respect the value of the Occurrences element and ignore the Until element.</ns1:Description>
+		<ns1:Description>[In Occurrences and Until Elements] If both the Occurrences element, as specified in section 2.2.2.18, and the Until element, as specified in section 2.2.2.30, are included in a Sync command request ([MS-ASCMD] section 2.2.1.21), the server MUST respect the value of the Occurrences element and ignore the Until element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5123,7 +5438,7 @@ MSS = Number of milliseconds</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R307</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 9: Tasks] [Tag name] OrdinalDate [Token] 0x22 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 9: Tasks] [Tag name] OrdinalDate [Token] 0x22 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5132,7 +5447,7 @@ MSS = Number of milliseconds</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R308</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 9: Tasks] [Tag name] SubOrdinalDate [Token] 0x23 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 9: Tasks] [Tag name] SubOrdinalDate [Token] 0x23 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5141,7 +5456,7 @@ MSS = Number of milliseconds</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R309</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 9: Tasks] [Tag name] CalendarType [Token] 0x24 [supports protocol versions] 14.0, 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 9: Tasks] [Tag name] CalendarType [Token] 0x24 [supports protocol versions] 14.0, 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5150,7 +5465,7 @@ MSS = Number of milliseconds</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R310</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 9: Tasks] [Tag name] IsLeapMonth [Token] 0x25 [supports protocol versions] 14.0, 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 9: Tasks] [Tag name] IsLeapMonth [Token] 0x25 [supports protocol versions] 14.0, 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5159,7 +5474,7 @@ MSS = Number of milliseconds</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R311</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 9: Tasks] [Tag name] FirstDayOfWeek [Token] 0x26 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 9: Tasks] [Tag name] FirstDayOfWeek [Token] 0x26 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
