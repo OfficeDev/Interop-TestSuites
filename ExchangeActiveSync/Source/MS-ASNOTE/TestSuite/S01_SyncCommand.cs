@@ -76,7 +76,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             // Verify MS-ASNOTE requirement: MS-ASNOTE_R211
             // If the value of the single category element is the same in request and response, then MS-ASNOTE_R211 can be captured.
             Site.CaptureRequirementIfAreEqual<string>(
-                ((Request.Categories3)addElements[Request.ItemsChoiceType8.Categories2]).Category[0],
+                ((Request.Categories4)addElements[Request.ItemsChoiceType8.Categories2]).Category[0],
                 note.Categories.Category[0],
                 211,
                 @"[In Category] [The Category element] specifies a user-selected label that has been applied to the note.");
@@ -130,7 +130,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
         {
             #region Call method Sync to add a note to the server
             Dictionary<Request.ItemsChoiceType8, object> addElements = this.CreateNoteElements();
-            addElements[Request.ItemsChoiceType8.Categories2] = new Request.Categories3();
+            addElements[Request.ItemsChoiceType8.Categories2] = new Request.Categories4();
             SyncStore addResult = this.SyncAdd(addElements, 1);
             Response.SyncCollectionsCollectionResponsesAdd item = addResult.AddResponses[0];
             #endregion
@@ -211,26 +211,52 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             #region Call method Sync to synchronize the note item with the server.
             SyncStore result = this.SyncChanges(1);
 
-            Note note=null;
+            Note note =null;
 
             for (int i = 0; i < result.AddElements.Count; i++)
             {
+
                 if (addResult.AddElements != null && addResult.AddElements.Count > 0)
                 {
-                    if (result.AddElements[i].ServerId.Equals(addResult.AddElements[0].ServerId))
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
                     {
-                        note = result.AddElements[i].Note;
-                        break;
+                        if (addResult.CollectionStatus==1&& result.AddElements[0].Note.Subject.ToString()==addElements[Request.ItemsChoiceType8.Subject1].ToString())
+                        {
+                            note = result.AddElements[i].Note;
+                            break;
+                        }
                     }
+                    else
+                    {
+                        if (result.AddElements[i].ServerId.Equals(addResult.AddElements[0].ServerId))
+                        {
+                            note = result.AddElements[i].Note;
+                            break;
+                        }
+                    }
+
                 }
-                else if(addResult.AddResponses!=null && addResult.AddResponses.Count > 0)
+                else if (addResult.AddResponses != null && addResult.AddResponses.Count > 0)
                 {
-                    if (result.AddElements[i].ServerId.Equals(addResult.AddResponses[0].ServerId))
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
                     {
-                        note = result.AddElements[i].Note;
-                        break;
+                        if (addResult.CollectionStatus == 1 && result.AddElements[0].Note.Subject.ToString() == addElements[Request.ItemsChoiceType8.Subject1].ToString())
+                        {
+                            note = result.AddElements[i].Note;
+                            break;
+                        }
                     }
+                    else
+                    {
+                        if (result.AddElements[i].ServerId.Equals(addResult.AddResponses[0].ServerId))
+                        {
+                            note = result.AddElements[i].Note;
+                            break;
+                        }
+                    }
+
                 }
+             
             }
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASNOTE_R84");
@@ -517,7 +543,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
         {
             #region Call method Sync to add a note with two child elements in a Categories element to the server
             Dictionary<Request.ItemsChoiceType8, object> addElements = this.CreateNoteElements();
-            Request.Categories3 categories = new Request.Categories3 { Category = new string[2] };
+            Request.Categories4 categories = new Request.Categories4 { Category = new string[2] };
             Collection<string> category = new Collection<string> { "blue category", "red category" };
             category.CopyTo(categories.Category, 0);
             addElements[Request.ItemsChoiceType8.Categories2] = categories;

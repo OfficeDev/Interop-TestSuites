@@ -80,7 +80,7 @@
             location.State = "Location sample state";
             location.Street = "Location sample street";
             items.Add(location);
-            itemsElementName.Add(Request.ItemsChoiceType8.Location1);
+            itemsElementName.Add(Request.ItemsChoiceType8.Location);
 
             applicationData.Items = items.ToArray();
             applicationData.ItemsElementName = itemsElementName.ToArray();
@@ -110,7 +110,7 @@
             location = new Request.Location();
 
             // Add the location field name into the change items element name list.
-            changeItemsElementName.Add(Request.ItemsChoiceType7.Location1);
+            changeItemsElementName.Add(Request.ItemsChoiceType7.Location);
             // Add the empty location value to the change items value list.
             changeItems.Add(location);
 
@@ -157,7 +157,7 @@
                 @"[In Location] The client's request can include an empty Location element to remove the location from an item.");
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Call Search command to search the added calendar item.
                 this.GetSearchResult(subject, this.User1Information.CalendarCollectionId, null, null, null);

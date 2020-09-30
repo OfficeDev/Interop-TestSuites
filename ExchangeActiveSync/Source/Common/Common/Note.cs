@@ -15,7 +15,7 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
         /// <summary>
         /// Gets or sets Categories information of the note
         /// </summary>
-        public Response.Categories3 Categories { get; set; }
+        public Response.Categories4 Categories { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether include LastModifiedDate in the response 
@@ -125,7 +125,7 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                         case Response.ItemsChoiceType6.MessageClass:
                             break;
                         case Response.ItemsChoiceType6.Categories2:
-                            Common.SetSpecifiedPropertyValueByName(obj, "Categories", (Response.Categories3)properties.Items[itemIndex]);
+                            Common.SetSpecifiedPropertyValueByName(obj, "Categories", (Response.Categories4)properties.Items[itemIndex]);
                             break;
                         case Response.ItemsChoiceType6.Subject2:
                             Common.SetSpecifiedPropertyValueByName(obj, "Subject", properties.Items[itemIndex]);

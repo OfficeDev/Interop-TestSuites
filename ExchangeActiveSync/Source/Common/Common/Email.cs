@@ -207,12 +207,12 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                     {
                         case Response.ItemsChoiceType3.Categories:
                         case Response.ItemsChoiceType3.Categories1:
-                        case Response.ItemsChoiceType3.Categories3:
+                        //case Response.ItemsChoiceType3.Categories3:
                         case Response.ItemsChoiceType3.Categories4:
                         case Response.ItemsChoiceType3.Importance1:
-                        case Response.ItemsChoiceType3.MessageClass1:
+                        //case Response.ItemsChoiceType3.MessageClass1:
                         case Response.ItemsChoiceType3.Subject:
-                        case Response.ItemsChoiceType3.Subject2:
+                        //case Response.ItemsChoiceType3.Subject2:
                         case Response.ItemsChoiceType3.Subject3:
                             break;
                         case Response.ItemsChoiceType3.Read:
@@ -408,12 +408,12 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                         case Response.ItemsChoiceType6.Subject1:
                             Common.SetSpecifiedPropertyValueByName(obj, "Subject", searchResultProperties.Items[itemIndex]);
                             break;
-                        case Response.ItemsChoiceType6.Bcc:
-                            Common.SetSpecifiedPropertyValueByName(obj, "Bcc", searchResultProperties.Items[itemIndex]);
-                            break;
-                        case Response.ItemsChoiceType6.IsDraft:
-                            Common.SetSpecifiedPropertyValueByName(obj, "IsDraft", searchResultProperties.Items[itemIndex]);
-                            break;
+                        //case Response.ItemsChoiceType6.Bcc:
+                        //    Common.SetSpecifiedPropertyValueByName(obj, "Bcc", searchResultProperties.Items[itemIndex]);
+                        //    break;
+                        //case Response.ItemsChoiceType6.IsDraft:
+                        //    Common.SetSpecifiedPropertyValueByName(obj, "IsDraft", searchResultProperties.Items[itemIndex]);
+                        //    break;
                         case Response.ItemsChoiceType6.Cc:
                             Common.SetSpecifiedPropertyValueByName(obj, "CC", searchResultProperties.Items[itemIndex]);
                             break;

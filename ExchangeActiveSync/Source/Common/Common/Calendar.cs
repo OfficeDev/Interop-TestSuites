@@ -86,7 +86,7 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
         /// <summary>
         /// Gets or sets Reminder information of the Calendar
         /// </summary>
-        public string Reminder { get; set; }
+        public uint? Reminder { get; set; }
 
         /// <summary>
         /// Gets or sets Subject information of the Calendar
@@ -195,12 +195,12 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                     {
                         case Response.ItemsChoiceType3.Categories1:
                         case Response.ItemsChoiceType3.Categories2:
-                        case Response.ItemsChoiceType3.Categories3:
+                        //case Response.ItemsChoiceType3.Categories3:
                         case Response.ItemsChoiceType3.Categories4:
                         case Response.ItemsChoiceType3.Recurrence1:
                         case Response.ItemsChoiceType3.Sensitivity1:
                         case Response.ItemsChoiceType3.Subject1:
-                        case Response.ItemsChoiceType3.Subject2:
+                        //case Response.ItemsChoiceType3.Subject2:
                         case Response.ItemsChoiceType3.Subject3:
                             break;
                         default:
@@ -273,6 +273,7 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                         case Response.ItemsChoiceType6.Subject2:
                         case Response.ItemsChoiceType6.Subject3:
                         case Response.ItemsChoiceType6.Sensitivity1:
+                        case Response.ItemsChoiceType6.Location:
                             break;
                         default:
                             SetCalendarPropertyValue(obj, properties.ItemsElementName[itemIndex].ToString(), properties.Items[itemIndex]);

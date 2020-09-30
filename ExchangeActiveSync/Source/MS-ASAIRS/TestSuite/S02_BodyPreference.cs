@@ -117,7 +117,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone] When the value [of the AllOrNone element] is set to 1 (TRUE) and the content has not been truncated, all of the content is retrieved.");
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command related elements
                 DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
@@ -195,7 +195,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone] When the value is set to 1 (TRUE) and the content has been truncated, the content is not retrieved. ");
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command related elements
                 DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
@@ -285,7 +285,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone] When the value is set to 0 (FALSE), the truncated is retrieved. ");
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command related elements
                 DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
@@ -378,7 +378,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone] When the value is set to 0 (FALSE), the nontruncated content is retrieved. ");
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command related elements
                 DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
@@ -462,7 +462,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone (BodyPreference)] If the AllOrNone element is not included in the request, then the truncated content is retrieved as if the value was set to 0 (FALSE).");
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command related elements
                 DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
@@ -564,7 +564,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 @"[In AllOrNone (BodyPreference)] If the AllOrNone element is not included in the request, then the non-truncated content is retrieved as if the value was set to 0 (FALSE).");
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command related elements
                 DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
@@ -679,7 +679,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 "Server should return the entire content for the request and same response no matter AllOrNone is true or false if the TruncationSize element is absent in ItemOperations command request.");
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command related elements
                 // Call Search command with AllOrNone setting to true
@@ -771,7 +771,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             this.VerifyMultipleBodyPreference(itemOperationsItem.Email, body, bodyPreferences);
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command related elements
                 DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreferences, null);
@@ -834,7 +834,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             this.VerifyBodyPreview(itemOperationsItem.Email, allContentItem.Email, bodyPreference);
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command related elements
                 DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
@@ -984,7 +984,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                 "The Body element should be included in a response message whenever an item has changes.");
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command related elements
                 DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, null, null);
@@ -1001,7 +1001,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
                     ApplicationData =
                         new Request.SyncCollectionChangeApplicationData
                         {
-                            Items = new object[] { !syncItem.Email.Read },
+                            Items = new object[] { !updatedItemOperationItem.Email.Read },
                             ItemsElementName = new Request.ItemsChoiceType7[] { Request.ItemsChoiceType7.Read }
                         }
                 };
@@ -1191,7 +1191,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             this.VerifyType(itemOperationsItem.Email, bodyPreference[0].Type);
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command
                 DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, bodyPreference, null);
@@ -1292,7 +1292,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             this.VerifyType(itemOperationsItem.Email, bodyPreference[0].Type);
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Verify Search command
                 DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);

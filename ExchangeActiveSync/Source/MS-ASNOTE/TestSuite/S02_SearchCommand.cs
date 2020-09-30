@@ -46,26 +46,28 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             this.SyncAdd(addElements, 2);
             #endregion
 
-            #region Call method Search to search notes using the given keyword text
-            // Search note from server
-            SearchStore result = this.NOTEAdapter.Search(this.UserInformation.NotesCollectionId, Common.GeneratePrefixOfResourceName(this.Site) + "_subject", true, 2);
+            if (Common.IsRequirementEnabled(2, this.Site))
+            {
+                #region Call method Search to search notes using the given keyword text
+                // Search note from server
+                SearchStore result = this.NOTEAdapter.Search(this.UserInformation.NotesCollectionId, Common.GeneratePrefixOfResourceName(this.Site) + "_subject", true, 2);
 
-            this.Site.Assert.AreEqual<int>(
-                2,
-                result.Results.Count,
-                @"Two results should be returned in Search response.");
+                this.Site.Assert.AreEqual<int>(
+                    2,
+                    result.Results.Count,
+                    @"Two results should be returned in Search response.");
 
-            this.Site.Assert.IsNotNull(
-                result.Results[0].Note,
-                @"The first note class in Search response should not be null.");
+                this.Site.Assert.IsNotNull(
+                    result.Results[0].Note,
+                    @"The first note class in Search response should not be null.");
 
-            this.Site.Assert.IsNotNull(
-                result.Results[1].Note,
-                @"The second note class in Search response should not be null.");
+                this.Site.Assert.IsNotNull(
+                    result.Results[1].Note,
+                    @"The second note class in Search response should not be null.");
 
-            #endregion
-
-            #region Call method Search to search notes using an invalid keyword text
+                #endregion
+            
+                #region Call method Search to search notes using an invalid keyword text
 
             result = this.NOTEAdapter.Search(this.UserInformation.NotesCollectionId, Common.GenerateResourceName(this.Site, "notExisting_subject"), false, 0);
 
@@ -92,7 +94,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
                 128,
                 @"[In Abstract Data Model] The server can return zero or more Notes class XML blocks in its response, depending on how many notes match the criteria specified by the client command request.");
 
-            #endregion
+                #endregion
+            }
         }
         #endregion
     }

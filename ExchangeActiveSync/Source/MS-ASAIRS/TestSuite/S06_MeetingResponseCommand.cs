@@ -109,23 +109,11 @@
                 1331,
                 @"[In Body] When the Body element is a child of the meetingresponse:SendResponse element [or the composemail:SmartForward element], it has only the child elements Type and Data.");
 
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
-            {
-                this.Site.CaptureRequirementIfAreEqual<int>(
+            this.Site.CaptureRequirementIfAreEqual<int>(
                 1,
                 int.Parse(response.ResponseData.Result[0].Status),
                 1333,
                 @"[In Body] The Body element is a child of the meetingresponse:SendResponse element and the composemail:SmartForward element only when protocol version 16.0 is used.");
-            }
-
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
-            {
-                this.Site.CaptureRequirementIfAreEqual<int>(
-                1,
-                int.Parse(response.ResponseData.Result[0].Status),
-                1000954,
-                @"[In Body] The Body element is a child of the meetingresponse:SendResponse element and the composemail:SmartForward element only when protocol version 16.1 is used.");
-            }
 
             // Because the Type element is 1 and client call the MeetingResponse command successful.
             // So R1400 and R14000918 will be verified.
@@ -137,13 +125,12 @@
                 1400,
                 @"[In Type (Body)] For calendar items in protocol version 16.0, the only valid values for this element [Type] is 1 (plain text).");
             }
-
             if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
             {
                 this.Site.CaptureRequirementIfAreEqual<int>(
                 1,
                 int.Parse(response.ResponseData.Result[0].Status),
-                1400,
+                14000918,
                 @"[In Type (Body)] For calendar items in protocol version 16.1, the only valid values for this element [Type] is 1 (plain text).");
             }
             #endregion
@@ -225,8 +212,7 @@
             MeetingResponseResponse response = this.ASAIRSAdapter.MeetingResponse(meetingRequest);
 
             // Because the Type element is 2 and client call the MeetingResponse command successful.
-            // So R1400 will be verified.
-
+            // So R1401 and R14010918 will be verified.
             if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
             {
                 this.Site.CaptureRequirementIfAreEqual<int>(
@@ -235,7 +221,6 @@
                 1401,
                 @"[In Type (Body)] For calendar items in protocol version 16.0, the only valid values for this element [Type] is 2 (HTML).");
             }
-
             if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
             {
                 this.Site.CaptureRequirementIfAreEqual<int>(

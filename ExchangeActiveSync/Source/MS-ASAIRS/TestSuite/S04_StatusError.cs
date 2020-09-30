@@ -195,7 +195,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             }
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Call Search command with the Type element value in incorrect data type
                 if (Common.IsRequirementEnabled(10033, this.Site))
@@ -320,7 +320,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             }
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Call Search command with multiple AllOrNone elements
                 if (Common.IsRequirementEnabled(10034, this.Site))
@@ -454,7 +454,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             }
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Call Search command with incorrect BodyPreference element order
                 if (Common.IsRequirementEnabled(10035, this.Site))
@@ -588,7 +588,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             }
             #endregion
 
-            if (Common.IsRequirementEnabled(1234, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
                 #region Call Search command with incorrect placement of BodyPreference element.
                 if (Common.IsRequirementEnabled(10036, this.Site))
