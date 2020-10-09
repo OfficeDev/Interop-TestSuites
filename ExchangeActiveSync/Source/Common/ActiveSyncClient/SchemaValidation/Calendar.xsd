@@ -19,7 +19,7 @@
    <xs:element name="DtStamp" type="xs:string"/>
    <xs:element name="EndTime" type="xs:string"/>
    <xs:element name="Location" type="xs:string"/>
-   <xs:element name="Reminder" type="xs:unsignedInt"/>
+   <xs:element name="Reminder" type="xs:string"/>
    <xs:element name="Sensitivity">
      <xs:simpleType>
        <xs:restriction base="xs:unsignedByte">

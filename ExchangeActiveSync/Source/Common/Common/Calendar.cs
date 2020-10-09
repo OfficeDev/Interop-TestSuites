@@ -328,7 +328,14 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                 }
                 else if (property.PropertyType == typeof(uint) || property.PropertyType == typeof(uint?))
                 {
-                    value = uint.Parse(value.ToString());
+                    if (!string.IsNullOrEmpty(value.ToString()))
+                    {
+                        value = uint.Parse(value.ToString());
+                    }
+                    else
+                    {
+                        value = null;
+                    }
                 }
                 else if (property.PropertyType == typeof(ushort) || property.PropertyType == typeof(ushort?))
                 {

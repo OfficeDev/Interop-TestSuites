@@ -322,7 +322,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             string subjectWithDTStampAndReminder = Common.GenerateResourceName(Site, "subjectWithDTStampAndReminder");
             calendarItem.Add(Request.ItemsChoiceType8.Subject, subjectWithDTStampAndReminder);
 
-            uint reminder = 10;
+            string reminder = "10";
             calendarItem.Add(Request.ItemsChoiceType8.Reminder, reminder);
             if (this.IsActiveSyncProtocolVersion121
                 || this.IsActiveSyncProtocolVersion140
@@ -420,9 +420,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R39011");
 
             // Verify MS-ASCAL requirement: MS-ASCAL_R39011
-            Site.CaptureRequirementIfAreEqual<uint>(
+            Site.CaptureRequirementIfAreEqual<string>(
                 reminder,
-                calendarWithDTStampAndReminder.Calendar.Reminder.Value,
+                calendarWithDTStampAndReminder.Calendar.Reminder.ToString(),
                 39011,
                 @"[In Reminder] As a top-level element of the Calendar class, the Reminder element specifies the number of minutes before the calendar item's start time to display a reminder notice.");
 

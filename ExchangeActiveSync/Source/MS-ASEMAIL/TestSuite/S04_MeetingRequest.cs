@@ -111,7 +111,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             }
 
             // Set the reminder to 10 minutes.
-            uint reminder = 10;
+            string reminder = "10";
             elementsToValueMap.Add(Request.ItemsChoiceType8.Reminder, reminder);
 
             if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0", StringComparison.CurrentCultureIgnoreCase))
@@ -217,7 +217,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R687");
 
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R687
-            ushort reminderInSeconds = (ushort)(reminder * 60);
+            ushort reminderInSeconds = (ushort)(uint.Parse(reminder) * 60);
             Site.CaptureRequirementIfAreEqual<ushort>(
                 reminderInSeconds,
                 item.Email.MeetingRequest.Reminder,
