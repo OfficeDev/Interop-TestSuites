@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R506Enabled to true to verify that the value of the Picture element is a stream that is encoded with base64 encoding. Set R506Enabled to false to disable this requirement.-->
+    <Property name="R506Enabled" value="true"/>
+    <!-- Set R1010Enabled to true to verify that implementation does not return Alias element in a recipient information cache response. Set R1010Enabled to false to disable this requirement.-->
+    <Property name="R1010Enabled" value="true"/>
+  </Properties>
+</TestSite>
