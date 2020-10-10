@@ -70,7 +70,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R7</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in either [SOAP1.1] section 4 or [SOAP1.2/1] section 5. </ns1:Description>
+		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in either [SOAP1.1] section 4 or [SOAP1.2-1/2007] section 5. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -89,7 +89,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R702</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol messages can be formatted as specified in [SOAP1.2/1] section 5. </ns1:Description>
+		<ns1:Description>[In Transport] Protocol messages can be formatted as specified in [SOAP1.2-1/2007] section 5. </ns1:Description>
 		<ns1:Derived>MS-VERSS_R7:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -99,7 +99,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R11</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol server faults MUST be returned via HTTP status codes, as specified in [RFC2616] section 10, or via SOAP faults, as specified in either [SOAP1.1] section 4.4 or [SOAP1.2/1] section 5.4.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol server faults MUST be returned via HTTP status codes, as specified in [RFC2616] section 10, or via SOAP faults, as specified in either [SOAP1.1] section 4.4 or [SOAP1.2-1/2007] section 5.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -128,7 +128,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1103</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol server faults can be returned via SOAP faults, as specified in [SOAP1.2/1] section 5.4.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol server faults can be returned via SOAP faults, as specified in [SOAP1.2-1/2007] section 5.4.</ns1:Description>
 		<ns1:Derived>MS-VERSS_R11:c</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -219,8 +219,8 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R18</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "soap12" is used for namespace URl "http://schemas.xmlsoap.org/wsdl/soap12/", more information refers to "[SOAP1.2/1]
-[SOAP1.2/2]".</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "soap12" is used for namespace URl "http://schemas.xmlsoap.org/wsdl/soap12/", more information refers to "[SOAP1.2-1/2007]
+[SOAP1.2-2/2007]".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -811,7 +811,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R71</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
-		<ns1:Description>[In Protocol Details] This protocol allows protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a Detail element as specified in [SOAP1.2/1] section 5.4.5.</ns1:Description>
+		<ns1:Description>[In Protocol Details] This protocol allows protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a Detail element as specified in [SOAP1.2-1/2007] section 5.4.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2145,7 +2145,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms "SHOULD" or "SHOULD NOT" implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2154,7 +2154,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R2</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term "MAY" implies that the product does not follow the prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2585,7 +2585,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1930213</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP exception. (&lt;4&gt; Section 3.1.4.1.2.2:  [Windows SharePoint Services truncates all characters after the first "#" in the file name. ] If the truncated file name does not exist on the server, SharePoint Foundation 2010 and SharePoint Foundation 2013 returns a SOAP server exception.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP exception. (&lt;4&gt; Section 3.1.4.1.2.2:  [Windows SharePoint Services truncates all characters after the first "#" in the file name. ] If the truncated file name does not exist on the server, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 returns a SOAP server exception.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R172:i,MS-VERSS_R1:i,MS-VERSS_R17203:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2596,7 +2596,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1930214</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP exception. (&lt;4&gt; Section 3.1.4.1.2.2:  [Windows SharePoint Services truncates all characters after the first "?" in the file name. ] If the truncated file name does not exist on the server, SharePoint Foundation 2010 and SharePoint Foundation 2013 returns a SOAP server exception.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP exception. (&lt;4&gt; Section 3.1.4.1.2.2:  [Windows SharePoint Services truncates all characters after the first "?" in the file name. ] If the truncated file name does not exist on the server, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 returns a SOAP server exception.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R172:i,MS-VERSS_R1:i,MS-VERSS_R17203:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2607,7 +2607,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R19302</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName. (&lt;4&gt; Section 3.1.4.1.2.2: The tab (\t) character is ignored at the end of the fileName.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName. (&lt;4&gt; Section 3.1.4.1.2.2: The tab (\t) character and the backward slash(\) ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, and SharePoint Server 2016.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R172:i,MS-VERSS_R1:i,MS-VERSS_R17203:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2618,7 +2618,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1930205</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the backward slash (\) character is at the end of the fileName. (&lt;4&gt; Section 3.1.4.1.2.2: The backward slash (\) character is ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the backward slash (\) character is at the end of the fileName. (&lt;4&gt; Section 3.1.4.1.2.2: The tab (\t) character and the backward slash(\) are ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, and SharePoint Server 2016. )</ns1:Description>
 		<ns1:Derived>MS-VERSS_R172:i,MS-VERSS_R1:i,MS-VERSS_R17203:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -2649,7 +2649,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1930208</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP exception without an error code if fileName contains equals sign (=). (&lt;4&gt; Section 3.1.4.1.2.2: If fileName contains equals sign (=), SharePoint Foundation 2010 and SharePoint Foundation 2013 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP exception without an error code if fileName contains equals sign (=). (&lt;4&gt; Section 3.1.4.1.2.2: If fileName contains equals sign (=), SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 return a SOAP exception without an error code.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R172:i,MS-VERSS_R1:i,MS-VERSS_R17203:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3070,7 +3070,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R19704</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName. (&lt;6&gt; Section 3.1.4.2.2.2: The tab (\t) character is ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010,and SharePoint Foundation 2013.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the tab (\t) character is at the end of the fileName.(&lt;6&gt; Section 3.1.4.2.2.2: The tab (\t) character and the backward slash (\) character are ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R176:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3081,7 +3081,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R19705</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the backward slash (\) character is at the end of the fileName. (&lt;6&gt; Section 3.1.4.2.2.2: The backward slash (\) character is ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the backward slash (\) character is at the end of the fileName.  (&lt;6&gt; Section 3.1.4.2.2.2: The tab (\t) character and the backward slash (\) character are ignored at the end of the fileName on Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, and SharePoint Server 2016.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R176:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3092,7 +3092,28 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R19706</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return different error. (&lt;6&gt; Section 3.1.4.2.2.2: Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013 return different error codes depending on where the backward slash (\) occurs in the file name.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return different error. (&lt;6&gt; Section 3.1.4.2.2.2: Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 return different error codes depending on where the backward slash (\) occurs in the file name.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R176:i,MS-VERSS_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R19707</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>In Appendix B: Product Behavior] Implementation does return error code 0x80131600 if fileName contains equals sign (=). (&lt;6&gt; Section 3.1.4.1.2.2: If fileName contains equals sign (=), SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 return error code 0x80131600.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R176:i,MS-VERSS_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R19708</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP exception without an error code if fileName contains equals sign (=). (&lt;6&gt; Section 3.1.4.1.2.2: If fileName contains equals sign (=), Windows SharePoint Services 3.0 returns a SOAP exception without an error code.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R176:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3542,7 +3563,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R199</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return different error. (&lt;10&gt; Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013 return different error codes depending on where the pound sign (#) or character occurs in the fileName.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return different error. (&lt;10&gt; Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 return different error codes depending on where the pound sign (#) or character occurs in the fileName.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R192:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3552,7 +3573,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R249</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return different error. (&lt;10&gt; Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013 return different error codes depending on where the question mark (?) character occurs in the fileName.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return different error. (&lt;10&gt; Section 3.1.4.4.2.2:  Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 return different error codes depending on where the question mark (?) character occurs in the fileName.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R192:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3562,7 +3583,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R24901</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that two consecutive dots (..) is at the end of the fileName. (&lt;10&gt; Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010, two consecutive dots (..) are ignored at the end of the fileName.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that two consecutive dots (..) is at the end of the fileName. (&lt;10&gt; Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016, two consecutive dots (..) are ignored at the end of the fileName.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R192:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3573,7 +3594,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R24902</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the forward slash (/) character is at the end of the fileName.(&lt;10&gt; Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013, the forward slash (/) character is ignored at the end of the fileName.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the forward slash (/) character is at the end of the fileName.(&lt;10&gt; Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010,SharePoint Foundation 2013 and SharePoint Server 2016, the forward slash (/) character is ignored at the end of the fileName.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R192:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -3584,7 +3605,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R24903</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return different error. (&lt;10&gt; Section 3.1.4.4.2.2: Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013 return different error codes depending on where the forward slash (/) occurs in the file specification.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return different error. (&lt;10&gt; Section 3.1.4.4.2.2: Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016 return different error codes depending on where the forward slash (/) occurs in the file specification.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R192:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

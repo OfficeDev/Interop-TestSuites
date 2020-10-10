@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <TestSettings name="MS-VIEWSS" id="bb5e6c00-5085-492e-9b3f-84083b78ce1b" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are default test settings for a local test run.</Description>
   <Deployment>
@@ -20,6 +20,7 @@
     <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VIEWSS.runsettings" />
     <DeploymentItem filename="TestSuite\MS-VIEWSS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-VIEWSS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

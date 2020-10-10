@@ -255,7 +255,7 @@ Microsoft® SharePoint® Foundation 2013]");
                 // If the operation UpdateColumns failed,verify MS-WEBSS requirement: MS-WEBSS_R1037
                 Site.CaptureRequirement(
                     1037,
-                    @"[In Appendix B: Product Behavior] Implementation does support this[UpdateColumns] operation.(<21> Windows SharePoint Services 3.0 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does support this[UpdateColumns] operation.(<23> Windows SharePoint Services 3.0 and above follow this behavior.)");
             }
 
             #endregion

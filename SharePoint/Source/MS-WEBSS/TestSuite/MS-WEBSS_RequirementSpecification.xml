@@ -31,7 +31,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1040</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.2/1] section 5, SOAP Message Construct.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.2-1/2007] section 5, SOAP Message Construct.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -49,7 +49,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1042</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2/1] section 5.4, SOAP Fault.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol server faults MUST be returned SOAP faults as specified either in [SOAP1.1] section 4.4, SOAP Fault, or in [SOAP1.2-1/2007] section 5.4, SOAP Fault.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -67,7 +67,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R671</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as specified in [XMLSCHEMA1] and [XMLSCHEMA2], and WSDL, as specified in [WSDL].</ns1:Description>
+		<ns1:Description>[In Common Message Syntax] The syntax of the definitions uses XML schema, as specified in [XMLSCHEMA1/2] and [XMLSCHEMA2/2], and WSDL, as specified in [WSDL].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -121,8 +121,8 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R855</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "soap12" is used for Namespace URI http://schemas.xmlsoap.org/wsdl/soap12/ [Reference][SOAP1.2/1] 
-[SOAP1.2/2]</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "soap12" is used for Namespace URI http://schemas.xmlsoap.org/wsdl/soap12/ [Reference][SOAP1.2-1/2007] 
+[SOAP1.2-2/2007]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -294,6 +294,8 @@
   &lt;s:attribute name="Theme" type="s:string" /&gt;
   &lt;s:attribute name="FarmId" type="core:UniqueIdentifierWithBraces" /&gt;
   &lt;s:attribute name="Id" type="core:UniqueIdentifierWithBraces" /&gt;
+  &lt;s:attribute name="SiteId" type="core:UniqueIdentifierWithBraces" /&gt;
+  &lt;s:attribute name="IsSPO" type="core:TRUEFALSE" /&gt;
   &lt;s:attribute name="ExcludeFromOfflineClient" type="core:TRUEFALSE" /&gt;
   &lt;s:attribute name="CellStorageWebServiceEnabled" type="core:TRUEFALSE" /&gt;
   &lt;s:attribute name="AlternateUrls" type="s:string" /&gt;
@@ -359,9 +361,29 @@
 		<ns1:VerificationComment>Verified by derived requirement: MS-WEBSS_R1092.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R697001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In WebDefinition] SiteId: A GUID that is the identifier of the site collection.&lt;3&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-WEBSS_R69700101.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R697002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
+		<ns1:Description>[In WebDefinition] IsSPO: Specifies if it is an online installation or not.&lt;4&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-WEBSS_R69700201.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R698</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition] [GetWeb] Id: A GUID that is the identifier of the site.&lt;3&gt;</ns1:Description>
+		<ns1:Description>[In WebDefinition] [GetWeb] Id: A GUID that is the identifier of the site.&lt;5&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -371,7 +393,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R699</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition][GetWeb] ExcludeFromOfflineClient: Specifies if the content in the site can be downloaded to a client or not.&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In WebDefinition][GetWeb] ExcludeFromOfflineClient: Specifies if the content in the site can be downloaded to a client or not.&lt;6&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -381,7 +403,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R700</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition][GetWeb] CellStorageWebServiceEnabled: Specifies if a cell storage service is enabled on the site or not.&lt;5&gt;</ns1:Description>
+		<ns1:Description>[In WebDefinition][GetWeb] CellStorageWebServiceEnabled: Specifies if a cell storage service is enabled on the site or not.&lt;7&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -391,7 +413,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R701</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In WebDefinition][GetWeb] AlternateUrls: Alternate URLs are listed in the following zone order, delimited by commas: Intranet,Default,Extranet,Internet,Custom.&lt;6&gt;</ns1:Description>
+		<ns1:Description>[In WebDefinition][GetWeb] AlternateUrls: Alternate URLs are listed in the following zone order, delimited by commas: Intranet,Default,Extranet,Internet,Custom.&lt;8&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -586,7 +608,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R12</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
-		<ns1:Description>[In Protocol Details] This protocol[MS-WEBSS] enables protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a Detail element as specified in [SOAP1.2/1] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.1.</ns1:Description>
+		<ns1:Description>[In Protocol Details] This protocol[MS-WEBSS] enables protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a Detail element as specified in [SOAP1.2-1/2007] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1062,7 +1084,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R864</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateContentType] This operation [CreateContentType] &lt;7&gt; creates a new content type on the context site.</ns1:Description>
+		<ns1:Description>[In CreateContentType] This operation [CreateContentType] &lt;9&gt; creates a new content type on the context site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1644,7 +1666,7 @@ The request to create a content type on the context site.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R79</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In CustomizeCss] This operation[CustomizeCss]&lt;8&gt; enables customization of the specified cascading style sheet (CSS) for the context site.</ns1:Description>
+		<ns1:Description>[In CustomizeCss] This operation[CustomizeCss]&lt;10&gt; enables customization of the specified cascading style sheet (CSS) for the context site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1813,7 +1835,7 @@ CustomizeCssResponse
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R91</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CustomizeCss] . The specific location in which the protocol server maintains the default copy of each CSS is a protocol server-specific implementation detail.&lt;9&gt;</ns1:Description>
+		<ns1:Description>[In CustomizeCss] . The specific location in which the protocol server maintains the default copy of each CSS is a protocol server-specific implementation detail.&lt;11&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1879,7 +1901,7 @@ CustomizeCssResponse
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R103</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentType] This operation[DeleteContentType]&lt;10&gt; removes a specified content type from the site.</ns1:Description>
+		<ns1:Description>[In DeleteContentType] This operation[DeleteContentType]&lt;12&gt; removes a specified content type from the site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2128,7 +2150,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R121</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In GetActivatedFeatures] This operation[GetActivatedFeatures]&lt;11&gt; obtains a list of activated features on the site and on the parent site collection.</ns1:Description>
+		<ns1:Description>[In GetActivatedFeatures] This operation[GetActivatedFeatures]&lt;13&gt; obtains a list of activated features on the site and on the parent site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2381,7 +2403,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetActivatedFeatures</ns1:Descripti
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R140</ns1:REQ_ID>
@@ -2671,7 +2693,7 @@ GetAllSubWebCollectionResponse
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R160</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In GetColumns] This operation[GetColumns]&lt;12&gt; obtains the collection of column definitions for all the columns available on the context site.</ns1:Description>
+		<ns1:Description>[In GetColumns] This operation[GetColumns]&lt;14&gt; obtains the collection of column definitions for all the columns available on the context site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2939,7 +2961,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetColumns</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R181</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentType] This operation[GetContentType]&lt;13&gt; obtains content type data for a specified content type identifier.</ns1:Description>
+		<ns1:Description>[In GetContentType] This operation[GetContentType]&lt;15&gt; obtains content type data for a specified content type identifier.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3495,7 +3517,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R230</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypes] This operation[GetContentTypes]&lt;14&gt; retrieves all content types for a specified context site. This operation is defined as follows:
+		<ns1:Description>[In GetContentTypes] This operation[GetContentTypes]&lt;16&gt; retrieves all content types for a specified context site. This operation is defined as follows:
 &lt;wsdl:operation name="GetContentTypes"&gt;
     &lt;wsdl:input message="tns:GetContentTypesSoapIn" /&gt;
     &lt;wsdl:output message="tns:GetContentTypesSoapOut" /&gt;
@@ -3508,7 +3530,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1100</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In GetContentTypes] This operation&lt;14&gt; retrieves all content types for a specified context site.</ns1:Description>
+		<ns1:Description>[In GetContentTypes] This operation&lt;16&gt; retrieves all content types for a specified context site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3833,7 +3855,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetContentTypes</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R256</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[In GetCustomizedPageStatus] This operation[GetCustomizedPageStatus]&lt;15&gt; obtains the customization status (also known as the uncustomized status) of the specified page or file.</ns1:Description>
+		<ns1:Description>[In GetCustomizedPageStatus] This operation[GetCustomizedPageStatus]&lt;17&gt; obtains the customization status (also known as the uncustomized status) of the specified page or file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4510,7 +4532,7 @@ http://schemas.microsoft.com/sharepoint/GetListTemplates</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R310</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
-		<ns1:Description>[In GetObjectIdFromUrl] This[GetObjectIdFromUrl] operation obtains properties of the object referenced by the specified URL.&lt;16&gt;</ns1:Description>
+		<ns1:Description>[In GetObjectIdFromUrl] This[GetObjectIdFromUrl] operation obtains properties of the object referenced by the specified URL.&lt;18&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5589,7 +5611,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetWebCollection</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R383</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.14</ns1:Doc_Sect>
-		<ns1:Description>[In RemoveContentTypeXmlDocument] This operation[RemoveContentTypeXmlDocument]&lt;17&gt; removes a document from the document collection of a site content type.</ns1:Description>
+		<ns1:Description>[In RemoveContentTypeXmlDocument] This operation[RemoveContentTypeXmlDocument]&lt;19&gt; removes a document from the document collection of a site content type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5848,7 +5870,7 @@ http://schemas.microsoft.com/sharepoint/soap/RemoveContentTypeXmlDocument</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R403</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.15</ns1:Doc_Sect>
-		<ns1:Description>[In RevertAllFileContentStreams] This operation[RevertAllFileContentStreams]&lt;18&gt; reverts all pages in the context site to their original state.</ns1:Description>
+		<ns1:Description>[In RevertAllFileContentStreams] This operation[RevertAllFileContentStreams]&lt;20&gt; reverts all pages in the context site to their original state.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6034,7 +6056,7 @@ http://schemas.microsoft.com/sharepoint/soap/RevertAllFileContentStreams</ns1:De
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R416</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.16</ns1:Doc_Sect>
-		<ns1:Description>[In RevertCss] This operation[RevertCss]&lt;19&gt; reverts the customizations of the context site defined by the specified CSS file and returns those customizations to the default style.</ns1:Description>
+		<ns1:Description>[In RevertCss] This operation[RevertCss]&lt;21&gt; reverts the customizations of the context site defined by the specified CSS file and returns those customizations to the default style.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6273,7 +6295,7 @@ http://schemas.microsoft.com/sharepoint/soap/RevertCss</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R434</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.17</ns1:Doc_Sect>
-		<ns1:Description>[In RevertFileContentStream] This operation[RevertFileContentStream]&lt;20&gt; reverts the specified page in the context site to its original state.</ns1:Description>
+		<ns1:Description>[In RevertFileContentStream] This operation[RevertFileContentStream]&lt;22&gt; reverts the specified page in the context site to its original state.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6542,7 +6564,7 @@ http://schemas.microsoft.com/sharepoint/soap/RevertFileContentStream</ns1:Descri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R460</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.18</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateColumns]This operation[UpdateColumns]&lt;21&gt; performs the following operations on the context site and all child sites in its hierarchy:
+		<ns1:Description>[In UpdateColumns]This operation[UpdateColumns]&lt;23&gt; performs the following operations on the context site and all child sites in its hierarchy:
 	Adding one or more specified new columns.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -6553,7 +6575,7 @@ http://schemas.microsoft.com/sharepoint/soap/RevertFileContentStream</ns1:Descri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R461</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.18</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateColumns]This operation[UpdateColumns]&lt;21&gt; performs the following operations on the context site and all child sites in its hierarchy: Updating one or more specified existing columns.</ns1:Description>
+		<ns1:Description>[In UpdateColumns]This operation[UpdateColumns]&lt;23&gt; performs the following operations on the context site and all child sites in its hierarchy: Updating one or more specified existing columns.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6562,7 +6584,7 @@ http://schemas.microsoft.com/sharepoint/soap/RevertFileContentStream</ns1:Descri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R462</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.18</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateColumns]This operation[UpdateColumns]&lt;21&gt; performs the following operations on the context site and all child sites in its hierarchy: Deleting one or more specified existing columns.</ns1:Description>
+		<ns1:Description>[In UpdateColumns]This operation[UpdateColumns]&lt;23&gt; performs the following operations on the context site and all child sites in its hierarchy: Deleting one or more specified existing columns.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7394,7 +7416,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateColumns</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R996</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.19</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentType] This operation[UpdateContentType]&lt;22&gt; updates a content type on the context site.</ns1:Description>
+		<ns1:Description>[In UpdateContentType] This operation[UpdateContentType]&lt;24&gt; updates a content type on the context site.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8086,7 +8108,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentType</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R585</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.20</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentTypeXmlDocument] This operation[UpdateContentTypeXmlDocument]&lt;23&gt; adds or updates an XML document in the XML Document collection of a site content type.</ns1:Description>
+		<ns1:Description>[In UpdateContentTypeXmlDocument] This operation[UpdateContentTypeXmlDocument]&lt;25&gt; adds or updates an XML document in the XML Document collection of a site content type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8733,9 +8755,51 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R69700100</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[SiteId]. (&lt;3&gt; Section 2.2.4.2:  This attribute is not returned in Windows SharePoint Services 2.0, Windows SharePoint Services 3.0 and SharePoint Foundation 2010.)</ns1:Description>
+		<ns1:Derived>MS-WEBSS_R697001:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R69700101</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [SiteId]. (&lt;3&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-WEBSS_R697001:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R69700200</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[IsSPO]. (&lt;4&gt; Section 2.2.4.2:  This attribute is not returned in Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013.)</ns1:Description>
+		<ns1:Derived>MS-WEBSS_R697002:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-WEBSS_R69700201</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [IsSPO]. (&lt;3&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-WEBSS_R697002:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R637</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[GetWeb]. (&lt;3&gt; Section 2.2.4.2: This attribute[Id] is not returned in Windows SharePoint Services 2.0 or Windows SharePoint Services 3.0.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[GetWeb]. (&lt;5&gt; Section 2.2.4.2: This attribute[Id] is not returned in Windows SharePoint Services 2.0 or Windows SharePoint Services 3.0.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R698:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8745,7 +8809,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1093</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (&lt;3&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (&lt;5&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R698:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8756,7 +8820,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R638</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[GetWeb]. (&lt;4&gt; Section 2.2.4.2: This attribute[ExcludeFromOfflineClient] is not returned in Windows SharePoint Services 2.0 or Windows SharePoint Services 3.0.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[GetWeb]. (&lt;6&gt; Section 2.2.4.2: This attribute[ExcludeFromOfflineClient] is not returned in Windows SharePoint Services 2.0 or Windows SharePoint Services 3.0.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R699:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8766,7 +8830,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1094</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (&lt;4&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (&lt;6&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R699:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8777,7 +8841,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R639</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[GetWeb]. (&lt;5&gt; Section 2.2.4.2: This attribute[CellStorageWebServiceEnabled] is not returned in Windows SharePoint Services 2.0 or Windows SharePoint Services 3.0.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[GetWeb]. (&lt;7&gt; Section 2.2.4.2: This attribute[CellStorageWebServiceEnabled] is not returned in Windows SharePoint Services 2.0 or Windows SharePoint Services 3.0.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R700:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8787,7 +8851,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1095</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (&lt;5&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (&lt;7&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R700:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8798,7 +8862,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1016</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[GetWeb]. (&lt;6&gt; Section 2.2.4.2: This attribute[AlternateUrls] is not returned in Windows SharePoint Services 2.0 or Windows SharePoint Services 3.0.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this method[GetWeb]. (&lt;8&gt; Section 2.2.4.2: This attribute[AlternateUrls] is not returned in Windows SharePoint Services 2.0 or Windows SharePoint Services 3.0.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R701:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8808,7 +8872,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1096</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (&lt;6&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (&lt;8&gt; Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R701:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8819,7 +8883,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R640</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [CreateContentType].(&lt;7&gt; Section 3.1.4.1:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [CreateContentType].(&lt;9&gt; Section 3.1.4.1:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R864:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8829,7 +8893,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1023</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[CreateContentType] operation. (&lt;7&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[CreateContentType] operation. (&lt;9&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R864:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8840,7 +8904,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1017</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [CreateContentType].( &lt;8&gt; Section 3.1.4.2:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [CreateContentType].( &lt;10&gt; Section 3.1.4.2:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R79:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -8850,7 +8914,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R642</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;9&gt; Section 3.1.4.2.2.1: In Windows SharePoint Services 3.0, the scope of the CustomizeCss operation is one SPWeb, referred to as a site in this documentation.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;11&gt; Section 3.1.4.2.2.1: In Windows SharePoint Services 3.0, the scope of the CustomizeCss operation is one SPWeb, referred to as a site in this documentation.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9004,7 +9068,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R643</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [DeleteContentType]. (&lt;10&gt; Section 3.1.4.3:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [DeleteContentType]. (&lt;12&gt; Section 3.1.4.3:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R103:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9014,7 +9078,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1025</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[DeleteContentType] operation. (&lt;10&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[DeleteContentType] operation. (&lt;12&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R103:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9025,7 +9089,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R664</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [GetObjectIdFromUrl]. (&lt;16&gt; Section 3.1.4.11:  Windows SharePoint Services 2.0 and Windows SharePoint Services 3.0 do not support this method.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [GetObjectIdFromUrl]. (&lt;18&gt; Section 3.1.4.11:  Windows SharePoint Services 2.0 and Windows SharePoint Services 3.0 do not support this method.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R310:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9035,7 +9099,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R644</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation[GetActivatedFeatures].(&lt;11&gt; Section 3.1.4.4:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation[GetActivatedFeatures].(&lt;13&gt; Section 3.1.4.4:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R121:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9045,7 +9109,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1026</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[GetActivatedFeatures] operation.(&lt;11&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[GetActivatedFeatures] operation.(&lt;13&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R121:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9056,7 +9120,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1032</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this[GetObjectIdFromUrl] operation.(&lt;16&gt;Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this[GetObjectIdFromUrl] operation.(&lt;18&gt;Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R310:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9067,7 +9131,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R650</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not support this [RemoveContentTypeXmlDocument] operation. ( &lt;17&gt; Section 3.1.4.14:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not support this [RemoveContentTypeXmlDocument] operation. ( &lt;19&gt; Section 3.1.4.14:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R383:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9077,7 +9141,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1033</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this [RemoveContentTypeXmlDocument] operation.(&lt;17&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this [RemoveContentTypeXmlDocument] operation.(&lt;19&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R383:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9088,7 +9152,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1024</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this[CustomizeCss] operation.(&lt;8&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this[CustomizeCss] operation.(&lt;10&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R79:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9098,7 +9162,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R652</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this[RevertAllFileContentStreams] operation. (&lt;18&gt; Section 3.1.4.15:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this[RevertAllFileContentStreams] operation. (&lt;20&gt; Section 3.1.4.15:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R403:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9108,7 +9172,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1034</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this[RevertAllFileContentStreams] operation.(&lt;18&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this[RevertAllFileContentStreams] operation.(&lt;20&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R403:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9119,7 +9183,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R646</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does not support this method [GetColumns].(&lt;12&gt; Section 3.1.4.6:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does not support this method [GetColumns].(&lt;14&gt; Section 3.1.4.6:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R160:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9129,7 +9193,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1027</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this[GetColumns] operation.(&lt;12&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this[GetColumns] operation.(&lt;14&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R160:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9139,7 +9203,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R647</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does not support this operation [GetContentType]. &lt;13&gt; Section 3.1.4.7:  Windows SharePoint Services 2.0 does not support this operation.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does not support this operation [GetContentType]. &lt;15&gt; Section 3.1.4.7:  Windows SharePoint Services 2.0 does not support this operation.</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R181:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9149,7 +9213,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1028</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this[GetContentType] operation.(&lt;13&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does support this[GetContentType] operation.(&lt;15&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R181:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9159,7 +9223,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R648</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [GetContentTypes].&lt;14&gt; Section 3.1.4.8:  Windows SharePoint Services 2.0 does not support this operation.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [GetContentTypes].&lt;16&gt; Section 3.1.4.8:  Windows SharePoint Services 2.0 does not support this operation.</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R1100:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9169,7 +9233,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1029</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[GetContentTypes] operation.(&lt;14&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[GetContentTypes] operation.(&lt;16&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R1100:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9180,7 +9244,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1018</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [GetCustomizedPageStatus].( &lt;15&gt; Section 3.1.4.9:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this operation [GetCustomizedPageStatus].( &lt;17&gt; Section 3.1.4.9:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R256:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9190,7 +9254,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1030</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[GetCustomizedPageStatus] operation.(&lt;15&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[GetCustomizedPageStatus] operation.(&lt;17&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R256:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9201,7 +9265,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R653</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this[RevertCss] operation. (&lt;19&gt; Section 3.1.4.16:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this[RevertCss] operation. (&lt;21&gt; Section 3.1.4.16:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R416:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9211,7 +9275,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1035</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this[RevertCss] operation.(&lt;19&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does support this[RevertCss] operation.(&lt;21&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R416:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9222,7 +9286,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R654</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does not support this[RevertFileContentStream] operation. &lt;20&gt; Section 3.1.4.17:  Windows SharePoint Services 2.0 does not support this operation.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does not support this[RevertFileContentStream] operation. &lt;22&gt; Section 3.1.4.17:  Windows SharePoint Services 2.0 does not support this operation.</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R434:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9232,7 +9296,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1036</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[RevertFileContentStream] operation.(&lt;20&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[RevertFileContentStream] operation.(&lt;22&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R434:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9243,7 +9307,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R655</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this[UpdateColumns] operation. &lt;21&gt; Section 3.1.4.18:  Windows SharePoint Services 2.0 does not support this operation.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this[UpdateColumns] operation. &lt;23&gt; Section 3.1.4.18:  Windows SharePoint Services 2.0 does not support this operation.</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R460:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9253,7 +9317,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1037</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[UpdateColumns] operation.(&lt;21&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[UpdateColumns] operation.(&lt;23&gt; Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R460:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9264,7 +9328,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R738</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this [UpdateContentType] operation.(&lt;22&gt; Section 3.1.4.19:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support this [UpdateContentType] operation.(&lt;24&gt; Section 3.1.4.19:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R996:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9274,7 +9338,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1038</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[UpdateContentType] operation.(&lt;22&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[UpdateContentType] operation.(&lt;24&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R996:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9285,7 +9349,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1019</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not support this[UpdateContentTypeXmlDocument] operation.( &lt;23&gt; Section 3.1.4.20:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not support this[UpdateContentTypeXmlDocument] operation.( &lt;25&gt; Section 3.1.4.20:  Windows SharePoint Services 2.0 does not support this operation.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R585:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9295,7 +9359,7 @@ http://schemas.microsoft.com/sharepoint/soap/WebUrlFromPageUrl</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WEBSS_R1039</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[UpdateContentTypeXmlDocument] operation.(&lt;23&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support this[UpdateContentTypeXmlDocument] operation.(&lt;25&gt;Windows SharePoint Services 3.0 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-WEBSS_R585:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

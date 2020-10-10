@@ -38,7 +38,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             Site.CaptureRequirementIfIsTrue(
                 isDetail,
                 12,
-                @"[In Protocol Details] This protocol[MS-WEBSS] enables protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a Detail element as specified in [SOAP1.2/1] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.1.");
+                @"[In Protocol Details] This protocol[MS-WEBSS] enables protocol servers to provide additional details for SOAP faults by including either a detail element as specified in [SOAP1.1] section 4.4 or a Detail element as specified in [SOAP1.2-1/2007] section 5.4.5, which conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.1.");
 
             // If MS-WEBSS_R38 is captured, the schema including the elements errorString and errorCode, therefore MS-WEBSS_R39 will be captured.
             // Verify MS-WEBSS requirement: MS-WEBSS_R39
@@ -123,7 +123,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // can't be received successfully.
                 Site.CaptureRequirement(
                     1040,
-                    @"[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.2/1] section 5, SOAP Message Construct.");
+                    @"[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.2-1/2007] section 5, SOAP Message Construct.");
             }
         }
 
@@ -143,18 +143,20 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                     SchemaValidation.ValidationResult,
                     691,
                     @"[In WebDefinition] This type[WebDefinition] is defined as follows:
- <s:complexType name=""WebDefinition"">
-  <s:attribute name=""Title"" type=""s:string"" use=""required"" />
-  <s:attribute name=""Url"" type=""s:string"" use=""required"" />
-  <s:attribute name=""Description"" type=""s:string"" />
-  <s:attribute name=""Language"" type=""s:string"" />
-  <s:attribute name=""Theme"" type=""s:string"" />
-  <s:attribute name=""FarmId"" type=""core:UniqueIdentifierWithBraces"" />
-  <s:attribute name=""Id"" type=""core:UniqueIdentifierWithBraces"" />
-  <s:attribute name=""ExcludeFromOfflineClient"" type=""core:TRUEFALSE"" />
-  <s:attribute name=""CellStorageWebServiceEnabled"" type=""core:TRUEFALSE"" />
-  <s:attribute name=""AlternateUrls"" type=""s:string"" />
-</s:complexType>");
+ <s:complexType name=""WebDefinition"" >
+  < s:attribute name = ""Title"" type = ""s:string"" use = ""required"" />
+  < s:attribute name = ""Url"" type = ""s:string"" use = ""required"" />
+  < s:attribute name = ""Description"" type = ""s:string"" />
+  < s:attribute name = ""Language"" type = ""s:string"" />
+  < s:attribute name = ""Theme"" type = ""s:string"" />
+  < s:attribute name = ""FarmId"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""Id"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""SiteId"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""IsSPO"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""ExcludeFromOfflineClient"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""CellStorageWebServiceEnabled"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""AlternateUrls"" type = ""s:string"" />
+</ s:complexType >");
             }
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R1092
@@ -183,6 +185,22 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 @"[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (<3> Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
             }
 
+            if (Common.IsRequirementEnabled(69700101, this.Site))
+            {
+                Site.CaptureRequirementIfIsTrue(
+                !string.IsNullOrEmpty(web.SiteId),
+                69700101,
+                @"[In Appendix B: Product Behavior]Implementation does support this method [SiteId]. (<3> Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2013 and above follow this behavior.)");
+            }
+
+            if (Common.IsRequirementEnabled(69700201, this.Site))
+            {
+                Site.CaptureRequirementIfIsTrue(
+                !string.IsNullOrEmpty(web.IsSPO),
+                69700201,
+                @"[In Appendix B: Product Behavior]Implementation does support this method [IsSPO]. (<4> Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Server 2016 and above follow this behavior.)");
+            }
+
             // Verify MS-WEBSS requirement: MS-WEBSS_R1094
             // COMMENT: When the SUT product is Windows SharePoint Services 3.0, if the 
             // CellStorageWebServiceEnabled attribute of the returned WebDefinition is null or 
@@ -194,7 +212,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 Site.CaptureRequirementIfIsTrue(
                     !string.IsNullOrEmpty(web.ExcludeFromOfflineClient),
                     1094,
-                    @"[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (<4> Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (<6> Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
             }
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R1095
@@ -207,7 +225,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 Site.CaptureRequirementIfIsTrue(
                 !string.IsNullOrEmpty(web.CellStorageWebServiceEnabled),
                 1095,
-                @"[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (<5> Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
+                @"[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (<7> Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
             }
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R1096
@@ -220,7 +238,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 Site.CaptureRequirementIfIsTrue(
                 !string.IsNullOrEmpty(web.AlternateUrls),
                 1096,
-                    @"[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (<6> Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior]Implementation does support this method [GetWeb]. (<8> Section 2.2.4.2: This attribute is returned in Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
             }
         }
 
@@ -239,18 +257,20 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                     SchemaValidation.ValidationResult,
                     691,
                     @"[In WebDefinition] This type[WebDefinition] is defined as follows:
- <s:complexType name=""WebDefinition"">
-  <s:attribute name=""Title"" type=""s:string"" use=""required"" />
-  <s:attribute name=""Url"" type=""s:string"" use=""required"" />
-  <s:attribute name=""Description"" type=""s:string"" />
-  <s:attribute name=""Language"" type=""s:string"" />
-  <s:attribute name=""Theme"" type=""s:string"" />
-  <s:attribute name=""FarmId"" type=""core:UniqueIdentifierWithBraces"" />
-  <s:attribute name=""Id"" type=""core:UniqueIdentifierWithBraces"" />
-  <s:attribute name=""ExcludeFromOfflineClient"" type=""core:TRUEFALSE"" />
-  <s:attribute name=""CellStorageWebServiceEnabled"" type=""core:TRUEFALSE"" />
-  <s:attribute name=""AlternateUrls"" type=""s:string"" />
-</s:complexType>");
+ <s:complexType name=""WebDefinition"" >
+  < s:attribute name = ""Title"" type = ""s:string"" use = ""required"" />
+  < s:attribute name = ""Url"" type = ""s:string"" use = ""required"" />
+  < s:attribute name = ""Description"" type = ""s:string"" />
+  < s:attribute name = ""Language"" type = ""s:string"" />
+  < s:attribute name = ""Theme"" type = ""s:string"" />
+  < s:attribute name = ""FarmId"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""Id"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""SiteId"" type = ""core:UniqueIdentifierWithBraces"" />
+  < s:attribute name = ""IsSPO"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""ExcludeFromOfflineClient"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""CellStorageWebServiceEnabled"" type = ""core:TRUEFALSE"" />
+  < s:attribute name = ""AlternateUrls"" type = ""s:string"" />
+</ s:complexType >");
             }
         }
 
@@ -622,7 +642,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 ValidationResult.Success,
                 SchemaValidation.ValidationResult,
                 230,
-                @"[In GetContentTypes] This operation[GetContentTypes]<14> retrieves all content types for a specified context site. This operation is defined as follows:
+                @"[In GetContentTypes] This operation[GetContentTypes]<16> retrieves all content types for a specified context site. This operation is defined as follows:
 <wsdl:operation name=""GetContentTypes"">
     <wsdl:input message=""tns:GetContentTypesSoapIn"" />
     <wsdl:output message=""tns:GetContentTypesSoapOut"" />

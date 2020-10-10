@@ -22,7 +22,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R4</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport]Protocol messages MUST be formatted as specified either in [SOAP1.1], section 4 "SOAP Envelope" or in [SOAP1.2/1], section 5 "SOAP Message Construct."</ns1:Description>
+		<ns1:Description>[In Transport]Protocol messages MUST be formatted as specified either in [SOAP1.1], section 4 "SOAP Envelope" or in [SOAP1.2-1/2007], section 5 "SOAP Message Construct."</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -40,7 +40,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R3000</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport]Protocol server faults MUST be returned using SOAP faults as specified either in [SOAP1.1], section 4.4 "SOAP Fault" or in [SOAP1.2/1], section 5.4 "SOAP Fault."</ns1:Description>
+		<ns1:Description>[In Transport]Protocol server faults MUST be returned using SOAP faults as specified either in [SOAP1.1], section 4.4 "SOAP Fault" or in [SOAP1.2-1/2007], section 5.4 "SOAP Fault."</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -58,7 +58,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R6</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Common Message Syntax]The syntax of the definitions uses XML schema as defined in [XMLSCHEMA1] and [XMLSCHEMA2], and WSDL as defined in [WSDL].</ns1:Description>
+		<ns1:Description>[In Common Message Syntax]The syntax of the definitions uses XML schema as defined in [XMLSCHEMA1/2] and [XMLSCHEMA2/2], and WSDL as defined in [WSDL].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -103,7 +103,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces]The Prefix "s" is used for the namespace URI " http://www.w3.org/2001/XMLSchema", which refers to "[XMLSCHEMA1]" and "[XMLSCHEMA2]".</ns1:Description>
+		<ns1:Description>[In Namespaces]The Prefix "s" is used for the namespace URI " http://www.w3.org/2001/XMLSchema", which refers to "[XMLSCHEMA1/2]" and "[XMLSCHEMA2/2]".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -112,7 +112,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2005</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces]The Prefix "soap12" is used for the namespace URI "http://schemas.xmlsoap.org/wsdl/soap12/", which refers to "[SOAP1.2/1]" and "[SOAP1.2/2]".</ns1:Description>
+		<ns1:Description>[In Namespaces]The Prefix "soap12" is used for the namespace URI "http://schemas.xmlsoap.org/wsdl/soap12/", which refers to "[SOAP1.2-1/2007]" and "[SOAP1.2-2/2007]".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -177,7 +177,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2012</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces]The Prefix "soapenc" is used for the namespace URI "http://schemas.xmlsoap.org/soap/encoding/", which refers to "[SOAP1.2/1]" and "[SOAP1.2/2]".</ns1:Description>
+		<ns1:Description>[In Namespaces]The Prefix "soapenc" is used for the namespace URI "http://schemas.xmlsoap.org/soap/encoding/", which refers to "[SOAP1.2-1/2007]" and "[SOAP1.2-2/2007]".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -337,7 +337,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2020</ns1:REQ_ID>
 		<ns1:Doc_Sect>3</ns1:Doc_Sect>
-		<ns1:Description>[In Protocol Details]This protocol [MS-ADMINS] allows protocol servers to provide additional details for SOAP faults by including a detail element as specified either in [SOAP1.1], section 4.4 "SOAP Fault" or [SOAP1.2/1], section 5.4 "SOAP Fault" that conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.1.</ns1:Description>
+		<ns1:Description>[In Protocol Details]This protocol [MS-ADMINS] allows protocol servers to provide additional details for SOAP faults by including a detail element as specified either in [SOAP1.1], section 4.4 "SOAP Fault" or [SOAP1.2-1/2007], section 5.4 "SOAP Fault" that conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -635,11 +635,11 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R18001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSiteSoapIn] If the LCID is less than zero, server MUST create the site with current server language. </ns1:Description>
+		<ns1:Description>[In CreateSiteSoapIn] If the LCID is zero, the server MUST create the site with current server language. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R18</ns1:REQ_ID>
@@ -942,7 +942,7 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R2049</ns1:REQ_ID>
@@ -1113,7 +1113,7 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Partially verified by derived requirements: MS-ADMINS_R3027, MS-ADMINS_R3038, MS-ADMINS_R3028.</ns1:VerificationComment>
+		<ns1:VerificationComment>Partially verified by derived requirements: MS-ADMINS_R3027, MS-ADMINS_R3038.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ADMINS_R3027</ns1:REQ_ID>
@@ -1129,16 +1129,6 @@ http://schemas.microsoft.com/sharepoint/soap/CreateSite</ns1:Description>
 		<ns1:REQ_ID>MS-ADMINS_R3038</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In CreateSite]If the length of the PortalUrl is 260 characters, the CreateSite operation will succeed.</ns1:Description>
-		<ns1:Derived>MS-ADMINS_R71:p</ns1:Derived>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ADMINS_R3028</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.1.4.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In CreateSite]If the length of the PortalUrl exceeds 260 characters, the CreateSite operation will succeed without exception, the exceeds characters are truncated.</ns1:Description>
 		<ns1:Derived>MS-ADMINS_R71:p</ns1:Derived>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

@@ -47,16 +47,20 @@
     <!-- Set R532Enabled to true to verify that if the value of cabSize is less than zero, implementation does return a value of 1 or 7 but the server does not successfully complete the operation. Set R532Enabled to false to disable this requirement. -->
     <Property name="R532Enabled" value="true"/>
     <!-- Set R523001Enabled to true to verify that implementation does be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite. Set R523001Enabled to false to disable this requirement. -->
-    <Property name="R523001Enabled" value="false"/>
+    <Property name="R523001Enabled" value="true"/>
     <!-- Set R523002Enabled to true to verify that implementation does not be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite. Set R523002Enabled to false to disable this requirement. -->
-    <Property name="R523002Enabled" value="true"/>
+    <Property name="R523002Enabled" value="false"/>
     <!-- Set R557001Enabled to true to verify that implementation does be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite. Set R557001Enabled to false to disable this requirement. -->
-    <Property name="R557001Enabled" value="false"/>
+    <Property name="R557001Enabled" value="true"/>
     <!-- Set R557002Enabled to true to verify that implementation does not be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite. Set R557002Enabled to false to disable this requirement. -->
-    <Property name="R557002Enabled" value="true"/>
+    <Property name="R557002Enabled" value="false"/>
     <!-- Set R391Enabled to true to verify that implementation does returns an error if logPath is set to an empty string. Set R391Enabled to false to disable this requirement. -->
     <Property name="R391Enabled" value="false"/>
+    <!-- Set R271001Enabled to true to verify that implementation does not returns an error if logPath is set to an empty string. Set R271001Enabled to false to disable this requirement. -->
+    <Property name="R271001Enabled" value="true"/>
     <!-- Set R326001002Enabled to true to verify that implementation does support IsScriptSafeUrl method. Set R326001002Enabled to false to disable this requirement. -->
     <Property name="R326001002Enabled" value="false"/>
+    <!-- Set R327001002Enabled to true to verify that implementation does support IsScriptSafeUrlUsingCustomizedDomain method. Set R327001002Enabled to false to disable this requirement. -->
+    <Property name="R327001002Enabled" value="false"/>    
   </Properties>
 </TestSite>

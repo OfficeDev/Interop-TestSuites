@@ -1,6 +1,6 @@
 ## [MS-MEETS]: Meetings Web Services Protocol
-- [MS-MEETS] v20160715 is used to develop the test suite.
-- Release date, 07/15/2016.
+- [MS-MEETS] v20190618 is used to develop the test suite.
+- Release date, 06/18/2019.
 
 
 To find the new landing page for [MS-MEETS], please visit https://msdn.microsoft.com/en-us/library/cc313057(v=office.12).aspx

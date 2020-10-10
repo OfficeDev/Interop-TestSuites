@@ -232,7 +232,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // If the operation succeed, Verify MS-WEBSS requirement: MS-WEBSS_R1033
                 this.Site.CaptureRequirement(
                     1033,
-                    @"[In Appendix B: Product Behavior]  Implementation does support this [RemoveContentTypeXmlDocument] operation.(<17>Windows SharePoint Services 3.0 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior]  Implementation does support this [RemoveContentTypeXmlDocument] operation.(<19>Windows SharePoint Services 3.0 and above follow this behavior.)");
             }
         }
 
@@ -264,7 +264,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // If the operation succeed, Verify MS-WEBSS requirement: MS-WEBSS_R1039
                 Site.CaptureRequirement(
                     1039,
-                    @"[In Appendix B: Product Behavior] Implementation does support this[UpdateContentTypeXmlDocument] operation.(<23>Windows SharePoint Services 3.0 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] Implementation does support this[UpdateContentTypeXmlDocument] operation.(<25>Windows SharePoint Services 3.0 and above follow this behavior.)");
             }
         }
     }

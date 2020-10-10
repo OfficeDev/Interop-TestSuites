@@ -11526,7 +11526,6 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/sharepoint/soap/")]
     public partial class ListDefinitionCT
     {
-
         private string docTemplateUrlField;
 
         private string defaultViewUrlField;
@@ -11670,6 +11669,24 @@ namespace Microsoft.Protocols.TestSuites.Common
         private string enableAssignedToEmailField;
 
         private string followableField;
+
+        private string aclField;
+
+        private string flags2Field;
+
+        private string rootFolderIdField;
+
+        private string irmSyncableField;
+
+        private string complianceTagField;
+
+        private string complianceFlagsField;
+
+        private string userModifiedField;
+
+        private string listSchemaVersionField;
+
+        private string aclVersionField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -12676,6 +12693,132 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.followableField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Acl
+        {
+            get
+            {
+                return this.aclField;
+            }
+            set
+            {
+                this.aclField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string Flags2
+        {
+            get
+            {
+                return this.flags2Field;
+            }
+            set
+            {
+                this.flags2Field = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string RootFolderId
+        {
+            get
+            {
+                return this.rootFolderIdField;
+            }
+            set
+            {
+                this.rootFolderIdField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string IrmSyncable
+        {
+            get
+            {
+                return this.irmSyncableField;
+            }
+            set
+            {
+                this.irmSyncableField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ComplianceTag
+        {
+            get
+            {
+                return this.complianceTagField;
+            }
+            set
+            {
+                this.complianceTagField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ComplianceFlags
+        {
+            get
+            {
+                return this.complianceFlagsField;
+            }
+            set
+            {
+                this.complianceFlagsField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string UserModified
+        {
+            get
+            {
+                return this.userModifiedField;
+            }
+            set
+            {
+                this.userModifiedField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ListSchemaVersion
+        {
+            get
+            {
+                return this.listSchemaVersionField;
+            }
+            set
+            {
+                this.listSchemaVersionField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string AclVersion
+        {
+            get
+            {
+                return this.aclVersionField;
+            }
+            set
+            {
+                this.aclVersionField = value;
             }
         }
     }

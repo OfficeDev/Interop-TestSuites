@@ -1484,7 +1484,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR727,
                 727,
-                @"[In PidTagReplyTemplateId Property] The PidTagReplyTemplateId property ([MS-OXPROPS] section 2.912) specifies the GUID for the reply template.");
+                @"[In PidTagReplyTemplateId Property] The PidTagReplyTemplateId property ([MS-OXPROPS] section 2.914) specifies the GUID for the reply template.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R928: the actual value of PidTagReplyTemplateId property is {0}", BitConverter.ToString(actionDataForOOFReply.ReplyTemplateGUID));

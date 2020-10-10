@@ -117,6 +117,20 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 Site.Assert.Fail("The returned value of the UserCodeEnabled element is not of type bool, the value is : {0}", result.UserCodeEnabled);
             }
 
+            if (Common.IsRequirementEnabled(327001002, this.Site))
+            {
+                string[] urls = new string[] { result.Url };
+                bool[] urlss = this.sitessAdapter.IsScriptSafeUrlUsingCustomizedDomain(urls);
+
+                // If IsScriptSafeUrlUsingCustomizedDomain is true, it indicates a URL is a valid script safe URL for the current site by checking against CustomScriptSafeDomains property of the site collection.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R32702701");
+
+                // Verify MS-SITESS requirement: MS-SITESS_R32702701
+                Site.CaptureRequirementIfIsTrue(
+                    urlss[0],
+                    32702701,
+                    @"[InArrayOfBoolean]  boolean: Indicates whether a URL is a valid script safe URL for the current site by checking against CustomScriptSafeDomains property of the site collection.");
+            }
             #endregion Capture requirements
 
             // Set whether user code is enabled for the site collection. Set user code is false.
@@ -132,7 +146,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
             result = AdapterHelper.SiteResultDeserialize(getResult);
 
             // Get the Id element form result of the succeed GetSite operation.
-            siteGuid = new Guid(result.Id);
+            siteGuid = new Guid(result.Id);           
 
             // Get the UserCodeEnabled element form result of the succeed GetSite operation.
             convertResult = bool.TryParse(result.UserCodeEnabled, out siteUserCodeEnabled);

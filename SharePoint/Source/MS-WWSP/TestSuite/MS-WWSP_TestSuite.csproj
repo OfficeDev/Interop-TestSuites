@@ -48,10 +48,12 @@
     <Content Include="Resources\StartworkflowParameters_2010.xml" />
     <Content Include="Resources\StartworkflowParameters_2013.xml" />
     <Content Include="Resources\StartworkflowParameters_2016.xml" />
+    <Content Include="Resources\StartworkflowParameters_2019.xml" />
     <Content Include="Resources\StartworkflowParameters_Claim_2007.xml" />
     <Content Include="Resources\StartworkflowParameters_Claim_2010.xml" />
     <Content Include="Resources\StartworkflowParameters_Claim_2013.xml" />
     <Content Include="Resources\StartworkflowParameters_Claim_2016.xml" />
+    <Content Include="Resources\StartworkflowParameters_Claim_2019.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MS-WWSP_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
@@ -60,6 +62,7 @@
     <None Include="MS-WWSP_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WWSP_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WWSP_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WWSP_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WWSP_TestSuite.deployment.ptfconfig" />
     <None Include="MS-WWSP_TestSuite.ptfconfig" />
     <None Include="MS-WWSP_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />

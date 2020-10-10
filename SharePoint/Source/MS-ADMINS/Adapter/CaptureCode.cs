@@ -58,7 +58,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             // Having received the response successfully have proved the XML Schema is used. If the structures do not use XML Schema, the response can't be received successfully.
             Site.CaptureRequirement(
                 6,
-                @"[In Common Message Syntax]The syntax of the definitions uses XML schema as defined in [XMLSCHEMA1] and [XMLSCHEMA2], and WSDL as defined in [WSDL].");
+                @"[In Common Message Syntax]The syntax of the definitions uses XML schema as defined in [XMLSCHEMA1/2] and [XMLSCHEMA2/2], and WSDL as defined in [WSDL].");
         }          
     
         /// <summary>
@@ -71,7 +71,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             Site.CaptureRequirementIfIsNotNull(
                 soapExp,
                 3000,
-                @" [In Transport]Protocol server faults MUST be returned using SOAP faults as specified either in [SOAP1.1], section 4.4 ""SOAP Fault"" or in [SOAP1.2/1], section 5.4 ""SOAP Fault.""");
+                @" [In Transport]Protocol server faults MUST be returned using SOAP faults as specified either in [SOAP1.1], section 4.4 ""SOAP Fault"" or in [SOAP1.2-1/2007], section 5.4 ""SOAP Fault.""");
 
             // The schemas are validated during invoking the operations and an XmlSchemaValidationException will be thrown if anyone of the schemas is incorrect, there is no such exception thrown, so the following requirement can be captured.
             Site.CaptureRequirement(
@@ -107,7 +107,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
             // The schemas are validated during invoking the operations and an XmlSchemaValidationException will be thrown if anyone of the schemas is incorrect, there is no such exception thrown and only SOAPFaultDetails complex type is included in the schemas, which means the detail element in the SOAP faults is conforms to the SOAPFaultDetails complex type, so the following requirement can be captured.
             Site.CaptureRequirement(
                 2020,
-                @"[In Protocol Details]This protocol [MS-ADMINS] allows protocol servers to provide additional details for SOAP faults by including a detail element as specified either in [SOAP1.1], section 4.4 ""SOAP Fault"" or [SOAP1.2/1], section 5.4 ""SOAP Fault"" that conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.1.");
+                @"[In Protocol Details]This protocol [MS-ADMINS] allows protocol servers to provide additional details for SOAP faults by including a detail element as specified either in [SOAP1.1], section 4.4 ""SOAP Fault"" or [SOAP1.2-1/2007], section 5.4 ""SOAP Fault"" that conforms to the XML schema of the SOAPFaultDetails complex type specified in section 2.2.4.1.");
         }
 
         /// <summary>

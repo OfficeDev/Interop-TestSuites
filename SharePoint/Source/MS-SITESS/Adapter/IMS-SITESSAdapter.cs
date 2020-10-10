@@ -122,5 +122,13 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         /// <param name="urls">An array of string contains all URLs that need to be validated. </param>
         /// <returns>An array of boolean contains results for validating the URLs </returns>
         bool[] IsScriptSafeUrl(string[] urls);
+
+        /// <summary>
+        /// This operation is used to validate whether the specified URLs are valid script safe URLS for the current site by checking against CustomScriptSafeDomains property of the site collection.
+        /// </summary>
+        /// <param name="urls">An array of string contains all URLs that need to be validated.</param>
+        /// <returns>An array of boolean contains results for validating the URLs</returns>
+        bool[] IsScriptSafeUrlUsingCustomizedDomain(string[] urls);
+
     }
 }

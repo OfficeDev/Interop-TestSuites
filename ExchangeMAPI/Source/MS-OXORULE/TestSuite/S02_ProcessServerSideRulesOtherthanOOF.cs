@@ -956,7 +956,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR551,
                 551,
-                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_MARK_AS_READ"": the server MUST set the MSGFLAG_READ flag (0x00000001) in the PidTagMessageFlags property ([MS-OXPROPS] section 2.785) on the message.");
+                @"[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] ""OP_MARK_AS_READ"": the server MUST set the MSGFLAG_READ flag (0x00000001) in the PidTagMessageFlags property ([MS-OXPROPS] section 2.787) on the message.");
 
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R902, the value of PidTagMessageFlags is {0}", messageFlag);
@@ -2103,19 +2103,18 @@ namespace Microsoft.Protocols.TestSuites.MS_OXORULE
                     isVerifiedR983,
                     983,
                     @"[In ServerEid Structure] FolderId (8 bytes): A Folder ID structure, as specified in [MS-OXCDATA] section 2.2.1.1, identifies the destination folder.");
-                if (Common.IsRequirementEnabled(7032, this.Site))
-                {
-                    // Add the debug information
-                    this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R7032");
 
-                    bool isVerifiedR703 = moveActionDataOfQueryRowsResponse.FolderInThisStore == 0x01 && getNewFolder1MailMessageContent.RowCount != 0;
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXORULE_R703");
 
-                    // Verify MS-OXORULE requirement: MS-OXORULE_R7032
-                    this.Site.CaptureRequirementIfIsTrue(
-                        isVerifiedR703,
-                        7032,
-                        @"[In Appendix A: Product Behavior] Implementation does set this field (FolderInThisStore) to 0x01 if the destination folder is in the user's mailbox. (Exchange 2007 and Exchange 2016 follow this behavior).");
-                }
+                bool isVerifiedR703 = moveActionDataOfQueryRowsResponse.FolderInThisStore != 0 && getNewFolder1MailMessageContent.RowCount != 0;
+
+                // Verify MS-OXORULE requirement: MS-OXORULE_R703
+                this.Site.CaptureRequirementIfIsTrue(
+                    isVerifiedR703,
+                    703,
+                    @"[In OP_MOVE and OP_COPY ActionData Structure] [Buffer Format for Standard Rules] FolderInThisStore (1 byte): This field MUST be set to a nonzero (TRUE) value, if the destination folder is in the user's mailbox.");
+        
                 #endregion
                 #endregion
             }

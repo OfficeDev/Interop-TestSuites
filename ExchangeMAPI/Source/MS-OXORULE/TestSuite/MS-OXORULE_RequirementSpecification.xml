@@ -454,7 +454,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R52</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleId Property] The PidTagRuleId property ([MS-OXPROPS] section 2.943) specifies a unique identifier the messaging server generates for each rule (2) when the rule (2) is first created.</ns1:Description>
+		<ns1:Description>[In PidTagRuleId Property] The PidTagRuleId property ([MS-OXPROPS] section 2.945) specifies a unique identifier the messaging server generates for each rule (2) when the rule (2) is first created.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -490,7 +490,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R56</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleSequence Property] The PidTagRuleSequence property ([MS-OXPROPS] section 2.956) contains a value used to determine the order in which rules (2) are evaluated and executed.</ns1:Description>
+		<ns1:Description>[In PidTagRuleSequence Property] The PidTagRuleSequence property ([MS-OXPROPS] section 2.958) contains a value used to determine the order in which rules (2) are evaluated and executed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -527,7 +527,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R60</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleState Property] The PidTagRuleState property ([MS-OXPROPS] section 2.957) contains a value interpreted as a Bitmask combination of flags that specify the state of the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleState Property] The PidTagRuleState property ([MS-OXPROPS] section 2.959) contains a value interpreted as a Bitmask combination of flags that specify the state of the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -673,7 +673,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R74</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleState Property] SCL (ST_SKIP_IF_SCL_IS_SAFE, Bitmask 0x00000020): Evaluation of this rule (2) MAY be skipped if the delivered message's PidTagContentFilterSpamConfidenceLevel property ([MS-OXPROPS] section 2.641) has a value of 0xFFFFFFFF.</ns1:Description>
+		<ns1:Description>[In PidTagRuleState Property] SCL (ST_SKIP_IF_SCL_IS_SAFE, Bitmask 0x00000020): Evaluation of this rule (2) MAY be skipped if the delivered message's PidTagContentFilterSpamConfidenceLevel property ([MS-OXPROPS] section 2.643) has a value of 0xFFFFFFFF.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -767,7 +767,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R83</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleName Property] The PidTagRuleName property ([MS-OXPROPS] section 2.953) specifies the name of the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleName Property] The PidTagRuleName property ([MS-OXPROPS] section 2.955) specifies the name of the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -785,7 +785,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R85</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleProvider Property] The PidTagRuleProvider property ([MS-OXPROPS] section 2.954) identifies the client application that owns the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleProvider Property] The PidTagRuleProvider property ([MS-OXPROPS] section 2.956) identifies the client application that owns the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -848,7 +848,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R92</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleLevel Property] The PidTagRuleLevel property ([MS-OXPROPS] section 2.945) is not used.</ns1:Description>
+		<ns1:Description>[In PidTagRuleLevel Property] The PidTagRuleLevel property ([MS-OXPROPS] section 2.947) is not used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -875,7 +875,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R95</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleUserFlags Property] The PidTagRuleUserFlags property ([MS-OXPROPS] section 2.958) is an opaque property that the client sets for the exclusive use of the client.</ns1:Description>
+		<ns1:Description>[In PidTagRuleUserFlags Property] The PidTagRuleUserFlags property ([MS-OXPROPS] section 2.960) is an opaque property that the client sets for the exclusive use of the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -911,7 +911,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R99</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleProviderData Property] The PidTagRuleProviderData property ([MS-OXPROPS] section 2.955) is an opaque property that the client sets for the exclusive use of the client.</ns1:Description>
+		<ns1:Description>[In PidTagRuleProviderData Property] The PidTagRuleProviderData property ([MS-OXPROPS] section 2.957) is an opaque property that the client sets for the exclusive use of the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -947,7 +947,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R103</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleCondition Property] The PidTagRuleCondition property ([MS-OXPROPS] section 2.940) sets the condition used when evaluating the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleCondition Property] The PidTagRuleCondition property ([MS-OXPROPS] section 2.942) sets the condition used when evaluating the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -974,7 +974,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R106</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleActions Property] The PidTagRuleActions property ([MS-OXPROPS] section 2.938) contains the set of actions (2) associated with the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleActions Property] The PidTagRuleActions property ([MS-OXPROPS] section 2.940) contains the set of actions (2) associated with the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1412,7 +1412,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R162</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageName Property] The PidTagRuleMessageName property ([MS-OXPROPS] section 2.947) SHOULD be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageName Property] The PidTagRuleMessageName property ([MS-OXPROPS] section 2.949) SHOULD be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1467,7 +1467,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R169</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageSequence Property] The PidTagRuleMessageSequence property ([MS-OXPROPS] section 2.950) MUST be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageSequence Property] The PidTagRuleMessageSequence property ([MS-OXPROPS] section 2.952) MUST be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1494,7 +1494,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R172</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageState Property] The PidTagRuleMessageState property ([MS-OXPROPS] section 2.951) MUST be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageState Property] The PidTagRuleMessageState property ([MS-OXPROPS] section 2.953) MUST be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1600,7 +1600,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R175</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageUserFlags Property] This PidTagRuleMessageUserFlags property ([MS-OXPROPS] section 2.952) MAY be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageUserFlags Property] This PidTagRuleMessageUserFlags property ([MS-OXPROPS] section 2.954) MAY be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1628,7 +1628,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R179</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageLevel Property] The PidTagRuleMessageLevel property ([MS-OXPROPS] section 2.946) SHOULD be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageLevel Property] The PidTagRuleMessageLevel property ([MS-OXPROPS] section 2.948) SHOULD be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1656,7 +1656,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R183</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageProvider Property] The PidTagRuleMessageProvider property ([MS-OXPROPS] section 2.948) MUST be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageProvider Property] The PidTagRuleMessageProvider property ([MS-OXPROPS] section 2.950) MUST be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1683,7 +1683,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R186</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleMessageProviderData Property] The PidTagRuleMessageProviderData property ([MS-OXPROPS] section 2.949) MAY be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagRuleMessageProviderData Property] The PidTagRuleMessageProviderData property ([MS-OXPROPS] section 2.951) MAY be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1711,7 +1711,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R190</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagExtendedRuleMessageActions Property] The PidTagExtendedRuleMessageActions property ([MS-OXPROPS] section 2.686) MUST be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagExtendedRuleMessageActions Property] The PidTagExtendedRuleMessageActions property ([MS-OXPROPS] section 2.688) MUST be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1806,7 +1806,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R196</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagExtendedRuleMessageCondition Property] The PidTagExtendedRuleMessageCondition property ([MS-OXPROPS] section 2.687) MUST be set on the FAI message.</ns1:Description>
+		<ns1:Description>[In PidTagExtendedRuleMessageCondition Property] The PidTagExtendedRuleMessageCondition property ([MS-OXPROPS] section 2.689) MUST be set on the FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2823,12 +2823,11 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R703</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In OP_MOVE and OP_COPY ActionData Structure] [Buffer Format for Standard Rules] FolderInThisStore (1 byte): This field MUST be set to 0x01a nonzero (TRUE) value, if the destination folder is in the user's mailbox,</ns1:Description>
+		<ns1:Description>[In OP_MOVE and OP_COPY ActionData Structure] [Buffer Format for Standard Rules] FolderInThisStore (1 byte): This field MUST be set to a nonzero (TRUE) value, if the destination folder is in the user's mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by requirement: MS-OXORULE_R7032.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R704</ns1:REQ_ID>
@@ -3620,7 +3619,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R354</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDamBackPatched property] The PidTagDamBackPatched property ([MS-OXPROPS] section 2.652) MUST be set to "FALSE" when the DAM is generated.</ns1:Description>
+		<ns1:Description>[In PidTagDamBackPatched property] The PidTagDamBackPatched property ([MS-OXPROPS] section 2.654) MUST be set to "FALSE" when the DAM is generated.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3647,7 +3646,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R740</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDamOriginalEntryId Property] This PidTagDamOriginalEntryId property ([MS-OXPROPS] section 2.653) MUST be set to the EntryID of the delivered (target) message that the client has to process.</ns1:Description>
+		<ns1:Description>[In PidTagDamOriginalEntryId Property] This PidTagDamOriginalEntryId property ([MS-OXPROPS] section 2.655) MUST be set to the EntryID of the delivered (target) message that the client has to process.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3666,7 +3665,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R359</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleProvider] The PidTagRuleProvider property ([MS-OXPROPS] section 2.954) MUST be set to the same value as the PidTagRuleProvider property on the rule or rules that have generated the DAM.</ns1:Description>
+		<ns1:Description>[In PidTagRuleProvider] The PidTagRuleProvider property ([MS-OXPROPS] section 2.956) MUST be set to the same value as the PidTagRuleProvider property on the rule or rules that have generated the DAM.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3684,7 +3683,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R741</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property ([MS-OXPROPS] section 2.942) MUST be set to the EntryID of the folder where the rule (2) that triggered the generation of this DAM is stored.</ns1:Description>
+		<ns1:Description>[In PidTagRuleFolderEntryId Property] The PidTagRuleFolderEntryId property ([MS-OXPROPS] section 2.944) MUST be set to the EntryID of the folder where the rule (2) that triggered the generation of this DAM is stored.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3703,7 +3702,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R363</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagClientActions] The PidTagClientActions property ([MS-OXPROPS] section 2.628) is a binary buffer specifying the actions (2) the client is required to take on the message.</ns1:Description>
+		<ns1:Description>[In PidTagClientActions] The PidTagClientActions property ([MS-OXPROPS] section 2.630) is a binary buffer specifying the actions (2) the client is required to take on the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3758,7 +3757,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R368</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleIds] The PidTagRuleIds property ([MS-OXPROPS] section 2.944) is a buffer contains the PidTagRuleId (section 2.2.1.3.1.1) value (8 bytes) from the first rules (2) that contributed actions (2) in the PidTagClientActions property (section 2.2.6.6), and repeats that value once for each rule (2) that contributed actions (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleIds] The PidTagRuleIds property ([MS-OXPROPS] section 2.946) is a buffer contains the PidTagRuleId (section 2.2.1.3.1.1) value (8 bytes) from the first rules (2) that contributed actions (2) in the PidTagClientActions property (section 2.2.6.6), and repeats that value once for each rule (2) that contributed actions (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3785,7 +3784,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R371</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDeferredActionMessageOriginalEntryId Property] The PidTagDeferredActionMessageOriginalEntryId property ([MS-OXPROPS] section 2.655) contains the server EntryID for the DAM message on the server.</ns1:Description>
+		<ns1:Description>[In PidTagDeferredActionMessageOriginalEntryId Property] The PidTagDeferredActionMessageOriginalEntryId property ([MS-OXPROPS] section 2.657) contains the server EntryID for the DAM message on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3867,7 +3866,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R748</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleError Property] The PidTagRuleError property ([MS-OXPROPS] section 2.941) MUST be set to one of the following values [0x00000001, 0x00000002, 0x00000003, 0x00000004, 0x00000005, 0x00000006, 0x00000007, 0x00000008, 0x00000009, 0x0000000a, 0x0000000b, 0x0000000c, 0x0000000d, and 0x0000000e], indicating the cause of the error encountered during the execution of the rule (2).</ns1:Description>
+		<ns1:Description>[In PidTagRuleError Property] The PidTagRuleError property ([MS-OXPROPS] section 2.943) MUST be set to one of the following values [0x00000001, 0x00000002, 0x00000003, 0x00000004, 0x00000005, 0x00000006, 0x00000007, 0x00000008, 0x00000009, 0x0000000a, 0x0000000b, 0x0000000c, 0x0000000d, and 0x0000000e], indicating the cause of the error encountered during the execution of the rule (2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4011,7 +4010,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R1009</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleActionType Property] The PidTagRuleActionType property ([MS-OXPROPS] section 2.936) specifies the action (2) of the rule (2) that failed.</ns1:Description>
+		<ns1:Description>[In PidTagRuleActionType Property] The PidTagRuleActionType property ([MS-OXPROPS] section 2.941) specifies the action (2) of the rule (2) that failed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4056,7 +4055,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R707</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRuleActionNumber Property] The PidTagRuleActionNumber property ([MS-OXPROPS] section 2.937) MUST be set to the zero-based index of the action (2) that failed. (For example, if specific to an action (2), a property value of 0x00000000 means that the first action (2) failed, 0x00000001 means that the second action (2) failed.)</ns1:Description>
+		<ns1:Description>[In PidTagRuleActionNumber Property] The PidTagRuleActionNumber property ([MS-OXPROPS] section 2.939) MUST be set to the zero-based index of the action (2) that failed. (For example, if specific to an action (2), a property value of 0x00000000 means that the first action (2) failed, 0x00000001 means that the second action (2) failed.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4166,7 +4165,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R719</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.8.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHasRules Property] The PidTagHasRules property ([MS-OXPROPS] section 2.713) specifies whether rules (2) are set on a folder.</ns1:Description>
+		<ns1:Description>[In PidTagHasRules Property] The PidTagHasRules property ([MS-OXPROPS] section 2.715) specifies whether rules (2) are set on a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4214,7 +4213,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R723</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.9.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHasDeferredActionMessages Property] The PidTagHasDeferredActionMessages property ([MS-OXPROPS] section 2.708) specifies whether a message has at least one associated DAM.</ns1:Description>
+		<ns1:Description>[In PidTagHasDeferredActionMessages Property] The PidTagHasDeferredActionMessages property ([MS-OXPROPS] section 2.713) specifies whether a message has at least one associated DAM.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4260,7 +4259,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R727</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.9.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagReplyTemplateId Property] The PidTagReplyTemplateId property ([MS-OXPROPS] section 2.912) specifies the GUID for the reply template.</ns1:Description>
+		<ns1:Description>[In PidTagReplyTemplateId Property] The PidTagReplyTemplateId property ([MS-OXPROPS] section 2.914) specifies the GUID for the reply template.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4278,7 +4277,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R1011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.9.3</ns1:Doc_Sect>
-		<ns1:Description>[PidTagRwRulesStream Property] The PidTagRwRulesStream property ([MS-OXPROPS] section 2.959) contains client-specific data about the Rule FAI message.</ns1:Description>
+		<ns1:Description>[PidTagRwRulesStream Property] The PidTagRwRulesStream property ([MS-OXPROPS] section 2.961) contains client-specific data about the Rule FAI message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4531,7 +4530,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R467</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Adding, Modifying or Deleting Extended Rules] The client MAY set values for the PidTagRuleMessageUserFlags (section 2.2.4.1.5) and PidTagRuleMessageProviderData ([MS-OXPROPS] section 2.949) properties for storing additional data.</ns1:Description>
+		<ns1:Description>[In Adding, Modifying or Deleting Extended Rules] The client MAY set values for the PidTagRuleMessageUserFlags (section 2.2.4.1.5) and PidTagRuleMessageProviderData ([MS-OXPROPS] section 2.951) properties for storing additional data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4702,7 +4701,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R848</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In Creating a Reply Template] The following steps specify how to create a reply template: 2. Set the value of the PidTagMessageClass property ([MS-OXPROPS] section 2.886) to a string that has the prefix "IPM.Note.rules.ReplyTemplate." (for "OP_REPLY" values) or "IPM.Note.rules.OOFTemplate." (for "OP_OOF_REPLY" values).</ns1:Description>
+		<ns1:Description>[In Creating a Reply Template] The following steps specify how to create a reply template: 2. Set the value of the PidTagMessageClass property ([MS-OXCMSG] section 2.2.1.3) to a string that has the prefix "IPM.Note.rules.ReplyTemplate." (for "OP_REPLY" values) or "IPM.Note.rules.OOFTemplate." (for "OP_OOF_REPLY" values).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5279,7 +5278,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R582</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Entering and Exiting the Out of Office State] When the mailbox enters the Out of Office state as specified in [MS-OXWOOF] section 2.2.4.1, the server MUST start processing rules (2) marked with the ST_ONLY_WHEN_OOF flag in the PidTagRuleState property (section 2.2.1.3.1.3).</ns1:Description>
+		<ns1:Description>[In Entering and Exiting the Out of Office State] When the mailbox enters the Out of Office state as specified in [MS-OXWOOF] section 2.2.4.2, the server MUST start processing rules (2) marked with the ST_ONLY_WHEN_OOF flag in the PidTagRuleState property (section 2.2.1.3.1.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5418,7 +5417,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R517</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Incoming Messages to a Folder] The server MUST evaluate rules (2) that have the ST_ONLY_WHEN_OOF flag set in the PidTagRuleState property only when the mailbox is in an OOF state as specified in [MS-OXWOOF] section 2.2.4.1.</ns1:Description>
+		<ns1:Description>[In Processing Incoming Messages to a Folder] The server MUST evaluate rules (2) that have the ST_ONLY_WHEN_OOF flag set in the PidTagRuleState property only when the mailbox is in an OOF state as specified in [MS-OXWOOF] section 2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5724,7 +5723,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R551</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_MARK_AS_READ": the server MUST set the MSGFLAG_READ flag (0x00000001) in the PidTagMessageFlags property ([MS-OXPROPS] section 2.785) on the message.</ns1:Description>
+		<ns1:Description>[In Processing Incoming Messages to a Folder] [Following is a description of what the server does when it executes each action (2) type, as specified in section 2.2.5.1.1, for an incoming message] "OP_MARK_AS_READ": the server MUST set the MSGFLAG_READ flag (0x00000001) in the PidTagMessageFlags property ([MS-OXPROPS] section 2.787) on the message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5752,7 +5751,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R553</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Out of Office Rules] The server evaluates and executes Out of Office rules only when the mailbox is in an Out of Office state, as specified in [MS-OXWOOF] section 2.2.4.1.</ns1:Description>
+		<ns1:Description>[In Processing Out of Office Rules] The server evaluates and executes Out of Office rules only when the mailbox is in an Out of Office state, as specified in [MS-OXWOOF] section 2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5761,7 +5760,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXORULE_R555</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Processing Out of Office Rules] The server evaluates and executes Out of Office rules only when the mailbox is in an Out of Office state, as specified in [MS-OXWOOF] section 2.2.4.1.</ns1:Description>
+		<ns1:Description>[In Processing Out of Office Rules] The server evaluates and executes Out of Office rules only when the mailbox is in an Out of Office state, as specified in [MS-OXWOOF] section 2.2.4.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

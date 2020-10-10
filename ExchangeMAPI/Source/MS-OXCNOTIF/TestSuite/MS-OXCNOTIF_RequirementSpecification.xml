@@ -4490,7 +4490,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R76</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;6&gt; Section 2.2.1.3.3: Outlook 2013, Outlook 2016 andOutlook 2019 Preview do not send the EcRRegisterPushNotification RPC method call. </ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;6&gt; Section 2.2.1.3.3: Outlook 2013, Outlook 2016 andOutlook 2019 do not send the EcRRegisterPushNotification RPC method call. </ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4499,7 +4499,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R77</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the EcRRegisterPushNotification method. (&lt;6&gt; Section 2.2.1.3.3: Exchange 2013, Exchange 2016 and Exchange 2019 Preview do not support the EcRRegisterPushNotification method, and the returned value is always ecNotSupported (0x80040102).)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the EcRRegisterPushNotification method. (&lt;6&gt; Section 2.2.1.3.3: Exchange 2013, Exchange 2016 and Exchange 2019 do not support the EcRRegisterPushNotification method, and the returned value is always ecNotSupported (0x80040102).)</ns1:Description>
 		<ns1:Derived>MS-OXCNOTIF_R72:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4509,7 +4509,7 @@ NotificationSubscriptionObject: An object on the server associated with the sess
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R8201004</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. &lt;7&gt; Section 2.2.1.3.4:  Exchange 2003, Exchange 2007, Exchange 2010, the initial release of Exchange 2013do not support the Execute request type.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not support the Execute request type. &lt;7&gt; Section 2.2.1.3.4:  Exchange 2003, Exchange 2007, Exchange 2010, the initial release of Exchange 2013 do not support the Execute request type.</ns1:Description>
 		<ns1:Derived>MS-OXCNOTIF_R8201:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

@@ -1060,7 +1060,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMAPIHTTP
                     // so MS-OXCMAPIHTTP_R2036 can be verified directly if code can reach here.
                     this.Site.CaptureRequirement(
                         2036,
-                        @"[In AddressBookPropertyRow Structure] [ValueArray] Each structure in the array MUST be interpreted based on the Flag field.");
+                        @"[In AddressBookPropertyRow Structure] [ValueArray] Each structure in the array MUST be interpreted based on the Flags field.");
 
                     if (rowData[i].Flag == 0x0)
                     {

@@ -402,7 +402,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                     HttpStatusCode.Unauthorized,
                     ((HttpWebResponse)webException.Response).StatusCode,
                     698,
-                    @"[In Transport] Protocol server faults MUST be returned by using HTTP status codes as specified in [RFC2616] Status Code Definitions section 10 or SOAP faults as specified in [SOAP1.1] SOAP Fault section 4.4 or in [SOAP1.2/1] SOAP Fault section 5.4.");
+                    @"[In Transport] Protocol server faults MUST be returned by using HTTP status codes as specified in [RFC2616] Status Code Definitions section 10 or SOAP faults as specified in [SOAP1.1] SOAP Fault section 4.4 or in [SOAP1.2-1/2007] SOAP Fault section 5.4.");
             }
         }
         

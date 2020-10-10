@@ -246,17 +246,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             RopOpenMessageResponse openMessageResponse = (RopOpenMessageResponse)this.response;
             Site.Assert.AreEqual<uint>(TestSuiteBase.Success, setColumnsResponse.ReturnValue, "Call RopOpenMessage should success.");
 
-            #region Verify MS-OXCMSG_R647, MS-OXCMSG_R372
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R647");
-
-            // Verify MS-OXCMSG requirement: MS-OXCMSG_R647
-            this.Site.CaptureRequirementIfAreEqual<uint>(
-                TestSuiteBase.Success,
-                openMessageResponse.ReturnValue,
-                647,
-                @"[In RopOpenMessage ROP] The RopOpenMessage ROP ([MS-OXCROPS] section 2.2.6.1) provides access to an existing Message object, which is identified by the message ID (MID), whose structure is specified in [MS-OXCDATA] section 2.2.1.2.<7>");
-
+            #region Verify MS-OXCMSG_R251
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R251");
 
@@ -456,7 +446,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 this.Site.CaptureRequirementIfIsTrue(
                     isR16402Verifed,
                     164102,
-                    @"[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2:  Implementation does initialize the following properties:PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2010 and Exchange 2013 followin this behavior.)");
+                    @"[In Appendix A: Product Behavior] &lt;21&gt; Section 3.2.5.2:  Implementation does initialize the following properties:PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). (Exchange 2010 and Exchange 2013 follow this behavior.)");
             }
 
             // Add the debug information
@@ -952,16 +942,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             };
             this.ResponseSOHs = this.MSOXCMSGAdapter.DoRopCall(saveChangesMessageRequest, targetMessageHandle, ref this.response, ref this.rawData, GetPropertiesFlags.None);
             RopSaveChangesMessageResponse saveChangesMessageResponse = (RopSaveChangesMessageResponse)this.response;
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1052");
-
-            // Verify MS-OXCMSG requirement: MS-OXCMSG_R1052
-            Site.CaptureRequirementIfAreEqual<uint>(
-                0x80040102,
-                saveChangesMessageResponse.ReturnValue,
-                1052,
-                @"[In Receiving a RopSaveChangesMessage ROP Request] [ecNotSupported (0x80040102)] The values of the SaveFlags are not a supported combination.");
             #endregion
         }
 

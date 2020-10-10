@@ -31,7 +31,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R7</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.2/1] section 5.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol messages MUST be formatted as specified in [SOAP1.2-1/2007] section 5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -49,7 +49,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R9</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol server faults MUST be returned by using  SOAP faults, as specified in [SOAP1.1] section 4.4 or [SOAP1.2/1] section 5.4.</ns1:Description>
+		<ns1:Description>[In Transport] Protocol server faults MUST be returned by using  SOAP faults, as specified in [SOAP1.1] section 4.4 or [SOAP1.2-1/2007] section 5.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -214,68 +214,6 @@
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R27</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In SOAP Exception Message] This protocol enables a protocol server to notify a protocol client when a request is not well-formed and cannot be processed using a SOAP exception response.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R28</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In SOAP Exception Message] The following schema specifies the structure of the detail element in the SOAP exception response that is used by this protocol:</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R29</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In SOAP Exception Message]The following schema specifies the structure of the detail element in the SOAP exception response that is used by this protocol: &lt;s:schema xmlns:s="http://www.w3.org/2001/XMLSchema" targetNamespace=" http://schemas.microsoft.com/sharepoint/soap/"&gt;
-     &lt;s:complexType name="SOAPExceptionDetails"&gt;
-        &lt;s:sequence&gt;
-           &lt;s:element name="errorstring" type="s:string"/&gt;
-           &lt;s:element name="faultcode" type="s:string" /&gt;
-           &lt;s:element name="faultstring" type="s:string" /&gt;
-        &lt;/s:sequence&gt;
-     &lt;/s:complexType&gt;
-  &lt;/s:schema&gt;</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R30</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In SOAP Exception Message] errorstring: A description of the error.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R31</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In SOAP Exception Message] faultcode: This MUST be the string "soap:Server".</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-COPYS_R32</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In SOAP Exception Message] faultstring: This MUST be the string "Exception of type 'Microsoft.SharePoint.SoapServer.SoapServerException' was thrown."</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R33</ns1:REQ_ID>
@@ -2328,9 +2266,27 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-COPYS_R271001</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location points to an existing file whose permission setting does not allow access by the protocol client, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "Unknown" for this destination location.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-COPYS_R271002</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location does not point to an existing file, then if the destination location points to an existing file whose permission setting does not allow access by the protocol client, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "Unknown" for this destination location.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R272</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location points to an existing file, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "SourceInvalid" for this destination location. </ns1:Description>
+		<ns1:Description>[In CopyIntoItemsLocal] If the source location points to a file whose permission setting does not allow access by the protocol client, then if the destination location points to an existing file whose permission setting allows writing by the protocol client, the protocol server MUST report a failure by returning the CopyResult element with the ErrorCode attribute set to "SourceInvalid" for this destination location. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
