@@ -254,7 +254,7 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
         /// <typeparam name="T">The generic type parameter</typeparam>
         /// <param name="properties">The data which contains information for note</param>
         /// <returns>The returned note instance</returns>
-        public static T DeserializeFromSearchProperties<T>(Response.SearchResponseStoreResultProperties properties)
+        public static T DeserializeFromSearchProperties<T>(Response.SearchResponseStoreResultProperties properties,string protocolVer)
         {
             T obj = Activator.CreateInstance<T>();
 
@@ -273,7 +273,19 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                         case Response.ItemsChoiceType6.Subject2:
                         case Response.ItemsChoiceType6.Subject3:
                         case Response.ItemsChoiceType6.Sensitivity1:
-                        case Response.ItemsChoiceType6.Location:
+                            break;
+                        case Response.ItemsChoiceType6.Location:                         
+                            if (protocolVer == "14.0")
+                            {
+                                SetCalendarPropertyValue(obj, properties.ItemsElementName[itemIndex].ToString(), properties.Items[itemIndex]);
+                            }
+                            break;
+                        case Response.ItemsChoiceType6.Location1:
+                            if (protocolVer == "14.0")
+                            {
+                                break;
+                            }
+                            SetCalendarPropertyValue(obj, properties.ItemsElementName[itemIndex].ToString(), properties.Items[itemIndex]);
                             break;
                         default:
                             SetCalendarPropertyValue(obj, properties.ItemsElementName[itemIndex].ToString(), properties.Items[itemIndex]);

@@ -328,7 +328,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 || this.IsActiveSyncProtocolVersion140
                 || this.IsActiveSyncProtocolVersion141)
             {
-                calendarItem.Add(Request.ItemsChoiceType8.Location, this.Location);
+                calendarItem.Add(Request.ItemsChoiceType8.Location1, this.Location);
                 calendarItem.Add(Request.ItemsChoiceType8.DtStamp, DateTime.Now.ToString("yyyyMMddTHHmmssZ"));
             }
 
@@ -2866,7 +2866,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             {
                 calendarItem.Add(Request.ItemsChoiceType8.Recurrence, recurrence);
                 calendarItem.Add(Request.ItemsChoiceType8.Exceptions, exceptions);
-                calendarItem.Add(Request.ItemsChoiceType8.Location, this.Location);
+                calendarItem.Add(Request.ItemsChoiceType8.Location1, this.Location);
             }
 
             // Set elements which can be ghosted

@@ -812,7 +812,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
                             // Verify MS-ASCAL requirement: MS-ASCAL_R2185
                             Site.CaptureRequirementIfIsTrue(
-                                syncResponse.AddElements[i].Calendar.Reminder.HasValue,
+                                syncResponse.AddElements[i].Calendar.Reminder == null || syncResponse.AddElements[i].Calendar.Reminder.ToString().Length != 0,
                                 2185,
                                 @"[In Reminder] When protocol version 2.5, 12.0, 12.1, or 14.0 is used, the value of the Reminder element cannot be an EmptyTag data type.");
                         }

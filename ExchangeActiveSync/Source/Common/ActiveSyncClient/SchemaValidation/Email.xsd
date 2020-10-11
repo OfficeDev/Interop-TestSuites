@@ -77,21 +77,30 @@
          </xs:element>
          <xs:element name="Sensitivity" type="xs:integer" minOccurs="0"/>
          <xs:element name="BusyStatus" type="xs:integer" minOccurs="0"/>
-         <xs:element name="TimeZone" type="xs:string"/>        
-         <xs:element name="GlobalObjId" type="xs:string" minOccurs="0"/>
-         <xs:element name="DisallowNewTimeProposal" type="xs:unsignedByte" 
-             minOccurs="0"/>
-         <xs:element ref="email2:MeetingMessageType" minOccurs="1"/>
-         <xs:element ref="calendar:UID" minOccurs="0"/>
-         <xs:element ref="MeetingResponse:ProposedStartTime" minOccurs="0"/>
-         <xs:element ref="MeetingResponse:ProposedEndTime" minOccurs="0"/>
-         <xs:element ref="ComposeMail:Forwardees" minOccurs="0"/>
+         <xs:element name="TimeZone" type="xs:string"/>
+         <xs:choice>
+           <xs:sequence>
+             <xs:element name="GlobalObjId" type="xs:string"/>
+             <xs:element name="DisallowNewTimeProposal" type="xs:unsignedByte"
+                 minOccurs="0"/>
+             <xs:element ref="email2:MeetingMessageType" minOccurs="0"/>
+           </xs:sequence>
+           <xs:sequence>
+             <xs:element name="DisallowNewTimeProposal" type="xs:unsignedByte"
+                 minOccurs="0"/>
+             <xs:element ref="email2:MeetingMessageType" minOccurs="0"/>
+             <xs:element ref="calendar:UID"/>
+             <xs:element ref="MeetingResponse:ProposedStartTime" minOccurs="0"/>
+             <xs:element ref="MeetingResponse:ProposedEndTime" minOccurs="0"/>
+             <xs:element ref="ComposeMail:Forwardees" minOccurs="0"/>
+           </xs:sequence>
+         </xs:choice>
        </xs:sequence>
      </xs:complexType>
    </xs:element>
    <xs:element name="InternetCPID" type="xs:string"/>
    <xs:element name="Flag">
-     <xs:complexType>
+     <xs:complexType>      
        <xs:all>
          <xs:element ref="tasks:Subject" minOccurs="0"/>
          <xs:element name="Status" type="xs:integer" minOccurs="0"/>

@@ -951,16 +951,19 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 || this.IsActiveSyncProtocolVersion141)
             {
                 Site.Assert.IsNotNull(calendarOnOrganizer.Calendar.MeetingStatus, "The MeetingStatus element should not be null.");
+                
+                if (Common.IsRequirementEnabled(313, this.Site))
+                {
+                    // Add the debug information 
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R313");
 
-                // Add the debug information 
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R313");
-
-                // Verify MS-ASCAL requirement: MS-ASCAL_R313
-                Site.CaptureRequirementIfAreEqual<byte>(
-                    5,
-                    calendarOnOrganizer.Calendar.MeetingStatus.Value,
-                    313,
-                    @"[In MeetingStatus][The value 5 means] The meeting has been canceled and the user was the meeting organizer.");
+                    // Verify MS-ASCAL requirement: MS-ASCAL_R313
+                    Site.CaptureRequirementIfAreEqual<byte>(
+                        5,
+                        calendarOnOrganizer.Calendar.MeetingStatus.Value,
+                        313,
+                        @"[In MeetingStatus][The value 5 means] The meeting has been canceled and the user was the meeting organizer.");
+                }
             }
         }
 
@@ -1063,7 +1066,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
             // Verify MS-ASCAL requirement: MS-ASCAL_R39211
             Site.CaptureRequirementIfIsTrue(
-                calendarOnOrganizer.Calendar.Exceptions.Exception[0].ReminderSpecified,
+                string.IsNullOrEmpty(calendarOnOrganizer.Calendar.Exceptions.Exception[0].Reminder.ToString()) == false,
                 39211,
                 @"[In Reminder] The Reminder element specifies the number of minutes before a calendar item exception's start time to display a reminder notice.");
 

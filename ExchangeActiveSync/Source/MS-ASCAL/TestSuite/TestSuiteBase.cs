@@ -219,7 +219,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             {
                 calendarItem.Add(Request.ItemsChoiceType8.OrganizerEmail, Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain));
                 calendarItem.Add(Request.ItemsChoiceType8.OrganizerName, this.User1Information.UserName);
-                calendarItem.Add(Request.ItemsChoiceType8.Location, this.Location);
+                calendarItem.Add(Request.ItemsChoiceType8.Location1, this.Location);
                 calendarItem.Add(Request.ItemsChoiceType8.UID, Guid.NewGuid().ToString());
             }
 
