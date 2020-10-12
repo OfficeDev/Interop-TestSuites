@@ -723,7 +723,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R60003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In Subject] Protocol version 14.1 supports this [ubject] element.</ns1:Description>
+		<ns1:Description>[In Subject] Protocol version 14.1 supports this [Subject] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
