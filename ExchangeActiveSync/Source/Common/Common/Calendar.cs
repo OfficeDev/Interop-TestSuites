@@ -253,6 +253,7 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
         /// </summary>
         /// <typeparam name="T">The generic type parameter</typeparam>
         /// <param name="properties">The data which contains information for note</param>
+        /// <param name="protocolVer">The protocol version specifies the version of ActiveSync protocol used to communicate with the server.</param>
         /// <returns>The returned note instance</returns>
         public static T DeserializeFromSearchProperties<T>(Response.SearchResponseStoreResultProperties properties,string protocolVer)
         {

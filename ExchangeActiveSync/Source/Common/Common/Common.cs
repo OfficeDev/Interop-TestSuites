@@ -1484,6 +1484,7 @@ MIME-Version: 1.0
         /// Load the SearchStore from the SearchResponse
         /// </summary>
         /// <param name="search">The returned Search response.</param>
+        /// <param name="protocolVer">The protocol version specifies the version of ActiveSync protocol used to communicate with the server.</param>
         /// <returns>A SearchStore instance</returns>
         public static DataStructures.SearchStore LoadSearchResponse(SearchResponse search,string protocolVer)
         {
