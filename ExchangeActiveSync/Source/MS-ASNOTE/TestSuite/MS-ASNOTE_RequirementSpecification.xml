@@ -327,7 +327,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R43001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Body] Protocol version 12.1 does not supports this [In Body] element.</ns1:Description>
+		<ns1:Description>[In Body] Protocol version 12.1 does not supports this [Body] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -336,7 +336,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R43002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Body] Protocol version 14.0 supports this [In Body] element.</ns1:Description>
+		<ns1:Description>[In Body] Protocol version 14.0 supports this [Body] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -345,7 +345,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R43003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Body] Protocol version 14.1 supports this [In Body] element.</ns1:Description>
+		<ns1:Description>[In Body] Protocol version 14.1 supports this [Body] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -354,7 +354,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R43004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Body] Protocol version 16.0 supports this [In Body] element.</ns1:Description>
+		<ns1:Description>[In Body] Protocol version 16.0 supports this [Body] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -363,7 +363,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R43005</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Body] Protocol version 16.1 supports this [In Body] element.</ns1:Description>
+		<ns1:Description>[In Body] Protocol version 16.1 supports this [Body] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -399,7 +399,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R47001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Categories] Protocol version 12.1 does not supports this [In Categories] element.</ns1:Description>
+		<ns1:Description>[In Categories] Protocol version 12.1 does not supports this [Categories] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -408,7 +408,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R47002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Categories] Protocol version 14.0 supports this [In Categories] element.</ns1:Description>
+		<ns1:Description>[In Categories] Protocol version 14.0 supports this [Categories] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -417,7 +417,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R47003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Categories] Protocol version 14.1 supports this [In Categories] element.</ns1:Description>
+		<ns1:Description>[In Categories] Protocol version 14.1 supports this [Categories] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -426,7 +426,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R47004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Categories] Protocol version 16.0 supports this [In Categories] element.</ns1:Description>
+		<ns1:Description>[In Categories] Protocol version 16.0 supports this [Categories] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -435,7 +435,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R47005</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Categories] Protocol version 16.1 supports this [In Categories] element.</ns1:Description>
+		<ns1:Description>[In Categories] Protocol version 16.1 supports this [Categories] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -480,7 +480,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R50001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Category] Protocol version 12.1 does not supports this [In Category] element.</ns1:Description>
+		<ns1:Description>[In Category] Protocol version 12.1 does not supports this [Category] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -489,7 +489,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R50002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Category] Protocol version 14.0 supports this [In Category] element.</ns1:Description>
+		<ns1:Description>[In Category] Protocol version 14.0 supports this [Category] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -498,7 +498,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R50003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Category] Protocol version 14.1 supports this [In Category] element.</ns1:Description>
+		<ns1:Description>[In Category] Protocol version 14.1 supports this [Category] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -507,7 +507,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R50004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Category] Protocol version 16.0 supports this [In Category] element.</ns1:Description>
+		<ns1:Description>[In Category] Protocol version 16.0 supports this [Category] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -516,7 +516,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R50005</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Category] Protocol version 16.1 supports this [In Category] element.</ns1:Description>
+		<ns1:Description>[In Category] Protocol version 16.1 supports this [Category] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -552,7 +552,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R53001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In LastModifiedDate] Protocol version 12.1 does not supports this [In LastModifiedDate] element.</ns1:Description>
+		<ns1:Description>[In LastModifiedDate] Protocol version 12.1 does not supports this [LastModifiedDate] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -561,7 +561,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R53002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In LastModifiedDate] Protocol version 14.0 supports this [In LastModifiedDate] element.</ns1:Description>
+		<ns1:Description>[In LastModifiedDate] Protocol version 14.0 supports this [LastModifiedDate] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -570,7 +570,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R53003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In LastModifiedDate] Protocol version 14.1 supports this [In LastModifiedDate] element.</ns1:Description>
+		<ns1:Description>[In LastModifiedDate] Protocol version 14.1 supports this [LastModifiedDate] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -579,7 +579,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R53004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In LastModifiedDate] Protocol version 16.0 supports this [In LastModifiedDate] element.</ns1:Description>
+		<ns1:Description>[In LastModifiedDate] Protocol version 16.0 supports this [LastModifiedDate] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -588,7 +588,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R53005</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In LastModifiedDate] Protocol version 16.1 supports this [In LastModifiedDate] element.</ns1:Description>
+		<ns1:Description>[In LastModifiedDate] Protocol version 16.1 supports this [LastModifiedDate] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -631,58 +631,58 @@
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASNOTE_R57001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In MessageClass] Protocol version 12.1 does not supports this [MessageClass] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASNOTE_R57002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In MessageClass] Protocol version 14.0 supports this [MessageClass] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASNOTE_R57003</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In MessageClass] Protocol version 14.1 supports this [MessageClass] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASNOTE_R57004</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In MessageClass] Protocol version 16.0 supports this [MessageClass] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASNOTE_R57005</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In MessageClass] Protocol version 16.1 supports this [MessageClass] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R58</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In MessageClass] The Subject element specifies the subject of the note.</ns1:Description>
+		<ns1:Description>[In Subject] The Subject element specifies the subject of the note.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASNOTE_R58001</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In MessageClass] Protocol version 12.1 does not supports this [In MessageClass] element.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASNOTE_R58002</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In MessageClass] Protocol version 14.0 supports this [In MessageClass] element.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASNOTE_R58003</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In MessageClass] Protocol version 14.1 supports this [In MessageClass] element.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASNOTE_R58004</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In MessageClass] Protocol version 16.0 supports this [In MessageClass] element.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASNOTE_R58005</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In MessageClass] Protocol version 16.1 supports this [In MessageClass] element.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R59</ns1:REQ_ID>
@@ -705,7 +705,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R60001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In Subject] Protocol version 12.1 does not supports this [In Subject] element.</ns1:Description>
+		<ns1:Description>[In Subject] Protocol version 12.1 does not supports this [Subject] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -714,7 +714,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R60002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In Subject] Protocol version 14.0 supports this [In Subject] element.</ns1:Description>
+		<ns1:Description>[In Subject] Protocol version 14.0 supports this [Subject] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -723,7 +723,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R60003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In Subject] Protocol version 14.1 supports this [In Subject] element.</ns1:Description>
+		<ns1:Description>[In Subject] Protocol version 14.1 supports this [ubject] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -732,7 +732,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R60004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In Subject] Protocol version 16.0 supports this [In Subject] element.</ns1:Description>
+		<ns1:Description>[In Subject] Protocol version 16.0 supports this [Subject] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -741,7 +741,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASNOTE_R60005</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In Subject] Protocol version 16.1 supports this [In Subject] element.</ns1:Description>
+		<ns1:Description>[In Subject] Protocol version 16.1 supports this [Subject] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
