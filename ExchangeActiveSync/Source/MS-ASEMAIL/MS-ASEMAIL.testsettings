@@ -5,13 +5,14 @@
     <DeploymentItem filename="TestSuite\MS-ASEMAIL_TestSuite.ptfconfig" />
     <DeploymentItem filename="TestSuite\Resources\" />
     <DeploymentItem filename="TestSuite\MS-ASEMAIL_RequirementSpecification.xml" />
-    <DeploymentItem filename="TestSuite\MS-ASEMAIL_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASEMAIL_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASEMAIL_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
-    <DeploymentItem filename="TestSuite\MS-ASEMAIL_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASEMAIL_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASEMAIL_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASEMAIL_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASEMAIL.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-ASEMAIL_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
   <Execution>
@@ -34,5 +35,5 @@
     </TestTypeSpecific>
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
-  </Execution>
+  </Execution>  
 </TestSettings>
