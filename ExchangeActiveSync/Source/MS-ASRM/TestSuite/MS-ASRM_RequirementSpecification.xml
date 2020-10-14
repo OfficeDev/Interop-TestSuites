@@ -12,7 +12,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R341</ns1:REQ_ID>
 		<ns1:Doc_Sect>1.5</ns1:Doc_Sect>
-		<ns1:Description>[In Prerequisites/Preconditions] This protocol[MS-ASRM] assumes that the client has been approved to consume and compose IRMIRM content by the server.</ns1:Description>
+		<ns1:Description>[In Prerequisites/Preconditions] This protocol[MS-ASRM] assumes that the client has been approved to consume and compose IRM content by the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -93,7 +93,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R12</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "airsync" is used for namespace URI "AirSync", which reference [MS-ASCMD] section 2.2.2.19)</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "airsync" is used for namespace URI "AirSync", which reference [MS-ASCMD] section 2.2.1.21)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -111,7 +111,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R14</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "composemail" is used for namespace URI "ComposeMail", which reference [MS-ASCMD] sections 2.2.2.15, 2.2.2.17, and 2.2.2.18.</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "composemail" is used for namespace URI "ComposeMail", which reference [MS-ASCMD] sections 2.2.1.17, 2.2.1.19, and 2.2.1.20.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -139,7 +139,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R17</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "itemoperations" is used for namespace URI "ItemOperations", which reference [MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "itemoperations" is used for namespace URI "ItemOperations", which reference [MS-ASCMD] section 2.2.1.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -149,7 +149,7 @@
 		<ns1:REQ_ID>MS-ASRM_R18</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In Namespaces] Prefix "search" is used for namespace URI "Search", which reference 
-[MS-ASCMD] section 2.2.2.14.</ns1:Description>
+[MS-ASCMD] section 2.2.1.16.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -158,7 +158,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R19</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "settings" is used for namespace URI "Settings", which reference [MS-ASCMD] section 2.2.2.16).</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "settings" is used for namespace URI "Settings", which reference [MS-ASCMD] section 2.2.1.18).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -212,7 +212,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R25</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ContentExpiryDate] The client can then use the ItemOperations command ([MS-ASCMD] section 2.2.2.8) to fetch the content again from the server.</ns1:Description>
+		<ns1:Description>[In ContentExpiryDate] The client can then use the ItemOperations command ([MS-ASCMD] section 2.2.1.10) to fetch the content again from the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -282,6 +282,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10031</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentExpiryDate] Protocol version 16.1 supports this [ContentExpiryDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R29</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In ContentOwner] The ContentOwner element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
@@ -311,7 +320,16 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R32</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ContentOwner] The value of this element[ContentOwner] is a NonEmptyStringType, as specified in section 2.2.</ns1:Description>
+		<ns1:Description>[In ContentOwner] The value of this element is a string ([MS-ASDTYPE] section 2.7). </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R321</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentOwner] The value MUST have a minimum of one character.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -383,6 +401,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10071</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentOwner] Protocol version 16.1 supports this [ContentOwner] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R35</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In EditAllowed] The EditAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
@@ -439,7 +466,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R39</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In EditAllowed] A value of FALSE requires that the client MUST exclude the original rights-managed email message from the SmartForward or SmartReply request.</ns1:Description>
+		<ns1:Description>[In EditAllowed] A value of FALSE requires that the client MUST exclude the original rights-managed email message from the SmartForward ([MS-ASCMD] section 2.2.1.19) or SmartReply request ([MS-ASCMD] section 2.2.1.20) request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -457,7 +484,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R41</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In EditAllowed] When EditAllowed is set to FALSE and composemail:ReplaceMime ([MS-ASCMD] section 2.2.3.135) is not present in a SmartForward request, the server will add the original rights-managed email message as an attachment to the new message.</ns1:Description>
+		<ns1:Description>[In EditAllowed] When EditAllowed is set to FALSE and composemail:ReplaceMime ([MS-ASCMD] section 2.2.3.148) is not present in a SmartForward request, the server will add the original rights-managed email message as an attachment to the new message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -466,7 +493,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R470</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In EditAllowed] When EditAllowed is set to FALSE and composemail:ReplaceMime ([MS-ASCMD] section 2.2.3.135) is not present in a SmartReply request, the server will add the original rights-managed email message as an attachment to the new message.</ns1:Description>
+		<ns1:Description>[In EditAllowed] When EditAllowed is set to FALSE and composemail:ReplaceMime ([MS-ASCMD] section 2.2.3.148) is not present in a SmartReply request, the server will add the original rights-managed email message as an attachment to the new message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -484,7 +511,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R471</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In EditAllowed] Conversely, if [EditAllowed is set to FALSE and]composemail:ReplaceMime is present[in a SmartReply command], the server will not attach the original rights-managed email message as an attachment.</ns1:Description>
+		<ns1:Description>[In EditAllowed] Conversely, if [EditAllowed is set to FALSE and] composemail:ReplaceMime is present[in a SmartReply command], the server will not attach the original rights-managed email message as an attachment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -530,6 +557,15 @@
 		<ns1:REQ_ID>MS-ASRM_R1013</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In EditAllowed] Protocol version 16.0 supports this [EditAllowed] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10131</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In EditAllowed] Protocol version 16.1 supports this [EditAllowed] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -619,7 +655,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R49</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In ExportAllowed] If a rights-managed email message is forwarded or replied to using the SmartForward or SmartReply command, the following conditions are evaluated:
+		<ns1:Description>[In ExportAllowed] If a rights-managed email message is forwarded or replied to using the SmartForward ([MS-ASCMD] section 2.2.1.19) or SmartReply ([MS-ASCMD] section 2.2.1.20) command, the following conditions are evaluated:
  The original rights policy template has the ExportAllowed element set to TRUE
  The TemplateID on the new message is set to the "No Restriction" template (TemplateID value "00000000-0000-0000-0000-000000000000")</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -685,6 +721,15 @@
 		<ns1:REQ_ID>MS-ASRM_R1017</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
 		<ns1:Description>[In ExportAllowed] Protocol version 16.0 supports this [ExportAllowed] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10171</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In ExportAllowed] Protocol version 16.1 supports this [ExportAllowed] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -781,6 +826,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10211</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In AllowBrowser] Protocol version 16.1 supports this [AllowBrowser] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R59</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
 		<ns1:Description>[In ForwardAllowed] The ForwardAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
@@ -871,6 +925,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10251</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In ForwardAllowed] Protocol version 16.1 supports this [ForwardAllowed] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R64</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
 		<ns1:Description>[In ModifyRecipientsAllowed] The ModifyRecipientsAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
@@ -882,7 +945,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R65</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In ModifyRecipientsAllowed] It[ModifyRecipientsAllowed] specifies whether the user can modify the recipient (1) list when the user forwards, or replies to the e-mail message.</ns1:Description>
+		<ns1:Description>[In ModifyRecipientsAllowed] It[ModifyRecipientsAllowed] specifies whether the user can modify the recipient list when the user forwards, or replies to the e-mail message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -900,7 +963,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R67</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In ModifyRecipientsAllowed] If the value is TRUE (1), the user can modify the recipient (1) list.</ns1:Description>
+		<ns1:Description>[In ModifyRecipientsAllowed] If the value is TRUE (1), the user can modify the recipient list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -918,7 +981,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R1098</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In ModifyRecipientsAllowed] The value of this element [ModifyRecipientsAllowed] MUST be the same with the ForwardAllowed element in the response.</ns1:Description>
+		<ns1:Description>[In ModifyRecipientsAllowed] The value of this element [ModifyRecipientsAllowed] MUST be the same as that of the ForwardAllowed element in the response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -964,6 +1027,15 @@
 		<ns1:REQ_ID>MS-ASRM_R1029</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
 		<ns1:Description>[In ModifyRecipientsAllowed] Protocol version 16.0 supports this [ModifyRecipientsAllowed] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10291</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In ModifyRecipientsAllowed] Protocol version 16.1 supports this [ModifyRecipientsAllowed] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1087,6 +1159,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10331</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In Owner] Protocol version 16.1 supports this [Owner] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R77</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
 		<ns1:Description>[In PrintAllowed] The PrintAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
@@ -1180,6 +1261,15 @@
 		<ns1:REQ_ID>MS-ASRM_R1037</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
 		<ns1:Description>[In PrintAllowed] Protocol version 16.0 supports this [PrintAllowed] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10371</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
+		<ns1:Description>[In PrintAllowed] Protocol version 16.1 supports this [PrintAllowed] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1285,9 +1375,18 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10411</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In ProgrammaticAccessAllowed] Protocol version 16.1 supports this [ProgrammaticAccessAllowed] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R281</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
-		<ns1:Description>[In RemoveRightsManagementProtection] The RemoveRightsManagementProtection element is an optional child element of the Fetch element ([MS-ASCMD] section 2.2.3.63.1) used in ItemOperations commands.</ns1:Description>
+		<ns1:Description>[In RemoveRightsManagementProtection] The RemoveRightsManagementProtection element is an optional child element of the Fetch element ([MS-ASCMD] section 2.2.3.67.1) used in ItemOperations commands.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1366,6 +1465,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10451</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In RemoveRightsManagementProtection] Protocol version 16.1 supports this [RemoveRightsManagementProtection] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R96</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
 		<ns1:Description>[In ReplyAllAllowed] The ReplyAllAllowed element is a required child element of the RightsManagementLicense element (section 2.2.2.14).</ns1:Description>
@@ -1377,7 +1485,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R97</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
-		<ns1:Description>[In ReplyAllAllowed] It[ReplyAllAllowed] specifies whether the user can reply to all of the recipients (1) of the original e-mail message.</ns1:Description>
+		<ns1:Description>[In ReplyAllAllowed] It[ReplyAllAllowed] specifies whether the user can reply to all of the recipients of the original e-mail message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1395,7 +1503,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R99</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
-		<ns1:Description>[In ReplyAllAllowed] If the value is TRUE (1), the user can reply to all of the recipients (1) of the e-mail message.</ns1:Description>
+		<ns1:Description>[In ReplyAllAllowed] If the value is TRUE (1), the user can reply to all of the recipients of the e-mail message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1404,7 +1512,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R333</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
-		<ns1:Description>[In ReplyAllAllowed] if the value is FALSE (0), the user cannot reply to all of the recipients (1) of the e-mail message.</ns1:Description>
+		<ns1:Description>[In ReplyAllAllowed] if the value is FALSE (0), the user cannot reply to all of the recipients of the e-mail message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1450,6 +1558,15 @@
 		<ns1:REQ_ID>MS-ASRM_R1049</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
 		<ns1:Description>[In ReplyAllAllowed] Protocol version 16.0 supports this [ReplyAllAllowed] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10491</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllAllowed] Protocol version 16.1 supports this [ReplyAllAllowed] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1540,6 +1657,15 @@
 		<ns1:REQ_ID>MS-ASRM_R1053</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
 		<ns1:Description>[In ReplyAllowed] Protocol version 16.0 supports this [ReplyAllowed] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10531</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In ReplyAllowed] Protocol version 16.1 supports this [ReplyAllowed] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1753,9 +1879,18 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10571</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementLicense] Protocol version 16.1 supports this [RightsManagementLicense] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R299</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
-		<ns1:Description>[In RightsManagementSupport] The RightsManagementSupport element is an optional child element of the sync:Options element ([MS-ASCMD] section 2.2.3.115.5), the itemoperations:Options element ([MS-ASCMD] section 2.2.3.115.2), and the search:Options element ([MS-ASCMD] section 2.2.3.115.4).</ns1:Description>
+		<ns1:Description>[In RightsManagementSupport] The RightsManagementSupport element is an optional child element of the sync:Options element ([MS-ASCMD] section 2.2.3.125.6), the itemoperations:Options element ([MS-ASCMD] section 2.2.3.125.3), and the search:Options element ([MS-ASCMD] section 2.2.3.125.5).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1870,6 +2005,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10611</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementSupport] Protocol version 16.1 supports this [RightsManagementSupport] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R130</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
 		<ns1:Description>[In RightsManagementTemplate] The RightsManagementTemplate element is an optional child element of the RightsManagementTemplates element (section 2.2.2.17).</ns1:Description>
@@ -1969,9 +2113,18 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10651</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplate] Protocol version 16.1 supports this [RightsManagementTemplate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R301</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
-		<ns1:Description>[In RightsManagementTemplates] The RightsManagementTemplates element is an optional child element of the Get element ([MS-ASCMD] section 2.2.3.75) that contains the rights policy templates available to the client.</ns1:Description>
+		<ns1:Description>[In RightsManagementTemplates] The RightsManagementTemplates element is an optional child element of the Get element ([MS-ASCMD] section 2.2.3.83) that contains the rights policy templates available to the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2061,6 +2214,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10691</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In RightsManagementTemplates] Protocol version 16.1 supports this [RightsManagementTemplates] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R141</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
 		<ns1:Description>[In TemplateDescription] The TemplateDescription element is a child element of the RightsManagementLicense element (section 2.2.2.14) and the RightsManagementTemplate element (section 2.2.2.16).</ns1:Description>
@@ -2072,7 +2234,16 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R142</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
-		<ns1:Description>[In TemplateDescription] The value of this element[TemplateDescription] is a NonEmptyStringType, as specified in section 2.2.</ns1:Description>
+		<ns1:Description>[In TemplateDescription] The value of this element[TemplateDescription] is a string ([MS-ASDTYPE] section 2.7).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R1421</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription] The value MUST have a minimum of one character.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2171,6 +2342,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10731</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementLicense)] Protocol version 16.1 supports this [TemplateDescription (RightsManagementLicense)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R148</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18.2</ns1:Doc_Sect>
 		<ns1:Description>[In TemplateDescription (RightsManagementTemplate)] The TemplateDescription element is a required child element of the RightsManagementTemplate element (section 2.2.2.16).</ns1:Description>
@@ -2263,9 +2443,18 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10771</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateDescription (RightsManagementTemplate)] Protocol version 16.1 supports this [TemplateDescription (RightsManagementTemplate)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R306</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
-		<ns1:Description>[In TemplateID] The TemplateID element is a child element of the following elements:SendMail ([MS-ASCMD] section 2.2.3.148)</ns1:Description>
+		<ns1:Description>[In TemplateID] The TemplateID element is a child element of the following elements:SendMail ([MS-ASCMD] section 2.2.3.162)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2274,7 +2463,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R154</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
-		<ns1:Description>[In TemplateID] [The TemplateID element is a child element of the following elements:]SmartForward ([MS-ASCMD] section 2.2.3.154)</ns1:Description>
+		<ns1:Description>[In TemplateID] [The TemplateID element is a child element of the following elements:]SmartForward ([MS-ASCMD] section 2.2.3.169)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2283,7 +2472,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R155</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
-		<ns1:Description>[In TemplateID] [The TemplateID element is a child element of the following elements:]SmartReply ([MS-ASCMD] section 2.2.3.155)</ns1:Description>
+		<ns1:Description>[In TemplateID] [The TemplateID element is a child element of the following elements:]SmartReply ([MS-ASCMD] section 2.2.3.170)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2310,7 +2499,16 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R307</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
-		<ns1:Description>[In TemplateID] The value of this element[TemplateID] is a NonEmptyStringType, as specified in section 2.2.</ns1:Description>
+		<ns1:Description>[In TemplateID] The value of this element[TemplateID] is a string ([MS-ASDTYPE] section 2.7).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R3071</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID] The value MUST have a minimum of one character.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2380,6 +2578,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10811</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (RightsManagementLicense)] Protocol version 16.1 supports this [TemplateID (RightsManagementLicense)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R162</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.19.2</ns1:Doc_Sect>
 		<ns1:Description>[In TemplateID (RightsManagementTemplate)] The TemplateID element is a required child element of the RightsManagementTemplate element (section 2.2.2.16).</ns1:Description>
@@ -2443,9 +2650,18 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10851</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (RightsManagementTemplate)] Protocol version 16.1 supports this [TemplateID (RightsManagementTemplate)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R308</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.19.3</ns1:Doc_Sect>
-		<ns1:Description>[In TemplateID (SendMail, SmartForward, SmartReply)]The TemplateID element is an optional child element of the SendMail element ([MS-ASCMD] section 2.2.3.148), the SmartForward element ([MS-ASCMD] section 2.2.3.154), and the SmartReply element ([MS-ASCMD] section 2.2.3.155).</ns1:Description>
+		<ns1:Description>[In TemplateID (SendMail, SmartForward, SmartReply)]The TemplateID element is an optional child element of the SendMail element ([MS-ASCMD] section 2.2.3.162), the SmartForward element ([MS-ASCMD] section 2.2.3.169), and the SmartReply element ([MS-ASCMD] section 2.2.3.170).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2539,6 +2755,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10891</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19.3</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateID (SendMail, SmartForward, SmartReply)] Protocol version 16.1 supports this [TemplateID (SendMail, SmartForward, SmartReply)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R171</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In TemplateName]The TemplateName element is a child element of the RightsManagementLicense element (section 2.2.2.14) and the RightsManagementTemplate element (section 2.2.2.16).</ns1:Description>
@@ -2550,7 +2775,16 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R172</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
-		<ns1:Description>[In TemplateName] The value of this element[TemplateName] is a NonEmptyStringType, as specified in section 2.2.</ns1:Description>
+		<ns1:Description>[In TemplateName] The value of this element[TemplateName] is a a string ([MS-ASDTYPE] section 2.7).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R1721</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
+		<ns1:Description>The value MUST have a minimum of one character.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2649,6 +2883,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10931</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.1</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementLicense)] Protocol version 16.1 supports this [TemplateName (RightsManagementLicense)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R178</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20.2</ns1:Doc_Sect>
 		<ns1:Description>[In TemplateName (RightsManagementTemplate)] The TemplateName element is a required child element of the RightsManagementTemplate element (section 2.2.2.16).</ns1:Description>
@@ -2741,6 +2984,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R10971</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20.2</ns1:Doc_Sect>
+		<ns1:Description>[In TemplateName (RightsManagementTemplate)] Protocol version 16.1 supports this [TemplateName (RightsManagementTemplate)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R183</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
 		<ns1:Description>[In Higher-Layer Triggered Events] The user triggers the client to create request messages when they synchronize, search, fetch, reply, or forward rights-managed e-mail messages from their mobile device.</ns1:Description>
@@ -2752,7 +3004,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R185</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] When the client sends a Sync ([MS-ASCMD] section 2.2.2.19), ItemOperations ([MS-ASCMD] section 2.2.2.8), or Search ([MS-ASCMD] section 2.2.2.14) command request, the client can request that the server decompress and decrypt rights-managed email messages by including the RightsManagementSupport element set to TRUE (1).</ns1:Description>
+		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] When the client sends a Sync ([MS-ASCMD] section 2.2.1.21), ItemOperations ([MS-ASCMD] section 2.2.1.10), or Search ([MS-ASCMD] section 2.2.1.16) command request, the client can request that the server decompress and decrypt rights-managed email messages by including the RightsManagementSupport element set to TRUE (1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2779,7 +3031,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R351</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] In a Sync request, the RightsManagementSupport element is included as the child of the sync:Options element ([MS-ASCMD] section 2.2.3.115.5).</ns1:Description>
+		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] In a Sync request, the RightsManagementSupport element is included as the child of the sync:Options element ([MS-ASCMD] section 2.2.3.125.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2788,7 +3040,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R352</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] In an ItemOperations command request, the RightsManagementSupport element is included as the child of the itemoperations:Options element ([MS-ASCMD] section 2.2.3.115.2).</ns1:Description>
+		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] In an ItemOperations command request, the RightsManagementSupport element is included as the child of the itemoperations:Options element ([MS-ASCMD] section 2.2.3.125.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2797,7 +3049,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R353</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] In a Search command request, the RightsManagementSupport element is included as the child of the search:Options element ([MS-ASCMD] section 2.2.3.115.4).</ns1:Description>
+		<ns1:Description>[In Requesting Server-Side Decompression and Decryption of Rights-Managed E-mail Messages] In a Search command request, the RightsManagementSupport element is included as the child of the search:Options element ([MS-ASCMD] section 2.2.3.125.5).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2806,7 +3058,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R313</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Getting Rights Policy Templates] The client obtains the details about the available rights policy templates by sending a Settings command request that includes the settings:RightsManagementInformation element ([MS-ASCMD] section 2.2.3.143) with a settings:Get child element.</ns1:Description>
+		<ns1:Description>[In Getting Rights Policy Templates] The client obtains the details about the available rights policy templates by sending a Settings command request that includes the settings:RightsManagementInformation element ([MS-ASCMD] section 2.2.3.156) with a settings:Get child element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2842,7 +3094,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R193</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sending Protected E-mail] The client protects an e-mail message by including the TemplateID element in the SendMail ([MS-ASCMD] section 2.2.2.15), SmartReply ([MS-ASCMD] section 2.2.2.18), or SmartForward ([MS-ASCMD] section 2.2.2.17) command requests.</ns1:Description>
+		<ns1:Description>[In Sending Protected E-mail] The client protects an e-mail message by including the TemplateID element in the SendMail ([MS-ASCMD] section 2.2.1.17), SmartReply ([MS-ASCMD] section 2.2.1.20), or SmartForward ([MS-ASCMD] section 2.2.1.19) command requests.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2878,7 +3130,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R196</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Enforcing Rights Policy Template Settings] The server returns Status ([MS-ASCMD] section 2.2.3.162) value 168 if IRM is disabled on the server.</ns1:Description>
+		<ns1:Description>[In Enforcing Rights Policy Template Settings] The server returns Status ([MS-ASCMD] section 2.2.3.177) value 168 if IRM is disabled on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3094,7 +3346,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R210</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] In an ItemOperations command response, the RightsManagementLicense element is included as a child of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.128.1).</ns1:Description>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] In an ItemOperations command response, the RightsManagementLicense element is included as a child of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.139.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3103,7 +3355,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R211</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] In a Search command response, the RightsManagementLicense element is included as a child of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2).</ns1:Description>
+		<ns1:Description>[In Sending Rights-Managed E-Mail Messages to the Client] In a Search command response, the RightsManagementLicense element is included as a child of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3208,6 +3460,15 @@
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-ASRM_R418.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASRM_R3571</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules] For details about the XML elements for this protocol  and the protocol versions that support them, see section 2.2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASRM_R217</ns1:REQ_ID>
@@ -3792,9 +4053,18 @@ If the original message being replied to has no rights management restrictions, 
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASWBXML_R341</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RightsManagementSupport [Token] 0x05 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R633</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RightsManagementTemplates [Token] 0x06 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RightsManagementTemplates [Token] 0x06 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3803,7 +4073,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R634</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RightsManagementTemplate [Token] 0x07 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RightsManagementTemplate [Token] 0x07 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3812,7 +4082,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R635</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RightsManagementLicense [Token] 0x08 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RightsManagementLicense [Token] 0x08 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3821,7 +4091,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R636</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] EditAllowed [Token] 0x09 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] EditAllowed [Token] 0x09 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3830,7 +4100,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R637</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ReplyAllowed [Token] 0x0A [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ReplyAllowed [Token] 0x0A [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3839,7 +4109,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R638</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ReplyAllAllowed [Token] 0x0B [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ReplyAllAllowed [Token] 0x0B [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3848,7 +4118,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R639</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ForwardAllowed [Token] 0x0C [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ForwardAllowed [Token] 0x0C [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3857,7 +4127,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R640</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ModifyRecipientsAllowed [Token] 0x0D [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ModifyRecipientsAllowed [Token] 0x0D [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3866,7 +4136,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R641</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ExtractAllowed [Token] 0x0E [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ExtractAllowed [Token] 0x0E [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3875,7 +4145,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R642</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] PrintAllowed [Token] 0x0F [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] PrintAllowed [Token] 0x0F [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3884,7 +4154,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R643</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ExportAllowed [Token] 0x10 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ExportAllowed [Token] 0x10 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3893,7 +4163,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R644</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ProgrammaticAccessAllowed [Token] 0x11 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ProgrammaticAccessAllowed [Token] 0x11 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3902,7 +4172,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R645</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] Owner [Token] 0x12 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] Owner [Token] 0x12 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3911,7 +4181,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R646</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ContentExpiryDate [Token] 0x13 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ContentExpiryDate [Token] 0x13 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3920,7 +4190,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R647</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] TemplateID [Token] 0x14 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] TemplateID [Token] 0x14 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3929,7 +4199,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R648</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] TemplateName [Token] 0x15 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] TemplateName [Token] 0x15 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3938,7 +4208,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R649</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] TemplateDescription [Token] 0x16 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] TemplateDescription [Token] 0x16 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3947,7 +4217,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R650</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ContentOwner [Token] 0x17 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] ContentOwner [Token] 0x17 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3956,7 +4226,7 @@ If the original message being replied to has no rights management restrictions, 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R651</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.25</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RemoveRightsManagementProtection [Token] 0x18 [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 24: RightsManagement] [Tag name] RemoveRightsManagementProtection [Token] 0x18 [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3979,15 +4249,6 @@ If the original message being replied to has no rights management restrictions, 
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASDTYPE_R6</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In boolean Data Type] If the integer value is missing, then it [the boolean element]is assumed to be 1 (TRUE).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDTYPE_R7</ns1:REQ_ID>

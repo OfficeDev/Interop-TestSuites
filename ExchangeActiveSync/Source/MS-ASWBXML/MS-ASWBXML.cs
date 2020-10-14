@@ -75,8 +75,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
         {
             this.site = site;
 
-            // Loads up code pages. There are 25 code pages as per MS-ASWBXML
-            this.codePages = new CodePage[25];
+            // Loads up code pages. There are 26 code pages as per MS-ASWBXML
+            this.codePages = new CodePage[26];
 
             // Code Page 0: AirSync
             this.codePages[0] = new CodePage { Namespace = "AirSync", Xmlns = "airsync" };
@@ -487,6 +487,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             this.codePages[14].AddToken(0x38, "ApplicationName");
             this.codePages[14].AddToken(0x39, "ApprovedApplicationList");
             this.codePages[14].AddToken(0x3A, "Hash");
+            this.codePages[14].AddToken(0x3B, "AccountOnlyRemoteWipe");
 
             // Code Page 15: Search
             this.codePages[15] = new CodePage { Namespace = "Search", Xmlns = "search" };
@@ -737,6 +738,32 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             this.codePages[24].AddToken(0x16, "TemplateDescription");
             this.codePages[24].AddToken(0x17, "ContentOwner");
             this.codePages[24].AddToken(0x18, "RemoveRightsManagementProtection");
+
+            //Code page 25: Find
+            this.codePages[25] = new CodePage { Namespace = "Find", Xmlns = "Find" };
+            this.codePages[25].AddToken(0x05, "Find");
+            this.codePages[25].AddToken(0x06, "SearchId");
+            this.codePages[25].AddToken(0x07, "ExecuteSearch");
+            this.codePages[25].AddToken(0x08, "MailBoxSearchCriterion");
+            this.codePages[25].AddToken(0x09, "Query");
+            this.codePages[25].AddToken(0x0A, "Status");
+            this.codePages[25].AddToken(0x0B, "FreeText");
+            this.codePages[25].AddToken(0x0C, "Options");
+            this.codePages[25].AddToken(0x0D, "Range");
+            this.codePages[25].AddToken(0x0E, "DeepTraversal");
+            this.codePages[25].AddToken(0x11, "Response");
+            this.codePages[25].AddToken(0x12, "Result");
+            this.codePages[25].AddToken(0x13, "Properties");
+            this.codePages[25].AddToken(0x14, "Preview");
+            this.codePages[25].AddToken(0x15, "HasAttachments");
+            this.codePages[25].AddToken(0x16, "Total");
+            this.codePages[25].AddToken(0x17, "DisplayCc");
+            this.codePages[25].AddToken(0x18, "DisplayBcc");
+            this.codePages[25].AddToken(0x19, "GalSearchCriterion");
+            this.codePages[25].AddToken(0x20, "MaxPictures");
+            this.codePages[25].AddToken(0x21, "MaxSize");
+            this.codePages[25].AddToken(0x22, "Picture");
+
         }
 
         /// <summary>
@@ -807,13 +834,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
                 {
                     case GlobalTokens.SWITCH_PAGE:
                         int newCodePage = (int)bytes.Dequeue();
-                        if (newCodePage >= 0 && newCodePage < 25)
+                        if (newCodePage >= 0 && newCodePage < 26)
                         {
                             this.currentCodePage = newCodePage;
                         }
                         else
                         {
-                            this.site.Assert.Fail("Code page value which defined in MS-ASWBXML should be between 0-24, the actual value is : {0}.", newCodePage);
+                            this.site.Assert.Fail("Code page value which defined in MS-ASWBXML should be between 0-25, the actual value is : {0}.", newCodePage);
                         }
 
                         break;

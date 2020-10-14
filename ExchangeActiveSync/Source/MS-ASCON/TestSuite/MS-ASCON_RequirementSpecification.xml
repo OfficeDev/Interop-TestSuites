@@ -19,6 +19,33 @@
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R6</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Message Syntax] The XML schemas for the Email2 namespaces is described in [MS-ASEMAIL] section 6.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R601</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Message Syntax] The XML schemas for the AirSyncBase namespaces is described in [MS-ASAIRS] section 6.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R602</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
+		<ns1:Description>The schema for the AirSync namespace is described in [MS-ASCMD] section 6.1. Schemas for the ItemOperations namespace are described in [MS-ASCMD] sections 6.22, 6.23, and 6.24 and for the Search namespace are described in [MS-ASCMD] sections 6.33, 6.34, and 6.35.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R7</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
 		<ns1:Description>[In Message Syntax] The XML markup that is used by this protocol [MS-ASCON] MUST be well-formed XML as specified in [XML].</ns1:Description>
@@ -26,29 +53,6 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R9</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Message Syntax] The XML elements that are used by this protocol [MS-ASCON] are embedded inside of the request or response for the following commands :
-GetItemEstimate command ([MS-ASCMD] section 2.2.2.7)  
-ItemOperations command ([MS-ASCMD] section 2.2.2.8) 
-MoveItems command ([MS-ASCMD] section 2.2.2.10)  
-Search command ([MS-ASCMD] section 2.2.2.14) 
-Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R15</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Message Syntax] For more details about the requests and responses for these commands [GetItemEstimate command ([MS-ASCMD] section 2.2.2.7), ItemOperations command ([MS-ASCMD] section 2.2.2.8), MoveItems command ([MS-ASCMD] section 2.2.2.10), Search command ([MS-ASCMD] section 2.2.2.14), Sync command ([MS-ASCMD] section 2.2.2.19)], see [MS-ASCMD].</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R16</ns1:REQ_ID>
@@ -71,7 +75,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R17</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "airsync" is used for Namespace URI  "AirSync" and reference [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "airsync" is used for Namespace URI  "AirSync" and reference [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -108,7 +112,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R21</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "getitemestimate" is used for Namespace URI "GetItemEstimate" and reference [MS-ASCMD] section 2.2.2.7.</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "getitemestimate" is used for Namespace URI "GetItemEstimate" and reference [MS-ASCMD] section 2.2.1.9.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -117,7 +121,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R22</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "itemoperations" is used for Namespace URI "ItemOperations" and reference[MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "itemoperations" is used for Namespace URI "ItemOperations" and reference[MS-ASCMD] section 2.2.1.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -127,7 +131,25 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 		<ns1:REQ_ID>MS-ASCON_R23</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In Namespaces] Prefix "search" is used for Namespace URI "Search" and reference
-[MS-ASCMD] section 2.2.2.14.</ns1:Description>
+[MS-ASCMD] section 2.2.1.16.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R2310</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] Elements for conversations are defined in five namespaces: Email2, AirSyncBase, AirSync, ItemOperations, and Search.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R2311</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] The namespace in which an element is defined is indicated by the presence of a namespace prefix, as defined in section 2.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -145,7 +167,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R25</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] [Element] airsyncbase:BodyPart (section 2.2.2.1) [is] Used in ItemOperations ([MS-ASCMD] section 2.2.2.8), Search ([MS-ASCMD] section 2.2.2.14), and Sync ([MS-ASCMD] section 2.2.2.19) command responses to encapsulate a message part and its meta-data.</ns1:Description>
+		<ns1:Description>[In Elements] [Element] airsyncbase:BodyPart (section 2.2.2.1) [is] Used in ItemOperations ([MS-ASCMD] section 2.2.1.10), Search ([MS-ASCMD] section 2.2.1.16), and Sync ([MS-ASCMD] section 2.2.1.21) command responses to encapsulate a message part and its meta-data.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -208,7 +230,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R32</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] [Element] airsync:ConversationMode (section 2.2.2.5) [is] Used in a GetItemEstimate command ([MS-ASCMD] section 2.2.2.7) request to enable conversation-based filtering of item estimates.</ns1:Description>
+		<ns1:Description>[In Elements] [Element] airsync:ConversationMode (section 2.2.2.5) [is] Used in a GetItemEstimate command ([MS-ASCMD] section 2.2.1.9) request to enable conversation-based filtering of item estimates.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -280,16 +302,25 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R500</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The functionality of conversations is supported only by protocol versions 16.0, 14.1, and 14.0.</ns1:Description>
+		<ns1:Description>[In Elements] The functionality of conversations is supported only by protocol versions 16.1, 16.0, 14.1, and 14.0.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCON_R5033</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Elements] Therefore, the elements [BodyPart, BodyPartPreference, ConversationId, ConversationIndex, ConversationMode, DstFldld, Move, MoveAlways, Options, Status] that are defined by this specification MUST be used with protocol version 16.1[, 16.0, 14.1, or 14.0] for any operation involving conversations.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R501</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] Therefore, the elements [BodyPart, BodyPartPreference, ConversationId, ConversationIndex, ConversationMode, DstFldld, Move, MoveAlways, Options, Status] that are defined by this specification MUST be used with protocol version 16.0[, 14.1, or 14.0] for any operation involving conversations.</ns1:Description>
+		<ns1:Description>[In Elements] Therefore, the elements [BodyPart, BodyPartPreference, ConversationId, ConversationIndex, ConversationMode, DstFldld, Move, MoveAlways, Options, Status] that are defined by this specification MUST be used with protocol version [16.1,] 16.0[, 14.1, or 14.0] for any operation involving conversations.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -298,7 +329,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R502</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] Therefore, the elements [BodyPart, BodyPartPreference, ConversationId, ConversationIndex, ConversationMode, DstFldld, Move, MoveAlways, Options, Status] that are defined by this specification MUST be used with protocol version [16.0,] 14.1[, or 14.0] for any operation involving conversations.</ns1:Description>
+		<ns1:Description>[In Elements] Therefore, the elements [BodyPart, BodyPartPreference, ConversationId, ConversationIndex, ConversationMode, DstFldld, Move, MoveAlways, Options, Status] that are defined by this specification MUST be used with protocol version [16.1, 16.0,]  14.1[, or 14.0] for any operation involving conversations.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -307,7 +338,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R503</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] Therefore, the elements [BodyPart, BodyPartPreference, ConversationId, ConversationIndex, ConversationMode, DstFldld, Move, MoveAlways, Options, Status] that are defined by this specification MUST be used with protocol version [16.0, 14.1, or] 14.0 for any operation involving conversations.</ns1:Description>
+		<ns1:Description>[In Elements] Therefore, the elements [BodyPart, BodyPartPreference, ConversationId, ConversationIndex, ConversationMode, DstFldld, Move, MoveAlways, Options, Status] that are defined by this specification MUST be used with protocol version  [16.1, 16.0, 14.1, or] 14.0 for any operation involving conversations.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -316,7 +347,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R504</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The airsyncbase:BodyPart element, as specified in section 2.2.2.1, [and the airsyncbase:BodyPartPreference element, as specified in section 2.2.2.2,] are supported only by protocol versions 16.0 and 14.1.</ns1:Description>
+		<ns1:Description>[In Elements] The airsyncbase:BodyPart element, as specified in section 2.2.2.1, [and the airsyncbase:BodyPartPreference element, as specified in section 2.2.2.2,] are supported only by protocol versions 16.1, 16.0 and 14.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -325,7 +356,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R505</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements] The [airsyncbase:BodyPart element, as specified in section 2.2.2.1, and the] airsyncbase:BodyPartPreference element, as specified in section 2.2.2.2, are supported only by protocol versions 16.0 and 14.1.</ns1:Description>
+		<ns1:Description>[In Elements] The [airsyncbase:BodyPart element, as specified in section 2.2.2.1, and the] airsyncbase:BodyPartPreference element, as specified in section 2.2.2.2, are supported only by protocol versions 16.1, 16.0 and 14.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -334,7 +365,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R38</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In BodyPart] The airsyncbase:BodyPart element&lt;1&gt; ([MS-ASAIRS] section 2.2.2.5) encapsulates a message part and its meta-data in a Sync command response ([MS-ASCMD] section 2.2.2.19) [, an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) or a Search command response ([MS-ASCMD] section 2.2.2.14)].</ns1:Description>
+		<ns1:Description>[In BodyPart] The airsyncbase:BodyPart element ([MS-ASAIRS] section 2.2.2.10) encapsulates a message part and its meta-data in a Sync command response ([MS-ASCMD] section 2.2.1.21) [, an ItemOperations command response ([MS-ASCMD] section 2.2.1.10) or a Search command response ([MS-ASCMD] section 2.2.1.16)].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -343,7 +374,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R39</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In BodyPart] The airsyncbase:BodyPart element&lt;1&gt; ([MS-ASAIRS] section 2.2.2.5) encapsulates a message part and its meta-data in [a Sync command response ([MS-ASCMD] section 2.2.2.19),] an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) [or a Search command response ([MS-ASCMD] section 2.2.2.14)].</ns1:Description>
+		<ns1:Description>[In BodyPart] The airsyncbase:BodyPart element([MS-ASAIRS] section 2.2.2.10) encapsulates a message part and its meta-data in [a Sync command response ([MS-ASCMD] section 2.2.1.21),] an ItemOperations command response ([MS-ASCMD] section 2.2.1.10) [or a Search command response ([MS-ASCMD] section 2.2.1.16)].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -352,7 +383,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R40</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In BodyPart] The airsyncbase:BodyPart element&lt;1&gt; ([MS-ASAIRS] section 2.2.2.5) encapsulates a message part and its meta-data in [a Sync command response ([MS-ASCMD] section 2.2.2.19), an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) or] a Search command response ([MS-ASCMD] section 2.2.2.14).</ns1:Description>
+		<ns1:Description>[In BodyPart] The airsyncbase:BodyPart element ([MS-ASAIRS] section 2.2.2.10) encapsulates a message part and its meta-data in [a Sync command response ([MS-ASCMD] section 2.2.1.21), an ItemOperations command response ([MS-ASCMD] section 2.2.1.10) or] a Search command response ([MS-ASCMD] section 2.2.1.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -370,7 +401,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R42</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In BodyPart] [The airsyncbase:BodyPart element is] an optional child element of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.128.1) in an ItemOperations command response.</ns1:Description>
+		<ns1:Description>[In BodyPart] [The airsyncbase:BodyPart element is] an optional child element of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.139.2) in an ItemOperations command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -379,7 +410,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R43</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In BodyPart] [The airsyncbase:BodyPart element is] an optional child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) in a Search command response.</ns1:Description>
+		<ns1:Description>[In BodyPart] [The airsyncbase:BodyPart element is] an optional child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) in a Search command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -416,12 +447,12 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 		<ns1:REQ_ID>MS-ASCON_R47</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In BodyPart] It [airsyncbase:BodyPart element] has the following child elements:
-airsyncbase:Status ([MS-ASAIRS] section 2.2.2.19)
-airsyncbase:Type ([MS-ASAIRS] section 2.2.2.22.2)
-airsyncbase:EstimatedDataSize ([MS-ASAIRS] section 2.2.2.12.3)
-airsyncbase:Truncated ([MS-ASAIRS] section 2.2.2.20.2)
-airsyncbase:Data ([MS-ASAIRS] section 2.2.2.10.2)
-airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.18.2).</ns1:Description>
+airsyncbase:Status ([MS-ASAIRS] section 2.2.2.37)
+airsyncbase:Type ([MS-ASAIRS] section 2.2.2.41.2)
+airsyncbase:EstimatedDataSize ([MS-ASAIRS] section 2.2.2.23.3)
+airsyncbase:Truncated ([MS-ASAIRS] section 2.2.2.39.2)
+airsyncbase:Data ([MS-ASAIRS] section 2.2.2.20.2)
+airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.35.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -439,7 +470,7 @@ airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.18.2).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R53</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In BodyPartPreference] The airsyncbase:BodyPartPreference element&lt;2&gt; ([MS-ASAIRS] section 2.2.2.6) specifies the client's preferences for receiving a message part from the server.</ns1:Description>
+		<ns1:Description>[In BodyPartPreference] The airsyncbase:BodyPartPreference element ([MS-ASAIRS] section 2.2.2.11) specifies the client's preferences for receiving a message part from the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -448,7 +479,7 @@ airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.18.2).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R54</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In BodyPartPreference] The airsyncbase:BodyPartPreference element is an optional child element of the itemoperations:Options element ([MS-ASCMD] section 2.2.3.115.2) in an ItemOperations command request ([MS-ASCMD] section 2.2.2.8).</ns1:Description>
+		<ns1:Description>[In BodyPartPreference] The airsyncbase:BodyPartPreference element is an optional child element of the itemoperations:Options element ([MS-ASCMD] section 2.2.3.125.3) in an ItemOperations command request ([MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -457,7 +488,7 @@ airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.18.2).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R55</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In BodyPartPreference] [The airsyncbase:BodyPartPreference element is] an optional child element of the search:Options element ([MS-ASCMD] section 2.2.3.115.4) in a Search command request ([MS-ASCMD] section 2.2.2.14).</ns1:Description>
+		<ns1:Description>[In BodyPartPreference] [The airsyncbase:BodyPartPreference element is] an optional child element of the search:Options element ([MS-ASCMD] section 2.2.3.125.5) in a Search command request ([MS-ASCMD] section 2.2.1.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -466,7 +497,7 @@ airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.18.2).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R56</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In BodyPartPreference] [The airsyncbase:BodyPartPreference element is] an optional child element of the airsync:Options element ([MS-ASCMD] section 2.2.3.115.5) in a Sync command request ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In BodyPartPreference] [The airsyncbase:BodyPartPreference element is] an optional child element of the airsync:Options element ([MS-ASCMD] section 2.2.3.125.6) in a Sync command request ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -503,10 +534,10 @@ airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.18.2).</ns1:Description>
 		<ns1:REQ_ID>MS-ASCON_R254</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In BodyPartPreference] It [airsyncbase:BodyPartPreference element] has the following child elements:
-airsyncbase:Type ([MS-ASAIRS] section 2.2.2.22.3)
-airsyncbase:TruncationSize ([MS-ASAIRS] section 2.2.2.21.1)
-airsyncbase:AllOrNone ([MS-ASAIRS] section 2.2.2.1.1)
-airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.18.3).</ns1:Description>
+airsyncbase:Type ([MS-ASAIRS] section 2.2.2.41.3)
+airsyncbase:TruncationSize ([MS-ASAIRS] section 2.2.2.40.1)
+airsyncbase:AllOrNone ([MS-ASAIRS] section 2.2.2.3.1)
+airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.35.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -525,9 +556,9 @@ airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.18.3).</ns1:Description>
 		<ns1:REQ_ID>MS-ASCON_R64</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In ConversationId] The ConversationId element is used in the following command requests and responses:
-ItemOperations command requests and responses ([MS-ASCMD] section 2.2.2.8)
-Search command requests ([MS-ASCMD] section 2.2.2.14)
-Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+ItemOperations command requests and responses ([MS-ASCMD] section 2.2.1.10)
+Search command requests ([MS-ASCMD] section 2.2.1.16)
+Sync command responses ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -536,7 +567,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R68</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationId (ItemOperations)] In an ItemOperations command request ([MS-ASCMD] section 2.2.2.8), the itemoperations:ConversationId element ([MS-ASCMD] section 2.2.3.35.1) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.107.1) that specifies the conversation ID of the conversation that is to be moved.</ns1:Description>
+		<ns1:Description>[In ConversationId (ItemOperations)] In an ItemOperations command request ([MS-ASCMD] section 2.2.1.10), the itemoperations:ConversationId element ([MS-ASCMD] section 2.2.3.35.1) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.117.1) that specifies the conversation ID of the conversation that is to be moved.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -563,7 +594,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R70</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationId (ItemOperations)] The value of this element [itemoperations:ConversationId] is a byte array, as specified in [MS-ASDTYPE] section 2.6.1.</ns1:Description>
+		<ns1:Description>[In ConversationId (ItemOperations)] The value of this element [itemoperations:ConversationId] is a byte array, as specified in [MS-ASDTYPE] section 2.7.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -572,7 +603,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R71</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationId (Search)] The search:ConversationId element ([MS-ASCMD] section 2.2.3.35.2) is an optional child element of the search:Query element ([MS-ASCMD] section 2.2.3.129) in a Search command request ([MS-ASCMD] section 2.2.2.14) that specifies the conversation ID of the conversation for which to search.</ns1:Description>
+		<ns1:Description>[In ConversationId (Search)] The search:ConversationId element ([MS-ASCMD] section 2.2.3.35.2) is an optional child element of the search:Query element ([MS-ASCMD] section 2.2.3.142.2) in a Search command request ([MS-ASCMD] section 2.2.1.16) that specifies the conversation ID of the conversation for which to search.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -590,7 +621,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R73</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationId (Search)] The value of this [search:ConversationId] element is a byte array, as specified in [MS-ASDTYPE] section 2.6.1.</ns1:Description>
+		<ns1:Description>[In ConversationId (Search)] The value of this [search:ConversationId] element is a byte array, as specified in [MS-ASDTYPE] section 2.7.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -599,7 +630,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R74</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationId (Sync)] The email2:ConversationId element ([MS-ASEMAIL] section 2.2.2.14) is a required child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in a Sync command response ([MS-ASCMD] section 2.2.2.19) that specifies the conversation ID of a conversation.</ns1:Description>
+		<ns1:Description>[In ConversationId (Sync)] The email2:ConversationId element ([MS-ASEMAIL] section 2.2.2.21) is a required child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in a Sync command response ([MS-ASCMD] section 2.2.1.21) that specifies the conversation ID of a conversation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -617,7 +648,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R76</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationId (Sync)] The value of this [email2:ConversationId] element is a byte array, as specified in [MS-ASDTYPE] section 2.6.1.</ns1:Description>
+		<ns1:Description>[In ConversationId (Sync)] The value of this [email2:ConversationId] element is a byte array, as specified in [MS-ASDTYPE] section 2.7.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -644,7 +675,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R79</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationIndex] The email2:ConversationIndex element ([MS-ASEMAIL] section 2.2.2.15) is a required child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in a Sync command response ([MS-ASCMD] section 2.2.2.19) that specifies the conversation index for an e-mail message.</ns1:Description>
+		<ns1:Description>[In ConversationIndex] The email2:ConversationIndex element ([MS-ASEMAIL] section 2.2.2.22) is a required child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in a Sync command response ([MS-ASCMD] section 2.2.1.21) that specifies the conversation index for an e-mail message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -662,7 +693,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R81</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationIndex] The value of this element [email2:ConversationIndex] is a byte array, as specified in [MS-ASDTYPE] section 2.6.1.</ns1:Description>
+		<ns1:Description>[In ConversationIndex] The value of this element [email2:ConversationIndex] is a byte array, as specified in [MS-ASDTYPE] section 2.7.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -797,7 +828,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R260</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationIndex]  This [Response Level N] field is set according to the description for the Response Level 1 field.</ns1:Description>
+		<ns1:Description>[In ConversationIndex]  Response Level N (5 bytes):This [Response Level N] field is set according to the description for the Response Level 1 field.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -867,18 +898,9 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCON_R105</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Level] The Response Level field contains information about the time the message was forwarded [or replied to].</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R113</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationMode] In a GetItemEstimate command request ([MS-ASCMD] section 2.2.2.7), the airsync:ConversationMode element ([MS-ASCMD] section 2.2.3.36.1) is an optional child element of the getitemestimate:Collection element ([MS-ASCMD] section 2.2.3.29.1) that enables or disables conversation-based filtering of item estimates.</ns1:Description>
+		<ns1:Description>[In ConversationMode] In a GetItemEstimate command request ([MS-ASCMD] section 2.2.1.9), the airsync:ConversationMode element ([MS-ASCMD] section 2.2.3.36.1) is an optional child element of the getitemestimate:Collection element ([MS-ASCMD] section 2.2.3.29.1) that enables or disables conversation-based filtering of item estimates.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -887,7 +909,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R114</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In ConversationMode] In a Sync command request ([MS-ASCMD] section 2.2.2.19), the airsync:ConversationMode element ([MS-ASCMD] section 2.2.3.36.2) is an optional child element of the airsync:Collection element ([MS-ASCMD] section 2.2.3.29.2) that enables or disables conversation-based filtering and synchronization of conversation-based properties.</ns1:Description>
+		<ns1:Description>[In ConversationMode] In a Sync command request ([MS-ASCMD] section 2.2.1.21), the airsync:ConversationMode element ([MS-ASCMD] section 2.2.3.36.2) is an optional child element of the airsync:Collection element ([MS-ASCMD] section 2.2.3.29.2) that enables or disables conversation-based filtering and synchronization of conversation-based properties.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -941,7 +963,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R118</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In DstFldId] The itemoperations:DstFldId element ([MS-ASCMD] section 2.2.3.49.1) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.107.1) in an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) that specifies the folder to which the conversation is moved.</ns1:Description>
+		<ns1:Description>[In DstFldId] The itemoperations:DstFldId element ([MS-ASCMD] section 2.2.3.51.1) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.117.1) in an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) that specifies the folder to which the conversation is moved.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -959,7 +981,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R120</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In DstFldId] The value of this [itemoperations:DstFldId] element is a string, as specified in [MS-ASDTYPE] section 2.6.</ns1:Description>
+		<ns1:Description>[In DstFldId] The value of this [itemoperations:DstFldId] element is a string, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -986,7 +1008,7 @@ Sync command responses ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R121</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In Move] In an ItemOperations command request ([MS-ASCMD] section 2.2.2.8), the itemoperations:Move element ([MS-ASCMD] section 2.2.3.107.1) is an optional container ([MS-ASDTYPE] section 2.2) element that identifies the body of the request as containing the operation that moves a given conversation.</ns1:Description>
+		<ns1:Description>[In Move] In an ItemOperations command request ([MS-ASCMD] section 2.2.1.10), the itemoperations:Move element ([MS-ASCMD] section 2.2.3.117.1) is an optional container ([MS-ASDTYPE] section 2.2) element that identifies the body of the request as containing the operation that moves a given conversation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1036,7 +1058,7 @@ itemoperations:Status (section 2.2.2.10).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R129</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In MoveAlways] The itemoperations:MoveAlways element ([MS-ASCMD] section 2.2.3.108) is an optional child element of the itemoperations:Options element ([MS-ASCMD] section 2.2.3.115.2) in the ItemOperations command request ([MS-ASCMD] section 2.2.2.8) that indicates whether a conversation is always to be moved.</ns1:Description>
+		<ns1:Description>[In MoveAlways] The itemoperations:MoveAlways element ([MS-ASCMD] section 2.2.3.118) is an optional child element of the itemoperations:Options element ([MS-ASCMD] section 2.2.3.125.3) in the ItemOperations command request ([MS-ASCMD] section 2.2.1.10) that indicates whether a conversation is always to be moved.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1090,7 +1112,7 @@ itemoperations:Status (section 2.2.2.10).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R135</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.9</ns1:Doc_Sect>
-		<ns1:Description>[In Options] The itemoperations:Options element ([MS-ASCMD] section 2.2.3.115.2) is an optional container ([MS-ASDTYPE] section 2.2) element in an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) that specifies the options for the move operation ([MS-ASCMD] section 2.2.3.107.1).</ns1:Description>
+		<ns1:Description>[In Options] The itemoperations:Options element ([MS-ASCMD] section 2.2.3.125.3) is an optional container ([MS-ASDTYPE] section 2.2) element in an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) that specifies the options for the move operation ([MS-ASCMD] section 2.2.3.117.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1118,7 +1140,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R139</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
-		<ns1:Description>[In Status] The itemoperations:Status element ([MS-ASCMD] section 2.2.3.162.7) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.107.1) in the ItemOperations command response ([MS-ASCMD] section 2.2.2.8) that specifies the status of the move operation.</ns1:Description>
+		<ns1:Description>[In Status] The itemoperations:Status element ([MS-ASCMD] section 2.2.3.177.8) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.117.1) in the ItemOperations command response ([MS-ASCMD] section 2.2.1.10) that specifies the status of the move operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1136,7 +1158,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R142</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
-		<ns1:Description>[In Status] The value of this [itemoperations:Status] element is an integer, as specified in [MS-ASDTYPE] section 2.5.</ns1:Description>
+		<ns1:Description>[In Status] The value of this [itemoperations:Status] element is an integer, as specified in [MS-ASDTYPE] section 2.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1145,7 +1167,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R313</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
-		<ns1:Description>[In Status] The following table lists some of the status values [1,2,3,6,105,155,156] and their meanings.</ns1:Description>
+		<ns1:Description>[In Status] The following table lists some of the status values [1,2,3,6,105,156] and their meanings.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1325,7 +1347,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R159</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Deleting a Conversation] To delete a conversation, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.19) that contains an airsync:Delete element ([MS-ASCMD] section 2.2.3.42.2) for each item in the conversation.</ns1:Description>
+		<ns1:Description>[In Deleting a Conversation] To delete a conversation, the client sends a Sync command request ([MS-ASCMD] section 2.2.1.21) that contains an airsync:Delete element ([MS-ASCMD] section 2.2.3.42.2) for each item in the conversation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1361,7 +1383,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R163</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Flagging a Conversation for Follow-up] To set a flag on a conversation, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.20) that contains an airsync:Change element for at least one item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
+		<ns1:Description>[In Flagging a Conversation for Follow-up] To set a flag on a conversation, the client sends a Sync command request ([MS-ASCMD] section 2.2.1.21) that contains an airsync:Change element for at least one item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1370,7 +1392,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R401</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Flagging a Conversation for Follow-up] To clear a flag on a conversation, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.20) that contains an airsync:Change element for each item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
+		<ns1:Description>[In Flagging a Conversation for Follow-up] To clear a flag on a conversation, the client sends a Sync command request ([MS-ASCMD] section 2.2.1.21) that contains an airsync:Change element for each item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1379,7 +1401,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R402</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Flagging a Conversation for Follow-up] To mark a flagged conversation as complete, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.20) that contains an airsync:Change element for each flagged item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
+		<ns1:Description>[In Flagging a Conversation for Follow-up] To mark a flagged conversation as complete, the client sends a Sync command request ([MS-ASCMD] section 2.2.1.21) that contains an airsync:Change element for each flagged item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1406,7 +1428,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R165</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Marking a Conversation as Read or Unread] To mark a conversation as read or unread, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.19) that contains an airsync:Change element for each item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
+		<ns1:Description>[In Marking a Conversation as Read or Unread] To mark a conversation as read, the client sends a Sync command request ([MS-ASCMD] section 2.2.1.21) that contains an airsync:Change element for each item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1415,7 +1437,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R403</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Marking a Conversation as Read or Unread] To mark a conversation as unread, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.20) that contains an airsync:Change element for at least one item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
+		<ns1:Description>[In Marking a Conversation as Read or Unread] To mark a conversation as unread, the client sends a Sync command request ([MS-ASCMD] section 2.2.1.21) that contains an airsync:Change element for at least one item in the conversation and in the current folder, as specified in [MS-ASCMD] section 2.2.3.24.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1433,7 +1455,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R167</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Ignoring a Conversation] To ignore a conversation, the client sends an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) that contains an itemoperations:Move element ([MS-ASCMD] section 2.2.3.107.1) and its child elements, as specified in section 2.2.2.7.</ns1:Description>
+		<ns1:Description>[In Ignoring a Conversation] To ignore a conversation, the client sends an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) that contains an itemoperations:Move element ([MS-ASCMD] section 2.2.3.117.1) and its child elements, as specified in section 2.2.2.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1478,7 +1500,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R171</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5</ns1:Doc_Sect>
-		<ns1:Description>[In Moving a Conversation from the Current Folder] To move a conversation from the current folder to a destination folder, the client sends a MoveItems command request, as specified in [MS-ASCMD] section 2.2.2.10.</ns1:Description>
+		<ns1:Description>[In Moving a Conversation from the Current Folder] To move a conversation from the current folder to a destination folder, the client sends a MoveItems command request, as specified in [MS-ASCMD] section 2.2.1.12.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1496,7 +1518,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R173</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In Setting up a Conversation to Be Moved Always] To set a conversation to be moved always, the client sends an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) that contains a itemoperations:Move element ([MS-ASCMD] section 2.2.3.107.1) and its child elements, as specified in section 2.2.2.7.</ns1:Description>
+		<ns1:Description>[In Setting up a Conversation to Be Moved Always] To set a conversation to be moved always, the client sends an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) that contains a itemoperations:Move element ([MS-ASCMD] section 2.2.3.117.1) and its child elements, as specified in section 2.2.2.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1532,7 +1554,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R177</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In Finding a Conversation] To search for a conversation, the client sends a Search command request ([MS-ASCMD] section 2.2.2.14) that contains the search:ConversationId element ([MS-ASCMD] section 2.2.3.35.2), as specified in section 2.2.2.3.2.</ns1:Description>
+		<ns1:Description>[In Finding a Conversation] To search for a conversation, the client sends a Search command request ([MS-ASCMD] section 2.2.1.16) that contains the search:ConversationId element ([MS-ASCMD] section 2.2.3.35.2), as specified in section 2.2.2.3.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1541,7 +1563,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R178</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In Finding a Conversation] The search:ConversationId element can be used in conjunction with other child elements of the search:Query element ([MS-ASCMD] section 2.2.3.129).</ns1:Description>
+		<ns1:Description>[In Finding a Conversation] The search:ConversationId element can be used in conjunction with other child elements of the search:Query element ([MS-ASCMD] section 2.2.3.142.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1550,7 +1572,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R179</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In Finding a Conversation] The client MUST scope the query to the Email class by setting the search:Name element ([MS-ASCMD] section 2.2.3.110.2) to "Mailbox".</ns1:Description>
+		<ns1:Description>[In Finding a Conversation] The client MUST scope the query to the Email class by setting the search:Name element ([MS-ASCMD] section 2.2.3.120.2) to "Mailbox".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1568,7 +1590,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R181</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In Synchronizing a Conversation] To synchronize a conversation, the client sends a Sync command request ([MS-ASCMD] section 2.2.2.19) that contains an airsync:ConversationMode element (section 2.2.2.5) for the particular collection to be synchronized.</ns1:Description>
+		<ns1:Description>[In Synchronizing a Conversation] To synchronize a conversation, the client sends a Sync command request ([MS-ASCMD] section 2.2.1.21) that contains an airsync:ConversationMode element (section 2.2.2.5) for the particular collection to be synchronized.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1586,7 +1608,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R329</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[In Applying a Conversation-based Filter] For details about date-based filtering, see [MS-ASCMD] section 2.2.3.64.</ns1:Description>
+		<ns1:Description>[In Applying a Conversation-based Filter] For details about date-based filtering, see [MS-ASCMD] section 2.2.3.68.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1604,7 +1626,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R331</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[In Applying a Conversation-based Filter] To apply a conversation-based filter to a synchronization, the client includes the airsync:ConversationMode element (section 2.2.2.5) in a Sync command request ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+		<ns1:Description>[In Applying a Conversation-based Filter] To apply a conversation-based filter to a synchronization, the client includes the airsync:ConversationMode element (section 2.2.2.5) in a Sync command request ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1613,7 +1635,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R332</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[In Applying a Conversation-based Filter] A conversation-based filter can also be applied to the GetItemEstimate command request ([MS-ASCMD] section 2.2.2.7) to get an estimate of the items that both meet the filter criteria and need to be synchronized.</ns1:Description>
+		<ns1:Description>[In Applying a Conversation-based Filter] A conversation-based filter can also be applied to the GetItemEstimate command request ([MS-ASCMD] section 2.2.1.9) to get an estimate of the items that both meet the filter criteria and need to be synchronized.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1631,7 +1653,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R182</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting a Message Part] When a client synchronizes, searches, or fetches an e-mail message, the client can choose to receive a message part by including the airsyncbase:BodyPartPreference element ([MS-ASAIRS] section 2.2.2.6), as specified in section 2.2.2.2, in the Sync command request ([MS-ASCMD] section 2.2.2.19), the Search command request ([MS-ASCMD] section 2.2.2.14), or the ItemOperations command request ([MS-ASCMD] section 2.2.2.8).</ns1:Description>
+		<ns1:Description>[In Requesting a Message Part] When a client synchronizes, searches, or fetches an e-mail message, the client can choose to receive a message part by including the airsyncbase:BodyPartPreference element ([MS-ASAIRS] section 2.2.2.11), as specified in section 2.2.2.2, in the Sync command request ([MS-ASCMD] section 2.2.1.21), the Search command request ([MS-ASCMD] section 2.2.1.16), or the ItemOperations command request ([MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1640,7 +1662,7 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R183</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting a Message Part] The value of the airsyncbase:Type element ([MS-ASAIRS] section 2.2.2.22.3) MUST be 2 to specify Hypertext Markup Language (HTML) as the encoding format.</ns1:Description>
+		<ns1:Description>[In Requesting a Message Part] The value of the airsyncbase:Type element ([MS-ASAIRS] section 2.2.2.41.3) MUST be 2 to specify Hypertext Markup Language (HTML) as the encoding format.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1659,11 +1681,11 @@ itemoperations:MoveAlways (section 2.2.2.8).</ns1:Description>
 		<ns1:REQ_ID>MS-ASCON_R184</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5</ns1:Doc_Sect>
 		<ns1:Description>[In Message Processing Events and Sequencing Rules] The Exchange ActiveSync: Conversations Protocol uses the following commands:
-GetItemEstimate command ([MS-ASCMD] section 2.2.2.7)
-ItemOperations command ([MS-ASCMD] section 2.2.2.8)
-MoveItems command ([MS-ASCMD] section 2.2.2.10)
-Search command ([MS-ASCMD] section 2.2.2.14)
-Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
+GetItemEstimate command ([MS-ASCMD] section 2.2.1.9)
+ItemOperations command ([MS-ASCMD] section 2.2.1.10)
+MoveItems command ([MS-ASCMD] section 2.2.1.12)
+Search command ([MS-ASCMD] section 2.2.1.16)
+Sync command ([MS-ASCMD] section 2.2.1.21).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1762,7 +1784,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R195</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Higher-Layer Triggered Events] The conversation ID is specified by the email2:ConversationId element ([MS-ASEMAIL] section 2.2.2.14) that is included in the Email class.</ns1:Description>
+		<ns1:Description>[In Higher-Layer Triggered Events] The conversation ID is specified by the email2:ConversationId element ([MS-ASEMAIL] section 2.2.2.21) that is included in the Email class.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1771,7 +1793,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R196</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Higher-Layer Triggered Events] The conversation index is specified by the email2:ConversationIndex element ([MS-ASEMAIL] section 2.2.2.15) that is included in the Email class.</ns1:Description>
+		<ns1:Description>[In Higher-Layer Triggered Events] The conversation index is specified by the email2:ConversationIndex element ([MS-ASEMAIL] section 2.2.2.22) that is included in the Email class.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1807,7 +1829,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R201</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Deleting a Conversation] The server sends a Sync command response as specified in [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Description>[In Deleting a Conversation] The server sends a Sync command response as specified in [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1834,7 +1856,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R204</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Marking a Conversation as Read or Unread] The server sends a Sync command response as specified in [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Description>[In Marking a Conversation as Read or Unread] The server sends a Sync command response as specified in [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1870,7 +1892,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R209</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Flagging a Conversation for Follow-up] The server sends a Sync command response, as specified in [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Description>[In Flagging a Conversation for Follow-up] The server sends a Sync command response, as specified in [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1879,7 +1901,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R211</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a GetItemEstimate Command] When a conversation-based filter is applied to the GetItemEstimate command request, as specified in section 3.1.4.9, the server sends a GetItemEstimate command response ([MS-ASCMD] section 2.2.2.7) that specifies an estimate of the items that meet the filter criteria and need to be synchronized.</ns1:Description>
+		<ns1:Description>[In Processing a GetItemEstimate Command] When a conversation-based filter is applied to the GetItemEstimate command request, as specified in section 3.1.4.9, the server sends a GetItemEstimate command response ([MS-ASCMD] section 2.2.1.9) that specifies an estimate of the items that meet the filter criteria and need to be synchronized.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1915,7 +1937,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R214</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Ignoring a Conversation] The server sends an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) that includes the itemoperations:Status element, as specified in section 2.2.2.10, and the itemoperations:ConversationId element (section 2.2.2.3.1).</ns1:Description>
+		<ns1:Description>[In Ignoring a Conversation] The server sends an ItemOperations command response ([MS-ASCMD] section 2.2.1.10) that includes the itemoperations:Status element, as specified in section 2.2.2.10, and the itemoperations:ConversationId element (section 2.2.2.3.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1933,7 +1955,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R216</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Always Moving a Conversation] The server sends an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) that includes the itemoperations:Status element, as specified in section 2.2.2.10, and the itemoperations:ConversationId element (section 2.2.2.3.1).</ns1:Description>
+		<ns1:Description>[In Always Moving a Conversation] The server sends an ItemOperations command response ([MS-ASCMD] section 2.2.1.10) that includes the itemoperations:Status element, as specified in section 2.2.2.10, and the itemoperations:ConversationId element (section 2.2.2.3.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1951,7 +1973,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R218</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a MoveItems Command] The server sends a MoveItems command response, as specified in [MS-ASCMD] section 2.2.2.10.</ns1:Description>
+		<ns1:Description>[In Processing a MoveItems Command] The server sends a MoveItems command response, as specified in [MS-ASCMD] section 2.2.1.12.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1969,7 +1991,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R221</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.5</ns1:Doc_Sect>
-		<ns1:Description>[In Processing a Search Command] The server sends a Search command response, as specified in [MS-ASCMD] section 2.2.2.14.</ns1:Description>
+		<ns1:Description>[In Processing a Search Command] The server sends a Search command response, as specified in [MS-ASCMD] section 2.2.1.16.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1978,7 +2000,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R223</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In Filtering] If an individual e-mail message is moved or deleted, and, as a result, the rest of the messages in the conversation fall out of filter, the server SHOULD send soft deletes (a Sync command response ([MS-ASCMD] section 2.2.2.19)) for those messages only during the aging-off process.</ns1:Description>
+		<ns1:Description>[In Filtering] If an individual e-mail message is moved or deleted, and, as a result, the rest of the messages in the conversation fall out of filter, the server SHOULD send soft deletes (a Sync command response ([MS-ASCMD] section 2.2.1.21)) for those messages only during the aging-off process.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1996,7 +2018,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R342</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In Filtering] For details about soft deletes, see [MS-ASCMD] sections 2.2.3.157.</ns1:Description>
+		<ns1:Description>[In Filtering] For details about soft deletes, see [MS-ASCMD] sections 2.2.3.172.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2014,7 +2036,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R341</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In Filtering] The time-window is specified by the client in the airsync:FilterType element ([MS-ASCMD] section 2.2.3.64.2) of the Sync command request.</ns1:Description>
+		<ns1:Description>[In Filtering] The time-window is specified by the client in the airsync:FilterType element ([MS-ASCMD] section 2.2.3.68.2) of the Sync command request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2059,7 +2081,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R234</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a Message Part] If the client Sync command request ([MS-ASCMD] section 2.2.2.19) [, Search command request ([MS-ASCMD] section 2.2.2.14) or ItemOperations command request 9([MS-ASCMD] section 2.2.2.8)] includes the airsyncbase:BodyPartPreference element (section 2.2.2.2), then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.</ns1:Description>
+		<ns1:Description>[In Sending a Message Part] If the client Sync command request ([MS-ASCMD] section 2.2.1.21) [, Search command request ([MS-ASCMD] section 2.2.1.16) or ItemOperations command request 9([MS-ASCMD] section 2.2.1.10)] includes the airsyncbase:BodyPartPreference element (section 2.2.2.2), then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2068,7 +2090,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R235</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a Message Part] If the client [Sync command request ([MS-ASCMD] section 2.2.2.19.1),] Search command request ([MS-ASCMD] section 2.2.2.14.1) [or ItemOperations command request 9([MS-ASCMD] section 2.2.2.8.2)] includes the airsyncbase:BodyPartPreference element, then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.</ns1:Description>
+		<ns1:Description>[In Sending a Message Part] If the client [Sync command request ([MS-ASCMD] section 2.2.1.21),] Search command request ([MS-ASCMD] section 2.2.1.16) [or ItemOperations command request 9([MS-ASCMD] section 2.2.1.10)] includes the airsyncbase:BodyPartPreference element(section 2.2.2.2), then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2077,7 +2099,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R236</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a Message Part] If the client [Sync command request ([MS-ASCMD] section 2.2.2.19.1), Search command request ([MS-ASCMD] section 2.2.2.14.1) or] ItemOperations command request 9([MS-ASCMD] section 2.2.2.8.2) includes the airsyncbase:BodyPartPreference element (section 2.2.2.2), then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.</ns1:Description>
+		<ns1:Description>[In Sending a Message Part] If the client [Sync command request ([MS-ASCMD] section 2.2.1.21), Search command request ([MS-ASCMD] section 2.2.1.16) or] ItemOperations command request 9([MS-ASCMD] section 2.2.1.10) includes the airsyncbase:BodyPartPreference element (section 2.2.2.2), then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2113,7 +2135,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R239</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a Message Part] The client's preferences affect the server response as follows: If the size of the message part exceeds the value specified in the airsyncbase:TruncationSize element ([MS-ASAIRS] section 2.2.2.21.1) of the request, then the server truncates the message part.</ns1:Description>
+		<ns1:Description>[In Sending a Message Part] The client's preferences affect the server response as follows: If the size of the message part exceeds the value specified in the airsyncbase:TruncationSize element ([MS-ASAIRS] section 2.2.2.40.1) of the request, then the server truncates the message part.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2122,7 +2144,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R240</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a Message Part] The server includes the airsyncbase:Truncated element ([MS-ASAIRS] section 2.2.2.20.1) and the airsyncbase:EstimatedDataSize element ([MS-ASAIRS] section 2.2.2.12.2) in the response when it truncates the message part.</ns1:Description>
+		<ns1:Description>[In Sending a Message Part] The server includes the airsyncbase:Truncated element ([MS-ASAIRS] section 2.2.2.39.1) and the airsyncbase:EstimatedDataSize element ([MS-ASAIRS] section 2.2.2.23.2) in the response when it truncates the message part.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2131,7 +2153,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R241</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a Message Part] [The client's preferences affect the server response as follows:] If a value other than 2 is specified in the airsyncbase:Type element ([MS-ASAIRS] section 2.2.2.22.3) of the request, then the server returns a status value of 164.</ns1:Description>
+		<ns1:Description>[In Sending a Message Part] [The client's preferences affect the server response as follows:] If a value other than 2 is specified in the airsyncbase:Type element ([MS-ASAIRS] section 2.2.2.41.3) of the request, then the server returns a status value of 164.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2149,7 +2171,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCON_R243</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.7</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a Message Part] The airsyncbase:BodyPart element and the airsyncbase:Body element ([MS-ASAIRS] section 2.2.2.4) can co-exist in the server response.</ns1:Description>
+		<ns1:Description>[In Sending a Message Part] The airsyncbase:BodyPart element and the airsyncbase:Body element ([MS-ASAIRS] section 2.2.2.9) can co-exist in the server response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2248,7 +2270,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R468</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.18</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 17: AirSyncBase] [Tag name] BodyPart [Token] 0x1A [supports protocol versions] 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 17: AirSyncBase] [Tag name] BodyPart [Token] 0x1A [supports protocol versions] 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2257,7 +2279,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R571</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.21</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] Status [Token] 0x0D [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] Status [Token] 0x0D [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2266,7 +2288,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R580</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.21</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] Move [Token] 0x16 [supports protocol versions] 14.0, 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] Move [Token] 0x16 [supports protocol versions] 14.0, 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2275,7 +2297,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R582</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.21</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] ConversationId [Token] 0x18 [supports protocol versions] 14.0, 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 20: ItemOperations] [Tag name] ConversationId [Token] 0x18 [supports protocol versions] 14.0, 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2284,7 +2306,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 22: Email2] [Tag name] ConversationId [Token] 0x09 [supports protocol versions] 14.0, 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 22: Email2] [Tag name] ConversationId [Token] 0x09 [supports protocol versions] 14.0, 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2293,7 +2315,7 @@ Sync command ([MS-ASCMD] section 2.2.2.19).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASWBXML_R611</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1.2.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In Code Page 22: Email2] [Tag name] ConversationIndex [Token] 0x0A [supports protocol versions] 14.0, 14.1, 16.0</ns1:Description>
+		<ns1:Description>[In Code Page 22: Email2] [Tag name] ConversationIndex [Token] 0x0A [supports protocol versions] 14.0, 14.1, 16.0, 16.1</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
