@@ -2,15 +2,16 @@
 <TestSettings name="MS-ASCON" id="74482e8a-0ece-4c93-a21d-e86d06c09a78" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-ASCON test cases.</Description>
   <Deployment>
+    <DeploymentItem filename="TestSuite\MS-ASCON_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASCON_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASCON_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCON.runsettings" />
     <DeploymentItem filename="TestSuite\MS-ASCON_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASCON_TestSuite.ptfconfig" />
     <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
     <DeploymentItem filename="TestSuite\MS-ASCON_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-ASCON_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASCON_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASCON_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASCON_TestSuite.ptfconfig" />
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
   <Execution>
@@ -34,4 +35,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>

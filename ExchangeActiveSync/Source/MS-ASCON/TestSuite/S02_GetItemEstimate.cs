@@ -65,7 +65,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR211,
                 211,
-                 @"[In Processing a GetItemEstimate Command] When a conversation-based filter is applied to the GetItemEstimate command request, as specified in section 3.1.4.9, the server sends a GetItemEstimate command response ([MS-ASCMD] section 2.2.2.7) that specifies an estimate of the items that meet the filter criteria and need to be synchronized.");
+                 @"[In Processing a GetItemEstimate Command] When a conversation-based filter is applied to the GetItemEstimate command request, as specified in section 3.1.4.9, the server sends a GetItemEstimate command response ([MS-ASCMD] section 2.2.1.9) that specifies an estimate of the items that meet the filter criteria and need to be synchronized.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R332");
@@ -75,7 +75,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR211,
                 332,
-                 @"[In Applying a Conversation-based Filter] A conversation-based filter can also be applied to the GetItemEstimate command request ([MS-ASCMD] section 2.2.2.7) to get an estimate of the items that both meet the filter criteria and need to be synchronized.");
+                 @"[In Applying a Conversation-based Filter] A conversation-based filter can also be applied to the GetItemEstimate command request ([MS-ASCMD] section 2.2.1.9) to get an estimate of the items that both meet the filter criteria and need to be synchronized.");
             #endregion
         }
         #endregion

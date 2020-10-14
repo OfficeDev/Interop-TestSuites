@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R402Enabled to true to verify that implementation command response includes no more than 300 Category child elements per Categories element. Set R402Enabled to false to disable this requirement.-->
+    <Property name="R402Enabled" value="true"/>
+    <!-- Set R631Enabled to true to verify that when the Type element value is 0, implementation responds with a status 6 if DayOfWeek is set in the request.. Set R631Enabled to false to disable this requirement.-->
+    <Property name="R631Enabled" value="false"/>
+    <!-- Set R633Enabled to true to verify that when the protocol version is 14.0, implementation does not return the Start element. Set R633Enabled to false to disable this requirement.-->
+    <Property name="R633Enabled" value="true"/>
+    <!-- Set R636Enabled to true to verify that the value of Importance element is between 0 and 2. Set R636Enabled to false to disable this requirement.-->
+    <Property name="R636Enabled" value="true"/>
+  </Properties>
+</TestSite>

@@ -879,7 +879,7 @@ MIME-Version: 1.0
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR239,
                 239,
-                @"[In Sending a Message Part] The client's preferences affect the server response as follows: If the size of the message part exceeds the value specified in the airsyncbase:TruncationSize element ([MS-ASAIRS] section 2.2.2.21.1) of the request, then the server truncates the message part.");
+                @"[In Sending a Message Part] The client's preferences affect the server response as follows: If the size of the message part exceeds the value specified in the airsyncbase:TruncationSize element ([MS-ASAIRS] section 2.2.2.40.1) of the request, then the server truncates the message part.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R240");
@@ -890,7 +890,7 @@ MIME-Version: 1.0
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR240,
                 240,
-                @"[In Sending a Message Part] The server includes the airsyncbase:Truncated element ([MS-ASAIRS] section 2.2.2.20.1) and the airsyncbase:EstimatedDataSize element ([MS-ASAIRS] section 2.2.2.12.2) in the response when it truncates the message part.");
+                @"[In Sending a Message Part] The server includes the airsyncbase:Truncated element ([MS-ASAIRS] section 2.2.2.39.1) and the airsyncbase:EstimatedDataSize element ([MS-ASAIRS] section 2.2.2.23.2) in the response when it truncates the message part.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R247");
@@ -928,7 +928,7 @@ MIME-Version: 1.0
             // If R248 is captured, then BodyPart element and Body element do co-exist in the server response.
             Site.CaptureRequirement(
                 243,
-                @"[In Sending a Message Part] The airsyncbase:BodyPart element and the airsyncbase:Body element ([MS-ASAIRS] section 2.2.2.4) can co-exist in the server response.");
+                @"[In Sending a Message Part] The airsyncbase:BodyPart element and the airsyncbase:Body element ([MS-ASAIRS] section 2.2.2.9) can co-exist in the server response.");
         }
 
         /// <summary>
@@ -945,7 +945,7 @@ MIME-Version: 1.0
                 164,
                 status,
                 241,
-                @"[In Sending a Message Part] [The client's preferences affect the server response as follows:] If a value other than 2 is specified in the airsyncbase:Type element ([MS-ASAIRS] section 2.2.2.22.3) of the request, then the server returns a status value of 164.");
+                @"[In Sending a Message Part] [The client's preferences affect the server response as follows:] If a value other than 2 is specified in the airsyncbase:Type element ([MS-ASAIRS] section 2.2.2.41.3) of the request, then the server returns a status value of 164.");
         }
         #endregion
 

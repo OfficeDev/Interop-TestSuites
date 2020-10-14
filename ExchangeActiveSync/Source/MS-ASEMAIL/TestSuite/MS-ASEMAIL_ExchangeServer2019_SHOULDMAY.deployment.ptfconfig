@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set R581Enabled to true to verify that implementation does not return a protocol status error in response to such a command request [A maximum of one tasks:DueDate child element is allowed per Flag element. The result of including more than one tasks:DueDate child element per Flag element is undefined.]. Set R581Enabled to false to disable this requirement.-->
+    <Property name="R581Enabled" value="true"/>
+    <!-- Set R634Enabled to true to verify that implementation does not return a protocol status error in response to such a command request [A maximum of one tasks:OrdinalDate child element is allowed per Flag element. The result of including more than one tasks:OrdinalDate child element per Flag element is undefined.]. Set R634Enabled to false to disable this requirement.-->
+    <Property name="R634Enabled" value="true"/>
+    <!-- Set R697Enabled to true to verify that implementation does not return a protocol status error in response to such a command request [A maximum of one tasks:ReminderSet child element is allowed per Flag element. The result of including more than one tasks:ReminderSet child element per Flag element is undefined.]. Set R697Enabled to false to disable this requirement.-->
+    <Property name="R697Enabled" value="true"/>
+    <!-- Set R706Enabled to true to verify that implementation does not return a protocol status error in response to such a command request [A maximum of one tasks:ReminderTime child element is allowed per Flag element. The result of including more than one tasks:ReminderTime child element per Flag element is undefined.]. Set R706Enabled to false to disable this requirement.-->
+    <Property name="R706Enabled" value="true"/>
+    <!-- Set R746Enabled to true to verify that implementation does not return a protocol status error in response to such a command request [A maximum of one tasks:StartDate child element is allowed per Flag element. The result of including more than one tasks:StartDate child element per Flag element is undefined.]. Set R746Enabled to false to disable this requirement.-->
+    <Property name="R746Enabled" value="true"/>
+    <!-- Set R761Enabled to true to verify that implementation does not return a protocol status error in response to such a command request [A maximum of one Status element is allowed per Flag. The result of including more than one Status element per Flag is undefined.]. Set R761Enabled to false to disable this requirement.-->
+    <Property name="R761Enabled" value="true"/>
+    <!-- Set R777Enabled to true to verify that implementation does not return a protocol status error in response to such a command request [A maximum of one tasks:SubOrdinalDate child element is allowed per Flag element. The result of including more than one tasks:SubOrdinalDate child element per Flag element is undefined.]. Set R777Enabled to false to disable this requirement.-->
+    <Property name="R777Enabled" value="true"/>
+    <!-- Set R858Enabled to true to verify that implementation does not return a protocol status error in response to such a command request [A maximum of one tasks:UtcDueDate child element is allowed per Flag element. The result of including more than one tasks:UtcDueDate child elements per Flag element is undefined.]. Set R858Enabled to false to disable this requirement.-->
+    <Property name="R858Enabled" value="true"/>
+    <!-- Set R869Enabled to true to verify that implementation does not return a protocol status error in response to such a command request [A maximum of one tasks:UtcStartDate child element is allowed per Flag element. The result of including more than one tasks:UtcStartDate child elements per Flag element is undefined.]. Set R869Enabled to false to disable this requirement.-->
+    <Property name="R869Enabled" value="true"/>
+    <!-- Set R336Enabled to true to verify that if a message includes a value for the CompleteTime element, the message does also include a value for the tasks:DateCompleted element. Set R336Enabled to false to disable this requirement.-->
+    <Property name="R336Enabled" value="true"/>
+    <!-- Set R439Enabled to true to verify that if no flags are present on the e-mail item, the Flag element is included in the command as an empty container element (that is, <Flag/>). Set R439Enabled to false to disable this requirement.-->
+    <Property name="R439Enabled" value="true"/>
+    <!-- Set R588Enabled to true to verify that the value of the MessageClass element is one of the values listed in the following table or derive from one of the values[[IPM.Note, IPM.Note.SMIME, IPM.Note.SMIME.MultipartSigned, IPM.Note.Receipt.SMIME, IPM.InfoPathForm, IPM.Schedule.Meeting, IPM.Notification.Meeting, IPM.Post, IPM.Octel.Voice, IPM.Voicenotes, IPM.Sharing]] listed in the following table. Set R588Enabled to false to disable this requirement.-->
+    <Property name="R588Enabled" value="true"/>
+    <!-- Set R1006Enabled to true to verify that the tasks:SubOrdinalDate element is an optional child element of the Flag element (section 2.2.2.27) that specifies a value that is used for sorting. Set R1006Enabled to false to disable this requirement.-->
+    <Property name="R1006Enabled" value="true"/>
+    <!-- Set R1007Enabled to true to verify that it[tasks:SubOrdinalDate] can contain any string value and is used for sorting if there are duplicate tasks:OrdinalDate element (section 2.2.2.45) values. Set R1007Enabled to false to disable this requirement.-->
+    <Property name="R1007Enabled" value="true"/>
+    <!-- Set R1017Enabled to true to verify that implementation does partition email changes into one or more of the following categories:Changes to the Read flag (section 2.2.2.47) Changes to the Flag properties (section 2.2.2.27) Changes to other E-Mail class properties, such as Subject (section 2.2.2.63) Changes to non-E-Mail class properties. Set R1017Enabled to false to disable this requirement. -->
+    <Property name="R1017Enabled" value="true"/>
+    <!-- Set R1021Enabled to true to verify that implementation does update the flag on the e-mail message by using the Change element ([MS-ASCMD] section 2.2.3.24) of the Sync command ([MS-ASCMD] section 2.2.2.19), for every flag update that the client sends to the server in a Sync command request ([MS-ASCMD] section 2.2.2.19.1). Set R1021Enabled to false to disable this requirement.-->
+    <Property name="R1021Enabled" value="true"/>
+    <!-- Set R829Enabled to true to verify that implementation does send this element[email2:UmCallerID] to the client regardless of the client's current VoIP capabilities, in order to enable future VoIP scenarios. Set R829Enabled to false to disable this requirement.-->
+    <Property name="R829Enabled" value="true"/>
+    <!-- Set R1493Enabled to true to verify that the element RecurrenceId does include the original start time of the instance. Set R1493Enabled to false to disable this requirement.-->
+    <Property name="R1493Enabled" value="true"/>
+    <!-- Set R1491Enabled to true to verify that implementation does support value 6 for element MeetingMessageType. Set R1491Enabled to false to disable this requirement.-->
+    <Property name="R1491Enabled" value="false"/>
+  </Properties>
+</TestSite>

@@ -75,7 +75,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R13</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "itemoperations" is used for Namespace URI ItemOperations,which reference [MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "itemoperations" is used for Namespace URI ItemOperations,which reference [MS-ASCMD] section 2.2.1.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -84,7 +84,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R14</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] Prefix "search" is used for Namespace URI Search,which reference [MS-ASCMD] section 2.2.2.14.</ns1:Description>
+		<ns1:Description>[In Namespaces] Prefix "search" is used for Namespace URI Search,which reference [MS-ASCMD] section 2.2.1.16.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -156,7 +156,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R22</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements]The DisplayName (section 2.2.2.4) element specifies the name of the document, as displayed by the client.</ns1:Description>
+		<ns1:Description>[In Elements]The DisplayName (section 2.2.2.4) element specifies the name of the document or folder, as displayed by the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -174,7 +174,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R24</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements]The CreationDate (section 2.2.2.3) element specifies the date and time when the document was first created.</ns1:Description>
+		<ns1:Description>[In Elements]The CreationDate (section 2.2.2.3) element specifies the date and time when the document or folder was first created.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -183,7 +183,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R25</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Elements]The LastModifiedDate (section 2.2.2.7) element specifies the date and time when the document or its properties was last modified.</ns1:Description>
+		<ns1:Description>[In Elements]The LastModifiedDate (section 2.2.2.7) element specifies the date and time when the document , or the folder,or its properties was last modified.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -219,7 +219,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R29</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ContentLength] The ContentLength element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies the estimated size, in bytes, of the document.</ns1:Description>
+		<ns1:Description>[In ContentLength] The ContentLength element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies the estimated size, in bytes, of the document.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -237,7 +237,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R31</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In ContentLength] The value of this element[ContentLength] is an integer data type, as specified in[MS-ASDTYPE] section 2.5.</ns1:Description>
+		<ns1:Description>[In ContentLength] The value of this element[ContentLength] is an integer data type, as specified in[MS-ASDTYPE] section 2.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -253,9 +253,63 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R600</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentLength] Protocol version 12.0 supports this [ContentLength] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R601</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentLength] Protocol version 12.1 supports this [ContentLength] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R602</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentLength] Protocol version 14.0 supports this [ContentLength] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R603</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentLength] Protocol version 14.1 supports this [ContentLength] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R604</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentLength] Protocol version 16.0 supports this [ContentLength] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R605</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In ContentLength] Protocol version 16.1 supports this [ContentLength] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R33</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ContentType] The ContentType element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies the MIME type of the binary-encoded content or document encoded with base64 encoding, if known.</ns1:Description>
+		<ns1:Description>[In ContentType] The ContentType element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class document items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies the MIME type of the binary-encoded content or document encoded with base64 encoding, if known.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -273,16 +327,70 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R35</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In ContentType] The value of this element[ContentType] is a string data type, as specified in [MS-ASDTYPE] section 2.6.</ns1:Description>
+		<ns1:Description>[In ContentType] The value of this element[ContentType] is a string data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R606</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentType] Protocol version 12.0 supports this [ContentType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R607</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentType] Protocol version 12.1 supports this [ContentType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R608</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentType] Protocol version 14.0 supports this [ContentType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R609</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentType] Protocol version 14.1 supports this [ContentType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R610</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentType] Protocol version 16.0 supports this [ContentType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R611</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In ContentType] Protocol version 16.1 supports this [ContentType] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R36</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In CreationDate] The CreationDate element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies the date and time when the document or folder was created.</ns1:Description>
+		<ns1:Description>[In CreationDate] The CreationDate element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies the date and time when the document or folder was created.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -307,9 +415,63 @@
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R612</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In CreationDate] Protocol version 12.0 supports this [CreationDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R613</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In CreationDate] Protocol version 12.1 supports this [CreationDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R614</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In CreationDate] Protocol version 14.0 supports this [CreationDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R615</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In CreationDate] Protocol version 14.1 supports this [CreationDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R616</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In CreationDate] Protocol version 16.0 supports this [CreationDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R617</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In CreationDate] Protocol version 16.1 supports this [CreationDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R39</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In DisplayName] The DisplayName element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies the name of the document or folder as it is displayed to the user.</ns1:Description>
+		<ns1:Description>[In DisplayName] The DisplayName element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies the name of the document or folder as it is displayed to the user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -327,16 +489,70 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R41</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In DisplayName] The value of this element[DisplayName] is a string data type, as specified in [MS-ASDTYPE] section 2.6.</ns1:Description>
+		<ns1:Description>[In DisplayName] The value of this element[DisplayName] is a string data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R618</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In DisplayName] Protocol version 12.0 supports this [DisplayName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R619</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In DisplayName] Protocol version 12.1 supports this [DisplayName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R620</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In DisplayName] Protocol version 14.0 supports this [DisplayName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R621</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In DisplayName] Protocol version 14.1 supports this [DisplayName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R622</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In DisplayName] Protocol version 16.0 supports this [DisplayName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R623</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In DisplayName] Protocol version 16.1 supports this [DisplayName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R42</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In IsFolder] The IsFolder element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies whether the item is a folder.</ns1:Description>
+		<ns1:Description>[In IsFolder] The IsFolder element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies whether the item is a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -354,7 +570,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R44</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In IsFolder] The value of this element[IsFolder] is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.</ns1:Description>
+		<ns1:Description>[In IsFolder] The value of this element[IsFolder] is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -388,9 +604,63 @@
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R624</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In IsFolder] Protocol version 12.0 supports this [IsFolder] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R625</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In IsFolder] Protocol version 12.1 supports this [IsFolder] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R626</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In IsFolder] Protocol version 14.0 supports this [IsFolder] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R627</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In IsFolder] Protocol version 14.1 supports this [IsFolder] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R628</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In IsFolder] Protocol version 16.0 supports this [IsFolder] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R629</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In IsFolder] Protocol version 16.1 supports this [IsFolder] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R48</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In IsHidden] The IsHidden element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies whether the document or folder is a hidden object.</ns1:Description>
+		<ns1:Description>[In IsHidden] The IsHidden element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies whether the document or folder is a hidden object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -408,7 +678,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R50</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In IsHidden] The value of this element[IsHidden] is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.7.</ns1:Description>
+		<ns1:Description>[In IsHidden] The value of this element[IsHidden] is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -460,9 +730,63 @@
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R630</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In IsHidden] Protocol version 12.0 supports this [IsHidden] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R631</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In IsHidden] Protocol version 12.1 supports this [IsHidden] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R632</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In IsHidden] Protocol version 14.0 supports this [IsHidden] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R633</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In IsHidden] Protocol version 14.1 supports this [IsHidden] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R634</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In IsHidden] Protocol version 16.0 supports this [IsHidden] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R635</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In IsHidden] Protocol version 16.1 supports this [IsHidden] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R54</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In LastModifiedDate] The LastModifiedDate element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies the date and time that the document, or the folder, or the properties of either the document or folder were was last modified.</ns1:Description>
+		<ns1:Description>[In LastModifiedDate] The LastModifiedDate element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies the date and time that the document, or the folder, or the properties of either the document or folder were was last modified.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -487,6 +811,60 @@
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R636</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In LastModifiedDate] Protocol version 12.0 supports this [LastModifiedDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R637</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In LastModifiedDate] Protocol version 12.1 supports this [LastModifiedDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R638</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In LastModifiedDate] Protocol version 14.0 supports this [LastModifiedDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R639</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In LastModifiedDate] Protocol version 14.1 supports this [LastModifiedDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R640</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In LastModifiedDate] Protocol version 16.0 supports this [LastModifiedDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R641</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7</ns1:Doc_Sect>
+		<ns1:Description>[In LastModifiedDate] Protocol version 16.1 supports this [LastModifiedDate] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R57</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
 		<ns1:Description>[In LinkId] The LinkId element specifies the link to the document in the form of a URI.</ns1:Description>
@@ -498,7 +876,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R58</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In LinkId] It[LinkId] is a required child element of the itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.63.1) for Document class items in an ItemOperations command request.</ns1:Description>
+		<ns1:Description>[In LinkId] It[LinkId] is a required child element of the itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.67.1) for Document class items in an ItemOperations command request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -507,7 +885,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R121</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In LinkId] It[LinkId] is a required child element of the itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.63.1) for Document class items in an ItemOperations command response ([MS-ASCMD] section 2.2.2.8).</ns1:Description>
+		<ns1:Description>[In LinkId] It[LinkId] is a required child element of the itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.63.1) for Document class items in an ItemOperations command response ([MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -516,7 +894,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R122</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In LinkId] It[LinkId] is a required child element of the search:EqualTo element ([MS-ASCMD] section 2.2.3.59) for Document class items in a Search command request ([MS-ASCMD] section 2.2.2.14).</ns1:Description>
+		<ns1:Description>[In LinkId] It[LinkId] is a required child element of the search:EqualTo element ([MS-ASCMD] section 2.2.3.62) for Document class items in a Search command request ([MS-ASCMD] section 2.2.1.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -525,7 +903,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R123</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In LinkId] It[LinkId] is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response.</ns1:Description>
+		<ns1:Description>[In LinkId] It[LinkId] is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -538,6 +916,60 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R642</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In LinkId] Protocol version 12.0 supports this [LinkId] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R643</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In LinkId] Protocol version 12.1 supports this [LinkId] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R644</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In LinkId] Protocol version 14.0 supports this [LinkId] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R645</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In LinkId] Protocol version 14.1 supports this [LinkId] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R646</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In LinkId] Protocol version 16.0 supports this [LinkId] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASDOC_R647</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In LinkId] Protocol version 16.1 supports this [LinkId] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -597,7 +1029,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R66</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Searching for Documents] The client searches for Document class data on a server by sending a Search command request ([MS-ASCMD] section 2.2.2.14) to the server.</ns1:Description>
+		<ns1:Description>[In Searching for Documents] The client searches for Document class data on a server by sending a Search command request ([MS-ASCMD] section 2.2.1.16) to the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -606,7 +1038,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R67</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting Details for Specific Documents] The client requests Document class data for one or more individual documents by sending an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) to the server that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.63.1).</ns1:Description>
+		<ns1:Description>[In Requesting Details for Specific Documents] The client requests Document class data for one or more individual documents by sending an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) to the server that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.67.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -615,7 +1047,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R68</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting the Document Body from the Server] Because the body of the document is not returned as part of the Document class data, the client submits the value of the LinkID element (section 2.2.2.8) in a separate ItemOperations command request ([MS-ASCMD] section 2.2.2.8) to obtain the body of the document.</ns1:Description>
+		<ns1:Description>[In Requesting the Document Body from the Server] Because the body of the document is not returned as part of the Document class data, the client submits the value of the LinkID element (section 2.2.2.8) in a separate ItemOperations command request ([MS-ASCMD] section 2.2.1.10) to obtain the body of the document.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -624,7 +1056,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R69</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting the Document Body from the Server] The body of the document is returned as [either] text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.1) of the ItemOperations command response [or as binary data], depending on the content type that the client requested.</ns1:Description>
+		<ns1:Description>[In Requesting the Document Body from the Server] The body of the document is returned as [either] text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.2) of the ItemOperations command response [or as binary data], depending on the content type that the client requested.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -633,7 +1065,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R124</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Requesting the Document Body from the Server] The body of the document is returned as [either text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.1) of the ItemOperations command response or as] binary data, depending on the content type that the client requested.</ns1:Description>
+		<ns1:Description>[In Requesting the Document Body from the Server] The body of the document is returned as [either text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.2) of the ItemOperations command response or as] binary data, depending on the content type that the client requested.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -669,7 +1101,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R73</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Request] A client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.63.1) to retrieve data from the server for one or more individual documents.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Request] A client uses an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) that contains one or more itemoperations:Fetch elements ([MS-ASCMD] section 2.2.3.67.1) to retrieve data from the server for one or more individual documents.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -687,7 +1119,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R75</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Request] The LinkId element is transmitted as a child element of the itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.63.1).</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Request] The LinkId element is transmitted as a child element of the itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.67.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -714,7 +1146,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R78</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Request] For more details about this header (2), see [MS-ASCMD] section 2.2.2.8.1.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Request] For more details about this header (2), see [MS-ASCMD] section 2.2.1.10.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -723,7 +1155,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R80</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Request] A client uses the Search command request ([MS-ASCMD] section 2.2.2.14) to retrieve Document class items that match the criteria specified by the client.</ns1:Description>
+		<ns1:Description>[In Search Command Request] A client uses the Search command request ([MS-ASCMD] section 2.2.1.16) to retrieve Document class items that match the criteria specified by the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -732,7 +1164,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R81</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Request] The LinkId element (section 2.2.2.8) is a required element in a Search command request, and is transmitted as a child element of the search:EqualTo element ([MS-ASCMD] section 2.2.3.59).</ns1:Description>
+		<ns1:Description>[In Search Command Request] The LinkId element (section 2.2.2.8) is a required element in a Search command request, and is transmitted as a child element of the search:EqualTo element ([MS-ASCMD] section 2.2.3.62).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -741,7 +1173,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R82</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Request] The search:Value element ([MS-ASCMD] section 2.2.3.180) can also be included as a child of the search:EqualTo element.</ns1:Description>
+		<ns1:Description>[In Search Command Request] The search:Value element ([MS-ASCMD] section 2.2.3.196) can also be included as a child of the search:EqualTo element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -759,7 +1191,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R84</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Request] A full example of this usage is provided in [MS-ASCMD] section 4.22.1.</ns1:Description>
+		<ns1:Description>[In Search Command Request] A full example of this usage is provided in [MS-ASCMD] section 4.23.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -840,7 +1272,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R94</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Searching for Documents] The server responds with a Search command response ([MS-ASCMD] section 2.2.2.14).</ns1:Description>
+		<ns1:Description>[In Searching for Documents] The server responds with a Search command response ([MS-ASCMD] section 2.2.1.16).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -858,7 +1290,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R96</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Retrieving Details for Specific Documents] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.2.8).</ns1:Description>
+		<ns1:Description>[In Retrieving Details for Specific Documents] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -876,7 +1308,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R98</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Retrieving the Document Body] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.2.8), which returns the body of the document as text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.2.8) of the response if the command request was not a multi-part request.</ns1:Description>
+		<ns1:Description>[In Retrieving the Document Body] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.1.10), which returns the body of the document as text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.2) of the response if the command request was not a multi-part request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -885,7 +1317,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R120</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Retrieving the Document Body] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.2.8), which returns the body of the document as binary text in multiple parts if the command request was a multi-part request.</ns1:Description>
+		<ns1:Description>[In Retrieving the Document Body] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.1.10), which returns the body of the document as binary text in multiple parts if the command request was a multi-part request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -912,7 +1344,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R101</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) to retrieve data from the server for one or more individual documents, as specified in section 3.1.5.1, the server responds with an ItemOperations command response.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) to retrieve data from the server for one or more individual documents, as specified in section 3.1.5.1, the server responds with an ItemOperations command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -948,7 +1380,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R105</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] The LinkId element is transmitted as a child element of the Itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.63.1).</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] The LinkId element is transmitted as a child element of the Itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.67.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -966,7 +1398,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R107</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] Otherwise[an ItemOperations command request for the body of the document was not made using the MS-ASAcceptMultiPart: T header (2) ], the server MUST transmit the document as data encoded with base64 encoding within the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.1) of the ItemOperations command response.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] Otherwise[an ItemOperations command request for the body of the document was not made using the MS-ASAcceptMultiPart: T header (2) ], the server MUST transmit the document as data encoded with base64 encoding within the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.2) of the ItemOperations command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -975,7 +1407,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R108</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] For more details about content delivery for documents, see [MS-ASCMD] section 2.2.2.8.1.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] For more details about content delivery for documents, see [MS-ASCMD] section 2.2.1.10.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -984,7 +1416,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R109</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In ItemOperations Command Response] The ItemOperations command is specified in [MS-ASCMD] section 2.2.2.8.</ns1:Description>
+		<ns1:Description>[In ItemOperations Command Response] The ItemOperations command is specified in [MS-ASCMD] section 2.2.1.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -993,7 +1425,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R110</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Response] When a client uses the Search command request ([MS-ASCMD] section 2.2.2.14) to retrieve Document class items that match the criteria specified by the client, as specified in section 3.1.5.2, the server responds with a Search command response.</ns1:Description>
+		<ns1:Description>[In Search Command Response] When a client uses the Search command request ([MS-ASCMD] section 2.2.1.16) to retrieve Document class items that match the criteria specified by the client, as specified in section 3.1.5.2, the server responds with a Search command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1029,7 +1461,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R114</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Search Command Response] Document class elements are returned as child elements of the search:Properties element ([MS-ASCMD] section 2.2.3.128) in a Search command response.</ns1:Description>
+		<ns1:Description>[In Search Command Response] Document class elements are returned as child elements of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) in a Search command response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1038,7 +1470,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R1</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms SHOULD or SHOULD NOT implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, any statement of optional behavior in this specification that is prescribed using the terms "SHOULD" or "SHOULD NOT"  implies product behavior in accordance with the SHOULD or SHOULD NOT prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1047,7 +1479,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASDOC_R2</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term MAY implies that the product does not follow the prescription.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Unless otherwise specified, the term "MAY"  implies that the product does not follow the prescription.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>

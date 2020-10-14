@@ -76,7 +76,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 Site.CaptureRequirementIfIsNotNull(
                     syncResult.Email.ConversationId,
                     74,
-                    @"[In ConversationId (Sync)] The email2:ConversationId element ([MS-ASEMAIL] section 2.2.2.14) is a required child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in a Sync command response ([MS-ASCMD] section 2.2.2.19) that specifies the conversation ID of a conversation.");
+                    @"[In ConversationId (Sync)] The email2:ConversationId element ([MS-ASEMAIL] section 2.2.2.21) is a required child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in a Sync command response ([MS-ASCMD] section 2.2.1.21) that specifies the conversation ID of a conversation.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R76");
@@ -86,7 +86,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 Site.CaptureRequirementIfIsNotNull(
                     syncResult.Email.ConversationId,
                     76,
-                    @"[In ConversationId (Sync)] The value of this [email2:ConversationId] element is a byte array, as specified in [MS-ASDTYPE] section 2.6.1.");
+                    @"[In ConversationId (Sync)] The value of this [email2:ConversationId] element is a byte array, as specified in [MS-ASDTYPE] section 2.7.1.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R195");
@@ -96,7 +96,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 Site.CaptureRequirementIfIsNotNull(
                     syncResult.Email.ConversationId,
                     195,
-                    @"[In Higher-Layer Triggered Events] The conversation ID is specified by the email2:ConversationId element ([MS-ASEMAIL] section 2.2.2.14) that is included in the Email class.");
+                    @"[In Higher-Layer Triggered Events] The conversation ID is specified by the email2:ConversationId element ([MS-ASEMAIL] section 2.2.2.21) that is included in the Email class.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R79");
@@ -106,7 +106,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 Site.CaptureRequirementIfIsNotNull(
                     syncResult.Email.ConversationIndex,
                     79,
-                    @"[In ConversationIndex] The email2:ConversationIndex element ([MS-ASEMAIL] section 2.2.2.15) is a required child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in a Sync command response ([MS-ASCMD] section 2.2.2.19) that specifies the conversation index for an e-mail message.");
+                    @"[In ConversationIndex] The email2:ConversationIndex element ([MS-ASEMAIL] section 2.2.2.22) is a required child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) in a Sync command response ([MS-ASCMD] section 2.2.1.21) that specifies the conversation index for an e-mail message.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R196");
@@ -116,7 +116,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 Site.CaptureRequirementIfIsNotNull(
                     syncResult.Email.ConversationIndex,
                     196,
-                    @"[In Higher-Layer Triggered Events] The conversation index is specified by the email2:ConversationIndex element ([MS-ASEMAIL] section 2.2.2.15) that is included in the Email class.");
+                    @"[In Higher-Layer Triggered Events] The conversation index is specified by the email2:ConversationIndex element ([MS-ASEMAIL] section 2.2.2.22) that is included in the Email class.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R81");
@@ -126,7 +126,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 Site.CaptureRequirementIfIsNotNull(
                     syncResult.Email.ConversationIndex,
                     81,
-                    @"[In ConversationIndex] The value of this element [email2:ConversationIndex] is a byte array, as specified in [MS-ASDTYPE] section 2.6.1.");
+                    @"[In ConversationIndex] The value of this element [email2:ConversationIndex] is a byte array, as specified in [MS-ASDTYPE] section 2.7.1.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R93");
@@ -159,12 +159,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                     Site.CaptureRequirement(
                         47,
                         @"[In BodyPart] It [airsyncbase:BodyPart element] has the following child elements:
-airsyncbase:Status ([MS-ASAIRS] section 2.2.2.19)
-airsyncbase:Type ([MS-ASAIRS] section 2.2.2.22.2)
-airsyncbase:EstimatedDataSize ([MS-ASAIRS] section 2.2.2.12.3)
-airsyncbase:Truncated ([MS-ASAIRS] section 2.2.2.20.2)
-airsyncbase:Data ([MS-ASAIRS] section 2.2.2.10.2)
-airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.18.2).");
+airsyncbase:Status ([MS-ASAIRS] section 2.2.2.37)
+airsyncbase:Type ([MS-ASAIRS] section 2.2.2.41.2)
+airsyncbase:EstimatedDataSize ([MS-ASAIRS] section 2.2.2.23.3)
+airsyncbase:Truncated ([MS-ASAIRS] section 2.2.2.39.2)
+airsyncbase:Data ([MS-ASAIRS] section 2.2.2.20.2)
+airsyncbase:Preview ([MS-ASAIRS] section 2.2.2.35.2).");
 
                     this.VerifyContainerDataType();
                 }
@@ -220,7 +220,7 @@ itemoperations:Status (section 2.2.2.10).");
                     Site.CaptureRequirementIfIsNotNull(
                         move.ConversationId,
                         70,
-                        @"[In ConversationId (ItemOperations)] The value of this element [itemoperations:ConversationId] is a byte array, as specified in [MS-ASDTYPE] section 2.6.1.");
+                        @"[In ConversationId (ItemOperations)] The value of this element [itemoperations:ConversationId] is a byte array, as specified in [MS-ASDTYPE] section 2.7.1.");
 
                     this.VerifyStringDataType();
 
@@ -232,7 +232,7 @@ itemoperations:Status (section 2.2.2.10).");
                     Site.CaptureRequirementIfIsNotNull(
                         move.Status,
                         139,
-                        @"[In Status] The itemoperations:Status element ([MS-ASCMD] section 2.2.3.162.7) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.107.1) in the ItemOperations command response ([MS-ASCMD] section 2.2.2.8) that specifies the status of the move operation.");
+                        @"[In Status] The itemoperations:Status element ([MS-ASCMD] section 2.2.3.177.8) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.117.1) in the ItemOperations command response ([MS-ASCMD] section 2.2.1.10) that specifies the status of the move operation.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R142");
@@ -242,7 +242,7 @@ itemoperations:Status (section 2.2.2.10).");
                     Site.CaptureRequirementIfIsNotNull(
                         move.Status,
                         142,
-                        @"[In Status] The value of this [itemoperations:Status] element is an integer, as specified in [MS-ASDTYPE] section 2.5.");
+                        @"[In Status] The value of this [itemoperations:Status] element is an integer, as specified in [MS-ASDTYPE] section 2.6.");
 
                     this.VerifyIntegerDataType();
                 }

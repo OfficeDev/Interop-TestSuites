@@ -2,10 +2,11 @@
 <TestSettings name="MS-ASCAL" id="e32f81a7-1900-4a0f-a1b5-7b38c89c48fe" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-ASCAL test cases.</Description>
   <Deployment>
+    <DeploymentItem filename="TestSuite\MS-ASCAL_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-ASCAL.runsettings" />
     <DeploymentItem filename="TestSuite\MS-ASCAL_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASCAL_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASCAL_TestSuite.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASCAL_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASCAL_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
     <DeploymentItem filename="TestSuite\MS-ASCAL_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
