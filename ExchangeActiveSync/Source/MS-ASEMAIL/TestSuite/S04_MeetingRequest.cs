@@ -135,7 +135,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 location.PostalCode = "Location sample postal code";
                 location.State = "Location sample state";
                 location.Street = "Location sample street";
-                elementsToValueMap.Add(Request.ItemsChoiceType8.Location1, location);
+                elementsToValueMap.Add(Request.ItemsChoiceType8.Location, location);
             }
 
             // Call Sync command with Add element to add a meeting

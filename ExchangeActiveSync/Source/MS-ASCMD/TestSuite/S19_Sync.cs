@@ -4256,7 +4256,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         ItemsElementName =
                             new Request.ItemsChoiceType8[]
                         {
-                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
+                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location1,
                             Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime,
                             Request.ItemsChoiceType8.UID
                         },
@@ -4458,7 +4458,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         ItemsElementName =
                             new Request.ItemsChoiceType8[] 
                             { 
-                                Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
+                                Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location1,
                                 Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime,
                                 Request.ItemsChoiceType8.Recurrence, Request.ItemsChoiceType8.Exceptions,
                                 Request.ItemsChoiceType8.UID

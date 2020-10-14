@@ -3453,10 +3453,8 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
         
         private string intervalField;
         
-        private System.DateTime untilField;
-        
-        private bool untilFieldSpecified;
-        
+        private string untilField;
+                
         private string occurrencesField;
         
         private string weekOfMonthField;
@@ -3499,23 +3497,12 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
         }
         
         /// <remarks/>
-        public System.DateTime Until {
+        public string Until {
             get {
                 return this.untilField;
             }
             set {
                 this.untilField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool UntilSpecified {
-            get {
-                return this.untilFieldSpecified;
-            }
-            set {
-                this.untilFieldSpecified = value;
             }
         }
         
@@ -8298,6 +8285,8 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
         [System.Xml.Serialization.XmlElementAttribute("Sender", typeof(string), Namespace="Email2")]
         [System.Xml.Serialization.XmlElementAttribute("UmCallerID", typeof(string), Namespace="Email2")]
         [System.Xml.Serialization.XmlElementAttribute("UmUserNotes", typeof(string), Namespace="Email2")]
+        [System.Xml.Serialization.XmlElementAttribute("Bcc", typeof(string), Namespace = "Email2")]
+        [System.Xml.Serialization.XmlElementAttribute("IsDraft", typeof(bool), Namespace = "Email2")]
         [System.Xml.Serialization.XmlElementAttribute("Categories", typeof(Categories2), Namespace="Email")]
         [System.Xml.Serialization.XmlElementAttribute("Cc", typeof(string), Namespace="Email")]
         [System.Xml.Serialization.XmlElementAttribute("ContentClass", typeof(string), Namespace="Email")]
@@ -8788,7 +8777,15 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
         /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("Email2:UmUserNotes")]
         UmUserNotes,
-        
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Email2:Bcc")]
+        Bcc,
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("Email2:IsDraft")]
+        IsDraft,
+
         /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("Email:Categories")]
         Categories1,

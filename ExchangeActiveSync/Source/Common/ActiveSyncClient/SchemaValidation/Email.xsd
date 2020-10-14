@@ -55,7 +55,7 @@
                    <xs:sequence>
                      <xs:element name="Type" type="xs:unsignedByte"/>
                      <xs:element name="Interval" type="xs:integer"/>
-                     <xs:element name="Until" type="xs:dateTime" minOccurs="0"/>
+                     <xs:element name="Until" type="xs:string" minOccurs="0"/>
                      <xs:element name="Occurrences" type="xs:integer" 
                          minOccurs="0"/>
                      <xs:element name="WeekOfMonth" type="xs:integer" 

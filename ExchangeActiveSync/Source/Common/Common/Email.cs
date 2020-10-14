@@ -408,12 +408,12 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                         case Response.ItemsChoiceType6.Subject1:
                             Common.SetSpecifiedPropertyValueByName(obj, "Subject", searchResultProperties.Items[itemIndex]);
                             break;
-                        //case Response.ItemsChoiceType6.Bcc:
-                        //    Common.SetSpecifiedPropertyValueByName(obj, "Bcc", searchResultProperties.Items[itemIndex]);
-                        //    break;
-                        //case Response.ItemsChoiceType6.IsDraft:
-                        //    Common.SetSpecifiedPropertyValueByName(obj, "IsDraft", searchResultProperties.Items[itemIndex]);
-                        //    break;
+                        case Response.ItemsChoiceType6.Bcc:
+                            Common.SetSpecifiedPropertyValueByName(obj, "Bcc", searchResultProperties.Items[itemIndex]);
+                            break;
+                        case Response.ItemsChoiceType6.IsDraft:
+                            Common.SetSpecifiedPropertyValueByName(obj, "IsDraft", searchResultProperties.Items[itemIndex]);
+                            break;
                         case Response.ItemsChoiceType6.Cc:
                             Common.SetSpecifiedPropertyValueByName(obj, "CC", searchResultProperties.Items[itemIndex]);
                             break;

@@ -218,7 +218,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
 
                 if (addResult.AddElements != null && addResult.AddElements.Count > 0)
                 {
-                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1")|| Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
                     {
                         if (addResult.CollectionStatus==1&& result.AddElements[0].Note.Subject.ToString()==addElements[Request.ItemsChoiceType8.Subject1].ToString())
                         {
@@ -238,7 +238,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
                 }
                 else if (addResult.AddResponses != null && addResult.AddResponses.Count > 0)
                 {
-                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
+                    if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1")||Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
                     {
                         if (addResult.CollectionStatus == 1 && result.AddElements[0].Note.Subject.ToString() == addElements[Request.ItemsChoiceType8.Subject1].ToString())
                         {
