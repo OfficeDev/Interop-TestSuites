@@ -1179,7 +1179,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             elementsToValueMap.Add(Request.ItemsChoiceType8.AllDayEvent, (byte)1);
 
             // Set the reminder to 10 minutes.
-            elementsToValueMap.Add(Request.ItemsChoiceType8.Reminder, (uint)10);
+            elementsToValueMap.Add(Request.ItemsChoiceType8.Reminder, "10");
 
             this.SyncAddMeeting(this.User1Information.CalendarCollectionId, elementsToValueMap);
 
@@ -1753,7 +1753,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
 
             Dictionary<Request.ItemsChoiceType8, object> elementsToValueMap = new Dictionary<Request.ItemsChoiceType8, object>();
             elementsToValueMap.Add(Request.ItemsChoiceType8.Subject, recurrenceCalendarSubject);
-            elementsToValueMap.Add(Request.ItemsChoiceType8.Location, location);
+            elementsToValueMap.Add(Request.ItemsChoiceType8.Location1, location);
             elementsToValueMap.Add(Request.ItemsChoiceType8.StartTime, startTime.ToString("yyyyMMddTHHmmssZ"));
             elementsToValueMap.Add(Request.ItemsChoiceType8.EndTime, endTime.ToString("yyyyMMddTHHmmssZ"));
             elementsToValueMap.Add(Request.ItemsChoiceType8.Recurrence, recurrence);
@@ -1811,7 +1811,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Request.SyncCollectionChangeApplicationData changeCalednarData = new Request.SyncCollectionChangeApplicationData();
             changeCalednarData.ItemsElementName = new Request.ItemsChoiceType7[] 
             { 
-                Request.ItemsChoiceType7.Location,
+                Request.ItemsChoiceType7.Location1,
                 Request.ItemsChoiceType7.Recurrence,
                 Request.ItemsChoiceType7.Exceptions,
                 Request.ItemsChoiceType7.UID,
