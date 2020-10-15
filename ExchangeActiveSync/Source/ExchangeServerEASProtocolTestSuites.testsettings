@@ -10,7 +10,7 @@
     <DeploymentItem filename="MS-ASAIRS\TestSuite\MS-ASAIRS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASEMAIL\TestSuite\MS-ASEMAIL_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCON\TestSuite\MS-ASCON_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-ASNOTE\TestSuite\MS-ASNOTE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ASCNTC\TestSuite\MS-ASCNTC_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASEMAIL\TestSuite\MS-ASEMAIL_RequirementSpecification.xml" />
     <DeploymentItem filename="Common\ActiveSyncClient\SchemaValidation\" />
     <DeploymentItem filename="MS-ASCAL\TestSuite\MS-ASCAL_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
@@ -68,7 +68,7 @@
     <DeploymentItem filename="MS-ASRM\TestSuite\MS-ASRM_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASHTTP\TestSuite\MS-ASHTTP_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCMD\TestSuite\MS-ASCMD_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ASHTTP\TestSuite\MS-ASHTTP_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASRM\TestSuite\MS-ASRM_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCAL\TestSuite\MS-ASCAL_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASNOTE\TestSuite\MS-ASNOTE_TestSuite.ptfconfig" />
@@ -77,6 +77,7 @@
     <DeploymentItem filename="MS-ASRM\TestSuite\MS-ASRM_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCNTC\TestSuite\MS-ASCNTC_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASEMAIL\TestSuite\MS-ASEMAIL_TestSuite.ptfconfig" />
+    <DeploymentItem filename="Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASTASK\TestSuite\MS-ASTASK_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCON\TestSuite\MS-ASCON_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCMD\TestSuite\Resources\number1.jpg" />
@@ -84,6 +85,7 @@
     <DeploymentItem filename="MS-ASPROV\TestSuite\MS-ASPROV_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCNTC\TestSuite\MS-ASCNTC_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCNTC\TestSuite\MS-ASCNTC_RequirementSpecification.xml" />
+    <DeploymentItem filename="MS-ASNOTE\TestSuite\MS-ASNOTE_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASAIRS\TestSuite\MS-ASAIRS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-ASHTTP\TestSuite\MS-ASHTTP_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASDOC\TestSuite\MS-ASDOC_RequirementSpecification.xml" />
@@ -92,6 +94,7 @@
     <DeploymentItem filename="MS-ASCAL\TestSuite\MS-ASCAL_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-ASCON\TestSuite\MS-ASCON_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCMD\TestSuite\MS-ASCMD_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ASCNTC\TestSuite\MS-ASCNTC_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASEMAIL\TestSuite\Resources\" />
     <DeploymentItem filename="MS-ASHTTP\TestSuite\MS-ASHTTP_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-ASCON\TestSuite\MS-ASCON_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
@@ -99,7 +102,7 @@
     <DeploymentItem filename="MS-ASDOC\TestSuite\MS-ASDOC_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-ASAIRS\TestSuite\Resources\" />
     <DeploymentItem filename="MS-ASPROV\TestSuite\MS-ASPROV_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-ASCNTC\TestSuite\MS-ASCNTC_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ASNOTE\TestSuite\MS-ASNOTE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASCON\TestSuite\MS-ASCON_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASTASK\TestSuite\MS-ASTASK_TestSuite.deployment.ptfconfig" />
   </Deployment>

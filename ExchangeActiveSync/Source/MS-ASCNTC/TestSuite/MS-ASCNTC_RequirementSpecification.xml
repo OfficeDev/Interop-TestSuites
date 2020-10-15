@@ -874,6 +874,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2004001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In AccountName] Protocol version 16.1 supports this [AccountName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R102</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In Alias] The Alias element specifies the user's alias.</ns1:Description>
@@ -956,6 +965,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2008001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Alias] Protocol version 16.1 supports this [Alias] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R107</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In Anniversary] The Anniversary element specifies the wedding anniversary date for the contact.</ns1:Description>
@@ -981,6 +999,15 @@
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R109001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Anniversary] The time portion of the dateTime value might be 11:59 and SHOULD be ignored, so that synchronizing between different time zones does not change he date.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R110</ns1:REQ_ID>
@@ -1118,6 +1145,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2016001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In AssistantName] Protocol version 16.1 supports this [AssistantName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R117</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
 		<ns1:Description>[In AssistantPhoneNumber] The AssistantPhoneNumber element specifies the phone number of the contact's assistant.</ns1:Description>
@@ -1199,6 +1235,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2020001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In AssistantPhoneNumber] Protocol version 16.1 supports this [AssistantPhoneNumber] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R122</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
 		<ns1:Description>[In Birthday] The Birthday element specifies the birth date of the contact.</ns1:Description>
@@ -1228,7 +1273,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R999</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In Birthday] The time portion of the datetime value SHOULD be ignored, so that synchronizing between different time zones does not change the date.</ns1:Description>
+		<ns1:Description>[In Birthday] The time portion of the datetime value might be 11:59 and SHOULD be ignored, so that synchronizing between different time zones does not change the date.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1283,6 +1328,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2024</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
 		<ns1:Description>[In Birthday] Protocol version 16.0 supports this [Birthday] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2024001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In Birthday] Protocol version 16.1 supports this [Birthday] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1355,6 +1409,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2028</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.7.1</ns1:Doc_Sect>
 		<ns1:Description>[In Body (AirSyncBase Namespace)] Protocol version 16.0 supports this [Body (AirSyncBase Namespace)] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2028001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.7.1</ns1:Doc_Sect>
+		<ns1:Description>[In Body (AirSyncBase Namespace)] Protocol version 16.1 supports this [Body (AirSyncBase Namespace)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1442,6 +1505,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2032001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.10</ns1:Doc_Sect>
+		<ns1:Description>[In BusinessAddressCity] Protocol version 16.1 supports this [BusinessAddressCity] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R135</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
 		<ns1:Description>[In BusinessAddressCountry] The BusinessAddressCountry element specifies the business country/region of the contact.</ns1:Description>
@@ -1517,6 +1589,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2036</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
 		<ns1:Description>[In BusinessAddressCountry] Protocol version 16.0 supports this [BusinessAddressCountry] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2036001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.11</ns1:Doc_Sect>
+		<ns1:Description>[In BusinessAddressCountry] Protocol version 16.1 supports this [BusinessAddressCountry] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1604,6 +1685,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2040001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In BusinessAddressPostalCode] Protocol version 16.1 supports this [BusinessAddressPostalCode] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R143</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
 		<ns1:Description>[In BusinessAddressState] The BusinessAddressState element specifies the business state for the contact.</ns1:Description>
@@ -1679,6 +1769,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2044</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
 		<ns1:Description>[In BusinessAddressState] Protocol version 16.0 supports this [BusinessAddressState] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2044001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In BusinessAddressState] Protocol version 16.1 supports this [BusinessAddressState] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1766,6 +1865,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2048001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In BusinessAddressStreet] Protocol version 16.1 supports this [BusinessAddressStreet] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R153</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
 		<ns1:Description>[In BusinessFaxNumber] The BusinessFaxNumber element specifies the business fax number for the contact.</ns1:Description>
@@ -1841,6 +1949,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2052</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
 		<ns1:Description>[In BusinessFaxNumber] Protocol version 16.0 supports this [BusinessFaxNumber] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2052001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In BusinessFaxNumber] Protocol version 16.1 supports this [BusinessFaxNumber] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1928,6 +2045,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2056001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In BusinessPhoneNumber] Protocol version 16.1 supports this [BusinessPhoneNumber] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R163</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
 		<ns1:Description>[In Business2PhoneNumber] The Business2PhoneNumber element specifies the secondary business telephone number for the contact.</ns1:Description>
@@ -2009,6 +2135,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2060001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.17</ns1:Doc_Sect>
+		<ns1:Description>[In Business2PhoneNumber] Protocol version 16.1 supports this [Business2PhoneNumber] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R168</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
 		<ns1:Description>[In CarPhoneNumber] The CarPhoneNumber element specifies the car telephone number for the contact.</ns1:Description>
@@ -2084,6 +2219,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2064</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
 		<ns1:Description>[In CarPhoneNumber] Protocol version 16.0 supports this [CarPhoneNumber] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2064001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.18</ns1:Doc_Sect>
+		<ns1:Description>[In CarPhoneNumber] Protocol version 16.1 supports this [CarPhoneNumber] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2180,6 +2324,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2068001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.19</ns1:Doc_Sect>
+		<ns1:Description>[In Categories] Protocol version 16.1 supports this [Categories] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R179</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In Category] The Category element is a required child element of the Categories element (section 2.2.2.17) that specifies a category that is assigned to the contact.</ns1:Description>
@@ -2264,6 +2417,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2072</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
 		<ns1:Description>[In Category] Protocol version 16.0 supports this [Category] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2072001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.20</ns1:Doc_Sect>
+		<ns1:Description>[In Category] Protocol version 16.1 supports this [Category] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2360,6 +2522,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2076001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.21</ns1:Doc_Sect>
+		<ns1:Description>[In Children] Protocol version 16.1 supports this [Children] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R190</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In Child] The Child element is an optional child element of the Children element that specifies a child of the contact.</ns1:Description>
@@ -2444,6 +2615,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2080</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.22</ns1:Doc_Sect>
 		<ns1:Description>[In Child] Protocol version 16.0 supports this [Child] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2080001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.22</ns1:Doc_Sect>
+		<ns1:Description>[In Child] Protocol version 16.1 supports this [Child] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2612,6 +2792,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2088001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.24</ns1:Doc_Sect>
+		<ns1:Description>[In CompanyName] Protocol version 16.1 supports this [CompanyName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R205</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
 		<ns1:Description>[In CustomerId] The contacts2:CustomerId element specifies the customer identifier (ID) for the contact.</ns1:Description>
@@ -2693,6 +2882,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2092001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.25</ns1:Doc_Sect>
+		<ns1:Description>[In CustomerId] Protocol version 16.1 supports this [CustomerId] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R209</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
 		<ns1:Description>[In Department] The Department element specifies the department name for the contact.</ns1:Description>
@@ -2768,6 +2966,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2096</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
 		<ns1:Description>[In Department] Protocol version 16.0 supports this [Department] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2096001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.26</ns1:Doc_Sect>
+		<ns1:Description>[In Department] Protocol version 16.1 supports this [Department] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2873,6 +3080,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2100001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.27</ns1:Doc_Sect>
+		<ns1:Description>[In Email1Address] Protocol version 16.1 supports this [Email1Address] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R221</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
 		<ns1:Description>[In Email2Address] The Email2Address element specifies the second e-mail address for the contact.</ns1:Description>
@@ -2954,6 +3170,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2104001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
+		<ns1:Description>[In Email2Address] Protocol version 16.1 supports this [Email2Address] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R226</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In Email3Address] The Email3Address element specifies the third e-mail address for the contact.</ns1:Description>
@@ -3029,6 +3254,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2108</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In Email3Address] Protocol version 16.0 supports this [Email3Address] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2108001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
+		<ns1:Description>[In Email3Address] Protocol version 16.1 supports this [Email3Address] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3152,6 +3386,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2112001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.30</ns1:Doc_Sect>
+		<ns1:Description>[In FileAs] Protocol version 16.1 supports this [FileAs] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R238</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.31</ns1:Doc_Sect>
 		<ns1:Description>[In FirstName] The FirstName element specifies the first name of the contact.</ns1:Description>
@@ -3227,6 +3470,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2116</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.31</ns1:Doc_Sect>
 		<ns1:Description>[In FirstName] Protocol version 16.0 supports this [FirstName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2116001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.31</ns1:Doc_Sect>
+		<ns1:Description>[In FirstName] Protocol version 16.1 supports this [FirstName] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3314,6 +3566,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2120001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.32</ns1:Doc_Sect>
+		<ns1:Description>[In GovernmentId] Protocol version 16.1 supports this [GovernmentId] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R248</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
 		<ns1:Description>[In HomeAddressCity] The HomeAddressCity element specifies the home city for the contact.</ns1:Description>
@@ -3389,6 +3650,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2124</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
 		<ns1:Description>[In HomeAddressCity] Protocol version 16.0 supports this [HomeAddressCity] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2124001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
+		<ns1:Description>[In HomeAddressCity] Protocol version 16.1 supports this [HomeAddressCity] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3476,6 +3746,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2128001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.34</ns1:Doc_Sect>
+		<ns1:Description>[In HomeAddressCountry] Protocol version 16.1 supports this [HomeAddressCountry] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R258</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.35</ns1:Doc_Sect>
 		<ns1:Description>[In HomeAddressPostalCode] The HomeAddressPostalCode element specifies the home postal code for the contact.</ns1:Description>
@@ -3551,6 +3830,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2132</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.35</ns1:Doc_Sect>
 		<ns1:Description>[In HomeAddressPostalCode] Protocol version 16.0 supports this [HomeAddressPostalCode] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2132001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.35</ns1:Doc_Sect>
+		<ns1:Description>[In HomeAddressPostalCode] Protocol version 16.1 supports this [HomeAddressPostalCode] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3638,6 +3926,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2136001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.36</ns1:Doc_Sect>
+		<ns1:Description>[In HomeAddressState] Protocol version 16.1 supports this [HomeAddressState] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R268</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
 		<ns1:Description>[In HomeAddressStreet] The HomeAddressStreet element specifies the home street address for the contact.</ns1:Description>
@@ -3713,6 +4010,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2140</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
 		<ns1:Description>[In HomeAddressStreet] Protocol version 16.0 supports this [HomeAddressStreet] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2140001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
+		<ns1:Description>[In HomeAddressStreet] Protocol version 16.1 supports this [HomeAddressStreet] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3800,6 +4106,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2144001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.38</ns1:Doc_Sect>
+		<ns1:Description>[In HomeFaxNumber] Protocol version 16.1 supports this [HomeFaxNumber] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R278</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.39</ns1:Doc_Sect>
 		<ns1:Description>[In HomePhoneNumber] The HomePhoneNumber element specifies the home phone number for the contact.</ns1:Description>
@@ -3875,6 +4190,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2148</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.39</ns1:Doc_Sect>
 		<ns1:Description>[In HomePhoneNumber] Protocol version 16.0 supports this [HomePhoneNumber] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2148001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.39</ns1:Doc_Sect>
+		<ns1:Description>[In HomePhoneNumber] Protocol version 16.1 supports this [HomePhoneNumber] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3962,6 +4286,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2152001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.40</ns1:Doc_Sect>
+		<ns1:Description>[In Home2PhoneNumber] Protocol version 16.1 supports this [Home2PhoneNumber] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R288</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.41</ns1:Doc_Sect>
 		<ns1:Description>[In IMAddress] The contacts2:IMAddress element specifies the instant messaging address for the contact.</ns1:Description>
@@ -4037,6 +4370,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2156</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.41</ns1:Doc_Sect>
 		<ns1:Description>[In IMAddress] Protocol version 16.0 supports this [IMAddress] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2156001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.41</ns1:Doc_Sect>
+		<ns1:Description>[In IMAddress] Protocol version 16.1 supports this [IMAddress] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4124,6 +4466,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2160001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.42</ns1:Doc_Sect>
+		<ns1:Description>[In IMAddress2] Protocol version 16.1 supports this [IMAddress2] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R298</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.43</ns1:Doc_Sect>
 		<ns1:Description>[In IMAddress3] The contacts2:IMAddress3 element specifies the tertiary instant messaging address for the contact.</ns1:Description>
@@ -4199,6 +4550,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2164</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.43</ns1:Doc_Sect>
 		<ns1:Description>[In IMAddress3] Protocol version 16.0 supports this [IMAddress3] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2164001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.43</ns1:Doc_Sect>
+		<ns1:Description>[In IMAddress3] Protocol version 16.1 supports this [IMAddress3] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4286,6 +4646,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2168001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.44</ns1:Doc_Sect>
+		<ns1:Description>[In JobTitle] Protocol version 16.1 supports this [JobTitle] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R308</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.45</ns1:Doc_Sect>
 		<ns1:Description>[In LastName] The LastName element specifies the contact's last name.</ns1:Description>
@@ -4361,6 +4730,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2172</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.45</ns1:Doc_Sect>
 		<ns1:Description>[In LastName] Protocol version 16.0 supports this [LastName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2172001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.45</ns1:Doc_Sect>
+		<ns1:Description>[In LastName] Protocol version 16.1 supports this [LastName] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4448,6 +4826,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2176001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.46</ns1:Doc_Sect>
+		<ns1:Description>[In ManagerName] Protocol version 16.1 supports this [ManagerName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R318</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.47</ns1:Doc_Sect>
 		<ns1:Description>[In MiddleName] The MiddleName element specifies the middle name of the contact.</ns1:Description>
@@ -4523,6 +4910,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2180</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.47</ns1:Doc_Sect>
 		<ns1:Description>[In MiddleName] Protocol version 16.0 supports this [MiddleName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2180001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.47</ns1:Doc_Sect>
+		<ns1:Description>[In MiddleName] Protocol version 16.1 supports this [MiddleName] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4610,6 +5006,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2184001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.48</ns1:Doc_Sect>
+		<ns1:Description>[In MMS] Protocol version 16.1 supports this [MMS] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R328</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.49</ns1:Doc_Sect>
 		<ns1:Description>[In MobilePhoneNumber] The MobilePhoneNumber element specifies the mobile phone number for the contact.</ns1:Description>
@@ -4685,6 +5090,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2188</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.49</ns1:Doc_Sect>
 		<ns1:Description>[In MobilePhoneNumber] Protocol version 16.0 supports this [MobilePhoneNumber] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2188001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.49</ns1:Doc_Sect>
+		<ns1:Description>[In MobilePhoneNumber] Protocol version 16.1 supports this [MobilePhoneNumber] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4772,6 +5186,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2192001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.50</ns1:Doc_Sect>
+		<ns1:Description>[In NickName] Protocol version 16.1 supports this [NickName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R338</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.51</ns1:Doc_Sect>
 		<ns1:Description>[In OfficeLocation] The OfficeLocation element specifies the office location for the contact.</ns1:Description>
@@ -4847,6 +5270,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2196</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.51</ns1:Doc_Sect>
 		<ns1:Description>[In OfficeLocation] Protocol version 16.0 supports this [OfficeLocation] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2196001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.51</ns1:Doc_Sect>
+		<ns1:Description>[In OfficeLocation] Protocol version 16.1 supports this [OfficeLocation] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4934,6 +5366,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2200001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.52</ns1:Doc_Sect>
+		<ns1:Description>[In OtherAddressCity] Protocol version 16.1 supports this [OtherAddressCity] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R348</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.53</ns1:Doc_Sect>
 		<ns1:Description>[In OtherAddressCountry] The OtherAddressCountry element specifies the country/region of the contact's alternate address.</ns1:Description>
@@ -5009,6 +5450,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2204</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.53</ns1:Doc_Sect>
 		<ns1:Description>[In OtherAddressCountry] Protocol version 16.0 supports this [OtherAddressCountry] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2204001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.53</ns1:Doc_Sect>
+		<ns1:Description>[In OtherAddressCountry] Protocol version 16.1 supports this [OtherAddressCountry] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5096,6 +5546,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2208001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.54</ns1:Doc_Sect>
+		<ns1:Description>[In OtherAddressPostalCode] Protocol version 16.1 supports this [OtherAddressPostalCode] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R358</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.55</ns1:Doc_Sect>
 		<ns1:Description>[In OtherAddressState] The OtherAddressState element specifies the state of the contact's alternate address.</ns1:Description>
@@ -5171,6 +5630,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2212</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.55</ns1:Doc_Sect>
 		<ns1:Description>[In OtherAddressState] Protocol version 16.0 supports this [OtherAddressState] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2212001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.55</ns1:Doc_Sect>
+		<ns1:Description>[In OtherAddressState] Protocol version 16.1 supports this [OtherAddressState] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5258,6 +5726,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2216001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.56</ns1:Doc_Sect>
+		<ns1:Description>[In OtherAddressStreet] Protocol version 16.1 supports this [OtherAddressStreet] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R368</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.57</ns1:Doc_Sect>
 		<ns1:Description>[In PagerNumber] The PagerNumber element specifies the pager number for the contact.</ns1:Description>
@@ -5333,6 +5810,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2220</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.57</ns1:Doc_Sect>
 		<ns1:Description>[In PagerNumber] Protocol version 16.0 supports this [PagerNumber] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2220001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.57</ns1:Doc_Sect>
+		<ns1:Description>[In PagerNumber] Protocol version 16.1 supports this [PagerNumber] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5459,6 +5945,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2224001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.58</ns1:Doc_Sect>
+		<ns1:Description>[In Picture] Protocol version 16.1 supports this [Picture] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R385</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.59</ns1:Doc_Sect>
 		<ns1:Description>[In RadioPhoneNumber] The RadioPhoneNumber element specifies the radio phone number for the contact.</ns1:Description>
@@ -5534,6 +6029,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2228</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.59</ns1:Doc_Sect>
 		<ns1:Description>[In RadioPhoneNumber] Protocol version 16.0 supports this [RadioPhoneNumber] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2228001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.59</ns1:Doc_Sect>
+		<ns1:Description>[In RadioPhoneNumber] Protocol version 16.1 supports this [RadioPhoneNumber] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5621,6 +6125,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2232001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.60</ns1:Doc_Sect>
+		<ns1:Description>[In Spouse] Protocol version 16.1 supports this [Spouse] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R395</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.61</ns1:Doc_Sect>
 		<ns1:Description>[In Suffix] The Suffix element specifies the suffix for the contact's name.</ns1:Description>
@@ -5696,6 +6209,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2236</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.61</ns1:Doc_Sect>
 		<ns1:Description>[In Suffix] Protocol version 16.0 supports this [Suffix] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2236001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.61</ns1:Doc_Sect>
+		<ns1:Description>[In Suffix] Protocol version 16.1 supports this [Suffix] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5783,6 +6305,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2240001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.62</ns1:Doc_Sect>
+		<ns1:Description>[In Title] Protocol version 16.1 supports this [Title] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R405</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.63</ns1:Doc_Sect>
 		<ns1:Description>[In WebPage] The WebPage element specifies the Web site or personal Web page for the contact.</ns1:Description>
@@ -5858,6 +6389,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2244</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.63</ns1:Doc_Sect>
 		<ns1:Description>[In WebPage] Protocol version 16.0 supports this [WebPage] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2244001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.63</ns1:Doc_Sect>
+		<ns1:Description>[In WebPage] Protocol version 16.1 supports this [WebPage] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5963,6 +6503,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2248001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.64</ns1:Doc_Sect>
+		<ns1:Description>[In WeightedRank] Protocol version 16.1 supports this [WeightedRank] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R417</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.65</ns1:Doc_Sect>
 		<ns1:Description>[In YomiCompanyName] The YomiCompanyName element specifies the Japanese phonetic rendering of the company name for the contact.</ns1:Description>
@@ -6038,6 +6587,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2252</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.65</ns1:Doc_Sect>
 		<ns1:Description>[In YomiCompanyName] Protocol version 16.0 supports this [YomiCompanyName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2252001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.65</ns1:Doc_Sect>
+		<ns1:Description>[In YomiCompanyName] Protocol version 16.1 supports this [YomiCompanyName] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6125,6 +6683,15 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2256001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.66</ns1:Doc_Sect>
+		<ns1:Description>[In YomiFirstName] Protocol version 16.1 supports this [YomiFirstName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCNTC_R427</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.67</ns1:Doc_Sect>
 		<ns1:Description>[In YomiLastName] The YomiLastName element specifies the Japanese phonetic rendering of the last name of the contact.</ns1:Description>
@@ -6200,6 +6767,15 @@
 		<ns1:REQ_ID>MS-ASCNTC_R2260</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.67</ns1:Doc_Sect>
 		<ns1:Description>[In YomiLastName] Protocol version 16.0 supports this [YomiLastName] element.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCNTC_R2260001</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.67</ns1:Doc_Sect>
+		<ns1:Description>[In YomiLastName] Protocol version 16.1 supports this [YomiLastName] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
