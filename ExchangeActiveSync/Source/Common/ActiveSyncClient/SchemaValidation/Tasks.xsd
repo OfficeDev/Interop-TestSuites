@@ -29,7 +29,7 @@
              </xs:restriction>
            </xs:simpleType>
          </xs:element>
-         <xs:element name="Start" type="xs:dateTime"/>
+         <xs:element name="Start" type="xs:dateTime" minOccurs="0"/>
          <xs:element name="Until" type="xs:dateTime" minOccurs="0"/>
          <xs:element name="Occurrences" type="xs:unsignedByte" minOccurs="0"/> 
          <xs:element minOccurs="0" name="Interval">
