@@ -276,13 +276,13 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                         case Response.ItemsChoiceType6.Sensitivity1:
                             break;
                         case Response.ItemsChoiceType6.Location:                         
-                            if (protocolVer == "14.0")
+                            if (protocolVer == "14.0"|| protocolVer == "14.1")
                             {
                                 SetCalendarPropertyValue(obj, properties.ItemsElementName[itemIndex].ToString(), properties.Items[itemIndex]);
                             }
                             break;
                         case Response.ItemsChoiceType6.Location1:
-                            if (protocolVer == "14.0")
+                            if (protocolVer == "14.0" || protocolVer == "14.1")
                             {
                                 break;
                             }
