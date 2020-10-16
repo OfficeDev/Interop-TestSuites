@@ -94,8 +94,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             DataStructures.ItemOperations itemOperationsItem = this.GetItemOperationsResult(this.User2Information.InboxCollectionId, syncItem.ServerId, null, null, null, null);
             this.VerifyMethodElementValue(itemOperationsItem.Email, 1);
 
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, null, null, null);
-            this.VerifyMethodElementValue(searchItem.Email, 1);
+            if (Common.IsRequirementEnabled(53, this.Site))
+            {
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, null, null, null);
+                this.VerifyMethodElementValue(searchItem.Email, 1);
+            }
 
             // According to above steps, requirement MS-ASAIRS_R225 can be captured directly
             // Add the debug information
@@ -144,8 +147,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             DataStructures.ItemOperations itemOperationsItem = this.GetItemOperationsResult(this.User2Information.InboxCollectionId, syncItem.ServerId, null, null, null, null);
             this.VerifyMethodElementValue(itemOperationsItem.Email, 5);
 
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, null, null);
-            this.VerifyMethodElementValue(searchItem.Email, 5);
+            if (Common.IsRequirementEnabled(53, this.Site))
+            { 
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, null, null);
+                this.VerifyMethodElementValue(searchItem.Email, 5);
+            }
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R2299");
@@ -188,8 +194,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             DataStructures.ItemOperations itemOperationsItem = this.GetItemOperationsResult(this.User2Information.InboxCollectionId, syncItem.ServerId, null, null, null, null);
             this.VerifyMethodElementValue(itemOperationsItem.Email, 6);
 
-            DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, null, null);
-            this.VerifyMethodElementValue(searchItem.Email, 6);
+            if (Common.IsRequirementEnabled(53, this.Site))
+            {
+                DataStructures.Search searchItem = this.GetSearchResult(subject, this.User2Information.InboxCollectionId, itemOperationsItem.Email.ConversationId, null, null);
+                this.VerifyMethodElementValue(searchItem.Email, 6);
+            }
 
             // According to above steps, requirement MS-ASAIRS_R230 can be captured directly
             // Add the debug information

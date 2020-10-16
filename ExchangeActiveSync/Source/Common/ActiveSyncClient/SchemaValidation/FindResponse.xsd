@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <xs:schema
+         id="Find"
+         targetNamespace="Find:"
+         xmlns:mstns="Find:"
+         xmlns:itemoperations="ItemOperations"
+         xmlns:gal="GAL"
+         xmlns="Find:" xmlns:email="Email" xmlns:email2="Email2" xmlns:airsync="AirSync"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema"
+         attributeFormDefault="qualified"
+         elementFormDefault="qualified">
+     <xs:element name="Find">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element ref="Status" />
+          <xs:element name="Response" minOccurs="0">
+            <xs:complexType>
+              <xs:all>
+                <xs:element ref="itemoperations:Store"/>
+                <xs:element ref="Status"/>
+                <xs:element name="Result" minOccurs="0" maxOccurs="unbounded">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element ref="airsync:Class"/>
+                      <xs:element ref="airsync:ServerId"/>
+                      <xs:element ref="airsync:CollectionId"/>
+                      <xs:element name="Properties">
+                        <xs:complexType>
+                          <xs:group ref="FindProperties"/>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element ref="Range" minOccurs="0"/>
+                <xs:element name="Total" type="xs:integer"/>
+              </xs:all>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:element>
+    <xs:group name="FindProperties">
+      <xs:sequence>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="email:Subject"/>
+          <xs:element ref="email:DateReceived"/>
+          <xs:element ref="email:DisplayTo"/>
+          <xs:element name="DisplayCc" type="xs:string"/>
+          <xs:element name="DisplayBcc" type="xs:string"/>
+          <xs:element ref="email:Importance"/>
+          <xs:element ref="email:Read"/>
+          <xs:element ref="email2:IsDraft"/>
+          <xs:element name="Preview" type="xs:string"/>
+          <xs:element name="HasAttachments" type="xs:boolean"/>
+          <xs:element ref="email:From"/>
+          <xs:group ref="gal:TopLevelSchemaProps"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:group>
+  </xs:schema>

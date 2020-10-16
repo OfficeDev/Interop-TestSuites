@@ -1,73 +1,142 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="Tasks"
-    targetNamespace="Tasks" elementFormDefault="qualified"
-    attributeFormDefault="unqualified">
-  <xs:element name="Subject" type="xs:string"/>
-  <xs:element name="Importance" type="xs:unsignedByte"/>
-  <xs:element name="UtcStartDate" type="xs:dateTime"/>
-  <xs:element name="StartDate" type="xs:dateTime"/>
-  <xs:element name="UtcDueDate" type="xs:dateTime"/>
-  <xs:element name="DueDate" type="xs:dateTime"/>
-  <xs:element name="Categories">
-    <xs:complexType>
-      <xs:sequence minOccurs="0">
-        <xs:element name="Category" type="xs:string" maxOccurs="300"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Recurrence">
-    <xs:complexType>
-      <xs:all>
-        <xs:element name="Type" type="xs:unsignedByte"/>
-        <xs:element name="Start" type="xs:dateTime" minOccurs="0"/>
-        <xs:element name="Until" type="xs:dateTime" minOccurs="0"/>
-        <xs:element name="Occurrences" type="xs:unsignedByte" minOccurs="0"/>
-        <xs:element name="Interval" type="xs:unsignedShort" minOccurs="0"/>
-        <xs:element name="DayOfWeek" type="xs:unsignedByte" minOccurs="0"/>
-        <xs:element name="DayOfMonth" type="xs:unsignedByte" minOccurs="0"/>
-        <xs:element name="WeekOfMonth" type="xs:unsignedByte" minOccurs="0"/>
-        <xs:element name="MonthOfYear" type="xs:unsignedByte" minOccurs="0"/>
-        <xs:element name="Regenerate" type="xs:unsignedByte" minOccurs="0"/>
-        <xs:element name="DeadOccur" type="xs:unsignedByte" minOccurs="0"/>
-        <xs:element name="CalendarType" type="xs:unsignedByte" minOccurs="0"/>
-        <xs:element name="IsLeapMonth" type="xs:unsignedByte" minOccurs="0"/>
-        <xs:element name="FirstDayOfWeek" minOccurs="0">
-          <xs:simpleType>
-            <xs:restriction base="xs:unsignedByte">
-              <xs:minInclusive value="0"/>
-              <xs:maxInclusive value="6"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
-      </xs:all>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Complete" type="xs:unsignedByte"/>
-  <xs:element name="DateCompleted" type="xs:dateTime"/>
-  <xs:element name="Sensitivity" type="xs:unsignedByte"/>
-  <xs:element name="ReminderTime" type="xs:dateTime"/>
-  <xs:element name="ReminderSet" type="xs:unsignedByte"/>
-  <xs:element name="OrdinalDate" type="xs:dateTime"/>
-  <xs:element name="SubOrdinalDate" type="xs:string"/>
-  <xs:group name="AllProps">
-    <xs:sequence>
-      <xs:choice maxOccurs="unbounded">
-        <xs:element ref="Subject"/>
-        <xs:element ref="Importance"/>
-        <xs:element ref="UtcStartDate"/>
-        <xs:element ref="StartDate"/>
-        <xs:element ref="UtcDueDate"/>
-        <xs:element ref="DueDate"/>
-        <xs:element ref="Categories"/>
-        <xs:element ref="Recurrence"/>
-        <xs:element ref="Complete"/>
-        <xs:element ref="DateCompleted"/>
-        <xs:element ref="Sensitivity"/>
-        <xs:element ref="ReminderTime"/>
-        <xs:element ref="ReminderSet"/>
-        <xs:element ref="OrdinalDate"/>
-        <xs:element ref="SubOrdinalDate"/>
-      </xs:choice>
-    </xs:sequence>
-  </xs:group>
-</xs:schema>
+<?xml version="1.0" encoding="UTF-8"?>
+ <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="Tasks" 
+     targetNamespace="Tasks" elementFormDefault="qualified" 
+     attributeFormDefault="unqualified">
+   <xs:element name="Subject" type="xs:string"/>
+   <xs:element name="Body" type="xs:string"/>
+   <xs:element name="BodySize" type="xs:integer"/>
+   <xs:element name="BodyTruncated" type="xs:boolean"/>
+   <xs:element name="Importance" type="xs:unsignedByte"/>
+   <xs:element name="UtcStartDate" type="xs:dateTime"/>
+   <xs:element name="StartDate" type="xs:dateTime"/>
+   <xs:element name="UtcDueDate" type="xs:dateTime"/>
+   <xs:element name="DueDate" type="xs:dateTime"/>
+   <xs:element name="Categories">
+     <xs:complexType>
+       <xs:sequence minOccurs="0">
+         <xs:element name="Category" type="xs:string" maxOccurs="300"/>
+       </xs:sequence>
+     </xs:complexType>
+   </xs:element>
+   <xs:element name="Recurrence">
+     <xs:complexType>
+       <xs:all>
+         <xs:element minOccurs="1" name="Type">
+           <xs:simpleType>
+             <xs:restriction base="xs:unsignedByte">
+               <xs:minInclusive value="0"/>
+               <xs:maxInclusive value="6"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+         <xs:element name="Start" type="xs:dateTime" minOccurs="0"/>
+         <xs:element name="Until" type="xs:dateTime" minOccurs="0"/>
+         <xs:element name="Occurrences" type="xs:unsignedByte" minOccurs="0"/> 
+         <xs:element minOccurs="0" name="Interval">
+           <xs:simpleType>
+             <xs:restriction base="xs:unsignedShort">
+               <xs:minInclusive value="0"/>
+               <xs:maxInclusive value="999"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="DayOfWeek">
+           <xs:simpleType>
+             <xs:restriction base="xs:unsignedByte">
+               <xs:minInclusive value="1"/>
+               <xs:maxInclusive value="254"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="DayOfMonth">
+           <xs:simpleType>
+             <xs:restriction base="xs:unsignedByte">
+               <xs:minInclusive value="1"/>
+               <xs:maxInclusive value="31"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="WeekOfMonth">
+           <xs:simpleType>
+             <xs:restriction base="xs:unsignedByte">
+               <xs:minInclusive value="1"/>
+               <xs:maxInclusive value="5"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="MonthOfYear">
+           <xs:simpleType>
+             <xs:restriction base="xs:unsignedByte">
+               <xs:minInclusive value="1"/>
+               <xs:maxInclusive value="12"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+         <xs:element name="Regenerate" type="xs:unsignedByte" minOccurs="0"/>
+         <xs:element name="DeadOccur" type="xs:unsignedByte" minOccurs="0"/> 
+         <xs:element minOccurs="0" name="CalendarType">
+           <xs:simpleType>
+             <xs:restriction base="xs:unsignedByte">
+               <xs:minInclusive value="0"/>
+               <xs:maxInclusive value="23"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+         <xs:element minOccurs="0" name="IsLeapMonth">
+           <xs:simpleType>
+             <xs:restriction base="xs:unsignedByte">
+               <xs:minInclusive value="0"/>
+               <xs:maxInclusive value="1"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+         <xs:element name="FirstDayOfWeek" minOccurs="0">
+           <xs:simpleType>
+             <xs:restriction base="xs:unsignedByte">
+               <xs:minInclusive value="0"/>
+               <xs:maxInclusive value="6"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+       </xs:all>
+     </xs:complexType>
+   </xs:element>
+   <xs:element name="Complete" type="xs:unsignedByte"/>
+   <xs:element name="DateCompleted" type="xs:dateTime"/> 
+   <xs:element name="Sensitivity">
+     <xs:simpleType>
+       <xs:restriction base="xs:unsignedByte">
+         <xs:minInclusive value="0"/>
+         <xs:maxInclusive value="3"/>
+       </xs:restriction>
+     </xs:simpleType>
+   </xs:element>
+   <xs:element name="ReminderTime" type="xs:dateTime"/>
+   <xs:element name="ReminderSet" type="xs:unsignedByte"/>
+   <xs:element name="OrdinalDate" type="xs:dateTime"/>
+   <xs:element name="SubOrdinalDate" type="xs:string"/>
+   <xs:group name="AllProps">
+     <xs:sequence>
+       <xs:choice maxOccurs="unbounded">
+         <xs:element ref="Subject"/>
+         <xs:element ref="Body"/>
+         <xs:element ref="BodySize"/>
+         <xs:element ref="BodyTruncated"/>
+         <xs:element ref="Importance"/>
+         <xs:element ref="UtcStartDate"/>
+         <xs:element ref="StartDate"/>
+         <xs:element ref="UtcDueDate"/>
+         <xs:element ref="DueDate"/>
+         <xs:element ref="Categories"/>
+         <xs:element ref="Recurrence"/>
+         <xs:element ref="Complete"/>
+         <xs:element ref="DateCompleted"/>
+         <xs:element ref="Sensitivity"/>
+         <xs:element ref="ReminderTime"/>
+         <xs:element ref="ReminderSet"/>
+         <xs:element ref="OrdinalDate"/>
+         <xs:element ref="SubOrdinalDate"/>
+       </xs:choice>
+     </xs:sequence>
+   </xs:group>
+ </xs:schema>

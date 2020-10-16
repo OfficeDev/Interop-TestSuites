@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!--Set R476Enabled to true to verify that the implementation does format a response to the request as specified in section 2.2.2 with an appropriate HTTP status code as specified in section 2.2.2.1.1. Set R476Enabled to false to disable this requirement.-->
+    <Property name="R476Enabled" value="true" />
+    <!--Set R459Enabled to true to verify that the implementation does return the MS-ASProtocolVersions value of 12.1. Set R459Enabled to false to disable this requirement.-->
+    <Property name="R459Enabled" value="true" />
+    <!--Set R460Enabled to true to verify that the implementation does return the MS-ASProtocolVersions value of 14.0. Set R460Enabled to false to disable this requirement.-->
+    <Property name="R460Enabled" value="true" />
+    <!--Set R461Enabled to true to verify that the implementation does return the MS-ASProtocolVersions value of 14.1. Set R461Enabled to false to disable this requirement.-->
+    <Property name="R461Enabled" value="true" />
+    <!--Set R298Enabled to true to verify that the implementation does not return MS-ASProtocolVersions values of 14.1 and 14.0. Set R298Enabled to false to disable this requirement.-->
+    <Property name="R298Enabled" value="false" />
+    <!--Set R1202Enabled to true to verify that if the implementation does include an X-MS-RP header, MS-ASProtocolCommands header, and a MS-ASProtocolVersions header in its response if the client sends a request to synchronize the folder hierarchy with a synchronization key of 0. Set R1202Enabled to false to disable this requirement.-->
+    <Property name="R1202Enabled" value="true" />
+    <!--Set R465Enabled to true to verify that implementation does return 501 Not Implemented status code when implementation does not recognize the request method. Set R465Enabled to false to disable this requirement.-->
+    <Property name="R465Enabled" value="true" />
+    <!--Set R1201Enabled to true to verify that implementation does return the MS-ASProtocolVersions value of 16.0. Set R1201Enabled to false to disable this requirement.-->
+    <Property name="R1201Enabled" value="true" />
+    <!--Set R456Enabled to true to verify that the implementation does can be configured to use different valules for the allowed number of changes and the time period. Set R456Enabled to false to disable this requirement.-->
+    <Property name="R456Enabled" value="true" />
+    <!--Set R457Enabled to true to verify that the implementation does can be configured to block clients for a different amount of time. Set R457Enabled to false to disable this requirement.-->
+    <Property name="R457Enabled" value="true" />
+  </Properties>
+</TestSite>

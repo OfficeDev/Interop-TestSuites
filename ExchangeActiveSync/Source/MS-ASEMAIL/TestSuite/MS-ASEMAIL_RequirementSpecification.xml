@@ -10281,7 +10281,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R1478</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R3000</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.88</ns1:Doc_Sect>
 		<ns1:Description>[In WeekOfMonth] Protocol version 16.1 supports this [WeekOfMonth] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -10290,7 +10290,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R14910</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R3001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In groups]The following table summarizes the set of common XML schema group definitions defined by this specification.XML schema groups that are specific to a particular operation are described with the operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -10299,7 +10299,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R14911</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R3002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In Groups][In Elements] The TopLevelSchemaProps (section 2.2.3.1) element identifies the elements that are part of the TopLevelSchemaProps group.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -10308,7 +10308,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R14912</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R3003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
 		<ns1:Description>[In TopLevelSchemaProps]The TopLevelSchemaProps group identifies the following elements as being part of the TopLevelSchemaProps group::To (section 2.2.2.79); Cc (section 2.2.2.18); From (section 2.2.2.36); ReplyTo (section 2.2.2.66); DateReceived (section 2.2.2.24); Subject (section 2.2.2.75.1); DisplayTo (section 2.2.2.29); Importance (section 2.2.2.38); Read (section 2.2.2.58); MessageClass (section 2.2.2.49); MeetingRequest (section 2.2.2.48): ThreadTopic (section 2.2.2.77); InternetCPID (section 2.2.2.40).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -10317,7 +10317,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R14913</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R3004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
 		<ns1:Description>[In TopLevelSchemaProps]The TopLevelSchemaProps group is used by the ItemOperations command request specified in [MS-ASCMD] section 2.2.1.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -10326,7 +10326,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R14914</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R3005</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
 		<ns1:Description>[In TopLevelSchemaProps] Protocol version 12.1 supports this [TopLevelSchemaProps] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -10335,7 +10335,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R14915</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R3006</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
 		<ns1:Description>[In TopLevelSchemaProps] Protocol version 14.0 supports this [TopLevelSchemaProps] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -10344,7 +10344,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R14916</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R3007</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
 		<ns1:Description>[In TopLevelSchemaProps] Protocol version 14.1 supports this [TopLevelSchemaProps] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -10353,7 +10353,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R14917</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R3008</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
 		<ns1:Description>[In TopLevelSchemaProps] Protocol version 16.0 supports this [TopLevelSchemaProps] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -10362,7 +10362,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R14918</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R3009</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1</ns1:Doc_Sect>
 		<ns1:Description>[In TopLevelSchemaProps] Protocol version 16.1 supports this [TopLevelSchemaProps] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -11493,7 +11493,7 @@ Changes to non-E-Mail class properties</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASEMAIL_R10600</ns1:REQ_ID>
@@ -11502,7 +11502,7 @@ Changes to non-E-Mail class properties</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASEMAIL_R10601</ns1:REQ_ID>
@@ -11538,7 +11538,7 @@ Changes to non-E-Mail class properties</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASEMAIL_R10605</ns1:REQ_ID>
@@ -11574,7 +11574,7 @@ Changes to non-E-Mail class properties</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASEMAIL_R10609</ns1:REQ_ID>
@@ -11610,7 +11610,7 @@ Changes to non-E-Mail class properties</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASEMAIL_R10613</ns1:REQ_ID>

@@ -276,7 +276,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             taskItem.Add(Request.ItemsChoiceType8.Subject2, subject);
             taskItem.Add(Request.ItemsChoiceType8.Importance1, (byte)1);
-            Request.Categories4 categories = new Request.Categories4 { Category = "Business,Waiting".Split(',') };
+            Request.Categories3 categories = new Request.Categories3 { Category = "Business,Waiting".Split(',') };
             taskItem.Add(Request.ItemsChoiceType8.Categories3, categories);
 
             Request.Recurrence1 recurrence = new Request.Recurrence1
@@ -1227,7 +1227,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             taskItem.Add(Request.ItemsChoiceType8.Subject2, subject);
 
             // Set Categories element without any child elements.
-            Request.Categories4 categories = new Request.Categories4();
+            Request.Categories3 categories = new Request.Categories3();
             taskItem.Add(Request.ItemsChoiceType8.Categories3, categories);
 
             SyncStore syncResponse = this.SyncAddTask(taskItem);
@@ -1271,7 +1271,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
             taskItem.Add(Request.ItemsChoiceType8.Subject2, subject);
 
-            Request.Categories4 categories = new Request.Categories4 { Category = "Business,Waiting".Split(',') };
+            Request.Categories3 categories = new Request.Categories3 { Category = "Business,Waiting".Split(',') };
             taskItem.Add(Request.ItemsChoiceType8.Categories3, categories);
 
             Request.Recurrence1 recurrence = new Request.Recurrence1

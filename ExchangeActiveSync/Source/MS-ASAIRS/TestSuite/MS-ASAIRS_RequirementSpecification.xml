@@ -5036,7 +5036,7 @@ MS-ASAIRS_R1000959</ns1:REQ_ID>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1208</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.28</ns1:Doc_Sect>
-		<ns1:Description>[In Location] he Location element has the following child elements [Accuracy, Altitude, AltitudeAccuracy, Annotation, City, Country, DisplayName, Latitude, LocationUri, Longitude, PostalCode, State, Street], all of which are optional:</ns1:Description>
+		<ns1:Description>[In Location] The Location element has the following child elements [Accuracy, Altitude, AltitudeAccuracy, Annotation, City, Country, DisplayName, Latitude, LocationUri, Longitude, PostalCode, State, Street], all of which are optional:</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7135,7 +7135,25 @@ MS-ASAIRS_R1000959</ns1:REQ_ID>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R14000918</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.41.1</ns1:Doc_Sect>
+		<ns1:Description>[In Type (Body)] For calendar items in protocol version 16.1, the only valid values for this element [Type] is 1 (plain text).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASAIRS_R1401</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.41.1</ns1:Doc_Sect>
+		<ns1:Description>[In Type (Body)] For calendar items in protocol version 16.0, the only valid values for this element [Type] is 2 (HTML).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASAIRS_R14010918</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.41.1</ns1:Doc_Sect>
 		<ns1:Description>[In Type (Body)] For calendar items in protocol version 16.1, the only valid values for this element [Type] is 2 (HTML).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
