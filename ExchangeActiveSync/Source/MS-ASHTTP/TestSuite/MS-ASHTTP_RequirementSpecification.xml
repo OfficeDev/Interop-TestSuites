@@ -3154,6 +3154,15 @@ Content-Type, required only if Content-Length is greater than zero.</ns1:Descrip
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9044</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In Set-Cookie]Multiple instances of this header can be returned with a different cookie name in each instance of the header. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R905</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.12</ns1:Doc_Sect>
 		<ns1:Description>[In Set-Cookie] For details about the syntax of this [Set-Cookie] header, see [RFC6265].</ns1:Description>
@@ -3165,7 +3174,7 @@ Content-Type, required only if Content-Length is greater than zero.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R9051</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.13</ns1:Doc_Sect>
-		<ns1:Description>[In X-BEServer]This header is optional. </ns1:Description>
+		<ns1:Description>[In X-MS-ASThrottle]This header is optional. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3174,7 +3183,61 @@ Content-Type, required only if Content-Length is greater than zero.</ns1:Descrip
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R9052</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.13</ns1:Doc_Sect>
-		<ns1:Description>[In X-BEServer]The X-MS-ASThrottle header specifies the condition under which the server MAY&lt;4&gt; throttle the client device.</ns1:Description>
+		<ns1:Description>[In X-MS-ASThrottle]The X-MS-ASThrottle header specifies the condition under which the server MAY&lt;4&gt; throttle the client device.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9053</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In X-BEServer]This header is optional. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9054</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In X-BEServer]The X-BEServer header contains the name of the server that processed the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9055</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In X-FEServer]This header is optional. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9056</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In X-FEServer]The X-FEServer header contains the name of the server(s) that routed the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9057</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In request-id]This header is optional. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9058</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In request-id]The request-id header contains a server-generated identifier for the request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3315,6 +3378,15 @@ OPTIONS &lt;URI&gt; HTTP/1.1</ns1:Description>
 		<ns1:Description>[In Request Line] The format of the path is the following:
 
 /Microsoft-Server-ActiveSync</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R2371</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request headers]The authorization header is required. For more information on the authorization header requirements, see section 2.2.1.1.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
