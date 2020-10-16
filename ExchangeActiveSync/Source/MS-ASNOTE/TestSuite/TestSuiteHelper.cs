@@ -57,9 +57,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             foreach (Request.ItemsChoiceType8 addElementName in addElements.Keys)
             {
                 Request.ItemsChoiceType7 changeElementName = (Request.ItemsChoiceType7)System.Enum.Parse(typeof(Request.ItemsChoiceType7), addElementName.ToString());
+                if(changeElementName== Request.ItemsChoiceType7.Subject1)
+                {
+                    changeElementName = Request.ItemsChoiceType7.Subject2;
+                }
                 if (!changeElements.ContainsKey(changeElementName) && addElementName == Request.ItemsChoiceType8.Categories2)
                 {
                     changeElements.Add(Request.ItemsChoiceType7.Categories3, addElements[addElementName]);
+                }
+                else if(!changeElements.ContainsKey(changeElementName) && addElementName == Request.ItemsChoiceType8.Subject1)
+                {
+                    changeElements.Add(Request.ItemsChoiceType7.Subject2, addElements[addElementName]);
                 }
                 else if (!changeElements.ContainsKey(changeElementName))
                 {

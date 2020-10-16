@@ -113,7 +113,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
         {
             SearchResponse response = this.activeSyncClient.Search(searchRequest, true);
             Site.Assert.IsNotNull(response, "If the command is successful, the response should not be null.");
-            SearchStore result = Common.LoadSearchResponse(response);
+            SearchStore result = Common.LoadSearchResponse(response, Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site));
             this.VerifyTransport();
             this.VerifyWBXMLCapture();
             this.VerifySearchResponse(result);

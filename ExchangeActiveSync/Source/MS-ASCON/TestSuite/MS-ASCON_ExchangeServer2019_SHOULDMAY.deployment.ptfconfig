@@ -7,5 +7,7 @@
     <Property name="MS-ASCON_Supported" value="true" />
     <!--Set R221Enabled to true to verify that Search command related elements. Set R221Enabled to false to disable this requirement.-->
     <Property name="R221Enabled" value="false"/>
+	<!-- Set R220Enabled to true to verify that Search command related elements. Set R220Enabled to false to disable this requirement.-->
+    <Property name="R220Enabled" value="false"/>
   </Properties>
 </TestSite>

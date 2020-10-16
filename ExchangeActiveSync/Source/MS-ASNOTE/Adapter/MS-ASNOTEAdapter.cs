@@ -78,7 +78,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             SearchRequest searchRequest = Common.CreateSearchRequest(subject, collectionId);
             SearchResponse response = this.activeSyncClient.Search(searchRequest, isLoopNeeded, expectedCount);
             this.VerifySearchResponse(response);
-            SearchStore result = Common.LoadSearchResponse(response);
+            SearchStore result = Common.LoadSearchResponse(response, Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site));
             this.VerifyTransport();
             this.VerifySearchResult(result);
             this.VerifyWBXMLCapture();

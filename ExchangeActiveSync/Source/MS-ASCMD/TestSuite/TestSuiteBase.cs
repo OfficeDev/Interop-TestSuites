@@ -259,7 +259,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 ical.AppendLine("X-MICROSOFT-DISALLOW-COUNTER:TRUE");
             }
 
-            if (!string.IsNullOrEmpty(calendar.Reminder))
+            if (calendar.Reminder.HasValue)
             {
                 ical.AppendLine("BEGIN:VALARM");
                 ical.AppendLine("TRIGGER:-PT" + calendar.Reminder + "M");
@@ -459,19 +459,37 @@ MQ==
         /// <param name="collectionId">The collection id of the folder.</param>
         /// <param name="options">Contains elements that filter the results.</param>
         /// <returns>The GetItemEstimate request.</returns>
-        protected static GetItemEstimateRequest CreateGetItemEstimateRequest(string syncKey, string collectionId, Request.Options[] options)
+        protected static GetItemEstimateRequest CreateGetItemEstimateRequest(string syncKey, string collectionId, Request.Options[] options, bool? ConversationMode = null)
         {
+            List<Request.ItemsChoiceType10> itemsElementNames = new List<Request.ItemsChoiceType10>()
+            {
+                Request.ItemsChoiceType10.SyncKey,
+                Request.ItemsChoiceType10.CollectionId
+            };
+            List<object> items = new List<object>()
+            {
+                syncKey,
+                collectionId
+            };
+
+            if (ConversationMode != null)
+            {
+                itemsElementNames.Add(Request.ItemsChoiceType10.ConversationMode);
+                items.Add(ConversationMode.Value);
+            }
+         
             Request.GetItemEstimateCollection collection = new Request.GetItemEstimateCollection
             {
-                CollectionId = collectionId,
-                SyncKey = syncKey
+                ItemsElementName = itemsElementNames.ToArray(),
+                Items = items.ToArray()
             };
 
             if (options != null)
             {
+                //itemsElementNames.Add(Request.ItemsChoiceType10.Options);
+                //items.Add(options);
                 collection.Options = options;
             }
-
             return Common.CreateGetItemEstimateRequest(new Request.GetItemEstimateCollection[] { collection });
         }
 
@@ -1357,7 +1375,7 @@ MQ==
         /// <param name="calendar">The meeting calendar</param>
         protected void SendMeetingRequest(string subject, Calendar calendar)
         {
-            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0")&&!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
             {
                 string emailBody = Common.GenerateResourceName(Site, "content");
                 string icalendarFormatContent = TestSuiteBase.CreateiCalendarFormatContent(calendar);
@@ -1936,7 +1954,7 @@ MQ==
 
             // Set the UID
             string uID = Guid.NewGuid().ToString();
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", testSite).Equals("16.0"))
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", testSite).Equals("16.0") || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", testSite).Equals("16.1"))
             {
                 propertiesToValueMap.Add(Request.ItemsChoiceType8.ClientUid, uID);
             }

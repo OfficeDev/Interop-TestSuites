@@ -131,7 +131,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             Request.Body noteBody = new Request.Body { Type = 1, Data = "Content of the body." };
             addElements.Add(Request.ItemsChoiceType8.Body, noteBody);
 
-            Request.Categories3 categories = new Request.Categories3 { Category = new string[] { "blue category" } };
+            Request.Categories4 categories = new Request.Categories4 { Category = new string[] { "blue category" } };
             addElements.Add(Request.ItemsChoiceType8.Categories2, categories);
 
             addElements.Add(Request.ItemsChoiceType8.MessageClass, "IPM.StickyNote");

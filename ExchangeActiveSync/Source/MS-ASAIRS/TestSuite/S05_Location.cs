@@ -80,7 +80,7 @@
             location.State = "Location sample state";
             location.Street = "Location sample street";
             items.Add(location);
-            itemsElementName.Add(Request.ItemsChoiceType8.Location1);
+            itemsElementName.Add(Request.ItemsChoiceType8.Location);
 
             applicationData.Items = items.ToArray();
             applicationData.ItemsElementName = itemsElementName.ToArray();
@@ -101,9 +101,68 @@
             this.GetItemOperationsResult(this.User1Information.CalendarCollectionId, syncItem.ServerId, null, null, null, null);
             #endregion
 
-            #region Call Search command to search the added calendar item.
-            this.GetSearchResult(subject, this.User1Information.CalendarCollectionId, null, null, null);
+            #region Call Sync command to remove the location of the added calender item.
+            // Create empty change items list.
+            List<object> changeItems = new List<object>();
+            List<Request.ItemsChoiceType7> changeItemsElementName = new List<Request.ItemsChoiceType7>();
+
+            // Create an empty location.
+            location = new Request.Location();
+
+            // Add the location field name into the change items element name list.
+            changeItemsElementName.Add(Request.ItemsChoiceType7.Location);
+            // Add the empty location value to the change items value list.
+            changeItems.Add(location);
+
+            // Create sync collection change.
+            Request.SyncCollectionChange collectionChange = new Request.SyncCollectionChange
+            {
+                ServerId = syncItem.ServerId,
+                ApplicationData = new Request.SyncCollectionChangeApplicationData
+                {
+                    ItemsElementName = changeItemsElementName.ToArray(),
+                    Items = changeItems.ToArray()
+                }
+            };
+
+            // Create change sync collection
+            Request.SyncCollection collection = new Request.SyncCollection
+            {
+                SyncKey = this.SyncKey,
+                CollectionId = this.User1Information.CalendarCollectionId,
+                Commands = new object[] { collectionChange }
+            };
+
+            // Create change sync request.
+            SyncRequest syncChangeRequest = Common.CreateSyncRequest(new Request.SyncCollection[] { collection });
+
+            // Change the location of the added calender by Sync request.
+            DataStructures.SyncStore syncChangeResponse = this.ASAIRSAdapter.Sync(syncChangeRequest);
+            Site.Assert.IsTrue(syncChangeResponse.CollectionStatus.Equals(1), "The sync change operation should be success; It is:{0} actually", syncChangeResponse.CollectionStatus);
+
+            #region Call Sync command to get the new changed calendar item that removed the location.
+            syncItem = this.GetSyncResult(subject, this.User1Information.CalendarCollectionId, null, null, null);
             #endregion
+
+            #region Call ItemOperations command to reterive the changed calendar item that removed the location.
+            DataStructures.ItemOperations itemOperations = this.GetItemOperationsResult(this.User1Information.CalendarCollectionId, syncItem.ServerId, null, null, null, null);
+            #endregion
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R1001013");
+
+            // Verify MS-ASAIRS requirement: MS-ASAIRS_R1001013
+            Site.CaptureRequirementIfIsNull(
+                itemOperations.Calendar.Location1.DisplayName,
+                1001013,
+                @"[In Location] The client's request can include an empty Location element to remove the location from an item.");
+            #endregion
+
+            if (Common.IsRequirementEnabled(53, this.Site))
+            {
+                #region Call Search command to search the added calendar item.
+                this.GetSearchResult(subject, this.User1Information.CalendarCollectionId, null, null, null);
+                #endregion
+            }
         }
         #endregion
     }

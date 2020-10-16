@@ -542,7 +542,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
                                     // Verify MS-ASTASK requirement: MS-ASTASK_R633
                                     Site.CaptureRequirementIfIsFalse(
-                                        task.Recurrence.StartSpecified,
+                                        task.Recurrence.Start != null,
                                         633,
                                         @"[In Appendix A: Product Behavior] <2> Section 2.2.2.25:  Microsoft Exchange Server 2010 Service Pack 1 (SP1), the initial release version of Exchange 2013, and Exchange 2016 Preview do not return the Start element when protocol version is 14.0.");
                                 }
