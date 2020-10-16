@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!--Set R5822Enabled to true to verify that [In Appendix A: Product Behavior] The implementation does return substitute meeting invitation email messages. Set R5822Enabled to false to disable this requirement-->
+    <Property name="R5822Enabled" value="true"/>
+    <!--Set R5670Enabled to true to verify that [In Appendix A: Product Behavior] The implementation does not limit the number of elements in command requests and not return the specified error if the limit is exceeded. Set R5670Enabled to false to disable this requirement-->
+    <Property name="R5670Enabled" value="false"/>
+    <!--Set R5671Enabled to true to verify that [In Appendix A: Product Behavior] The implementation does limit the number of elements in command requests and return the specified error if the limit is exceeded. Set R5671Enabled to false to disable this requirement-->
+    <Property name="R5671Enabled" value="true"/>
+    <!--Set R5672Enabled to true to verify that [In Appendix A: Product Behavior] The implementation does not limit the number of elements in command requests. Set R5672Enabled to false to disable this requirement-->
+    <Property name="R5672Enabled" value="false"/>
+    <!--Set R5673Enabled to true to verify that [In Appendix A: Product Behavior] Update Rollup 6 for implementation does use the specified limit values by default but can be configured to use different values. Set R5673Enabled to false to disable this requirement-->
+    <Property name="R5673Enabled" value="true"/>
+    <!--Set R5420Enabled to true to verify that [In Appendix A: Product Behavior] If SmartReply is applied to a recurring meeting and the InstanceId element is absent, the implementation does reply for the entire recurring meeting. Set R5420Enabled to false to disable this requirement-->
+    <Property name="R5420Enabled" value="true"/>
+    <!--Set R5915Enabled to true to verify that [In Appendix A: Product Behavior] The implementation doe not return this element [UserDisplayName] in Settings command responses. Set R5915Enabled to false to disable this requirement-->
+    <Property name="R5915Enabled" value="true"/>
+    <!--Set R5905Enabled to true to verify that [In Appendix A: Product Behavior] The implementation does not return this element [SendDisabled] in Settings command responses. Set R5905Enabled to false to disable this requirement-->
+    <Property name="R5905Enabled" value="true"/>
+    <!--Set R5901Enabled to true to verify that [In Appendix A: Product Behavior] The implementation does not return this element [AccountName] in Settings command responses. Set R5901Enabled to false to disable this requirement-->
+    <Property name="R5901Enabled" value="true"/>
+    <!--Set R5898Enabled to true to verify that [In Appendix A: Product Behavior] The implementation does not return this element [AccountId] in Settings command responses. Set R5898Enabled to false to disable this requirement-->
+    <Property name="R5898Enabled" value="true"/>
+    <!--Set R5834Enabled to true to verify that [In Appendix A: Product Behavior] If SmartForward is applied to a recurring meeting and the InstanceId element is absent, the implementation does forward the entire recurring meeting. Set R5834Enabled to false to disable this requirement-->
+    <Property name="R5834Enabled" value="true"/>
+    <!--Set R5815Enabled to true to verify that [In Appendix A: Product Behavior] The implementation does return a protocol status error in response to such a command request [more than one ConversationId element in a Search command request]. Set R5815Enabled to false to disable this requirement-->
+    <Property name="R5815Enabled" value="true"/>
+    <!--Set R5714Enabled to true to verify that the body of the request contains an interval of time that specifies how long the implementation does wait before responding if no new items are added to the specified folders. Set R5714Enabled to false to disable this requirement.-->
+    <Property name="R5714Enabled" value="true"/>
+    <!--Set R5723Enabled to true to verify that the implementation does use the MeetingResponse command to accept a meeting request in the user's Inbox folder. Set R5723Enabled to false to disable this requirement.-->
+    <Property name="R5723Enabled" value="true"/>
+    <!--Set R5724Enabled to true to verify that the implementation does use the MeetingResponse command  to tentatively accept a meeting request in the user's Inbox folder.Set R5724Enabled to false to disable this requirement-->
+    <Property name="R5724Enabled" value="true"/>
+    <!--Set R5725Enabled to true to verify that the implementation does use the MeetingResponse command to decline a meeting request in the user's Inbox folder. Set R5725Enabled to false to disable this requirement.-->
+    <Property name="R5725Enabled" value="true"/>
+    <!--Set R2058Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [no child elements for the Commands element]. Set R2058Enabled to false to disable this requirement.-->
+    <Property name="R2058Enabled" value="true" />
+    <!--Set R2143Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [more than one DeepTraversal element in a Search command request]. Set R2143Enabled to false to disable this requirement-->
+    <Property name="R2143Enabled" value="true"/>
+    <!--Set R3374Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [more than one airsync:MIMESupport element in a Search command request]. Set R3374Enabled to false to disable this requirement-->
+    <Property name="R3374Enabled" value="true"/>
+    <!--Set R3723Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [more than one Range element in a Search command request is undefined]. Set R3723Enabled to false to disable this requirement-->
+    <Property name="R3723Enabled" value="true"/>
+    <!--Set R3747Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [more than one RebuildResults element in a Search command request is undefined]. Set R3747Enabled to false to disable this requirement-->
+    <Property name="R3747Enabled" value="true"/>
+    <!--Set R4535Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [[more than one Store element in a Search command request is undefined]. Set R4535Enabled to false to disable this requirement-->
+    <Property name="R4535Enabled" value="true"/>
+    <!--Set R3075Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [more than one FilterType element as the child of the Options element ]. Set R3075Enabled to false to disable this requirement.-->
+    <Property name="R3075Enabled" value="true" />
+    <!--Set R938Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [more than one Class element as child elements of the Options element]. Set R938Enabled to false to disable this requirement.-->
+    <Property name="R938Enabled" value="true" />
+    <!--Set R3280Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [more than one MaxItems element as the child element of the Options element]. Set R3280Enabled to false to disable this requirement.-->
+    <Property name="R3280Enabled" value="true" />
+    <!--Set R3404Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [more than one MIMESupport element as the child element of the Options element]. Set R3404Enabled to false to disable this requirement.-->
+    <Property name="R3404Enabled" value="true" />
+    <!--Set R3432Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [more than one MIMETruncation element as the child element of the Options element is undefined]. Set R3432Enabled to false to disable this requirement.-->
+    <Property name="R3432Enabled" value="true" />
+    <!--Set R2075Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [more than one Conflict element as the child of an Options element]. Set R2075Enabled to false to disable this requirement.-->
+    <Property name="R2075Enabled" value="true" />
+    <!--Set R3272Enabled to true to verify that the implementation does not return a protocol status error in response to such a command request [more than one airsync:MaxItems element as the child of the airsync:Options element is undefined]. Set R3272Enabled to false to disable this requirement.-->
+    <Property name="R3272Enabled" value="true" />
+    <!--Set R5823Enabled to true to verify that the implementation does return the form "en:us" of Culture element. Set R5823Enabled to false to disable this requirement.-->
+    <Property name="R5823Enabled" value="true" />
+    <!--Set R5160Enabled to true to verify that the implementation does return the form "en:en" of Culture element, regardless of the culture that is sent by the client. Set R5160Enabled to false to disable this requirement.-->
+    <Property name="R5160Enabled" value="false" />
+    <!--Set R5718Enabled to true to verify that when sending an Autodiscover command request to implementation, the Content-Type header does accept the following values: "text/xml". Set R5718Enabled to false to disable this requirement.-->
+    <Property name="R5718Enabled" value="true" />
+    <!--Set R5123Enabled to true to verify that When sending an Autodiscover command request to implementation, the Content-Type header does accept the following values: "text/html". Set R5123Enabled to false to disable this requirement.-->
+    <Property name="R5123Enabled" value="false" />
+    <!--Set R5175Enabled to true to verify that If the duration spanned by the StartTime element value and the EndTime element value is greater than 42 days, then the implementation does return a Status element value of 5 in the ResolveRecipients command response. Set R5175Enabled to false to disable this requirement.-->
+    <Property name="R5175Enabled" value="true" />
+    <!--Set R5194Enabled to true to verify that the reply message for unknown external and known external audiences be the same. Set R5194Enabled to false to disable this requirement.-->
+    <Property name="R5194Enabled" value="true" />
+    <!--Set R5201Enabled to true to verify that when the EnableOutboundSMS element is set to 1 and the MS-ASProtocolVersion header is set to 14.0, the PhoneNumber element is required to have a value. Set R5201Enabled to false to disable this requirement.-->
+    <Property name="R5201Enabled" value="false" />
+    <!--Set R7500Enabled to true to verify that Implementation does not limit the number of elements in command requests and not return the specified error if the limit is exceeded. Set R7500Enabled to false to disable this requirement.-->
+    <Property name="R7500Enabled" value="false" />
+    <!--Set R7501Enabled to true to verify that Implementation does limit the number of elements in command requests and return the specified error if the limit is exceeded. Set R7501Enabled to false to disable this requirement.-->
+    <Property name="R7501Enabled" value="true" />
+  </Properties>
+</TestSite>

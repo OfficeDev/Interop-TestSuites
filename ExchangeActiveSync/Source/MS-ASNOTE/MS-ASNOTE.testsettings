@@ -4,13 +4,15 @@
   <Deployment>
     <DeploymentItem filename="TestSuite\MS-ASNOTE_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-ASNOTE_TestSuite.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASNOTE_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ASNOTE\TestSuite\MS-ASNOTE_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ASNOTE.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
     <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASNOTE_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
   </Deployment>
   <Execution>

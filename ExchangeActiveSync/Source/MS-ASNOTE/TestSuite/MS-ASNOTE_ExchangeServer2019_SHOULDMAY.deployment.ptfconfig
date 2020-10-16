@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Note: Property values are case-insensitive unless otherwise specified. -->
+  <Properties>
+    <!-- Set the value of the property MS-ASNOTE_Supported to true to indicate that the SUT supports the MS-ASNOTE protocol. Otherwise set the value to false. -->
+    <Property name="MS-ASNOTE_Supported" value="true"/>
+</TestSite>

@@ -161,7 +161,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             this.VerifyCommonRequirements();
             this.VerifyWBXMLCapture();
 
-            SearchStore searchStore = Common.LoadSearchResponse(searchResponse);
+            SearchStore searchStore = Common.LoadSearchResponse(searchResponse, Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site));
 
             return searchStore;
         }

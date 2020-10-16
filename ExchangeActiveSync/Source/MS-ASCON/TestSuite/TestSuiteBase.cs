@@ -706,18 +706,29 @@ MIME-Version: 1.0
         /// <returns>The response of GetItemEstimate command.</returns>
         protected GetItemEstimateResponse CallGetItemEstimateCommand(string syncKey, string collectionId)
         {
+            List<Request.ItemsChoiceType10> itemsElementName = new List<Request.ItemsChoiceType10>()
+            {
+                Request.ItemsChoiceType10.SyncKey,
+                Request.ItemsChoiceType10.CollectionId,
+            };
+            
+            List<object> items = new List<object>()
+            {
+                syncKey,
+                collectionId,
+            };
+           
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) != "12.1")
+            {
+                itemsElementName.Add(Request.ItemsChoiceType10.ConversationMode);
+                items.Add(true);
+              }
             // Create GetItemEstimate command request.
             Request.GetItemEstimateCollection collection = new Request.GetItemEstimateCollection
             {
-                CollectionId = collectionId,
-                SyncKey = syncKey
+                ItemsElementName = itemsElementName.ToArray(),
+                Items = items.ToArray()
             };
-
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) != "12.1")
-            {
-                collection.ConversationMode = true;
-                collection.ConversationModeSpecified = true;
-            }
 
             GetItemEstimateRequest getItemEstimateRequest = Common.CreateGetItemEstimateRequest(new Request.GetItemEstimateCollection[] { collection });
 

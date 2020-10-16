@@ -19,5 +19,7 @@
     <Property name="R2242Enabled" value="false"/>
     <!-- Set R52529Enabled to true to verify that implementation does not replace Email element with suitable placeholder text if the value of the Email element is not formatted as specified in [MS-ASDTYPE] section 2.6.2. Set R52529Enabled to false to disable this requirement.-->
     <Property name="R52529Enabled" value="true"/>
+    <!-- Set R313Enabled to true to verify that implementation the MeetingStatus value 5 means the meeting has been canceled and the user was the meeting organizer. Set R313Enabled to false to disable this requirement.-->
+    <Property name="R313Enabled" value="false"/>
   </Properties>
 </TestSite>

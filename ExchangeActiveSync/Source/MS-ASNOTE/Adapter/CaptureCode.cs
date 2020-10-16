@@ -301,7 +301,7 @@ seconds       = (""0"" DIGIT) / (""1"" DIGIT) / (""2"" DIGIT) / (""3"" DIGIT) / 
                 {
                     this.VerifyNote(sync.Note, false);
                 }
-            }
+            }            
 
             this.VerifyMessageSyntax();
         }

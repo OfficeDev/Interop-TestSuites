@@ -135,7 +135,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 location.PostalCode = "Location sample postal code";
                 location.State = "Location sample state";
                 location.Street = "Location sample street";
-                elementsToValueMap.Add(Request.ItemsChoiceType8.Location1, location);
+                elementsToValueMap.Add(Request.ItemsChoiceType8.Location, location);
             }
 
             // Call Sync command with Add element to add a meeting
@@ -217,7 +217,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R687");
 
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R687
-            ushort reminderInSeconds = (ushort)(int.Parse(reminder) * 60);
+            ushort reminderInSeconds = (ushort)(uint.Parse(reminder) * 60);
             Site.CaptureRequirementIfAreEqual<ushort>(
                 reminderInSeconds,
                 item.Email.MeetingRequest.Reminder,
@@ -248,6 +248,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         public void MSASEMAIL_S04_TC03_MeetingRequest_Weekly()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command with Add element to add a weekly meeting to the server
             string subject = Common.GenerateResourceName(Site, "Subject");
@@ -351,6 +352,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         public void MSASEMAIL_S04_TC04_MeetingRequest_Monthly_ByDay()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command with Add element to add a monthly meeting that recurs monthly on the Nth day of the month to the server
             string subject = Common.GenerateResourceName(Site, "Subject");
@@ -427,6 +429,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         public void MSASEMAIL_S04_TC05_MeetingRequest_Monthly_ByWeek()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command with Add element to add a monthly meeting contains WeekOfMonth element to the server
             string subject = Common.GenerateResourceName(Site, "Subject");
@@ -561,6 +564,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         public void MSASEMAIL_S04_TC06_MeetingRequest_Yearly_IncludedIsLeapMonth()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command with Add element to add a yearly meeting with IsLeapMonth element to the Server
             string subject = Common.GenerateResourceName(Site, "Subject");
@@ -660,6 +664,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         public void MSASEMAIL_S04_TC07_MeetingRequest_Yearly_NotIncludedIsLeapMonth()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command with Add element to add a yearly meeting without IsLeapMonth element to the Server
             string subject = Common.GenerateResourceName(Site, "Subject");
@@ -1030,6 +1035,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         public void MSASEMAIL_S04_TC10_ExceptionToARecurringMeeting()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command with Add element to add a weekly meeting with exception to the Server
             string subject = Common.GenerateResourceName(Site, "Subject");
@@ -1095,7 +1101,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             #endregion
 
             #region Verify requirements
-            byte[] globalObjIdBytes = Convert.FromBase64String(item.Email.MeetingRequest.Item);
+            byte[] globalObjIdBytes = Convert.FromBase64String(item.Email.MeetingRequest.GlobalObjId);
             int totalLength = globalObjIdBytes.Length;
             int pos = 0;
 
@@ -1156,6 +1162,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The MeetingMessageType element is not supported when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("14.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The MeetingMessageType element is not supported when the MS-ASProtocolVersion header is set to 14.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command with Add element to add a no recurrence meeting to the server.
             string subject = Common.GenerateResourceName(Site, "Subject");
@@ -1376,7 +1383,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             #endregion
 
             #region Verify requirements
-            byte[] globalObjIdBytes = Convert.FromBase64String(item.Email.MeetingRequest.Item);
+            byte[] globalObjIdBytes = Convert.FromBase64String(item.Email.MeetingRequest.GlobalObjId);
             int totalLength = globalObjIdBytes.Length;
             int pos = 0;
 
@@ -1591,7 +1598,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             #endregion
 
             #region Verify requirement
-            byte[] globalObjIdBytes = Convert.FromBase64String(item.Email.MeetingRequest.Item);
+            byte[] globalObjIdBytes = Convert.FromBase64String(item.Email.MeetingRequest.GlobalObjId);
             int totalLength = globalObjIdBytes.Length;
             int pos = 0;
 
@@ -1721,6 +1728,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         public void MSASEMAIL_S04_TC15_RecurrenceIdExistsForException()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command with Add element to add a recurrence calendar
             string attendeeEmail = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
@@ -1745,7 +1753,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
 
             Dictionary<Request.ItemsChoiceType8, object> elementsToValueMap = new Dictionary<Request.ItemsChoiceType8, object>();
             elementsToValueMap.Add(Request.ItemsChoiceType8.Subject, recurrenceCalendarSubject);
-            elementsToValueMap.Add(Request.ItemsChoiceType8.Location, location);
+            elementsToValueMap.Add(Request.ItemsChoiceType8.Location1, location);
             elementsToValueMap.Add(Request.ItemsChoiceType8.StartTime, startTime.ToString("yyyyMMddTHHmmssZ"));
             elementsToValueMap.Add(Request.ItemsChoiceType8.EndTime, endTime.ToString("yyyyMMddTHHmmssZ"));
             elementsToValueMap.Add(Request.ItemsChoiceType8.Recurrence, recurrence);
@@ -1803,7 +1811,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Request.SyncCollectionChangeApplicationData changeCalednarData = new Request.SyncCollectionChangeApplicationData();
             changeCalednarData.ItemsElementName = new Request.ItemsChoiceType7[] 
             { 
-                Request.ItemsChoiceType7.Location,
+                Request.ItemsChoiceType7.Location1,
                 Request.ItemsChoiceType7.Recurrence,
                 Request.ItemsChoiceType7.Exceptions,
                 Request.ItemsChoiceType7.UID,

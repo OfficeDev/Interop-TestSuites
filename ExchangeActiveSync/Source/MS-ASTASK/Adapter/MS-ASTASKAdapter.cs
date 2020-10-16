@@ -113,7 +113,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
         {
             SearchResponse response = this.activeSyncClient.Search(searchRequest, true);
             Site.Assert.IsNotNull(response, "The Search response should be returned.");
-            SearchStore searchResponse = Common.LoadSearchResponse(response);
+            SearchStore searchResponse = Common.LoadSearchResponse(response, Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site));
             this.VerifySearchCommandResponse(searchResponse);
 
             return searchResponse;

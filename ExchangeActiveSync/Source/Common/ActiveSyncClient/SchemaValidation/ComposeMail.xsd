@@ -1,69 +1,69 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:airsyncbase=
-    "AirSyncBase" xmlns="ComposeMail" targetNamespace="ComposeMail"
-    elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <xs:element name="ClientId">
-    <xs:simpleType>
-      <xs:restriction base="xs:string">
-        <xs:minLength value="1"/>
-        <xs:maxLength value="40"/>
-      </xs:restriction>
-    </xs:simpleType>
-  </xs:element>
-  <xs:element name="AccountId" type="xs:string"/>
-  <xs:element name="SaveInSentItems" type="airsyncbase:EmptyTag"/>
-  <xs:element name="ReplaceMime" type="airsyncbase:EmptyTag"/>
-  <xs:element name="Mime" type="xs:string"/>
-  <xs:element name="Status" type="xs:integer"/>
-  <xs:element name="Source">
-    <xs:complexType>
-      <xs:all>
-        <xs:element name="FolderId" minOccurs="0">
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:minLength value="1"/>
-              <xs:maxLength value="64"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
-        <xs:element name="ItemId" minOccurs="0">
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:minLength value="1"/>
-              <xs:maxLength value="64"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
-        <xs:element name="LongId" minOccurs="0">
-          <xs:simpleType>
-            <xs:restriction base="xs:string">
-              <xs:minLength value="1"/>
-              <xs:maxLength value="256"/>
-            </xs:restriction>
-          </xs:simpleType>
-        </xs:element>
-        <xs:element name="InstanceId" type="xs:string" minOccurs="0"/>
-      </xs:all>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Forwardees">
-    <xs:complexType>
-      <xs:sequence minOccurs="0">
-        <xs:element name="Forwardee" minOccurs="1" maxOccurs="unbounded">
-          <xs:complexType>
-            <xs:all>
-              <xs:element name="Email">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:minLength value="1"/>
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Name" minOccurs="0" type="xs:string" />
-            </xs:all>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-</xs:schema>
+<?xml version="1.0" encoding="UTF-8"?>
+ <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:airsyncbase=
+     "AirSyncBase" xmlns="ComposeMail" targetNamespace="ComposeMail" 
+     elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="ClientId">
+     <xs:simpleType>
+       <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="40"/>
+       </xs:restriction>
+     </xs:simpleType>
+   </xs:element>
+   <xs:element name="AccountId" type="xs:string"/>
+   <xs:element name="SaveInSentItems" type="airsyncbase:EmptyTag"/>
+   <xs:element name="ReplaceMime" type="airsyncbase:EmptyTag"/>
+   <xs:element name="Mime" type="xs:string"/>
+   <xs:element name="Status" type="xs:integer"/>
+   <xs:element name="Source">
+     <xs:complexType>
+       <xs:all>
+         <xs:element name="FolderId" minOccurs="0">
+           <xs:simpleType>
+             <xs:restriction base="xs:string">
+               <xs:minLength value="1"/>
+               <xs:maxLength value="64"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+         <xs:element name="ItemId" minOccurs="0">
+           <xs:simpleType>
+             <xs:restriction base="xs:string">
+               <xs:minLength value="1"/>
+               <xs:maxLength value="64"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+         <xs:element name="LongId" minOccurs="0">
+           <xs:simpleType>
+             <xs:restriction base="xs:string">
+               <xs:minLength value="1"/>
+               <xs:maxLength value="256"/>
+             </xs:restriction>
+           </xs:simpleType>
+         </xs:element>
+         <xs:element name="InstanceId" type="xs:string" minOccurs="0"/>
+       </xs:all>
+     </xs:complexType>
+   </xs:element>
+   <xs:element name="Forwardees">
+     <xs:complexType>
+       <xs:sequence minOccurs="0">
+         <xs:element name="Forwardee" minOccurs="1" maxOccurs="unbounded">
+           <xs:complexType>
+             <xs:all>
+               <xs:element name="ForwardeeEmail">
+                 <xs:simpleType>
+                   <xs:restriction base="xs:string">
+                     <xs:minLength value="1"/>
+                   </xs:restriction>
+                 </xs:simpleType>
+               </xs:element>
+               <xs:element name="ForwardeeName" minOccurs="0" type="xs:string" />
+             </xs:all>
+           </xs:complexType>
+         </xs:element>
+       </xs:sequence>
+     </xs:complexType>
+   </xs:element>
+ </xs:schema>

@@ -45,5 +45,7 @@
     <Property name="R10038Enabled" value="true"/>
     <!-- Set R10039Enabled to true to verify that implementation does return protocol status error 6 for a Sync command (as specified in [MS-ASCMD] section 2.2.2.19), if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding placement] specified for that element, unless specified in the following table[section 3.2.5.1]. Set R10039Enabled to false to disable this requirement.-->
     <Property name="R10039Enabled" value="true"/>
+    <!-- Set R53Enabled to true to verify that Search command related elements. Set R53Enabled to false to disable this requirement.-->
+    <Property name="R53Enabled" value="true"/>
   </Properties>
 </TestSite>
