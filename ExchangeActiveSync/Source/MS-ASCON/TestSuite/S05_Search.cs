@@ -42,18 +42,20 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
         [TestCategory("MSASCON"), TestMethod()]
         public void MSASCON_S05_TC01_Search()
         {
-            #region Create a conversation and get the created conversation item.
-            string conversationSubject = Common.GenerateResourceName(Site, "Conversation");
-            ConversationItem sourceConversationItem = this.CreateConversation(conversationSubject);
-            #endregion
+            if (Common.IsRequirementEnabled(221, this.Site))
+            {               
+                #region Create a conversation and get the created conversation item.
+                string conversationSubject = Common.GenerateResourceName(Site, "Conversation");
+                ConversationItem sourceConversationItem = this.CreateConversation(conversationSubject);
+                #endregion
 
-            #region Call MoveItems command to move one item of the conversation from Inbox folder to SentItems folder.
-            Collection<string> moveItems = new Collection<string> { sourceConversationItem.ServerId[0] };
+                #region Call MoveItems command to move one item of the conversation from Inbox folder to SentItems folder.
+                Collection<string> moveItems = new Collection<string> { sourceConversationItem.ServerId[0] };
 
-            // Call MoveItems command to move one item of the conversation from Inbox folder to SentItems folder.
-            this.CallMoveItemsCommand(moveItems, User1Information.InboxCollectionId, User1Information.SentItemsCollectionId);
-            TestSuiteBase.RecordCaseRelativeItems(this.User1Information, User1Information.SentItemsCollectionId, conversationSubject, false);
-            #endregion
+                // Call MoveItems command to move one item of the conversation from Inbox folder to SentItems folder.
+                this.CallMoveItemsCommand(moveItems, User1Information.InboxCollectionId, User1Information.SentItemsCollectionId);
+                TestSuiteBase.RecordCaseRelativeItems(this.User1Information, User1Information.SentItemsCollectionId, conversationSubject, false);
+                #endregion
 
             if (Common.IsRequirementEnabled(220, this.Site))
             {
@@ -63,11 +65,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R221");
 
-                // Verify MS-ASCON requirement: MS-ASCON_R221
-                // The Search command executed successfully, so this requirement can be captured.
-                Site.CaptureRequirement(
-                    221,
-                    @"[In Processing a Search Command] The server sends a Search command response, as specified in [MS-ASCMD] section 2.2.2.14.");
+            // Verify MS-ASCON requirement: MS-ASCON_R221
+            // The Search command executed successfully, so this requirement can be captured.
+            Site.CaptureRequirement(
+                221,
+                @"[In Processing a Search Command] The server sends a Search command response, as specified in [MS-ASCMD] section 2.2.2.16.");
 
                 Site.Assert.AreEqual<int>(searchResponse.Results.Count, sourceConversationItem.ServerId.Count, "The count of the search result should be equal to the count of items in the conversation.");
 
@@ -105,18 +107,20 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
         [TestCategory("MSASCON"), TestMethod()]
         public void MSASCON_S05_TC02_Search_MessagePart()
         {
-            this.CheckActiveSyncVersionIsNot140();
+            if (Common.IsRequirementEnabled(221, this.Site))
+            {              
+                this.CheckActiveSyncVersionIsNot140();
 
-            #region User2 sends an email to User1
-            this.SwitchUser(this.User2Information, true);
+                #region User2 sends an email to User1
+                this.SwitchUser(this.User2Information, true);
 
-            string subject = Common.GenerateResourceName(Site, "Subject");
-            string body = Common.GenerateResourceName(Site, "Body");
-            string user1MailboxAddress = Common.GetMailAddress(User1Information.UserName, User1Information.UserDomain);
-            string user2MailboxAddress = Common.GetMailAddress(User2Information.UserName, User2Information.UserDomain);
-            this.CallSendMailCommand(user2MailboxAddress, user1MailboxAddress, subject, body);
-            TestSuiteBase.RecordCaseRelativeItems(this.User1Information, User1Information.InboxCollectionId, subject, false);
-            #endregion
+                string subject = Common.GenerateResourceName(Site, "Subject");
+                string body = Common.GenerateResourceName(Site, "Body");
+                string user1MailboxAddress = Common.GetMailAddress(User1Information.UserName, User1Information.UserDomain);
+                string user2MailboxAddress = Common.GetMailAddress(User2Information.UserName, User2Information.UserDomain);
+                this.CallSendMailCommand(user2MailboxAddress, user1MailboxAddress, subject, body);
+                TestSuiteBase.RecordCaseRelativeItems(this.User1Information, User1Information.InboxCollectionId, subject, false);
+                #endregion
 
             if (Common.IsRequirementEnabled(220, this.Site))
             {
@@ -172,19 +176,19 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R235");
 
-                // Verify MS-ASCON requirement: MS-ASCON_R235
-                Site.CaptureRequirementIfIsNotNull(
-                    searchStore.Results[0].Email.BodyPart,
-                    235,
-                    @"[In Sending a Message Part] If the client [Sync command request ([MS-ASCMD] section 2.2.2.19.1),] Search command request ([MS-ASCMD] section 2.2.2.14.1) [or ItemOperations command request 9([MS-ASCMD] section 2.2.2.8.2)] includes the airsyncbase:BodyPartPreference element, then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.");
+            // Verify MS-ASCON requirement: MS-ASCON_R235
+            Site.CaptureRequirementIfIsNotNull(
+                searchStore.Results[0].Email.BodyPart,
+                235,
+                @"[In Sending a Message Part] If the client [Sync command request ([MS-ASCMD] section 2.2.1.21),] Search command request ([MS-ASCMD] section 2.2.1.16) [or ItemOperations command request 9([MS-ASCMD] section 2.2.1.10)] includes the airsyncbase:BodyPartPreference element(section 2.2.2.2), then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.");
 
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R40");
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R40");
 
-                // A message part and its meta-data are encapsulated by BodyPart element in the Search response, so this requirement can be captured.
-                Site.CaptureRequirement(
-                    40,
-                    @"[In BodyPart] The airsyncbase:BodyPart element<1> ([MS-ASAIRS] section 2.2.2.5) encapsulates a message part and its meta-data in [a Sync command response ([MS-ASCMD] section 2.2.2.19), an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) or] a Search command response ([MS-ASCMD] section 2.2.2.14).");
+            // A message part and its meta-data are encapsulated by BodyPart element in the Search response, so this requirement can be captured.
+            Site.CaptureRequirement(
+                40,
+                @"[In BodyPart] The airsyncbase:BodyPart element ([MS-ASAIRS] section 2.2.2.10) encapsulates a message part and its meta-data in [a Sync command response ([MS-ASCMD] section 2.2.1.21), an ItemOperations command response ([MS-ASCMD] section 2.2.1.10) or] a Search command response ([MS-ASCMD] section 2.2.1.16).");
                 #endregion
 
                 #region Call Search command with both BodyPreference and BodyPartPreference elements.

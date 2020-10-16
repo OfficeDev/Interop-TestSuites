@@ -46,9 +46,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             this.SyncAdd(addElements, 2);
             #endregion
 
-            if (Common.IsRequirementEnabled(2, this.Site))
-            {
-                #region Call method Search to search notes using the given keyword text
+            #region Call method Search to search notes using the given keyword text
                 // Search note from server
                 SearchStore result = this.NOTEAdapter.Search(this.UserInformation.NotesCollectionId, Common.GeneratePrefixOfResourceName(this.Site) + "_subject", true, 2);
 
@@ -67,7 +65,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
 
                 #endregion
             
-                #region Call method Search to search notes using an invalid keyword text
+            #region Call method Search to search notes using an invalid keyword text
 
             result = this.NOTEAdapter.Search(this.UserInformation.NotesCollectionId, Common.GenerateResourceName(this.Site, "notExisting_subject"), false, 0);
 
@@ -95,7 +93,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
                 @"[In Abstract Data Model] The server can return zero or more Notes class XML blocks in its response, depending on how many notes match the criteria specified by the client command request.");
 
                 #endregion
-            }
+            
         }
         #endregion
     }

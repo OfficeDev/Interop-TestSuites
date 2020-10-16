@@ -391,9 +391,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 36711,
                 @"[In OrganizerName] The OrganizerName element specifies the name of the user who created the calendar item.");
 
-            if (!this.IsActiveSyncProtocolVersion121
-                && !this.IsActiveSyncProtocolVersion140
-                && !this.IsActiveSyncProtocolVersion141)
+            if (this.IsActiveSyncProtocolVersion160)
             {
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2169, expected email address is: {0},actually is :{1}", Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain), calendarWithDTStampAndReminder.Calendar.OrganizerEmail);
@@ -405,15 +403,19 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                     2169,
                     @"[In OrganizerEmail] [When protocol version 16.0 is used, the client MUST NOT include the OrganizerEmail element in command requests and] the server will use the email address of the current user.");
 
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2175");
+            }
 
-                // Verify MS-ASCAL requirement: MS-ASCAL_R2175
-                Site.CaptureRequirementIfAreEqual<string>(
-                    this.User1Information.UserName,
-                    calendarWithDTStampAndReminder.Calendar.OrganizerName,
-                    2175,
-                    @"[In OrganizerName] [When protocol version 16.0 is used, the client MUST NOT include the OrganizerName element in command requests and] the server will use the name of the current user.");
+            if (this.IsActiveSyncProtocolVersion161)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2169001, expected email address is: {0},actually is :{1}", Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain), calendarWithDTStampAndReminder.Calendar.OrganizerEmail);
+
+                // Verify MS-ASCAL requirement: MS-ASCAL_R2169001
+                Site.CaptureRequirementIfAreEqual<int>(
+                    0,
+                    areEqual,
+                    2169001,
+                    @"[In OrganizerEmail] [When protocol version 16.1 is used, the client MUST NOT include the OrganizerEmail element in command requests and] the server will use the email address of the current user.");
             }
 
             // Add the debug information

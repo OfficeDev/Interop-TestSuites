@@ -5,5 +5,7 @@
   <Properties>
     <!-- Set MS-ASCON_Supported to true to indicate the product version of the SUT supports the MS-ASCON service. Otherwise set MS-ASCON_Supported to false. -->
     <Property name="MS-ASCON_Supported" value="false" />
+    <!--Set R221Enabled to true to verify that Search command related elements. Set R221Enabled to false to disable this requirement.-->
+    <Property name="R221Enabled" value="true"/>
   </Properties>
 </TestSite>

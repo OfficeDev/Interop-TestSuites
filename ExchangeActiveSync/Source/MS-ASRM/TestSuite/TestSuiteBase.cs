@@ -193,7 +193,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
         protected void CheckPreconditions()
         {
             Site.Assume.IsTrue(Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1") ||
-                                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"),
+                                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0") ||
+                                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"),
                                 "Implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 14.1 and 16.0.");
             Site.Assume.AreEqual<string>("HTTPS", Common.GetConfigurationPropertyValue("TransportType", this.Site).ToUpper(CultureInfo.CurrentCulture), "This protocol requires that communication between the client and server occurs over an HTTP connection that uses Secure Sockets Layer (SSL).");
         }
