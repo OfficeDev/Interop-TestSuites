@@ -1,40 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="MeetingResponse"
-    targetNamespace="MeetingResponse" elementFormDefault="qualified"
-    attributeFormDefault="unqualified">
-  <xs:element name="MeetingResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="Result" maxOccurs="unbounded">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="RequestId" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="64"/>
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Status" type="xs:integer"/>
-              <xs:element name="CalendarId" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="64"/>
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="InstanceId" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:minLength value="24"/>
-                    <xs:maxLength value="24"/>
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-</xs:schema>
+ <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="MeetingResponse" 
+     targetNamespace="MeetingResponse" elementFormDefault="qualified" 
+     attributeFormDefault="unqualified">
+   <xs:element name="ProposedStartTime">
+     <xs:simpleType>
+       <xs:restriction base="xs:string">
+         <xs:minLength value="16"/>
+         <xs:maxLength value="16"/>
+       </xs:restriction>
+     </xs:simpleType>
+   </xs:element>
+   <xs:element name="ProposedEndTime">
+     <xs:simpleType>
+       <xs:restriction base="xs:string">
+         <xs:minLength value="16"/>
+         <xs:maxLength value="16"/>
+       </xs:restriction>
+     </xs:simpleType>
+   </xs:element>
+   <xs:element name="MeetingResponse">
+     <xs:complexType>
+       <xs:sequence>
+         <xs:element name="Result" maxOccurs="unbounded">
+           <xs:complexType>
+             <xs:sequence>
+               <xs:element name="RequestId" minOccurs="0">
+                 <xs:simpleType>
+                   <xs:restriction base="xs:string">
+                     <xs:maxLength value="64"/>
+                   </xs:restriction>
+                 </xs:simpleType>
+               </xs:element>
+               <xs:element name="Status" type="xs:integer"/>
+               <xs:element name="CalendarId" minOccurs="0">
+                 <xs:simpleType>
+                   <xs:restriction base="xs:string">
+                     <xs:maxLength value="64"/>
+                   </xs:restriction>
+                 </xs:simpleType>
+               </xs:element>
+               <xs:element name="InstanceId" minOccurs="0">
+                 <xs:simpleType>
+                   <xs:restriction base="xs:string">
+                     <xs:minLength value="24"/>
+                     <xs:maxLength value="24"/>
+                   </xs:restriction>
+                 </xs:simpleType>
+               </xs:element>            </xs:sequence>
+           </xs:complexType>
+         </xs:element>
+       </xs:sequence>
+     </xs:complexType>
+   </xs:element>
+ </xs:schema>

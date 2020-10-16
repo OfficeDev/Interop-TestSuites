@@ -3,15 +3,16 @@
   <Description>These are the default test settings for running all MS-ASAIRS test cases.</Description>
   <Deployment>
     <DeploymentItem filename="MS-ASAIRS.runsettings" />
-    <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASAIRS_TestSuite.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASAIRS_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASAIRS_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ASAIRS\TestSuite\MS-ASAIRS_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\Resources\" />
     <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
-    <DeploymentItem filename="TestSuite\MS-ASAIRS_TestSuite.ptfconfig" />
+    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>

@@ -72,7 +72,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             {
                 Request.Location location = new Request.Location();
                 location.DisplayName = this.Location;
-                calendarItem.Add(Request.ItemsChoiceType8.Location1, location);
+                calendarItem.Add(Request.ItemsChoiceType8.Location, location);
             }
 
             this.AddSyncCalendar(calendarItem);
@@ -328,7 +328,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 || this.IsActiveSyncProtocolVersion140
                 || this.IsActiveSyncProtocolVersion141)
             {
-                calendarItem.Add(Request.ItemsChoiceType8.Location, this.Location);
+                calendarItem.Add(Request.ItemsChoiceType8.Location1, this.Location);
                 calendarItem.Add(Request.ItemsChoiceType8.DtStamp, DateTime.Now.ToString("yyyyMMddTHHmmssZ"));
             }
 
@@ -424,7 +424,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             // Verify MS-ASCAL requirement: MS-ASCAL_R39011
             Site.CaptureRequirementIfAreEqual<string>(
                 reminder,
-                calendarWithDTStampAndReminder.Calendar.Reminder,
+                calendarWithDTStampAndReminder.Calendar.Reminder.ToString(),
                 39011,
                 @"[In Reminder] As a top-level element of the Calendar class, the Reminder element specifies the number of minutes before the calendar item's start time to display a reminder notice.");
 
@@ -742,6 +742,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC10_Categories()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command to add a calendar with the element Categories and one sub-element Category to the server, and sync calendars from the server.
 
@@ -903,7 +904,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC11_RecurrenceWithType0()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+           
             #region Generate calendar subject and record them.
 
             byte recurrenceType = byte.Parse("0");
@@ -1028,7 +1030,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC12_RecurrenceWithType1()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+           
             #region Generate calendar subject and record them.
 
             byte recurrenceType = byte.Parse("1");
@@ -1143,6 +1146,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC13_RecurrenceWithType2()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Generate calendar subject and record them.
 
@@ -1292,6 +1296,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC14_RecurrenceWithType3()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Generate calendar subject and record them.
 
@@ -1431,6 +1436,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC15_RecurrenceWithType5()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Generate calendar subject and record them.
 
@@ -1558,6 +1564,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC16_RecurrenceWithType6()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Generate calendar subject and record them.
 
@@ -1711,6 +1718,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC17_FirstDayOfWeek()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Generate calendar subject and record them.
 
@@ -1858,6 +1866,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC19_OccurrencesAndUntilBothSet()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Generate calendar subject and record them.
 
@@ -1970,6 +1979,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC20_IsLeapMonth()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Generate calendar subject and record them.
 
@@ -2197,6 +2207,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC22_Status6WithSpecifiedCalendarType()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Define common variables.
 
@@ -2407,6 +2418,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC24_Status6WithDayOfMonth()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command to add a calendar with the element Recurrence including DayOfMonth sub-element when Type is '0' to the server, and sync calendars from the server.
 
@@ -2521,6 +2533,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC25_Status6WithDayOfWeek()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command to add a calendar with the element Recurrence including DayOfWeek sub-element when Type is '2' to the server, and sync calendars from the server.
 
@@ -2589,6 +2602,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC26_Status6WithMonthOfYear()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command to add a calendar with the element Recurrence including MonthOfYear sub-element when Type is '0' to the server, and sync calendars from the server.
 
@@ -2703,6 +2717,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC27_Status6WithWeekOfMonth()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command to add a calendar with the element Recurrence including WeekOfMonth sub-element when Type is '0' to the server, and sync calendars from the server.
 
@@ -2853,7 +2868,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             {
                 calendarItem.Add(Request.ItemsChoiceType8.Recurrence, recurrence);
                 calendarItem.Add(Request.ItemsChoiceType8.Exceptions, exceptions);
-                calendarItem.Add(Request.ItemsChoiceType8.Location, this.Location);
+                calendarItem.Add(Request.ItemsChoiceType8.Location1, this.Location);
             }
 
             // Set elements which can be ghosted
@@ -3272,6 +3287,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC31_UnchangedExceptions()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Calls Sync command to add a calendar to the server, and sync calendars from the server.
 
@@ -3497,6 +3513,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         {
             Site.Assume.IsTrue(Common.IsRequirementEnabled(2242, this.Site), "Exchange 2007 does not support deleting elements of a recurring calendar item in an Exception element.");
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command to add a calendar to the server, and sync calendars from the server.
 
@@ -3526,7 +3543,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
             calendarItem.Add(Request.ItemsChoiceType8.Recurrence, recurrence);
             calendarItem.Add(Request.ItemsChoiceType8.Exceptions, exceptions);
-            calendarItem.Add(Request.ItemsChoiceType8.Location, this.Location);
+            calendarItem.Add(Request.ItemsChoiceType8.Location1, this.Location);
 
             string emailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
             calendarItem.Add(Request.ItemsChoiceType8.Attendees, TestSuiteHelper.CreateAttendeesRequired(new string[] { emailAddress }, new string[] { this.User2Information.UserName }));
@@ -3668,7 +3685,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC34_ExcludePropertyOfException()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            
             #region Call Sync command to add a calendar to the server, and sync calendars from the server.
 
             Dictionary<Request.ItemsChoiceType8, object> calendarItem = new Dictionary<Request.ItemsChoiceType8, object>();
@@ -3697,7 +3715,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
             calendarItem.Add(Request.ItemsChoiceType8.Recurrence, recurrence);
             calendarItem.Add(Request.ItemsChoiceType8.Exceptions, exceptions);
-            calendarItem.Add(Request.ItemsChoiceType8.Location, this.Location);
+            calendarItem.Add(Request.ItemsChoiceType8.Location1, this.Location);
 
             string emailAddress = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
             calendarItem.Add(Request.ItemsChoiceType8.Attendees, TestSuiteHelper.CreateAttendeesRequired(new string[] { emailAddress }, new string[] { this.User2Information.UserName }));
@@ -3761,6 +3779,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public void MSASCAL_S01_TC35_RecurrenceWithInterval0()
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call Sync command to add a calendar with the element Recurrence including Type '0' and Occurrences sub-element to the server, and sync calendars from the server.
 
@@ -3825,6 +3844,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         {
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The element CalendarType is not supported when protocol version is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Generate calendar subject and record them.
 

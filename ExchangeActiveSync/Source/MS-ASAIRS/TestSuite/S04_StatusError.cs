@@ -195,42 +195,45 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             }
             #endregion
 
-            #region Call Search command with the Type element value in incorrect data type
-            if (Common.IsRequirementEnabled(10033, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
-                SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml(searchRequest.GetRequestDataSerializedXML());
-                XmlNode typeNode = doc.SelectSingleNode("//*[name()='Type']");
-                typeNode.InnerText = "a";
-
-                SendStringResponse searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
-                string searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
-                int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
-                int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
-                int counter = 1;
-
-                while (counter < retryCount && searchStatus.Equals("10"))
+                #region Call Search command with the Type element value in incorrect data type
+                if (Common.IsRequirementEnabled(10033, this.Site))
                 {
-                    Thread.Sleep(waitTime);
-                    searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
-                    searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
-                    counter++;
+                    SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(searchRequest.GetRequestDataSerializedXML());
+                    XmlNode typeNode = doc.SelectSingleNode("//*[name()='Type']");
+                    typeNode.InnerText = "a";
+
+                    SendStringResponse searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
+                    string searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
+                    int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
+                    int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
+                    int counter = 1;
+
+                    while (counter < retryCount && searchStatus.Equals("10"))
+                    {
+                        Thread.Sleep(waitTime);
+                        searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
+                        searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
+                        counter++;
+                    }
+
+                    string status = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Response/s:Store/s:Status");
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R10033");
+
+                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R10033
+                    Site.CaptureRequirementIfAreEqual(
+                        "2",
+                        status,
+                        10033,
+                        @"[In Appendix B: Product Behavior] Implementation does return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.14), if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding data type] specified for that element, unless specified in the following table[section 3.2.5.1]. (Exchange Server 2007 SP1 and above follow this behavior.)");
                 }
-
-                string status = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Response/s:Store/s:Status");
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R10033");
-
-                // Verify MS-ASAIRS requirement: MS-ASAIRS_R10033
-                Site.CaptureRequirementIfAreEqual(
-                    "2",
-                    status,
-                    10033,
-                    @"[In Appendix B: Product Behavior] Implementation does return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.14), if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding data type] specified for that element, unless specified in the following table[section 3.2.5.1]. (Exchange Server 2007 SP1 and above follow this behavior.)");
+                #endregion
             }
-            #endregion
 
             #region Call Sync command with the Type element value in incorrect data type
             if (Common.IsRequirementEnabled(10014, this.Site))
@@ -317,46 +320,49 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             }
             #endregion
 
-            #region Call Search command with multiple AllOrNone elements
-            if (Common.IsRequirementEnabled(10034, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
-                SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);
-
-                // Add another AllOrNone element in BodyPreference element
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml(searchRequest.GetRequestDataSerializedXML());
-                XmlNode bodyPreferenceNode = doc.SelectSingleNode("//*[name()='BodyPreference']");
-                XmlNode allOrNoneNode = doc.SelectSingleNode("//*[name()='AllOrNone']");
-                XmlNode temp = allOrNoneNode.Clone();
-                bodyPreferenceNode.AppendChild(temp);
-
-                SendStringResponse searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
-                string searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
-                int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
-                int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
-                int counter = 1;
-
-                while (counter < retryCount && searchStatus.Equals("10"))
+                #region Call Search command with multiple AllOrNone elements
+                if (Common.IsRequirementEnabled(10034, this.Site))
                 {
-                    Thread.Sleep(waitTime);
-                    searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
-                    searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
-                    counter++;
+                    SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);
+
+                    // Add another AllOrNone element in BodyPreference element
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(searchRequest.GetRequestDataSerializedXML());
+                    XmlNode bodyPreferenceNode = doc.SelectSingleNode("//*[name()='BodyPreference']");
+                    XmlNode allOrNoneNode = doc.SelectSingleNode("//*[name()='AllOrNone']");
+                    XmlNode temp = allOrNoneNode.Clone();
+                    bodyPreferenceNode.AppendChild(temp);
+
+                    SendStringResponse searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
+                    string searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
+                    int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
+                    int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
+                    int counter = 1;
+
+                    while (counter < retryCount && searchStatus.Equals("10"))
+                    {
+                        Thread.Sleep(waitTime);
+                        searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
+                        searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
+                        counter++;
+                    }
+
+                    string status = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Response/s:Store/s:Status");
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R10034");
+
+                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R10034
+                    Site.CaptureRequirementIfAreEqual(
+                        "2",
+                        status,
+                        10034,
+                        @"[In Appendix B: Product Behavior] Implementation does return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.14), if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding number of instances] specified for that element, unless specified in the following table[section 3.2.5.1]. (Exchange Server 2007 SP1 and above follow this behavior.)");
                 }
-
-                string status = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Response/s:Store/s:Status");
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R10034");
-
-                // Verify MS-ASAIRS requirement: MS-ASAIRS_R10034
-                Site.CaptureRequirementIfAreEqual(
-                    "2",
-                    status,
-                    10034,
-                    @"[In Appendix B: Product Behavior] Implementation does return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.14), if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding number of instances] specified for that element, unless specified in the following table[section 3.2.5.1]. (Exchange Server 2007 SP1 and above follow this behavior.)");
+                #endregion
             }
-            #endregion
 
             #region Call Sync add command with multiple Type elements in Body
             if (Common.IsRequirementEnabled(10037, this.Site))
@@ -448,46 +454,49 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             }
             #endregion
 
-            #region Call Search command with incorrect BodyPreference element order
-            if (Common.IsRequirementEnabled(10035, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
-                SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml(searchRequest.GetRequestDataSerializedXML());
-                XmlNode bodyPreferenceNode = doc.SelectSingleNode("//*[name()='BodyPreference']");
-
-                // Put the first node to the end.
-                XmlNode temp = bodyPreferenceNode.ChildNodes[0];
-                bodyPreferenceNode.RemoveChild(temp);
-                bodyPreferenceNode.AppendChild(temp);
-
-                SendStringResponse searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
-                string searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
-                int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
-                int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
-                int counter = 1;
-
-                while (counter < retryCount && searchStatus.Equals("10"))
+                #region Call Search command with incorrect BodyPreference element order
+                if (Common.IsRequirementEnabled(10035, this.Site))
                 {
-                    Thread.Sleep(waitTime);
-                    searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
-                    searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
-                    counter++;
+                    SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(searchRequest.GetRequestDataSerializedXML());
+                    XmlNode bodyPreferenceNode = doc.SelectSingleNode("//*[name()='BodyPreference']");
+
+                    // Put the first node to the end.
+                    XmlNode temp = bodyPreferenceNode.ChildNodes[0];
+                    bodyPreferenceNode.RemoveChild(temp);
+                    bodyPreferenceNode.AppendChild(temp);
+
+                    SendStringResponse searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
+                    string searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
+                    int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
+                    int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
+                    int counter = 1;
+
+                    while (counter < retryCount && searchStatus.Equals("10"))
+                    {
+                        Thread.Sleep(waitTime);
+                        searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
+                        searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
+                        counter++;
+                    }
+
+                    string status = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Response/s:Store/s:Status");
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R10035");
+
+                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R10035
+                    Site.CaptureRequirementIfAreEqual(
+                        "2",
+                        status,
+                        10035,
+                        @"[In Appendix B: Product Behavior] Implementation does return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.14), if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding order] specified for that element, unless specified in the following table[section 3.2.5.1]. (Exchange Server 2007 SP1 and above follow this behavior.)");
                 }
-
-                string status = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Response/s:Store/s:Status");
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R10035");
-
-                // Verify MS-ASAIRS requirement: MS-ASAIRS_R10035
-                Site.CaptureRequirementIfAreEqual(
-                    "2",
-                    status,
-                    10035,
-                    @"[In Appendix B: Product Behavior] Implementation does return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.14), if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding order] specified for that element, unless specified in the following table[section 3.2.5.1]. (Exchange Server 2007 SP1 and above follow this behavior.)");
+                #endregion
             }
-            #endregion
 
             #region Call Sync add command with incorrect body element order
             if (Common.IsRequirementEnabled(10038, this.Site))
@@ -579,46 +588,49 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
             }
             #endregion
 
-            #region Call Search command with incorrect placement of BodyPreference element.
-            if (Common.IsRequirementEnabled(10036, this.Site))
+            if (Common.IsRequirementEnabled(53, this.Site))
             {
-                SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml(searchRequest.GetRequestDataSerializedXML());
-                XmlNode bodyPreferenceNode = doc.SelectSingleNode("//*[name()='BodyPreference']");
-
-                // Add another BodyPreference element in the BodyPreference element, the placement is invalid.
-                XmlNode temp = bodyPreferenceNode.Clone();
-                temp.SelectSingleNode("//*[name()='Type']").InnerText = "2";
-                bodyPreferenceNode.AppendChild(temp);
-
-                SendStringResponse searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
-                string searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
-                int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
-                int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
-                int counter = 1;
-
-                while (counter < retryCount && searchStatus.Equals("10"))
+                #region Call Search command with incorrect placement of BodyPreference element.
+                if (Common.IsRequirementEnabled(10036, this.Site))
                 {
-                    Thread.Sleep(waitTime);
-                    searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
-                    searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
-                    counter++;
+                    SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(subject, this.User2Information.InboxCollectionId, null, bodyPreference, null);
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(searchRequest.GetRequestDataSerializedXML());
+                    XmlNode bodyPreferenceNode = doc.SelectSingleNode("//*[name()='BodyPreference']");
+
+                    // Add another BodyPreference element in the BodyPreference element, the placement is invalid.
+                    XmlNode temp = bodyPreferenceNode.Clone();
+                    temp.SelectSingleNode("//*[name()='Type']").InnerText = "2";
+                    bodyPreferenceNode.AppendChild(temp);
+
+                    SendStringResponse searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
+                    string searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
+                    int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
+                    int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
+                    int counter = 1;
+
+                    while (counter < retryCount && searchStatus.Equals("10"))
+                    {
+                        Thread.Sleep(waitTime);
+                        searchResponse = this.ASAIRSAdapter.Search(doc.OuterXml);
+                        searchStatus = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Status");
+                        counter++;
+                    }
+
+                    string status = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Response/s:Store/s:Status");
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R10036");
+
+                    // Verify MS-ASAIRS requirement: MS-ASAIRS_R10036
+                    Site.CaptureRequirementIfAreEqual(
+                        "2",
+                        status,
+                        10036,
+                        @"[In Appendix B: Product Behavior] Implementation does return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.14), if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding placement] specified for that element, unless specified in the following table[section 3.2.5.1]. (Exchange Server 2007 SP1 and above follow this behavior.)");
                 }
-
-                string status = this.GetStatusCodeFromXPath(searchResponse, "/s:Search/s:Response/s:Store/s:Status");
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASAIRS_R10036");
-
-                // Verify MS-ASAIRS requirement: MS-ASAIRS_R10036
-                Site.CaptureRequirementIfAreEqual(
-                    "2",
-                    status,
-                    10036,
-                    @"[In Appendix B: Product Behavior] Implementation does return protocol status error 2 for a Search command (as specified in [MS-ASCMD] section 2.2.2.14), if an element does not meet the requirements[any of the XML elements specified in section 2.2.2 that are present in the command's XML body to ensure they comply with the requirements regarding placement] specified for that element, unless specified in the following table[section 3.2.5.1]. (Exchange Server 2007 SP1 and above follow this behavior.)");
+                #endregion
             }
-            #endregion
 
             #region Call Sync add command with incorrect placement of Type element.
             if (Common.IsRequirementEnabled(10039, this.Site))
