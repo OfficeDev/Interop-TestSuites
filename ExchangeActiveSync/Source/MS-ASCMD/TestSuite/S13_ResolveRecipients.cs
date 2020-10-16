@@ -871,7 +871,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             calendar.EndTime = DateTime.UtcNow.Date.AddDays(1).AddHours(3).AddMinutes(10);
 
             // Send a meeting request email to user2
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0")|| Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
             {
                 Calendar createdCalendar = this.CreateCalendar(meetingSubject, attendeeEmailAddress, calendar);
                 this.SendMeetingRequest(meetingSubject, createdCalendar);

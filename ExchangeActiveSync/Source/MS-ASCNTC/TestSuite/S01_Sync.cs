@@ -87,7 +87,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
             // Put the AssistantName into Supported element
             Request.Supported supportedElements = new Request.Supported
             {
-                Items = new object[] { string.Empty },
+                Items = new string[] { string.Empty },
                 ItemsElementName = new Request.ItemsChoiceType[] { Request.ItemsChoiceType.AssistantName }
             };
 
@@ -725,7 +725,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCNTC
             // Put JobTitle into the Supported element
             Request.Supported supportedElements = new Request.Supported
             {
-                Items = new object[] { string.Empty },
+                Items = new string[] { string.Empty },
                 ItemsElementName = new Request.ItemsChoiceType[] { Request.ItemsChoiceType.JobTitle }
             };
 

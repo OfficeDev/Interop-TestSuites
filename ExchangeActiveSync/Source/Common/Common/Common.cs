@@ -1484,8 +1484,9 @@ MIME-Version: 1.0
         /// Load the SearchStore from the SearchResponse
         /// </summary>
         /// <param name="search">The returned Search response.</param>
+        /// <param name="protocolVer">The protocol version specifies the version of ActiveSync protocol used to communicate with the server.</param>
         /// <returns>A SearchStore instance</returns>
-        public static DataStructures.SearchStore LoadSearchResponse(SearchResponse search)
+        public static DataStructures.SearchStore LoadSearchResponse(SearchResponse search,string protocolVer)
         {
             DataStructures.SearchStore searchStore = new DataStructures.SearchStore();
 
@@ -1531,7 +1532,7 @@ MIME-Version: 1.0
                     Class = result.Class,
                     CollectionId = result.CollectionId,
                     Note = DataStructures.Note.DeserializeFromSearchProperties<DataStructures.Note>(result.Properties),
-                    Calendar = DataStructures.Calendar.DeserializeFromSearchProperties<DataStructures.Calendar>(result.Properties),
+                    Calendar = DataStructures.Calendar.DeserializeFromSearchProperties<DataStructures.Calendar>(result.Properties, protocolVer),
                     Contact = DataStructures.Contact.DeserializeFromSearchProperties<DataStructures.Contact>(result.Properties),
                     Email = DataStructures.Email.DeserializeFromSearchProperties<DataStructures.Email>(result.Properties),
                     Task = DataStructures.Task.DeserializeFromSearchProperties<DataStructures.Task>(result.Properties)

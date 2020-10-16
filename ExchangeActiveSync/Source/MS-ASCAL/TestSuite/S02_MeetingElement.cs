@@ -247,7 +247,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 SyncStore syncResponse = this.SyncChanges(this.User2Information.CalendarCollectionId);
                 Dictionary<Request.ItemsChoiceType7, object> changeItem = new Dictionary<Request.ItemsChoiceType7, object>();
                 string newLocation = Common.GenerateResourceName(Site, "newLocation");
-                changeItem.Add(Request.ItemsChoiceType7.Location, newLocation);
+                changeItem.Add(Request.ItemsChoiceType7.Location1, newLocation);
                 changeItem.Add(Request.ItemsChoiceType7.Subject, subject);
 
                 this.UpdateCalendarProperty(calendarOnAttendee.ServerId, this.User2Information.CalendarCollectionId, syncResponse.SyncKey, changeItem);
@@ -951,16 +951,19 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 || this.IsActiveSyncProtocolVersion141)
             {
                 Site.Assert.IsNotNull(calendarOnOrganizer.Calendar.MeetingStatus, "The MeetingStatus element should not be null.");
+                
+                if (Common.IsRequirementEnabled(313, this.Site))
+                {
+                    // Add the debug information 
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R313");
 
-                // Add the debug information 
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R313");
-
-                // Verify MS-ASCAL requirement: MS-ASCAL_R313
-                Site.CaptureRequirementIfAreEqual<byte>(
-                    5,
-                    calendarOnOrganizer.Calendar.MeetingStatus.Value,
-                    313,
-                    @"[In MeetingStatus][The value 5 means] The meeting has been canceled and the user was the meeting organizer.");
+                    // Verify MS-ASCAL requirement: MS-ASCAL_R313
+                    Site.CaptureRequirementIfAreEqual<byte>(
+                        5,
+                        calendarOnOrganizer.Calendar.MeetingStatus.Value,
+                        313,
+                        @"[In MeetingStatus][The value 5 means] The meeting has been canceled and the user was the meeting organizer.");
+                }
             }
         }
 
@@ -979,6 +982,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The InstanceId element is not supported when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("14.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The InstanceId element is not supported when the MS-ASProtocolVersion header is set to 14.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.0. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The recurring calendar item cannot be created when protocol version is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             Dictionary<Request.ItemsChoiceType8, object> calendarItem = new Dictionary<Request.ItemsChoiceType8, object>();
 
@@ -1016,7 +1020,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             exception1.BusyStatusSpecified = true;
             exception1.BusyStatus = 2;
             exception1.Location = "Room 666";
-            exception1.Reminder = "10";
+            exception1.Reminder = 10;
             exceptionList.Add(exception1);
             exceptions.Exception = exceptionList.ToArray();
             calendarItem.Add(Request.ItemsChoiceType8.Exceptions, exceptions);
@@ -1062,7 +1066,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
             // Verify MS-ASCAL requirement: MS-ASCAL_R39211
             Site.CaptureRequirementIfIsTrue(
-                string.IsNullOrEmpty(calendarOnOrganizer.Calendar.Exceptions.Exception[0].Reminder) == false,
+                string.IsNullOrEmpty(calendarOnOrganizer.Calendar.Exceptions.Exception[0].Reminder.ToString()) == false,
                 39211,
                 @"[In Reminder] The Reminder element specifies the number of minutes before a calendar item exception's start time to display a reminder notice.");
 

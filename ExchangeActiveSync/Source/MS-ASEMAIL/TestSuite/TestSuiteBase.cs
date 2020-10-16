@@ -389,7 +389,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             items.Add(string.Format("{0:yyyyMMddTHHmmss}Z", null == endTime ? DateTime.UtcNow.AddDays(5).AddMinutes(30) : endTime.Value));
             itemsElementName.Add(Request.ItemsChoiceType8.EndTime);
 
-            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0")&&!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
             {
                 items.Add(string.Format("{0:yyyyMMddTHHmmss}Z", null == timestamp ? DateTime.UtcNow.AddDays(5) : timestamp.Value));
                 itemsElementName.Add(Request.ItemsChoiceType8.DtStamp);
@@ -399,7 +399,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             itemsElementName.Add(Request.ItemsChoiceType8.Subject);
 
             items.Add(calendarUID ?? Guid.NewGuid().ToString());
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0") || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
             {
                 itemsElementName.Add(Request.ItemsChoiceType8.ClientUid);
             }
@@ -408,17 +408,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 itemsElementName.Add(Request.ItemsChoiceType8.UID);
             }
 
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0")|| Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
             {
                 Request.Location location = new Request.Location();
                 location.DisplayName = "OFFICE";
                 items.Add(location);
-                itemsElementName.Add(Request.ItemsChoiceType8.Location1);
+                itemsElementName.Add(Request.ItemsChoiceType8.Location);
             }
             else
             {
                 items.Add("OFFICE");
-                itemsElementName.Add(Request.ItemsChoiceType8.Location);
+                itemsElementName.Add(Request.ItemsChoiceType8.Location1);
             }
             #endregion
 
@@ -438,7 +438,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             items.Add(new Request.Attendees() { Attendee = new Request.AttendeesAttendee[] { attendee } });
             itemsElementName.Add(Request.ItemsChoiceType8.Attendees);
 
-            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0")&& !Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
             {
                 items.Add(organizerEmailAddress);
                 itemsElementName.Add(Request.ItemsChoiceType8.OrganizerEmail);

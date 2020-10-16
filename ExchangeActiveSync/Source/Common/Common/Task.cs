@@ -46,7 +46,7 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
         /// <summary>
         /// Gets or sets Categories information of the Task
         /// </summary>
-        public Response.Categories4 Categories { get; set; }
+        public Response.Categories3 Categories { get; set; }
 
         /// <summary>
         /// Gets or sets Recurrence information of the Task
@@ -99,14 +99,14 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                             break;
                         case Response.ItemsChoiceType3.Categories2:
                             break;
-                        case Response.ItemsChoiceType3.Categories3:
-                            break;
+                        //case Response.ItemsChoiceType3.Categories3:
+                        //    break;
                         case Response.ItemsChoiceType3.Subject:
                             break;
                         case Response.ItemsChoiceType3.Subject1:
                             break;
-                        case Response.ItemsChoiceType3.Subject2:
-                            break;
+                        //case Response.ItemsChoiceType3.Subject2:
+                        //    break;
                         case Response.ItemsChoiceType3.Recurrence:
                             break;
                         case Response.ItemsChoiceType3.Categories4:

@@ -16,6 +16,7 @@
     <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
     <DeploymentItem filename="TestSuite\MS-ASCMD_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\Resources\number1.jpg" />
+    <DeploymentItem filename="TestSuite\MS-ASCMD_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
@@ -38,4 +39,5 @@
     <AgentRule name="LocalMachineDefaultRole">
     </AgentRule>
   </Execution>
+  <Properties />
 </TestSettings>

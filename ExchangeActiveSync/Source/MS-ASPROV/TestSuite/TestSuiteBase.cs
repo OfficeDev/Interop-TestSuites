@@ -251,7 +251,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                 policy.Status = status;
             }
             else if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1" ||
-                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.0")
+                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.0" || 
+                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.1")
             {
                 // Configure the DeviceInformation.
                 Request.DeviceInformation deviceInfomation = new Request.DeviceInformation();

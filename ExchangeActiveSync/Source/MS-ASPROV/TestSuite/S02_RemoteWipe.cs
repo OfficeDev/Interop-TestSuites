@@ -87,7 +87,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                 {
                     RemoteWipe = new Microsoft.Protocols.TestSuites.Common.Request.ProvisionRemoteWipe
                     {
-                        Status = "2"
+                        Status = 2
                     }
                 }
             };
@@ -132,7 +132,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
 
             #region Perform a successful remote wipe acknowledgment
             // Set the remote wipe status to 1 to indicate a successful wipe on client.
-            wipeRequest.RequestData.RemoteWipe.Status = "1";
+            wipeRequest.RequestData.RemoteWipe.Status = 1;
             ProvisionResponse wipeResponse = this.PROVAdapter.Provision(wipeRequest);
 
             if (Common.IsRequirementEnabled(1041, this.Site))

@@ -86,7 +86,7 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
         /// <summary>
         /// Gets or sets Reminder information of the Calendar
         /// </summary>
-        public string Reminder { get; set; }
+        public uint? Reminder { get; set; }
 
         /// <summary>
         /// Gets or sets Subject information of the Calendar
@@ -195,12 +195,12 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                     {
                         case Response.ItemsChoiceType3.Categories1:
                         case Response.ItemsChoiceType3.Categories2:
-                        case Response.ItemsChoiceType3.Categories3:
+                        //case Response.ItemsChoiceType3.Categories3:
                         case Response.ItemsChoiceType3.Categories4:
                         case Response.ItemsChoiceType3.Recurrence1:
                         case Response.ItemsChoiceType3.Sensitivity1:
                         case Response.ItemsChoiceType3.Subject1:
-                        case Response.ItemsChoiceType3.Subject2:
+                        //case Response.ItemsChoiceType3.Subject2:
                         case Response.ItemsChoiceType3.Subject3:
                             break;
                         default:
@@ -253,8 +253,9 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
         /// </summary>
         /// <typeparam name="T">The generic type parameter</typeparam>
         /// <param name="properties">The data which contains information for note</param>
+        /// <param name="protocolVer">The protocol version specifies the version of ActiveSync protocol used to communicate with the server.</param>
         /// <returns>The returned note instance</returns>
-        public static T DeserializeFromSearchProperties<T>(Response.SearchResponseStoreResultProperties properties)
+        public static T DeserializeFromSearchProperties<T>(Response.SearchResponseStoreResultProperties properties,string protocolVer)
         {
             T obj = Activator.CreateInstance<T>();
 
@@ -273,6 +274,19 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                         case Response.ItemsChoiceType6.Subject2:
                         case Response.ItemsChoiceType6.Subject3:
                         case Response.ItemsChoiceType6.Sensitivity1:
+                            break;
+                        case Response.ItemsChoiceType6.Location:                         
+                            if (protocolVer == "14.0"|| protocolVer == "14.1")
+                            {
+                                SetCalendarPropertyValue(obj, properties.ItemsElementName[itemIndex].ToString(), properties.Items[itemIndex]);
+                            }
+                            break;
+                        case Response.ItemsChoiceType6.Location1:
+                            if (protocolVer == "14.0" || protocolVer == "14.1")
+                            {
+                                break;
+                            }
+                            SetCalendarPropertyValue(obj, properties.ItemsElementName[itemIndex].ToString(), properties.Items[itemIndex]);
                             break;
                         default:
                             SetCalendarPropertyValue(obj, properties.ItemsElementName[itemIndex].ToString(), properties.Items[itemIndex]);
@@ -327,7 +341,14 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                 }
                 else if (property.PropertyType == typeof(uint) || property.PropertyType == typeof(uint?))
                 {
-                    value = uint.Parse(value.ToString());
+                    if (!string.IsNullOrEmpty(value.ToString()))
+                    {
+                        value = uint.Parse(value.ToString());
+                    }
+                    else
+                    {
+                        value = null;
+                    }
                 }
                 else if (property.PropertyType == typeof(ushort) || property.PropertyType == typeof(ushort?))
                 {

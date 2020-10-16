@@ -207,6 +207,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASRM
         {
             Site.Assume.AreNotEqual<string>("14.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 14.1.");
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 16.0.");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Implementation does consider the XML body of the command request to be invalid, if the protocol version specified by in the command request is not 16.1.");
 
             #region The client logs on User1's account, calls Settings command and checks the response of Settings command.
 

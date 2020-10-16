@@ -528,7 +528,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             {
                 case "REQUEST":
                 case "CANCEL":
-                    if (!string.IsNullOrEmpty(calendar.Reminder))
+                    if (calendar.Reminder.HasValue)
                     {
                         icalendar.AppendLine("BEGIN:VALARM");
                         icalendar.AppendLine("TRIGGER:-PT" + calendar.Reminder + "M");
@@ -557,7 +557,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                     icalendar.AppendLine("X-MICROSOFT-CDO-ALLDAYEVENT:TRUE");
                 }
 
-                if (!string.IsNullOrEmpty(calendar.Exceptions.Exception[0].Reminder))
+                if (calendar.Exceptions.Exception[0].ReminderSpecified==true)
                 {
                     icalendar.AppendLine("BEGIN:VALARM");
                     icalendar.AppendLine("TRIGGER:-PT" + calendar.Exceptions.Exception[0].Reminder + "M");
