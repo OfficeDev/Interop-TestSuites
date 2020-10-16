@@ -119,7 +119,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public SearchStore Search(SearchRequest searchRequest)
         {
             SearchResponse response = this.activeSyncClient.Search(searchRequest);
-            SearchStore searchResponse = Common.LoadSearchResponse(response);
+            SearchStore searchResponse = Common.LoadSearchResponse(response, Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site));
 
             this.VerifyTransport();
             this.VerifySearchCommandResponse(searchResponse);

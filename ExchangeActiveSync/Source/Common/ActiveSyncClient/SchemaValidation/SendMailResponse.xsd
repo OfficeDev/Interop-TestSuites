@@ -1,12 +1,12 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ComposeMail"
-    targetNamespace="ComposeMail" elementFormDefault="qualified"
-    attributeFormDefault="unqualified">
-  <xs:element name="SendMail">
-    <xs:complexType>
-      <xs:all>
-        <xs:element ref="Status" minOccurs="0"/>
-      </xs:all>
-    </xs:complexType>
-  </xs:element>
-</xs:schema>
+<?xml version="1.0" encoding="UTF-8"?>
+ <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="ComposeMail" 
+     targetNamespace="ComposeMail" elementFormDefault="qualified" 
+     attributeFormDefault="unqualified">
+   <xs:element name="SendMail">
+     <xs:complexType>
+       <xs:all>
+         <xs:element ref="Status" minOccurs="0"/>
+       </xs:all>
+     </xs:complexType>
+   </xs:element>
+ </xs:schema>

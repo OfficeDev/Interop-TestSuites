@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+        id="Find"
+        targetNamespace="Find:"
+        xmlns:email="Email"
+        xmlns:email2="Email2"
+        xmlns:mstns="Find:"
+        xmlns="Find:"
+        xmlns:airSync="AirSync"
+        xmlns:airsyncbase="AirSyncBase"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        attributeFormDefault="qualified"
+        elementFormDefault="qualified">
+    <xs:complexType name="EmptyTag" />
+
+  <xs:complexType name="queryType">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="FreeText" type="xs:string" />
+        <xs:element ref="airSync:Class" />
+        <xs:element ref="airSync:CollectionId" minOccurs="0" maxOccurs="1"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Range">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9]{1,3}-[0-9]{1,3}"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Status" type="xs:integer"/>
+</xs:schema>

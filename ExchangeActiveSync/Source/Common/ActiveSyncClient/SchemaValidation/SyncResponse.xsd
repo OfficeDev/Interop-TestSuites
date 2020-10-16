@@ -1,242 +1,240 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:airsyncbase=
-    "AirSyncBase" xmlns:calendar="Calendar" xmlns:contacts="Contacts"
-    xmlns:contacts2="Contacts2" xmlns:documentlibrary="DocumentLibrary"
-    xmlns:email="Email" xmlns:email2="Email2" xmlns:rm="RightsManagement"
-    xmlns:notes="Notes" xmlns:tasks="Tasks" xmlns="AirSync" targetNamespace="AirSync"
-    elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <xs:element name="Sync">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="Status" minOccurs="0"/>
-        <xs:choice>
-          <xs:element ref="Limit" minOccurs="0"/>
-          <xs:element name="Collections" minOccurs="0">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="Collection" minOccurs="0"
-                    maxOccurs="unbounded">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:choice maxOccurs="unbounded">
-                        <xs:element ref="SyncKey"/>
-                        <xs:element ref="CollectionId"/>
-                        <xs:element ref="Status"/>
-                        <xs:element name="Commands" minOccurs="0">
-                          <xs:complexType>
-                            <xs:sequence>
-                              <xs:choice maxOccurs="unbounded">
-                                <xs:element name="Delete" minOccurs="0"
-                                    maxOccurs="unbounded">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element ref="Class" minOccurs="0"/>
-                                      <xs:element ref="ServerId"/>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
-                                <xs:element name="SoftDelete" minOccurs="0"
-                                    maxOccurs="unbounded">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element ref="ServerId"/>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
-                                <xs:element name="Change" minOccurs="0"
-                                    maxOccurs="unbounded">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element ref="Class" minOccurs="0"/>
-                                      <xs:element ref="ServerId"/>
-                                      <xs:element name="ApplicationData">
-                                        <xs:complexType>
-                                          <xs:choice maxOccurs="unbounded">
-                                            <xs:element ref="airsyncbase:Attachments"/>
-                                            <xs:element ref="airsyncbase:Body"/>
-                                            <xs:element
-                                                ref="airsyncbase:BodyPart"/>
-                                            <xs:element
-                                                ref="airsyncbase:NativeBodyType"/>
-                                            <xs:element
-	                                              ref="airsyncbase:InstanceId"/>
-                                            <xs:element
-	                                              ref="airsyncbase:Location"/>
-                                            <xs:group ref="calendar:AllProps"/>
-                                            <xs:group ref="contacts:AllProps"/>
-                                            <xs:group ref="contacts2:AllProps"/>
-                                            <xs:group
-                                                ref="documentlibrary:AllProps"/>
-                                            <xs:group ref="email:AllProps"/>
-                                            <xs:group ref="email2:AllProps"/>
-                                            <xs:element ref="notes:Subject"/>
-                                            <xs:element ref="notes:MessageClass"/>
-                                            <xs:element ref="notes:LastModifiedDate"/>
-                                            <xs:element ref="notes:Categories"/>
-                                            <xs:group ref="tasks:AllProps"/>
-                                            <xs:element
-                                                ref="rm:RightsManagementLicense"/>
-                                          </xs:choice>
-                                        </xs:complexType>
-                                      </xs:element>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
-                                <xs:element name="Add" minOccurs="0"
-                                    maxOccurs="unbounded">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element ref="ServerId"/>
-                                      <xs:element name="ApplicationData">
-                                        <xs:complexType>
-                                          <xs:sequence>
-                                            <xs:choice maxOccurs="unbounded">
-                                              <xs:element ref="airsyncbase:Attachments"/>
-                                              <xs:element
-                                                  ref="airsyncbase:Body"/>
-                                              <xs:element
-                                                  ref="airsyncbase:BodyPart"/>
-                                              <xs:element
-                                                  ref="airsyncbase:NativeBodyType"/>
-                                              <xs:element
-	                                                ref="airsyncbase:InstanceId"/>
-                                              <xs:element
-	                                                ref="airsyncbase:Location"/>
-                                              <xs:group ref="calendar:AllProps"/>
-                                              <xs:group ref="contacts:AllProps"/>
-                                              <xs:group
-                                                  ref="contacts2:AllProps"/>
-                                              <xs:group
-                                                  ref="documentlibrary:AllProps"/>
-                                              <xs:group ref="email:AllProps"/>
-                                              <xs:group ref="email2:AllProps"/>
-                                              <xs:element ref="notes:Subject"/>
-                                              <xs:element ref="notes:MessageClass"/>
-                                              <xs:element ref="notes:LastModifiedDate"/>
-                                              <xs:element ref="notes:Categories"/>
-                                              <xs:group ref="tasks:AllProps"/>
-                                              <xs:element
-                                                  ref="rm:RightsManagementLicense"/>
-                                            </xs:choice>
-                                          </xs:sequence>
-                                        </xs:complexType>
-                                      </xs:element>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
+<?xml version="1.0" encoding="UTF-8"?>
+ <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:airsyncbase=
+     "AirSyncBase" xmlns:calendar="Calendar" xmlns:contacts="Contacts" 
+     xmlns:contacts2="Contacts2" xmlns:documentlibrary="DocumentLibrary" 
+     xmlns:email="Email" xmlns:email2="Email2" xmlns:notes="Notes" xmlns:rm="RightsManagement" 
+     xmlns:tasks="Tasks" xmlns="AirSync" targetNamespace="AirSync" 
+     elementFormDefault="qualified" attributeFormDefault="unqualified">
+   <xs:element name="Sync">
+     <xs:complexType>
+       <xs:sequence>
+         <xs:element ref="Status" minOccurs="0"/>
+         <xs:choice>
+           <xs:element ref="Limit" minOccurs="0"/>
+           <xs:element name="Collections" minOccurs="0">
+             <xs:complexType>
+               <xs:sequence>
+                 <xs:element name="Collection" minOccurs="0" 
+                     maxOccurs="unbounded">
+                   <xs:complexType>
+                     <xs:sequence>
+                       <xs:choice maxOccurs="unbounded">
+                         <xs:element ref="SyncKey"/>
+                         <xs:element ref="CollectionId"/>
+                         <xs:element ref="Status"/>
+                         <xs:element name="Commands" minOccurs="0">
+                           <xs:complexType>
+                             <xs:sequence>
+                               <xs:choice maxOccurs="unbounded">
+                               <xs:element name="Delete" minOccurs="0" 
+                                   maxOccurs="unbounded">
+                                 <xs:complexType>
+                                   <xs:sequence>
+                                     <xs:element ref="Class" minOccurs="0"/>
+                                     <xs:element ref="ServerId"/>
+                                   </xs:sequence>
+                                 </xs:complexType>
+                               </xs:element>
+                               <xs:element name="SoftDelete" minOccurs="0" 
+                                   maxOccurs="unbounded">
+                                 <xs:complexType>
+                                   <xs:sequence>
+                                     <xs:element ref="ServerId"/>
+                                   </xs:sequence>
+                                 </xs:complexType>
+                               </xs:element>
+                               <xs:element name="Change" minOccurs="0" 
+                                   maxOccurs="unbounded">
+                                 <xs:complexType>
+                                   <xs:sequence>
+                                     <xs:element ref="Class" minOccurs="0"/>
+                                     <xs:element ref="ServerId"/>
+                                     <xs:element name="ApplicationData">
+                                       <xs:complexType>
+                                         <xs:choice maxOccurs="unbounded">
+                                           <xs:element ref="airsyncbase:Attachments"/>
+                                           <xs:element ref="airsyncbase:Body"/>
+                                           <xs:element 
+                                               ref="airsyncbase:BodyPart"/>
+                                           <xs:element 
+                                               ref="airsyncbase:NativeBodyType"/>
+                                           <xs:element 
+                                               ref="airsyncbase:InstanceId"/>
+                                           <xs:element 
+                                               ref="airsyncbase:Location"/>
+                                           <xs:group ref="calendar:AllProps"/>
+                                           <xs:group ref="contacts:AllProps"/>
+                                           <xs:group ref="contacts2:AllProps"/>
+                                           <xs:group 
+                                               ref="documentlibrary:AllProps"/>
+                                           <xs:group ref="email:AllProps"/>
+                                           <xs:group ref="email2:AllProps"/>
+                                           <xs:element ref="notes:Subject"/>
+                                           <xs:element ref="notes:MessageClass"/>
+                                           <xs:element ref="notes:LastModifiedDate"/>
+                                           <xs:element ref="notes:Categories"/>
+                                           <xs:group ref="tasks:AllProps"/>
+                                           <xs:element 
+                                               ref="rm:RightsManagementLicense"/>
+                                         </xs:choice>
+                                       </xs:complexType>
+                                     </xs:element>
+                                   </xs:sequence>
+                                 </xs:complexType>
+                               </xs:element>
+                               <xs:element name="Add" minOccurs="0" 
+                                   maxOccurs="unbounded">
+                                 <xs:complexType>
+                                   <xs:sequence>
+                                     <xs:element ref="ServerId"/>
+                                     <xs:element name="ApplicationData">
+                                       <xs:complexType>
+                                         <xs:sequence>
+                                           <xs:choice maxOccurs="unbounded">
+                                             <xs:element ref="airsyncbase:Attachments"/>
+                                             <xs:element 
+                                                 ref="airsyncbase:Body"/>
+                                             <xs:element 
+                                                 ref="airsyncbase:BodyPart"/>
+                                             <xs:element 
+                                                 ref="airsyncbase:NativeBodyType"/>
+                                             <xs:element 
+                                                 ref="airsyncbase:InstanceId"/>
+                                             <xs:element 
+                                                 ref="airsyncbase:Location"/>
+                                             <xs:group ref="calendar:AllProps"/>
+                                             <xs:group ref="contacts:AllProps"/>
+                                             <xs:group 
+                                                 ref="contacts2:AllProps"/>
+                                             <xs:group 
+                                                 ref="documentlibrary:AllProps"/>
+                                             <xs:group ref="email:AllProps"/>
+                                             <xs:group ref="email2:AllProps"/>
+                                             <xs:element ref="notes:Subject"/>
+                                             <xs:element ref="notes:MessageClass"/>
+                                             <xs:element ref="notes:LastModifiedDate"/>
+                                             <xs:element ref="notes:Categories"/>
+                                             <xs:group ref="tasks:AllProps"/>
+                                             <xs:element 
+                                                 ref="rm:RightsManagementLicense"/>
+                                           </xs:choice>
+                                         </xs:sequence>
+                                       </xs:complexType>
+                                     </xs:element>
+                                   </xs:sequence>
+                                 </xs:complexType>
+                               </xs:element>
                               </xs:choice>
-                            </xs:sequence>
-                          </xs:complexType>
-                        </xs:element>
-                        <xs:element name="Responses" minOccurs="0">
-                          <xs:complexType>
-                            <xs:sequence>
-                              <xs:choice maxOccurs="unbounded">
-                                <xs:element name="Change" minOccurs="0"
-                                    maxOccurs="unbounded">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element ref="Class" minOccurs="0"/>
-                                      <xs:element ref="ServerId"/>
-                                      <xs:element ref="Status"/>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
-                                <xs:element name="Add" minOccurs="0"
-                                    maxOccurs="unbounded">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element ref="Class" minOccurs="0"/>
-                                      <xs:element ref="ClientId"/>
-                                      <xs:element ref="ServerId" minOccurs="0"/>
-                                      <xs:element ref="Status"/>
-                                      <xs:element name="ApplicationData" minOccurs="0">
-                                        <xs:complexType>
-                                          <xs:sequence>
-                                            <xs:choice maxOccurs="unbounded">
-                                              <xs:element
-                                                  ref="airsyncbase:Attachments"/>
-                                              <xs:element
-                                                  ref="airsyncbase:Body"/>
-                                              <xs:element
-                                                  ref="airsyncbase:NativeBodyType"/>
-                                              <xs:element
-                                                  ref="airsyncbase:Location"/>
-                                              <xs:group ref="calendar:AllProps"/>
-                                              <xs:group ref="contacts:AllProps"/>
-                                              <xs:group
-                                                  ref="contacts2:AllProps"/>
-                                              <xs:group
-                                                  ref="documentlibrary:AllProps"/>
-                                              <xs:group ref="email:AllProps"/>
-                                              <xs:group ref="email2:AllProps"/>
-                                              <xs:group ref="tasks:AllProps"/>
-                                              <xs:element
-                                                  ref="rm:RightsManagementLicense"/>
-                                            </xs:choice>
-                                          </xs:sequence>
-                                        </xs:complexType>
-                                      </xs:element>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
-                                <xs:element name="Delete" minOccurs="0" >
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element ref="ServerId"/>
-                                      <xs:element ref="Status"/>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
-                                <xs:element name="Fetch" minOccurs="0">
-                                  <xs:complexType>
-                                    <xs:sequence>
-                                      <xs:element ref="ServerId" minOccurs="0"/>
-                                      <xs:element ref="Status"/>
-                                      <xs:element name="ApplicationData" minOccurs="0">
-                                        <xs:complexType>
-                                          <xs:sequence>
-                                            <xs:choice maxOccurs="unbounded">
-                                              <xs:element
-                                                  ref="airsyncbase:Attachments"/>
-                                              <xs:element
-                                                  ref="airsyncbase:Body"/>
-                                              <xs:element
-                                                  ref="airsyncbase:NativeBodyType"/>
-                                            <xs:element
-                                                ref="airsyncbase:Location"/>
-                                              <xs:group ref="calendar:AllProps"/>
-                                              <xs:group ref="contacts:AllProps"/>
-                                              <xs:group
-                                                  ref="contacts2:AllProps"/>
-                                              <xs:group
-                                                  ref="documentlibrary:AllProps"/>
-                                              <xs:group ref="email:AllProps"/>
-                                              <xs:group ref="email2:AllProps"/>
-                                              <xs:group ref="tasks:AllProps"/>
-                                              <xs:element
-                                                  ref="rm:RightsManagementLicense"/>
-                                            </xs:choice>
-                                          </xs:sequence>
-                                        </xs:complexType>
-                                      </xs:element>
-                                    </xs:sequence>
-                                  </xs:complexType>
-                                </xs:element>
-                              </xs:choice>
-                            </xs:sequence>
-                          </xs:complexType>
-                        </xs:element>
-                        <xs:element ref="MoreAvailable" minOccurs="0"/>
-                      </xs:choice>
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-</xs:schema>
+                             </xs:sequence>
+                           </xs:complexType>
+                         </xs:element>
+                         <xs:element name="Responses" minOccurs="0">
+                           <xs:complexType>
+                             <xs:sequence>
+                               <xs:element name="Change" minOccurs="0" 
+                                   maxOccurs="unbounded">
+                                 <xs:complexType>
+                                   <xs:sequence>
+                                     <xs:element ref="Class" minOccurs="0"/>
+                                     <xs:element ref="ServerId"/>
+                                     <xs:element ref="airsyncbase:InstanceId" minOccurs="0"/>
+                                     <xs:element ref="Status"/>
+                                   </xs:sequence>
+                                 </xs:complexType>
+                               </xs:element>
+                               <xs:element name="Add" minOccurs="0" 
+                                   maxOccurs="unbounded">
+                                 <xs:complexType>
+                                   <xs:sequence>
+                                     <xs:element ref="Class" minOccurs="0"/>
+                                     <xs:element ref="ClientId"/>
+                                     <xs:element ref="ServerId" minOccurs="0"/>
+                                     <xs:element ref="Status"/>
+                                     <xs:element name="ApplicationData" minOccurs="0">
+                                       <xs:complexType>
+                                         <xs:sequence>
+                                           <xs:choice maxOccurs="unbounded">
+                                             <xs:element
+                                                 ref="airsyncbase:Body"/>
+                                             <xs:element
+                                                 ref="airsyncbase:NativeBodyType"/>
+                                             <xs:element
+                                                 ref="airsyncbase:Location"/>
+                                             <xs:group ref="calendar:AllProps"/>
+                                             <xs:group ref="contacts:AllProps"/>
+                                             <xs:group
+                                                 ref="contacts2:AllProps"/>
+                                             <xs:group
+                                                 ref="documentlibrary:AllProps"/>
+                                             <xs:group ref="email:AllProps"/>
+                                             <xs:group ref="email2:AllProps"/>
+                                             <xs:group ref="tasks:AllProps"/>
+                                             <xs:element
+                                                 ref="rm:RightsManagementLicense"/>
+                                           </xs:choice>
+                                         </xs:sequence>
+                                       </xs:complexType>
+                                     </xs:element>
+                                   </xs:sequence>
+                                 </xs:complexType>
+                               </xs:element>
+                               <xs:element name="Delete" minOccurs="0" >
+                                <xs:complexType>
+                                  <xs:sequence>
+                                    <xs:element ref="ServerId"/>
+                                     <xs:element ref="airsyncbase:InstanceId" minOccurs="0"/>
+                                    <xs:element ref="Status"/>
+                                  </xs:sequence>
+                                </xs:complexType>
+                               </xs:element>
+                               <xs:element name="Fetch" minOccurs="0">
+                                 <xs:complexType>
+                                   <xs:sequence>
+                                     <xs:element ref="ServerId" minOccurs="0"/>
+                                     <xs:element ref="Status"/>
+                                     <xs:element name="ApplicationData" minOccurs="0">
+                                       <xs:complexType>
+                                         <xs:sequence>
+                                           <xs:choice maxOccurs="unbounded">
+                                             <xs:element 
+                                                 ref="airsyncbase:Attachments"/>
+                                             <xs:element 
+                                                 ref="airsyncbase:Body"/>
+                                             <xs:element 
+                                                 ref="airsyncbase:NativeBodyType"/>
+                                             <xs:element 
+                                                 ref="airsyncbase:Location"/>
+                                             <xs:group ref="calendar:AllProps"/>
+                                             <xs:group ref="contacts:AllProps"/>
+                                             <xs:group 
+                                                 ref="contacts2:AllProps"/>
+                                             <xs:group 
+                                                 ref="documentlibrary:AllProps"/>
+                                             <xs:group ref="email:AllProps"/>
+                                             <xs:group ref="email2:AllProps"/>
+                                             <xs:group ref="tasks:AllProps"/>
+                                             <xs:element 
+                                                 ref="rm:RightsManagementLicense"/>
+                                           </xs:choice>
+                                         </xs:sequence>
+                                       </xs:complexType>
+                                     </xs:element>
+                                   </xs:sequence>
+                                 </xs:complexType>
+                               </xs:element>
+                             </xs:sequence>
+                           </xs:complexType>
+                         </xs:element>
+                         <xs:element ref="MoreAvailable" minOccurs="0"/>
+                       </xs:choice>
+                     </xs:sequence>
+                   </xs:complexType>
+                 </xs:element>
+               </xs:sequence>
+             </xs:complexType>
+           </xs:element>
+         </xs:choice>
+       </xs:sequence>
+     </xs:complexType>
+   </xs:element>
+ </xs:schema>
