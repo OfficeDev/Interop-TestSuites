@@ -1710,7 +1710,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 		<ns1:Description>[In Request Headers] For details [about the required Header Accept-Language], see section 2.2.1.1.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -2079,7 +2079,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 		<ns1:Description>[In Cookie]For details about the syntax, see [RFC6265].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
