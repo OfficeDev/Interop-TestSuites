@@ -551,7 +551,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                 policy.PolicyKey = policyKey;
                 policy.Status = "1";
             }
-            else if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1" || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.0")
+            else if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1" || 
+                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.0" ||
+                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.1")
             {
                 // Configure the DeviceInformation.
                 Request.DeviceInformation deviceInfomation = new Request.DeviceInformation

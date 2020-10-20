@@ -39,6 +39,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
         public bool IsActiveSyncProtocolVersion141 { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether ActiveSync protocol version is 16.0 or not.
+        /// </summary>
+        public bool IsActiveSyncProtocolVersion160 { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether ActiveSync protocol version is 16.1 or not.
+        /// </summary>
+        public bool IsActiveSyncProtocolVersion161 { get; set; }
+
+        /// <summary>
         /// Gets the protocol adapter
         /// </summary>
         protected IMS_ASCALAdapter CALAdapter { get; private set; }
@@ -219,7 +229,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             {
                 calendarItem.Add(Request.ItemsChoiceType8.OrganizerEmail, Common.GetMailAddress(this.User1Information.UserName, this.User1Information.UserDomain));
                 calendarItem.Add(Request.ItemsChoiceType8.OrganizerName, this.User1Information.UserName);
-                calendarItem.Add(Request.ItemsChoiceType8.Location, this.Location);
+                calendarItem.Add(Request.ItemsChoiceType8.Location1, this.Location);
                 calendarItem.Add(Request.ItemsChoiceType8.UID, Guid.NewGuid().ToString());
             }
 
@@ -839,6 +849,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             this.IsActiveSyncProtocolVersion121 = false;
             this.IsActiveSyncProtocolVersion140 = false;
             this.IsActiveSyncProtocolVersion141 = false;
+            this.IsActiveSyncProtocolVersion160 = false;
+            this.IsActiveSyncProtocolVersion161 = false;
 
             if (this.CALAdapter == null)
             {
@@ -875,7 +887,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
             {
                 this.IsActiveSyncProtocolVersion141 = true;
             }
-
+            else if (this.ActiveSyncProtocolVersion.Equals("16.0"))
+            {
+                this.IsActiveSyncProtocolVersion160 = true;
+            }
+            else if (this.ActiveSyncProtocolVersion.Equals("16.1"))
+            {
+                this.IsActiveSyncProtocolVersion161 = true;
+            }
+            
             if (Common.GetSutVersion(this.Site) != SutVersion.ExchangeServer2007 || this.IsActiveSyncProtocolVersion121)
             {
                 this.SwitchUser(this.User1Information, true);

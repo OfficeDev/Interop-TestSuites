@@ -634,11 +634,10 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region User2 calls MeetingResponse command to accept the meetingRequest with Instance element referring to email meeting request item in MeetingResponseRequest
             DateTime calendarStartTime = Common.GetNoSeparatorDateTime(startTime).ToUniversalTime();
 
-            // Set instanceID with correct format that same as required format "2010-03-20T22:40:00.000Z".
-            string instanceID = calendarStartTime.ToString("yyyy-MM-ddTHH:mm:ss.fffZ");
-
+            // Set invalid instanceID randomly.            
+            string instanceID = new Random().ToString();
             MeetingResponseRequest meetingResponseRequest = TestSuiteBase.CreateMeetingResponseRequest(1, this.User2Information.InboxCollectionId, calendarItemID, instanceID);
-
+            
             // Send MeetingResponseRequest with instanceID specifies a email meeting
             MeetingResponseResponse meetingResponseResponse = this.CMDAdapter.MeetingResponse(meetingResponseRequest);
             #endregion

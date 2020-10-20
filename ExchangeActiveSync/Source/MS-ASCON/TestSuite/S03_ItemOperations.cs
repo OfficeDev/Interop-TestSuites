@@ -65,7 +65,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR214,
                 214,
-                @"[In Ignoring a Conversation] The server sends an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) that includes the itemoperations:Status element, as specified in section 2.2.2.10, and the itemoperations:ConversationId element (section 2.2.2.3.1).");
+                @"[In Ignoring a Conversation] The server sends an ItemOperations command response ([MS-ASCMD] section 2.2.1.10) that includes the itemoperations:Status element, as specified in section 2.2.2.10, and the itemoperations:ConversationId element (section 2.2.2.3.1).");
 
             Site.Assert.AreEqual("1", itemOperationResponse.ResponseData.Response.Move[0].Status, "The move operation should be success.");
             #endregion
@@ -143,7 +143,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             Site.CaptureRequirementIfIsNotNull(
                 itemOperationResponse.ResponseData.Response.Move[0].ConversationId,
                 216,
-                @"[In Always Moving a Conversation] The server sends an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) that includes the itemoperations:Status element, as specified in section 2.2.2.10, and the itemoperations:ConversationId element (section 2.2.2.3.1).");
+                @"[In Always Moving a Conversation] The server sends an ItemOperations command response ([MS-ASCMD] section 2.2.1.10) that includes the itemoperations:Status element, as specified in section 2.2.2.10, and the itemoperations:ConversationId element (section 2.2.2.3.1).");
             #endregion
 
             #region User1 syncs messages in the Inbox folder and Deleted Items folder after conversation moved
@@ -180,7 +180,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             // If all messages except the one in Sent Items Folder and future message are moved to DeletedItems folder, then this requirement can be captured.
             Site.CaptureRequirement(
                 68,
-                @"[In ConversationId (ItemOperations)] In an ItemOperations command request ([MS-ASCMD] section 2.2.2.8), the itemoperations:ConversationId element ([MS-ASCMD] section 2.2.3.35.1) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.107.1) that specifies the conversation ID of the conversation that is to be moved.");
+                @"[In ConversationId (ItemOperations)] In an ItemOperations command request ([MS-ASCMD] section 2.2.1.10), the itemoperations:ConversationId element ([MS-ASCMD] section 2.2.3.35.1) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.117.1) that specifies the conversation ID of the conversation that is to be moved.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R118");
@@ -188,7 +188,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             // If all messages except the one in Sent Items Folder and future message are moved to DeletedItems folder, then this requirement can be captured.
             Site.CaptureRequirement(
                 118,
-                @"[In DstFldId] The itemoperations:DstFldId element ([MS-ASCMD] section 2.2.3.49.1) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.107.1) in an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) that specifies the folder to which the conversation is moved.");
+                @"[In DstFldId] The itemoperations:DstFldId element ([MS-ASCMD] section 2.2.3.51.1) is a required child element of the itemoperations:Move element ([MS-ASCMD] section 2.2.3.117.1) in an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) that specifies the folder to which the conversation is moved.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R130");
@@ -486,7 +486,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             Site.CaptureRequirementIfIsNotNull(
                 email.BodyPart,
                 236,
-                @"[In Sending a Message Part] If the client [Sync command request ([MS-ASCMD] section 2.2.2.19.1), Search command request ([MS-ASCMD] section 2.2.2.14.1) or] ItemOperations command request 9([MS-ASCMD] section 2.2.2.8.2) includes the airsyncbase:BodyPartPreference element (section 2.2.2.2), then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.");
+                @"[In Sending a Message Part] If the client [Sync command request ([MS-ASCMD] section 2.2.1.21), Search command request ([MS-ASCMD] section 2.2.1.16) or] ItemOperations command request 9([MS-ASCMD] section 2.2.1.10) includes the airsyncbase:BodyPartPreference element (section 2.2.2.2), then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R39");
@@ -494,7 +494,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             // A message part and its meta-data are encapsulated by BodyPart element in the ItemOperation response, so this requirement can be captured.
             Site.CaptureRequirement(
                 39,
-                @"[In BodyPart] The airsyncbase:BodyPart element<1> ([MS-ASAIRS] section 2.2.2.5) encapsulates a message part and its meta-data in [a Sync command response ([MS-ASCMD] section 2.2.2.19),] an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) [or a Search command response ([MS-ASCMD] section 2.2.2.14)].");
+                @"[In BodyPart] The airsyncbase:BodyPart element ([MS-ASAIRS] section 2.2.2.10) encapsulates a message part and its meta-data in [a Sync command response ([MS-ASCMD] section 2.2.1.21),] an ItemOperations command response ([MS-ASCMD] section 2.2.1.10) [or a Search command response ([MS-ASCMD] section 2.2.1.16)].");
             #endregion
 
             #region Call ItemOperations command with both BodyPreference and BodyPartPreference elements.

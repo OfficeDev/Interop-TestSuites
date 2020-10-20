@@ -131,7 +131,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASAIRS
         {
             SearchResponse response = this.activeSyncClient.Search(request, true);
             Site.Assert.IsNotNull(response, "If the Search command executes successfully, the response from server should not be null.");
-            SearchStore searchStore = Common.LoadSearchResponse(response);
+            SearchStore searchStore = Common.LoadSearchResponse(response, Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site));
             this.VerifySearchResponse(response, searchStore);
             this.VerifyWBXMLCapture();
 

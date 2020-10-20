@@ -8,7 +8,7 @@
     <!-- Set R11028Enabled to true to verify that the first day of the week for any recurrence according to the preconfigured options of the user creating the calendar item, if the FirstDayOfWeek element is not included in the client request. Set R11028Enabled to false to disable this requirement.-->
     <Property name="R11028Enabled" value="false"/>
     <!-- Set R4Enabled to true to verify that implementation returns status value 6 if Interval is set to 0 in command request. Set R4Enabled to false to disable this requirement.-->
-    <Property name="R4Enabled" value="false"/>
+    <Property name="R4Enabled" value="true"/>
     <!-- Set R5Enabled to true to verify that implementation returns Interval value 1 if Interval is set to 0 in command request. Set R5Enabled to false to disable this requirement.-->
     <Property name="R5Enabled" value="true"/>
     <!-- Set R3Enabled to true to verify that the implementation return a value of 0 (Default) when a client specifies a value of 1 (Gregorian). Set R3Enabled to false to disable this requirement.-->
@@ -19,5 +19,7 @@
     <Property name="R2242Enabled" value="true"/>
     <!-- Set R52529Enabled to true to verify that implementation does not replace Email element with suitable placeholder text if the value of the Email element is not formatted as specified in [MS-ASDTYPE] section 2.6.2. Set R52529Enabled to false to disable this requirement.-->
     <Property name="R52529Enabled" value="true"/>
+    <!-- Set R313Enabled to true to verify that implementation the MeetingStatus value 5 means the meeting has been canceled and the user was the meeting organizer. Set R313Enabled to false to disable this requirement.-->
+    <Property name="R313Enabled" value="false"/>
   </Properties>
 </TestSite>

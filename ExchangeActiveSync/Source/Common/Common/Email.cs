@@ -207,12 +207,12 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                     {
                         case Response.ItemsChoiceType3.Categories:
                         case Response.ItemsChoiceType3.Categories1:
-                        case Response.ItemsChoiceType3.Categories3:
+                        //case Response.ItemsChoiceType3.Categories3:
                         case Response.ItemsChoiceType3.Categories4:
                         case Response.ItemsChoiceType3.Importance1:
-                        case Response.ItemsChoiceType3.MessageClass1:
+                        //case Response.ItemsChoiceType3.MessageClass1:
                         case Response.ItemsChoiceType3.Subject:
-                        case Response.ItemsChoiceType3.Subject2:
+                        //case Response.ItemsChoiceType3.Subject2:
                         case Response.ItemsChoiceType3.Subject3:
                             break;
                         case Response.ItemsChoiceType3.Read:

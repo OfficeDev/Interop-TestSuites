@@ -1426,7 +1426,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
             SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(emailSubject, this.User2Information.InboxCollectionId);
             SearchResponse searchResponse = this.EMAILAdapter.Search(searchRequest);
 
-            SearchStore searchStore = Common.LoadSearchResponse(searchResponse);
+            SearchStore searchStore = Common.LoadSearchResponse(searchResponse, Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site));
             Search searchItem = null;
             if (searchStore.Results.Count != 0)
             {
@@ -1571,7 +1571,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
             SearchRequest searchRequest = TestSuiteHelper.CreateSearchRequest(subject, draftCollectionId);
             SearchResponse searchResponse = this.EMAILAdapter.Search(searchRequest);
 
-            SearchStore searchStore = Common.LoadSearchResponse(searchResponse);
+            SearchStore searchStore = Common.LoadSearchResponse(searchResponse, Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site));
             Search searchItem = null;
             if (searchStore.Results.Count != 0)
             {

@@ -105,7 +105,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             SearchResponse response = this.activeSyncClient.Search(searchRequest, true);
             Site.Assert.IsNotNull(response, "If the operation is successful, the response should not be null.");
 
-            SearchStore store = Common.LoadSearchResponse(response);
+            SearchStore store = Common.LoadSearchResponse(response, Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site));
             this.VerifyTransport();
             this.VerifySearchCommand(store);
             this.VerifyWBXMLCapture();

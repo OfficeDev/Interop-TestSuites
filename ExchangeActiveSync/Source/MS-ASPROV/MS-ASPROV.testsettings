@@ -2,18 +2,20 @@
 <TestSettings name="MS-ASPROV" id="7f96ad43-b4dd-4e8d-b19e-10de09bfb9fc" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-ASPROV test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\RemoveDevice.ps1" />
-    <DeploymentItem filename="TestSuite\MS-ASPROV_TestSuite.ptfconfig" />
-    <DeploymentItem filename="MS-ASPROV.runsettings" />
-    <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
-    <DeploymentItem filename="TestSuite\MS-ASPROV_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-ASPROV_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASPROV_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\WipeData.ps1" />
+    <DeploymentItem filename="MS-ASPROV.runsettings" />
     <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASPROV_TestSuite.ptfconfig" />
+    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ASPROV\TestSuite\MS-ASPROV_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\RemoveDevice.ps1" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\WipeData.ps1" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

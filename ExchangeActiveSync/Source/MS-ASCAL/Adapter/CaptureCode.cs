@@ -1,5 +1,7 @@
 namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 {
+    using System;
+    using System.Reflection;
     using System.Collections.Generic;
     using Common;
     using Microsoft.Protocols.TestSuites.Common.Response;
@@ -78,6 +80,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 {
                     if (null != syncResponse.AddElements[i].Calendar)
                     {
+                        Type type = typeof(DataStructures.Calendar);
+                        PropertyInfo[] properties = type.GetProperties();
                         if (null != syncResponse.AddElements[i].Calendar.AllDayEvent)
                         {
                             // Add the debug information
@@ -193,6 +197,25 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                                         @"[In AttendeeType] The value of the AttendeeType element MUST be one of the values[1,2,3] specified in the following table.");
 
                                     this.VerifyUnsignedByteDataType(syncResponse.AddElements[i].Calendar.Attendees.Attendee[j].AttendeeType);
+                                    
+                                    foreach (PropertyInfo prop in properties)
+                                    {
+                                        var propName = prop.Name;
+                                        var propValue = prop.GetValue(syncResponse.AddElements[i].Calendar);
+                                        if (propName != "Attendees" && propValue != null)
+                                        {
+                                            // Add the debug information
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R434001");
+
+                                            // Verify MS-ASCAL requirement: MS-ASCAL_R434001
+                                            // If StartTime exists, this requirement can be captured.
+                                            Site.CaptureRequirementIfIsNotNull(
+                                                syncResponse.AddElements[i].Calendar.StartTime,
+                                                434001,
+                                                @"[In StartTime] [In protocol version 12.0, 12.1, 14.0, 14.1, 16.0, and 16.1, a Sync command response MUST contain one instance of the StartTime element if more than just] AttendeeType (section 2.2.2.6) has changed.");
+                                            break;
+                                        }
+                                    }
                                 }
 
                                 if (syncResponse.AddElements[i].Calendar.Attendees.Attendee[j].AttendeeStatusSpecified)
@@ -254,6 +277,25 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                                 @"[In DtStamp] [DtStamp] specifies the date and time that this exception was created.");
 
                             this.VerifyCompactDateTimeDataType();
+
+                            foreach (PropertyInfo prop in properties)
+                            {
+                                var propName = prop.Name;
+                                var propValue = prop.GetValue(syncResponse.AddElements[i].Calendar);
+                                if (propName != "DtStamp" && propValue != null)
+                                {
+                                    // Add the debug information
+                                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R434");
+
+                                    // Verify MS-ASCAL requirement: MS-ASCAL_R434
+                                    // If StartTime exists, this requirement can be captured.
+                                    Site.CaptureRequirementIfIsNotNull(
+                                        syncResponse.AddElements[i].Calendar.StartTime,
+                                        434,
+                                        @"[In StartTime] In protocol version 12.0, 12.1, 14.0, 14.1, 16.0, and 16.1, a Sync command response MUST contain one instance of the StartTime element if more than just DtStamp (section 2.2.2.18) has changed.");
+                                    break;
+                                }
+                            }
                         }
 
                         if (null != syncResponse.AddElements[i].Calendar.Body)
@@ -794,7 +836,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
                         if (!activeSyncProtocolVersion.Equals("12.1") && !activeSyncProtocolVersion.Equals("14.0"))
                         {
-                            if (0 == syncResponse.AddElements[i].Calendar.Reminder.Length)
+                            if (!syncResponse.AddElements[i].Calendar.Reminder.HasValue)
                             {
                                 // Add the debug information
                                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R3951111");
@@ -812,7 +854,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
                             // Verify MS-ASCAL requirement: MS-ASCAL_R2185
                             Site.CaptureRequirementIfIsTrue(
-                                syncResponse.AddElements[i].Calendar.Reminder == null || syncResponse.AddElements[i].Calendar.Reminder.Length != 0,
+                                syncResponse.AddElements[i].Calendar.Reminder == null || syncResponse.AddElements[i].Calendar.Reminder.ToString().Length != 0,
                                 2185,
                                 @"[In Reminder] When protocol version 2.5, 12.0, 12.1, or 14.0 is used, the value of the Reminder element cannot be an EmptyTag data type.");
                         }
@@ -1183,16 +1225,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                         }
 
                         // Add the debug information
-                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R434");
-
-                        // Verify MS-ASCAL requirement: MS-ASCAL_R434
-                        // If StartTime exists, this requirement can be captured.
-                        Site.CaptureRequirementIfIsNotNull(
-                            syncResponse.AddElements[i].Calendar.StartTime,
-                            434,
-                            @"[In StartTime] A Sync command response MUST contain one instance of the StartTime element.");
-
-                        // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R438");
 
                         // Verify MS-ASCAL requirement: MS-ASCAL_R438
@@ -1205,15 +1237,23 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
                         if (null != syncResponse.AddElements[i].Calendar.Recurrence)
                         {
-                            // Add the debug information
-                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R374");
+                            if (activeSyncProtocolVersion.Equals("2.5")
+                                || activeSyncProtocolVersion.Equals("12.0")
+                                || activeSyncProtocolVersion.Equals("12.1")
+                                || activeSyncProtocolVersion.Equals("14.0")
+                                || activeSyncProtocolVersion.Equals("14.1"))
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R374");
 
-                            // Verify MS-ASCAL requirement: MS-ASCAL_R374
-                            // If schema is verified this requirement can be captured.
-                            Site.CaptureRequirementIfIsTrue(
-                                this.activeSyncClient.ValidationResult,
-                                374,
-                                @"[In Recurrence] [The Recurrence element can have the following child elements:]Type (section 2.2.2.43): One instance of this element is required.");
+                                // Verify MS-ASCAL requirement: MS-ASCAL_R374
+                                // If schema is verified this requirement can be captured.
+                                Site.CaptureRequirementIfIsTrue(
+                                    this.activeSyncClient.ValidationResult,
+                                    374,
+                                    @"[In Recurrence] [The Recurrence element can have the following child elements:]Type (section 2.2.2.43): One instance of this element is required in protocol version 2.5, 12.0, 12.1, 14.0 and 14.1.");
+
+                            }
 
                             this.VerifyContainerDataType();
 
@@ -1744,9 +1784,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                             this.VerifyStringDataType();
                         }
 
-                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) != "12.1"
-                            && Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) != "14.0"
-                            && Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) != "14.1")
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.0")
                         {
                             if (syncResponse.AddElements[i].Calendar.Location1.DisplayName != null)
                             {
@@ -1757,10 +1795,24 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                                 Site.CaptureRequirementIfIsNull(
                                     syncResponse.AddElements[i].Calendar.Location,
                                     2135,
-                                    @"[In Location] The airsyncbase:Location element ([MS-ASAIRS] section 2.2.2.27) is used instead of the calendar:Location element in protocol version 16.0.");
+                                    @"[In Location] The airsyncbase:Location element ([MS-ASAIRS] section 2.2.2.27) is used instead of the calendar:Location element in protocol version 16.0 [and 16.1].");
                             }
                         }
 
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.1")
+                        {
+                            if (syncResponse.AddElements[i].Calendar.Location1.DisplayName != null)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2135001");
+
+                                // Verify MS-ASCAL requirement: MS-ASCAL_R2135001
+                                Site.CaptureRequirementIfIsNull(
+                                    syncResponse.AddElements[i].Calendar.Location,
+                                    2135001,
+                                    @"[In Location] The airsyncbase:Location element ([MS-ASAIRS] section 2.2.2.27) is used instead of the calendar:Location element in protocol version [16.0 and] 16.1.");
+                            }
+                        }
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R235");
 
@@ -1811,6 +1863,35 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                                 @"[In OrganizerName] The value of this element is a string data type, as specified in [MS-ASDTYPE] section 2.6.");
 
                             this.VerifyStringDataType();
+
+                            if (activeSyncProtocolVersion.Equals("16.0"))
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2175");
+
+                                //Verify MS-ASCAL requirment: MS-ASCAL_R2175
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                    Common.GetConfigurationPropertyValue("OrganizerUserName", this.Site),
+                                    syncResponse.AddElements[i].Calendar.OrganizerName,
+                                    2175,
+                                    @"[In OrganizerName] [When protocol version 16.0 is used, the client MUST NOT include the OrganizerName element in command requests and] the server will use the name of the current user."
+                                    );
+                            }
+
+                            if (activeSyncProtocolVersion.Equals("16.1"))
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R2175001");
+
+                                //Verify MS-ASCAL requirment: MS-ASCAL_R2175001
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                    Common.GetConfigurationPropertyValue("OrganizerUserName", this.Site),
+                                    syncResponse.AddElements[i].Calendar.OrganizerName,
+                                    2175001,
+                                    @"[In OrganizerName] [When protocol version 16.1 is used, the client MUST NOT include the OrganizerName element in command requests and] the server will use the name of the current user."
+                                    );
+                            }
+
                         }
 
                         if (!activeSyncProtocolVersion.Equals("12.1"))
