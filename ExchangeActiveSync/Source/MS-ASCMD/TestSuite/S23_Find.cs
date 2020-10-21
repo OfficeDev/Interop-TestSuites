@@ -45,6 +45,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC01_Find_Success()
         {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The GetHierarchy command is not supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             #region Create a find request
             FindRequest findRequest = this.CreateMailBoxFindRequest();
             #endregion
