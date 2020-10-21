@@ -5,4 +5,5 @@
   <Properties>
     <!-- Set the value of the property MS-ASNOTE_Supported to true to indicate that the SUT supports the MS-ASNOTE protocol. Otherwise set the value to false. -->
     <Property name="MS-ASNOTE_Supported" value="true"/>
+  </Properties>
 </TestSite>
