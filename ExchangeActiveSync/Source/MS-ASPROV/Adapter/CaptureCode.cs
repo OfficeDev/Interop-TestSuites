@@ -18,16 +18,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
         {
             // If the schema validation is successful, then following requirements can be captured.
             Site.Assert.IsTrue(this.activeSyncClient.ValidationResult, "Schema validation should be successful.");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R600");
-
-            // Verify MS-ASPROV requirement: MS-ASPROV_R600
-            // The schema has been validated, so this requirement can be captured.
-            Site.CaptureRequirement(
-                600,
-                @"[In Transport] The encoded XML block containing the command and parameter elements is transmitted in[ either] the request body of a request[, or in the response body of a response].");
-
+                        
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R60010");
 
