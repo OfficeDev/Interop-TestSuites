@@ -3808,7 +3808,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                     "6",
                     syncCalendarResponse.AddResponses[0].Status,
                     4,
-                    @"[In Appendix B: Product Behavior] <2> Section 2.2.2.25:  If Interval is set to 0 in command request, Microsoft Exchange Server 2007 returns Status value 6;");
+                    @"[In Appendix B: Product Behavior] <2> Section 2.2.2.25:  If Interval is set to 0 in command request, Microsoft Exchange Server 2007 SP1 and Exchange 2010 returns Status value 6;");
             }
 
             if (Common.IsRequirementEnabled(5, this.Site))
@@ -3826,7 +3826,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                     1,
                     calendar.Calendar.Recurrence.Interval,
                     5,
-                    @"[In Appendix B: Product Behavior] [<2> Section 2.2.2.25:  If Interval is set to 0 in command request,] Exchange 2010, Exchange 2013, and Exchange 2016 Preview return Interval value 1.");
+                    @"[In Appendix B: Product Behavior] [<2> Section 2.2.2.25:  If Interval is set to 0 in command request,] Microsoft Exchange Server 2010 Service Pack 1 (SP1), Exchange 2013, Exchange 2016 and Exchange 2019 return Interval value 1");
             }
 
             #endregion
