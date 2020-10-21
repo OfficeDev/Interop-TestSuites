@@ -50,6 +50,7 @@
     <Compile Include="S18_SmartReply.cs" />
     <Compile Include="S20_ValidateCert.cs" />
     <Compile Include="S22_GetHierarchy.cs" />
+    <Compile Include="S23_Find.cs" />
     <Compile Include="TestSuiteBase.cs" />
     <Compile Include="S21_CommonStatusCode.cs" />
     <Compile Include="S12_Provision.cs" />

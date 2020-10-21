@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
  <xs:schema
          id="Find"
-         targetNamespace="Find:"
-         xmlns:mstns="Find:"
+         targetNamespace="Find"
+         xmlns:mstns="Find"
          xmlns:itemoperations="ItemOperations"
          xmlns:gal="GAL"
-         xmlns="Find:" xmlns:email="Email" xmlns:email2="Email2" xmlns:airsync="AirSync"
+         xmlns="Find" xmlns:email="Email" xmlns:email2="Email2" xmlns:airsync="AirSync"
          xmlns:xs="http://www.w3.org/2001/XMLSchema"
          attributeFormDefault="qualified"
          elementFormDefault="qualified">
@@ -18,7 +18,7 @@
               <xs:all>
                 <xs:element ref="itemoperations:Store"/>
                 <xs:element ref="Status"/>
-                <xs:element name="Result" minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="Result" minOccurs="0" maxOccurs="1">
                   <xs:complexType>
                     <xs:sequence>
                       <xs:element ref="airsync:Class"/>
@@ -33,7 +33,7 @@
                   </xs:complexType>
                 </xs:element>
                 <xs:element ref="Range" minOccurs="0"/>
-                <xs:element name="Total" type="xs:integer"/>
+                <xs:element name="Total" type="xs:integer" minOccurs="0"/>
               </xs:all>
             </xs:complexType>
           </xs:element>

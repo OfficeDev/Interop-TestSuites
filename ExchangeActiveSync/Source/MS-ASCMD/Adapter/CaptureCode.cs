@@ -7093,6 +7093,18 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         }
         #endregion
 
+        #region Capture code for Find command
+        /// <summary>
+        /// This method is used to verify the Find response related requirements.
+        /// </summary>
+        /// <param name="findResponse">Find command response.</param>
+        private void VerifyFindCommand(Microsoft.Protocols.TestSuites.Common.FindResponse findResponse)
+        {
+            Site.Assert.IsTrue(this.activeSyncClient.ValidationResult, "The schema validation result should be true.");
+            Site.Assert.IsNotNull(findResponse.ResponseData, "The Find element should not be null.");
+        }
+        #endregion
+
         #region Capture code for SendMail command
         /// <summary>
         /// This method is used to verify the SendMail response related requirements.
@@ -9917,7 +9929,7 @@ MSS = Number of milliseconds");
                     string codePageName = Common.GetCodePageName(decodeDataItem.Key);
                     int currentCodepage = decodeDataItem.Value;
 
-                    bool isValidCodePage = currentCodepage >= 0 && currentCodepage <= 24;
+                    bool isValidCodePage = currentCodepage >= 0 && currentCodepage <= 25;
                     Site.Assert.IsTrue(isValidCodePage, "Code page value should between 0-24,actual value is :{0}", currentCodepage);
 
                     // begin to capture requirement

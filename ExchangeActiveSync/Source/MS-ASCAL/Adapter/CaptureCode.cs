@@ -3,7 +3,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
     using System;
     using System.Reflection;
     using System.Collections.Generic;
-    using Common;
+    using Common;   
     using Microsoft.Protocols.TestSuites.Common.Response;
     using Microsoft.Protocols.TestTools;
     using ItemOperationsStore = Microsoft.Protocols.TestSuites.Common.DataStructures.ItemOperationsStore;
@@ -80,7 +80,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
                 {
                     if (null != syncResponse.AddElements[i].Calendar)
                     {
-                        Type type = typeof(DataStructures.Calendar);
+                        Type type = typeof(TestSuites.Common.DataStructures.Calendar);
                         PropertyInfo[] properties = type.GetProperties();
                         if (null != syncResponse.AddElements[i].Calendar.AllDayEvent)
                         {
