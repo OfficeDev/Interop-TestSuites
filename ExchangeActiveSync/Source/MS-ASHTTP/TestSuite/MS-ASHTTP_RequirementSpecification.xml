@@ -308,7 +308,7 @@ Content-Length: 866</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R24</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Base64 Encoded Query Value] This [protocol version] value SHOULD&lt;1&gt; be 141.</ns1:Description>
+		<ns1:Description>[In Base64 Encoded Query Value] This [protocol version] value SHOULD&lt;1&gt; be 141, 160 or 161.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -434,7 +434,7 @@ Content-Length: 866</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R40</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Base64 Encoded Query Value] Policy key (4 bytes, optional): An unsigned integer that indicates the state of policy settings on the client device, as specified in [MS-ASPROV] section 2.2.2.41.</ns1:Description>
+		<ns1:Description>[In Base64 Encoded Query Value] Policy key (4 bytes, optional): An unsigned integer that indicates the state of policy settings on the client device, as specified in [MS-ASPROV] section 2.2.2.42.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1026,6 +1026,15 @@ Content-Length: 866</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R5081</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Command Codes] [Command] Find searches for items in the mailbox using KQL syntax.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R79</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
 		<ns1:Description>[In Command Parameters] The following table lists the tag values [0, 1, 3, 4, 6, 7, 8] that correspond to the names of the command parameters.</ns1:Description>
@@ -1253,7 +1262,7 @@ Content-Length: 866</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R96</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.1.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Command Parameters] [When flag] AcceptMultiPart [value is] 0x02, for more details, see section 2.2.1.1.2.3.</ns1:Description>
+		<ns1:Description>[In Command Parameters] [When flag] AcceptMultiPart [value is] 0x02, for more details, see section 2.2.1.1.2.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1696,6 +1705,15 @@ parameter-value         = 1*VCHAR</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1271</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request Headers] For details [about the required Header Accept-Language], see section 2.2.1.1.2.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R128</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Request Headers] [The required Header] Authorization specifies that user credentials are sent by using HTTP basic authentication.</ns1:Description>
@@ -1707,7 +1725,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R129</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request Headers] For details [about the required Header Authorization], see section 2.2.1.1.2.1.</ns1:Description>
+		<ns1:Description>[In Request Headers] If using basic or OAuth authentication,for details [about the required Header Authorization], see section 2.2.1.1.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1734,7 +1752,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R132</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request Headers] For more details [about the header Content-Type], see section 2.2.1.1.2.2.</ns1:Description>
+		<ns1:Description>[In Request Headers] For more details [about the header Content-Type], see section 2.2.1.1.2.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1752,7 +1770,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R601</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request Headers] For more details [about the header Cookie], see section 2.2.1.1.2.7.</ns1:Description>
+		<ns1:Description>[In Request Headers] For more details [about the header Cookie], see section 2.2.1.1.2.4.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1770,7 +1788,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R134</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request Headers] For more details [about optional header MS-ASAcceptMultiPart], see section 2.2.1.1.2.3.</ns1:Description>
+		<ns1:Description>[In Request Headers] For more details [about optional header MS-ASAcceptMultiPart], see section 2.2.1.1.2.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1797,7 +1815,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R136</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request Headers] For more details [about the header MS-ASProtocolVersion], see section 2.2.1.1.2.4.</ns1:Description>
+		<ns1:Description>[In Request Headers] For more details [about the header MS-ASProtocolVersion], see section 2.2.1.1.2.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1815,7 +1833,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R406</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request Headers] For more details [about User-Agent] , see section 2.2.1.1.2.5.</ns1:Description>
+		<ns1:Description>[In Request Headers] For more details [about User-Agent] , see section 2.2.1.1.2.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1833,7 +1851,43 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R138</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request Headers] For more details [the header X-MS-PolicyKey], see section 2.2.1.1.2.6.</ns1:Description>
+		<ns1:Description>[In Request Headers] For more details [the header X-MS-PolicyKey], see section 2.2.1.1.2.8.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1381</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Accept-Language] The Accept-Language header is used to define the locale of the client which is used when performing searches with the Find or Search command requests. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1382</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In Accept-Language]If the accept language is not specified, the search is conducted by using the server language.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1383</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization]Users authenticate through the ActiveSync protocol by using HTTP basic authentication, OAuth or a client certificate. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1384</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization]Credentials are passed in different formats depending upon the form of authentication. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1841,7 +1895,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R139</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In Authorization] User credentials are sent from the client to the server by using HTTP basic authentication, in which [HTTP basic authentication] the credentials are encoded with base64 encoding.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1850,7 +1904,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R140</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In Authorization] For user fakename and password x$pIAK9@p9!, the Authorization header would be as follows. Authorization: Basic ZmFrZXVzZXI6eCRwSUFLOUBwOSE=</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1859,7 +1913,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R141</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.1</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
 		<ns1:Description>[In Authorization] For details about HTTP basic authentication, see [RFC1945] section 11.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1867,8 +1921,80 @@ parameter-value         = 1*VCHAR</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R142</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASHTTP_R1411</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization]For OAuth, an access token is obtained from the authorization server in response to an authorization grant. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1412</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization]The access token is then used to obtain a protected resource from the resource server. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1413</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization]The following is an example of an authorization header:Authorization: Bearer &lt;&lt;token&gt;&gt;</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1414</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization]For details about the OAuth 2.0 framework, see [RFC6749].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1415</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization]For authentication using a client certificate, the client MUST NOT send an authorization header.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1416</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization]The server prompts the client for a certificate as part of the initial SSL/TLS handshake or as part of a TLS renegotiation. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1417</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization]If no client certificate exists, the client MUST complete the SSL/TLS handshake. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1418</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In Authorization]For details about providing a client certificate during a SSL/TLS handshake, see [RFC5246] section 7.4.6.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R142</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In Content-Type] The Content-Type header indicates the format of the data sent in the request body.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1877,7 +2003,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R143</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In Content-Type] When the request body for a command is in WBXML format, the Content-Type header value MUST be set to [either] "application/vnd.ms-sync.wbxml" [, or the shortened string "application/vnd.ms-sync"].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1886,7 +2012,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R438</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In Content-Type] When the request body for a command is in WBXML format, the Content-Type header value MUST be set to [either "application/vnd.ms-sync.wbxml", or] the shortened string "application/vnd.ms-sync".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1895,8 +2021,8 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R144</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Content-Type] For the Autodiscover command ([MS-ASCMD] section 2.2.2.1), which specifies an XML request body format, the Content-Type header SHOULD be set to "text/xml" .</ns1:Description>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Description>[In Content-Type] For the Autodiscover command ([MS-ASCMD] section 2.2.1.1), which specifies an XML request body format, the Content-Type header SHOULD be set to "text/xml" .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1904,7 +2030,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R314</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In Content-Type] [For the Autodiscover command ([MS-ASCMD] section 2.2.2.1), which specifies an XML request body format, the Content-Type header] MAY&lt;3&gt; be set to "text/html".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1913,7 +2039,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R407</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.2</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
 		<ns1:Description>[In Content-Type] If the request has no body, the Content-Type header SHOULD NOT be present.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1921,9 +2047,63 @@ parameter-value         = 1*VCHAR</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R4071</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie]The Cookie header contains one or more cookies that the client previously received from the server in a Set-Cookie header (section 2.2.2.1.2.12). </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R4072</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie]Each cookie consists of the name and value.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R4073</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie]Multiple cookies are separated by a semi-colon. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R4074</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie]For details about the syntax, see [RFC6265].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R4075</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie]Clients using protocol version 16.0 or 16.1 or clients using OAuth authentication for any protocol version MUST be able to parse and interpret a Set-Cookie header that is received from the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R4076</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Description>[In Cookie]If the server response includes the Set-Cookie header, clients using protocol version 16.0 or 16.1 or clients using OAuth authentication for any protocol version MUST provide these cookies in a Cookie header when sending future requests to the server.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R147</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In MS-ASAcceptMultiPart] The MS-ASAcceptMultiPart header is used to control the delivery of the content requested by the Fetch element ([MS-ASCMD] section 2.2.3.63.1) in an ItemOperations request ([MS-ASCMD] section 2.2.2.8).</ns1:Description>
+		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASAcceptMultiPart] The MS-ASAcceptMultiPart header is used to control the delivery of the content requested by the Fetch element ([MS-ASCMD] section 2.2.3.67.1) in an ItemOperations request ([MS-ASCMD] section 2.2.1.10).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1931,7 +2111,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R148</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
 		<ns1:Description>[In MS-ASAcceptMultiPart] This [MS-ASAcceptMultiPart] header is optional for ItemOperations requests.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1940,7 +2120,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R439</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
 		<ns1:Description>[In MS-ASAcceptMultiPart] This [MS-ASAcceptMultiPart] header SHOULD NOT be used for other command requests.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1949,7 +2129,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R149</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
 		<ns1:Description>[In MS-ASAcceptMultiPart] This [MS-ASAcceptMultiPart] header SHOULD NOT be used if the base64 encoded query value is being used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1958,7 +2138,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R150</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
 		<ns1:Description>[In MS-ASAcceptMultiPart] Instead, the AcceptMultipart flag in the Options parameter SHOULD be used, as specified in section 2.2.1.1.1.1.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -1967,7 +2147,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R154</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
 		<ns1:Description>[In MS-ASAcceptMultiPart] If this [MS-ASAcceptMultiPart] header is present and the value is 'T', the client is requesting that the server return content in multipart format.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1976,7 +2156,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R155</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
 		<ns1:Description>[In MS-ASAcceptMultiPart] If the [MS-ASAcceptMultiPart] header is not present [, or is present and set to 'F'], the client is requesting that the server return content in inline format.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1985,7 +2165,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R440</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
 		<ns1:Description>[In MS-ASAcceptMultiPart] If the [MS-ASAcceptMultiPart] header [is not present, or] is present and set to 'F', the client is requesting that the server return content in inline format.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -1994,8 +2174,8 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R156</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In MS-ASAcceptMultiPart] For more details, see [MS-ASCMD] section 2.2.2.8.1.</ns1:Description>
+		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASAcceptMultiPart] For more details, see [MS-ASCMD] section 2.2.1.10.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2003,7 +2183,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R157</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.6</ns1:Doc_Sect>
 		<ns1:Description>[In MS-ASProtocolVersion] The MS-ASProtocolVersion header indicates the protocol version that the client is using to format the request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2012,7 +2192,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R408</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.6</ns1:Doc_Sect>
 		<ns1:Description>[In MS-ASProtocolVersion] This [MS-ASProtocolVersion] header SHOULD NOT be used if the base64 encoded query value is being used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2021,7 +2201,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R409</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.6</ns1:Doc_Sect>
 		<ns1:Description>[In MS-ASProtocolVersion] Instead, the Protocol version field of the base64 encoded query value SHOULD be set, as specified in section 2.2.1.1.1.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2030,8 +2210,17 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R158</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In MS-ASProtocolVersion] Valid values for this [MS-ASProtocolVersion] header are "14.1", "14.0", and "12.1".</ns1:Description>
+		<ns1:Doc_Sect>2.2.1.1.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersion] Valid values for this [MS-ASProtocolVersion] header are "16.1", "16.0", "14.1", "14.0", "12.1", "12.0", and "2.5".</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1581</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.1.2.6</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersion]The latest version is 16.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2039,7 +2228,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R410</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
 		<ns1:Description>[In User-Agent] The format of the User-Agent header is specified in [RFC2616] section 14.43.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2048,7 +2237,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R411</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.5</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
 		<ns1:Description>[In User-Agent] This [User-Agent] header SHOULD be included in command requests.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2057,8 +2246,8 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R159</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In X-MS-PolicyKey] The X-MS-PolicyKey header contains the client's current policy key, as specified in [MS-ASPROV] section 2.2.2.41.</ns1:Description>
+		<ns1:Doc_Sect>2.2.1.1.2.8</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-PolicyKey] The X-MS-PolicyKey header contains the client's current policy key, as specified in [MS-ASPROV] section 2.2.2.42.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2066,7 +2255,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R160</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.8</ns1:Doc_Sect>
 		<ns1:Description>[In X-MS-PolicyKey] This [X-MS-PolicyKey] header SHOULD NOT be used if the base64 encoded query value is being used.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -2075,62 +2264,8 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R162</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.6</ns1:Doc_Sect>
+		<ns1:Doc_Sect>2.2.1.1.2.8</ns1:Doc_Sect>
 		<ns1:Description>[In X-MS-PolicyKey] Instead, the Policy key field of the base64 encoded query value SHOULD be set, as specified in section 2.2.1.1.1.1.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R602</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In Cookie] The Cookie header contains one or more cookies that the client previously received from the server in a Set-Cookie header (section 2.2.2.1.2.12).</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R603</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In Cookie] Each cookie consistes of the name and value.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R604</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In Cookie] Multiple cookies are separated by a semi-colon.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R605</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In Cookie] For details about the syntax, see [RFC6265].</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R606</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In Cookie] Clients using protocol version 16.0 MUST be able to parse and interpret a Set-Cookie header that is received from the server.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R607</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.2.1.1.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In Cookie] If the server response includes the Set-Cookie header, clients using protocol version 16.0 MUST provide these cookies in a Cookie header when sending future requests to the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2193,7 +2328,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R166</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Request Body] For more details about the request bodies of individual commands, see [MS-ASCMD] section 2.2.2.</ns1:Description>
+		<ns1:Description>[In Request Body] For more details about the request bodies of individual commands, see [MS-ASCMD] section 2.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -2527,6 +2662,15 @@ HTTP/1.1 200 OK</ns1:Description>
 		<ns1:Description>[In Response Headers] The following table lists some common headers [Cache-Control,Content-Encoding,Content-Length,Content-Type,MS-Server-ActiveSync,X-MS-Location,X-MS-RP] that can be set by the server in response to client requests.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1951</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Response Headers] [Header] Cache-Control is optional.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -3010,9 +3154,90 @@ Content-Type, required only if Content-Length is greater than zero.</ns1:Descrip
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9044</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.12</ns1:Doc_Sect>
+		<ns1:Description>[In Set-Cookie]Multiple instances of this header can be returned with a different cookie name in each instance of the header. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R905</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.12</ns1:Doc_Sect>
 		<ns1:Description>[In Set-Cookie] For details about the syntax of this [Set-Cookie] header, see [RFC6265].</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9051</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-ASThrottle]This header is optional. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9052</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.13</ns1:Doc_Sect>
+		<ns1:Description>[In X-MS-ASThrottle]The X-MS-ASThrottle header specifies the condition under which the server MAY&lt;4&gt; throttle the client device.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9053</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In X-BEServer]This header is optional. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9054</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.14</ns1:Doc_Sect>
+		<ns1:Description>[In X-BEServer]The X-BEServer header contains the name of the server that processed the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9055</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In X-FEServer]This header is optional. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9056</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.15</ns1:Doc_Sect>
+		<ns1:Description>[In X-FEServer]The X-FEServer header contains the name of the server(s) that routed the request.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9057</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In request-id]This header is optional. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R9058</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.2.16</ns1:Doc_Sect>
+		<ns1:Description>[In request-id]The request-id header contains a server-generated identifier for the request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3159,6 +3384,15 @@ OPTIONS &lt;URI&gt; HTTP/1.1</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R2371</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Request headers]The authorization header is required. For more information on the authorization header requirements, see section 2.2.1.1.2.2.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R238</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
 		<ns1:Description>[In HTTP OPTIONS Response] After receiving an HTTP OPTIONS request, a server responds with an HTTP OPTIONS response that specifies the protocol versions it supports.</ns1:Description>
@@ -3226,7 +3460,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R245</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Headers] [Header] MS-ASProtocolCommands indicates the commands supported by the server, [whose example values are] Sync,SendMail,SmartForward,SmartReply,GetAttachment,GetHierarchy,CreateCollection,DeleteCollection,MoveCollection,FolderSync,FolderCreate,FolderDelete,FolderUpdate,MoveItems,GetItemEstimate,MeetingResponse,Search,Settings,Ping,ItemOperations,Provision,ResolveRecipients,ValidateCert.</ns1:Description>
+		<ns1:Description>[In Response Headers] [Header] MS-ASProtocolCommands indicates the commands supported by the server, [whose example values are] Sync,SendMail,SmartForward,SmartReply,GetAttachment,GetHierarchy,CreateCollection,DeleteCollection,MoveCollection,FolderSync,FolderCreate,FolderDelete,FolderUpdate,MoveItems,GetItemEstimate,MeetingResponse,Search,Settings,Ping,ItemOperations,Provision,ResolveRecipients,ValidateCert,Find.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3235,7 +3469,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R246</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Headers] [Header] MS-ASProtocolVersions indicates the protocol versions supported by the server [whose example values are] 12.1, 14.0, 14.1.</ns1:Description>
+		<ns1:Description>[In Response Headers] [Header] MS-ASProtocolVersions indicates the protocol versions supported by the server [whose example values are] 2.5,12.0,12.1,14.0,14.1,16.0,16.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3271,16 +3505,25 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R249</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In MS-ASProtocolVersions] The following values [MS-ASProtocolVersions] correspond to the ActiveSync protocol versions that are specified by [MS-ASCMD]: "16.0", "14.1", "14.0", "12.1", "12.0" and "2.5".</ns1:Description>
+		<ns1:Description>[In MS-ASProtocolVersions] The following values [MS-ASProtocolVersions] correspond to the ActiveSync protocol versions that are specified by [MS-ASCMD]: "16.1", "16.0", "14.1", "14.0", "12.1", "12.0" and "2.5".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R2491</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.1.2.2</ns1:Doc_Sect>
+		<ns1:Description>[In MS-ASProtocolVersions] The latest version is 16.1.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R250</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Initialization] The client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server to determine the correct server URL to use for all subsequent commands.</ns1:Description>
+		<ns1:Description>[In Initialization] The client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.1.1) to the server to determine the correct server URL to use for all subsequent commands.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3289,7 +3532,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R252</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Initialization] After determining the correct server URL, the client SHOULD send an HTTP OPTIONS command to the server, as specified in section 2.2.1.1.2.4.</ns1:Description>
+		<ns1:Description>[In Initialization] After determining the correct server URL, the client SHOULD send an HTTP OPTIONS command to the server, as specified in section 2.2.3.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3298,7 +3541,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R254</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Initialization] The client SHOULD&lt;4&gt; use the most recent version (the greatest numbered version) of the protocol that is supported by the client and server.</ns1:Description>
+		<ns1:Description>[In Initialization] The client SHOULD&lt;5&gt; use the most recent version (the greatest numbered version) of the protocol that is supported by the client and server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3325,7 +3568,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R258</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Sending a Command Request] Secure Sockets Layer (SSL) SHOULD be enabled between the client and the server whenever the Authorization header (section 2.2.1.1.2.1) is sent.</ns1:Description>
+		<ns1:Description>[In Sending a Command Request] Secure Sockets Layer (SSL) SHOULD be enabled between the client and the server whenever the Authorization header (section 2.2.1.1.2.2) is sent.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3361,7 +3604,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R262</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Handling a Successful Response] If the HTTP status code indicates that the request succeeded (its value is between 200 and 299, as specified in [RFC2616]), the response is interpreted as specified in [MS-ASCMD] section 2.2.2.</ns1:Description>
+		<ns1:Description>[In Handling a Successful Response] If the HTTP status code indicates that the request succeeded (its value is between 200 and 299, as specified in [RFC2616]), the response is interpreted as specified in [MS-ASCMD] section 2.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3370,7 +3613,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R263</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Handling a Successful Response] If the server returns an X-MS-RP header in the response, the client MUST reinitialize its synchronization state as specified in [MS-ASCMD] section 2.2.2.19.</ns1:Description>
+		<ns1:Description>[In Handling a Successful Response] If the server returns an X-MS-RP header in the response, the client MUST reinitialize its synchronization state as specified in [MS-ASCMD] section 2.2.1.21.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3388,7 +3631,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R908</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Headling a Successful Response] If the server returns the X-MS-Credentials-Expire header (section 2.2.2.1.2.11) in the response, the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to retrieve the URL for the self-service web site that allows a user to do a password reset.</ns1:Description>
+		<ns1:Description>[In Headling a Successful Response] If the server returns the X-MS-Credentials-Expire header (section 2.2.2.1.2.11) in the response, the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.1.1) to retrieve the URL for the self-service web site that allows a user to do a password reset.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3442,7 +3685,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R265</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In HTTP Error] If the server responds to any command with an HTTP Error 401 [, 403, or 500], the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server .</ns1:Description>
+		<ns1:Description>[In HTTP Error] If the server responds to any command with an HTTP Error 401 [, 403, or 500], the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.1.1) to the server .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3451,7 +3694,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R446</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In HTTP Error] If the server responds to any command with an HTTP Error [401 ,] 403[, or 500], the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server .</ns1:Description>
+		<ns1:Description>[In HTTP Error] If the server responds to any command with an HTTP Error [401 ,] 403[, or 500], the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.1.1) to the server .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3460,7 +3703,7 @@ Response-headers</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R447</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In HTTP Error] If the server responds to any command with an HTTP Error [401, 403, or] 500, the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) to the server .</ns1:Description>
+		<ns1:Description>[In HTTP Error] If the server responds to any command with an HTTP Error [401, 403, or] 500, the client SHOULD send an Autodiscover command request ([MS-ASCMD] section 2.2.1.1) to the server .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3526,7 +3769,7 @@ Content-Length: 0</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R273</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In HTTP Error] One of the causes of HTTP error 503 is that more users than are allowed by the server's request queue limit have sent requests to a single server.</ns1:Description>
+		<ns1:Description>[In HTTP Error] The server returns an HTTP error 503 when more users than are allowed by the server's request queue limit have sent requests to a single server or when the actions of the client have triggered throttling.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3554,7 +3797,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R275</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In HTTP Error] If a Retry-After header ([RFC2616]) is present in the response, the client SHOULD&lt;5&gt; retry the request after waiting the number of seconds indicated by the Retry-After header.</ns1:Description>
+		<ns1:Description>[In HTTP Error] If a Retry-After header ([RFC2616]) is present in the response, the client SHOULD&lt;6&gt; retry the request after waiting the number of seconds indicated by the Retry-After header.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3599,7 +3842,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R1003</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.5.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In HTTP Error] If the server responds to an Autodiscover command request ([MS-ASCMD] section 2.2.2.1) with an HTTP error 456, the client SHOULD stop sending requests to the server [and then prompt the user to contact the administrator].</ns1:Description>
+		<ns1:Description>[In HTTP Error] If the server responds to an Autodiscover command request ([MS-ASCMD] section 2.2.1.1) with an HTTP error 456, the client SHOULD stop sending requests to the server [and then prompt the user to contact the administrator].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3689,7 +3932,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R282</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP Requests] The server parse requests from clients as specified in section 2.2.1 and [MS-ASCMD] section 2.2.2.</ns1:Description>
+		<ns1:Description>[In Handling HTTP Requests] The server parse requests from clients as specified in section 2.2.1 and [MS-ASCMD] section 2.2.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3735,7 +3978,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R287</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP Requests] If the server returns an HTTP 503 error, it MAY&lt;6&gt; include a Retry-After header, as specified in [RFC2616], in the response with an estimate of the number of seconds that will elapse before the server is sppected to be able to process the request.</ns1:Description>
+		<ns1:Description>[In Handling HTTP Requests] If the server returns an HTTP 503 error, it MAY&lt;7&gt; include a Retry-After header, as specified in [RFC2616], in the response with an estimate of the number of seconds that will elapse before the server is sppected to be able to process the request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3799,7 +4042,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R416</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP Requests] The server MAY&lt;7&gt; track the value of the User-Agent header for consecutive command requests from a specific device and block devices that change the value of this [User-Agent] header more than a configured limit within a configured timespan.</ns1:Description>
+		<ns1:Description>[In Handling HTTP Requests] The server MAY&lt;8&gt; track the value of the User-Agent header for consecutive command requests from a specific device and block devices that change the value of this [User-Agent] header more than a configured limit within a configured timespan.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3817,7 +4060,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R418</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In User-Agent Change Tracking] Servers SHOULD limit changes to the User-Agent header value from a device to 2 changes within a 24-hour time period.</ns1:Description>
+		<ns1:Description>[In User-Agent Change Tracking] Servers SHOULD limit changes to the User-Agent header value from a device to two changes within a 24-hour time period.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3826,7 +4069,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R419</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In User-Agent Change Tracking] But [server] MAY&lt;8&gt; use different values for the number of changes or the time period.</ns1:Description>
+		<ns1:Description>[In User-Agent Change Tracking] But [server] MAY&lt;9&gt; use different values for the number of changes or the time period.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3845,21 +4088,12 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R421</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In User-Agent Change Tracking] But [server] MAY&lt;9&gt; block clients for a different amount of time.</ns1:Description>
+		<ns1:Description>[In User-Agent Change Tracking] But [server] MAY&lt;10&gt; block clients for a different amount of time.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-ASHTTP_R457.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASHTTP_R422</ns1:REQ_ID>
-		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In User-Agent Change Tracking] If the server blocks a client from changing its User-Agent header value, it [server] returns an HTTP error 503.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R1106</ns1:REQ_ID>
@@ -3873,7 +4107,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R1107</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP OPTIONS Command] The server's response MUST contain both the MS-ASProtocolCommands header, as specified in section 2.2.4.1.2.1, and the MS-ASProtocolVersions header, as specified in section 2.2.2.1.2.8.</ns1:Description>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] The server's response MUST contain both the MS-ASProtocolCommands header, as specified in section 2.2.4.1.2.1, and the MS-ASProtocolVersions header, as specified in section 2.2.4.1.2.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3891,7 +4125,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R292</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP OPTIONS Command] The latest supported version of the protocol is 16.0.</ns1:Description>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] The latest supported version of the protocol is 16.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3900,7 +4134,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R293</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP OPTIONS Command] Older supported versions include 14.1, 14.0, 12.1, 12.0, and 2.5.</ns1:Description>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] Older supported versions include  16.0, 14.1, 14.0, 12.1, 12.0, and 2.5.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3936,7 +4170,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R297</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Handling HTTP OPTIONS Command] This specification [MS-ASHTTP] and any protocol specifications that cite it [MS-ASHTTP] as a dependency, apply to the server configuration when the value of the MS-ASProtocolVersions header is set to a value that includes "16.0", "14.1", "14.0", "12.1", "12.0", or "2.5".&lt;10&gt;</ns1:Description>
+		<ns1:Description>[In Handling HTTP OPTIONS Command] This specification [MS-ASHTTP] and any protocol specifications that cite it [MS-ASHTTP] as a dependency, apply to the server configuration when the value of the MS-ASProtocolVersions header is set to a value that includes  "16.1", "16.0", "14.1", "14.0", "12.1", "12.0", or "2.5".&lt;11&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4043,8 +4277,26 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R145</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does accept a Content-Type header value of either "text/xml" or "text/html" for the Autodiscover command. (&lt;3&gt; Section 2.2.1.1.2.2: Exchange 2007 SP1 accepts a Content-Type header value of either "text/xml" or "text/html" for the Autodiscover command.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does accept a Content-Type header value of either "text/xml" or "text/html" for the Autodiscover command. (&lt;3&gt; Section 2.2.1.1.2.3: Exchange 2007 SP1 accepts a Content-Type header value of either "text/xml" or "text/html" for the Autodiscover command.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R314:i,MS-ASHTTP_R300:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R1451</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not supported the X-MS-ASThrottle header and throttling . (&lt;4&gt; Section 2.2.2.1.2.13:  The X-MS-ASThrottle header and throttling are not supported in Exchange 2007 SP1 and Exchange 2010.)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID/>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation supported the X-MS-ASThrottle header and throttling . (&lt;4&gt; Section 2.2.2.1.2.13:  The X-MS-ASThrottle header and throttling are supported in Exchange 2013, Exchange 2016, and Exchange 2019 but are disabled by default.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4053,7 +4305,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R453</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;4&gt; Section 3.1.3:  Windows Communication Apps only support protocol versions 12.1 and 14.0.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 3.1.3:  Windows Communication Apps only support protocol versions 12.1 and 14.0.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4062,7 +4314,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R454</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 3.1.5.2.3:  Windows Communication Apps ignore the Retry-After header and instead retry after a set time.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;6&gt; Section 3.1.5.2.3:  Windows Communication Apps ignore the Retry-After header and instead retry after a set time.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4071,7 +4323,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R495</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] &lt;5&gt; Section 3.1.5.2.3: The set time increases exponentially when multiple 503 errors are received.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] &lt;6&gt; Section 3.1.5.2.3: The set time increases exponentially when multiple 503 errors are received.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4080,7 +4332,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R288</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does sometimes include a Retry-After header with HTTP 503 error responses. (&lt;6&gt; Section 3.2.5.1: Exchange 2010 and Exchange 2013 sometimes include a Retry-After header with HTTP 503 error responses.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does sometimes include a Retry-After header with HTTP 503 error responses. (&lt;7&gt; Section 3.2.5.1: Exchange 2010 and Exchange 2013 sometimes include a Retry-After header with HTTP 503 error responses.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4098,7 +4350,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R455</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to track changes to the User-Agent header, but does not do so by default. (&lt;7&gt; Section 3.2.5.1:  Exchange 2013 can be configured to track changes to the User-Agent header, but does not do so by default.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to track changes to the User-Agent header, but does not do so by default. (&lt;8&gt; Section 3.2.5.1:  Exchange 2013, Exchange 2016, and Exchange 2019 can be configured to track changes to the User-Agent header can be configured to track changes to the User-Agent header, but does not do so by default.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R416:i,MS-ASHTTP_R300:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4108,7 +4360,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R456</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to use different values for the allowed number of changes and the time period. (&lt;8&gt; Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to use different values for the allowed number of changes and the time period.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to use different values for the allowed number of changes and the time period. (&lt;9&gt; Section 3.2.5.1.1:  Exchange 2013 , Exchange 2016, and Exchange 2019 can be configured to use different values for the allowed number of changes and the time period.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R419:i,MS-ASHTTP_R300:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4119,7 +4371,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R457</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (&lt;9&gt; Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to block clients for an amount of time other than 14 hours.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (&lt;10&gt; Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to block clients for an amount of time other than 14 hours.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R421:i,MS-ASHTTP_R300:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -4130,7 +4382,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R298</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return MS-ASProtocolVersions values of 16.0, 14.1 or 14.0. (&lt;10&gt; Section 3.2.5.2: Exchange 2007 SP1 does not return the value "16.0", "14.1", or "14.0" in the MS-ASProtocolVersions header.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return MS-ASProtocolVersions values of  16.1,16.0, 14.1 or 14.0. (&lt;11&gt; Section 3.2.5.2: Exchange 2007 SP1 does not return the value "16.1","16.0", "14.1", or "14.0" in the MS-ASProtocolVersions header.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4141,7 +4393,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R458</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return the MS-ASProtocolVersions value of 16.0 or 14.1. (&lt;10&gt; Section 3.2.5.2: The initial release version of Exchange 2010 does not return value "16.0" or "14.1" in the MS-ASProtocolVersions header.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return the MS-ASProtocolVersions value of 16.1,16.0 or 14.1. (&lt;11&gt; Section 3.2.5.2: The initial release version of Exchange 2010 does not return value "16.1", "16.0" or "14.1" in the MS-ASProtocolVersions header.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4151,7 +4403,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R1200</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return the MS-ASProtocolVersions value of 16.0. (&lt;10&gt; Section 3.2.5.2: The initial release version of Exchange 2010 SP1 and Exchange 2013 do not return value "16.0" in the MS-ASProtocolVersions header.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does not return the MS-ASProtocolVersions value of  16.1 or 16.0. (&lt;11&gt; Section 3.2.5.2: The initial release version of Exchange 2010 SP1 and Exchange 2013 do not return value "16.1" or "16.0"  in the MS-ASProtocolVersions header.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4195,6 +4447,17 @@ Content-Type: text/html</ns1:Description>
 		<ns1:REQ_ID>MS-ASHTTP_R1201</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the MS-ASProtocolVersions value of 16.0. (Exchange 2016 Preview and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASHTTP_R12011</ns1:REQ_ID>
+		<ns1:Doc_Sect>6</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the MS-ASProtocolVersions value of 16.1. (Exchange 2016 Preview and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R297:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
