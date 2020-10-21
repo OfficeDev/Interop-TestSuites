@@ -26,7 +26,53 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             // The schema has been validated, so this requirement can be captured.
             Site.CaptureRequirement(
                 600,
-                @"[In Transport] The XML markup that constitutes the request body or the response body that is transmitted between the client and the server uses Wireless Application Protocol (WAP) Binary XML (WBXML), as specified in [MS-ASWBXML].");
+                @"[In Transport] The encoded XML block containing the command and parameter elements is transmitted in[ either] the request body of a request[, or in the response body of a response].");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R60010");
+
+            // Verify MS-ASPROV requirement: MS-ASPROV_R60010
+            // The schema has been validated, so this requirement can be captured.
+            Site.CaptureRequirement(
+                60010,
+                @"[In Transport] The encoded XML block containing the command and parameter elements is transmitted[ in either the request body of a request, or] in the response body of a response.");
+
+            // Verify requirements of AccountOnlyRemoteWipe.
+            if (null != provisionResponse.ResponseData.AccountOnlyRemoteWipe)
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R6901");
+
+                // Verify MS-ASPROV requirement: MS-ASPROV_R6901
+                // The schema has been validated, so this requirement can be captured.
+                Site.CaptureRequirement(
+                    6901,
+                    @"[In AccountOnlyRemoteWipe] The AccountOnlyRemoteWipe element is an optional container ([MS-ASDTYPE] section 2.2) element.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R6903");
+
+                // Verify MS-ASPROV requirement: MS-ASPROV_R6903
+                // The schema has been validated, so this requirement can be captured.
+                Site.CaptureRequirement(
+                    6903,
+                    @"[In AccountOnlyRemoteWipe] A server response MUST NOT include any child elements in the AccountOnlyRemoteWipe element.");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R66605");
+
+                // Verify MS-ASPROV requirement: MS-ASPROV_R66605
+                // The schema has been validated, so this requirement can be captured.
+                Site.CaptureRequirement(
+                    66605,
+                    @"[In Responding to an Account Only Remote Wipe Directive Acknowledgement] The server's response is in the following format.
+<Provision>
+	<Status>...</Status>
+	<AccountOnlyRemoteWipe/>
+</Provision>");
+
+                this.VerifyContainerStructure();
+            }
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R319");
@@ -46,10 +92,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             Site.CaptureRequirement(
                 320,
                 @"[In Provision] The Provision element has the following child elements:
-settings:DeviceInformation (section 2.2.2.52)
-Status (section 2.2.2.53)
-Policies (section 2.2.2.39)
-RemoteWipe (section 2.2.2.44).");
+settings:DeviceInformation (section 2.2.2.53)
+Status (section 2.2.2.54.2)
+Policies (section 2.2.2.40)
+RemoteWipe (section 2.2.2.45)
+AccountOnlyRemoteWipe (section 2.2.2.1).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R759");
@@ -58,7 +105,7 @@ RemoteWipe (section 2.2.2.44).");
             // The schema has been validated, so this requirement can be captured.
             Site.CaptureRequirement(
                 759,
-                @"[In Status] The Status element is a child element of the Provision element (section 2.2.2.43).");
+                @"[In Status] The Status element is a child element of the Provision element (section 2.2.2.44).");
 
             // Verify requirements of DeviceInformation.
             if (null != provisionResponse.ResponseData.DeviceInformation)
@@ -70,7 +117,7 @@ RemoteWipe (section 2.2.2.44).");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     366,
-                    @"[In settings:DeviceInformation] It [settings:DeviceInformation element] is a child of the Provision element (section 2.2.2.43).");
+                    @"[In settings:DeviceInformation] It [settings:DeviceInformation element] is a child of the Provision element (section 2.2.2.44).");
 
                 this.VerifyContainerStructure();
             }
@@ -104,7 +151,7 @@ RemoteWipe (section 2.2.2.44).");
             // The schema has been validated, so this requirement can be captured.
             Site.CaptureRequirement(
                 391,
-                @"[In Status (Provision)] The value of this element [Status (Provision)] is an unsignedByte ([MS-ASDTYPE] section 2.7).");
+                @"[In Status (Provision)] The value of this element [Status (Provision)] is an unsignedByte ([MS-ASDTYPE] section 2.8).");
 
             // Verify requirements of Policies.
             if (null != provisionResponse.ResponseData.Policies)
@@ -125,7 +172,7 @@ RemoteWipe (section 2.2.2.44).");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     304,
-                    @"[In Policies] It [Policies element] is a child of the Provision element (section 2.2.2.43).");
+                    @"[In Policies] It [Policies element] is a child of the Provision element (section 2.2.2.44).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R307");
@@ -144,7 +191,7 @@ RemoteWipe (section 2.2.2.44).");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     306,
-                    @"[In Policies] The Policies element has only the following child element: Policy (section 2.2.2.40): At least one element of this type is required.");
+                    @"[In Policies] The Policies element has only the following child element: Policy (section 2.2.2.41): At least one element of this type is required.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R308");
@@ -153,7 +200,7 @@ RemoteWipe (section 2.2.2.44).");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     308,
-                    @"[In Policy] It [Policy element] is a child of the Policies element (section 2.2.2.39).");
+                    @"[In Policy] It [Policy element] is a child of the Policies element (section 2.2.2.40).");
 
                 // Verify requirements of PolicyType.
                 if (null != provisionResponse.ResponseData.Policies.Policy.PolicyType)
@@ -165,7 +212,7 @@ RemoteWipe (section 2.2.2.44).");
                     // The schema has been validated, so this requirement can be captured.
                     Site.CaptureRequirement(
                         317,
-                        @"[In PolicyType] The PolicyType element is a child element of type string ([MS-ASDTYPE] section 2.6) of the Policy element (section 2.2.2.40).");
+                        @"[In PolicyType] The PolicyType element is a child element of type string ([MS-ASDTYPE] section 2.7) of the Policy element (section 2.2.2.41).");
 
                     if (provisionResponse.ResponseData.Policies.Policy.Status != 3)
                     {
@@ -196,7 +243,7 @@ MS-EAS-Provisioning-WBXML]");
                     // The schema has been validated, so this requirement can be captured.
                     Site.CaptureRequirement(
                         313,
-                        @"[In PolicyKey] It [PolicyKey] is a child element of the Policy element (section 2.2.2.40).");
+                        @"[In PolicyKey] It [PolicyKey] is a child element of the Policy element (section 2.2.2.41).");
 
                     this.VerifyStringStructure();
 
@@ -212,7 +259,7 @@ MS-EAS-Provisioning-WBXML]");
                         Site.CaptureRequirementIfIsTrue(
                             uint.TryParse(provisionResponse.ResponseData.Policies.Policy.PolicyKey, out uintPolicyKey),
                             711,
-                            @"[In Appendix A: Product Behavior] The value of the PolicyKey element is a string representation of a 32-bit unsigned integer. (Exchange 2007 and above follow this behavior.)");
+                            @"[In Appendix B: Product Behavior] The value of the PolicyKey element is a string representation of a 32-bit unsigned integer. (Exchange 2007 and above follow this behavior.)");
                     }
                 }
 
@@ -232,7 +279,7 @@ MS-EAS-Provisioning-WBXML]");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     370,
-                    @"[In Status] The Status element is a child element of the Policy element (section 2.2.2.40).");
+                    @"[In Status] The Status element is a child element of the Policy element (section 2.2.2.41).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R375");
@@ -241,7 +288,7 @@ MS-EAS-Provisioning-WBXML]");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     375,
-                    @"[In Status (Policy)] In a command response, the value of this element [Status (Policy)] is an unsignedByte ([MS-ASDTYPE] section 2.7).");
+                    @"[In Status (Policy)] In a command response, the value of this element [Status (Policy)] is an unsignedByte ([MS-ASDTYPE] section 2.8).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R377");
@@ -272,18 +319,21 @@ MS-EAS-Provisioning-WBXML]");
                         "MS-EAS-Provisioning-WBXML",
                         provisionResponse.ResponseData.Policies.Policy.PolicyType,
                         966,
-                        @"[In PolicyType] Value MS-EAS-Provisioning-WBXML meaning The contents of the Data element are formatted according to the Exchange ActiveSync provisioning WBXML schema, as specified in section 2.2.2.23.1.");
+                        @"[In PolicyType] Value MS-EAS-Provisioning-WBXML meaning The contents of the Data element are formatted according to the Exchange ActiveSync provisioning WBXML schema, as specified in section 2.2.2.24.1.");
 
                     if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1") ||
                         Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0") ||
                         Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.1") ||
-                        Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                        Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0") || 
+                        Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
+
+
                     {
                         this.Site.CaptureRequirementIfAreEqual<string>(
                             "MS-EAS-Provisioning-WBXML",
                             provisionResponse.ResponseData.Policies.Policy.PolicyType,
                             971,
-                            @"[In PolicyType] The value ""MS-EAS-Provisioning-WBXML"" is used with protocol versions 12.0, 12.1, 14.0, 14.1, and 16.0.");
+                            @"[In PolicyType] The value ""MS-EAS-Provisioning-WBXML"" is used with protocol versions 12.0, 12.1, 14.0, 14.1, 16.0 and 16.1.");
                     }
 
                     // Add the debug information
@@ -293,7 +343,7 @@ MS-EAS-Provisioning-WBXML]");
                     // The schema has been validated, so this requirement can be captured.
                     Site.CaptureRequirement(
                         210,
-                        @"[In Data (container Data Type)] As a container data type, the Data element has only the following child element: EASProvisionDoc (section 2.2.2.27): One instance of this element is required.");
+                        @"[In Data (container Data Type)] As a container data type, the Data element has only the following child element: EASProvisionDoc (section 2.2.2.28): One instance of this element is required.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R232");
@@ -312,7 +362,7 @@ MS-EAS-Provisioning-WBXML]");
                     // The schema has been validated, so this requirement can be captured.
                     Site.CaptureRequirement(
                         233,
-                        @"[In EASProvisionDoc] It [EASProvisionDoc element] is a child of the Data element (section 2.2.2.23).");
+                        @"[In EASProvisionDoc] It [EASProvisionDoc element] is a child of the Data element (section 2.2.2.24.1).");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R234");
@@ -331,48 +381,48 @@ MS-EAS-Provisioning-WBXML]");
                     Site.CaptureRequirement(
                         235,
                         @"[In EASProvisionDoc] The EASProvisionDoc element has only the following child elements:
-AllowBluetooth (section 2.2.2.1)
-AllowBrowser (section 2.2.2.2)
-AllowCamera (section 2.2.2.3)
-AllowConsumerEmail (section 2.2.2.4)
-AllowDesktopSync (section 2.2.2.5)
-AllowHTMLEmail (section 2.2.2.6)
-AllowInternetSharing (section 2.2.2.7)
-AllowIrDA (section 2.2.2.8)
-AllowPOPIMAPEmail (section 2.2.2.9)
-AllowRemoteDesktop (section 2.2.2.10)
-AllowSimpleDevicePassword (section 2.2.2.11)
-AllowSMIMEEncryptionAlgorithmNegotiation (section 2.2.2.12)
-AllowSMIMESoftCerts (section 2.2.2.13)
-AllowStorageCard (section 2.2.2.14)
-AllowTextMessaging (section 2.2.2.15)
-AllowUnsignedApplications (section 2.2.2.16)
-AllowUnsignedInstallationPackages (section 2.2.2.17)
-AllowWifi (section 2.2.2.18)
-AlphanumericDevicePasswordRequired (section 2.2.2.19)
-ApprovedApplicationList (section 2.2.2.21)
-AttachmentsEnabled (section 2.2.2.22)
-DevicePasswordEnabled (section 2.2.2.24)
-DevicePasswordExpiration (section 2.2.2.25)
-DevicePasswordHistory (section 2.2.2.26)
-MaxAttachmentSize (section 2.2.2.29)
-MaxCalendarAgeFilter (section 2.2.2.30)
-MaxDevicePasswordFailedAttempts (section 2.2.2.31)
-MaxEmailAgeFilter (section 2.2.2.32)
-MaxEmailBodyTruncationSize (section 2.2.2.33)
-MaxEmailHTMLBodyTruncationSize (section 2.2.2.34)
-MaxInactivityTimeDeviceLock (section 2.2.2.35)
-MinDevicePasswordComplexCharacters (section 2.2.2.36)
-MinDevicePasswordLength (section 2.2.2.37)
-PasswordRecoveryEnabled (section 2.2.2.38)
-RequireDeviceEncryption (section 2.2.2.45)
-RequireEncryptedSMIMEMessages (section 2.2.2.46)
-RequireEncryptionSMIMEAlgorithm (section 2.2.2.47)
-RequireManualSyncWhenRoaming (section 2.2.2.48)
-RequireSignedSMIMEAlgorithm (section 2.2.2.49)
-RequireSignedSMIMEMessages (section 2.2.2.50)
-RequireStorageCardEncryption (section 2.2.2.51)
-UnapprovedInROMApplicationList (section 2.2.2.54)");
+AllowBluetooth (section 2.2.2.2)
+AllowBrowser (section 2.2.2.3)
+AllowCamera (section 2.2.2.4)
+AllowConsumerEmail (section 2.2.2.5)
+AllowDesktopSync (section 2.2.2.6)
+AllowHTMLEmail (section 2.2.2.7)
+AllowInternetSharing (section 2.2.2.8)
+AllowIrDA (section 2.2.2.9)
+AllowPOPIMAPEmail (section 2.2.2.10)
+AllowRemoteDesktop (section 2.2.2.11)
+AllowSimpleDevicePassword (section 2.2.2.12)
+AllowSMIMEEncryptionAlgorithmNegotiation (section 2.2.2.13)
+AllowSMIMESoftCerts (section 2.2.2.14)
+AllowStorageCard (section 2.2.2.15)
+AllowTextMessaging (section 2.2.2.16)
+AllowUnsignedApplications (section 2.2.2.17)
+AllowUnsignedInstallationPackages (section 2.2.2.18)
+AllowWifi (section 2.2.2.19)
+AlphanumericDevicePasswordRequired (section 2.2.2.20)
+ApprovedApplicationList (section 2.2.2.22)
+AttachmentsEnabled (section 2.2.2.23)
+DevicePasswordEnabled (section 2.2.2.25)
+DevicePasswordExpiration (section 2.2.2.26)
+DevicePasswordHistory (section 2.2.2.27)
+MaxAttachmentSize (section 2.2.2.30)
+MaxCalendarAgeFilter (section 2.2.2.31)
+MaxDevicePasswordFailedAttempts (section 2.2.2.32)
+MaxEmailAgeFilter (section 2.2.2.33)
+MaxEmailBodyTruncationSize (section 2.2.2.34)
+MaxEmailHTMLBodyTruncationSize (section 2.2.2.35)
+MaxInactivityTimeDeviceLock (section 2.2.2.36)
+MinDevicePasswordComplexCharacters (section 2.2.2.37)
+MinDevicePasswordLength (section 2.2.2.38)
+PasswordRecoveryEnabled (section 2.2.2.39)
+RequireDeviceEncryption (section 2.2.2.46)
+RequireEncryptedSMIMEMessages (section 2.2.2.47)
+RequireEncryptionSMIMEAlgorithm (section 2.2.2.48)
+RequireManualSyncWhenRoaming (section 2.2.2.49)
+RequireSignedSMIMEAlgorithm (section 2.2.2.50)
+RequireSignedSMIMEMessages (section 2.2.2.51)
+RequireStorageCardEncryption (section 2.2.2.52)
+UnapprovedInROMApplicationList (section 2.2.2.55)");
 
                     this.VerifyEASProvisionDocElement(provisionResponse);
 
@@ -386,7 +436,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                         Site.CaptureRequirementIfIsNull(
                             provisionResponse.ResponseData.RemoteWipe,
                             535,
-                            @"[In Appendix A: Product Behavior] The implementation does respond to a security policy settings request in an initial Provision command request with a response in the following format. (Exchange 2007 and above follow this behavior.)
+                            @"[In Appendix B: Product Behavior] The implementation does respond to a security policy settings request in an initial Provision command request with a response in the following format. (Exchange 2007 and above follow this behavior.)
 <Provision>
    <settings:DeviceInformation>
       <settings:Status>...</settings:Status>
@@ -463,7 +513,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     760,
-                    @"[In Status] The Status element is a child element of the RemoteWipe element (section 2.2.2.44).");
+                    @"[In Status] The Status element is a child element of the RemoteWipe element (section 2.2.2.45).");
 
                 if (Common.IsRequirementEnabled(758, Site))
                 {
@@ -515,7 +565,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     70,
-                    @"[In AllowBluetooth] The AllowBluetooth element is an optional child element of type unsignedByte ([MS-ASDTYPE] section 2.7) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowBluetooth] The AllowBluetooth element is an optional child element of type unsignedByte ([MS-ASDTYPE] section 2.8) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R71");
@@ -538,7 +588,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     80,
-                    @"[In AllowBrowser] The AllowBrowser element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowBrowser] The AllowBrowser element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R81");
@@ -561,7 +611,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     85,
-                    @"[In AllowCamera] The AllowCamera element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowCamera] The AllowCamera element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R86");
@@ -584,7 +634,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     92,
-                    @"[In AllowConsumerEmail] The AllowConsumerEmail element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowConsumerEmail] The AllowConsumerEmail element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R93");
@@ -607,7 +657,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     97,
-                    @"[In AllowDesktopSync] The AllowDesktopSync element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowDesktopSync] The AllowDesktopSync element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R98");
@@ -630,7 +680,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     104,
-                    @"[In AllowHTMLEmail] The AllowHTMLEmail element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowHTMLEmail] The AllowHTMLEmail element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R105");
@@ -662,7 +712,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     109,
-                    @"[In AllowInternetSharing] The AllowInternetSharing element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowInternetSharing] The AllowInternetSharing element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R110");
@@ -685,7 +735,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     116,
-                    @"[In AllowIrDA] The AllowIrDA element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowIrDA] The AllowIrDA element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R117");
@@ -708,7 +758,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     123,
-                    @"[In AllowPOPIMAPEmail] The AllowPOPIMAPEmail element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowPOPIMAPEmail] The AllowPOPIMAPEmail element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R124");
@@ -731,7 +781,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     128,
-                    @"[In AllowRemoteDesktop] The AllowRemoteDesktop element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowRemoteDesktop] The AllowRemoteDesktop element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R129");
@@ -754,7 +804,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     135,
-                    @"[In AllowSimpleDevicePassword] The AllowSimpleDevicePassword element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowSimpleDevicePassword] The AllowSimpleDevicePassword element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R137");
@@ -777,7 +827,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     143,
-                    @"[In AllowSMIMEEncryptionAlgorithmNegotiation] The AllowSMIMEEncryptionAlgorithmNegotation element is an optional child element of type integer ([MS-ASDTYPE] section 2.5) of the EASProvisionDoc element (section 2.2.2.12).");
+                    @"[In AllowSMIMEEncryptionAlgorithmNegotiation] The AllowSMIMEEncryptionAlgorithmNegotation element is an optional child element of type integer ([MS-ASDTYPE] section 2.6) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R144");
@@ -800,7 +850,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     149,
-                    @"[In AllowSMIMESoftCerts] The AllowSMIMESoftCerts element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowSMIMESoftCerts] The AllowSMIMESoftCerts element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R150");
@@ -823,7 +873,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     154,
-                    @"[In AllowStorageCard] The AllowStorageCard element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowStorageCard] The AllowStorageCard element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R155");
@@ -846,7 +896,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     160,
-                    @"[In AllowTextMessaging] The AllowTextMessaging element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowTextMessaging] The AllowTextMessaging element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R161");
@@ -869,7 +919,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     166,
-                    @"[In AllowUnsignedApplications] The AllowUnsignedApplications element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowUnsignedApplications] The AllowUnsignedApplications element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R167");
@@ -892,7 +942,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     171,
-                    @"[In AllowUnsignedInstallationPackages] The AllowUnsignedInstallationPackages element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowUnsignedInstallationPackages] The AllowUnsignedInstallationPackages element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R172");
@@ -915,7 +965,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     176,
-                    @"[In AllowWifi] The AllowWifi element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AllowWifi] The AllowWifi element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R177");
@@ -938,7 +988,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     182,
-                    @"[In AlphanumericDevicePasswordRequired] The AlphanumericDevicePasswordRequired element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AlphanumericDevicePasswordRequired] The AlphanumericDevicePasswordRequired element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R183");
@@ -970,7 +1020,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     195,
-                    @"[In ApprovedApplicationList] It [ApprovedApplicationList element element] is a child of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In ApprovedApplicationList] It [ApprovedApplicationList element element] is a child of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R199");
@@ -992,7 +1042,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                     // The schema has been validated, so this requirement can be captured.
                     Site.CaptureRequirement(
                         202,
-                        @"[In ApprovedApplicationList] The ApprovedApplicationList element has only the following child element: Hash (section 2.2.2.28): This element is optional.");
+                        @"[In ApprovedApplicationList] The ApprovedApplicationList element has only the following child element: Hash (section 2.2.2.29): This element is optional.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R236");
@@ -1001,7 +1051,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                     // The schema has been validated, so this requirement can be captured.
                     Site.CaptureRequirement(
                         236,
-                        @"[In Hash] The Hash element is an optional child element of type string ([MS-ASDTYPE] section 2.6) of the ApprovedApplicationList element (section 2.2.2.21).");
+                        @"[In Hash] The Hash element is an optional child element of type string ([MS-ASDTYPE] section 2.7) of the ApprovedApplicationList element (section 2.2.2.22).");
                 }
             }
 
@@ -1014,7 +1064,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     203,
-                    @"[In AttachmentsEnabled] The AttachmentsEnabled element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In AttachmentsEnabled] The AttachmentsEnabled element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R204");
@@ -1046,7 +1096,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     211,
-                    @"[In DevicePasswordEnabled] The DevicePasswordEnabled element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In DevicePasswordEnabled] The DevicePasswordEnabled element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R212");
@@ -1069,7 +1119,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     216,
-                    @"[In DevicePasswordExpiration] The DevicePasswordExpiration element is an optional child element of type unsignedIntOrEmpty (section 2.2.3.3) of the EASProvisionDoc element, as specified in section 2.2.2.27.");
+                    @"[In DevicePasswordExpiration] The DevicePasswordExpiration element is an optional child element of type unsignedIntOrEmpty (section 2.2.3.3) of the EASProvisionDoc element, as specified in section 2.2.2.28.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R218");
@@ -1119,7 +1169,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     224,
-                    @"[In DevicePasswordHistory] The DevicePasswordHistory element is an optional child element of type unsignedInt of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In DevicePasswordHistory] The DevicePasswordHistory element is an optional child element of type unsignedInt of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R225");
@@ -1140,7 +1190,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     240,
-                    @"[In MaxAttachmentSize] The MaxAttachmentSize element is an optional child element of type unsignedIntOrEmpty (section 2.2.3.3) of the EASProvisionDoc element, as specified in section 2.2.2.27.");
+                    @"[In MaxAttachmentSize] The MaxAttachmentSize element is an optional child element of type unsignedIntOrEmpty (section 2.2.3.3) of the EASProvisionDoc element, as specified in section 2.2.2.28.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R241");
@@ -1170,7 +1220,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     243,
-                    @"[In MaxCalendarAgeFilter] The MaxCalendarAgeFilter element is an optional child element of type unsignedInt of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In MaxCalendarAgeFilter] The MaxCalendarAgeFilter element is an optional child element of type unsignedInt ([XMLSCHEMA2/2] section 3.3.22) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R244");
@@ -1201,7 +1251,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     251,
-                    @"[In MaxDevicePasswordFailedAttempts] The MaxDevicePasswordFailedAttempts element is an optional child element of type unsignedByteOrEmpty (section 2.2.3.2) of the EASProvisionDoc element, as specified in section 2.2.2.27.");
+                    @"[In MaxDevicePasswordFailedAttempts] The MaxDevicePasswordFailedAttempts element is an optional child element of type unsignedByteOrEmpty (section 2.2.3.2) of the EASProvisionDoc element, as specified in section 2.2.2.28.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R252");
@@ -1265,7 +1315,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     255,
-                    @"[In MaxEmailAgeFilter] The MaxEmailAgeFilter element is an optional child element of type unsignedInt of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In MaxEmailAgeFilter] The MaxEmailAgeFilter element is an optional child element of type unsignedInt ([XMLSCHEMA2/2] section 3.3.22) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R256");
@@ -1308,7 +1358,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 Site.CaptureRequirementIfIsTrue(
                     isVerifiedR266,
                     266,
-                    @"[In MaxEmailBodyTruncationSize] Valid values [-1, 0, >0] for the MaxEmailBodyTruncationSize element are an integer ([MS-ASDTYPE] section 2.5) of one of the values or ranges listed in the following table.");
+                    @"[In MaxEmailBodyTruncationSize] Valid values [-1, 0, >0] for the MaxEmailBodyTruncationSize element are an integer ([MS-ASDTYPE] section 2.6) of one of the values or ranges listed in the following table.");
 
                 this.VerifyIntegerStructure();
             }
@@ -1333,7 +1383,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 Site.CaptureRequirementIfIsTrue(
                     isVerifiedR272,
                     272,
-                    @"[In MaxEmailHTMLBodyTruncationSize] Valid values [-1, 0, >0] for the MaxEmailHTMLBodyTruncationSize element are an integer ([MS-ASDTYPE] section 2.5) of one of the values or ranges listed in the following table.");
+                    @"[In MaxEmailHTMLBodyTruncationSize] Valid values [-1, 0, >0] for the MaxEmailHTMLBodyTruncationSize element are an integer ([MS-ASDTYPE] section 2.6) of one of the values or ranges listed in the following table.");
 
                 this.VerifyIntegerStructure();
             }
@@ -1347,7 +1397,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     276,
-                    @"[In MaxInactivityTimeDeviceLock] The MaxInactivityTimeDeviceLock element is an optional child element of type unsignedIntOrEmpty (section 2.2.3.3) of the EASProvisionDoc element, as specified in section 2.2.2.27.");
+                    @"[In MaxInactivityTimeDeviceLock] The MaxInactivityTimeDeviceLock element is an optional child element of type unsignedIntOrEmpty (section 2.2.3.3) of the EASProvisionDoc element, as specified in section 2.2.2.28.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R277");
@@ -1368,7 +1418,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     280,
-                    @"[In MinDevicePasswordComplexCharacters] The MinDevicePasswordComplexCharacters element is an optional child element of type unsignedByte ([MS-ASDTYPE] section 2.7) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In MinDevicePasswordComplexCharacters] The MinDevicePasswordComplexCharacters element is an optional child element of type unsignedByte ([MS-ASDTYPE] section 2.8) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R281");
@@ -1391,7 +1441,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     286,
-                    @"[In MinDevicePasswordLength] The MinDevicePasswordLength element is an optional child element of type unsignedByteOrEmpty (section 2.2.3.2) of the EASProvisionDoc element, as specified in section 2.2.2.27.");
+                    @"[In MinDevicePasswordLength] The MinDevicePasswordLength element is an optional child element of type unsignedByteOrEmpty (section 2.2.3.2) of the EASProvisionDoc element, as specified in section 2.2.2.28.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R287");
@@ -1412,7 +1462,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     291,
-                    @"[In PasswordRecoveryEnabled] The PasswordRecoveryEnabled element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In PasswordRecoveryEnabled] The PasswordRecoveryEnabled element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R292");
@@ -1435,7 +1485,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     326,
-                    @"[In RequireDeviceEncryption] The RequireDeviceEncryption element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In RequireDeviceEncryption] The RequireDeviceEncryption element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R327");
@@ -1458,7 +1508,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     331,
-                    @"[In RequireEncryptedSMIMEMessages] The RequireEncryptedSMIMEMessages element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In RequireEncryptedSMIMEMessages] The RequireEncryptedSMIMEMessages element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R327");
@@ -1490,7 +1540,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     336,
-                    @"[In RequireEncryptionSMIMEAlgorithm] The RequireEncryptionSMIMEAlgorithm element is an optional child element of type integer ([MS-ASDTYPE] section 2.5) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In RequireEncryptionSMIMEAlgorithm] The RequireEncryptionSMIMEAlgorithm element is an optional child element of type integer ([MS-ASDTYPE] section 2.6) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R337");
@@ -1524,7 +1574,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     344,
-                    @"[In RequireManualSyncWhenRoaming] The RequireManualSyncWhenRoaming element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In RequireManualSyncWhenRoaming] The RequireManualSyncWhenRoaming element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R345");
@@ -1547,7 +1597,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     349,
-                    @"[In RequireSignedSMIMEAlgorithm] The RequireSignedSMIMEAlgorithm element is an optional child element of type integer ([MS-ASDTYPE] section 2.5) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In RequireSignedSMIMEAlgorithm] The RequireSignedSMIMEAlgorithm element is an optional child element of type integer ([MS-ASDTYPE] section 2.6) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R350");
@@ -1581,7 +1631,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     354,
-                    @"[In RequireSignedSMIMEMessages] The RequireSignedSMIMEMessages element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In RequireSignedSMIMEMessages] The RequireSignedSMIMEMessages element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R355");
@@ -1613,7 +1663,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     359,
-                    @"[In RequireStorageCardEncryption] The RequireStorageCardEncryption element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In RequireStorageCardEncryption] The RequireStorageCardEncryption element is an optional child element of type boolean ([MS-ASDTYPE] section 2.1) of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R360");
@@ -1645,7 +1695,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                 // The schema has been validated, so this requirement can be captured.
                 Site.CaptureRequirement(
                     405,
-                    @"[In UnapprovedInROMApplicationList] It [UnapprovedInROMApplicationList element] is a child of the EASProvisionDoc element (section 2.2.2.27).");
+                    @"[In UnapprovedInROMApplicationList] It [UnapprovedInROMApplicationList element] is a child of the EASProvisionDoc element (section 2.2.2.28).");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R408");
@@ -1667,7 +1717,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                     // The schema has been validated, so this requirement can be captured.
                     Site.CaptureRequirement(
                         189,
-                        @"[In ApplicationName] The ApplicationName element is an optional child element of type string ([MS-ASDTYPE] section 2.6) of the UnapprovedInROMApplicationList element (section 2.2.2.54).");
+                        @"[In ApplicationName] The ApplicationName element is an optional child element of type string ([MS-ASDTYPE] section 2.7) of the UnapprovedInROMApplicationList element (section 2.2.2.55).");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R409");
@@ -1676,7 +1726,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                     // The schema has been validated, so this requirement can be captured.
                     Site.CaptureRequirement(
                         409,
-                        @"[In UnapprovedInROMApplicationList] The UnapprovedInROMApplicationList element has only the following child element: ApplicationName (section 2.2.2.20): This element is optional.");
+                        @"[In UnapprovedInROMApplicationList] The UnapprovedInROMApplicationList element has only the following child element: ApplicationName (section 2.2.2.21): This element is optional.");
                 }
             }
         }
@@ -2016,7 +2066,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     345,
-                                    @"[In Code Page 14: Provision] [Tag name] EASProvisionDoc [Token] 0x0D [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] EASProvisionDoc [Token] 0x0D [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2032,7 +2082,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     346,
-                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordEnabled [Token] 0x0E [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordEnabled [Token] 0x0E [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2048,7 +2098,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     347,
-                                    @"[In Code Page 14: Provision] [Tag name] AlphanumericDevicePasswordRequired [Token] 0x0F [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AlphanumericDevicePasswordRequired [Token] 0x0F [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2064,7 +2114,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     349,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireStorageCardEncryption [Token] 0x10 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireStorageCardEncryption [Token] 0x10 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2080,7 +2130,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     350,
-                                    @"[In Code Page 14: Provision] [Tag name] PasswordRecoveryEnabled [Token] 0x11 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] PasswordRecoveryEnabled [Token] 0x11 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2096,7 +2146,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     351,
-                                    @"[In Code Page 14: Provision] [Tag name] AttachmentsEnabled [Token] 0x13 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AttachmentsEnabled [Token] 0x13 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2112,7 +2162,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     352,
-                                    @"[In Code Page 14: Provision] [Tag name] MinDevicePasswordLength [Token] 0x14 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] MinDevicePasswordLength [Token] 0x14 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2128,7 +2178,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     353,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxInactivityTimeDeviceLock [Token] 0x15 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxInactivityTimeDeviceLock [Token] 0x15 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2144,7 +2194,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     354,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxDevicePasswordFailedAttempts [Token] 0x16 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxDevicePasswordFailedAttempts [Token] 0x16 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2160,7 +2210,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     355,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxAttachmentSize [Token] 0x17 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxAttachmentSize [Token] 0x17 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2176,7 +2226,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     356,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowSimpleDevicePassword [Token] 0x18 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowSimpleDevicePassword [Token] 0x18 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2192,7 +2242,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     357,
-                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordExpiration [Token] 0x19 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordExpiration [Token] 0x19 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2208,7 +2258,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     358,
-                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordHistory [Token] 0x1A [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] DevicePasswordHistory [Token] 0x1A [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2224,7 +2274,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     359,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowStorageCard [Token] 0x1B [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowStorageCard [Token] 0x1B [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2240,7 +2290,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     360,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowCamera [Token] 0x1C [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowCamera [Token] 0x1C [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2256,7 +2306,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     361,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireDeviceEncryption [Token] 0x1D [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireDeviceEncryption [Token] 0x1D [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2272,7 +2322,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     362,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowUnsignedApplications [Token] 0x1E [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowUnsignedApplications [Token] 0x1E [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2288,7 +2338,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     363,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowUnsignedInstallationPackages [Token] 0x1F [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowUnsignedInstallationPackages [Token] 0x1F [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2304,7 +2354,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     364,
-                                    @"[In Code Page 14: Provision] [Tag name] MinDevicePasswordComplexCharacters [Token] 0x20 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] MinDevicePasswordComplexCharacters [Token] 0x20 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2320,7 +2370,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     365,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowWiFi [Token] 0x21 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowWiFi [Token] 0x21 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2336,7 +2386,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     366,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowTextMessaging [Token] 0x22 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowTextMessaging [Token] 0x22 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2352,7 +2402,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     367,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowPOPIMAPEmail [Token] 0x23 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowPOPIMAPEmail [Token] 0x23 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2368,7 +2418,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     368,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowBluetooth [Token] 0x24 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowBluetooth [Token] 0x24 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2384,7 +2434,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     369,
-                                    @"[In Code Page 14: Provision] [Tag name]AllowIrDA [Token] 0x25 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name]AllowIrDA [Token] 0x25 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2400,7 +2450,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     370,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireManualSyncWhenRoaming [Token] 0x26 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireManualSyncWhenRoaming [Token] 0x26 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2416,7 +2466,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     371,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowDesktopSync [Token] 0x27 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowDesktopSync [Token] 0x27 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2432,7 +2482,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     372,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxCalendarAgeFilter [Token] 0x28 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxCalendarAgeFilter [Token] 0x28 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2448,7 +2498,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     373,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowHTMLEmail [Token] 0x29 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowHTMLEmail [Token] 0x29 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2464,7 +2514,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     374,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailAgeFilter [Token] 0x2A [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailAgeFilter [Token] 0x2A [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2480,7 +2530,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     375,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailBodyTruncationSize [Token] 0x2B [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailBodyTruncationSize [Token] 0x2B [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2496,7 +2546,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     376,
-                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailHTMLBodyTruncationSize [Token] 0x2C [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] MaxEmailHTMLBodyTruncationSize [Token] 0x2C [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2512,7 +2562,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     377,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireSignedSMIMEMessages [Token] 0x2D [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireSignedSMIMEMessages [Token] 0x2D [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2528,7 +2578,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     378,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireEncryptedSMIMEMessages [Token] 0x2E [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireEncryptedSMIMEMessages [Token] 0x2E [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2544,7 +2594,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     379,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireSignedSMIMEAlgorithm [Token] 0x2F [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireSignedSMIMEAlgorithm [Token] 0x2F [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2560,7 +2610,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     380,
-                                    @"[In Code Page 14: Provision] [Tag name] RequireEncryptionSMIMEAlgorithm [Token] 0x30 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] RequireEncryptionSMIMEAlgorithm [Token] 0x30 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2576,7 +2626,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     381,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowSMIMEEncryptionAlgorithmNegotiation [Token] 0x31 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowSMIMEEncryptionAlgorithmNegotiation [Token] 0x31 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2592,7 +2642,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     382,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowSMIMESoftCerts [Token] 0x32 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowSMIMESoftCerts [Token] 0x32 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2608,7 +2658,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     383,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowBrowser [Token] 0x33 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowBrowser [Token] 0x33 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2624,7 +2674,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     384,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowConsumerEmail [Token] 0x34 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowConsumerEmail [Token] 0x34 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2640,7 +2690,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     385,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowRemoteDesktop [Token] 0x35 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowRemoteDesktop [Token] 0x35 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2656,7 +2706,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     386,
-                                    @"[In Code Page 14: Provision] [Tag name] AllowInternetSharing [Token] 0x36 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] AllowInternetSharing [Token] 0x36 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2672,7 +2722,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     387,
-                                    @"[In Code Page 14: Provision] [Tag name] UnapprovedInROMApplicationList [Token] 0x37 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] UnapprovedInROMApplicationList [Token] 0x37 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2688,7 +2738,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     388,
-                                    @"[In Code Page 14: Provision] [Tag name] ApplicationName [Token] 0x38 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] ApplicationName [Token] 0x38 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2704,7 +2754,7 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     389,
-                                    @"[In Code Page 14: Provision] [Tag name] ApprovedApplicationList [Token] 0x39 [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] ApprovedApplicationList [Token] 0x39 [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
                                 break;
                             }
@@ -2720,8 +2770,23 @@ UnapprovedInROMApplicationList (section 2.2.2.54)");
                                     token,
                                     "MS-ASWBXML",
                                     390,
-                                    @"[In Code Page 14: Provision] [Tag name] Hash [Token] 0x3A [supports protocol versions] 12.1, 14.0, 14.1, 16.0");
+                                    @"[In Code Page 14: Provision] [Tag name] Hash [Token] 0x3A [supports protocol versions] 12.1, 14.0, 14.1, 16.0, 16.1");
 
+                                break;
+                            }
+
+                        case "AccountOnlyRemoteWipe":
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R3910");
+
+                                // Verify MS-ASWBXML requirement: MS-ASWBXML_R3910
+                                Site.CaptureRequirementIfAreEqual<byte>(
+                                    0x3B,
+                                    token,
+                                    "MS-ASWBXML",
+                                    3910,
+                                    @"[In Code Page 14: Provision] [Tag name] AccountOnlyRemoteWipe [Token] 0x3B [supports protocol versions] 16.1");
                                 break;
                             }
 
