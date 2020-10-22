@@ -10,7 +10,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
     using SearchItem = Microsoft.Protocols.TestSuites.Common.DataStructures.Search;
     using SearchStore = Microsoft.Protocols.TestSuites.Common.DataStructures.SearchStore;
     using SyncStore = Microsoft.Protocols.TestSuites.Common.DataStructures.SyncStore;
-
+    using DataStructures = Microsoft.Protocols.TestSuites.Common.DataStructures;
     /// <summary>
     /// The class provides methods to verify data/operation format in MS-ASCAL.
     /// </summary>
