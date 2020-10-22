@@ -262,6 +262,32 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         }
 
         /// <summary>
+        /// Finds entries in an address book, mailbox, or document library.
+        /// </summary>
+        /// <param name="request">A SearchRequest object that contains the request information.</param>
+        /// <returns>Search command response.</returns>
+        public FindResponse Find(FindRequest request)
+        {
+            int counter = 0;
+            int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
+            int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
+            FindResponse response = this.activeSyncClient.Find(request);
+
+            while (counter < retryCount && response.ResponseData.Status.Equals("10"))
+            {
+                Thread.Sleep(waitTime);
+                response = this.activeSyncClient.Find(request);
+                counter++;
+            }
+            
+            Site.Log.Add(LogEntryKind.Debug, "Loop {0} times to get the search item", counter);
+            this.VerifyTransportRequirements();
+            this.VerifyWBXMLCapture(CommandName.Find, response);
+            this.VerifyFindCommand(response);
+            return response;
+        }
+
+        /// <summary>
         /// Supports get and set operations on global properties and Out of Office (OOF) settings for the user, sends device information to the server, implements the device password/personal identification number (PIN) recovery, and retrieves a list of the user's e-mail addresses.
         /// </summary>
         /// <param name="request">A SettingsRequest object that contains the request information.</param>

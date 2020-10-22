@@ -134,12 +134,17 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <summary>
         /// Autodiscover command.
         /// </summary>
-        Autodiscover = 23,
+        Autodiscover = 5,
 
         /// <summary>
         /// GetHierarchy command.
         /// </summary>
-        GetHierarchy = 24,
+        GetHierarchy = 6,
+
+        /// <summary>
+        /// Find command.
+        /// </summary>
+        Find = 23,
 
         /// <summary>
         /// Not exist command.
