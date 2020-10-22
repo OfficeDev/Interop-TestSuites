@@ -11699,8 +11699,10 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:REQ_ID>MS-ASCMD_R6164101059</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.9</ns1:Doc_Sect>
 		<ns1:Description>[In Alias] For more details, see section 2.2.3.9.1 and section 2.2.3.9.2. </ns1:Description>
-		<ns1:IsNormative/>
-		<ns1:Verification/>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6164101060</ns1:REQ_ID>
@@ -20668,7 +20670,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification/>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6399100702</ns1:REQ_ID>
@@ -22248,36 +22250,36 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:REQ_ID>MS-ASCMD_R6439100719</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.48</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayCc] Element DisplayCc in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).</ns1:Description>
-		<ns1:Behavior>Adapter</ns1:Behavior>
-		<ns1:Scope>Adapter</ns1:Scope>
-		<ns1:IsNormative>Adapter</ns1:IsNormative>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6439100720</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.48</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayCc] None [Element DisplayCc in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
-		<ns1:Behavior>Adapter</ns1:Behavior>
-		<ns1:Scope>Adapter</ns1:Scope>
-		<ns1:IsNormative>Adapter</ns1:IsNormative>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6439100721</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.48</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayCc] Element DisplayCc in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
-		<ns1:Behavior>Adapter</ns1:Behavior>
-		<ns1:Scope>Adapter</ns1:Scope>
-		<ns1:IsNormative>Adapter</ns1:IsNormative>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6439100722</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.48</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayCc] Element DisplayCc in Find command response (section 2.2.1.2), the number allowed is 0…1 (optional).</ns1:Description>
-		<ns1:Behavior>Adapter</ns1:Behavior>
-		<ns1:Scope>Adapter</ns1:Scope>
-		<ns1:IsNormative>Adapter</ns1:IsNormative>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -23066,7 +23068,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6465</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R6465102101</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.49.6</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayName(ResolveRecipients)] Protocol version 16.1 supports this [DisplayName(ResolveRecipients)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -35609,7 +35611,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6789</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R6789102101</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.3</ns1:Doc_Sect>
 		<ns1:Description>[In MaxSize(Search)] Protocol version 16.1 supports this [MaxSize(Search)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -45377,7 +45379,7 @@ airsync:CollectionId (section 2.2.3.30.1).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3707101802</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R3707102102</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.143.1</ns1:Doc_Sect>
 		<ns1:Description>[In Range (Find)] The Range element is an optional child element of the Response element in Find command responses that specifies the number of matching entries that are being returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -48046,7 +48048,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7052</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R7052102101</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.153.3</ns1:Doc_Sect>
 		<ns1:Description>[In Response(GetItemEstimate)] Protocol version 16.1 supports this [Response(GetItemEstimate)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50524,7 +50526,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R389710180</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R3897101802</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] All elements referenced in this section are defined in the Find namespace, except where otherwise indicated by the presence of a namespace prefix (as defined in section 2.2.4).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50533,7 +50535,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R389710180</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R3897101803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] Element ServerId in Find command response (section 2.2.1.2), the parent element is .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50542,7 +50544,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R389710180</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R3897101804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] None [Element ServerId in Find command response (section 2.2.1.2), has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50551,7 +50553,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R389710180</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R3897101805</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] Element ServerId in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50560,7 +50562,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R389710180</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R3897101806</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] Element ServerId in Find command response (section 2.2.1.2), the number allowed is 1…1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50569,7 +50571,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R389710180</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R3897101807</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] Protocol version 12.1 does not supports this [ServerId] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50578,7 +50580,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R389710180</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R3897101808</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] Protocol version 14.0 does not supports this [ServerId] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50587,7 +50589,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R389710180</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R3897101809</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] Protocol version 14.1 does not supports this [ServerId] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -62314,7 +62316,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7329101801</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R7329102101</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.181.4</ns1:Doc_Sect>
 		<ns1:Description>[In SyncKey(Sync)] Protocol version 16.1 supports this [SyncKey(Sync)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -64923,7 +64925,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7419</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R7419102101</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.190</ns1:Doc_Sect>
 		<ns1:Description>[In UserAgent] Protocol version 16.1 supports this [UserAgent] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -65897,7 +65899,7 @@ CheckCRL (section 2.2.3.26).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7447</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R7447102101</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.196</ns1:Doc_Sect>
 		<ns1:Description>[In Value] Protocol version 16.1 supports this [Value] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>

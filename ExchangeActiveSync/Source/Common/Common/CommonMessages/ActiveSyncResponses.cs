@@ -33,6 +33,22 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
     #endregion
 
+    #region Find
+    /// <summary>
+    /// The class of Find response.
+    /// </summary>
+    public class FindResponse : ActiveSyncResponseBase<Response.Find>
+    {
+        /// <summary>
+        /// Initializes a new instance of the FindResponse class.
+        /// </summary>
+        public FindResponse()
+        {
+            this.ResponseData = new Response.Find();
+        }
+    }
+    #endregion
+
     #region FolderSyncResponse
     /// <summary>
     /// The class of FolderSync response.

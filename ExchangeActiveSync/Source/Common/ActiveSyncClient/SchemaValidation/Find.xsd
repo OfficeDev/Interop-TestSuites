@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
         id="Find"
-        targetNamespace="Find:"
+        targetNamespace="Find"
         xmlns:email="Email"
         xmlns:email2="Email2"
-        xmlns:mstns="Find:"
-        xmlns="Find:"
+        xmlns:mstns="Find"
+        xmlns="Find"
         xmlns:airSync="AirSync"
         xmlns:airsyncbase="AirSyncBase"
         xmlns:xs="http://www.w3.org/2001/XMLSchema"

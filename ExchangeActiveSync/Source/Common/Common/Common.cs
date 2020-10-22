@@ -811,6 +811,18 @@ MIME-Version: 1.0
         }
 
         /// <summary>
+        /// Create an empty FindRequest instance
+        /// </summary>
+        /// <returns>An empty FindRequest instance</returns>
+        public static FindRequest FindSearchRequest()
+        {
+            FindRequest request = new FindRequest();
+            Request.Find requestData = new Request.Find();
+            request.RequestData = requestData;
+            return request;
+        }
+
+        /// <summary>
         /// Create a SearchRequest using specified information
         /// </summary>
         /// <param name="searchStores">Specified SearchStore arrays</param>
@@ -819,6 +831,22 @@ MIME-Version: 1.0
         {
             SearchRequest request = new SearchRequest();
             Request.Search requestData = new Request.Search { Items = searchStores };
+            request.RequestData = requestData;
+            return request;
+        }
+
+        /// <summary>
+        /// Create an empty instance using specified information
+        /// </summary>
+        /// <param name="find">Specified Find</param>
+        /// <returns>An FindRequest instance</returns>
+        public static FindRequest CreateFindRequest(Request.Find find)
+        {
+            FindRequest request = new FindRequest();
+            Request.Find requestData = new Request.Find
+            {   SearchId=find.SearchId,
+                ExecuteSearch = find.ExecuteSearch
+            };
             request.RequestData = requestData;
             return request;
         }
