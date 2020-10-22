@@ -162,7 +162,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R757
             Site.CaptureRequirement(
                 757,
-                @"[In Status] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if the flag Status element is set to a value other than 0, 1, or 2.");
+                @"[In Status] The server returns a Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21) if the flag Status element is set to a value other than 0, 1, or 2.");
             #endregion
         }
         #endregion
@@ -264,7 +264,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R702
             Site.CaptureRequirement(
                 702,
-                @"[In ReminderTime] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if the tasks:ReminderSet element value is set to 1 (TRUE) and the tasks:ReminderTime element is not included in the Sync command request ([MS-ASCMD] section 2.2.2.20).");
+                @"[In ReminderTime] The server returns a Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21) if the tasks:ReminderSet element value is set to 1 (TRUE) and the tasks:ReminderTime element is not included in the Sync command request ([MS-ASCMD] section 2.2.1.21).");
             #endregion
         }
         #endregion
@@ -319,7 +319,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R407
             Site.CaptureRequirement(
                 407,
-                @"[In DueDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if this condition[When a flag is updated, the tasks:DueDate element value MUST NOT occur before the tasks:StartDate element (section 2.2.2.72) value.] is not met.");
+                @"[In DueDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21) if this condition[When a flag is updated, the tasks:DueDate element value MUST NOT occur before the tasks:StartDate element (section 2.2.2.72) value.] is not met.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R739");
@@ -327,7 +327,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R739
             Site.CaptureRequirement(
                 739,
-                @"[In StartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if this condition[When a flag is updated, the tasks:StartDate element value MUST NOT occur after the tasks:DueDate element (section 2.2.2.31) value. ] is not met.");
+                @"[In StartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21) if this condition[When a flag is updated, the tasks:StartDate element value MUST NOT occur after the tasks:DueDate element (section 2.2.2.31) value. ] is not met.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R741");
@@ -335,7 +335,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R741
             Site.CaptureRequirement(
                 741,
-                @"[In StartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response if this condition[the tasks:StartDate element value MUST NOT occur after the tasks:DueDate element (section 2.2.2.31) value] is not met.");
+                @"[In StartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response if this condition[the tasks:StartDate element value MUST NOT occur after the tasks:DueDate element (section 2.2.2.31) value] is not met.");
             #endregion
         }
         #endregion
@@ -390,7 +390,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R851
             Site.CaptureRequirement(
                 851,
-                @"[In UtcDueDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if this condition[When a flag is updated, the tasks:UtcDueDate element value MUST NOT occur before the tasks:UtcStartDate element (section 2.2.2.87) value. ] is not met.");
+                @"[In UtcDueDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21) if this condition[When a flag is updated, the tasks:UtcDueDate element value MUST NOT occur before the tasks:UtcStartDate element (section 2.2.2.87) value. ] is not met.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R862");
@@ -398,7 +398,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R862
             Site.CaptureRequirement(
                 862,
-                @"[In UtcStartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if this condition[When a flag is updated, the tasks:UtcStartDate element value MUST occur before the tasks:UtcDueDate element (section 2.2.2.86) value. ] is not met.");
+                @"[In UtcStartDate] The server returns a Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21) if this condition[When a flag is updated, the tasks:UtcStartDate element value MUST occur before the tasks:UtcDueDate element (section 2.2.2.86) value. ] is not met.");
             #endregion
         }
         #endregion
@@ -449,7 +449,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R409
             Site.CaptureRequirement(
                 409,
-                @"[In DueDate] The server returns a Status element value of 6 in the Sync response if this condition[To set a flag, the tasks:StartDate element, tasks:DueDate element, tasks:UtcStartDate element (section 2.2.2.75), and tasks:UtcDueDate element (section 2.2.2.74) either all MUST be set, or all MUST be NULL.] is not met.");
+                @"[In DueDate] The server returns a Status element value of 6 in the Sync response if this condition[To set a flag, the tasks:StartDate element, tasks:DueDate element, tasks:UtcStartDate element (section 2.2.2.87), and tasks:UtcDueDate element (section 2.2.2.86) either all MUST be set, or all MUST be NULL.] is not met.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R864");
@@ -457,7 +457,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R864
             Site.CaptureRequirement(
                 864,
-                @"[In UtcStartDate] The server returns a Status element value of 6 in the Sync command response if this condition[To set a flag, the tasks:StartDate element, tasks:DueDate element (section 2.2.2.24), tasks:UtcStartDate element, and tasks:UtcDueDate element either all MUST be set, or all MUST be NULL. ] is not met.");
+                @"[In UtcStartDate] The server returns a Status element value of 6 in the Sync command response if this condition[To set a flag, the tasks:StartDate element, tasks:DueDate element (section 2.2.2.31), tasks:UtcStartDate element, and tasks:UtcDueDate element either all MUST be set, or all MUST be NULL. ] is not met.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R853");
@@ -955,7 +955,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R92
             Site.CaptureRequirement(
                 92,
-                @"[In Updating E-Mail Flags] The Sync command response includes an airsync:Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 if any of the required elements listed in the table are missing from the Sync command request.");
+                @"[In Updating E-Mail Flags] The Sync command response includes an airsync:Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 if any of the required elements listed in the table are missing from the Sync command request.");
             #endregion
         }
         #endregion
@@ -1360,7 +1360,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Add the debug information
             this.Site.CaptureRequirement(
                 942,
-                @"[In Updating E-Mail Flags] When Action is Flag a task, Required Properties from Device are: Status = 2, tasks:Subject (section 2.2.2.75) = user defined, FlagType = ""Flag for follow up"", tasks:StartDate and tasks:UtcStartDate, tasks:DueDate and tasks:UtcDueDate, tasks:ReminderSet (section 2.2.2.64), tasks:ReminderTime (section 2.2.2.65).");
+                @"[In Updating E-Mail Flags] When Action is Flag a task, Required Properties from Device are: Status = 2, tasks:Subject (section 2.2.2.75.2) = user defined, FlagType = ""Flag for follow up"", tasks:StartDate and tasks:UtcStartDate, tasks:DueDate and tasks:UtcDueDate, tasks:ReminderSet (section 2.2.2.64), tasks:ReminderTime (section 2.2.2.65).");
             #endregion
         }
         #endregion

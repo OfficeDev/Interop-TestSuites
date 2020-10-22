@@ -299,7 +299,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find")]
     public partial class queryType {
         
         private string[] itemsField;
@@ -336,7 +336,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find:", IncludeInSchema=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find", IncludeInSchema=false)]
     public enum ItemsChoiceType13 {
         
         /// <remarks/>
@@ -356,7 +356,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find")]
     public partial class EmptyTag {
     }
     
@@ -4311,8 +4311,8 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="Find:", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="Find", IsNullable=false)]
     public partial class Find {
         
         private string statusField;
@@ -4346,7 +4346,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
     public partial class FindResponse {
         
         private string storeField;
@@ -4418,7 +4418,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
     public partial class FindResponseResult {
         
         private string classField;
@@ -4478,7 +4478,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
     public partial class FindResponseResultProperties {
         
         private object[] itemsField;
@@ -4570,7 +4570,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find:", IncludeInSchema=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find", IncludeInSchema=false)]
     public enum ItemsChoiceType14 {
         
         /// <remarks/>
