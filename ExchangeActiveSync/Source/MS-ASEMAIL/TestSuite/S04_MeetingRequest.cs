@@ -1450,17 +1450,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             pos += 8;
             Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId should have 8 bytes to store ZERO field");
 
-            /*
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1000");
-
-            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1000
-            Site.CaptureRequirementIfAreEqual<string>(
-                "0000000000000000",
-                TestSuiteHelper.BytesToHex(globalObjIdBytes, pos, 8),
-                1000,
-                @"[In GlobalObjId] MUST be all zeros. ZERO = 8NULL");
-            */
+            // It can be captured directly since 8 bytes are reserved.          
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R10000");
 
@@ -2004,9 +1994,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         [TestCategory("MSASEMAIL"), TestMethod()]
         public void MSASEMAIL_S04_TC17_BusyStatusIsWorkingElsewhere()
         {
-            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The value 4 of BusyStatus element is not supported when the ActiveSyncProtocolVersion is 12.1, 14.0 and 14.1.");
-            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The value 4 of BusyStatus element is not supported when the ActiveSyncProtocolVersion is 12.1, 14.0 and 14.1.");
-
             #region Call Sync command with Add element to add a no recurrence meeting to the server.
             string subject = Common.GenerateResourceName(Site, "Subject");
             string attendeeEmail = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);
