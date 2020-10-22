@@ -3344,7 +3344,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R1221</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R12210</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.29</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayTo] Protocol version 16.1 supports this [DisplayTo] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -10281,7 +10281,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASEMAIL_R3000</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASEMAIL_R3010</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.88</ns1:Doc_Sect>
 		<ns1:Description>[In WeekOfMonth] Protocol version 16.1 supports this [WeekOfMonth] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -11645,6 +11645,7 @@ Changes to non-E-Mail class properties</ns1:Description>
 		<ns1:Doc_Sect>3.2.5.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In Sending E-Mail Changes to the Client] If Read flag, Flag properties, Categories properties, Other E-Mail class properties and Non-E-Mail class properties changed, Server action for e-mail item in Sync commend response is: Send full item airsync:Change to client</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>

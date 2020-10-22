@@ -203,7 +203,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 "6",
                 statusCode,
                 817,
-                @"[In UmCallerID] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if the client attempts to send the email2:UmCallerId element to the server.");
+                @"[In UmCallerID] The server returns a Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21) if the client attempts to send the email2:UmCallerId element to the server.");
             #endregion
         }
         #endregion
@@ -240,7 +240,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 "6",
                 statusCode,
                 835,
-                @"[In UmUserNotes] The server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) if the client attempts to send the email2:UmUserNotes element to the server.");
+                @"[In UmUserNotes] The server returns a Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21) if the client attempts to send the email2:UmUserNotes element to the server.");
             #endregion
         }
         #endregion

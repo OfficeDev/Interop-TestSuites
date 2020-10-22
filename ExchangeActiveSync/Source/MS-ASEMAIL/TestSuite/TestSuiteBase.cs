@@ -752,7 +752,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                         {
                             foreach (string subject in createdItems.ItemSubject)
                             {
-                                if (syncItem.Calendar != null)
+                                if (syncItem.Calendar != null && syncItem.Calendar.Subject != null)
                                 {
                                     if (syncItem.Calendar.Subject.Equals(subject, StringComparison.CurrentCultureIgnoreCase))
                                     {
