@@ -1,30 +1,32 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- Note: Property values are case-insensitive unless otherwise specified. -->
   <Properties>
     <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
     <!-- The Domain property specifies the domain name. -->
     <Property name="Domain" value="contoso.com" />
     <!-- The SUTComputerName property specifies the name of the SUT. -->
-    <Property name="SutComputerName" value="sut01" />
+    <Property name="SutComputerName" value="SUT01" />
     <!-- The SutVersion property specifies the version of the SUT. If the product version that you want is not listed, enter the value corresponding to the closest version of the product. 
          The supported values are:
          "ExchangeServer2007" (Microsoft® Exchange Server 2007 Service Pack 3 (SP3))
          "ExchangeServer2010" (Microsoft® Exchange Server 2010 Service Pack 3 (SP3))
          "ExchangeServer2013" (Microsoft® Exchange Server 2013 Service Pack 1 (SP1))
          "ExchangeServer2016" (Microsoft® Exchange Server 2016 Preview). -->
-    <Property name="SutVersion" value="ExchangeServer2019" />
+    <Property name="SutVersion" value="ExchangeServer2013"/>
     <!-- The ActiveSyncEndPoint property specifies the endpoint for ActiveSync commands except Autodiscover. -->
     <Property name="ActiveSyncEndPoint" value="Microsoft-Server-ActiveSync" />
     <!-- The AutodiscoverEndPoint property specifies the endpoint for Autodiscover command. -->
     <Property name="AutodiscoverEndPoint" value="autodiscover/autodiscover.xml" />
     <!-- SUT section ends. -->
+
     <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
     <!-- The TransportType property specifies the transport used to transfer messages between the client and the server.
            The supported values are:
            "HTTP", the transport is HTTP;
            "HTTPS", the transport is HTTPS. -->
-    <Property name="TransportType" value="HTTP" />
+    <Property name="TransportType" value="HTTPS"/>
     <!-- The Locale property specifies the locale number of the test suite. -->
     <Property name="Locale" value="1033" />
     <!-- The ActiveSyncProtocolVersion property specifies the version of ActiveSync protocol used to communicate with the server.
@@ -33,9 +35,9 @@
            "14.1", the protocol version is 14.1;
            "14.0", the protocol version is 14.0;
            "12.1", the protocol version is 12.1. -->
-    <Property name="ActiveSyncProtocolVersion" value="16.1" />
+    <Property name="ActiveSyncProtocolVersion" value="14.1" />
     <!--The AcceptableResponseSchema property specifies the URL used by the Autodiscover service. -->
-    <Property name="AcceptableResponseSchema" value="http://schemas.microsoft.com/exchange/autodiscover/mobilesync/responseschema/2006" />
+    <Property name="AcceptableResponseSchema" value="http://schemas.microsoft.com/exchange/autodiscover/mobilesync/responseschema/2006"/>
     <!-- The DeviceID property specifies the device ID of the client device that the test suite simulates. -->
     <Property name="DeviceID" value="TestSuite" />
     <!-- The DeviceType property specifies the device type of the client device that the test suite simulates. 
