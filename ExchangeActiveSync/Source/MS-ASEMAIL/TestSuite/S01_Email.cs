@@ -511,7 +511,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             #endregion
 
             #region Verify requirements.
-            // If the server send full item airSync:Change to client, then MS-ASEMAIL_R104 can be captured.
+            // If the server Send Read flag, Flag block and categories block, then MS-ASEMAIL_R104 can be captured.
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R104");
 
@@ -521,7 +521,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 106,
                 @"[In Sending E-Mail Changes to the Client] If Read flag, Flag properties, and categories properties changed, Non-E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send full item airsync:Change to client.");
 
-            // If MS-ASEMAIL_R104 can be captured successfully, it means server partition email changes into the case "changes to Read flag, Flag properties and other E-Mail class properties, so MS-ASEMAIL_R1017 can also be captured."
+            // If MS-ASEMAIL_R104 can be captured successfully, it means server partition email changes into the case "changes to Read flag, Flag properties and other email class properties, so MS-ASEMAIL_R1017 can also be captured."
             if (Common.IsRequirementEnabled(1017, this.Site))
             {
                 // Add the debug information

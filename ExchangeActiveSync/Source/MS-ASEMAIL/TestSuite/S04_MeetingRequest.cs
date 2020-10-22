@@ -1450,7 +1450,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             pos += 8;
             Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId should have 8 bytes to store ZERO field");
 
-            // It can be captured directly since 8 bytes are reserved.          
+            // It can be captured directly since the left have reserved 8 bytes.          
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R10000");
 
