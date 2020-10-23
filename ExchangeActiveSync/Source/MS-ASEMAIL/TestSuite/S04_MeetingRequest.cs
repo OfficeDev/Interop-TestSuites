@@ -1449,7 +1449,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
 
             pos += 8;
             Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId should have 8 bytes to store ZERO field");
-
+                        
             // It can be captured directly since the left have reserved 8 bytes.          
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R10000");
@@ -1460,7 +1460,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 @"[In GlobalObjId] Reserved bytes.RESERVED = 8BYTE");
 
             Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId Reserved bytes.RESERVED = 8BYTE");
-                        
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1002");
+
+            //Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1002
+            Site.CaptureRequirementIfAreEqual<string>(
+               "00",
+               TestSuiteHelper.BytesToHex(globalObjIdBytes, pos, 1),
+               1002,
+               @"[In GlobalObjId] [In GlobalObjId] NULL = %x00");
+
             pos += 8;
             Site.Assert.IsTrue(totalLength - pos >= 4, "GlobalObjId should have 4 bytes to store BYTECOUNT field");
 
@@ -1656,7 +1666,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 @"[In GlobalObjId] Reserved bytes.RESERVED = 8BYTE");
 
             Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId Reserved bytes.RESERVED = 8BYTE");
-            
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1002");
+
+            //Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1002
+            Site.CaptureRequirementIfAreEqual<string>(
+               "00",
+               TestSuiteHelper.BytesToHex(globalObjIdBytes, pos, 1),
+               1002,
+               @"[In GlobalObjId] [In GlobalObjId] NULL = %x00");
+
             pos += 8;
             Site.Assert.IsTrue(totalLength - pos >= 4, "GlobalObjId should have 4 bytes to store BYTECOUNT field");
 

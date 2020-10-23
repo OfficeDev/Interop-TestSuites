@@ -4498,6 +4498,15 @@
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASEMAIL_R1002</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
+		<ns1:Description>[In GlobalObjId] NULL = %x00</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASEMAIL_R1249</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.37</ns1:Doc_Sect>
 		<ns1:Description>[In GlobalObjId] Protocol version 12.1 supports this [GlobalObjId] element.</ns1:Description>
