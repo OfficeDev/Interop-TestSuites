@@ -44,7 +44,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASDOC
                 Site.CaptureRequirementIfIsNotNull(
                     response.ResponseData,
                     110,
-                    @"[In Search Command Response] When a client uses the Search command request ([MS-ASCMD] section 2.2.2.14) to retrieve Document class items that match the criteria specified by the client, as specified in section 3.1.5.2, the server responds with a Search command response.");
+                    @"[In Search Command Response] When a client uses the Search command request ([MS-ASCMD] section 2.2.1.16) to retrieve Document class items that match the criteria specified by the client, as specified in section 3.1.5.2, the server responds with a Search command response.");
 
                 foreach (Microsoft.Protocols.TestSuites.Common.Response.SearchResponseStoreResult result in response.ResponseData.Response.Store.Result)
                 {
@@ -136,7 +136,7 @@ MSS = Number of milliseconds");
                     Site.CaptureRequirementIfIsNotNull(
                         creationDate,
                         36,
-                        @"[In CreationDate] The CreationDate element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies the date and time when the document or folder was created.");
+                        @"[In CreationDate] The CreationDate element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class document items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies the date and time when the document or folder was created.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R39");
@@ -145,7 +145,7 @@ MSS = Number of milliseconds");
                     Site.CaptureRequirementIfIsNotNull(
                         displayName,
                         39,
-                        @"[In DisplayName] The DisplayName element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies the name of the document or folder as it is displayed to the user.");
+                        @"[In DisplayName] The DisplayName element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies the name of the document or folder as it is displayed to the user.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R41");
@@ -153,7 +153,7 @@ MSS = Number of milliseconds");
                     // If the element is returned and schema validation is successful, this requirement can be verified.
                     Site.CaptureRequirement(
                         41,
-                        @"[In DisplayName] The value of this element[DisplayName] is a string data type, as specified in [MS-ASDTYPE] section 2.6.");
+                        @"[In DisplayName] The value of this element[DisplayName] is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDTYPE_R94");
@@ -171,7 +171,7 @@ MSS = Number of milliseconds");
                     Site.CaptureRequirementIfIsNotNull(
                         isHidden,
                         48,
-                        @"[In IsHidden] The IsHidden element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies whether the document or folder is a hidden object.");
+                        @"[In IsHidden] The IsHidden element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies whether the document or folder is a hidden object.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R50");
@@ -179,7 +179,7 @@ MSS = Number of milliseconds");
                     // If the element is returned and schema validation is successful, this requirement can be verified.
                     Site.CaptureRequirement(
                         50,
-                        @"[In IsHidden] The value of this element[IsHidden] is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.7.");
+                        @"[In IsHidden] The value of this element[IsHidden] is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.8.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R45, the value of IsFolder is {0}", isFolder);
@@ -199,7 +199,7 @@ MSS = Number of milliseconds");
                     Site.CaptureRequirementIfIsNotNull(
                         isFolder,
                         42,
-                        @"[In IsFolder] The IsFolder element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies whether the item is a folder.");
+                        @"[In IsFolder] The IsFolder element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies whether the item is a folder.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R44");
@@ -207,7 +207,7 @@ MSS = Number of milliseconds");
                     // If the element is returned and schema validation is successful, this requirement can be verified.
                     Site.CaptureRequirement(
                         44,
-                        @"[In IsFolder] The value of this element[IsFolder] is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.");
+                        @"[In IsFolder] The value of this element[IsFolder] is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.8.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R51, the value of IsHidden is {0}", isHidden);
@@ -227,7 +227,7 @@ MSS = Number of milliseconds");
                     Site.CaptureRequirementIfIsNotNull(
                         lastModifiedDate,
                         54,
-                        @"[In LastModifiedDate] The LastModifiedDate element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response ([MS-ASCMD] section 2.2.2.14) that specifies the date and time that the document, or the folder, or the properties of either the document or folder were was last modified.");
+                        @"[In LastModifiedDate] The LastModifiedDate element is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response ([MS-ASCMD] section 2.2.1.16) that specifies the date and time that the document, or the folder, or the properties of either the document or folder were was last modified.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R123");
@@ -236,7 +236,7 @@ MSS = Number of milliseconds");
                     Site.CaptureRequirementIfIsNotNull(
                         linkId,
                         123,
-                        @"[In LinkId] It[LinkId] is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.128.2) for Document class items in a Search command response.");
+                        @"[In LinkId] It[LinkId] is a required child element of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) for Document class items in a Search command response.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R114");
@@ -245,7 +245,7 @@ MSS = Number of milliseconds");
                     Site.CaptureRequirementIfIsNotNull(
                         result.Properties,
                         114,
-                        @"[In Search Command Response] Document class elements are returned as child elements of the search:Properties element ([MS-ASCMD] section 2.2.3.128) in a Search command response.");
+                        @"[In Search Command Response] Document class elements are returned as child elements of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3) in a Search command response.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R38,the value of CreationDate is:{0}", creationDate);
@@ -273,7 +273,7 @@ MSS = Number of milliseconds");
                         // If the schema is verified successfully, this requirement can be covered.
                         Site.CaptureRequirement(
                             31,
-                            @"[In ContentLength] The value of this element[ContentLength] is an integer data type, as specified in[MS-ASDTYPE] section 2.5.");
+                            @"[In ContentLength] The value of this element[ContentLength] is an integer data type, as specified in[MS-ASDTYPE] section 2.6.");
                     }
 
                     if (null != contentType)
@@ -284,7 +284,7 @@ MSS = Number of milliseconds");
                         // If the schema is verified successfully, this requirement can be covered.
                         Site.CaptureRequirement(
                             35,
-                            @"[In ContentType] The value of this element[ContentType] is a string data type, as specified in [MS-ASDTYPE] section 2.6.");
+                            @"[In ContentType] The value of this element[ContentType] is a string data type, as specified in [MS-ASDTYPE] section 2.7.");
                     }
                 }
 
@@ -406,7 +406,7 @@ MSS = Number of milliseconds");
             Site.CaptureRequirementIfIsNotNull(
                  response.ResponseData,
                 101,
-                @"[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.8) to retrieve data from the server for one or more individual documents, as specified in section 3.1.5.1, the server responds with an ItemOperations command response.");
+                @"[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.1.10) to retrieve data from the server for one or more individual documents, as specified in section 3.1.5.1, the server responds with an ItemOperations command response.");
 
             foreach (Microsoft.Protocols.TestSuites.Common.Response.ItemOperationsResponseFetch fetch in response.ResponseData.Response.Fetch)
             {
@@ -420,7 +420,7 @@ MSS = Number of milliseconds");
                     Site.CaptureRequirementIfIsNotNull(
                         fetch.LinkId,
                         121,
-                        @"[In LinkId] It[LinkId] is a required child element of the itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.63.1) for Document class items in an ItemOperations command response ([MS-ASCMD] section 2.2.2.8).");
+                        @"[In LinkId] It[LinkId] is a required child element of the itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.63.1) for Document class items in an ItemOperations command response ([MS-ASCMD] section 2.2.1.10).");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R104");
@@ -439,7 +439,7 @@ MSS = Number of milliseconds");
                     Site.CaptureRequirementIfIsNotNull(
                         fetch.LinkId,
                         105,
-                        @"[In ItemOperations Command Response] The LinkId element is transmitted as a child element of the Itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.63.1).");
+                        @"[In ItemOperations Command Response] The LinkId element is transmitted as a child element of the Itemoperations:Fetch element ([MS-ASCMD] section 2.2.3.67.1).");
                 }
             }
         }

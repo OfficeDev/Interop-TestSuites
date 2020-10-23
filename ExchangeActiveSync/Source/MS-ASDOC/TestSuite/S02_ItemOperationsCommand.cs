@@ -79,7 +79,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASDOC
             // If itemoperations:Data element is successfully returned, the body has been decoded from base64 encoding.
             Site.CaptureRequirement(
                 69,
-                @"[In Requesting the Document Body from the Server] The body of the document is returned as [either] text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.1) of the ItemOperations command response [or as binary data], depending on the content type that the client requested.");
+                @"[In Requesting the Document Body from the Server] The body of the document is returned as [either] text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.2) of the ItemOperations command response [or as binary data], depending on the content type that the client requested.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R77, header value is:{0}", itemOperationResponse.Headers.ToString());
@@ -88,7 +88,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASDOC
             Site.CaptureRequirementIfIsFalse(
                 isMultiPartResponse,
                 77,
-                @"[In ItemOperations Command Request] If this header[the HTTP header (2) MS-ASAcceptMultiPart: T] is not used, the document data is returned as text.");
+                @"[In ItemOperations Command Request] If this header[the HTTP header MS-ASAcceptMultiPart: T] is not used, the document data is returned as text.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R98, header value is:{0}", itemOperationResponse.Headers.ToString());
@@ -98,7 +98,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASDOC
             Site.CaptureRequirementIfIsFalse(
                 isMultiPartResponse,
                 98,
-                @"[In Retrieving the Document Body] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.2.8), which returns the body of the document as text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.2.8) of the response if the command request was not a multi-part request.");
+                @"[In Retrieving the Document Body] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.1.10), which returns the body of the document as text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.2) of the response if the command request was not a multi-part request.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R107, header value is:{0}", itemOperationResponse.Headers.ToString());
@@ -108,7 +108,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASDOC
             Site.CaptureRequirementIfIsFalse(
                 isMultiPartResponse,
                 107,
-                @"[In ItemOperations Command Response] Otherwise[an ItemOperations command request for the body of the document was not made using the MS-ASAcceptMultiPart: T header (2) ], the server MUST transmit the document as data encoded with base64 encoding within the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.1) of the ItemOperations command response.");
+                @"[In ItemOperations Command Response] Otherwise[an ItemOperations command request for the body of the document was not made using the MS-ASAcceptMultiPart: T header ], the server MUST transmit the document as data encoded with base64 encoding within the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.2) of the ItemOperations command response.");
         }
 
         /// <summary>
@@ -204,7 +204,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASDOC
             Site.CaptureRequirementIfIsTrue(
                 isMultiPartResponse,
                 124,
-                @"[In Requesting the Document Body from the Server] The body of the document is returned as [either text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.1) of the ItemOperations command response or as] binary data, depending on the content type that the client requested.");
+                @"[In Requesting the Document Body from the Server] The body of the document is returned as [either text encoded with base64 encoding in the itemoperations:Data element ([MS-ASCMD] section 2.2.3.39.2) of the ItemOperations command response or as] binary data, depending on the content type that the client requested.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R76, header value is:{0}", itemOperationResponse.Headers.ToString());
@@ -213,7 +213,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASDOC
             Site.CaptureRequirementIfIsTrue(
                 isMultiPartResponse,
                 76,
-                @"[In ItemOperations Command Request] A client can use the HTTP header (2) MS-ASAcceptMultiPart: T to specify that the server returns the document data in multipart binary format.");
+                @"[In ItemOperations Command Request] A client can use the HTTP header MS-ASAcceptMultiPart: T to specify that the server returns the document data in multipart binary format.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R120, header value is:{0}", itemOperationResponse.Headers.ToString());
@@ -222,7 +222,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASDOC
             Site.CaptureRequirementIfIsTrue(
                 isMultiPartResponse,
                 120,
-                @"[In Retrieving the Document Body] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.2.8), which returns the body of the document as binary text in multiple parts if the command request was a multi-part request.");
+                @"[In Retrieving the Document Body] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.1.10), which returns the body of the document as binary text in multiple parts if the command request was a multi-part request.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDOC_R106, header value is:{0}", itemOperationResponse.Headers.ToString());
@@ -231,7 +231,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASDOC
             Site.CaptureRequirementIfIsTrue(
                 isMultiPartResponse,
                 106,
-                @"[In ItemOperations Command Response] If an ItemOperations command request for the body of the document was made using the MS-ASAcceptMultiPart: T header (2), then the server MUST respond by providing the document body as binary data in multiple parts.");
+                @"[In ItemOperations Command Response] If an ItemOperations command request for the body of the document was made using the MS-ASAcceptMultiPart: T header, then the server MUST respond by providing the document body as binary data in multiple parts.");
         }
 
         /// <summary>
