@@ -4,17 +4,17 @@
   <Deployment>
     <DeploymentItem filename="TestSuite\MS-ASPROV_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASPROV_RequirementSpecification.xml" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\AccountOnlyWipeData.ps1" />
     <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-ASPROV.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-ASPROV_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASPROV_TestSuite.ptfconfig" />
     <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-ASPROV\TestSuite\MS-ASPROV_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ASPROV_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\RemoveDevice.ps1" />
+    <DeploymentItem filename="MS-ASPROV.runsettings" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\WipeData.ps1" />
   </Deployment>
   <Execution>
