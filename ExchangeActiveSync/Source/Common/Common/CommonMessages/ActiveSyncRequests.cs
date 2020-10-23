@@ -34,6 +34,22 @@ namespace Microsoft.Protocols.TestSuites.Common
     }
     #endregion
 
+    #region FindRequest
+    /// <summary>
+    /// The class of Find request.
+    /// </summary>
+    public class FindRequest : ActiveSyncRequestBase<Request.Find>
+    {
+        /// <summary>
+        /// Initializes a new instance of the FindRequest class.
+        /// </summary>
+        public FindRequest()
+        {
+            this.RequestData = new Request.Find();
+        }
+    }
+    #endregion
+
     #region FolderSyncRequest
     /// <summary>
     /// The class of FolderSync request.

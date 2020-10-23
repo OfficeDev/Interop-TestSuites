@@ -80,6 +80,8 @@
     <None Include="ActiveSyncClient\SchemaValidation\DocumentLibrary.xsd" />
     <None Include="ActiveSyncClient\SchemaValidation\Email.xsd" />
     <None Include="ActiveSyncClient\SchemaValidation\Email2.xsd" />
+    <None Include="ActiveSyncClient\SchemaValidation\Find.xsd" />
+    <None Include="ActiveSyncClient\SchemaValidation\FindResponse.xsd" />
     <None Include="ActiveSyncClient\SchemaValidation\FolderCreateResponse.xsd" />
     <None Include="ActiveSyncClient\SchemaValidation\FolderDeleteResponse.xsd" />
     <None Include="ActiveSyncClient\SchemaValidation\FolderHierarchy.xsd" />
@@ -108,7 +110,9 @@
     <None Include="ActiveSyncClient\SchemaValidation\Tasks.xsd" />
     <None Include="ActiveSyncClient\SchemaValidation\ValidateCertResponse.xsd" />
     <None Include="Common\CommonScript\ConfigureSSLSetting.ps1" />
-    <None Include="ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <None Include="ExchangeCommonConfiguration.deployment.ptfconfig">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MS-ASWBXML\MS-ASWBXML.csproj">

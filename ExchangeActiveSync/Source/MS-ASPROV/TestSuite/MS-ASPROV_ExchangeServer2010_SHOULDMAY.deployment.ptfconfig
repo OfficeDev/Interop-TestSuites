@@ -33,5 +33,15 @@
     <Property name="R1041Enabled" value="true"/>
     <!-- Set R1047Enabled to true to verify that if the client reports success, the implementation does return a value of 1 in the Status element. Set R1047Enabled to false to disable this requirement.-->
     <Property name="R1047Enabled" value="false"/>
+  <!-- Set R66609Enabled to true to verify that if the client reports success, the implementation does return a value of 1 in the Status element. Set R66609Enabled to false to disable this requirement.-->
+    <Property name="R66609Enabled" value="false"/>
+    <!-- Set R66610Enabled to true to verify that if the client reports failure, the implementation does return a value of 2 in the Status element. Set R66610Enabled to false to disable this requirement.-->
+    <Property name="R66610Enabled" value="false"/>
+    <!-- Set R66611Enabled to true to verify that implementation does respond to the next command request from the client with an account only remote wipe directive if the client reports failure. Set R66611Enabled to false to disable this requirement.-->
+    <Property name="R66611Enabled" value="false"/>
+    <!-- Set R66613Enabled to true to verify that if an account only remote wipe has been requested for the client, the implementation does include the AccountOnlyRemoteWipe. Set R66613Enabled to false to disable this requirement.-->
+    <Property name="R66613Enabled" value="false"/>
+    <!-- Set R66615Enabled to true to verify that if an account only remote wipe has not been requested for the client, the implementation does omit Account Only Remote Wipe . Set R66615Enabled to false to disable this requirement.-->
+    <Property name="R66615Enabled" value="false"/>
   </Properties>
 </TestSite>

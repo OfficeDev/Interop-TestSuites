@@ -635,17 +635,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 @"[In ConversationIndex] Additional timestamps are added when the message is forwarded [or replied to].");
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R105");
-            Site.Log.Add(LogEntryKind.Debug, "After User2 forward the email to User3, the ConversationIndex is {0} and its length is {1}.", conversationIndexForward, conversationIndexForward.Length);
-
-            // Verify MS-ASCON requirement: MS-ASCON_R105
-            // If the ConversationIndex element is longer than the ConversationIndex of the most recent email which means additional timestamp has been added to ConversationIndex, then this requirement can be captured.
-            Site.CaptureRequirementIfIsTrue(
-                additionalTimestampAdded,
-                105,
-                @"[In Response Level] The Response Level field contains information about the time the message was forwarded [or replied to].");
-
-            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R259");
 
             // Verify MS-ASCON requirement: MS-ASCON_R259
