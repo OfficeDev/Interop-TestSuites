@@ -115,6 +115,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         /// <returns>Search command response.</returns>
         SearchResponse Search(SearchRequest request);
 
+        FindResponse Find(FindRequest request);
+
         /// <summary>
         /// Supports get and set operations on global properties and Out of Office (OOF) settings for the user, sends device information to the server, implements the device password/personal identification number (PIN) recovery, or retrieves a list of the user's email addresses.
         /// </summary>

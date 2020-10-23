@@ -32,6 +32,8 @@
         </xs:element>
         <xs:element name="RemoteWipe" type="airsyncbase:EmptyTag"
             minOccurs="0"/>
+        <xs:element name="AccountOnlyRemoteWipe" type="airsyncbase:EmptyTag"
+    minOccurs="0"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
