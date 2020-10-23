@@ -158,5 +158,22 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             cnsetSeenFAIIndex = 0;
             cnsetReadIndex = 0;
         }
+
+        /// <summary>
+        /// Compare two byte arrays
+        /// </summary>
+        /// <param name="folderContent">The first byte array to compare.</param>
+        /// <param name="folderContent">The second byte array to compare.</param>
+         /// <returns>Return integer that indicates two byte arrays relative position in the sort order.</returns>
+        public static int BinaryCompare(IList<byte> x,IList<byte> y)
+        {
+            int result;
+            for (int index = 0; index < Math.Min(x.Count, y.Count); index++)
+            {
+                result = x[index].CompareTo(y[index]);
+                if (result != 0) return result;
+            }
+            return x.Count.CompareTo(y.Count);
+        }
     }
 }
