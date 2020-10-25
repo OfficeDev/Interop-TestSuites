@@ -43,18 +43,159 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         /// This test case is used to verify the success status of Search command.
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
-        public void MSASCMD_S23_TC01_Find_Success()
+        public void MSASCMD_S23_TC01_Find_Mail_Success()
         {
             Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+
             #region Create a find request
-            FindRequest findRequest = this.CreateMailBoxFindRequest();
+            FindRequest findRequest = this.CreateMailFindRequest();
+            #endregion
+
+            #region Call Find command
+            TestSuites.Common.FindResponse findResponse = this.CMDAdapter.Find(findRequest);
+            Site.Assert.AreEqual("1", findResponse.ResponseData.Status, "If server successfully completed command, server should return status 1");
+            Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172509");
+
+            // Test Case verify requirement: MS-ASCMD_R72172509
+            Site.CaptureRequirementIfAreEqual<string>(
+                "1",
+                findResponse.ResponseData.Status,
+                72172509,
+                @"[In Status (Find)] [When the parent is Find element], [the cause of the status value 1 is] Server successfully completed command.");
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172520");
+
+            // Test Case verify requirement: MS-ASCMD_R72172520
+            Site.CaptureRequirementIfAreEqual<string>(
+                "1",
+                findResponse.ResponseData.Response.Status,
+                72172520,
+                @"[In Status (Find)] [When the parent is Find element Response element], [the cause of the status value 1 is] Server successfully completed command.");
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is used to verify the Find respones status of invalid Find command request.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S23_TC02_Find_Mail_InvalidRequest()
+        {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+
+            #region Create a find request
+            FindRequest findRequest = this.CreateMailFindInvalidRangeRequest();
+            #endregion
+
+            #region Call Find command
+            TestSuites.Common.FindResponse findResponse = this.CMDAdapter.Find(findRequest);
+            Site.Assert.AreEqual("2", findResponse.ResponseData.Status, "If server successfully completed command, server should return status 2");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172512");
+
+            // Test Case verify requirement: MS-ASCMD_R72172512
+            Site.CaptureRequirementIfAreEqual<string>(
+                "2",
+                findResponse.ResponseData.Status,
+                72172512,
+                @"[In Status (Find)] [When the parent is Find element], [the cause of the status value 2 is] One or more of the client's search parameters was invalid.");
+
+
+            if (Common.IsRequirementEnabled(72172521, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172521");
+
+                // Test Case verify requirement: MS-ASCMD_R72172521
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "2",
+                    findResponse.ResponseData.Response.Status,
+                    72172521,
+                    @"[In Status (Find)] [When the parent is Response element], [the cause of the status value 2 is] One or more of the client's search parameters was invalid.");
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is used to verify the Find respones status of invalid Range in Find command request.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S23_TC03_Find_Mail_InvalidRange()
+        {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+
+            #region Create a find request
+            FindRequest findRequest = this.CreateMailFindInvalidRangeRequest();
+            #endregion
+
+            #region Call Find command
+            TestSuites.Common.FindResponse findResponse = this.CMDAdapter.Find(findRequest);
+            if (Common.IsRequirementEnabled(72172518, this.Site))
+            {                
+                Site.Assert.AreEqual("4", findResponse.ResponseData.Response.Status, "If the requested range does not begin with 0, server should return status 4");
+
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172518");
+
+                // Test Case verify requirement: MS-ASCMD_R72172518
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "4",
+                    findResponse.ResponseData.Response.Status,
+                    72172518,
+                    @"[In Status (Find)] [When the parent is Response element], [the cause of the status value 4 is] The requested range does not begin with 0.");
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is used to test mail find command.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S23_TC01_Find_Mail_Success_Test()
+        {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            
+            #region Create a find request
+            FindRequest findRequest = this.CreateMailFindRequest();
             #endregion
 
             #region Call Find command
             TestSuites.Common.FindResponse findResponse = this.CMDAdapter.Find(findRequest);
             Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R10031940");
+
+            // Test Case verify requirement: MS-ASCMD_RR10031940
+            Site.CaptureRequirementIfAreEqual<string>(
+                "1",
+                findResponse.ResponseData.Response.Status,
+                10031940,
+                @"[In Find] The Find command uses the Keyword Query Language (KQL) syntax to construct property restriction based searches for entries in a mailbox.");
             #endregion
         }
+
+        /// <summary>
+        /// This test case is used to verify search global address list success
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S14_TC14_Find_GAL()
+        {
+            #region Create Find request with options
+
+            FindRequest findRequest = this.CreateFindGALRequest();
+            #endregion
+
+            #region Call find command
+            FindResponse findResponse = this.CMDAdapter.Find(findRequest);
+            Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
+            #endregion
+        }
+
         #endregion
 
         #region Private Methods
@@ -416,7 +557,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         /// Create one MailBox find request with default value.
         /// </summary>
         /// <returns>Return a MailBox FindRequest instance.</returns>
-        private FindRequest CreateMailBoxFindRequest()
+        private FindRequest CreateMailFindRequest()
         {
             Request.Find find = new Request.Find
             {
@@ -430,19 +571,130 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                             ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.FreeText},
                             Items = new string[] { "*" }
                         },
-                        Options = new Request.FindExecuteSearchMailBoxSearchCriterionOptions
+                        Options=new Request.FindExecuteSearchMailBoxSearchCriterionOptions
                         {
-                            Range = "0-5"
-                        } 
+                            Range="0-5",
+                            DeepTraversal=new Request.EmptyTag { }
+                            //Picture=new Request.FindExecuteSearchMailBoxSearchCriterionOptionsPicture
+                            //{
+                            //    MaxSize=2014,
+                            //    MaxSizeSpecified=true,
+                            //    MaxPictures=5,
+                            //    MaxPicturesSpecified=true
+                            //}
+                        }
                     },
   
                 },
             };
 
             ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.Class, Request.ItemsChoiceType11.FreeText };
-            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).Items = new string[] { "Email", "subject: mobile" };
+            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).Items = new string[] { "Email", "*" };
 
             FindRequest findRequest = Common.CreateFindRequest(find );
+            return findRequest;
+        }
+
+        /// <summary>
+        /// Create one MailBox find request with invalid value.
+        /// </summary>
+        /// <returns>Return MailBox FindRequest instance with invalid value.</returns>
+        private FindRequest CreateMailFindInvalidRequest()
+        {
+            Request.Find find = new Request.Find
+            {
+                SearchId = "",
+                ExecuteSearch = new Request.FindExecuteSearch
+                {
+                    Item = new Request.FindExecuteSearchMailBoxSearchCriterion
+                    {
+                        Query = new Request.queryType2
+                        {
+                            ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.FreeText },
+                            Items = new string[] { "*" }
+                        }
+                    },
+
+                },
+            };
+
+            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.Class, Request.ItemsChoiceType11.FreeText };
+            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).Items = new string[] { "Email", "*" };
+
+            FindRequest findRequest = Common.CreateFindRequest(find);
+            return findRequest;
+        }
+
+        /// <summary>
+        /// Create one MailBox find request with invalid range value.
+        /// </summary>
+        /// <returns>Return MailBox FindRequest instance with invalid Range value.</returns>
+        private FindRequest CreateMailFindInvalidRangeRequest()
+        {
+            Request.Find find = new Request.Find
+            {
+                SearchId = Guid.NewGuid().ToString(),
+                ExecuteSearch = new Request.FindExecuteSearch
+                {
+                    Item = new Request.FindExecuteSearchMailBoxSearchCriterion
+                    {
+                        Query = new Request.queryType2
+                        {
+                            ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.FreeText },
+                            Items = new string[] { "*" }
+                        },
+                        Options=new Request.FindExecuteSearchMailBoxSearchCriterionOptions
+                        {
+                            Range="-1"
+                        }
+                    },
+
+                },
+            };
+
+            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.Class, Request.ItemsChoiceType11.FreeText };
+            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).Items = new string[] { "Email", "*" };
+            ((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Options.Range = "-1";
+            FindRequest findRequest = Common.CreateFindRequest(find); 
+            return findRequest;
+        }
+
+        /// <summary>
+        /// Create Find GAL request.
+        /// </summary>
+        /// <returns>Return Find GAL request instance.</returns>
+        private FindRequest CreateFindGALRequest()
+        {            
+            Request.Find find = new Request.Find
+            {
+                SearchId = Guid.NewGuid().ToString(),
+                //ExecuteSearch = new Request.FindExecuteSearch
+                //{
+                //    Item = new Request.FindExecuteSearchGALSearchCriterion
+                //    {
+                //        Query =  "*",
+                //        Options = new Request.FindExecuteSearchGALSearchCriterionOptions
+                //        {
+                //            Range = "0-5"                            
+                //        }
+                //    },
+                //},
+
+                ExecuteSearch = new Request.FindExecuteSearch
+                {
+                    Item = new Request.FindExecuteSearchGALSearchCriterion
+                    {
+                        Query = "*",
+                    },
+                },
+            };
+
+
+            ((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Query = "*";
+            
+            //((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Options.Range = "0-5";
+            //((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Query = "*";
+            FindRequest findRequest = Common.CreateFindRequest(find);
             return findRequest;
         }
         #endregion
