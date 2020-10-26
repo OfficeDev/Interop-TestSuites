@@ -1533,7 +1533,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1002");
 
-            //Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1002
+            //If 20016 is verified, then prove the last byte equals the 0x00, so this requirement can be captured directly
             Site.CaptureRequirementIfAreEqual<string>(
                "00",
                TestSuiteHelper.BytesToHex(globalObjIdBytes, globalObjIdBytes.Length - 1, 1),
