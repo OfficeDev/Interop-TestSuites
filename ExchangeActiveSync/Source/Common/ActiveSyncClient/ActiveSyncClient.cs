@@ -636,6 +636,19 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <summary>
+        /// Sends a Find request.
+        /// </summary>
+        /// <param name="request">A FindRequest object that contains the request information.</param>
+        /// <returns>A FindRequest object</returns>
+        public FindResponse Find(FindRequest request)
+        {
+            ActiveSyncRawRequest rawRequest = ConfigCmdRequest(request);
+            rawRequest.CommandName = CommandName.Find;
+            ActiveSyncRawResponse rawResponse = this.SendRequest(rawRequest);
+            return ConvertRawResponse<FindResponse>(rawResponse);
+        }
+
+        /// <summary>
         /// Sends a Search request with loop.
         /// </summary>
         /// <param name="request">A SearchRequest object that contains the request information.</param>

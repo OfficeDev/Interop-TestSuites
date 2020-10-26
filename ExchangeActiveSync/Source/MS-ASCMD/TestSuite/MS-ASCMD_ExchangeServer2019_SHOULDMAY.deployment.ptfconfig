@@ -79,5 +79,11 @@
     <Property name="R7500Enabled" value="false" />
     <!--Set R7501Enabled to true to verify that Implementation does limit the number of elements in command requests and return the specified error if the limit is exceeded. Set R7501Enabled to false to disable this requirement.-->
     <Property name="R7501Enabled" value="true" />
+    <!--Set R72172521Enabled to true to verify that Implementation Find command, when the parent is Response element, the cause of the status value 2 is one or more of the client's search parameters was invalid. Set R72172521Enabled to false to disable this requirement.-->
+    <Property name="R72172521Enabled" value="false" />
+    <!--Set R72172518Enabled to true to verify that Implementation Find command, when the parent is Response element, the cause of the status value 4 is the requested range does not begin with 0. Set R72172518Enabled to false to disable this requirement.-->
+    <Property name="R72172518Enabled" value="false" />
+    <!--Set R8888Enabled to true to verify that Implementation Find command, used to verify search global address list. Set R8888Enabled to false to disable this requirement.-->
+    <Property name="R8888Enabled" value="false" />
   </Properties>
 </TestSite>

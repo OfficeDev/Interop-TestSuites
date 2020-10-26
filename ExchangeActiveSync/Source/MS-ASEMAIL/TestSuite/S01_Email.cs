@@ -120,7 +120,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsNotNull(
                 item.Email.Body.Data,
                 1057,
-                @"[In Body (Airsyncbase Namespace)] [When[airsyncbase:Body] included in a Sync command response ([MS-ASCMD] section 2.2.2.20), a Search command response ([MS-ASCMD] section 2.2.2.15), or an ItemOperations command response ([MS-ASCMD] section 2.2.2.9), the airsyncbase:Body element can contain the following child element: airsyncbase:Data] This element [airsyncbase:Data] is only included if a nonzero airsyncbase:TruncationSize ([MS-ASAIRS] section 2.2.2.40.2) element value was included in the request and the airsyncbase:AllOrNone ([MS-ASAIRS] section 2.2.2.3.2) element value included in the request does not restrict content from being returned in the response.");
+                @"[In Body (Airsyncbase Namespace)] [When[airsyncbase:Body] included in a Sync command response ([MS-ASCMD] section 2.2.1.21), a Search command response ([MS-ASCMD] section 2.2.1.16), or an ItemOperations command response ([MS-ASCMD] section 2.2.1.10), the airsyncbase:Body element can contain the following child element: airsyncbase:Data] This element [airsyncbase:Data] is only included if a nonzero airsyncbase:TruncationSize ([MS-ASAIRS] section 2.2.2.40.2) element value was included in the request and the airsyncbase:AllOrNone ([MS-ASAIRS] section 2.2.2.3.2) element value included in the request does not restrict content from being returned in the response.");
 
             if (Common.IsRequirementEnabled(439, this.Site))
             {
@@ -145,7 +145,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 Site.CaptureRequirementIfIsTrue(
                     item.Email.CategoriesIsInclude && item.Email.Categories.Category == null,
                     318,
-                    @"[In Categories] An empty Categories element is included as a child of the Add ([MS-ASCMD] section 2.2.3.7.2) element in a Sync ([MS-ASCMD] section 2.2.2.20) command if no child Category elements have been set on the message.");
+                    @"[In Categories] An empty Categories element is included as a child of the Add ([MS-ASCMD] section 2.2.3.7.2) element in a Sync ([MS-ASCMD] section 2.2.1.21) command if no child Category elements have been set on the message.");
             }
             #endregion
         }
@@ -313,16 +313,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 75,
                 @"[In Sending E-Mail Changes to the Client] If only the Read flag has changed for an e-mail item, the server MUST include the Read element as the only child element of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11)  within the airsync:Change element ([MS-ASCMD] section 2.2.3.24) for that e-mail item in the Sync command response.");
 
-            // If the server will include the Read element as the only child element of the airSync:ApplicationData within the airSync:Change element for that e-mail item in the Sync command response, then MS-ASEMAIL_R100 can be captured.
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R100");
-
-            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R100
-            Site.CaptureRequirementIfIsTrue(
-                TestSuiteHelper.IsOnlySpecifiedElement((XmlElement)this.EMAILAdapter.LastRawResponseXml, "ApplicationData", "Read"),
-                100,
-                @"[In Sending E-Mail Changes to the Client] If Read flag changed, Flag properties, Non-E-Mail class properties and Other E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send Read flag only.");
-
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R641");
 
@@ -331,6 +321,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 Convert.ToBoolean(item.Email.Read),
                 641,
                 @"[In Read] a value of 0 (zero, meaning FALSE) indicates the e-mail message has not been viewed by the current recipient.");
+
+            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R10604
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R10604");
+
+            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R10604
+            Site.CaptureRequirementIfIsTrue(
+                item.Email.ReadIsInclude,
+                10604,
+                @"[In Sending E-Mail Changes to the Client]  If Read flag changed, Flag properties, Categories properties, Other E-Mail class properties and Non-E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send Read flag only.");
             #endregion
         }
         #endregion
@@ -392,13 +391,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
 
                 // If the server includes the Flag element as the only child element of the airSync:ApplicationData within the airSync:Change element for that e-mail item in the Sync command response, then MS-ASEMAIL_R96 will be captured.
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R96");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R100");
 
-                // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R96
+                // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R100
                 Site.CaptureRequirementIfIsTrue(
                     TestSuiteHelper.IsOnlySpecifiedElement((XmlElement)this.EMAILAdapter.LastRawResponseXml, "ApplicationData", "Flag"),
-                    96,
-                    @"[In Sending E-Mail Changes to the Client] If Read flag, Other E-mail class properties and Non-E-mail class properties not changed, and Flag properties changed, Server action for e-mail item in Sync command response is: Send Flag block only.");
+                    100,
+                    @"[In Sending E-Mail Changes to the Client] If Flag properties changed, Read flag, Categories properties,  Non-E-Mail class properties and Other E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send Flag block only.");
             }
             #endregion
         }
@@ -448,17 +447,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             #endregion
 
             #region Verify requirement.
-            // If the server send Read flag and Flag block, then MS-ASEMAIL_R104 can be captured.
+            // If the server send Read flag and Flag block, then MS-ASEMAIL_R10612 can be captured.
             if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
             {
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R104");
-
-                // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R104
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R10612");
+                // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R10612
                 Site.CaptureRequirementIfIsTrue(
                     item.Email.FlagIsInclude && item.Email.Flag != null && item.Email.ReadIsInclude,
-                    104,
-                    @"[In Sending E-Mail Changes to the Client] If Read flag and Flag properties changed, Other E-Mail class properties and Non-E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send Read flag and Flag block.");
+                    10612,
+                    @"[In Sending E-Mail Changes to the Client] If Read flag and Flag properties changed, Categories properties, Other E-Mail class properties and Non-E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send Read flag and Flag block");
             }
             #endregion
         }
@@ -513,17 +511,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             #endregion
 
             #region Verify requirements.
-            // If the server send full item airSync:Change to client, then MS-ASEMAIL_R106 can be captured.
+            // If the server Send Read flag, Flag block and categories block, then MS-ASEMAIL_R104 can be captured.
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R106");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R104");
 
-            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R106
+            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R104
             Site.CaptureRequirementIfIsTrue(
                 item.Email.FlagIsInclude && item.Email.Flag != null && item.Email.ReadIsInclude && item.Email.CategoriesIsInclude && item.Email.Categories != null,
-                106,
-                @"[In Sending E-Mail Changes to the Client] If Read flag, Flag properties, and Other E-Mail class properties changed, Non-E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send full item airsync:Change to client.");
+                104,
+                @"[In Sending E-Mail Changes to the Client]  If Read flag , Flag properties and Categories properties changed, Other E-Mail class properties and Non-E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send Read flag, Flag block and categories block.");
 
-            // If MS-ASEMAIL_R106 can be captured successfully, it means server partition email changes into the case "changes to Read flag, Flag properties and other E-Mail class properties, so MS-ASEMAIL_R1017 can also be captured."
+            // If MS-ASEMAIL_R104 can be captured successfully, it means server partition email changes into the case "changes to Read flag, Flag properties and other email class properties, so MS-ASEMAIL_R1017 can also be captured."
             if (Common.IsRequirementEnabled(1017, this.Site))
             {
                 // Add the debug information
@@ -643,7 +641,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "6",
                 TestSuiteHelper.GetStatusCode(syncStringResponse.ResponseDataXML),
                 643,
-                @"[In Read] If a non-boolean value is used in a Sync command request ([MS-ASCMD] section 2.2.2.20), the server responds with Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20).");
+                @"[In Read] If a non-boolean value is used in a Sync command request ([MS-ASCMD] section 2.2.1.21), the server responds with Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21).");
             #endregion
         }
         #endregion
@@ -686,7 +684,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "6",
                 TestSuiteHelper.GetStatusCode(syncStringResponse.ResponseDataXML),
                 723,
-                @"[In Sender] If the client attempts to change this value, the server returns a Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20).");
+                @"[In Sender] If the client attempts to change this value, the server returns a Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21).");
             #endregion
         }
         #endregion
@@ -811,7 +809,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "6",
                 TestSuiteHelper.GetStatusCode(syncStringResponse.ResponseDataXML),
                 648,
-                @"[In ReceivedAsBcc] If the client changes this element value, the server responds with Status element ([MS-ASCMD] section 2.2.3.167.16) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20).");
+                @"[In ReceivedAsBcc] If the client changes this element value, the server responds with Status element ([MS-ASCMD] section 2.2.3.177.17) value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21).");
             #endregion
         }
         #endregion
@@ -1112,7 +1110,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "6",
                 TestSuiteHelper.GetStatusCode(response.ResponseDataXML),
                 347,
-                @"[In ConversationId] The server returns a Status element value of 6 in the Sync command response ([MS-ASCMD] section 2.2.2.20) when the email2:ConversationId element is included within a Change element ([MS-ASCMD] section 2.2.3.24) in a Sync command request.");
+                @"[In ConversationId] The server returns a Status element value of 6 in the Sync command response ([MS-ASCMD] section 2.2.1.21) when the email2:ConversationId element is included within a Change element ([MS-ASCMD] section 2.2.3.24) in a Sync command request.");
             #endregion
         }
         #endregion
@@ -1237,7 +1235,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "1",
                 itemOperationResult.Status,
                 61,
-                @"[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.9), as specified in section 3.1.5.1, to retrieve data from the server for one or more specific e-mail items, the server responds with an ItemOperations command response.");
+                @"[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.1.10), as specified in section 3.1.5.2, to retrieve data from the server for one or more specific e-mail items, the server responds with an ItemOperations command response.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R63");
@@ -1246,7 +1244,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
             Site.CaptureRequirementIfIsTrue(
                 TestSuiteHelper.IsOnlySpecifiedElement((XmlElement)this.EMAILAdapter.LastRawResponseXml, "Properties", "Subject"),
                 63,
-                @"[In ItemOperations Command Response] If an airsync:Schema element ([MS-ASCMD] section 2.2.3.149) is included in the ItemOperations command request, then the elements returned in the ItemOperations command response MUST be restricted to the elements that were included as child elements of the airsync:Schema element in the command request.");
+                @"[In ItemOperations Command Response] If an airsync:Schema element ([MS-ASCMD] section 2.2.3.158) is included in the ItemOperations command request, then the elements returned in the ItemOperations command response MUST be restricted to the elements that were included as child elements of the airsync:Schema element in the command request.");
             #endregion
         }
         #endregion
@@ -1306,7 +1304,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "1",
                 itemOperationResult.Status,
                 61,
-                @"[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.2.9), as specified in section 3.1.5.1, to retrieve data from the server for one or more specific e-mail items, the server responds with an ItemOperations command response.");
+                @"[In ItemOperations Command Response] When a client uses an ItemOperations command request ([MS-ASCMD] section 2.2.1.10), as specified in section 3.1.5.2, to retrieve data from the server for one or more specific e-mail items, the server responds with an ItemOperations command response.");
             #endregion
         }
         #endregion
@@ -1404,7 +1402,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 "2",
                 status.InnerText,
                 68,
-                @"[In Search Command Response] If E-mail class elements are included in the Search command request, the Search command response from the server contains a search:Status element ([MS-ASCMD] section 2.2.3.167.12) value of 2 as a child element of the search:Store element ([MS-ASCMD] section 2.2.3.168.2).");
+                @"[In Search Command Response] If E-mail class elements are included in the Search command request, the Search command response from the server contains a search:Status element ([MS-ASCMD] section 2.2.3.177.13) value of 2 as a child element of the search:Store element ([MS-ASCMD] section 2.2.3.178.3).");
             #endregion
         }
         #endregion
@@ -1506,6 +1504,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
         public void MSASEMAIL_S01_TC26_CreateDraftEMail()
         {
             Site.Assume.AreEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Bcc element is supported when the ActiveSyncProtocolVersion is 16.0.");
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Bcc element is supported when the ActiveSyncProtocolVersion is 16.1.");
 
             #region Add an email item with Sync command.
             // Call FolderSync command to synchronize the collection hierarchy.
@@ -1615,6 +1614,7 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
         public void MSASEMAIL_S01_TC27_CreateDraftEMailAndSend()
         {
             Site.Assume.AreEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Bcc element is supported when the ActiveSyncProtocolVersion is 16.0.");
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Bcc element is supported when the ActiveSyncProtocolVersion is 16.1.");
 
             #region Add an email item with Sync command and send it.
             // Call FolderSync command to synchronize the collection hierarchy.
@@ -1658,6 +1658,241 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
                 item.Email.IsDraft.Value,
                 1279,
                 @"[In IsDraft] The value 0 (FALSE) indicates that the email is not a draft.");
+            #endregion
+        }
+        #endregion
+
+        #region MSASEMAIL_S01_TC28_BothReadAndFlagAndCategoriesChanged
+        /// <summary>
+        /// This case is designed to test if both Read element and Flag element have changed for the e-mail item, the server will send only Read element and Flag element to the client for an e-mail item in Sync command response.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S01_TC28_ReadAndFlagAndCategoriesChanged()
+        {
+            #region Call method SendMail to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Sync command with Change element to add flag and categories for the e-mail item and synchronize it with the server.
+            // Get the email item
+            SyncStore getEmailItem = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(getEmailItem, emailSubject);
+
+            // Get the result of adding flag and categories
+            SyncStore getChangedResult = this.AddFlagAndCategories(this.User2Information.InboxCollectionId, getEmailItem.SyncKey, item.ServerId);
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            #endregion
+
+            #region all Sync command with Change element to update the flag and read properties of the e-mail and synchronize it with server.
+            Request.Flag newFlag = new Request.Flag
+            {
+                Status = "2",
+                FlagType = "Flag for follow up",
+                CompleteTime = DateTime.Now,
+                CompleteTimeSpecified = true,
+                DateCompleted = DateTime.Now,
+                DateCompletedSpecified = true
+            };
+
+            // Update Flag, Read and category property   
+            string newCategory = Common.GenerateResourceName(Site, "NewCategory");
+            Collection<string> newCategories = new Collection<string> { newCategory };
+
+            this.UpdateEmail(this.User2Information.InboxCollectionId, getChangedResult.SyncKey, false, item.ServerId, newFlag, newCategories);
+
+
+            // Get server changes 
+            SyncStore updateResult = this.SyncChanges(getChangedResult.SyncKey, this.User2Information.InboxCollectionId, null);
+            item = TestSuiteHelper.GetSyncChangeItem(updateResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            #endregion
+
+            #region Verify requirement.
+            // If the server send Read flag and Flag block, then MS-ASEMAIL_R104 can be captured.
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R104");
+
+                // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R104
+                Site.CaptureRequirementIfIsTrue(
+                    item.Email.FlagIsInclude && item.Email.Flag != null && item.Email.ReadIsInclude && item.Email.CategoriesIsInclude && item.Email.Categories != null,
+                    104,
+                    @"[In Sending E-Mail Changes to the Client]  If Read flag , Flag properties and Categories properties changed, Other E-Mail class properties and Non-E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send Read flag, Flag block and categories block.");
+            }
+            #endregion
+        }
+        #endregion      
+
+        #region MSASEMAIL_S01_TC29_OnlyCategoriesChanged
+        /// <summary>
+        /// This case is designed to test if both Read element and Flag element have changed for the e-mail item, the server will send only Read element and Flag element to the client for an e-mail item in Sync command response.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S01_TC29_OnlyCategoriesChanged()
+        {
+            #region Call method SendMail to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Sync command with Change element to add flag and categories for the e-mail item and synchronize it with the server.
+            // Get the email item
+            SyncStore getEmailItem = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(getEmailItem, emailSubject);
+
+            // Get the result of adding flag and categories
+            SyncStore getChangedResult = this.AddFlagAndCategories(this.User2Information.InboxCollectionId, getEmailItem.SyncKey, item.ServerId);
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            #endregion
+
+            #region all Sync command with Change element to update the flag and read properties of the e-mail and synchronize it with server.
+
+            // Update category property   
+            string newCategory = Common.GenerateResourceName(Site, "NewCategory");
+            Collection<string> newCategories = new Collection<string> { newCategory };
+            this.UpdateEmail(this.User2Information.InboxCollectionId, getChangedResult.SyncKey, null, item.ServerId, null, newCategories);
+
+
+            // Get server changes 
+            SyncStore updateResult = this.SyncChanges(getChangedResult.SyncKey, this.User2Information.InboxCollectionId, null);
+            item = TestSuiteHelper.GetSyncChangeItem(updateResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            #endregion
+
+            #region Verify requirement.
+            // If the server send Read flag and Flag block, then MS-ASEMAIL_R104 can be captured.
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R96");
+
+                // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R96
+                Site.CaptureRequirementIfIsTrue(
+                    item.Email.CategoriesIsInclude && item.Email.Categories != null,
+                    96,
+                    @"[In Sending E-Mail Changes to the Client] If Read flag, Other E-mail class properties, Flag properties  and Non-E-mail class properties not changed, Categories properties changed, Server action for e-mail item in Sync command response is: Send Categories block only");
+            }
+            #endregion
+        }
+        #endregion
+
+        #region MSASEMAIL_S01_TC30_BothReadandCategoriesChanged
+        /// <summary>
+        /// This case is designed to test if both Read element and Flag element have changed for the e-mail item, the server will send only Read element and Flag element to the client for an e-mail item in Sync command response.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S01_TC30_BothReadandCategoriesChanged()
+        {
+            #region Call method SendMail to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Sync command with Change element to add flag and categories for the e-mail item and synchronize it with the server.
+            // Get the email item
+            SyncStore getEmailItem = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(getEmailItem, emailSubject);
+
+            // Get the result of adding flag and categories
+            SyncStore getChangedResult = this.AddFlagAndCategories(this.User2Information.InboxCollectionId, getEmailItem.SyncKey, item.ServerId);
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            #endregion
+
+            #region all Sync command with Change element to update the flag and read properties of the e-mail and synchronize it with server.
+
+            // Update category property   
+            string newCategory = Common.GenerateResourceName(Site, "NewCategory");
+            Collection<string> newCategories = new Collection<string> { newCategory };
+            this.UpdateEmail(this.User2Information.InboxCollectionId, getChangedResult.SyncKey, false, item.ServerId, null, newCategories);
+
+
+            // Get server changes 
+            SyncStore updateResult = this.SyncChanges(getChangedResult.SyncKey, this.User2Information.InboxCollectionId, null);
+            item = TestSuiteHelper.GetSyncChangeItem(updateResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            #endregion
+
+            #region Verify requirement.
+            // If the server send Read flag and Flag block, then MS-ASEMAIL_R104 can be captured.
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R10608");
+
+                // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R10608
+                Site.CaptureRequirementIfIsTrue(
+                    item.Email.ReadIsInclude && item.Email.CategoriesIsInclude && item.Email.Categories != null,
+                    10608,
+                    @"[In Sending E-Mail Changes to the Client]  If Read flag and Categories properties changed, Flag properties, Other E-Mail class properties and Non-E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send Read flag and Categories block");
+            }
+            #endregion
+        }
+        #endregion
+
+        #region MSASEMAIL_S01_TC31_BothFlagandCategoriesChanged
+        /// <summary>
+        /// This case is designed to test if both Read element and Flag element have changed for the e-mail item, the server will send only Read element and Flag element to the client for an e-mail item in Sync command response.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S01_TC31_BothFlagandCategoriesChanged()
+        {
+            #region Call method SendMail to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Sync command with Change element to add flag and categories for the e-mail item and synchronize it with the server.
+            // Get the email item
+            SyncStore getEmailItem = this.GetSyncResult(emailSubject, this.User2Information.InboxCollectionId, null);
+            Sync item = TestSuiteHelper.GetSyncAddItem(getEmailItem, emailSubject);
+
+            // Get the result of adding flag and categories
+            SyncStore getChangedResult = this.AddFlagAndCategories(this.User2Information.InboxCollectionId, getEmailItem.SyncKey, item.ServerId);
+            item = TestSuiteHelper.GetSyncChangeItem(getChangedResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            #endregion
+
+            #region all Sync command with Change element to update the flag and read properties of the e-mail and synchronize it with server.
+
+            // Update category property   
+            Request.Flag newFlag = new Request.Flag
+            {
+                Status = "2",
+                FlagType = "Flag for follow up",
+                CompleteTime = DateTime.Now,
+                CompleteTimeSpecified = true,
+                DateCompleted = DateTime.Now,
+                DateCompletedSpecified = true
+            };
+            string newCategory = Common.GenerateResourceName(Site, "NewCategory");
+            Collection<string> newCategories = new Collection<string> { newCategory };
+            this.UpdateEmail(this.User2Information.InboxCollectionId, getChangedResult.SyncKey, null, item.ServerId, newFlag, newCategories);
+
+
+            // Get server changes 
+            SyncStore updateResult = this.SyncChanges(getChangedResult.SyncKey, this.User2Information.InboxCollectionId, null);
+            item = TestSuiteHelper.GetSyncChangeItem(updateResult, item.ServerId);
+            Site.Assert.IsNotNull(item, "The message with subject {0} should be found in the folder {1} of user {2}.", emailSubject, FolderType.Inbox.ToString(), this.User2Information.UserName);
+            #endregion
+
+            #region Verify requirement.
+            // If the server send Read flag and Flag block, then MS-ASEMAIL_R104 can be captured.
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R10600");
+
+                // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R10600
+                Site.CaptureRequirementIfIsTrue(
+                    item.Email.FlagIsInclude && item.Email.Flag != null && item.Email.CategoriesIsInclude && item.Email.Categories != null,
+                    10600,
+                    @"[In Sending E-Mail Changes to the Client]  If Flag properties, Categories properties changed, Read flag, Other E-Mail class properties and Non-E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send Flag block and Categories block");
+            }
             #endregion
         }
         #endregion

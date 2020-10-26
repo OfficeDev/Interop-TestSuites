@@ -87,7 +87,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 subject,
                 item.Calendar.Subject,
                 14,
-                @"[In Sending and Receiving Meeting Requests] When a user creates an appointment on the client, the calendar item is added to the server by using the Sync command ([MS-ASCMD] section 2.2.2.20).");
+                @"[In Sending and Receiving Meeting Requests] When a user creates an appointment on the client, the calendar item is added to the server by using the Sync command ([MS-ASCMD] section 2.2.1.21).");
             #endregion
         }
         #endregion
@@ -114,7 +114,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             string reminder = "10";
             elementsToValueMap.Add(Request.ItemsChoiceType8.Reminder, reminder);
 
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0", StringComparison.CurrentCultureIgnoreCase))
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0", StringComparison.CurrentCultureIgnoreCase) || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1", StringComparison.CurrentCultureIgnoreCase))
             {
                 Request.Location location = new Request.Location();
                 location.Accuracy = (double)1;
@@ -159,7 +159,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 subject,
                 calendar.Calendar.Subject,
                 1074,
-                @"[In Sending and Receiving Meeting Requests] When a user creates a meeting on the client, the calendar item is added to the server by using the Sync command ([MS-ASCMD] section 2.2.2.20).");
+                @"[In Sending and Receiving Meeting Requests] When a user creates a meeting on the client, the calendar item is added to the server by using the Sync command ([MS-ASCMD] section 2.2.1.21).");
             #endregion
 
             #region Call SendMail command to send the meeting request to attendee
@@ -495,7 +495,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 subject,
                 item.Email.Subject,
                 16,
-                @"[In Sending and Receiving Meeting Requests] When an attendee's Inbox folder is synchronized, the Sync command response ([MS-ASCMD] section 2.2.2.20) from the server contains the new meeting request that is to be added to the attendee's Inbox folder.");
+                @"[In Sending and Receiving Meeting Requests] When an attendee's Inbox folder is synchronized, the Sync command response ([MS-ASCMD] section 2.2.1.21) from the server contains the new meeting request that is to be added to the attendee's Inbox folder.");
 
             if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
             {
@@ -1231,6 +1231,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Calendar newCalendarItem = resultItem.Calendar;
             newCalendarItem.UID = calendarUID;
             newCalendarItem.Location = "Room A";
+            newCalendarItem.AllDayEvent = (byte)0;
+            newCalendarItem.EndTime = DateTime.UtcNow.AddHours(2);
             this.SendMeetingRequest(subject, newCalendarItem);
 
             this.RecordCaseRelativeItems(this.User2Information.UserName, this.User2Information.InboxCollectionId, subject);
@@ -1447,25 +1449,17 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
 
             pos += 8;
             Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId should have 8 bytes to store ZERO field");
-
+                        
+            // It can be captured directly since the left have reserved 8 bytes.          
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1000");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R10000");
 
-            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1000
-            Site.CaptureRequirementIfAreEqual<string>(
-                "0000000000000000",
-                TestSuiteHelper.BytesToHex(globalObjIdBytes, pos, 8),
-                1000,
-                @"[In GlobalObjId] MUST be all zeros. ZERO = 8NULL");
-
-            // If requirement MS-ASEMAIL_R1000 can be captured, it means the NULL is %0x00, then requirement MS-ASEMAIL_R1002 can be captured directly.
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1002");
-
-            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1002
+            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R10000                                       
             Site.CaptureRequirement(
-                1002,
-                @"[In GlobalObjId] NULL = %x00");
+                10000,
+                @"[In GlobalObjId] Reserved bytes.RESERVED = 8BYTE");
+
+            Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId Reserved bytes.RESERVED = 8BYTE");
 
             pos += 8;
             Site.Assert.IsTrue(totalLength - pos >= 4, "GlobalObjId should have 4 bytes to store BYTECOUNT field");
@@ -1537,6 +1531,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 @"[In GlobalObjId] VCALID = VCALSTRING VERSION UID %x00");
 
             // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1002");
+
+            //If 20016 is verified, then prove the last byte equals the 0x00, so this requirement can be captured directly
+            Site.CaptureRequirement(
+               1002,
+               @"[In GlobalObjId] [In GlobalObjId] NULL = %x00");
+
+            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R20013");
 
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R20013
@@ -1552,7 +1554,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // If the routine can reach here, then it indicates the GlobalObjId can meet the format.
             Site.CaptureRequirement(
                 121,
-                @"[In GlobalObjId] The following Augmented Backus-Naur Form (ABNF) notation specifies the format of the GlobalObjId element. GLOBALOBJID =  CLASSID INSTDATE NOW ZERO BYTECOUNT DATA");
+                @"[In GlobalObjId] The following Augmented Backus-Naur Form (ABNF) notation specifies the format of the GlobalObjId element. GLOBALOBJID =  CLASSID INSTDATE NOW RESERVED BYTECOUNT DATA");
             #endregion
         }
         #endregion
@@ -1654,23 +1656,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId should have 8 bytes to store ZERO field");
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1000");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R10000");
 
-            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1000
-            Site.CaptureRequirementIfAreEqual<string>(
-                "0000000000000000",
-                TestSuiteHelper.BytesToHex(globalObjIdBytes, pos, 8),
-                1000,
-                @"[In GlobalObjId] MUST be all zeros. ZERO = 8NULL");
-
-            // If requirement MS-ASEMAIL_R1000 can be captured, it means the NULL is %0x00, then requirement MS-ASEMAIL_R1002 can be captured directly.
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1002");
-
-            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1002
+            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R10000                                       
             Site.CaptureRequirement(
-                1002,
-                @"[In GlobalObjId] NULL = %x00");
+                10000,
+                @"[In GlobalObjId] Reserved bytes.RESERVED = 8BYTE");
+
+            Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId Reserved bytes.RESERVED = 8BYTE");
 
             pos += 8;
             Site.Assert.IsTrue(totalLength - pos >= 4, "GlobalObjId should have 4 bytes to store BYTECOUNT field");
@@ -1715,7 +1708,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // If the routine can reach here, then it indicates the GlobalObjId can meet the format.
             Site.CaptureRequirement(
                 121,
-                @"[In GlobalObjId] The following Augmented Backus-Naur Form (ABNF) notation specifies the format of the GlobalObjId element. GLOBALOBJID =  CLASSID INSTDATE NOW ZERO BYTECOUNT DATA");
+                @"[In GlobalObjId] The following Augmented Backus-Naur Form (ABNF) notation specifies the format of the GlobalObjId element. GLOBALOBJID =  CLASSID INSTDATE NOW RESERVED BYTECOUNT DATA");
             #endregion
         }
         #endregion
@@ -1991,8 +1984,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         [TestCategory("MSASEMAIL"), TestMethod()]
         public void MSASEMAIL_S04_TC17_BusyStatusIsWorkingElsewhere()
         {
-            Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The value 4 of BusyStatus element is not supported when the ActiveSyncProtocolVersion is 12.1, 14.0 and 14.1.");
-            
             #region Call Sync command with Add element to add a no recurrence meeting to the server.
             string subject = Common.GenerateResourceName(Site, "Subject");
             string attendeeEmail = Common.GetMailAddress(this.User2Information.UserName, this.User2Information.UserDomain);

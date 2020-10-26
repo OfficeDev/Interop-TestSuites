@@ -6089,8 +6089,8 @@ namespace Microsoft.Protocols.TestSuites.Common.Request {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace="Find:", IsNullable=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="Find", IsNullable=false)]
     public partial class Find {
         
         private string searchIdField;
@@ -6123,7 +6123,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Request {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
     public partial class FindExecuteSearch {
         
         private object itemField;
@@ -6146,7 +6146,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Request {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
     public partial class FindExecuteSearchGALSearchCriterion {
         
         private string queryField;
@@ -6179,7 +6179,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Request {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
     public partial class FindExecuteSearchGALSearchCriterionOptions {
         
         private string rangeField;
@@ -6212,7 +6212,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Request {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
     public partial class FindExecuteSearchGALSearchCriterionOptionsPicture {
         
         private uint maxSizeField;
@@ -6271,7 +6271,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Request {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
     public partial class FindExecuteSearchMailBoxSearchCriterion {
         
         private queryType2 queryField;
@@ -6304,7 +6304,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Request {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find")]
     public partial class queryType2 {
         
         private string[] itemsField;
@@ -6341,7 +6341,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Request {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.3928.0")]
     [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find:", IncludeInSchema=false)]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="Find", IncludeInSchema=false)]
     public enum ItemsChoiceType11 {
         
         /// <remarks/>
@@ -6361,7 +6361,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Request {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
     public partial class FindExecuteSearchMailBoxSearchCriterionOptions {
         
         private string rangeField;
@@ -6415,7 +6415,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Request {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find:")]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="Find")]
     public partial class FindExecuteSearchMailBoxSearchCriterionOptionsPicture {
         
         private uint maxSizeField;

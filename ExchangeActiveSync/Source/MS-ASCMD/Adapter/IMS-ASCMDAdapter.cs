@@ -109,11 +109,18 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         MeetingResponseResponse MeetingResponse(MeetingResponseRequest request);
 
         /// <summary>
-        /// Finds entries in an address book, mailbox, or document library.
+        /// Searches entries in an address book, mailbox, or document library.
         /// </summary>
         /// <param name="request">A SearchRequest object that contains the request information.</param>
         /// <returns>Search command response.</returns>
         SearchResponse Search(SearchRequest request);
+
+        /// <summary>
+        /// Finds entries in an address book, mailbox, or document library.
+        /// </summary>
+        /// <param name="request">A FindRequest object that contains the request information.</param>
+        /// <returns>Find command response.</returns>
+        FindResponse Find(FindRequest request);
 
         /// <summary>
         /// Supports get and set operations on global properties and Out of Office (OOF) settings for the user, sends device information to the server, implements the device password/personal identification number (PIN) recovery, or retrieves a list of the user's email addresses.

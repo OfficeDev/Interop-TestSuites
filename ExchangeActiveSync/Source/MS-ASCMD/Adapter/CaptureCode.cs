@@ -379,6 +379,54 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         }
 
         /// <summary>
+        /// Verify Status element for Find.
+        /// </summary>
+        private void VerifyStatusElementForFind()
+        {
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72171802");
+
+            // If the schema validation result is true, this requirement can be verified.
+            Site.CaptureRequirement(
+                72171802,
+                @"[In Status (Find)] The Status element is a required child element of the Find element and the Response element in Find command responses.");
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72171804");
+
+            // If the schema validation result is true, this requirement can be verified.
+            Site.CaptureRequirement(
+                72171804,
+                @"[In Status (Find)] Element Status in Find command response (section 2.2.1.2), the parent element are Find (section 2.2.3.69),  Response (section 2.2.3.153.2).");
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72171805");
+
+            // If the schema validation result is true, this requirement can be verified.
+            Site.CaptureRequirement(
+                72171805,
+                @"[In Status(Search)] None [Element Status in Search command response (section 2.2.2.15) has no child element.]");
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72171806");
+
+            // If the schema validation result is true, this requirement can be verified.
+            Site.CaptureRequirement(
+                72171806,
+                @"[In Status (Find)] Element Status in Find command response (section 2.2.1.2), the data type is integer ([MS-ASDTYPE] section 2.6).");
+
+            this.VerifyIntegerDataType();
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72171807");
+
+            // If the schema validation result is true, this requirement can be verified.
+            Site.CaptureRequirement(
+                72171807,
+                @"[In Status (Find)] Element Status in Find command response (section 2.2.1.2), the number allowed is 1…1 (required).");
+        }
+
+        /// <summary>
         /// Verify Status element for Settings.
         /// </summary>
         private void VerifyStatusElementForSettings()
@@ -7093,6 +7141,238 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         }
         #endregion
 
+        #region Capture code for Find command
+        /// <summary>
+        /// This method is used to verify the Find response related requirements.
+        /// </summary>
+        /// <param name="findResponse">Find command response.</param>
+        private void VerifyFindCommand(Microsoft.Protocols.TestSuites.Common.FindResponse findResponse)
+        {
+            Site.Assert.IsTrue(this.activeSyncClient.ValidationResult, "The schema validation result should be true.");
+            Site.Assert.IsNotNull(findResponse.ResponseData, "The Find element should not be null.");
+
+            #region Capture code for Find Store
+
+            #endregion
+
+            #region Capture code for Status
+            Site.Assert.IsNotNull(findResponse.ResponseData.Status, "The Status element should not be null.");
+            this.VerifyStatusElementForFind();            
+            int status;
+            Site.Assert.IsTrue(int.TryParse(findResponse.ResponseData.Status, out status), "The Status element should be an integer.");
+            this.VerifyIntegerDataType();
+            Common.VerifyActualValues("Status(Find)", AdapterHelper.ValidStatus(new string[] { "1", "2", "3", "4" }), findResponse.ResponseData.Status, this.Site);
+            #endregion
+
+            #region Capture code for Response
+            if (findResponse.ResponseData.Response != null)
+            {
+                #region Capture code for Store
+                #endregion
+
+                #region Capture code for Totoal
+                //findResponse.ResponseData.Response.Store
+                #endregion
+
+                #region Capture code for Status
+                Site.Assert.IsNotNull(findResponse.ResponseData.Response.Status, "The Status element should not be null.");
+
+                this.VerifyStatusElementForFind();
+
+                Common.VerifyActualValues("Status", AdapterHelper.ValidStatus(new string[] { "1", "2", "3", "4"}), findResponse.ResponseData.Response.Status, this.Site);
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172506");
+
+                // Verify MS-ASCMD requirement: MS-ASCMD_R72172506
+                // If above Common.VerifyActualValues method is not failed, this requirement can be verified.
+                Site.CaptureRequirement(
+                    72172506,
+                    @"[In Status (Find)] The following table specifies valid values [1,2,3,4] for the Status element as a child of the Store element in the Search response.");
+                #endregion
+
+                #region Capture code for Range
+                //findResponse.ResponseData.Response.Range
+                #endregion
+
+                #region Capture code for Result
+                if(findResponse.ResponseData.Response.Result!=null)
+                {
+                    #region Capture code for Class
+                    //findResponse.ResponseData.Response.Result.Class
+                    #endregion
+
+                    #region Capture code for CollectionId
+                    //findResponse.ResponseData.Response.Result.CollectionId
+                    #endregion
+
+                    #region Capture code for ServerId
+                    //findResponse.ResponseData.Response.Result.ServerId
+                    #endregion
+
+                    #region Capture code for Properties
+                    //findResponse.ResponseData.Response.Result.Properties
+                    if (findResponse.ResponseData.Response.Result.Properties!=null)
+                    {
+                        FindResponseResult result = findResponse.ResponseData.Response.Result;
+                        if (result.Properties.ItemsElementName != null && result.Properties.ItemsElementName.Length > 0)
+                        {
+                            
+                            for (int j = 0; j < result.Properties.ItemsElementName.Length; j++)
+                            {
+                                #region Capture code for Picture
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Picture && (FindResponseResult)result.Properties.Items[j] != null)
+                                {
+                                    SearchResponseStoreResultPropertiesPicture picture = (SearchResponseStoreResultPropertiesPicture)result.Properties.Items[j];
+                                    #region Capture code for Status
+                                    Site.Assert.IsNotNull(picture.Status, "The Status element in Picture element should not be null.");
+                                    this.VerifyStatusElementForSearch();
+                                    #endregion
+                                }
+                                #endregion
+
+                                #region  Capture code for Alias
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Alias && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code Company
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Company && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for DateReceived
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DateReceived && (DateTime?)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for DisplayBcc
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayBcc && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for DisplayCc
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayCc && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for DisplayName
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayName && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for DisplayTo
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayTo && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for EmailAddress
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.EmailAddress && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for FirstName
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.FirstName && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for From
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.From && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for HasAttachments
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.HasAttachments && (bool?)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for HomePhone
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.HomePhone && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for Importance
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Importance && (byte?)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for IsDraft
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.IsDraft && (byte?)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for LastName
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.LastName && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for MobilePhone
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.MobilePhone && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for Office
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Office && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for Phone
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Phone && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for Preview
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Preview && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for Read
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Read && (bool?)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for Subject
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Subject && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+
+                                #region Capture code for Title
+                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Title && (string)result.Properties.Items[j] != null)
+                                {
+                                }
+                                #endregion
+                            }
+
+                        }
+                    }
+                    #endregion
+                }
+                #endregion
+            }
+            #endregion
+        }
+
         #region Capture code for SendMail command
         /// <summary>
         /// This method is used to verify the SendMail response related requirements.
@@ -9917,7 +10197,7 @@ MSS = Number of milliseconds");
                     string codePageName = Common.GetCodePageName(decodeDataItem.Key);
                     int currentCodepage = decodeDataItem.Value;
 
-                    bool isValidCodePage = currentCodepage >= 0 && currentCodepage <= 24;
+                    bool isValidCodePage = currentCodepage >= 0 && currentCodepage <= 25;
                     Site.Assert.IsTrue(isValidCodePage, "Code page value should between 0-24,actual value is :{0}", currentCodepage);
 
                     // begin to capture requirement
@@ -14964,3 +15244,4 @@ Opaque data");
         #endregion
     }
 }
+#endregion
