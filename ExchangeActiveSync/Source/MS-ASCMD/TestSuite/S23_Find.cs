@@ -1,4 +1,4 @@
-namespace Microsoft.Protocols.TestSuites.MS_ASCMD
+﻿namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 {
     using System;
     using System.Collections.Generic;
@@ -85,7 +85,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         public void MSASCMD_S23_TC02_Find_Mail_InvalidRequest()
         {
             Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-
+            
             #region Create a find request
             FindRequest findRequest = this.CreateMailFindInvalidRangeRequest();
             #endregion
@@ -127,6 +127,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         public void MSASCMD_S23_TC03_Find_Mail_InvalidRange()
         {
             Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            
 
             #region Create a find request
             FindRequest findRequest = this.CreateMailFindInvalidRangeRequest();
@@ -152,47 +153,22 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         }
 
         /// <summary>
-        /// This test case is used to test mail find command.
-        /// </summary>
-        [TestCategory("MSASCMD"), TestMethod()]
-        public void MSASCMD_S23_TC01_Find_Mail_Success_Test()
-        {
-            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-            
-            #region Create a find request
-            FindRequest findRequest = this.CreateMailFindRequest();
-            #endregion
-
-            #region Call Find command
-            TestSuites.Common.FindResponse findResponse = this.CMDAdapter.Find(findRequest);
-            Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R10031940");
-
-            // Test Case verify requirement: MS-ASCMD_RR10031940
-            Site.CaptureRequirementIfAreEqual<string>(
-                "1",
-                findResponse.ResponseData.Response.Status,
-                10031940,
-                @"[In Find] The Find command uses the Keyword Query Language (KQL) syntax to construct property restriction based searches for entries in a mailbox.");
-            #endregion
-        }
-
-        /// <summary>
         /// This test case is used to verify search global address list success
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
-        public void MSASCMD_S14_TC14_Find_GAL()
+        public void MSASCMD_S23_TC04_Find_GAL()
         {
             #region Create Find request with options
 
             FindRequest findRequest = this.CreateFindGALRequest();
             #endregion
 
-            #region Call find command
-            FindResponse findResponse = this.CMDAdapter.Find(findRequest);
-            Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
+            if (Common.IsRequirementEnabled(8888, this.Site))
+            {
+                #region Call find command
+                FindResponse findResponse = this.CMDAdapter.Find(findRequest);
+                Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
+            }
             #endregion
         }
 
