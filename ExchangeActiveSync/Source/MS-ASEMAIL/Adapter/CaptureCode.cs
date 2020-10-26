@@ -114,7 +114,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                     1,
                     syncStore.CollectionStatus,
                     55,
-                    @"[In Synchronizing E-Mail Data Between Client and Server] The server responds with a Sync command response ([MS-ASCMD] section 2.2.2.20), as specified in section 3.2.5.3.");
+                    @"[In Synchronizing E-Mail Data Between Client and Server] The server responds with a Sync command response ([MS-ASCMD] section 2.2.1.21), as specified in section 3.2.5.4.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R70");
@@ -125,7 +125,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                     1,
                     syncStore.CollectionStatus,
                     70,
-                    @"[In Sync Command Response] When a client uses the Sync command request ([MS-ASCMD] section 2.2.2.20), as specified in section 3.1.5.3, to synchronize its E-mail class items for a specified user with the e-mail items that are currently stored by the server, the server responds with a Sync command response.");
+                    @"[In Sync Command Response] When a client uses the Sync command request ([MS-ASCMD] section 2.2.1.21), as specified in section 3.1.5.4, to synchronize its E-mail class items for a specified user with the e-mail items that are currently stored by the server, the server responds with a Sync command response.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R71");
@@ -165,7 +165,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                             Site.CaptureRequirementIfIsTrue(
                                 this.activeSyncClient.ValidationResult,
                                 246,
-                                @"[In Body (Airsyncbase Namespace)] When[airsyncbase:Body] included in a Sync command response ([MS-ASCMD] section 2.2.2.20), the airsyncbase:Body element can contain the following child elements: [airsyncbase:Type, airsyncbase:EstimatedDataSize, airsyncbase:Truncated and airsyncbase:Data]");
+                                @"[In Body (Airsyncbase Namespace)] When[airsyncbase:Body] included in a Sync command response ([MS-ASCMD] section 2.2.1.21), the airsyncbase:Body element can contain the following child elements: [airsyncbase:Type, airsyncbase:EstimatedDataSize, airsyncbase:Truncated and airsyncbase:Data]");
                         }
 
                         this.VerifyEmailClassElements(item.Email);
@@ -202,7 +202,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsNotNull(
                 itemOperations,
                 59,
-                @"[In Retrieving Data for One or More E-Mail Items] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.2.9), as specified in section 3.2.5.1.");
+                @"[In Retrieving Data for One or More E-Mail Items] The server responds with an ItemOperations command response ([MS-ASCMD] section 2.2.1.10), as specified in section 3.2.5.2.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R62");
@@ -227,7 +227,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                         Site.CaptureRequirementIfIsTrue(
                             this.activeSyncClient.ValidationResult,
                             248,
-                            @"[In Body (Airsyncbase Namespace)] When[airsyncbase:Body] included in an ItemOperations command response ([MS-ASCMD] section 2.2.2.10), the airsyncbase:Body element can contain the following child elements: [airsyncbase:Type, airsyncbase:EstimatedDataSize, airsyncbase:Truncated and airsyncbase:Data]");
+                            @"[In Body (Airsyncbase Namespace)] When[airsyncbase:Body] included in an ItemOperations command response ([MS-ASCMD] section 2.2.1.10), the airsyncbase:Body element can contain the following child elements: [airsyncbase:Type, airsyncbase:EstimatedDataSize, airsyncbase:Truncated and airsyncbase:Data]");
                     }
 
                     // Add the debug information
@@ -237,7 +237,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                     Site.CaptureRequirementIfIsTrue(
                         this.activeSyncClient.ValidationResult,
                         64,
-                        @"[In ItemOperations Command Response] E-mail class elements MUST be returned as child elements of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.132.1) in the ItemOperations command response.");
+                        @"[In ItemOperations Command Response] E-mail class elements MUST be returned as child elements of the itemoperations:Properties element ([MS-ASCMD] section 2.2.3.139.2) in the ItemOperations command response.");
 
                     this.VerifyEmailClassElements(itemOperationsItem.Email);
                 }
@@ -263,7 +263,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsNotNull(
                 store,
                 57,
-                @"[In Searching for E-Mail Data] The server responds with a Search command response ([MS-ASCMD] section 2.2.2.15), as specified in section 3.2.5.2.");
+                @"[In Searching for E-Mail Data] The server responds with a Search command response ([MS-ASCMD] section 2.2.1.16), as specified in section 3.2.5.3.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R66");
@@ -272,7 +272,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsNotNull(
                 store,
                 66,
-                @"[In Search Command Response] When a client uses the Search command request ([MS-ASCMD] section 2.2.2.15), as specified in section 3.1.5.2, to retrieve E-mail class items from the server that match the criteria specified by the client, the server responds with a Search command response.");
+                @"[In Search Command Response] When a client uses the Search command request ([MS-ASCMD] section 2.2.1.16), as specified in section 3.1.5.3, to retrieve E-mail class items from the server that match the criteria specified by the client, the server responds with a Search command response.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R67");
@@ -282,7 +282,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsTrue(
                 this.activeSyncClient.ValidationResult,
                 67,
-                @"[In Search Command Response] Any of the elements that belong to the E-mail class, as specified in section 2.2.2, can be included in a Search command response as child elements of the search:Properties element ([MS-ASCMD] section 2.2.3.132.2).");
+                @"[In Search Command Response] Any of the elements that belong to the E-mail class, as specified in section 2.2.2, can be included in a Search command response as child elements of the search:Properties element ([MS-ASCMD] section 2.2.3.139.3).");
 
             foreach (DataStructures.Search item in store.Results)
             {
@@ -296,7 +296,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                         Site.CaptureRequirementIfIsTrue(
                             this.activeSyncClient.ValidationResult,
                             247,
-                            @"[In Body (Airsyncbase Namespace)] When[airsyncbase:Body] included in a Search command response ([MS-ASCMD] section 2.2.2.15), the airsyncbase:Body element can contain the following child elements: [airsyncbase:Type, airsyncbase:EstimatedDataSize, airsyncbase:Truncated and airsyncbase:Data]");
+                            @"[In Body (Airsyncbase Namespace)] When[airsyncbase:Body] included in a Search command response ([MS-ASCMD] section 2.2.1.16), the airsyncbase:Body element can contain the following child elements: [airsyncbase:Type, airsyncbase:EstimatedDataSize, airsyncbase:Truncated and airsyncbase:Data]");
                     }
 
                     this.VerifyEmailClassElements(item.Email);
@@ -439,7 +439,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsTrue(
                this.activeSyncClient.ValidationResult,
                 234,
-                @"[In AllDayEvent] The value of this element[AllDayEvent] is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.7.");
+                @"[In AllDayEvent] The value of this element[AllDayEvent] is an unsignedByte data type, as specified in [MS-ASDTYPE] section 2.8.");
 
             this.VerifyUnsignedByteStructure(allDayEvent);
         }
@@ -522,7 +522,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     250,
-                    @"[In Body (Airsyncbase Namespace)] [When[airsyncbase:Body] included in a Sync command response ([MS-ASCMD] section 2.2.2.20), a Search command response ([MS-ASCMD] section 2.2.2.15), or an ItemOperations command response ([MS-ASCMD] section 2.2.2.9), the airsyncbase:Body element can contain the following child element:] airsyncbase:Type ([MS-ASAIRS] section 2.2.2.41.1): This element [airsyncbase:Type] is required.");
+                    @"[In Body (Airsyncbase Namespace)] [When[airsyncbase:Body] included in a Sync command response ([MS-ASCMD] section 2.2.1.21), a Search command response ([MS-ASCMD] section 2.2.1.16), or an ItemOperations command response ([MS-ASCMD] section 2.2.1.10), the airsyncbase:Body element can contain the following child element:] airsyncbase:Type ([MS-ASAIRS] section 2.2.2.41.1): This element [airsyncbase:Type] is required.");
             }
         }
 
@@ -1709,7 +1709,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     896,
-                    @"[In MeetingRequest] StartTime (section 2.2.2.73): One instance of this element is required.");
+                    @"[In MeetingRequest] StartTime (section 2.2.2.73): This element is optional.");
 
                 this.VerifyStartTime(meetingRequest.StartTime);
 
@@ -1743,7 +1743,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 Site.CaptureRequirementIfIsTrue(
                     this.activeSyncClient.ValidationResult,
                     898,
-                    @"[In MeetingRequest] EndTime (section 2.2.2.32): One instance of this element is required.");
+                    @"[In MeetingRequest] EndTime (section 2.2.2.32): This element is optional.");
 
                 this.VerifyEndTime(meetingRequest.EndTime);
 
@@ -1833,6 +1833,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                             string.IsNullOrEmpty(meetingRequest.Location),
                             1311,
                             @"[In MeetingRequest] In protocol version 16.0: The [calendar:UID element is used instead of the email:GlobalObjId element; the] airsyncbase:Location element is used instead of the email:Location element.");
+                        // Add the debug information
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R13111");
+
+                        // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R13111
+                        Site.CaptureRequirementIfIsTrue(
+                            string.IsNullOrEmpty(meetingRequest.Location),
+                            13111,
+                            @"[In MeetingRequest] In protocol version 16.1: The [calendar:UID element is used instead of the email:GlobalObjId element; the] airsyncbase:Location element is used instead of the email:Location element.");
                     }
 
                     // Add the debug information
@@ -1845,14 +1853,22 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                         @"[In MeetingRequest] calendar:UID ([MS-ASCAL] section 2.2.2.46): One instance of this element is required.");
 
                     // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R13110");
+
+                    // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R13110
+                    Site.CaptureRequirementIfIsTrue(
+                        !string.IsNullOrEmpty(meetingRequest.UID),
+                        1310,
+                        @"[In MeetingRequest] In protocol version 16.0: The calendar:UID element is used instead of the email:GlobalObjId element[; the airsyncbase:Location element is used instead of the email:Location element].");
+
+                    // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1310");
 
                     // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1310
                     Site.CaptureRequirementIfIsTrue(
                         !string.IsNullOrEmpty(meetingRequest.UID),
-                        1310,
-                        @"[In MeetingRequest] In protocol version 16.0: The calendar:UID element is used instead of the email:GlobalObjId element[; the airsyncbase:Location element is used instead of the email:Location element].");
-                    
+                        13110,
+                        @"[In MeetingRequest] In protocol version 16.1: The calendar:UID element is used instead of the email:GlobalObjId element[; the airsyncbase:Location element is used instead of the email:Location element].");
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1253");
 
@@ -1861,6 +1877,15 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                         !string.IsNullOrEmpty(meetingRequest.UID),
                         1253,
                         @"[In GlobalObjId] The server will return the calendar:UID element ([MS-ASCAL] section 2.2.2.46) instead of the GlobalObjId element when protocol version 16.0 is used.");
+
+                    // Add the debug information
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R12540");
+
+                    // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R12540
+                    Site.CaptureRequirementIfIsTrue(
+                        !string.IsNullOrEmpty(meetingRequest.UID),
+                        12540,
+                        @"[In GlobalObjId] The server will return the calendar:UID element ([MS-ASCAL] section 2.2.2.46) instead of the GlobalObjId element when protocol version 16.1 is used.");
                 }
 
                 if (meetingRequest.DisallowNewTimeProposalSpecified && !Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("12.1"))
@@ -1878,7 +1903,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                     Site.CaptureRequirementIfIsTrue(
                         this.activeSyncClient.ValidationResult,
                         911,
-                        @"[In MeetingRequest] MeetingMessageType (section 2.2.2.47): One instance of this element is required.");
+                        @"[In MeetingRequest] MeetingMessageType (section 2.2.2.47): This element is required.");
 
                     // Add the debug information
                     Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R528");
@@ -2450,7 +2475,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 Site.CaptureRequirementIfIsTrue(
                     RFC822AddressParser.IsValidAddress(sender),
                     721,
-                    @"[In Sender] The value of the Sender element is an e-mail address, as specified in [MS-ASDTYPE] section 2.7.2.");
+                    @"[In Sender] The value of the Sender element is an e-mail address, as specified in [MS-ASDTYPE] section 2.7.3.");
 
                 // Add the debug information
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASDTYPE_R100");
@@ -2699,7 +2724,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsTrue(
                 this.activeSyncClient.ValidationResult,
                 783,
-                @"[In TimeZone] The value of this element[TimeZone] is a string data type ([MS-ASDTYPE] section 2.7) in TimeZone format, as specified in [MS-ASDTYPE] section 2.7.4.");
+                @"[In TimeZone] The value of this element[TimeZone] is a string data type ([MS-ASDTYPE] section 2.7) in TimeZone format, as specified in [MS-ASDTYPE] section 2.7.6.");
 
             this.VerifyTimeZoneStructure();
         }
@@ -3544,7 +3569,7 @@ MSS = Number of milliseconds");
                                 this.isLocationExistInCodePage17 == true && this.isLocationExistInCodePage2 == false,
                                 "MS-ASWBXML",
                                 821,
-                                @"[In Code Page 2: Email] Note 3: The Location tag in WBXML code page 17 (AirSyncBase) is used instead of the Location tag in WBXML code page 2 with protocol wersion 16.0.");
+                                @"[In Code Page 2: Email] Note 3: The Location tag in WBXML code page 17 (AirSyncBase) is used instead of the Location tag in WBXML code page 2 with protocol wersion 16.0 and 16.1.");
                         }
 
                         if (tagName.Equals("UID"))
@@ -3557,7 +3582,7 @@ MSS = Number of milliseconds");
                                 this.isGlobalObjIdExistInCodePage2 == false && this.isUIDExistInCodePage4 == true,
                                 "MS-ASWBXML",
                                 822,
-                                @"[In Code Page 2: Email] Note 4: The UID tag in WBXML code page 4 (Calendar) is used instead of the GlobalObjId tag in WBXML code page 2 with protocol version 16.0.");
+                                @"[In Code Page 2: Email] Note 4: The UID tag in WBXML code page 4 (Calendar) is used instead of the GlobalObjId tag in WBXML code page 2 with protocol version 16.0 and 16.1.");
                         }
                     }
                 }
@@ -4218,7 +4243,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             171,
-                            @"[In Code Page 2: Email] [Tag name] Flag [Token] 0x3A [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 2: Email] [Tag name] Flag [Token] 0x3A [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4234,7 +4259,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             172,
-                            @"[In Code Page 2: Email] [Tag name] Status [Token] 0x3B [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 2: Email] [Tag name] Status [Token] 0x3B [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4250,7 +4275,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             173,
-                            @"[In Code Page 2: Email] [Tag name] ContentClass [Token] 0x3C [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 2: Email] [Tag name] ContentClass [Token] 0x3C [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4266,7 +4291,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             174,
-                            @"[In Code Page 2: Email] [Tag name] FlagType [Token] 0x3D [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 2: Email] [Tag name] FlagType [Token] 0x3D [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4282,7 +4307,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             175,
-                            @"[In Code Page 2: Email] [Tag name] CompleteTime [Token] 0x3E [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 2: Email] [Tag name] CompleteTime [Token] 0x3E [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4298,7 +4323,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             176,
-                            @"[In Code Page 2: Email] [Tag name] DisallowNewTimeProposal [Token] 0x3F [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 2: Email] [Tag name] DisallowNewTimeProposal [Token] 0x3F [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4443,7 +4468,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             307,
-                            @"[In Code Page 9: Tasks] [Tag name] OrdinalDate [Token] 0x22 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 9: Tasks] [Tag name] OrdinalDate [Token] 0x22 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4459,7 +4484,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             308,
-                            @"[In Code Page 9: Tasks] [Tag name] SubOrdinalDate [Token] 0x23 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 9: Tasks] [Tag name] SubOrdinalDate [Token] 0x23 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4486,7 +4511,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             452,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Body [Token] 0x0A [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Body [Token] 0x0A [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4502,7 +4527,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             456,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Attachments [Token] 0x0E [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Attachments [Token] 0x0E [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4518,7 +4543,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             457,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] Attachment [Token] 0x0F [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] Attachment [Token] 0x0F [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4534,7 +4559,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             458,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] DisplayName [Token] 0x10 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] DisplayName [Token] 0x10 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4550,7 +4575,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             464,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] NativeBodyType [Token] 0x16 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] NativeBodyType [Token] 0x16 [supports protocol versions] 12.0, 12.1, 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4566,7 +4591,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             468,
-                            @"[In Code Page 17: AirSyncBase] [Tag name] BodyPart [Token] 0x1A [supports protocol versions] 14.1, 16.0");
+                            @"[In Code Page 17: AirSyncBase] [Tag name] BodyPart [Token] 0x1A [supports protocol versions] 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4600,7 +4625,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             606,
-                            @"[In Code Page 22: Email2] [Tag name] UmCallerID [Token] 0x05 [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] UmCallerID [Token] 0x05 [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4616,7 +4641,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             607,
-                            @"[In Code Page 22: Email2] [Tag name] UmUserNotes [Token] 0x06 [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] UmUserNotes [Token] 0x06 [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4632,7 +4657,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             608,
-                            @"[In Code Page 22: Email2] [Tag name] UmAttDuration [Token] 0x07 [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] UmAttDuration [Token] 0x07 [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4648,7 +4673,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             609,
-                            @"[In Code Page 22: Email2] [Tag name] UmAttOrder [Token] 0x08 [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] UmAttOrder [Token] 0x08 [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4664,7 +4689,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             610,
-                            @"[In Code Page 22: Email2] [Tag name] ConversationId [Token] 0x09 [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] ConversationId [Token] 0x09 [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4680,7 +4705,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             611,
-                            @"[In Code Page 22: Email2] [Tag name] ConversationIndex [Token] 0x0A [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] ConversationIndex [Token] 0x0A [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4696,7 +4721,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             612,
-                            @"[In Code Page 22: Email2] [Tag name] LastVerbExecuted [Token] 0x0B [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] LastVerbExecuted [Token] 0x0B [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4712,7 +4737,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             613,
-                            @"[In Code Page 22: Email2] [Tag name] LastVerbExecutionTime [Token] 0x0C [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] LastVerbExecutionTime [Token] 0x0C [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4728,7 +4753,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             614,
-                            @"[In Code Page 22: Email2] [Tag name] ReceivedAsBcc [Token] 0x0D [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] ReceivedAsBcc [Token] 0x0D [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4744,7 +4769,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             615,
-                            @"[In Code Page 22: Email2] [Tag name] Sender [Token] 0x0E [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] Sender [Token] 0x0E [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4760,7 +4785,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             616,
-                            @"[In Code Page 22: Email2] [Tag name] CalendarType [Token] 0x0F [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] CalendarType [Token] 0x0F [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4776,7 +4801,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             617,
-                            @"[In Code Page 22: Email2] [Tag name] IsLeapMonth [Token] 0x10 [supports protocol versions] 14.0, 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] IsLeapMonth [Token] 0x10 [supports protocol versions] 14.0, 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4795,7 +4820,7 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             619,
-                            @"[In Code Page 22: Email2] [Tag name] FirstDayOfWeek [Token] 0x12 [supports protocol versions] 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] FirstDayOfWeek [Token] 0x12 [supports protocol versions] 14.1, 16.0, 16.1");
 
                         break;
                     }
@@ -4811,14 +4836,14 @@ MSS = Number of milliseconds");
                             token,
                             "MS-ASWBXML",
                             620,
-                            @"[In Code Page 22: Email2] [Tag name] MeetingMessageType [Token] 0x13 [supports protocol versions] 14.1, 16.0");
+                            @"[In Code Page 22: Email2] [Tag name] MeetingMessageType [Token] 0x13 [supports protocol versions] 14.1, 16.0, 16.1");
 
                         break;
                     }
 
                 case "IsDraft":
                     {
-                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0") || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
                         {
                             // Add the debug information
                             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R851");
@@ -4829,7 +4854,7 @@ MSS = Number of milliseconds");
                                 token,
                                 "MS-ASWBXML",
                                 851,
-                                @"[In Code Page 22: Email2] [Tag name] IsDraft [Token] 0x15 [supports protocol versions] 16.0");
+                                @"[In Code Page 22: Email2] [Tag name] IsDraft [Token] 0x15 [supports protocol versions] 16.0, 16.1");
                         }
 
                         break;
@@ -4837,7 +4862,7 @@ MSS = Number of milliseconds");
 
                 case "Bcc":
                     {
-                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+                        if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0") || Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
                         {
                             // Add the debug information
                             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASWBXML_R852");
@@ -4848,7 +4873,7 @@ MSS = Number of milliseconds");
                                 token,
                                 "MS-ASWBXML",
                                 852,
-                                @"[In Code Page 22: Email2] [Tag name] Bcc [Token] 0x16 [supports protocol versions] 16.0");
+                                @"[In Code Page 22: Email2] [Tag name] Bcc [Token] 0x16 [supports protocol versions] 16.0, 16.1");
                         }
 
                         break;

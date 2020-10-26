@@ -212,7 +212,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
 
             // The format in which the policy settings are to be provided to the client device.
             if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1" ||
-                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.0")
+                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.0" ||
+                Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "16.1")
             {
                 // Configure the DeviceInformation.
                 Request.DeviceInformation deviceInfomation = new Request.DeviceInformation();
@@ -347,7 +348,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                 // If the above capture or assert passed, it means the server did returns a status code when the policy key is mismatched.
                 Site.CaptureRequirement(
                     537,
-                    @"[In Appendix A: Product Behavior] If the policy key received from the client does not match the stored policy key on the server [, or if the server determines that policy settings need to be updated on the client], the implementation does return a status code, as specified in [MS-ASCMD] section 2.2.4, in the next command response indicating that the client needs to send another Provision command to request the security policy settings and obtain a new policy key. (Exchange 2007 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] If the policy key received from the client does not match the stored policy key on the server [, or if the server determines that policy settings need to be updated on the client], the implementation does return a status code, as specified in [MS-ASCMD] section 2.2.4, in the next command response indicating that the client needs to send another Provision command to request the security policy settings and obtain a new policy key. (Exchange 2007 and above follow this behavior.)");
             }
             #endregion
         }
@@ -374,7 +375,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                     139,
                     provisionResponse.ResponseData.Status,
                     1046,
-                    @"[In Appendix A: Product Behavior] [The cause of status value 139 is] The client returned a value of 2 in the Status child element of the Policy element in a request to the implementation to acknowledge a policy. (Exchange 2013 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] [The cause of status value 139 is] The client returned a value of 2 in the Status child element of the Policy element in a request to the implementation to acknowledge a policy. (Exchange 2013 and above follow this behavior.)");
 
                 this.Site.CaptureRequirementIfAreEqual<byte>(
                     139,
