@@ -518,8 +518,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R104
             Site.CaptureRequirementIfIsTrue(
                 item.Email.FlagIsInclude && item.Email.Flag != null && item.Email.ReadIsInclude && item.Email.CategoriesIsInclude && item.Email.Categories != null,
-                106,
-                @"[In Sending E-Mail Changes to the Client] If Read flag, Flag properties, and categories properties changed, Non-E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send full item airsync:Change to client.");
+                104,
+                @"[In Sending E-Mail Changes to the Client]  If Read flag , Flag properties and Categories properties changed, Other E-Mail class properties and Non-E-Mail class properties not changed, Server action for e-mail item in Sync commend response is: Send Read flag, Flag block and categories block.");
 
             // If MS-ASEMAIL_R104 can be captured successfully, it means server partition email changes into the case "changes to Read flag, Flag properties and other email class properties, so MS-ASEMAIL_R1017 can also be captured."
             if (Common.IsRequirementEnabled(1017, this.Site))

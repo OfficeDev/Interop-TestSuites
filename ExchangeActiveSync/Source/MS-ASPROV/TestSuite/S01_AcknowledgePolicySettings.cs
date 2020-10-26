@@ -72,7 +72,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             Site.CaptureRequirementIfIsTrue(
                 policy.Data != null && policy.PolicyKey != null && policy.PolicyType != null && policy.Status != 0,
                 310,
-                @"[In Policy] In the initial Provision command response, the Policy element has only the following child elements: PolicyType (section 2.2.2.42) (required) PolicyKey (section 2.2.2.41) (required) Status (section 2.2.2.53) (required) Data (section 2.2.2.23) ( required).");
+                @"[In Policy] In the initial Provision command response, the Policy element has only the following child elements: PolicyType (section 2.2.2.43) (required) PolicyKey (section 2.2.2.42) (required) Status (section 2.2.2.54.1) (required) Data (section 2.2.2.24) ( required).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R417");
@@ -103,7 +103,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             Site.CaptureRequirementIfIsNotNull(
                 policy.Data,
                 209,
-                @"[In Data (container Data Type)] It [Data element] is a required child element of the Policy element (section 2.2.2.40) in responses to initial Provision command requests, as specified in section 3.2.5.1.1.");
+                @"[In Data (container Data Type)] It [Data element] is a required child element of the Policy element (section 2.2.2.41) in responses to initial Provision command requests, as specified in section 3.2.5.1.1.");
 
             // Because the user is not allowe to download attachment.
             // So if AttachmentsEnabled element is false then R206 will be verified.
@@ -118,7 +118,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             this.Site.CaptureRequirementIfIsTrue(
                 policy.Data.EASProvisionDoc != null && policy.PolicyType == "MS-EAS-Provisioning-WBXML",
                 888,
-                @"[In Data (container Data Type)] This element [Data (container Data Type)] requires that the PolicyType element (section 2.2.2.42) is set to ""MS-EAS-Provisioning-WBXML"".");
+                @"[In Data (container Data Type)] This element [Data (container Data Type)] requires that the PolicyType element (section 2.2.2.43) is set to ""MS-EAS-Provisioning-WBXML"".");
             
             this.Site.CaptureRequirementIfIsTrue(
                 !string.IsNullOrEmpty(policy.PolicyKey),
@@ -161,7 +161,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             Site.CaptureRequirementIfIsNotNull(
                 temporaryPolicyKey,
                 650,
-                @"[In Responding to an Initial Request] The value of the PolicyKey element (section 2.2.2.41) is a temporary policy key that will be valid only for an acknowledgment request to acknowledge the policy settings contained in the Data element.");
+                @"[In Responding to an Initial Request] The value of the PolicyKey element (section 2.2.2.42) is a temporary policy key that will be valid only for an acknowledgment request to acknowledge the policy settings contained in the Data element.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R657");
@@ -183,7 +183,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             Site.CaptureRequirementIfIsTrue(
                 policy.PolicyKey != null && policy.PolicyType != null && policy.Status != 0,
                 605,
-                @"[In Policy] In the acknowledgment Provision command response, the Policy element has the following child elements: PolicyType (section 2.2.2.42) (required) PolicyKey (section 2.2.2.41) (required) Status (section 2.2.2.53) (required).");
+                @"[In Policy] In the acknowledgment Provision command response, the Policy element has the following child elements: PolicyType (section 2.2.2.43) (required) PolicyKey (section 2.2.2.42) (required) Status (section 2.2.2.54.1) (required).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASPROV_R419");
@@ -271,7 +271,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
             Site.CaptureRequirementIfIsNotNull(
                 finalPolicyKey,
                 662,
-                @"[In Responding to a Security Policy Settings Acknowledgment] The value of the PolicyKey element (section 2.2.2.41) is a permanent policy key that is valid for subsequent command requests from the client.");
+                @"[In Responding to a Security Policy Settings Acknowledgment] The value of the PolicyKey element (section 2.2.2.42) is a permanent policy key that is valid for subsequent command requests from the client.");
             #endregion
         }
 
@@ -303,7 +303,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASPROV
                 // The FolderSync command executed successfully without Provision, so this requirement can be captured.
                 Site.CaptureRequirement(
                     509,
-                    @"[In Appendix A: Product Behavior] The implementation does require that the client device has requested and acknowledged the security policy settings before the client is allowed to synchronize with the server, unless a security policy is set on the implementation to allow it [client is allowed to synchronize with the implementation]. (Exchange 2007 and above follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] The implementation does require that the client device has requested and acknowledged the security policy settings before the client is allowed to synchronize with the server, unless a security policy is set on the implementation to allow it [client is allowed to synchronize with the implementation]. (Exchange 2007 and above follow this behavior.)");
             }
             #endregion
         }

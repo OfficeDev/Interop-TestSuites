@@ -16,7 +16,7 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R60010</ns1:REQ_ID>
@@ -3997,7 +3997,7 @@ UnapprovedInROMApplicationList (section 2.2.2.55)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R255</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.33</ns1:Doc_Sect>
-		<ns1:Description>[In MaxEmailAgeFilter] The MaxEmailAgeFilter element is an optional child element of type unsignedInt ([XMLSCHEMA2/2] section 3.3.22) of the EASProvisionDoc element (section 2.2.2.2728).</ns1:Description>
+		<ns1:Description>[In MaxEmailAgeFilter] The MaxEmailAgeFilter element is an optional child element of type unsignedInt ([XMLSCHEMA2/2] section 3.3.22) of the EASProvisionDoc element (section 2.2.2.28).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8131,20 +8131,40 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R653</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Responding to an Initial Request] The RemoteWipe or AccountOnlyRemoteWipe MUST only be included if a remote wipe or an account only remote wipe has been requested for the client.</ns1:Description>
+		<ns1:Description>[In Responding to an Initial Request] The RemoteWipe [or AccountOnlyRemoteWipe] MUST only be included if a remote wipe [or an account only remote wipe] has been requested for the client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASPROV_R66612</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Responding to an Initial Request] The [RemoteWipe or] AccountOnlyRemoteWipe MUST only be included if [a remote wipe or] an account only remote wipe has been requested for the client.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASPROV_R66613.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R654</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In Responding to an Initial Request] Otherwise [if a remote wipe has not been requested for the client], it [RemoteWipe] MUST be omitted</ns1:Description>
+		<ns1:Description>[In Responding to an Initial Request] Otherwise [if a remote wipe has not been requested for the client], it [RemoteWipe] MUST be omitted.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASPROV_R66614</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.2.5.1.1</ns1:Doc_Sect>
+		<ns1:Description>[In Responding to an Initial Request] Otherwise [if an account only remote wipe has not been requested for the client], it [Account Only RemoteWipe] MUST be omitted.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASPROV_R66615.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R656</ns1:REQ_ID>
@@ -8289,7 +8309,8 @@ or
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASPROV_R66609.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R66603</ns1:REQ_ID>
@@ -8298,7 +8319,8 @@ or
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASPROV_R66610.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R66604</ns1:REQ_ID>
@@ -8307,7 +8329,8 @@ or
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-ASPROV_R66611.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R66605</ns1:REQ_ID>
@@ -8433,7 +8456,7 @@ or
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R503</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Provision Command Errors] [When the scope is Policy], [the resolution of status value 3 is] Issue a request with the PolicyType element set as specified in section 2.2.2.43..</ns1:Description>
+		<ns1:Description>[In Provision Command Errors] [When the scope is Policy], [the resolution of status value 3 is] Issue a request with the PolicyType element set as specified in section 2.2.2.43.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8519,6 +8542,61 @@ or
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASPROV_R66609</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] If the client reports success, the server SHOULD return a value of 1 in the Status element (section 2.2.2.54.2). (Exchange 2019 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASPROV_R66602:i,MS-ASPROV_R77:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASPROV_R66610</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the client reports failure, the server SHOULD return a value of 2 in the Status element[ and an account only remote wipe directive]. (Exchange 2019 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASPROV_R66603:i,MS-ASPROV_R77:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASPROV_R66611</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] If the client reports failure, the server SHOULD return [a value of 2 in the Status element and ]an account only remote wipe directive. (Exchange 2019 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASPROV_R66604:i,MS-ASPROV_R77:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASPROV_R66613</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] The [RemoteWipe or] AccountOnlyRemoteWipe MUST only be included if [a remote wipe or] an account only remote wipe has been requested for the client. (Exchange 2019 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASPROV_R66612:i,MS-ASPROV_R77:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASPROV_R66615</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Otherwise [if an account only remote wipe has not been requested for the client], it [Account Only RemoteWipe] MUST be omitted. (Exchange 2019 follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-ASPROV_R66614:i,MS-ASPROV_R77:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASPROV_R711</ns1:REQ_ID>
