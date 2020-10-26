@@ -1449,7 +1449,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
 
             pos += 8;
             Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId should have 8 bytes to store ZERO field");
-
+                        
             // It can be captured directly since the left have reserved 8 bytes.          
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R10000");
@@ -1460,15 +1460,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 @"[In GlobalObjId] Reserved bytes.RESERVED = 8BYTE");
 
             Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId Reserved bytes.RESERVED = 8BYTE");
-
-            // If requirement MS-ASEMAIL_R1000 can be captured, it means the NULL is %0x00, then requirement MS-ASEMAIL_R1002 can be captured directly.
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1002");
-
-            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1002
-            Site.CaptureRequirement(
-                1002,
-                @"[In GlobalObjId] NULL = %x00");
 
             pos += 8;
             Site.Assert.IsTrue(totalLength - pos >= 4, "GlobalObjId should have 4 bytes to store BYTECOUNT field");
@@ -1538,6 +1529,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
                 isVerifiedR20016,
                 20016,
                 @"[In GlobalObjId] VCALID = VCALSTRING VERSION UID %x00");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1002");
+
+            //If 20016 is verified, then prove the last byte equals the 0x00, so this requirement can be captured directly
+            Site.CaptureRequirement(
+               1002,
+               @"[In GlobalObjId] [In GlobalObjId] NULL = %x00");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R20013");
@@ -1657,23 +1656,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId should have 8 bytes to store ZERO field");
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1000");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R10000");
 
-            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1000
-            Site.CaptureRequirementIfAreEqual<string>(
-                "0000000000000000",
-                TestSuiteHelper.BytesToHex(globalObjIdBytes, pos, 8),
-                1000,
-                @"[In GlobalObjId] MUST be all zeros. ZERO = 8NULL");
-
-            // If requirement MS-ASEMAIL_R1000 can be captured, it means the NULL is %0x00, then requirement MS-ASEMAIL_R1002 can be captured directly.
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R1002");
-
-            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R1002
+            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R10000                                       
             Site.CaptureRequirement(
-                1002,
-                @"[In GlobalObjId] NULL = %x00");
+                10000,
+                @"[In GlobalObjId] Reserved bytes.RESERVED = 8BYTE");
+
+            Site.Assert.IsTrue(totalLength - pos >= 8, "GlobalObjId Reserved bytes.RESERVED = 8BYTE");
 
             pos += 8;
             Site.Assert.IsTrue(totalLength - pos >= 4, "GlobalObjId should have 4 bytes to store BYTECOUNT field");
