@@ -60682,7 +60682,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251801</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] The itemoperations:Store element is a required child element of the Response element in Find command responses that specifies the name of the store to which the parent operation applies.</ns1:Description>
+		<ns1:Description>[In Status (Find)] The itemoperations:Store element is a required child element of the Response element in Find command responses that specifies the name of the store to which the parent operation applies.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60691,7 +60691,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101802</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] All elements referenced in this section are defined in the Find namespace, except where otherwise indicated by the presence of a namespace prefix (as defined in section 2.2.4).</ns1:Description>
+		<ns1:Description>[In Status (Find)] All elements referenced in this section are defined in the Find namespace, except where otherwise indicated by the presence of a namespace prefix (as defined in section 2.2.4).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -60700,7 +60700,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] Element Store in Find command response (section 2.2.1.2), the parent element is Response (section 2.2.3.153.2).</ns1:Description>
+		<ns1:Description>[In Status (Find)] Element Store in , the parent element is Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60709,7 +60709,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] None [Element Store in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
+		<ns1:Description>[In Status (Find)] None [Element Store in  has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60718,7 +60718,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251805</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] Element Store in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
+		<ns1:Description>[In Status (Find)] Element Store in , the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60727,7 +60727,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251806</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] Element Store in Find command response (section 2.2.1.2), the number allowed is 1...1 (required).</ns1:Description>
+		<ns1:Description>[In Status (Find)] Element Store in , the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60736,7 +60736,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251807</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] In the Find command response, the value of the Store element will be "Mailbox".</ns1:Description>
+		<ns1:Description>[In Status (Find)] In the Find command response, the value of the Store element will be "Mailbox".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60745,7 +60745,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101808</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] Protocol version 12.1 does not supports this [Store] element.</ns1:Description>
+		<ns1:Description>[In Status (Find)] Protocol version 12.1 does not supports this [Store] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60754,7 +60754,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101809</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] Protocol version 14.0 does not supports this [Store] element.</ns1:Description>
+		<ns1:Description>[In Status (Find)] Protocol version 14.0 does not supports this [Store] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60763,7 +60763,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101810</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] Protocol version 14.1 does not supports this [Store] element.</ns1:Description>
+		<ns1:Description>[In Status (Find)] Protocol version 14.1 does not supports this [Store] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60772,7 +60772,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101811</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] Protocol version 16.0 does not supports this [Store] element.</ns1:Description>
+		<ns1:Description>[In Status (Find)] Protocol version 16.0 does not supports this [Store] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60781,7 +60781,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101812</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Store (Find)] Protocol version 16.1 supports this [Store] element.</ns1:Description>
+		<ns1:Description>[In Status (Find)] Protocol version 16.1 supports this [Store] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
