@@ -15210,7 +15210,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R9010612</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.27.1</ns1:Doc_Sect>
-		<ns1:Description>[In Class (Find)] Element Class(Find) in Find command response, the number allowed is 0...1 (optional).</ns1:Description>
+		<ns1:Description>[In Class (Find)] Element Class(Find) in Find command response, the number allowed is 1…1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17418,7 +17418,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R9820611</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.30.1</ns1:Doc_Sect>
-		<ns1:Description>[In CollectionId (Find)] Element CollectionId in Find command response, the number allowed is 1...1 (optional).</ns1:Description>
+		<ns1:Description>[In CollectionId (Find)] Element CollectionId in Find command response, the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29632,6 +29632,42 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R66250801</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.78</ns1:Doc_Sect>
+		<ns1:Description>[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21),  the parent element is Forwardees (section 2.2.3.79).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R66250802</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.78</ns1:Doc_Sect>
+		<ns1:Description>[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21), the child elements are ForwardeeEmail (section 2.2.3.53), ForwardeeName (section 2.2.3.120.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R66250803</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.78</ns1:Doc_Sect>
+		<ns1:Description>[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21), the data type is container ([MS-ASDTYPE] section 2.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R66250804</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.78</ns1:Doc_Sect>
+		<ns1:Description>[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21), the number allowed is 1…N (required).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6626</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.78</ns1:Doc_Sect>
 		<ns1:Description>[In Forwardee] Protocol version 12.1 does not support this [Forwardee] element.</ns1:Description>
@@ -29731,40 +29767,40 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6655100801</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66550801</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.79</ns1:Doc_Sect>
 		<ns1:Description>[In Forwardees] Element Forwardees in Sync command response (section 2.2.1.21), the parent element is MeetingRequest ([MS-ASEMAIL] section 2.2.2.48).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6655100802</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66550802</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.79</ns1:Doc_Sect>
 		<ns1:Description>[In Forwardees] None [Element Forwardees in Sync command response (section 2.2.1.21) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6655100803</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66550803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.79</ns1:Doc_Sect>
 		<ns1:Description>[In Forwardees] Element Forwardees in Sync command response (section 2.2.1.21), the data type is container ([MS-ASDTYPE] section 2.2)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6655100804</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66550804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.79</ns1:Doc_Sect>
 		<ns1:Description>[In Forwardees] Element Forwardees in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6656</ns1:REQ_ID>
