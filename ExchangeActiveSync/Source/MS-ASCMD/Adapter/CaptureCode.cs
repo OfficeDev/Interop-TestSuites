@@ -7168,11 +7168,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             if (findResponse.ResponseData.Response != null)
             {
                 #region Capture code for Store
-                #endregion
-
-                #region Capture code for Totoal
-                //findResponse.ResponseData.Response.Store
-                #endregion
+                #endregion                
 
                 #region Capture code for Status
                 Site.Assert.IsNotNull(findResponse.ResponseData.Response.Status, "The Status element should not be null.");
@@ -7191,183 +7187,190 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                     @"[In Status (Find)] The following table specifies valid values [1,2,3,4] for the Status element as a child of the Store element in the Search response.");
                 #endregion
 
+                #region Capture code for Result
+                //foreach (FindResponseResult result in findResponse.ResponseData.Response.Result)
+                //{
+                    FindResponseResult result = findResponse.ResponseData.Response.Result;
+                    if (result!= null)
+                    {
+                        #region Capture code for Class
+                        //findResponse.ResponseData.Response.Result.Class
+                        #endregion
+
+                        #region Capture code for CollectionId
+                        //findResponse.ResponseData.Response.Result.CollectionId
+                        #endregion
+
+                        #region Capture code for ServerId
+                        //findResponse.ResponseData.Response.Result.ServerId
+                        #endregion
+         
+                        #region Capture code for Properties
+                            //findResponse.ResponseData.Response.Result.Properties
+                            if (result.Properties != null)
+                            {
+                                if (result.Properties.ItemsElementName != null && result.Properties.ItemsElementName.Length > 0)
+                                {
+                                    for (int j = 0; j < result.Properties.ItemsElementName.Length; j++)
+                                    {
+                                        #region Capture code for Picture
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Picture && (FindResponseResult)result.Properties.Items[j] != null)
+                                        {
+                                            SearchResponseStoreResultPropertiesPicture picture = (SearchResponseStoreResultPropertiesPicture)result.Properties.Items[j];
+                                            #region Capture code for Status
+                                            Site.Assert.IsNotNull(picture.Status, "The Status element in Picture element should not be null.");
+                                            this.VerifyStatusElementForSearch();
+                                            #endregion
+                                        }
+                                        #endregion
+
+                                        #region  Capture code for Alias
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Alias && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code Company
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Company && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for DateReceived
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DateReceived && (DateTime?)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for DisplayBcc
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayBcc && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for DisplayCc
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayCc && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for DisplayName
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayName && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for DisplayTo
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayTo && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for EmailAddress
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.EmailAddress && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for FirstName
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.FirstName && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for From
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.From && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for HasAttachments
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.HasAttachments && (bool?)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for HomePhone
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.HomePhone && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for Importance
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Importance && (byte?)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for IsDraft
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.IsDraft && (bool)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for LastName
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.LastName && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for MobilePhone
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.MobilePhone && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for Office
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Office && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for Phone
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Phone && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for Preview
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Preview && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for Read
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Read && (bool?)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for Subject
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Subject && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+
+                                        #region Capture code for Title
+                                        if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Title && (string)result.Properties.Items[j] != null)
+                                        {
+                                        }
+                                        #endregion
+                                    }
+
+                                }
+                            }
+                            #endregion
+                   
+                    }
+                //}
+                #endregion
+
                 #region Capture code for Range
                 //findResponse.ResponseData.Response.Range
                 #endregion
 
-                #region Capture code for Result
-                if(findResponse.ResponseData.Response.Result!=null)
-                {
-                    #region Capture code for Class
-                    //findResponse.ResponseData.Response.Result.Class
-                    #endregion
-
-                    #region Capture code for CollectionId
-                    //findResponse.ResponseData.Response.Result.CollectionId
-                    #endregion
-
-                    #region Capture code for ServerId
-                    //findResponse.ResponseData.Response.Result.ServerId
-                    #endregion
-
-                    #region Capture code for Properties
-                    //findResponse.ResponseData.Response.Result.Properties
-                    if (findResponse.ResponseData.Response.Result.Properties!=null)
-                    {
-                        FindResponseResult result = findResponse.ResponseData.Response.Result;
-                        if (result.Properties.ItemsElementName != null && result.Properties.ItemsElementName.Length > 0)
-                        {
-                            
-                            for (int j = 0; j < result.Properties.ItemsElementName.Length; j++)
-                            {
-                                #region Capture code for Picture
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Picture && (FindResponseResult)result.Properties.Items[j] != null)
-                                {
-                                    SearchResponseStoreResultPropertiesPicture picture = (SearchResponseStoreResultPropertiesPicture)result.Properties.Items[j];
-                                    #region Capture code for Status
-                                    Site.Assert.IsNotNull(picture.Status, "The Status element in Picture element should not be null.");
-                                    this.VerifyStatusElementForSearch();
-                                    #endregion
-                                }
-                                #endregion
-
-                                #region  Capture code for Alias
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Alias && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code Company
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Company && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for DateReceived
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DateReceived && (DateTime?)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for DisplayBcc
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayBcc && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for DisplayCc
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayCc && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for DisplayName
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayName && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for DisplayTo
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayTo && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for EmailAddress
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.EmailAddress && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for FirstName
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.FirstName && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for From
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.From && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for HasAttachments
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.HasAttachments && (bool?)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for HomePhone
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.HomePhone && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for Importance
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Importance && (byte?)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for IsDraft
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.IsDraft && (byte?)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for LastName
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.LastName && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for MobilePhone
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.MobilePhone && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for Office
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Office && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for Phone
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Phone && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for Preview
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Preview && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for Read
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Read && (bool?)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for Subject
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Subject && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-
-                                #region Capture code for Title
-                                if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Title && (string)result.Properties.Items[j] != null)
-                                {
-                                }
-                                #endregion
-                            }
-
-                        }
-                    }
-                    #endregion
-                }
+                #region Capture code for Totoal
+                //findResponse.ResponseData.Response.Store
                 #endregion
             }
             #endregion
