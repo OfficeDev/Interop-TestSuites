@@ -1,4 +1,4 @@
-namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
+﻿namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
 {
     using System;
     using System.Collections.Generic;
@@ -2800,6 +2800,42 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
 
                     taggedPropertyValueArrays[i].Value = Common.AddInt16LengthBeforeBinaryArray(Encoding.ASCII.GetBytes(value));
                 }
+                else if (taggedPropertyValueArray[i] == "PidTagPredecessorChangeList")
+                {
+                    taggedPropertyValueArrays[i] = new TaggedPropertyValue
+                    {
+                        PropertyTag = new PropertyTag(0x65E3, 0x0102)
+                    };
+                    byte[] predecessorChangeListValue = propertyValuesSpecific["PidTagPredecessorChangeList"];
+                    PredecessorChangeList predecessorChangeList = new PredecessorChangeList();
+
+                    using (MemoryStream memoryStream = new MemoryStream(predecessorChangeListValue, 2, BitConverter.ToInt16(predecessorChangeListValue, 0)))
+                    {
+                        predecessorChangeList.Deserialize(memoryStream, -1);
+                    }
+                    if (predecessorChangeList.SizedXidList.Count > 1)
+                    {
+                        byte[] buffer = new byte[predecessorChangeListValue.Length];
+                        buffer[0] = predecessorChangeListValue[0];
+                        buffer[1] = predecessorChangeListValue[1];
+                        int byteIndex = 2;
+                        for (int index= predecessorChangeList.SizedXidList.Count-1; index > 0; index-- )
+                        {
+                            SizedXid sizedXid = predecessorChangeList.SizedXidList[index];
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                sizedXid.Serialize(ms);
+                                Array.Copy(ms.GetBuffer(), 0, buffer, byteIndex, ms.Length);
+                                byteIndex += ms.GetBuffer().Length;
+                            }
+                        }
+                        taggedPropertyValueArrays[i].Value = buffer;
+                    }
+                    else
+                    {
+                        taggedPropertyValueArrays[i].Value = predecessorChangeListValue;
+                    }
+                }
                 else
                 {
                     taggedPropertyValueArrays[i] = this.taggedPropertyValuesDictionary[taggedPropertyValueArray[i]];
@@ -2952,6 +2988,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
         /// <param name="enabled">Requirement is enable or not.</param>
         public void CheckRequirementEnabled(int rsid, out bool enabled)
         {
+            if (rsid == 0)
+            {
+                this.needDoCleanup = false;
+
+                Site.Assert.Inconclusive("Do not run on USL mechine since time out.");
+            }
+
             // Add logic here        
             enabled = Common.IsRequirementEnabled(rsid, this.Site);
 

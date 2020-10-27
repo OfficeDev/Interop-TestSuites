@@ -2015,6 +2015,40 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             this.GetPropertiesSpecific(serverId, handleIndex, propertyTag);
             byte[] pidTagChangeKeyValue = this.propertyValuesSpecific["PidTagChangeKey"];
             byte[] pidTagPredecessorChangeListValue = this.propertyValuesSpecific["PidTagPredecessorChangeList"];
+            PredecessorChangeList predecessorChangeList = new PredecessorChangeList();
+
+            using (MemoryStream memoryStream = new MemoryStream(pidTagPredecessorChangeListValue, 2, BitConverter.ToInt16(pidTagPredecessorChangeListValue, 0)))
+            {
+                predecessorChangeList.Deserialize(memoryStream, -1);
+            }
+
+            if (predecessorChangeList.SizedXidList.Count > 1)
+            {
+
+                SizedXid prevSizedXid = predecessorChangeList.SizedXidList[0];
+                bool isVerfiedR169 = false;
+                for (int i = 1; i < predecessorChangeList.SizedXidList.Count; i++)
+                {
+                    SizedXid curSizedXid = predecessorChangeList.SizedXidList[i];
+                    if (AdapterHelper.BinaryCompare(curSizedXid.XID.NamespaceGuid.ToByteArray(), prevSizedXid.XID.NamespaceGuid.ToByteArray()) > 0)
+                    {
+                        isVerfiedR169 = true;
+                    }
+                    else
+                    {
+                        isVerfiedR169 = false;
+                        break;
+                    }
+                }
+
+                // When deserialize the response from the server will as this requirement say, if deserialize successfully, this requirement can be covered
+                Site.CaptureRequirementIfIsTrue(
+                    isVerfiedR169,
+                    169,
+                    @"[In PredecessorChangeList Structure]The set of XIDs MUST be serialized without padding as an array of SizedXid structures 
+                                    binary-sorted by the value of NamespaceGuid field of the XID structure in the ascending order.");
+
+            }
 
             if (this.lastConflictInfo.PCLA != null)
             {
@@ -3844,7 +3878,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR1392,
                             1392,
-                            @"[In recipient Element] [PidTagRowid ,Fixed position] The position[1] of the property PidTagRowid ([MS-OXPROPS] section 2.939) within the array propList is fixed and MUST correspond to the position of the corresponding restriction in the property list restriction table.");
+                            @"[In recipient Element] [PidTagRowid ,Fixed position] The position[1] of the property PidTagRowid ([MS-OXPROPS] section 2.1002) within the array propList is fixed and MUST correspond to the position of the corresponding restriction in the property list restriction table.");
                     }
                 }
 
@@ -3997,10 +4031,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                             {
                                 SizedXid prevSizedXid = predecessorChangeList.SizedXidList[0];
                                 bool isVerfiedR169 = false;
-                                for(int i=1;i< predecessorChangeList.SizedXidList.Count;i++)
+                                for (int i = 1; i < predecessorChangeList.SizedXidList.Count; i++)
                                 {
                                     SizedXid curSizedXid = predecessorChangeList.SizedXidList[i];
-                                    if (AdapterHelper.BinaryCompare(curSizedXid.XID.NamespaceGuid.ToByteArray(),prevSizedXid.XID.NamespaceGuid.ToByteArray()) > 0)
+                                    if (AdapterHelper.BinaryCompare(curSizedXid.XID.NamespaceGuid.ToByteArray(), prevSizedXid.XID.NamespaceGuid.ToByteArray()) > 0)
                                     {
                                         isVerfiedR169 = true;
                                     }
@@ -4019,7 +4053,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                                     @"[In PredecessorChangeList Structure]The set of XIDs MUST be serialized without padding as an array of SizedXid structures 
                                     binary-sorted by the value of NamespaceGuid field of the XID structure in the ascending order.");
                             }
- 
+
                             // If deserialize successfully, this requirement can be covered
                             Site.CaptureRequirement(
                                 165,
