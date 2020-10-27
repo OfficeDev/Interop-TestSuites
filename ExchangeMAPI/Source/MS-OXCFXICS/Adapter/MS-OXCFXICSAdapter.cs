@@ -2988,13 +2988,6 @@
         /// <param name="enabled">Requirement is enable or not.</param>
         public void CheckRequirementEnabled(int rsid, out bool enabled)
         {
-            if (rsid == 0)
-            {
-                this.needDoCleanup = false;
-
-                Site.Assert.Inconclusive("Do not run on USL mechine since time out.");
-            }
-
             // Add logic here        
             enabled = Common.IsRequirementEnabled(rsid, this.Site);
 

@@ -3878,7 +3878,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR1392,
                             1392,
-                            @"[In recipient Element] [PidTagRowid ,Fixed position] The position[1] of the property PidTagRowid ([MS-OXPROPS] section 2.1002) within the array propList is fixed and MUST correspond to the position of the corresponding restriction in the property list restriction table.");
+                            @"[In recipient Element] [PidTagRowid ,Fixed position] The position[1] of the property PidTagRowid ([MS-OXPROPS] section 2.939) within the array propList is fixed and MUST correspond to the position of the corresponding restriction in the property list restriction table.");
                     }
                 }
 
