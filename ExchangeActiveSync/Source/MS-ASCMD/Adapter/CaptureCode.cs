@@ -7185,11 +7185,12 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 Site.CaptureRequirement(
                     72172506,
                     @"[In Status (Find)] The following table specifies valid values [1,2,3,4] for the Status element as a child of the Store element in the Search response.");
-                #endregion                
+                #endregion
 
                 #region Capture code for Result
-                foreach (FindResponseResult result in findResponse.ResponseData.Response.Results)
-                {
+                //foreach (FindResponseResult result in findResponse.ResponseData.Response.Result)
+                //{
+                    FindResponseResult result = findResponse.ResponseData.Response.Result;
                     if (result!= null)
                     {
                         #region Capture code for Class
@@ -7361,7 +7362,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                             #endregion
                    
                     }
-                }
+                //}
                 #endregion
 
                 #region Capture code for Range
