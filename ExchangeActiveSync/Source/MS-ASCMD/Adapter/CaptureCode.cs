@@ -7188,24 +7188,25 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 #endregion
 
                 #region Capture code for Result
-                //foreach (FindResponseResult result in findResponse.ResponseData.Response.Result)
-                //{
-                    FindResponseResult result = findResponse.ResponseData.Response.Result;
-                    if (result!= null)
+                if (findResponse.ResponseData.Response.Results != null)
+                {
+                    foreach (FindResponseResult result in findResponse.ResponseData.Response.Results)
                     {
-                        #region Capture code for Class
-                        //findResponse.ResponseData.Response.Result.Class
-                        #endregion
+                        if (result != null)
+                        {
+                            #region Capture code for Class
+                            //findResponse.ResponseData.Response.Result.Class
+                            #endregion
 
-                        #region Capture code for CollectionId
-                        //findResponse.ResponseData.Response.Result.CollectionId
-                        #endregion
+                            #region Capture code for CollectionId
+                            //findResponse.ResponseData.Response.Result.CollectionId
+                            #endregion
 
-                        #region Capture code for ServerId
-                        //findResponse.ResponseData.Response.Result.ServerId
-                        #endregion
-         
-                        #region Capture code for Properties
+                            #region Capture code for ServerId
+                            //findResponse.ResponseData.Response.Result.ServerId
+                            #endregion
+
+                            #region Capture code for Properties
                             //findResponse.ResponseData.Response.Result.Properties
                             if (result.Properties != null)
                             {
@@ -7360,9 +7361,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                 }
                             }
                             #endregion
-                   
+
+                        }
                     }
-                //}
+                }
+                
                 #endregion
 
                 #region Capture code for Range
