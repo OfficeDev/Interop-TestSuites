@@ -163,12 +163,9 @@
             FindRequest findRequest = this.CreateFindGALRequest();
             #endregion
 
-            if (Common.IsRequirementEnabled(8888, this.Site))
-            {
-                #region Call find command
-                FindResponse findResponse = this.CMDAdapter.Find(findRequest);
-                Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
-            }
+            #region Call find command
+            FindResponse findResponse = this.CMDAdapter.Find(findRequest);
+            Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
             #endregion
         }
 
@@ -634,15 +631,8 @@
                         },
                         Options=new Request.FindExecuteSearchMailBoxSearchCriterionOptions
                         {
-                            Range="0-5"
-                            //DeepTraversal=new Request.EmptyTag { }
-                            //Picture=new Request.FindExecuteSearchMailBoxSearchCriterionOptionsPicture
-                            //{
-                            //    MaxSize=2014,
-                            //    MaxSizeSpecified=true,
-                            //    MaxPictures=5,
-                            //    MaxPicturesSpecified=true
-                            //}
+                            Range = "0-5",
+                            DeepTraversal = new Request.EmptyTag { }
                         }
                     },
   
@@ -706,7 +696,7 @@
                         },
                         Options=new Request.FindExecuteSearchMailBoxSearchCriterionOptions
                         {
-                            Range="-1"
+                            Range="-1-5"
                         }
                     },
 
@@ -725,33 +715,26 @@
         /// </summary>
         /// <returns>Return Find GAL request instance.</returns>
         private FindRequest CreateFindGALRequest()
-        {            
+        {
             Request.Find find = new Request.Find
             {
                 SearchId = Guid.NewGuid().ToString(),
-                //ExecuteSearch = new Request.FindExecuteSearch
-                //{
-                //    Item = new Request.FindExecuteSearchGALSearchCriterion
-                //    {
-                //        Query =  "*",
-                //        Options = new Request.FindExecuteSearchGALSearchCriterionOptions
-                //        {
-                //            Range = "0-5"                            
-                //        }
-                //    },
-                //},
 
                 ExecuteSearch = new Request.FindExecuteSearch
                 {
                     Item = new Request.FindExecuteSearchGALSearchCriterion
                     {
-                        Query = "*",
+                        Query = Common.GetConfigurationPropertyValue("User1Name", Site),
+                        Options = new Request.FindExecuteSearchGALSearchCriterionOptions
+                        {
+                            Range = "0-5"
+                        }
                     },
                 },
             };
 
 
-            ((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Query = "*";
+            //((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Query = "*";
             
             //((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Options.Range = "0-5";
             //((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Query = "*";

@@ -16,14 +16,14 @@
         <xs:element name="Response" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:element ref="itemoperations:Store"/>
+              <xs:element ref="itemoperations:Store" minOccurs="0" maxOccurs="1"/>
               <xs:element ref="Status"/>
               <xs:element name="Result" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element ref="airsync:Class"/>
-                    <xs:element ref="airsync:ServerId"/>
-                    <xs:element ref="airsync:CollectionId"/>
+                    <xs:element ref="airsync:Class" minOccurs="0" maxOccurs="1"/>
+                    <xs:element ref="airsync:ServerId" minOccurs="0" maxOccurs="1"/>
+                    <xs:element ref="airsync:CollectionId" minOccurs="0" maxOccurs="1"/>
                     <xs:element name="Properties">
                       <xs:complexType>
                         <xs:group ref="FindProperties"/>
