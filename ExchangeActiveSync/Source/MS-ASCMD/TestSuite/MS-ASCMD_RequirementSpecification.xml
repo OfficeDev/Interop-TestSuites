@@ -27916,7 +27916,7 @@ GALSearchCriterion (section 2.2.3.82) child elements.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101901</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] The Find element is a required element in Find command requests[ that identifies the body of the HTTP POST as containing a Find command (section 2.2.3.69)].</ns1:Description>
+		<ns1:Description>The Find element is a required element in Find command requests[ that identifies the body of the HTTP POST as containing a Find command (section 2.2.3.69)].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27925,7 +27925,7 @@ GALSearchCriterion (section 2.2.3.82) child elements.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R65591902</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] The Find element is a required element in Find command responses that identifies the body of the HTTP POST as containing a Find command (section 2.2.3.69). </ns1:Description>
+		<ns1:Description>The Find element is a required element in Find command responses that identifies the body of the HTTP POST as containing a Find command (section 2.2.3.69). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27934,7 +27934,7 @@ GALSearchCriterion (section 2.2.3.82) child elements.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101903</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] All elements referenced in this section are defined in the Find namespace.</ns1:Description>
+		<ns1:Description>All elements referenced in this section are defined in the Find namespace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -27943,7 +27943,7 @@ GALSearchCriterion (section 2.2.3.82) child elements.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101904</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] None [Element Find in Find command request (section 2.2.1.2), has no Parent element.</ns1:Description>
+		<ns1:Description>None [Element Find in Find command request (section 2.2.1.2), has no Parent element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27952,7 +27952,7 @@ GALSearchCriterion (section 2.2.3.82) child elements.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101905</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] Element Find in Find command request (section 2.2.1.2), the child elements are 
+		<ns1:Description>Element Find in Find command request (section 2.2.1.2), the child elements are 
 SearchId (section 2.2.3.160)
 ExecuteSearch (section 2.2.3.66).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -27963,7 +27963,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101906</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] Element Find in Find command request (section 2.2.1.2), the data type is container ([MS-ASDTYPE] section 2.2). </ns1:Description>
+		<ns1:Description>Element Find in Find command request (section 2.2.1.2), the data type is container ([MS-ASDTYPE] section 2.2). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27972,7 +27972,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101907</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] Element Find in Find command request (section 2.2.1.2), the number allowed is 1...1 (required).</ns1:Description>
+		<ns1:Description>Element Find in Find command request (section 2.2.1.2), the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27981,7 +27981,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R65591908</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] None [Element Find in Find command response, has no Parent element.</ns1:Description>
+		<ns1:Description>None [Element Find in Find command response, has no Parent element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27990,7 +27990,9 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R65591909</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] Element Find in Find command response, the child elements are Status (section 2.2.3.177.2), Response (section 2.2.3.153.2) </ns1:Description>
+		<ns1:Description>Element Find in Find command response, the child elements are 
+Status (section 2.2.3.177.2) 
+Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27999,7 +28001,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R65591910</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] Element Find in Find command response, the data type is container ([MS-ASDTYPE] section 2.2). </ns1:Description>
+		<ns1:Description>Element Find in Find command response, the data type is container ([MS-ASDTYPE] section 2.2). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28008,7 +28010,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R65591911</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] Element Find in Find command response, the number allowed is 1...1 (required).</ns1:Description>
+		<ns1:Description>Element Find in Find command response, the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28017,7 +28019,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101912</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] Protocol version 12.1 does not support this [Find] element.</ns1:Description>
+		<ns1:Description>Protocol version 12.1 does not support this [Find] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28026,7 +28028,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101913</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] Protocol version 14.0 does not support this [Find] element.</ns1:Description>
+		<ns1:Description>Protocol version 14.0 does not support this [Find] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28035,7 +28037,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101914</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] Protocol version 14.1 does not support this [Find] element.</ns1:Description>
+		<ns1:Description>Protocol version 14.1 does not support this [Find] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28044,7 +28046,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101915</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] Protocol version 16.0 does not support this [Find] element.</ns1:Description>
+		<ns1:Description>Protocol version 16.0 does not support this [Find] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28053,7 +28055,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101916</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>[In Find] Protocol version 16.1 supports this [Find] element.</ns1:Description>
+		<ns1:Description>Protocol version 16.1 supports this [Find] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28118,7 +28120,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R65590808</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.70.1</ns1:Doc_Sect>
-		<ns1:Description>[In FirstName (Find)] Element FirstName in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).</ns1:Description>
+		<ns1:Description>[In FirstName (Find)] Element FirstName in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

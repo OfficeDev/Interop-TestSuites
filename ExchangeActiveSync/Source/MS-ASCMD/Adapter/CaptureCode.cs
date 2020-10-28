@@ -7152,47 +7152,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Assert.IsNotNull(findResponse.ResponseData, "The Find element should not be null.");
 
             #region Capture code for Find Store
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65591902");
 
-            // If the schema validation result is true and Find is not null, this requirement can be verified.
-            Site.CaptureRequirement(
-                65591902,
-                @"[In Find] The Find element is a required element in Find command responses that identifies the body of the HTTP POST as containing a Find command (section 2.2.3.69).");
-            
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65591908");
-
-            // If the schema validation result is true and Find is not null, this requirement can be verified.
-            Site.CaptureRequirement(
-                65591908,
-                @"[In Find] None [Element Find in Find command response, has no Parent element.]");
-
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65591909");
-
-            // If the schema validation result is true and Find is not null, this requirement can be verified.
-            Site.CaptureRequirement(
-                65591909,
-                @"[In Find] Element Find in Find command response, the child elements are Status (section 2.2.3.177.2), Response (section 2.2.3.153.2)");
-
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65591910");
-
-            // If the schema validation result is true and Find is not null, this requirement can be verified.
-            Site.CaptureRequirement(
-                65591910,
-                @"[In Find] Element Find in Find command response, the data type is container ([MS-ASDTYPE] section 2.2).");
-
-            // Add the debug information.
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65591911");
-
-            // If the schema validation result is true and Find is not null, this requirement can be verified.
-            Site.CaptureRequirement(
-                65591911,
-                @"[In Find] Element Find in Find command response, the number allowed is 1...1 (required).");
-
-            this.VerifyContainerDataType();
             #endregion
 
             #region Capture code for Status
@@ -7636,39 +7596,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         #region Capture code for FirstName
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.FirstName && (string)result.Properties.Items[j] != null)
                                         {
-                                            // Add the debug information.
-                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65590808");
-
-                                            // If the schema validation result is true and FirstName (Find) is not null, this requirement can be verified.
-                                            Site.CaptureRequirement(
-                                                65590808,
-                                                @"[In FirstName (Find)] Element FirstName in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1) .");
-
-                                            // Add the debug information.
-                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65590809");
-
-                                            // If the schema validation result is true and FirstName (Find) is not null, this requirement can be verified.
-                                            Site.CaptureRequirement(
-                                                65590809,
-                                                @"[In FirstName (Find)] None [Element FirstName in Find command response (section 2.2.1.2) has no child element.]");
-
-                                            // Add the debug information.
-                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65590810");
-
-                                            // If the schema validation result is true and FirstName (Find) is not null, this requirement can be verified.
-                                            Site.CaptureRequirement(
-                                                65590810,
-                                                @"[In FirstName (Find)] Element FirstName in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
-
-                                            // Add the debug information.
-                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65590811");
-
-                                            // If the schema validation result is true and FirstName (Find) is not null, this requirement can be verified.
-                                            Site.CaptureRequirement(
-                                                65590811,
-                                                @"[In FirstName (Find)] Element FirstName in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
-
-                                            this.VerifyStringDataType();
                                         }
                                         #endregion
 
@@ -9281,8 +9208,8 @@ OofMessage (section 2.2.3.117)");
                     @"[In Status(Sync)] Element Status in Sync command response, the number allowed is 0…1 (optional).");
             }
             #endregion
-            
-                if (!string.IsNullOrEmpty(syncResponse.ResponseData.Status) && (syncResponse.ResponseData.Status == "14" || syncResponse.ResponseData.Status == "15"))
+
+            if (!string.IsNullOrEmpty(syncResponse.ResponseData.Status) && (syncResponse.ResponseData.Status == "14" || syncResponse.ResponseData.Status == "15"))
             {
                 Site.Assert.IsNotNull((string)syncResponse.ResponseData.Item, "The Limit element should not be null when the Status is 14 or 15.");
 
