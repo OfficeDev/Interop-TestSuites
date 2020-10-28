@@ -128,7 +128,6 @@
         {
             Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             
-
             #region Create a find request
             FindRequest findRequest = this.CreateMailFindInvalidRangeRequest();
             #endregion
@@ -158,6 +157,7 @@
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC04_Find_GAL()
         {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             #region Create Find request with options
 
             FindRequest findRequest = this.CreateFindGALRequest();
@@ -169,6 +169,91 @@
                 FindResponse findResponse = this.CMDAdapter.Find(findRequest);
                 Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
             }
+            #endregion
+        }
+
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S23_TC05_Find_MatchedItems()
+        {
+            #region User1 calls SendMail command to send 2 email messages to user2.
+            string keyWord = Guid.NewGuid().ToString().Substring(0, 5);
+            uint mailIndex = 1;
+            string emailSubject = keyWord + Common.GenerateResourceName(Site, "find", mailIndex);
+            SendMailResponse responseSendMail = this.SendPlainTextEmail(null, emailSubject, this.User1Information.UserName, this.User2Information.UserName, null);
+            Site.Assert.AreEqual(string.Empty, responseSendMail.ResponseDataXML, "If SendMail command executes successfully, server should return empty xml data");
+            mailIndex++;
+            string emailSubject2 = keyWord + Common.GenerateResourceName(Site, "find", mailIndex);
+            SendMailResponse responseSendMail2 = this.SendPlainTextEmail(null, emailSubject2, this.User1Information.UserName, this.User2Information.UserName, null);
+            Site.Assert.AreEqual(string.Empty, responseSendMail2.ResponseDataXML, "If SendMail command executes successfully, server should return empty xml data");
+            #endregion
+
+            #region Sync user2 mailbox changes
+            // Switch to user2 mailbox
+            this.SwitchUser(this.User2Information);
+            this.GetMailItem(this.User2Information.InboxCollectionId, emailSubject);
+            this.GetMailItem(this.User2Information.InboxCollectionId, emailSubject2);
+            TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, emailSubject, emailSubject2);
+            #endregion
+
+            #region Create a find request for finding mail.
+            Request.Find find = new Request.Find
+            {
+                SearchId = Guid.NewGuid().ToString(),
+                ExecuteSearch = new Request.FindExecuteSearch
+                {
+                    Item = new Request.FindExecuteSearchMailBoxSearchCriterion
+                    {
+                        Query = new Request.queryType2
+                        {
+                            ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.FreeText },
+                            Items = new string[] { keyWord }
+                        },
+                        Options = new Request.FindExecuteSearchMailBoxSearchCriterionOptions
+                        {
+                            Range = "0-5",
+                            DeepTraversal = new Request.EmptyTag { }
+                            //Picture=new Request.FindExecuteSearchMailBoxSearchCriterionOptionsPicture
+                            //{
+                            //    MaxSize=2014,
+                            //    MaxSizeSpecified=true,
+                            //    MaxPictures=5,
+                            //    MaxPicturesSpecified=true
+                            //}
+                        }
+                    },
+
+                },
+            };
+
+            FindRequest findRequest = this.CreateMailFindRequest();
+            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.Class, Request.ItemsChoiceType11.FreeText };
+            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).Items = new string[] { "Email", keyWord };
+
+            findRequest.RequestData = find;
+
+            #endregion
+
+            #region Call Find command
+            int counter = 0;
+            int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
+            int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
+            int sendMailCount = 2;
+            int resultsCount;
+            FindResponse findResponse;
+
+            // Loop search to get correct results.
+            do
+            {
+                Thread.Sleep(waitTime);
+                findResponse = this.CMDAdapter.Find(findRequest);
+                Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
+                resultsCount = findResponse.ResponseData.Response.Results.Length;
+                counter++;
+            }
+            while (resultsCount != sendMailCount && counter < retryCount);
+
+            Site.Assert.AreEqual<int>(2, resultsCount, "Find response should contain two search results");
+            Site.Log.Add(LogEntryKind.Debug, "Loop {0} times to get the search item", counter);
             #endregion
         }
 
@@ -549,8 +634,8 @@
                         },
                         Options=new Request.FindExecuteSearchMailBoxSearchCriterionOptions
                         {
-                            Range="0-5",
-                            DeepTraversal=new Request.EmptyTag { }
+                            Range="0-5"
+                            //DeepTraversal=new Request.EmptyTag { }
                             //Picture=new Request.FindExecuteSearchMailBoxSearchCriterionOptionsPicture
                             //{
                             //    MaxSize=2014,
