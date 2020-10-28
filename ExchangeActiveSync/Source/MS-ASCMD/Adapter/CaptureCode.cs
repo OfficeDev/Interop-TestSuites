@@ -675,6 +675,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         }
 
         /// <summary>
+        /// Verify Forwardee element for Sync responses.
+        /// </summary>
+        private void VerifyForwardeeElementForSyncResponses(ForwardeesForwardee forwardee)
+        {
+            if (forwardee != null)
+            {
+            }
+        }
+
+        /// <summary>
         /// Verify child elements for Responses element in Sync command.
         /// </summary>
         /// <param name="element">The xml string of Response element.</param>
@@ -9350,6 +9360,22 @@ OofMessage (section 2.2.3.117)");
                                             Site.Assert.IsNotNull(add.ApplicationData, "The ApplicationData element in Sync command should not be null.");
 
                                             this.VerifyApplicationDataForSyncAddChange();
+                                            for (int i = 0; i < add.ApplicationData.ItemsElementName.Length; i++)
+                                            {
+                                                if (add.ApplicationData.ItemsElementName[i].ToString()=="MeetingRequst")
+                                                {
+                                                    if (add.ApplicationData.Items[i]!=null)
+                                                    {
+                                                        if (((MeetingRequest)add.ApplicationData.Items[i]).Forwardees != null)
+                                                        {
+                                                            foreach (ForwardeesForwardee forwardee in ((MeetingRequest)add.ApplicationData.Items[i]).Forwardees)
+                                                            {
+                                                              VerifyForwardeeElementForSyncResponses(forwardee);                                                                
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            } 
                                         }
                                     }
                                     #endregion
@@ -9400,6 +9426,22 @@ OofMessage (section 2.2.3.117)");
                                             Site.Assert.IsNotNull(change.ApplicationData, "The ApplicationData element in Sync command should not be null.");
 
                                             this.VerifyApplicationDataForSyncAddChange();
+                                            for (int i = 0; i < change.ApplicationData.ItemsElementName.Length; i++)
+                                            {
+                                                if (change.ApplicationData.ItemsElementName[i].ToString() == "MeetingRequst")
+                                                {
+                                                    if (change.ApplicationData.Items[i] != null)
+                                                    {
+                                                        if (((MeetingRequest)change.ApplicationData.Items[i]).Forwardees != null)
+                                                        {
+                                                            foreach (ForwardeesForwardee forwardee in ((MeetingRequest)change.ApplicationData.Items[i]).Forwardees)
+                                                            {
+                                                                VerifyForwardeeElementForSyncResponses(forwardee);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                     #endregion
