@@ -83,7 +83,5 @@
     <Property name="R72172521Enabled" value="false" />
     <!--Set R72172518Enabled to true to verify that Implementation Find command, when the parent is Response element, the cause of the status value 4 is the requested range does not begin with 0. Set R72172518Enabled to false to disable this requirement.-->
     <Property name="R72172518Enabled" value="false" />
-    <!--Set R8888Enabled to true to verify that Implementation Find command, used to verify search global address list. Set R8888Enabled to false to disable this requirement.-->
-    <Property name="R8888Enabled" value="false" />
   </Properties>
 </TestSite>
