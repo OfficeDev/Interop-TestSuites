@@ -677,6 +677,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         /// <summary>
         /// Verify Forwardee element for Sync responses.
         /// </summary>
+        /// <param name="forwardee">The ForwardeesForwardee element.</param>
         private void VerifyForwardeeElementForSyncResponses(ForwardeesForwardee forwardee)
         {
             if (forwardee != null)
@@ -9366,7 +9367,7 @@ OofMessage (section 2.2.3.117)");
                                                 {
                                                     if (add.ApplicationData.Items[i]!=null)
                                                     {
-                                                        if (((MeetingRequest)add.ApplicationData.Items[i]).Forwardees != null)
+                                                        if (((MeetingRequest)add.ApplicationData.Items[i]).Forwardees!= null)
                                                         {
                                                             foreach (ForwardeesForwardee forwardee in ((MeetingRequest)add.ApplicationData.Items[i]).Forwardees)
                                                             {
