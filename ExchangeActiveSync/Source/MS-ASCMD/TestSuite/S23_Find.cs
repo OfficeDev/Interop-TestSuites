@@ -40,7 +40,7 @@
 
         #region Test cases
         /// <summary>
-        /// This test case is used to verify the success status of Search command.
+        /// This test case is used to verify the Find MailBox success status of Find command.
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC01_Find_Mail_Success()
@@ -152,7 +152,7 @@
         }
 
         /// <summary>
-        /// This test case is used to verify search global address list success
+        /// This test case is used to verify find global address list success.
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC04_Find_GAL_Success()
@@ -170,6 +170,9 @@
             #endregion
         }
 
+        /// <summary>
+        /// This test case is used to verify the Find response when the found items have the multiple matched items.
+        /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC05_Find_MatchedItems()
         {
@@ -223,7 +226,7 @@
 
 
         /// <summary>
-        /// This test case is used to verify search global address list success
+        /// This test case is used to verify Find global address list success test.
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC06_Find_GAL_Success_Test()
@@ -241,7 +244,9 @@
         }
         #endregion
 
-
+        /// <summary>
+        /// This test case is used to verify Find MailBox success test.
+        /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC07_Find_Mail_Success_Test()
         {
