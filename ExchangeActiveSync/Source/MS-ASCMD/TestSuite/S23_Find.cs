@@ -209,13 +209,6 @@
                         {
                             Range = "0-5",
                             DeepTraversal = new Request.EmptyTag { }
-                            //Picture=new Request.FindExecuteSearchMailBoxSearchCriterionOptionsPicture
-                            //{
-                            //    MaxSize=2014,
-                            //    MaxSizeSpecified=true,
-                            //    MaxPictures=5,
-                            //    MaxPicturesSpecified=true
-                            //}
                         }
                     },
 
@@ -642,7 +635,7 @@
             ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.Class, Request.ItemsChoiceType11.FreeText };
             ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).Items = new string[] { "Email", "*" };
 
-            FindRequest findRequest = Common.CreateFindRequest(find );
+            FindRequest findRequest = Common.CreateFindRequest(find);
             return findRequest;
         }
 
@@ -733,11 +726,6 @@
                 },
             };
 
-
-            //((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Query = "*";
-            
-            //((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Options.Range = "0-5";
-            //((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Query = "*";
             FindRequest findRequest = Common.CreateFindRequest(find);
             return findRequest;
         }
