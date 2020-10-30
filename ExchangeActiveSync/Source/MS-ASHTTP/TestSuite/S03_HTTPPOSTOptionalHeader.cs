@@ -307,7 +307,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                         503,
                         statusCode,
                         456,
-                        @"[In Appendix A: Product Behavior] Implementation can be configured to use different values for the allowed number of changes and the time period. (<8> Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to use different values for the allowed number of changes and the time period.)");
+                        @"[In Appendix A: Product Behavior] Implementation can be configured to use different values for the allowed number of changes and the time period. (<9> Section 3.2.5.1.1:  Exchange 2013 , Exchange 2016, and Exchange 2019 can be configured to use different values for the allowed number of changes and the time period.)");
                 }
             }
 
@@ -355,7 +355,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                 Site.CaptureRequirementIfIsTrue(
                     isCorrectBlocked,
                     457,
-                    @"[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (<9> Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to block clients for an amount of time other than 14 hours.)");
+                    @"[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (<10> Section 3.2.5.1.1:  Exchange 2013, Exchange 2016, and Exchange 2019 can be configured to block clients for an amount of time other than 14 hours.)");
             }
 
             // Wait for 1 minute
