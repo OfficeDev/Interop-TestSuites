@@ -9264,6 +9264,23 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS {
                     TestManagerHelpers.AssertAreEqual<int>(this.Manager, 3, temp352, "messageIdIndex of SaveChangesMessage, state S219");
                     TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult)(0)), temp353, "return of SaveChangesMessage, state S219");
                     this.Manager.Comment("reaching state \'S227\'");
+
+                    Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult temp3140 = this.IMS_OXCFXICSAdapterInstance.SetProperties(1, 7, this.Make<Microsoft.Modeling.Sequence<string>>(new string[] {
+                                    "Rep"}, new object[] {
+                                    this.Make<Microsoft.Xrt.Runtime.RuntimeList<string>>(new string[] {
+                                                "Head",
+                                                "Tail"}, new object[] {
+                                                "PidTagPredecessorChangeList",
+                                                ((Microsoft.Xrt.Runtime.RuntimeList<string>)(null))})}));
+
+                    this.Manager.Comment("checking step \'return SetProperties/Success\'");
+                    TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult)(0)), temp3140, "return of SetProperties, state S203");
+
+                    int temp3150;
+                    Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult temp3160 = this.IMS_OXCFXICSAdapterInstance.SaveChangesMessage(1, 7, out temp3150);
+                    TestManagerHelpers.AssertAreEqual<int>(this.Manager, 3, temp352, "messageIdIndex of SaveChangesMessage, state S219");
+                    TestManagerHelpers.AssertAreEqual<Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult>(this.Manager, ((Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult)(0)), temp353, "return of SaveChangesMessage, state S219");
+
                     int temp354;
                     Microsoft.Protocols.TestSuites.MS_OXCFXICS.RopResult temp355;
                     this.Manager.Comment("executing step \'call SynchronizationConfigure(1,3,Contents,Unicode|ForceUnicode,U" +
