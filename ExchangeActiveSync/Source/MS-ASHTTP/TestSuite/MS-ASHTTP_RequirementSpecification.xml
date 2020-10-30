@@ -4371,7 +4371,7 @@ Content-Type: text/html</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R457</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (&lt;10&gt; Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to block clients for an amount of time other than 14 hours.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (&lt;10&gt; Section 3.2.5.1.1:  Exchange 2013, Exchange 2016, and Exchange 2019 can be configured to block clients for an amount of time other than 14 hours.)</ns1:Description>
 		<ns1:Derived>MS-ASHTTP_R421:i,MS-ASHTTP_R300:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

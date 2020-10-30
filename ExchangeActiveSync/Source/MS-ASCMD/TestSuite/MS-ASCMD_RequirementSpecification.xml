@@ -467,8 +467,8 @@
 		<ns1:Description>[In Find] The Find command uses the Keyword Query Language (KQL) syntax to construct property restriction based searches for entries in a mailbox. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R10031941</ns1:REQ_ID>
@@ -945,34 +945,34 @@
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R10031994</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Find] [Searching the Global Address List (GAL)] The Find command is used to find contacts and recipients in the GAL, and to retrieve information about them.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R10031995</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Find] [Searching the Global Address List (GAL)] When a search query matches more than one GAL entry, the Find command MUST return as many entries as requested.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R10031996</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Find] [Searching the Global Address List (GAL)]  When a search query matches more than one GAL entry, [the Find command MUST return as many entries as requested,] up to a total of 100 entries by default.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R10031997</ns1:REQ_ID>
@@ -980,8 +980,19 @@
 		<ns1:Description>[In Find] [Searching the Global Address List (GAL)] For each GAL entry that is found, the Find command returns all the non-empty properties that are indexed by the online ambiguous name resolution (ANR) in the global catalog server—for example, email alias, display name, first and last names, company name, and so on.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:VerificationComment>Partially verified by derived requirement: MS-ASCMD_R1002501.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R1002501</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
+		<ns1:Description>[In Find] For each GAL entry that is found, the Find command returns email alias and display name.</ns1:Description>
+		<ns1:Derived>MS-ASCMD_R10031997:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R10031998</ns1:REQ_ID>
@@ -993,7 +1004,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R10031999</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R131999</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Find] [Searching the Global Address List (GAL)] The server MUST return entries up to the number that is requested, and MUST also indicate the total number of entries that are found.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -1002,13 +1013,13 @@
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R10032000</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R132000</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Find] [Searching the Global Address List (GAL)] The text query string that is provided to the Find command is used in a prefix-string match.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R10032001</ns1:REQ_ID>
@@ -1043,7 +1054,7 @@
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R10032004</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R132004</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
 		<ns1:Description>[In Find] [Searching the Global Address List (GAL)] The Find command results are sorted by the server according to their ordering in the GAL (that is, by the display name property).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -11723,7 +11734,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6164101061</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R61641061</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.9.1</ns1:Doc_Sect>
 		<ns1:Description>[In Alias (Find)] The Alias element is only present in response to Find command requests that contain the GALSearchCriterion element as specified in section 2.2.3.82.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -11732,7 +11743,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6164101062</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R61641062</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.9.1</ns1:Doc_Sect>
 		<ns1:Description>[In Alias (Find)] It[Alias element] contains the alias of a recipient in the GAL that matched the search criteria from the corresponding Find command request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -11741,7 +11752,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6164101063</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R61641063</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.9.1</ns1:Doc_Sect>
 		<ns1:Description>[In Alias (Find)] Element Alias in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -11750,7 +11761,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6164101064</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R61641064</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.9.1</ns1:Doc_Sect>
 		<ns1:Description>[In Alias (Find)] None [Element Alias in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -11759,7 +11770,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6164101065</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R61641065</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.9.1</ns1:Doc_Sect>
 		<ns1:Description>[In Alias (Find)] Element Alias in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -11768,7 +11779,7 @@ FilterType, Class, Conflict, MIMESupport, MIMETruncation, MaxItems, Commands, Ch
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6164101066</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R61641066</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.9.1</ns1:Doc_Sect>
 		<ns1:Description>[In Alias (Find)] Element Alias in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -15107,7 +15118,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R901100602</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R9010602</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.27.1</ns1:Doc_Sect>
 		<ns1:Description>[In Class (Find)] The airsync:Class element is a required child element of a required child element of the Result element in Find command responses.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -15170,7 +15181,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R901100609</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R9010609</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.27.1</ns1:Doc_Sect>
 		<ns1:Description>[In Class (Find)] Element Class(Find) in Find command response, the parent element is Result (section 2.2.3.155.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -15179,7 +15190,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R901100610</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R9010610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.27.1</ns1:Doc_Sect>
 		<ns1:Description>[In Class (Find)] Element Class(Find) in Find command response, has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -15188,7 +15199,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R901100611</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R9010611</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.27.1</ns1:Doc_Sect>
 		<ns1:Description>[In Class (Find)] Element Class(Find) in Find command response, the data type is string.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -15197,7 +15208,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R901100612</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R9010612</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.27.1</ns1:Doc_Sect>
 		<ns1:Description>[In Class (Find)] Element Class(Find) in Find command response, the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -17315,7 +17326,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R982100601</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R9820601</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.30.1</ns1:Doc_Sect>
 		<ns1:Description>[In CollectionId (Find)] The airsync:CollectionId element is an optional child element of the Query element in Find command requests that specifies the folder in which to search.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -17324,7 +17335,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R982100602</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R9820602</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.30.1</ns1:Doc_Sect>
 		<ns1:Description>[In CollectionId (Find)] The airsync:CollectionId element is a required child element of the Result element in Find command responses that specifies the folder in which the item was found.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -17378,7 +17389,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R982100608</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R9820608</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.30.1</ns1:Doc_Sect>
 		<ns1:Description>[In CollectionId (Find)] Element CollectionId in Find command response, the parent element is Result (section 2.2.3.155.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -17387,7 +17398,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R982100609</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R9820609</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.30.1</ns1:Doc_Sect>
 		<ns1:Description>[In CollectionId (Find)] None [Element in Find command response has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -17396,7 +17407,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R982100610</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R9820610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.30.1</ns1:Doc_Sect>
 		<ns1:Description>[In CollectionId (Find)] Element CollectionId in Find command response, the data type is string.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -17405,7 +17416,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R982100611</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R9820611</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.30.1</ns1:Doc_Sect>
 		<ns1:Description>[In CollectionId (Find)] Element CollectionId in Find command response, the number allowed is 1...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -18825,7 +18836,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6351100605</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R63510605</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.33.1</ns1:Doc_Sect>
 		<ns1:Description>[In Company (Find)] The Company element is only present in response to Find command requests that contain the GALSearchCriterion element as specified in section 2.2.3.82.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -18843,7 +18854,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6351100607</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R63510607</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.33.1</ns1:Doc_Sect>
 		<ns1:Description>[In Company (Find)] Element Company (Find) in Find command response (section 2.2.1.2), the parent element is .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -18852,7 +18863,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6351100608</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R63510608</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.33.1</ns1:Doc_Sect>
 		<ns1:Description>[In Company (Find)] None [Element Company (Find) in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -18861,7 +18872,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6351100609</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R63510609</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.33.1</ns1:Doc_Sect>
 		<ns1:Description>[In Company (Find)] Element Company (Find) in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -18870,7 +18881,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6351100610</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R63510610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.33.1</ns1:Doc_Sect>
 		<ns1:Description>[In Company (Find)] Element Company (Find) in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -20187,7 +20198,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R2127100702</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R21270702</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.39.1</ns1:Doc_Sect>
 		<ns1:Description>[In Data (Find)] Element Data in Find command response (section 2.2.1.16), the parent element is gal:Picture (section 2.2.3.135.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -20196,7 +20207,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R2127100703</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R21270703</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.39.1</ns1:Doc_Sect>
 		<ns1:Description>[In Data (Find)] None [Element Data in Find command response (section 2.2.1.16) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -20205,7 +20216,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R2127100704</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R21270704</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.39.1</ns1:Doc_Sect>
 		<ns1:Description>[In Data (Find)] Element Data in Find command response (section 2.2.1.16), the data type is Byte array.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -20214,7 +20225,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R2127100705</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R21270705</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.39.1</ns1:Doc_Sect>
 		<ns1:Description>[In Data (Find)] Element Data in Find command response (section 2.2.1.16), the number allowed is 0…1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22139,7 +22150,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6439100706</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64390706</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.47</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayBcc] Element DisplayBcc in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22148,7 +22159,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6439100707</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64390707</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.47</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayBcc] None [Element DisplayBcc in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22157,7 +22168,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6439100708</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64390708</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.47</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayBcc] Element DisplayBcc in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22166,7 +22177,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6439100709</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64390709</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.47</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayBcc] Element DisplayBcc in Find command response (section 2.2.1.2), the number allowed is 0…1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22256,7 +22267,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6439100719</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64390719</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.48</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayCc] Element DisplayCc in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22265,7 +22276,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6439100720</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64390720</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.48</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayCc] None [Element DisplayCc in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22274,7 +22285,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6439100721</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64390721</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.48</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayCc] Element DisplayCc in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22283,7 +22294,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6439100722</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64390722</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.48</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayCc] Element DisplayCc in Find command response (section 2.2.1.2), the number allowed is 0…1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22490,7 +22501,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6443100704</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64430704</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.49.2</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayName (Find)] Element DisplayName in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22499,7 +22510,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6443100705</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64430705</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.49.2</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayName (Find)] None [Element DisplayName in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22508,7 +22519,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6443100706</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64430706</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.49.2</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayName (Find)] Element DisplayName in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -22517,7 +22528,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6443100707</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64430707</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.49.2</ns1:Doc_Sect>
 		<ns1:Description>[In DisplayName (Find)] Element DisplayName in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -23826,7 +23837,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6485100802</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64850802</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.53</ns1:Doc_Sect>
 		<ns1:Description>[In Email] [The Email element is a required child element of] the Forwardee element in Sync command responses that specifies the email address of the forwardee.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -23880,7 +23891,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6485100808</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64850808</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.53</ns1:Doc_Sect>
 		<ns1:Description>[In Email] Element Email in Sync command response (section 2.2.1.21), the parent element is Forwardee (section 2.2.3.78).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -23889,7 +23900,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6485100809</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64850809</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.53</ns1:Doc_Sect>
 		<ns1:Description>[In Email] None [Element Email in Sync command response (section 2.2.1.21) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -23898,7 +23909,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6485100810</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64850810</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.53</ns1:Doc_Sect>
 		<ns1:Description>[In Email] Element Email in Sync command response (section 2.2.1.21), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -23907,7 +23918,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6485100811</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R64850811</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.53</ns1:Doc_Sect>
 		<ns1:Description>[In Email] Element Email in Sync command response (section 2.2.1.21), the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -24144,7 +24155,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R5308100804</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R53080804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.55.1</ns1:Doc_Sect>
 		<ns1:Description>[EmailAddress (Find)] Element EmailAddress in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -24153,7 +24164,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R5308100805</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R53080805</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.55.1</ns1:Doc_Sect>
 		<ns1:Description>[EmailAddress (Find)] None [Element EmailAddress in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -24162,7 +24173,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R5308100806</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R53080806</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.55.1</ns1:Doc_Sect>
 		<ns1:Description>[EmailAddress (Find)] Element EmailAddress in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -24171,7 +24182,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R5308100807</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R53080807</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.55.1</ns1:Doc_Sect>
 		<ns1:Description>[EmailAddress (Find)] Element EmailAddress in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -27912,7 +27923,7 @@ GALSearchCriterion (section 2.2.3.82) child elements.]</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6559101902</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R65591902</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
 		<ns1:Description>The Find element is a required element in Find command responses that identifies the body of the HTTP POST as containing a Find command (section 2.2.3.69). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -27968,7 +27979,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6559101908</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R65591908</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
 		<ns1:Description>None [Element Find in Find command response, has no Parent element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -27977,7 +27988,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6559101909</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R65591909</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
 		<ns1:Description>Element Find in Find command response, the child elements are 
 Status (section 2.2.3.177.2) 
@@ -27988,7 +27999,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6559101910</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R65591910</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
 		<ns1:Description>Element Find in Find command response, the data type is container ([MS-ASDTYPE] section 2.2). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -27997,7 +28008,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6559101911</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R65591911</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
 		<ns1:Description>Element Find in Find command response, the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -28107,7 +28118,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6559100808</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R65590808</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.70.1</ns1:Doc_Sect>
 		<ns1:Description>[In FirstName (Find)] Element FirstName in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -28116,7 +28127,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6559100809</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R65590809</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.70.1</ns1:Doc_Sect>
 		<ns1:Description>[In FirstName (Find)] None [Element FirstName in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -28125,7 +28136,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6559100810</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R65590810</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.70.1</ns1:Doc_Sect>
 		<ns1:Description>[In FirstName (Find)] Element FirstName in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -28134,7 +28145,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6559100811</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R65590811</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.70.1</ns1:Doc_Sect>
 		<ns1:Description>[In FirstName (Find)] Element FirstName in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -31203,7 +31214,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6685101603</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66851603</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.87</ns1:Doc_Sect>
 		<ns1:Description>[In HasAttachments] Element HasAttachments in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -31212,7 +31223,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6685101604</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66851604</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.87</ns1:Doc_Sect>
 		<ns1:Description>[In HasAttachments] None [Element HasAttachments in command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -31221,7 +31232,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6685101605</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66851605</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.87</ns1:Doc_Sect>
 		<ns1:Description>[In HasAttachments] Element HasAttachments in command response (section 2.2.1.2), the data type is boolean ([MS-ASDTYPE] section 2.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -31230,7 +31241,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6685101606</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66851606</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.87</ns1:Doc_Sect>
 		<ns1:Description>[In HasAttachments] Element HasAttachments in command response (section 2.2.1.2), the number allowed is 0…1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -31683,7 +31694,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6694101607</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66941607</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.89.1</ns1:Doc_Sect>
 		<ns1:Description>[In HomePhone(Find)] Element HomePhone in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -31692,7 +31703,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6694101608</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66941608</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.89.1</ns1:Doc_Sect>
 		<ns1:Description>[In HomePhone(Find)] None [Element HomePhone in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -31701,7 +31712,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6694101609</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66941609</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.89.1</ns1:Doc_Sect>
 		<ns1:Description>[In HomePhone(Find)] Element HomePhone in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -31710,7 +31721,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6694101610</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66941610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.89.1</ns1:Doc_Sect>
 		<ns1:Description>[In HomePhone(Find)] Element HomePhone in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -32902,7 +32913,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6729101607</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R67291607</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.95.1</ns1:Doc_Sect>
 		<ns1:Description>[LastName (Find)] Element LastName in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -32911,7 +32922,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6729101608</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R67291608</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.95.1</ns1:Doc_Sect>
 		<ns1:Description>[LastName (Find)] None [Element in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -32920,7 +32931,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6729101609</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R67291609</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.95.1</ns1:Doc_Sect>
 		<ns1:Description>[LastName (Find)] Element LastName in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -32929,7 +32940,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6729101610</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R67291610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.95.1</ns1:Doc_Sect>
 		<ns1:Description>[LastName (Find)] Element LastName in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -34843,7 +34854,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3283101607</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R32831607</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
 		<ns1:Description>[MaxPictures (Find)] The server returns the first N results that have contact photos, where N is the value of the MaxPictures element(N=1). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -34852,7 +34863,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3283101608</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R32831608</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
 		<ns1:Description>[MaxPictures (Find)] After the MaxPictures limit is reached, the server returns Status element (section 2.2.3.177.2) value 173 (NoPicture)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -34861,7 +34872,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3283101609</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R32831609</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
 		<ns1:Description>[MaxPictures (Find)] If the contact has no photo, Status element value 174 (PictureTooLarge) if the contact’s photo is too large.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -34870,7 +34881,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3283101610</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R32831610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
 		<ns1:Description>[MaxPictures (Find)] If the contact has a photo but the MaxPictures limit was reached,  Status element value 175 (PictureLimitReached).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -35305,7 +35316,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3300101609</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R33001609</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
 		<ns1:Description>[MaxPictures (Find)] The MaxSize element specifies the maximum size of an individual contact photo that is returned in the response, in bytes. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -35314,7 +35325,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R33001016010</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R33001610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
 		<ns1:Description>[MaxPictures (Find)] The MaxPictures element (section 2.2.3.104.1) specifies the maximum number of contact photos to return in the server response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -37749,7 +37760,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6829101608</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68291608</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.114.1</ns1:Doc_Sect>
 		<ns1:Description>[In MobilePhone (Find)] Element MobilePhone in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -37758,7 +37769,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6829101610</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68291610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.114.1</ns1:Doc_Sect>
 		<ns1:Description>[In MobilePhone (Find)] None [Element MobilePhone in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -37767,7 +37778,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6829101611</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68291611</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.114.1</ns1:Doc_Sect>
 		<ns1:Description>[In MobilePhone (Find)] Element MobilePhone  in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -37776,7 +37787,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6829101612</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68291612</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.114.1</ns1:Doc_Sect>
 		<ns1:Description>[In MobilePhone (Find)] Element MobilePhone in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -39189,7 +39200,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6865101708</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68651708</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.120.3</ns1:Doc_Sect>
 		<ns1:Description>[In Name (SmartForward and Sync)] Element Name in Sync command response (section 2.2.1.21), the parent element is Forwardee (section 2.2.3.78).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -39198,7 +39209,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6865101709</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68651709</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.120.3</ns1:Doc_Sect>
 		<ns1:Description>[In Name (SmartForward and Sync)] None [Element Name in Sync command response (section 2.2.1.21) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -39207,7 +39218,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6865101710</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68651710</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.120.3</ns1:Doc_Sect>
 		<ns1:Description>[In Name (SmartForward and Sync)] Element Name in Sync command response (section 2.2.1.21), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -39216,7 +39227,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6865101711</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68651711</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.120.3</ns1:Doc_Sect>
 		<ns1:Description>[In Name (SmartForward and Sync)] Element Name in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -39326,7 +39337,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6865101724</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68651724</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.121.1</ns1:Doc_Sect>
 		<ns1:Description>[In Office (Find)] Element Office in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -39335,7 +39346,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6865101725</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68651725</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.121.1</ns1:Doc_Sect>
 		<ns1:Description>[In Office (Find)] None [Element in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -39344,7 +39355,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6865101726</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68651726</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.121.1</ns1:Doc_Sect>
 		<ns1:Description>[In Office (Find)] Element Office in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -39353,7 +39364,7 @@ Value (section 2.2.3.196)</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6865101727</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R68651727</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.121.1</ns1:Doc_Sect>
 		<ns1:Description>[In Office (Find)] Element Office in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -43062,7 +43073,7 @@ airsyncbase:BodyPartPreference ([MS-ASAIRS] section2.2.2.6), rm:RightsManagement
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6958101708</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69581708</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.133.1</ns1:Doc_Sect>
 		<ns1:Description>[In Phone (Find)] Element Phone in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -43071,7 +43082,7 @@ airsyncbase:BodyPartPreference ([MS-ASAIRS] section2.2.2.6), rm:RightsManagement
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6958101709</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69581709</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.133.1</ns1:Doc_Sect>
 		<ns1:Description>[In Phone (Find)] None [Element Phone in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -43080,7 +43091,7 @@ airsyncbase:BodyPartPreference ([MS-ASAIRS] section2.2.2.6), rm:RightsManagement
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6958101710</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69581710</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.133.1</ns1:Doc_Sect>
 		<ns1:Description>[In Phone (Find)] Element Phone in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -43089,7 +43100,7 @@ airsyncbase:BodyPartPreference ([MS-ASAIRS] section2.2.2.6), rm:RightsManagement
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6958101711</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69581711</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.133.1</ns1:Doc_Sect>
 		<ns1:Description>[In Phone (Find)] Element Phone in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -43471,7 +43482,7 @@ airsyncbase:BodyPartPreference ([MS-ASAIRS] section2.2.2.6), rm:RightsManagement
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3669101708</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R36691708</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.135.1</ns1:Doc_Sect>
 		<ns1:Description>[In Picture (Find)] Element Picture in Find command response, the parent element is Properties (section 2.2.3.139.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -43480,7 +43491,7 @@ airsyncbase:BodyPartPreference ([MS-ASAIRS] section2.2.2.6), rm:RightsManagement
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3669101709</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R36691709</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.135.1</ns1:Doc_Sect>
 		<ns1:Description>[In Picture (Find)] Element Picture in Find command response, the child elements are Status (section 2.2.3.177.2) 
 gal:Data (section 2.2.3.39.1).</ns1:Description>
@@ -43490,7 +43501,7 @@ gal:Data (section 2.2.3.39.1).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3669101710</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R36691710</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.135.1</ns1:Doc_Sect>
 		<ns1:Description>[In Picture (Find)] Element Picture in Find command response, the data type is container.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -43499,7 +43510,7 @@ gal:Data (section 2.2.3.39.1).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3669101711</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R36691711</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.135.1</ns1:Doc_Sect>
 		<ns1:Description>[In Picture (Find)] Element Picture in Find command response, the number allowed is 0…1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44005,7 +44016,7 @@ MaxPictures (section 2.2.3.94.2).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6978101704</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69781704</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.137</ns1:Doc_Sect>
 		<ns1:Description>[In Preview] Element in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44014,7 +44025,7 @@ MaxPictures (section 2.2.3.94.2).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6978101705</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69781705</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.137</ns1:Doc_Sect>
 		<ns1:Description>[In Preview] None [Element Preview in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44023,7 +44034,7 @@ MaxPictures (section 2.2.3.94.2).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6978101706</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69781706</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.137</ns1:Doc_Sect>
 		<ns1:Description>[In Preview] Element Preview in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44032,7 +44043,7 @@ MaxPictures (section 2.2.3.94.2).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6978101707</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69781707</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.137</ns1:Doc_Sect>
 		<ns1:Description>[In Preview] Element Preview in Find command response (section 2.2.1.2), the number allowed is 0…1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44221,7 +44232,7 @@ MaxPictures (section 2.2.3.94.2).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3684101701</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R36841701</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.139.1</ns1:Doc_Sect>
 		<ns1:Description>[In Properties (Find)] The Properties element is a required child element of the Result element in Find command responses that contains the properties that are returned for an item in the response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44239,7 +44250,7 @@ MaxPictures (section 2.2.3.94.2).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3684101703</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R36841703</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.139.1</ns1:Doc_Sect>
 		<ns1:Description>[In Properties (Find)] Element Properties in Find command response (section 2.2.1.2), the parent element is Result (section 2.2.3.155.1) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44248,7 +44259,7 @@ MaxPictures (section 2.2.3.94.2).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3684101704</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R36841704</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.139.1</ns1:Doc_Sect>
 		<ns1:Description>[In Properties (Find)] Element Properties in Find command response (section 2.2.1.2)  the child elements are 
 Subject ([MS-ASEMAIL] section 2.2.2.75.1)
@@ -44280,7 +44291,7 @@ gal:Picture (section 2.2.3.135.1).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3684101705</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R36841705</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.139.1</ns1:Doc_Sect>
 		<ns1:Description>[In Properties (Find)] Element Properties in Find command response (section 2.2.1.2), the data type is Container ([MS-ASDTYPE] section 2.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44289,7 +44300,7 @@ gal:Picture (section 2.2.3.135.1).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3684101706</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R36841706</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.139.1</ns1:Doc_Sect>
 		<ns1:Description>[In Properties (Find)] Element Properties in Find command response (section 2.2.1.2), the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44641,7 +44652,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101704</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901704</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] If ProposedStartTime is included as a child element, then ProposedEndTime is a required child element as well. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44695,7 +44706,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101710</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901710</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the parent element is MeetingRequest ([MS-ASEMAIL] section 2.2.2.48).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44704,7 +44715,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R699010171</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901711</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] None [Element ProposedEndTime in Sync command response (section 2.2.1.21) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44713,7 +44724,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101712</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901712</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the data type is Compact DateTime ([MS-ASDTYPE] section 2.7.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44722,7 +44733,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101713</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901713</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44731,7 +44742,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101714</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901714</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the parent element is Attendee
 ([MS-ASCAL] section 2.2.2.3).</ns1:Description>
@@ -44741,7 +44752,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101715</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901715</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] None [Element ProposedEndTime in Sync command response (section 2.2.1.21) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44750,7 +44761,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101716</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901716</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the data type is Compact DateTime ([MS-ASDTYPE] section 2.7.2) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44759,7 +44770,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101717</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901717</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44831,7 +44842,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101725</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901725</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] If ProposedEndTime is included as a child element, then ProposedStartTime is a required child element as well. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44885,7 +44896,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101731</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901731</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the parent element is MeetingRequest
 ([MS-ASEMAIL] section.</ns1:Description>
@@ -44895,7 +44906,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101732</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901732</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] None [Element ProposedStartTime in Sync command response (section 2.2.1.21), has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44904,7 +44915,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101733</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901733</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the data type is Compact DateTime ([MS-ASDTYPE] .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44913,7 +44924,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101734</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901734</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44922,7 +44933,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101735</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901735</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the parent element is Attendee
 ([MS-ASCAL] section 2.2.2.3).</ns1:Description>
@@ -44932,7 +44943,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101736</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901736</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] None [Element ProposedStartTime in Sync command response (section 2.2.1.21), has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44941,7 +44952,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101737</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901737</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the data type is Compact DateTime ([MS-ASDTYPE] section 2.7.2) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44950,7 +44961,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6990101738</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69901738</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -45478,7 +45489,7 @@ airsync:CollectionId (section 2.2.3.30.1).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3707101811</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R37071811</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.143.1</ns1:Doc_Sect>
 		<ns1:Description>[In Range (Find)] The format of the Range element value is in the form of a zero-based index specifier, formed with a nonnegative integer, a hyphen, and another nonnegative integer of higher value than the first. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -45487,7 +45498,7 @@ airsync:CollectionId (section 2.2.3.30.1).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3707101812</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R37071812</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.143.1</ns1:Doc_Sect>
 		<ns1:Description>[In Range (Find)] The m indicates the lowest index of a zero-based array that would hold the items. The n indicates the highest index of a zero-based array that would hold the items. The Range element has possible values for m and n of 0 ≤ m ≤ n ≤ 999. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -45523,7 +45534,7 @@ airsync:CollectionId (section 2.2.3.30.1).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3707101816</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R37071816</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.143.1</ns1:Doc_Sect>
 		<ns1:Description>[In Range (Find)] If the Find request includes a Range element, the server can return fewer results than requested. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -47873,7 +47884,7 @@ airsync:CollectionId (section 2.2.3.30.1).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7048101804</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R70481804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.153.2</ns1:Doc_Sect>
 		<ns1:Description>[Response (Find)] Element Response in Find command response (section 2.2.1.2), the parent element is Find (section 2.2.3.69).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -47882,7 +47893,7 @@ airsync:CollectionId (section 2.2.3.30.1).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7048101805</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R70481805</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.153.2</ns1:Doc_Sect>
 		<ns1:Description>[Response (Find)] None [Element Response in Find command response (section 2.2.1.2), the child elements are itemoperations:Store (section 2.2.3.178.1) 
 Status (section 2.2.3.177.2)
@@ -47895,7 +47906,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7048101806</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R70481806</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.153.2</ns1:Doc_Sect>
 		<ns1:Description>[Response (Find)] Element Response in Find command response (section 2.2.1.2), the data type is container ([MS-ASDTYPE] section 2.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -47904,7 +47915,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7048101807</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R70481807</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.153.2</ns1:Doc_Sect>
 		<ns1:Description>[Response (Find)] Element Response in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -48717,7 +48728,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3839101804</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R38391804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.155.1</ns1:Doc_Sect>
 		<ns1:Description>[In Result (Find)] One Result element is present for each match that is found.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -48726,7 +48737,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3839101805</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R38391805</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.155.1</ns1:Doc_Sect>
 		<ns1:Description>[In Result (Find)] If no matches are found, the Result element is not present in the Response container element of the response XML.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -49824,7 +49835,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7098101808</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R70981808</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.160</ns1:Doc_Sect>
 		<ns1:Description>[In SearchId] If the client wants to page through Find results by incrementing the Range value, it MUST use the same SearchId in subsequent Find command requests. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50526,7 +50537,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3897101801</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R38971801</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] The airsync:ServerId element is a required child element of the Result element under the Find element (section 2.2.3.69) in Find command responses.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50544,7 +50555,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3897101803</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R38971803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] Element ServerId in Find command response (section 2.2.1.2), the parent element is .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50553,7 +50564,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3897101804</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R38971804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] None [Element ServerId in Find command response (section 2.2.1.2), has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50562,7 +50573,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3897101805</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R38971805</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] Element ServerId in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -50571,7 +50582,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R3897101806</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R38971806</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.166.1</ns1:Doc_Sect>
 		<ns1:Description>[In ServerId (Find)] Element ServerId in Find command response (section 2.2.1.2), the number allowed is 1…1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -53846,7 +53857,7 @@ DevicePassword (section 2.2.3.46).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101801</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72171801</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.1</ns1:Doc_Sect>
 		<ns1:Description>[In Status(Autodiscover)] Protocol version 16.1 supports this [Status(Autodiscover)] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -53855,7 +53866,7 @@ DevicePassword (section 2.2.3.46).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101802</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72171802</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] The Status element is a required child element of the Find element and the Response element in Find command responses.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -53864,7 +53875,7 @@ DevicePassword (section 2.2.3.46).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101803</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72171803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] Elements referenced in this section are defined in the Find namespace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -53873,17 +53884,16 @@ DevicePassword (section 2.2.3.46).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101804</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72171804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] Element Status in Find command response (section 2.2.1.2), the parent element is Find (section 2.2.3.69)  or
-Response (section 2.2.3.153.2).</ns1:Description>
+		<ns1:Description>[In Status (Find)] Element Status in Find command response (section 2.2.1.2), the parent element are Find (section 2.2.3.69),  Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101805</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72171805</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] None [Element Status in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -53892,7 +53902,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101806</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72171806</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] Element Status in Find command response (section 2.2.1.2), the data type is integer ([MS-ASDTYPE] section 2.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -53901,7 +53911,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101807</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72171807</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] Element Status in Find command response (section 2.2.1.2), the number allowed is 1…1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -53910,7 +53920,201 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101808</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72172501</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] As a child element of the Find element, the Status element indicates whether the server encountered an error while it was processing the Find query.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172502</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] The Status element value indicates only that the overall Find command request (section 2.2.1.2) was processed correctly.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172503</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] It [The Status element ] does not indicate whether any matches were found.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172504</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] The Total (section 2.2.3.184.1) and Range (section 2.2.3.143.1) elements in the Find command response indicate how many matches were found and returned, respectively.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172505</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] As a child element of the Response element, the Status element indicates whether the server encountered an error while it was processing the Find query.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172506</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] The following table specifies valid values [1,2,3,4] for the Status element as a child of the Store element in the Search response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172507</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] For information about the scope of the status value and for status values common to all ActiveSync commands, see section 2.2.2. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172508</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Find element,
+Response element], [the meaning of the status value] 1 [is] Success.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172509</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Find element], [the cause of the status value 1 is] Server successfully completed command.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172520</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Find element Response element], [the cause of the status value 1 is] Server successfully completed command.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172510</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Find element,
+Response element], [the resolution of the status value 1 for the client is] None.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172511</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Find element,
+Response element], [the meaning of the status value] 2 [is] The request was invalid.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172512</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Find element], [the cause of the status value 2 is] One or more of the client's search parameters was invalid.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172521</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Response element], [the cause of the status value 2 is] One or more of the client's search parameters was invalid.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172513</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Find element,
+Response element],  [the resolution of status value 2 for the client is] If the user formatted the request, prompt the user to retry with different options.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172514</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Find element,
+Response element], [the meaning of the status value] 3 [is] FolderSync required.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172515</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Find element], [the cause of the status value 3 is] The folder hierarchy is out of date. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172516</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Find element],  [the resolution of status value 3 for the client is] Issue a FolderSync command (section 2.2.1.5) and then try the Find command again.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172517</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Response element], [the meaning of the status value] 4 [is] StartWithRangeZero.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172518</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Response element], [the cause of the status value 4 is] The requested range does not begin with 0.  </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72172519</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
+		<ns1:Description>[In Status (Find)] [When the parent is Response element],  [the resolution of status value 4 for the client is] Issue a new Find request with a Range value that begins with 0. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R72171808</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] Protocol version 12.1 does not supports this [Status] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -53919,7 +54123,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101809</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72171809</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] Protocol version 14.0 does not supports this [Status] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -53928,7 +54132,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101810</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72171810</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] Protocol version 14.1 does not supports this [Status] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -53937,7 +54141,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101811</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72171811</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] Protocol version 16.0 does not supports this [Status] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -53946,7 +54150,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7217101812</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R72171812</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] Protocol version 16.1 supports this [Status] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -60476,7 +60680,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R4525101801</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R45251801</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] The itemoperations:Store element is a required child element of the Response element in Find command responses that specifies the name of the store to which the parent operation applies.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -60494,7 +60698,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R4525101803</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R45251803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] Element Store in , the parent element is Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -60503,7 +60707,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R4525101804</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R45251804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] None [Element Store in  has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -60512,7 +60716,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R4525101805</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R45251805</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] Element Store in , the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -60521,7 +60725,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R4525101806</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R45251806</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] Element Store in , the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -60530,7 +60734,7 @@ Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R4525101807</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R45251807</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
 		<ns1:Description>[In Status (Find)] In the Find command response, the value of the Store element will be "Mailbox".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -62390,7 +62594,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7329101807</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R73291807</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.182.1</ns1:Doc_Sect>
 		<ns1:Description>[In Title (Find)] Element Title in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -62399,7 +62603,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7329101808</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R73291808</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.182.1</ns1:Doc_Sect>
 		<ns1:Description>[In Title (Find)] None [Element Title in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -62408,7 +62612,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7329101809</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R73291809</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.182.1</ns1:Doc_Sect>
 		<ns1:Description>[In Title (Find)] Element Title in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -62417,7 +62621,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R7329101810</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R73291810</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.182.1</ns1:Doc_Sect>
 		<ns1:Description>[In Title (Find)] Element Title in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -62918,7 +63122,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R4630101803</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R46301803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.184.1</ns1:Doc_Sect>
 		<ns1:Description>[Title (Find)] Element Total in Find command response (section 2.2.1.2), the parent element is Response (section 2.2.3.153.2) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -62927,7 +63131,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R4630101804</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R46301804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.184.1</ns1:Doc_Sect>
 		<ns1:Description>[Title (Find)] None [Element Total in Find command response (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -62936,7 +63140,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R4630101805</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R46301805</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.184.1</ns1:Doc_Sect>
 		<ns1:Description>[Title (Find)] Element Total in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -62945,7 +63149,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R4630101806</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R46301806</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.184.1</ns1:Doc_Sect>
 		<ns1:Description>[Title (Find)] Element Total in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>

@@ -759,7 +759,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             this.codePages[25].AddToken(0x16, "Total");
             this.codePages[25].AddToken(0x17, "DisplayCc");
             this.codePages[25].AddToken(0x18, "DisplayBcc");
-            this.codePages[25].AddToken(0x19, "GalSearchCriterion");
+            this.codePages[25].AddToken(0x19, "GALSearchCriterion");
             this.codePages[25].AddToken(0x20, "MaxPictures");
             this.codePages[25].AddToken(0x21, "MaxSize");
             this.codePages[25].AddToken(0x22, "Picture");
