@@ -28109,13 +28109,13 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6559100806</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R65590806</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.70.1</ns1:Doc_Sect>
 		<ns1:Description>[In FirstName (Find)] The FirstName element is only present in response to Find command requests that contain the GALSearchCriterion element as specified in section 2.2.3.82.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559100807</ns1:REQ_ID>
@@ -34905,7 +34905,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R32831608</ns1:REQ_ID>
@@ -34914,7 +34914,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R32831609</ns1:REQ_ID>
@@ -34923,7 +34923,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R32831610</ns1:REQ_ID>
@@ -34932,7 +34932,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101611</ns1:REQ_ID>
@@ -35367,7 +35367,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R33001610</ns1:REQ_ID>
@@ -35376,7 +35376,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R33001016011</ns1:REQ_ID>
@@ -43100,7 +43100,7 @@ airsyncbase:BodyPartPreference ([MS-ASAIRS] section2.2.2.6), rm:RightsManagement
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6958101706</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69581706</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.133.1</ns1:Doc_Sect>
 		<ns1:Description>[In Phone (Find)] The Phone element is only present in response to Find command requests that contain the GALSearchCriterion element as specified in section 2.2.3.82.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44701,7 +44701,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] If ProposedStartTime is included as a child element, then ProposedEndTime is a required child element as well. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
@@ -48775,7 +48775,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R99910</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.155.1</ns1:Doc_Sect>
-		<ns1:Description>[In In Result (Find)] Element Result in Find command response (section 2.2.1.2), the parent element is Search (section 2.2.3.153.2).</ns1:Description>
+		<ns1:Description>[In Result (Find)] Element Result in Find command response (section 2.2.1.2), the parent element is Search (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -48784,7 +48784,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R99911</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.155.1</ns1:Doc_Sect>
-		<ns1:Description>[In In Result (Find)] Element Result in Find command response (section 2.2.1.2), the child element is airsync:Class (section 2.2.3.27.1),airsync:ServerId (section 2.2.3.166.1),airsync:CollectionId (section 2.2.3.30.1),Properties (section 2.2.3.139.1).</ns1:Description>
+		<ns1:Description>[In Result (Find)] Element Result in Find command response (section 2.2.1.2), the child element is airsync:Class (section 2.2.3.27.1),airsync:ServerId (section 2.2.3.166.1),airsync:CollectionId (section 2.2.3.30.1),Properties (section 2.2.3.139.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -49920,9 +49920,9 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Doc_Sect>2.2.3.160</ns1:Doc_Sect>
 		<ns1:Description>[In SearchId] If the client wants to page through Find results by incrementing the Range value, it MUST use the same SearchId in subsequent Find command requests. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R7098101809</ns1:REQ_ID>
@@ -54085,7 +54085,7 @@ Response element], [the meaning of the status value] 1 [is] Success.</ns1:Descri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R72172520</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] [When the parent is Find element Response element], [the cause of the status value 1 is] Server successfully completed command.</ns1:Description>
+		<ns1:Description>[In Status (Find)] [When the parent is Response element], [the cause of the status value 1 is] Server successfully completed command.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -54156,7 +54156,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R72172516</ns1:REQ_ID>
