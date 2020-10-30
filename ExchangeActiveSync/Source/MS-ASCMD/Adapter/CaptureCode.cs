@@ -675,13 +675,137 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         }
 
         /// <summary>
+        /// Verify Forwardees element for Sync responses.
+        /// </summary>
+        private void VerifyForwardeesElementForSyncResponses()
+        {
+                #region Capture code for Forwardees
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66550801");
+
+                // If the schema validation result is true and Forwardees is not null, this requirement can be verified.
+                Site.CaptureRequirement(
+                    66550801,
+                    @"[In Forwardees] Element Forwardees in Sync command response (section 2.2.1.21), the parent element is MeetingRequest ([MS-ASEMAIL] section 2.2.2.48).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66550802");
+
+                // If the schema validation result is true and Forwardees is not null, this requirement can be verified.
+                Site.CaptureRequirement(
+                    66550802,
+                    @"[In Forwardees] None [Element Forwardees in Sync command response (section 2.2.1.21) has no child element.]");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66550803");
+
+                // If the schema validation result is true and Forwardees is not null, this requirement can be verified.
+                Site.CaptureRequirement(
+                    66550803,
+                    @"[In Forwardees] Element Forwardees in Sync command response (section 2.2.1.21), the data type is container ([MS-ASDTYPE] section 2.2)");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66550804");
+
+                // If the schema validation result is true and Forwardees is not null, this requirement can be verified.
+                Site.CaptureRequirement(
+                    66550804,
+                    @"[In Forwardees] Element Forwardees in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional).");
+
+                this.VerifyContainerDataType();
+                #endregion
+            
+        }
+
+        /// <summary>
         /// Verify Forwardee element for Sync responses.
         /// </summary>
-        /// <param name="forwardee">The ForwardeesForwardee element.</param>
         private void VerifyForwardeeElementForSyncResponses(ForwardeesForwardee forwardee)
         {
             if (forwardee != null)
             {
+                #region Capture code for Forwardee
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66250801");
+
+                // If the schema validation result is true and Forwardee is not null, this requirement can be verified.
+                Site.CaptureRequirement(
+                    66250801,
+                    @"[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21),  the parent element is Forwardees (section 2.2.3.79).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66250802");
+
+                // If the schema validation result is true and Forwardee is not null, this requirement can be verified.
+                Site.CaptureRequirement(
+                    66250802,
+                    @"[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21), the child elements are ForwardeeEmail (section 2.2.3.53), ForwardeeName (section 2.2.3.120.3).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66250803");
+
+                // If the schema validation result is true and Forwardee is not null, this requirement can be verified.
+                Site.CaptureRequirement(
+                    66250803,
+                    @"[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21), the data type is container ([MS-ASDTYPE] section 2.2).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66250804");
+
+                // If the schema validation result is true and Forwardee is not null, this requirement can be verified.
+                Site.CaptureRequirement(
+                    66250804,
+                    @"[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21), the number allowed is 1…N (required).");
+
+                this.VerifyContainerDataType();
+
+                #region Capture code for Email
+                if (forwardee.Email != null)
+                {
+                    // Add the debug information.
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64850802");
+
+                    // If the schema validation result is true and Email is not null, this requirement can be verified.
+                    Site.CaptureRequirement(
+                        64850802,
+                        @"[In Email] [The Email element is a required child element of] the Forwardee element in Sync command responses that specifies the email address of the forwardee.");
+                    
+                    // Add the debug information.
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64850808");
+
+                    // If the schema validation result is true and Email is not null, this requirement can be verified.
+                    Site.CaptureRequirement(
+                        64850808,
+                        @"[In Email] Element Email in Sync command response (section 2.2.1.21), the parent element is Forwardee (section 2.2.3.78).");
+
+                    // Add the debug information.
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64850809");
+
+                    // If the schema validation result is true and Email is not null, this requirement can be verified.
+                    Site.CaptureRequirement(
+                        64850809,
+                        @"[In Email] None [Element Email in Sync command response (section 2.2.1.21) has no child element.]");
+
+                    // Add the debug information.
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64850810");
+
+                    // If the schema validation result is true and Email is not null, this requirement can be verified.
+                    Site.CaptureRequirement(
+                        64850810,
+                        @"[In Email] Element Email in Sync command response (section 2.2.1.21), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                    // Add the debug information.
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64850811");
+
+                    // If the schema validation result is true and Email is not null, this requirement can be verified.
+                    Site.CaptureRequirement(
+                        64850811,
+                        @"[In Email] Element Email in Sync command response (section 2.2.1.21), the number allowed is 1...1 (required).");
+                    
+                    this.VerifyStringDataType();
+                }
+                #endregion
+                #endregion
             }
         }
 
@@ -6342,13 +6466,20 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                     Regex rangeRegex = new Regex("0-[0-9]*");
 
                     // Add the debug information.
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3725, the value for Range element is {0}", searchResponse.ResponseData.Response.Store.Range);
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R37071811, the value for Range element is {0}", searchResponse.ResponseData.Response.Store.Range);
 
                     // Verify MS-ASCMD requirement: MS-ASCMD_R3725
                     Site.CaptureRequirementIfIsTrue(
                         rangeRegex.IsMatch(searchResponse.ResponseData.Response.Store.Range),
-                        3725,
+                        37071811,
                         @"[In Range(Search)] The format of the Range element value is in the form of a zero-based index specifier, formed with a zero, a hyphen, and another numeric value: ""m-n.""");
+                    // Add the debug information.
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R3725");
+
+                    // Verify MS-ASCMD requirement: MS-ASCMD_R37071812
+                    Site.CaptureRequirement(
+                        37071812,
+                        @"[In Range (Find)] The m indicates the lowest index of a zero-based array that would hold the items. The n indicates the highest index of a zero-based array that would hold the items. The Range element has possible values for m and n of 0 ≤ m ≤ n ≤ 999.");
                 }
                 #endregion
 
@@ -6677,34 +6808,34 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         // Add the debug information.
                                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5288");
 
-                                        // If the schema validation result is true and Alias is not null, this requirement can be verified.
+                                        // If the schema validation result is true and Alias (Search) is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5288,
-                                            @"[In Alias] Element Alias in Search command response (section 2.2.2.15), the parent element is Properties (section 2.2.3.132.2).");
+                                            @"[In Alias (Search)] Element Alias in Search command response (section 2.2.2.15), the parent element is Properties (section 2.2.3.132.2).");
 
                                         // Add the debug information.
                                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5289");
 
-                                        // If the schema validation result is true and Alias is not null, this requirement can be verified.
+                                        // If the schema validation result is true and Alias (Search) is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5289,
-                                            @"[In Alias] None [Element Alias in Search command response (section 2.2.2.15) has no child element.]");
+                                            @"[In Alias (Search)] None [Element Alias in Search command response (section 2.2.2.15) has no child element.]");
 
                                         // Add the debug information.
                                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5290");
 
-                                        // If the schema validation result is true and Alias is not null, this requirement can be verified.
+                                        // If the schema validation result is true and Alias (Search) is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5290,
-                                            @"[In Alias] Element Alias in Search command response (section 2.2.2.15), the data type is string ([MS-ASDTYPE] section 2.7).");
+                                            @"[In Alias (Search)] Element Alias in Search command response (section 2.2.2.15), the data type is string ([MS-ASDTYPE] section 2.7).");
 
                                         // Add the debug information.
                                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5291");
 
-                                        // If the schema validation result is true and Alias is not null, this requirement can be verified.
+                                        // If the schema validation result is true and Alias (Search) is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5291,
-                                            @"[In Alias] Element Alias in Search command response (section 2.2.2.15), the number allowed is 0...1 (optional).");
+                                            @"[In Alias (Search)] Element Alias in Search command response (section 2.2.2.15), the number allowed is 0...1 (optional).");
 
                                         this.VerifyStringDataType();
                                     }
@@ -6716,34 +6847,34 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         // Add the debug information.
                                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5295");
 
-                                        // If the schema validation result is true and Company is not null, this requirement can be verified.
+                                        // If the schema validation result is true and Company (Search) is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5295,
-                                            @"[In Company] Element Company in Search command response (section 2.2.2.15), the parent element is Properties (section 2.2.3.132.2).");
+                                            @"[In Company (Search)] Element Company in Search command response (section 2.2.2.15), the parent element is Properties (section 2.2.3.132.2).");
 
                                         // Add the debug information.
                                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5296");
 
-                                        // If the schema validation result is true and Company is not null, this requirement can be verified.
+                                        // If the schema validation result is true and Company (Search) is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5296,
-                                            @"[In Company] None [Element Company in Search command response (section 2.2.2.15) has no child element.]");
+                                            @"[In Company (Search)] None [Element Company in Search command response (section 2.2.2.15) has no child element.]");
 
                                         // Add the debug information.
                                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5297");
 
-                                        // If the schema validation result is true and Company is not null, this requirement can be verified.
+                                        // If the schema validation result is true and Company (Search) is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5297,
-                                            @"[In Company] Element Company in Search command response (section2.2.2.15),the data type is string ([MS-ASDTYPE] section 2.6).");
+                                            @"[In Company (Search)] Element Company in Search command response (section2.2.2.15),the data type is string ([MS-ASDTYPE] section 2.6).");
 
                                         // Add the debug information.
                                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5298");
 
-                                        // If the schema validation result is true and Company is not null, this requirement can be verified.
+                                        // If the schema validation result is true and Company (Search) is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5298,
-                                            @"[In Company] Element Company in Search command response (section2.2.2.15),the number allowed is 0...1 (optional).");
+                                            @"[In Company (Search)] Element Company in Search command response (section2.2.2.15),the number allowed is 0...1 (optional).");
 
                                         this.VerifyStringDataType();
                                     }
@@ -7109,7 +7240,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         // If the schema validation result is true and Title is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5393,
-                                            @"[In Title] Element Title in Search command response (section 2.2.2.15), the parent element is Properties (section 2.2.3.132.2)");
+                                            @"[In Title(Search)] Element Title in Search command response (section 2.2.2.15), the parent element is Properties (section 2.2.3.132.2)");
 
                                         // Add the debug information.
                                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5394");
@@ -7117,7 +7248,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         // If the schema validation result is true and Title is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5394,
-                                            @"[In Title] None [Element Title in Search command response (section 2.2.2.15) has no child element.]");
+                                            @"[In Title(Search)] None [Element Title in Search command response (section 2.2.2.15) has no child element.]");
 
                                         // Add the debug information.
                                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5395");
@@ -7125,7 +7256,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         // If the schema validation result is true and Title is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5395,
-                                            @"[In Title] Element Title in Search command response (section 2.2.2.15), the data type is string ([MS-ASDTYPE] section 2.7)");
+                                            @"[In Title(Search)] Element Title in Search command response (section 2.2.2.15), the data type is string ([MS-ASDTYPE] section 2.7)");
 
                                         // Add the debug information.
                                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5396");
@@ -7133,7 +7264,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         // If the schema validation result is true and Title is not null, this requirement can be verified.
                                         Site.CaptureRequirement(
                                             5396,
-                                            @"[In Title] Element Title in Search command response (section 2.2.2.15), number allowed 0...1 (optional)");
+                                            @"[In Title(Search)] Element Title in Search command response (section 2.2.2.15), number allowed 0...1 (optional)");
 
                                         this.VerifyStringDataType();
                                     }
@@ -7163,7 +7294,47 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Assert.IsNotNull(findResponse.ResponseData, "The Find element should not be null.");
 
             #region Capture code for Find Store
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65591902");
 
+            // If the schema validation result is true and Find is not null, this requirement can be verified.
+            Site.CaptureRequirement(
+                65591902,
+                @"[In Find] The Find element is a required element in Find command responses that identifies the body of the HTTP POST as containing a Find command (section 2.2.3.69).");
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65591908");
+
+            // If the schema validation result is true and Find is not null, this requirement can be verified.
+            Site.CaptureRequirement(
+                65591908,
+                @"[In Find] None [Element Find in Find command response, has no Parent element.]");
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65591909");
+
+            // If the schema validation result is true and Find is not null, this requirement can be verified.
+            Site.CaptureRequirement(
+                65591909,
+                @"[In Find] Element Find in Find command response, the child elements are Status (section 2.2.3.177.2), Response (section 2.2.3.153.2)");
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65591910");
+
+            // If the schema validation result is true and Find is not null, this requirement can be verified.
+            Site.CaptureRequirement(
+                65591910,
+                @"[In Find] Element Find in Find command response, the data type is container ([MS-ASDTYPE] section 2.2).");
+
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65591911");
+
+            // If the schema validation result is true and Find is not null, this requirement can be verified.
+            Site.CaptureRequirement(
+                65591911,
+                @"[In Find] Element Find in Find command response, the number allowed is 1...1 (required).");
+
+            this.VerifyContainerDataType();
             #endregion
 
             #region Capture code for Status
@@ -7173,12 +7344,103 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Assert.IsTrue(int.TryParse(findResponse.ResponseData.Status, out status), "The Status element should be an integer.");
             this.VerifyIntegerDataType();
             Common.VerifyActualValues("Status(Find)", AdapterHelper.ValidStatus(new string[] { "1", "2", "3", "4" }), findResponse.ResponseData.Status, this.Site);
+            // Add the debug information.
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172506");
+
+            // If the schema validation result is true, this requirement can be verified.
+            Site.CaptureRequirement(
+                72172506,
+                @"[In Status (Find)] The following table specifies valid values [1,2,3,4] for the Status element as a child of the Store element in the Search response.");
+
             #endregion
 
             #region Capture code for Response
             if (findResponse.ResponseData.Response != null)
             {
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R70481804");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    70481804,
+                    @"[In Response (Find)] Element Response in Find command response (section 2.2.1.2), the parent element is Find (section 2.2.3.69).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R70481805");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    70481805,
+                    @"[In Response (Find)] Element Response in Find command response (section 2.2.1.2), the child elements are itemoperations:Store (section 2.2.3.178.1) 
+Status (section 2.2.3.177.2)
+Result (section 2.2.3.155.1)
+Range (section 2.2.3.143.1)
+Total (section 2.2.3.184.1).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R70481806");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    70481806,
+                    @"[In Response (Find)] Element Response in Find command response (section 2.2.1.2), the data type is container ([MS-ASDTYPE] section 2.2).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R70481807");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    70481807,
+                    @"[In Response (Find)] Element Response in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
+
                 #region Capture code for Store
+               
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R45251801");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    45251801,
+                    @"[In Store(Find)] The itemoperations:Store element is a required child element of the Response element in Find command responses that specifies the name of the store to which the parent operation applies.");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R45251803");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    45251803,
+                    @"[In Store(Find)] Element Store in , the parent element is Response (section 2.2.3.153.2).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R45251804");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    45251804,
+                    @"[In Store(Find)] None [Element Store in  has no child element.]");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R45251805");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    45251805,
+                    @"[In Store(Find)] Element Store in , the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R45251806");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    45251806,
+                    @"[In Store(Find)] Element Store in , the number allowed is 1...1 (required).");
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R45251807");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    45251807,
+                    @"[In Store(Find)] In the Find command response, the value of the Store element will be 'Mailbox'.");
                 #endregion                
 
                 #region Capture code for Status
@@ -7203,28 +7465,230 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 {
                     foreach (FindResponseResult result in findResponse.ResponseData.Response.Results)
                     {
+                        // Add the debug information.
+                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R38391804");
+
+                        // If the schema validation result is true and Properties(Search) is not null, this requirement can be verified.
+                        Site.CaptureRequirement(
+                            38391804,
+                            @"[In Result (Find)] One Result element is present for each match that is found.");
+
                         if (result != null)
                         {
                             #region Capture code for Class
                             //findResponse.ResponseData.Response.Result.Class
+
+                            // Add the debug information.
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R9010602");
+
+                            // If the schema validation result is true and Class(Find) is not null, this requirement can be verified.
+                            Site.CaptureRequirement(
+                                9010602,
+                                @"[In Class (Find)] The airsync:Class element is a required child element of a required child element of the Result element in Find command responses.");
+
+                            // Add the debug information.
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R9010609");
+
+                            // If the schema validation result is true and Class(Find) is not null, this requirement can be verified.
+                            Site.CaptureRequirement(
+                                9010609,
+                                @"[In Class (Find)] Element Class(Find) in Find command response, the parent element is Result (section 2.2.3.155.1).");
+
+                            // Add the debug information.
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R9010610");
+
+                            // If the schema validation result is true and Class(Find) is not null, this requirement can be verified.
+                            Site.CaptureRequirement(
+                                9010610,
+                                @"[In Class (Find)] Element Class(Find) in Find command response, has no child element.]");
+
+                            // Add the debug information.
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R9010611");
+
+                            // If the schema validation result is true and Class(Find) is not null, this requirement can be verified.
+                            Site.CaptureRequirement(
+                                9010611,
+                                @"[In Class (Find)] Element Class(Find) in Find command response, the data type is string.");
+
+                            // Add the debug information.
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R9010612");
+
+                            // If the schema validation result is true and Class(Find) is not null, this requirement can be verified.
+                            Site.CaptureRequirement(
+                                9010612,
+                                @"[In Class (Find)] Element Class(Find) in Find command response, the number allowed is 1...1 (required).");
+
+                            this.VerifyStringDataType();
                             #endregion
 
                             #region Capture code for CollectionId
                             //findResponse.ResponseData.Response.Result.CollectionId
+                            if (result.CollectionId != null)
+                            {
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R9820602");
+
+                                // If the schema validation result is true and CollectionId(Find) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    9820602,
+                                    @"[In CollectionId (Find)] The airsync:CollectionId element is a required child element of the Result element in Find command responses that specifies the folder in which the item was found.");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R9820608");
+
+                                // If the schema validation result is true and CollectionId(Find) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    9820608,
+                                    @"[In CollectionId (Find)] Element CollectionId in Find command response, the parent element is Result (section 2.2.3.155.1).");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R9820609");
+
+                                // If the schema validation result is true and CollectionId(Find) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    9820609,
+                                    @"[In CollectionId (Find)] None [Element in Find command response has no child element.]");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R9820610");
+
+                                // If the schema validation result is true and CollectionId(Find) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    9820610,
+                                    @"[In CollectionId (Find)] Element CollectionId in Find command response, the data type is string.");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R9820611");
+
+                                // If the schema validation result is true and CollectionId(Find) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    9820611,
+                                    @"[In CollectionId (Find)] Element CollectionId in Find command response, the number allowed is 1...1 (required).");
+
+                                this.VerifyStringDataType();
+                            }
                             #endregion
 
                             #region Capture code for ServerId
                             //findResponse.ResponseData.Response.Result.ServerId
+                            if (result.ServerId != null)
+                            {
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R38971801");
+
+                                // If the schema validation result is true and ServerId(FolderCreate) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    38971801,
+                                    @"[In ServerId (Find)] The airsync:ServerId element is a required child element of the Result element under the Find element (section 2.2.3.69) in Find command responses.");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R38971803");
+
+                                // If the schema validation result is true and ServerId(FolderCreate) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    38971803,
+                                    @"[In ServerId (Find)] Element ServerId in Find command response (section 2.2.1.2), the parent element is Result (section 2.2.3.155.1).");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R38971804");
+
+                                // If the schema validation result is true and ServerId(FolderCreate) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    38971804,
+                                    @"[In ServerId (Find)] None [Element ServerId in Find command response (section 2.2.1.2), has no child element.].");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R38971805");
+
+                                // If the schema validation result is true and ServerId(FolderCreate) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    38971805,
+                                    @"[In ServerId (Find)] Element ServerId in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R38971806");
+
+                                // If the schema validation result is true and ServerId(FolderCreate) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    38971806,
+                                    @"[In ServerId (Find)] Element ServerId in Find command response (section 2.2.1.2), the number allowed is 1…1 (required).");
+
+                                this.VerifyStringDataType();
+                            }
                             #endregion
 
                             #region Capture code for Properties
                             //findResponse.ResponseData.Response.Result.Properties
                             if (result.Properties != null)
                             {
+                                Site.Assert.IsTrue(result.Properties != null && result.Properties.Items.Length > 0, "The Properties element should not be null.");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R36841701");
+
+                                // If the schema validation result is true and Properties(Search) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    36841701,
+                                    @"[In Properties (Find)] The Properties element is a required child element of the Result element in Find command responses that contains the properties that are returned for an item in the response.");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R36841703");
+
+                                // If the schema validation result is true and Properties(Search) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    36841703,
+                                    @"[In Properties (Find)] Element Properties in Find command response (section 2.2.1.2), the parent element is Result (section 2.2.3.155.1).");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R36841704");
+
+                                // If the schema validation result is true and Properties(Search) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    36841704,
+                                    @"[In Properties (Find)] Element Properties in Find command response (section 2.2.1.2)  the child elements are Subject ([MS-ASEMAIL] section 2.2.2.75.1), 
+                                    DateReceived ([MS-ASEMAIL] section 2.2.2.24), DisplayTo ([MS-ASEMAIL] section 2.2.2.29), 
+                                    DisplayCc (section 2.2.3.48)
+                                    DisplayBcc (section 2.2.3.47)
+                                    Importance ([MS-ASEMAIL] section 2.2.2.38)
+                                    Read ([MS-ASEMAIL] section 2.2.2.58)
+                                    IsDraft ([MS-ASEMAIL] section 2.2.2.42)
+                                    Preview (section 2.2.3.137)
+                                    HasAttachments (section 2.2.3.87)
+                                    From ([MS-ASEMAIL] section 2.2.2.36)
+                                    gal:DisplayName (section 2.2.3.49.2)
+                                    gal:Phone (section 2.2.3.133.1)
+                                    gal:Office (section 2.2.3.121.1)
+                                    gal:Title (section 2.2.3.182.1)
+                                    gal:Company (section 2.2.3.33.1)
+                                    gal:Alias (section 2.2.3.9)
+                                    gal:FirstName (section 2.2.3.70)
+                                    gal:LastName (section 2.2.3.95)
+                                    gal:HomePhone (section 2.2.3.89)
+                                    gal:MobilePhone (section 2.2.3.114)
+                                    gal:EmailAddress (section 2.2.3.55.1)
+                                    gal:Picture (section 2.2.3.135.1).");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R36841705");
+
+                                // If the schema validation result is true and Properties(Search) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    36841705,
+                                    @"[In Properties (Find)] Element Properties in Find command response (section 2.2.1.2), the data type is Container ([MS-ASDTYPE] section 2.2).");
+
+                                // Add the debug information.
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R36841706");
+
+                                // If the schema validation result is true and Properties(Search) is not null, this requirement can be verified.
+                                Site.CaptureRequirement(
+                                    36841706,
+                                    @"[In Properties (Find)] Element Properties in Find command response (section 2.2.1.2), the number allowed is 1...1 (required).");
+
                                 if (result.Properties.ItemsElementName != null && result.Properties.ItemsElementName.Length > 0)
                                 {
                                     for (int j = 0; j < result.Properties.ItemsElementName.Length; j++)
                                     {
+
                                         #region Capture code for Picture
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Picture && (FindResponseResult)result.Properties.Items[j] != null)
                                         {
@@ -7233,18 +7697,151 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                             Site.Assert.IsNotNull(picture.Status, "The Status element in Picture element should not be null.");
                                             this.VerifyStatusElementForSearch();
                                             #endregion
+                                            // Add the debug information.
+                                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R36691708");
+
+                                        // If the schema validation result is true and Picture(Search) is not null, this requirement can be verified.
+                                        Site.CaptureRequirement(
+                                            36691708,
+                                            @"[In Picture (Find)] Element Picture in Find command response, the parent element is Properties (section 2.2.3.139.1).");
+
+                                        // Add the debug information.
+                                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R36691709");
+
+                                        // If the schema validation result is true and Picture(Search) is not null, this requirement can be verified.
+                                        Site.CaptureRequirement(
+                                            36691709,
+                                            @"[In Picture (Find)] Element Picture in Find command response, the child elements are Status (section 2.2.3.177.2), gal:Data (section 2.2.3.39.1).");
+
+                                        // Add the debug information.
+                                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R36691710");
+
+                                        // If the schema validation result is true and Picture(Search) is not null, this requirement can be verified.
+                                        Site.CaptureRequirement(
+                                            36691710,
+                                            @"[In Picture (Find)] Element Picture in Find command response, the data type is container.");
+
+                                        // Add the debug information.
+                                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R36691711");
+
+                                        // If the schema validation result is true and Picture(Search) is not null, this requirement can be verified.
+                                        Site.CaptureRequirement(
+                                            36691711,
+                                            @"[In Picture (Find)] Element Picture in Find command response, the number allowed is 0…1 (optional).");
+                                            #region Capture code for Data
+                                            if (picture.Data != null)
+                                            {
+                                                // Add the debug information.
+                                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R21270702");
+
+                                                // If the schema validation result is true and Data is not null, this requirement can be verified.
+                                                Site.CaptureRequirement(
+                                                    21270702,
+                                                    @"[In Data (Find)] Element Data in Find command response (section 2.2.1.16), the parent element is gal:Picture (section 2.2.3.135.1).");
+
+                                                // Add the debug information.
+                                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R21270703");
+
+                                                // If the schema validation result is true and Data is not null, this requirement can be verified.
+                                                Site.CaptureRequirement(
+                                                    21270703,
+                                                    @"[In Data (Find)] None [Element Data in Find command response (section 2.2.1.16) has no child element.]");
+
+                                                // Add the debug information.
+                                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R21270704");
+
+                                                // If the schema validation result is true and Data is not null, this requirement can be verified.
+                                                Site.CaptureRequirement(
+                                                    21270704,
+                                                    @"[In Data (Find)] Element Data in Find command response (section 2.2.1.16), the data type is Byte array.");
+
+                                                // Add the debug information.
+                                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R21270705");
+
+                                                // If the schema validation result is true and Data is not null, this requirement can be verified.
+                                                Site.CaptureRequirement(
+                                                    21270705,
+                                                    @"[In Data (Find)] Element Data in Find command response (section 2.2.1.16), the number allowed is 0…1 (optional).");
+                                            }
+                                            #endregion
                                         }
                                         #endregion
 
                                         #region  Capture code for Alias
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Alias && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R61641063");
+
+                                            // If the schema validation result is true and Alias(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                61641063,
+                                                @"[In Alias (Find)] Element Alias in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R61641064");
+
+                                            // If the schema validation result is true and Alias(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                61641064,
+                                                @"[In Alias (Find)] None [Element Alias in Find command response (section 2.2.1.2) has no child element.]");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R61641065");
+
+                                            // If the schema validation result is true and Alias(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                61641065,
+                                                @"[In Alias (Find)] Element Alias in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R61641066");
+
+                                            // If the schema validation result is true and Alias(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                61641066,
+                                                @"[In Alias (Find)] Element Alias in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
+
+                                            this.VerifyStringDataType();
                                         }
                                         #endregion
 
                                         #region Capture code Company
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Company && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R63510607");
+
+                                            // If the schema validation result is true and Company (Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                63510607,
+                                                @"[In Company (Find)] Element Company (Find) in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R63510608");
+
+                                            // If the schema validation result is true and Company (Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                63510608,
+                                                @"[In Company (Find)] None [Element Company (Find) in Find command response (section 2.2.1.2) has no child element.]");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R63510609");
+
+                                            // If the schema validation result is true and Company (Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                63510609,
+                                                @"[In Company (Find)] Element Company (Find) in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R63510610");
+
+                                            // If the schema validation result is true and Company (Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                63510610,
+                                                @"[In Company (Find)] Element Company (Find) in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
+
+                                            this.VerifyStringDataType();
                                         }
                                         #endregion
 
@@ -7257,18 +7854,117 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         #region Capture code for DisplayBcc
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayBcc && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64390706");
+
+                                            // If the schema validation result is true and DisplayBcc is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64390706,
+                                                @"[In DisplayBcc] Element DisplayBcc in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64390707");
+
+                                            // If the schema validation result is true and DisplayBcc is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64390707,
+                                                @"[In DisplayBcc] None [Element DisplayBcc in Find command response (section 2.2.1.2) has no child element.]");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64390708");
+
+                                            // If the schema validation result is true and DisplayBcc is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64390708,
+                                                @"[In DisplayBcc] Element DisplayBcc in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64390709");
+
+                                            // If the schema validation result is true and DisplayBcc is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64390709,
+                                                @"[In DisplayBcc] Element DisplayBcc in Find command response (section 2.2.1.2), the number allowed is 0…1 (optional).");
+
+                                            this.VerifyStringDataType();
                                         }
                                         #endregion
 
                                         #region Capture code for DisplayCc
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayCc && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64390719");
+
+                                            // If the schema validation result is true and DisplayCc is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64390719,
+                                                @"[In DisplayCc] Element DisplayCc in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64390720");
+
+                                            // If the schema validation result is true and DisplayCc is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64390720,
+                                                @"[In DisplayCc] None [Element DisplayCc in Find command response (section 2.2.1.2) has no child element.]");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64390721");
+
+                                            // If the schema validation result is true and DisplayCc is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64390721,
+                                                @"[In DisplayCc] Element DisplayCc in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64390722");
+
+                                            // If the schema validation result is true and DisplayCc is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64390722,
+                                                @"[In DisplayCc] Element DisplayCc in Find command response (section 2.2.1.2), the number allowed is 0…1 (optional).");
+
+                                            this.VerifyStringDataType();
                                         }
                                         #endregion
 
                                         #region Capture code for DisplayName
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.DisplayName && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64430704");
+
+                                            // If the schema validation result is true and DisplayName(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64430704,
+                                                @"[In DisplayName (Find)] Element DisplayName in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64430705");
+
+                                            // If the schema validation result is true and DisplayName(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64430705,
+                                                @"[In DisplayName (Find)] None [Element DisplayName in Find command response (section 2.2.1.2) has no child element.]");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64430706");
+
+                                            // If the schema validation result is true and DisplayName(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64430706,
+                                                @"[In DisplayName (Find)] Element DisplayName in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R64430707");
+
+                                            // If the schema validation result is true and DisplayName(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                64430707,
+                                                @"[In DisplayName (Find)] Element DisplayName in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
+
+                                            this.VerifyStringDataType();
                                         }
                                         #endregion
 
@@ -7281,12 +7977,78 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         #region Capture code for EmailAddress
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.EmailAddress && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R53080804");
+
+                                            // If the schema validation result is true and EmailAddress(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                53080804,
+                                                @"[EmailAddress (Find)] Element EmailAddress in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R53080805");
+
+                                            // If the schema validation result is true and EmailAddress(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                53080805,
+                                                @"[EmailAddress (Find)] None [Element EmailAddress in Find command response (section 2.2.1.2) has no child element.]");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R53080806");
+
+                                            // If the schema validation result is true and EmailAddress(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                53080806,
+                                                @"[EmailAddress (Find)] Element EmailAddress in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R53080807");
+
+                                            // If the schema validation result is true and EmailAddress(Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                53080807,
+                                                @"[EmailAddress (Find)] Element EmailAddress in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
+
+                                            this.VerifyStringDataType();
                                         }
                                         #endregion
 
                                         #region Capture code for FirstName
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.FirstName && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65590808");
+
+                                            // If the schema validation result is true and FirstName (Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                65590808,
+                                                @"[In FirstName (Find)] Element FirstName in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1) .");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65590809");
+
+                                            // If the schema validation result is true and FirstName (Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                65590809,
+                                                @"[In FirstName (Find)] None [Element FirstName in Find command response (section 2.2.1.2) has no child element.]");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65590810");
+
+                                            // If the schema validation result is true and FirstName (Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                65590810,
+                                                @"[In FirstName (Find)] Element FirstName in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65590811");
+
+                                            // If the schema validation result is true and FirstName (Find) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                65590811,
+                                                @"[In FirstName (Find)] Element FirstName in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
+
+                                            this.VerifyStringDataType();
                                         }
                                         #endregion
 
@@ -7299,12 +8061,75 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         #region Capture code for HasAttachments
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.HasAttachments && (bool?)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                        Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66851603");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                66851603,
+                                                @"[In HasAttachments] Element HasAttachments in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66851604");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                66851604,
+                                                @"[In HasAttachments] None [Element HasAttachments in Find command response (section 2.2.1.2) has no child element.");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66851605");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                66851605,
+                                                @"[In HasAttachments] Element HasAttachments in Find command response (section 2.2.1.2), the data type is boolean ([MS-ASDTYPE] section 2.1.");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66851606");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                66851606,
+                                                @"[In HasAttachments] Element HasAttachments in Find command response (section 2.2.1.2), the number allowed is 0…1 (optional)");
                                         }
                                         #endregion
 
                                         #region Capture code for HomePhone
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.HomePhone && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66941607");
+
+                                            // If the schema validation result is true and HomePhone is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                66941607,
+                                                @"[In HomePhone(Find)] Element HomePhone in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66941608");
+
+                                            // If the schema validation result is true and HomePhone is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                66941608,
+                                                @"[In HomePhone(Find)] None [Element HomePhone in Find command response (section 2.2.1.2) has no child element.].");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66941609");
+
+                                            // If the schema validation result is true and HomePhone is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                66941609,
+                                                @"[In HomePhone(Find)] Element HomePhone in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R66941610");
+
+                                            // If the schema validation result is true and HomePhone is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                66941610,
+                                                @"[In HomePhone(Find)] Element HomePhone in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
+
                                         }
                                         #endregion
 
@@ -7323,31 +8148,188 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         #region Capture code for LastName
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.LastName && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R67291607");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                67291607,
+                                                @"[LastName (Find)] Element LastName in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R67291608");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                67291608,
+                                                @"[LastName (Find)] None [Element in Find command response (section 2.2.1.2) has no child element.].");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R67291609");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                67291609,
+                                                @"[LastName (Find)] Element LastName in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R67291610");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                67291610,
+                                                @"[LastName (Find)] Element LastName in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
+
                                         }
                                         #endregion
 
                                         #region Capture code for MobilePhone
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.MobilePhone && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R68291608");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                68291608,
+                                                @"[In MobilePhone (Find)] Element MobilePhone in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R68291610");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                68291610,
+                                                @"[In MobilePhone (Find)] None [Element MobilePhone in Find command response (section 2.2.1.2) has no child element.].");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R68291611");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                68291611,
+                                                @"[In MobilePhone (Find)] Element MobilePhone  in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R68291612");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                68291612,
+                                                @"[In MobilePhone (Find)] Element MobilePhone in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
                                         }
                                         #endregion
 
                                         #region Capture code for Office
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Office && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R68651724");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                68651724,
+                                                @"[In Office (Find)] Element Office in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R68651725");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                68651725,
+                                                @"[In Office (Find)] None [Element in Find command response (section 2.2.1.2) has no child element.]).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R68651726");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                68651726,
+                                                @"[In Office (Find)] Element Office in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R68651727");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                68651727,
+                                                @"[In Office (Find)] Element Office in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
                                         }
                                         #endregion
 
                                         #region Capture code for Phone
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Phone && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R69581708");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                69581708,
+                                                @"[In Phone (Find)] Element Phone in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R69581709");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                69581709,
+                                                @"[In Phone (Find)] None [Element Phone in Find command response (section 2.2.1.2) has no child element.");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R69581710");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                69581710,
+                                                @"[In Phone (Find)] Element Phone in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R69581711");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                69581711,
+                                                @"[In Phone (Find)] Element Phone in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
                                         }
                                         #endregion
 
                                         #region Capture code for Preview
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Preview && (string)result.Properties.Items[j] != null)
                                         {
-                                        }
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R69781704");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                69781704,
+                                                @"[In Preview] Element in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R69781705");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                69781705,
+                                                @"[In Preview] None [Element Preview in Find command response (section 2.2.1.2) has no child element.].");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R69781706");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                69781706,
+                                                @"[In Preview] Element Preview in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R69781707");
+
+                                            // If the schema validation result is true and Certificates(ResolveRecipients) is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                69781776,
+                                                @"[In Preview] Element Preview in Find command response (section 2.2.1.2), the number allowed is 0…1 (optional).");
+                                        
+                                    }
                                         #endregion
 
                                         #region Capture code for Read
@@ -7365,6 +8347,39 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                                         #region Capture code for Title
                                         if (result.Properties.ItemsElementName[j] == ItemsChoiceType14.Title && (string)result.Properties.Items[j] != null)
                                         {
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R73291807");
+
+                                            // If the schema validation result is true and Title is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                73291807,
+                                                @"[In Title(Find)] Element Title in Find command response (section 2.2.1.2), the parent element is Properties (section 2.2.3.139.1).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R73291808");
+
+                                            // If the schema validation result is true and Title is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                73291808,
+                                                @"[In Title(Find)] None [Element Title in Find command response (section 2.2.1.2) has no child element.]");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R73291809");
+
+                                            // If the schema validation result is true and Title is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                                73291809,
+                                                @"[In Title(Find)] Element Title in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                                            // Add the debug information.
+                                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R73291810");
+
+                                            // If the schema validation result is true and Title is not null, this requirement can be verified.
+                                            Site.CaptureRequirement(
+                                               73291810,
+                                                @"[In Title(Find)]  Element Title in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
+
+                                            this.VerifyStringDataType();
                                         }
                                         #endregion
                                     }
@@ -7376,15 +8391,69 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         }
                     }
                 }
-                
+
                 #endregion
 
                 #region Capture code for Range
                 //findResponse.ResponseData.Response.Range
+                if (findResponse.ResponseData.Response.Range != null)
+                {
+                    //Regex rangeRegex = new Regex("1-[9]*");
+                    Regex rangeRegex = new Regex("0-[0-9]*");
+
+                    // Add the debug information.
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R37071811, the value for Range element is {0}", findResponse.ResponseData.Response.Range);
+
+                    // Verify MS-ASCMD requirement: MS-ASCMD_R37071811
+                    Site.CaptureRequirementIfIsTrue(
+                        rangeRegex.IsMatch(findResponse.ResponseData.Response.Range),
+                        37071811,
+                        @"[In Range (Find)] The format of the Range element value is in the form of a zero-based index specifier, formed with a nonnegative integer, a hyphen, and another nonnegative integer of higher value than the first.");
+                }
                 #endregion
 
-                #region Capture code for Totoal
+                #region Capture code for Total
+                // Add the debug information.
+
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R46301803");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    46301803,
+                    @"[In Total(Find)] Element Total in Find command response (section 2.2.1.2), the parent element is Response (section 2.2.3.153.2).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R46301804");
+
+                // If the schema validation result is true, this requirement can be verified.
+                Site.CaptureRequirement(
+                    46301804,
+                    @"[In Total(Find)] None [Element Total in Find command response (section 2.2.1.2) has no child element.]");
                 //findResponse.ResponseData.Response.Store
+                int total;
+                if (findResponse.ResponseData.Response.Store != null)
+                {
+                    Site.Assert.IsNotNull(findResponse.ResponseData.Response.Store, "The Store element in Find command response should not be null.");
+                    
+                }
+
+                this.VerifyStringDataType();
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R46301805");
+
+                // Verify MS-ASCMD requirement: MS-ASCMD_R2857
+                Site.CaptureRequirement(
+                    46301805,
+                    @"[In Total(Find)] Element Total in Find command response (section 2.2.1.2), the data type is string ([MS-ASDTYPE] section 2.7).");
+
+                // Add the debug information.
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R46301806");
+
+                // If the schema validation result is true and Total(find) is not null, this requirement can be verified.
+                Site.CaptureRequirement(
+                    46301806,
+                    @"[In Total(Find)] Element Total in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).");
                 #endregion
             }
             #endregion
@@ -9363,20 +10432,23 @@ OofMessage (section 2.2.3.117)");
                                             this.VerifyApplicationDataForSyncAddChange();
                                             for (int i = 0; i < add.ApplicationData.ItemsElementName.Length; i++)
                                             {
-                                                if (add.ApplicationData.ItemsElementName[i].ToString()=="MeetingRequst")
+                                                if (add.ApplicationData.ItemsElementName[i].ToString() == "MeetingRequst")
                                                 {
-                                                    if (add.ApplicationData.Items[i]!=null)
+                                                    if (add.ApplicationData.Items[i] != null)
                                                     {
-                                                        if (((MeetingRequest)add.ApplicationData.Items[i]).Forwardees!= null)
+                                                        if (((MeetingRequest)add.ApplicationData.Items[i]).Forwardees != null)
                                                         {
+
+                                                            VerifyForwardeesElementForSyncResponses();
                                                             foreach (ForwardeesForwardee forwardee in ((MeetingRequest)add.ApplicationData.Items[i]).Forwardees)
-                                                            {
-                                                              VerifyForwardeeElementForSyncResponses(forwardee);                                                                
-                                                            }
+                                                                {
+                                                                    VerifyForwardeeElementForSyncResponses(forwardee);
+                                                                }
+                                                            
                                                         }
                                                     }
                                                 }
-                                            } 
+                                            }
                                         }
                                     }
                                     #endregion
@@ -9435,6 +10507,8 @@ OofMessage (section 2.2.3.117)");
                                                     {
                                                         if (((MeetingRequest)change.ApplicationData.Items[i]).Forwardees != null)
                                                         {
+                                                            VerifyForwardeesElementForSyncResponses();
+
                                                             foreach (ForwardeesForwardee forwardee in ((MeetingRequest)change.ApplicationData.Items[i]).Forwardees)
                                                             {
                                                                 VerifyForwardeeElementForSyncResponses(forwardee);

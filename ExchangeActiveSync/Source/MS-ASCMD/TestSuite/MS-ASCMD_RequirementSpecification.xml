@@ -15210,7 +15210,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R9010612</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.27.1</ns1:Doc_Sect>
-		<ns1:Description>[In Class (Find)] Element Class(Find) in Find command response, the number allowed is 0...1 (optional).</ns1:Description>
+		<ns1:Description>[In Class (Find)] Element Class(Find) in Find command response, the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17418,7 +17418,7 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R9820611</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.30.1</ns1:Doc_Sect>
-		<ns1:Description>[In CollectionId (Find)] Element CollectionId in Find command response, the number allowed is 1...1 (optional).</ns1:Description>
+		<ns1:Description>[In CollectionId (Find)] Element CollectionId in Find command response, the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23999,6 +23999,15 @@ OofMessage (section 2.2.3.117)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R58581</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.54</ns1:Doc_Sect>
+		<ns1:Description>[In email:DateReceived] The format and usage of the email:DateReceived element for command requests or responses other than the Search command is specified in [MS-ASEMAIL] section 2.2.2.24.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R2221</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.54</ns1:Doc_Sect>
 		<ns1:Description>[In email:DateReceived] All elements referenced in this section [2.2.3.51] are defined in the Search namespace.</ns1:Description>
@@ -27916,7 +27925,7 @@ GALSearchCriterion (section 2.2.3.82) child elements.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101901</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>The Find element is a required element in Find command requests[ that identifies the body of the HTTP POST as containing a Find command (section 2.2.3.69)].</ns1:Description>
+		<ns1:Description>[In Find]The Find element is a required element in Find command requests[ that identifies the body of the HTTP POST as containing a Find command (section 2.2.3.69)].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27925,7 +27934,7 @@ GALSearchCriterion (section 2.2.3.82) child elements.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R65591902</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>The Find element is a required element in Find command responses that identifies the body of the HTTP POST as containing a Find command (section 2.2.3.69). </ns1:Description>
+		<ns1:Description>[In Find]The Find element is a required element in Find command responses that identifies the body of the HTTP POST as containing a Find command (section 2.2.3.69). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27934,7 +27943,7 @@ GALSearchCriterion (section 2.2.3.82) child elements.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101903</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>All elements referenced in this section are defined in the Find namespace.</ns1:Description>
+		<ns1:Description>[In Find]All elements referenced in this section are defined in the Find namespace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -27943,7 +27952,7 @@ GALSearchCriterion (section 2.2.3.82) child elements.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101904</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>None [Element Find in Find command request (section 2.2.1.2), has no Parent element.</ns1:Description>
+		<ns1:Description>[In Find]None [Element Find in Find command request (section 2.2.1.2), has no Parent element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27952,7 +27961,7 @@ GALSearchCriterion (section 2.2.3.82) child elements.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101905</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>Element Find in Find command request (section 2.2.1.2), the child elements are 
+		<ns1:Description>[In Find]Element Find in Find command request (section 2.2.1.2), the child elements are 
 SearchId (section 2.2.3.160)
 ExecuteSearch (section 2.2.3.66).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -27963,7 +27972,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101906</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>Element Find in Find command request (section 2.2.1.2), the data type is container ([MS-ASDTYPE] section 2.2). </ns1:Description>
+		<ns1:Description>[In Find]Element Find in Find command request (section 2.2.1.2), the data type is container ([MS-ASDTYPE] section 2.2). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27972,7 +27981,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101907</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>Element Find in Find command request (section 2.2.1.2), the number allowed is 1...1 (required).</ns1:Description>
+		<ns1:Description>[In Find]Element Find in Find command request (section 2.2.1.2), the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27981,7 +27990,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R65591908</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>None [Element Find in Find command response, has no Parent element.</ns1:Description>
+		<ns1:Description>[In Find]None [Element Find in Find command response, has no Parent element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -27990,7 +27999,7 @@ ExecuteSearch (section 2.2.3.66).</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R65591909</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>Element Find in Find command response, the child elements are 
+		<ns1:Description>[In Find]Element Find in Find command response, the child elements are 
 Status (section 2.2.3.177.2) 
 Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -28001,7 +28010,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R65591910</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>Element Find in Find command response, the data type is container ([MS-ASDTYPE] section 2.2). </ns1:Description>
+		<ns1:Description>[In Find]Element Find in Find command response, the data type is container ([MS-ASDTYPE] section 2.2). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28010,7 +28019,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R65591911</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>Element Find in Find command response, the number allowed is 1...1 (required).</ns1:Description>
+		<ns1:Description>[In Find]Element Find in Find command response, the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28019,7 +28028,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101912</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>Protocol version 12.1 does not support this [Find] element.</ns1:Description>
+		<ns1:Description>[In Find]Protocol version 12.1 does not support this [Find] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28028,7 +28037,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101913</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>Protocol version 14.0 does not support this [Find] element.</ns1:Description>
+		<ns1:Description>[In Find]Protocol version 14.0 does not support this [Find] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28037,7 +28046,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101914</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>Protocol version 14.1 does not support this [Find] element.</ns1:Description>
+		<ns1:Description>[In Find]Protocol version 14.1 does not support this [Find] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28046,7 +28055,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101915</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>Protocol version 16.0 does not support this [Find] element.</ns1:Description>
+		<ns1:Description>[In Find]Protocol version 16.0 does not support this [Find] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28055,7 +28064,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559101916</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.69</ns1:Doc_Sect>
-		<ns1:Description>Protocol version 16.1 supports this [Find] element.</ns1:Description>
+		<ns1:Description>[In Find] Protocol version 16.1 supports this [Find] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29632,6 +29641,42 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R66250801</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.78</ns1:Doc_Sect>
+		<ns1:Description>[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21),  the parent element is Forwardees (section 2.2.3.79).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R66250802</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.78</ns1:Doc_Sect>
+		<ns1:Description>[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21), the child elements are ForwardeeEmail (section 2.2.3.53), ForwardeeName (section 2.2.3.120.3).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R66250803</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.78</ns1:Doc_Sect>
+		<ns1:Description>[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21), the data type is container ([MS-ASDTYPE] section 2.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R66250804</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.78</ns1:Doc_Sect>
+		<ns1:Description>[In Forwardee] Element Forwardee in Sync command response (section 2.2.1.21), the number allowed is 1…N (required).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6626</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.78</ns1:Doc_Sect>
 		<ns1:Description>[In Forwardee] Protocol version 12.1 does not support this [Forwardee] element.</ns1:Description>
@@ -29731,40 +29776,40 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6655100801</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66550801</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.79</ns1:Doc_Sect>
 		<ns1:Description>[In Forwardees] Element Forwardees in Sync command response (section 2.2.1.21), the parent element is MeetingRequest ([MS-ASEMAIL] section 2.2.2.48).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6655100802</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66550802</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.79</ns1:Doc_Sect>
 		<ns1:Description>[In Forwardees] None [Element Forwardees in Sync command response (section 2.2.1.21) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6655100803</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66550803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.79</ns1:Doc_Sect>
 		<ns1:Description>[In Forwardees] Element Forwardees in Sync command response (section 2.2.1.21), the data type is container ([MS-ASDTYPE] section 2.2)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6655100804</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R66550804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.79</ns1:Doc_Sect>
 		<ns1:Description>[In Forwardees] Element Forwardees in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6656</ns1:REQ_ID>
@@ -33996,7 +34041,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1847101607</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.99</ns1:Doc_Sect>
-		<ns1:Description>All elements referenced in this section are defined in the Find namespace.</ns1:Description>
+		<ns1:Description>[In MailBoxSearchCriterion] All elements referenced in this section are defined in the Find namespace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -34005,7 +34050,7 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1847101608</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.99</ns1:Doc_Sect>
-		<ns1:Description>Element MailBoxSearchCriterion in Find command request (section 2.2.1.2), the parent element is And (section 2.2.3.10) or Or (section 2.2.3.126).</ns1:Description>
+		<ns1:Description>[In MailBoxSearchCriterion] Element MailBoxSearchCriterion in Find command request (section 2.2.1.2), the parent element is ExecuteSearch (section 2.2.3.66).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34014,8 +34059,8 @@ Options (section 2.2.3.125.1) child element.]</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1847101609</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.99</ns1:Doc_Sect>
-		<ns1:Description>Element MailBoxSearchCriterion in command request (section 2.2.1.2)，the child elements are email:DateReceived (section 2.2.3.54)
-Value (section 2.2.3.196)</ns1:Description>
+		<ns1:Description>[In MailBoxSearchCriterion] Element MailBoxSearchCriterion in command request (section 2.2.1.2)，the child elements are Query (section 2.2.3.142.1)
+Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34024,7 +34069,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1847101610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.99</ns1:Doc_Sect>
-		<ns1:Description>Element MailBoxSearchCriterion in command request (section 2.2.1.2), the data type is container ([MS-ASDTYPE] section 2.2) </ns1:Description>
+		<ns1:Description>[In MailBoxSearchCriterion] Element MailBoxSearchCriterion in command request (section 2.2.1.2), the data type is container ([MS-ASDTYPE] section 2.2) </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34033,7 +34078,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1847101611</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.99</ns1:Doc_Sect>
-		<ns1:Description>Element MailBoxSearchCriterion in command request (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
+		<ns1:Description>[In MailBoxSearchCriterion] Element MailBoxSearchCriterion in command request (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34042,7 +34087,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1847101612</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.99</ns1:Doc_Sect>
-		<ns1:Description>Protocol version 12.1 does not support this [MailBoxSearchCriterion] element.</ns1:Description>
+		<ns1:Description>[In MailBoxSearchCriterion] Protocol version 12.1 does not support this [MailBoxSearchCriterion] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34051,7 +34096,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1847101613</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.99</ns1:Doc_Sect>
-		<ns1:Description>Protocol version 14.0 does not support this [MailBoxSearchCriterion] element.</ns1:Description>
+		<ns1:Description>[In MailBoxSearchCriterion] Protocol version 14.0 does not support this [MailBoxSearchCriterion] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34060,7 +34105,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1847101614</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.99</ns1:Doc_Sect>
-		<ns1:Description>Protocol version 14.1 does not support this [MailBoxSearchCriterion] element.</ns1:Description>
+		<ns1:Description>[In MailBoxSearchCriterion] Protocol version 14.1 does not support this [MailBoxSearchCriterion] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34069,7 +34114,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1847101615</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.99</ns1:Doc_Sect>
-		<ns1:Description>Protocol version 16.0 does not support this [MailBoxSearchCriterion] element.</ns1:Description>
+		<ns1:Description>[In MailBoxSearchCriterion] Protocol version 16.0 does not support this [MailBoxSearchCriterion] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34078,7 +34123,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1847101616</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.99</ns1:Doc_Sect>
-		<ns1:Description>Protocol version 16.1 supports this [MailBoxSearchCriterion] element.</ns1:Description>
+		<ns1:Description>[In MailBoxSearchCriterion] Protocol version 16.1 supports this [MailBoxSearchCriterion] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34802,7 +34847,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101601</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>The MaxPictures element is an optional child element of the Picture element in Find command requests that limits the number of contact photos returned in the server response.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)]The MaxPictures element is an optional child element of the Picture element in Find command requests that limits the number of contact photos returned in the server response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -34811,7 +34856,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101602</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] All elements referenced in this section are defined in the Find namespace. </ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] All elements referenced in this section are defined in the Find namespace. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -34820,7 +34865,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101603</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Element MaxPictures in Find command request (section 2.2.1.2), the parent element is .</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Element MaxPictures in Find command request (section 2.2.1.2), the parent element is .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34829,7 +34874,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101604</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] None [Element MaxPictures in Find command request (section 2.2.1.2) has no child element.]</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] None [Element MaxPictures in Find command request (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34838,7 +34883,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101605</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Element MaxPictures in Find command request (section 2.2.1.2), the data type is integer ([MS-ASDTYPE] section 2.6).</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Element MaxPictures in Find command request (section 2.2.1.2), the data type is integer ([MS-ASDTYPE] section 2.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34847,7 +34892,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101606</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Element MaxPictures in Find command request (section 2.2.1.2), the number allowed is 0…..1 (optional).</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Element MaxPictures in Find command request (section 2.2.1.2), the number allowed is 0…..1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34856,7 +34901,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R32831607</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] The server returns the first N results that have contact photos, where N is the value of the MaxPictures element(N=1). </ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] The server returns the first N results that have contact photos, where N is the value of the MaxPictures element(N=1). </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34865,7 +34910,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R32831608</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] After the MaxPictures limit is reached, the server returns Status element (section 2.2.3.177.2) value 173 (NoPicture)</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] After the MaxPictures limit is reached, the server returns Status element (section 2.2.3.177.2) value 173 (NoPicture)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34874,7 +34919,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R32831609</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] If the contact has no photo, Status element value 174 (PictureTooLarge) if the contact’s photo is too large.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] If the contact has no photo, Status element value 174 (PictureTooLarge) if the contact’s photo is too large.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34883,7 +34928,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R32831610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] If the contact has a photo but the MaxPictures limit was reached,  Status element value 175 (PictureLimitReached).</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] If the contact has a photo but the MaxPictures limit was reached,  Status element value 175 (PictureLimitReached).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34892,7 +34937,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101611</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] [MaxPictures (Find)] Protocol version 12.1 does not support this [MaxPictures] element.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] [MaxPictures (Find)] Protocol version 12.1 does not support this [MaxPictures] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34901,7 +34946,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101612</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] [MaxPictures (Find)] Protocol version 14.0 does not support this [MaxPictures] element.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] [MaxPictures (Find)] Protocol version 14.0 does not support this [MaxPictures] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34910,7 +34955,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101613</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Protocol version 14.1 does not support this [MaxPictures] element.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Protocol version 14.1 does not support this [MaxPictures] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34919,7 +34964,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101614</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Protocol version 16.0 does not support this [MaxPictures] element.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Protocol version 16.0 does not support this [MaxPictures] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34928,7 +34973,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101615</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.104.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Protocol version 16.1 supports this [MaxPictures] element.</ns1:Description>
+		<ns1:Description>[[In MaxPictures (Find)] Protocol version 16.1 supports this [MaxPictures] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35246,7 +35291,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3300101601</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] The MaxSize element is an optional child element of the Picture element in Find command requests that limits the size of contact photos returned in the server response.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] The MaxSize element is an optional child element of the Picture element in Find command requests that limits the size of contact photos returned in the server response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -35255,7 +35300,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3300101602</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] All elements referenced in this section are defined in the Find namespace. </ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] All elements referenced in this section are defined in the Find namespace. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -35264,7 +35309,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3300101603</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Element MaxSize in Find command request (section 2.2.1.2), the parent element is Picture (section 2.2.3.135.1).</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Element MaxSize in Find command request (section 2.2.1.2), the parent element is Picture (section 2.2.3.135.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35273,7 +35318,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3300101604</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] None [Element MaxSize in Find command request (section 2.2.1.2) has no child element.]</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] None [Element MaxSize in Find command request (section 2.2.1.2) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35282,7 +35327,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3300101605</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Element MaxSize in Find command request (section 2.2.1.2), the data type is integer ([MS-ASDTYPE] section 2.6).</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Element MaxSize in Find command request (section 2.2.1.2), the data type is integer ([MS-ASDTYPE] section 2.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35291,7 +35336,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3300101606</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Element MaxSize in Find command request (section 2.2.1.2), the number allowed is 0…1 (optional).</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Element MaxSize in Find command request (section 2.2.1.2), the number allowed is 0…1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35300,7 +35345,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3300101607</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] The value of the MaxSize element MUST NOT be less than 0. </ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] The value of the MaxSize element MUST NOT be less than 0. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35309,7 +35354,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3300101608</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] The maximum value of the MaxSize element is 100 KB or 102400 bytes.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] The maximum value of the MaxSize element is 100 KB or 102400 bytes.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35318,7 +35363,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R33001609</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] The MaxSize element specifies the maximum size of an individual contact photo that is returned in the response, in bytes. </ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] The MaxSize element specifies the maximum size of an individual contact photo that is returned in the response, in bytes. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35327,7 +35372,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R33001610</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] The MaxPictures element (section 2.2.3.104.1) specifies the maximum number of contact photos to return in the server response.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] The MaxPictures element (section 2.2.3.104.1) specifies the maximum number of contact photos to return in the server response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35336,7 +35381,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R33001016011</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Protocol version 12.1 does not support this [MaxSize] element.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Protocol version 12.1 does not support this [MaxSize] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35345,7 +35390,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R33001016012</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Protocol version 14.0 does not support this [MaxSize] element.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Protocol version 14.0 does not support this [MaxSize] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35354,7 +35399,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R33001016013</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Protocol version 14.1 does not support this [MaxSize] element.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Protocol version 14.1 does not support this [MaxSize] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35363,7 +35408,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R33001016014</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Protocol version 16.0 does not support this [MaxSize] element.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Protocol version 16.0 does not support this [MaxSize] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -35372,7 +35417,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R33001016015</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.105.1</ns1:Doc_Sect>
-		<ns1:Description>[MaxPictures (Find)] Protocol version 16.1 supports this [MaxSize] element.</ns1:Description>
+		<ns1:Description>[In MaxPictures (Find)] Protocol version 16.1 supports this [MaxSize] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37499,7 +37544,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3434</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.112</ns1:Doc_Sect>
-		<ns1:Description>[In MiniCertificate] All elements referenced in this section [2.2.3.102] are defined in the ResolveRecipients namespace.</ns1:Description>
+		<ns1:Description>[In MiniCertificate] All elements referenced in this section [2.2.3.112] are defined in the ResolveRecipients namespace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -37508,7 +37553,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1939</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.112</ns1:Doc_Sect>
-		<ns1:Description>[In MiniCertificate] Element MiniCertificate in ResolveRecipients command response (section 2.2.2.14), the parent element is Certificates (section 2.2.3.23.1).</ns1:Description>
+		<ns1:Description>[In MiniCertificate] Element MiniCertificate in ResolveRecipients command response (section 2.2.1.15), the parent element is Certificates (section 2.2.3.23.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37517,7 +37562,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1940</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.112</ns1:Doc_Sect>
-		<ns1:Description>[In MiniCertificate] None [Element MiniCertificate in ResolveRecipients command response (section 2.2.2.14 has no child element.]</ns1:Description>
+		<ns1:Description>[In MiniCertificate] None [Element MiniCertificate in ResolveRecipients command response (section 2.2.1.15) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37526,7 +37571,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1941</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.112</ns1:Doc_Sect>
-		<ns1:Description>[In MiniCertificate] Element MiniCertificate in ResolveRecipients command response (section 2.2.2.14), the data type is string ([MS-ASDTYPE] section 2.7) (encoded with base64 encoding).</ns1:Description>
+		<ns1:Description>[In MiniCertificate] Element MiniCertificate in ResolveRecipients command response (section 2.2.1.15), the data type is string ([MS-ASDTYPE] section 2.7) (encoded with base64 encoding).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37535,7 +37580,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1942</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.112</ns1:Doc_Sect>
-		<ns1:Description>[In MiniCertificate] Element MiniCertificate in ResolveRecipients command response (section 2.2.2.14), the number allowed is 0...1 per Certificates parent element.</ns1:Description>
+		<ns1:Description>[In MiniCertificate] Element MiniCertificate in ResolveRecipients command response (section 2.2.1.15), the number allowed is 0...1 per Certificates parent element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37852,7 +37897,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R5353</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.114.2</ns1:Doc_Sect>
-		<ns1:Description>[In MobilePhone (Search)] The MobilePhone element is only present in response to Search command requests that contain a search:Name element with a value of "GAL", as specified in section 2.2.3.114.2.</ns1:Description>
+		<ns1:Description>[In MobilePhone (Search)] The MobilePhone element is only present in response to Search command requests that contain a search:Name element with a value of "GAL", as specified in section 2.2.3.120.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37870,7 +37915,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R5355</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.114.2</ns1:Doc_Sect>
-		<ns1:Description>[In MobilePhone (Search)] Element MobilePhone in Search command response (section 2.2.2.15), the parent element is Properties (section 2.2.3.132.2).</ns1:Description>
+		<ns1:Description>[In MobilePhone (Search)] Element MobilePhone in Search command response (section 2.2.1.16), the parent element is Properties (section 2.2.3.139.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37879,7 +37924,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R5356</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.114.2</ns1:Doc_Sect>
-		<ns1:Description>[In MobilePhone (Search)] None [Element MobilePhone in Search command response (section 2.2.2.15) has no child element]</ns1:Description>
+		<ns1:Description>[In MobilePhone (Search)] None [Element MobilePhone in Search command response (section 2.2.1.16) has no child element]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37888,7 +37933,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R5357</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.114.2</ns1:Doc_Sect>
-		<ns1:Description>[In MobilePhone (Search)] Element MobilePhone in Search command response (section 2.2.2.15), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
+		<ns1:Description>[In MobilePhone (Search)] Element MobilePhone in Search command response (section 2.2.1.16), the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37897,7 +37942,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R5358</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.114.2</ns1:Doc_Sect>
-		<ns1:Description>[In MobilePhone (Search)] Element MobilePhone in Search command response (section 2.2.2.15), the number allowed is 0...1 (optional).</ns1:Description>
+		<ns1:Description>[In MobilePhone (Search)] Element MobilePhone in Search command response (section 2.2.1.16), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37969,7 +38014,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3442</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.115</ns1:Doc_Sect>
-		<ns1:Description>[In Model] All elements referenced in this section [2.2.3.105] are defined in the Settings namespace.</ns1:Description>
+		<ns1:Description>[In Model] All elements referenced in this section [2.2.3.115] are defined in the Settings namespace.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -37978,7 +38023,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1947</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.115</ns1:Doc_Sect>
-		<ns1:Description>[In Model] Element Model in Settings command DeviceInformation request (section 2.2.2.16), the parent element is Set (section 2.2.3.152).</ns1:Description>
+		<ns1:Description>[In Model] Element Model in Settings command DeviceInformation request (section 2.2.1.18), the parent element is Set (section 2.2.3.167).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37987,7 +38032,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1948</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.115</ns1:Doc_Sect>
-		<ns1:Description>[In Model] None [Element Model in Settings command DeviceInformation request (section 2.2.2.16) has no child element.]</ns1:Description>
+		<ns1:Description>[In Model] None [Element Model in Settings command DeviceInformation request (section 2.2.1.18) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -37996,7 +38041,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1949</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.115</ns1:Doc_Sect>
-		<ns1:Description>[In Model] Element Model in Settings command DeviceInformation request (section 2.2.2.16), the data type is string ([MS-ASDTYPE] section 2.6).</ns1:Description>
+		<ns1:Description>[In Model] Element Model in Settings command DeviceInformation request (section 2.2.1.18), the data type is string ([MS-ASDTYPE] section 2.6).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -38005,7 +38050,7 @@ Value (section 2.2.3.196)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R1950</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.115</ns1:Doc_Sect>
-		<ns1:Description>[In Model] Element Model in Settings command DeviceInformation request (section 2.2.2.16), the number allowed is 0...1 (optional).</ns1:Description>
+		<ns1:Description>[In Model] Element Model in Settings command DeviceInformation request (section 2.2.1.18), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -48726,6 +48771,42 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R99910</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.155.1</ns1:Doc_Sect>
+		<ns1:Description>[In In Result (Find)] Element Result in Find command response (section 2.2.1.2), the parent element is Search (section 2.2.3.153.2).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R99911</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.155.1</ns1:Doc_Sect>
+		<ns1:Description>[In In Result (Find)] Element Result in Find command response (section 2.2.1.2), the child element is airsync:Class (section 2.2.3.27.1),airsync:ServerId (section 2.2.3.166.1),airsync:CollectionId (section 2.2.3.30.1),Properties (section 2.2.3.139.1).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R99912</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.155.1</ns1:Doc_Sect>
+		<ns1:Description>[In Result (Find)] Element Result in Find command response (section 2.2.1.2), the data type is container ([MS-ASDTYPE] section2.2 .</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-ASCMD_R99913</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.3.155.1</ns1:Doc_Sect>
+		<ns1:Description>[In Result (Find)] Element Result in Find command response (section 2.2.1.2), the number allowed is 0...1 (optional).</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R38391804</ns1:REQ_ID>
@@ -60682,7 +60763,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251801</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] The itemoperations:Store element is a required child element of the Response element in Find command responses that specifies the name of the store to which the parent operation applies.</ns1:Description>
+		<ns1:Description>[In Store(Find)] The itemoperations:Store element is a required child element of the Response element in Find command responses that specifies the name of the store to which the parent operation applies.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60691,7 +60772,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101802</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] All elements referenced in this section are defined in the Find namespace, except where otherwise indicated by the presence of a namespace prefix (as defined in section 2.2.4).</ns1:Description>
+		<ns1:Description>[In Store(Find)] All elements referenced in this section are defined in the Find namespace, except where otherwise indicated by the presence of a namespace prefix (as defined in section 2.2.4).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -60700,7 +60781,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] Element Store in , the parent element is Response (section 2.2.3.153.2).</ns1:Description>
+		<ns1:Description>[In Store (Find)] Element Store in Find command response (section 2.2.1.2), the parent element is Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60709,7 +60790,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] None [Element Store in  has no child element.]</ns1:Description>
+		<ns1:Description>[In Store(Find)] None [Element Store in  has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60718,7 +60799,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251805</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] Element Store in , the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
+		<ns1:Description>[In Store(Find)] Element Store in , the data type is string ([MS-ASDTYPE] section 2.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60727,7 +60808,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251806</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] Element Store in , the number allowed is 1...1 (required).</ns1:Description>
+		<ns1:Description>[In Store(Find)] Element Store in , the number allowed is 1...1 (required).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60736,7 +60817,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R45251807</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] In the Find command response, the value of the Store element will be "Mailbox".</ns1:Description>
+		<ns1:Description>[In Store(Find)] In the Find command response, the value of the Store element will be "Mailbox".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60745,7 +60826,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101808</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] Protocol version 12.1 does not supports this [Store] element.</ns1:Description>
+		<ns1:Description>[In Store(Find)] Protocol version 12.1 does not supports this [Store] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60754,7 +60835,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101809</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] Protocol version 14.0 does not supports this [Store] element.</ns1:Description>
+		<ns1:Description>[In Store(Find)] Protocol version 14.0 does not supports this [Store] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60763,7 +60844,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101810</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] Protocol version 14.1 does not supports this [Store] element.</ns1:Description>
+		<ns1:Description>[In Store(Find)] Protocol version 14.1 does not supports this [Store] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60772,7 +60853,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101811</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] Protocol version 16.0 does not supports this [Store] element.</ns1:Description>
+		<ns1:Description>[In Store(Find)] Protocol version 16.0 does not supports this [Store] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -60781,7 +60862,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4525101812</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.178.1</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] Protocol version 16.1 supports this [Store] element.</ns1:Description>
+		<ns1:Description>[In Store(Find)] Protocol version 16.1 supports this [Store] element.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -63205,7 +63286,7 @@ calendar:Attendees ([MS-ASCAL] section 2.2.2.4)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R4630101812</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.184.1</ns1:Doc_Sect>
-		<ns1:Description>[Title (Find)] The Total element is used by clients to determine whether more matching entries were found in the mailbox than have been returned by the Find command. </ns1:Description>
+		<ns1:Description>[In Total (Find)] The Total element is used by clients to determine whether more matching entries were found in the mailbox than have been returned by the Find command. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
