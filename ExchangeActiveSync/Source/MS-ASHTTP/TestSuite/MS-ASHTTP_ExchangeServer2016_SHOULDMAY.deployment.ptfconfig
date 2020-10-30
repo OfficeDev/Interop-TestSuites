@@ -23,5 +23,7 @@
     <Property name="R456Enabled" value="true" />
     <!--Set R457Enabled to true to verify that the implementation does can be configured to block clients for a different amount of time. Set R457Enabled to false to disable this requirement.-->
     <Property name="R457Enabled" value="true" />
+    <!--Set R12011Enabled to true to verify that implementation does return the MS-ASProtocolVersions value of 16.1. Set R12011Enabled to false to disable this requirement.-->
+    <Property name="R12011Enabled" value="true" />
   </Properties>
 </TestSite>
