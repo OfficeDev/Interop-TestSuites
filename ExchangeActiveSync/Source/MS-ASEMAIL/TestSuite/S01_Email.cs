@@ -1897,6 +1897,27 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
         }
         #endregion
 
+        #region MSASEMAIL_S01_TC32_FindEmail
+        /// <summary>
+        /// This case is designed to test using Find command to retrieve E-mail class items from the server that match the criteria specified by the client.
+        /// </summary>
+        [TestCategory("MSASEMAIL"), TestMethod()]
+        public void MSASEMAIL_S01_TC32_FindEmail()
+        {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is supported when the ActiveSyncProtocolVersion is 16.1.");
+            
+            #region Call method SendMail to send an email.
+            string emailSubject = Common.GenerateResourceName(Site, "subject");
+            this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
+            #endregion
+
+            #region Call Find command to find email from server.
+            // Find email from server
+            FindRequest findRequest = TestSuiteHelper.CreateFindRequest(this.User2Information.InboxCollectionId, emailSubject);
+            FindResponse findResponse = this.EMAILAdapter.Find(findRequest);
+            #endregion
+        }
+        #endregion
         #region Private methods
         /// <summary>
         /// Add flag and categories for an email item
