@@ -1904,6 +1904,8 @@ Changes to non-E-Mail class properties (Exchange Server 2007 Sp1 and above follo
         [TestCategory("MSASEMAIL"), TestMethod()]
         public void MSASEMAIL_S01_TC32_FindEmail()
         {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is supported when the ActiveSyncProtocolVersion is 16.1.");
+            
             #region Call method SendMail to send an email.
             string emailSubject = Common.GenerateResourceName(Site, "subject");
             this.SendPlaintextEmail(emailSubject, string.Empty, string.Empty);
