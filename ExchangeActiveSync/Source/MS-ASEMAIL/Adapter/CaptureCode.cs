@@ -308,6 +308,37 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         }
         #endregion
 
+        #region Verify Find command response
+        /// <summary>
+        /// This method is used to verify the Find Command related requirements.
+        /// </summary>
+        private void VerifyFindCommand(Microsoft.Protocols.TestSuites.Common.FindResponse findResponse)
+        {
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R6000");
+
+            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R6000
+            Site.CaptureRequirementIfIsNotNull(
+                findResponse,
+                6000,
+                @"[In Find Command Response]When a client uses the Find command request ([MS-ASCMD] section 2.2.1.2), as specified in section 3.1.5.1, to retrieve E-mail class items from the server that match the criteria specified by the client, the server responds with a Find command response.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASEMAIL_R6001");
+
+            // If the schema validation is successful, then MS-ASEMAIL_R6001 could be captured.
+            // Verify MS-ASEMAIL requirement: MS-ASEMAIL_R6001
+            Site.CaptureRequirementIfIsTrue(
+                this.activeSyncClient.ValidationResult,
+                6001,
+                @"[In Find Command Response]Any of the elements that belong to the E-mail class, as specified in section 2.2.2, can be included in a Find command response as child elements of the find:Properties element ([MS-ASCMD] section 2.2.3.139.1).");
+
+            this.VerifyMessageSyntax();
+            this.VerifyAbstractDataModel();
+        }
+        #endregion
+
         #region Verify E-Mail Class elements
         /// <summary>
         /// Verify E-Mail Class elements.
@@ -3500,7 +3531,7 @@ MSS = Number of milliseconds");
                     string tagName = Common.GetTagName(decodeDataItem.Key, out token);
                     int codepage = decodeDataItem.Value;
                     string codePageName = Common.GetCodePageName(decodeDataItem.Key);
-                    bool isValidCodePage = codepage >= 0 && codepage <= 24;
+                    bool isValidCodePage = codepage >= 0 && codepage <= 25;
                     Site.Assert.IsTrue(isValidCodePage, "Code page value should between 0-24, the actual value is :{0}", codepage);
 
                     // Begin to capture requirement of Email namespace
