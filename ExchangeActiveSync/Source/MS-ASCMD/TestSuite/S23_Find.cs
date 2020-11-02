@@ -40,7 +40,7 @@
 
         #region Test cases
         /// <summary>
-        /// This test case is used to verify the success status of Search command.
+        /// This test case is used to verify the Find MailBox success status of Find command.
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC01_Find_Mail_Success()
@@ -48,7 +48,7 @@
             Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Create a find request
-            FindRequest findRequest = this.CreateMailFindRequest();
+            FindRequest findRequest = this.CreateDefaultFindMailRequest();
             #endregion
 
             #region Call Find command
@@ -86,8 +86,8 @@
         {
             Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             
-            #region Create a find request
-            FindRequest findRequest = this.CreateMailFindInvalidRangeRequest();
+            #region Create a find request with invalid SearchId.
+            FindRequest findRequest = this.CreateFindMailRequest("",this.User1Information.InboxCollectionId);
             #endregion
 
             #region Call Find command
@@ -127,10 +127,9 @@
         public void MSASCMD_S23_TC03_Find_Mail_InvalidRange()
         {
             Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-            
 
             #region Create a find request
-            FindRequest findRequest = this.CreateMailFindInvalidRangeRequest();
+            FindRequest findRequest = this.CreateFindMailRequest(Guid.NewGuid().ToString(), this.User1Information.InboxCollectionId, Common.GetConfigurationPropertyValue("User1Name", this.Site), "2-5"); 
             #endregion
 
             #region Call Find command
@@ -153,26 +152,136 @@
         }
 
         /// <summary>
-        /// This test case is used to verify search global address list success
+        /// This test case is used to verify find global address list success.
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
-        public void MSASCMD_S23_TC04_Find_GAL()
+        public void MSASCMD_S23_TC04_Find_GAL_Success()
         {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            
             #region Create Find request with options
 
-            FindRequest findRequest = this.CreateFindGALRequest();
+            FindRequest findRequest = this.CreateDefaultFindGALRequest();
             #endregion
 
-            if (Common.IsRequirementEnabled(8888, this.Site))
-            {
-                #region Call find command
-                FindResponse findResponse = this.CMDAdapter.Find(findRequest);
-                Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
-            }
+            #region Call find command
+            FindResponse findResponse = this.CMDAdapter.Find(findRequest);
+            Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
             #endregion
         }
 
+        /// <summary>
+        /// This test case is used to verify the Find response when the found items have the multiple matched items.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S23_TC05_Find_MatchedItems()
+        {
+            #region User1 calls SendMail command to send 2 email messages to user2.
+            string keyWord = Guid.NewGuid().ToString().Substring(0, 5);
+            uint mailIndex = 1;
+            string emailSubject = keyWord + Common.GenerateResourceName(Site, "find", mailIndex);
+            SendMailResponse responseSendMail = this.SendPlainTextEmail(null, emailSubject, this.User1Information.UserName, this.User2Information.UserName, null);
+            Site.Assert.AreEqual(string.Empty, responseSendMail.ResponseDataXML, "If SendMail command executes successfully, server should return empty xml data");
+            mailIndex++;
+            string emailSubject2 = keyWord + Common.GenerateResourceName(Site, "find", mailIndex);
+            SendMailResponse responseSendMail2 = this.SendPlainTextEmail(null, emailSubject2, this.User1Information.UserName, this.User2Information.UserName, null);
+            Site.Assert.AreEqual(string.Empty, responseSendMail2.ResponseDataXML, "If SendMail command executes successfully, server should return empty xml data");
+            #endregion
+
+            #region Sync user2 mailbox changes
+            // Switch to user2 mailbox
+            this.SwitchUser(this.User2Information);
+            this.GetMailItem(this.User2Information.InboxCollectionId, emailSubject);
+            this.GetMailItem(this.User2Information.InboxCollectionId, emailSubject2);
+            TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, emailSubject, emailSubject2);
+            #endregion
+
+            #region Create a find request for finding mail.           
+            FindRequest findRequest = this.CreateFindMailRequest(Guid.NewGuid().ToString(), this.User2Information.InboxCollectionId, keyWord, "0-5", 0, 0);
+            #endregion
+
+            #region Call Find command
+            int counter = 0;
+            int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
+            int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
+            int sendMailCount = 2;
+            int resultsCount;
+            FindResponse findResponse;
+
+            // Loop search to get correct results.
+            do
+            {
+                Thread.Sleep(waitTime);
+                findResponse = this.CMDAdapter.Find(findRequest);
+                Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
+                resultsCount = findResponse.ResponseData.Response.Results.Length;
+                counter++;
+            }
+            while (resultsCount != sendMailCount && counter < retryCount);
+
+            Site.Assert.AreEqual<int>(2, resultsCount, "Find response should contain two search results");
+            Site.Log.Add(LogEntryKind.Debug, "Loop {0} times to get the search item", counter);
+            #endregion
+        }
+
+
+        /// <summary>
+        /// This test case is used to verify Find global address list success test.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S23_TC06_Find_GAL_Success_Test()
+        {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+            #region Create Find request with options
+
+            FindRequest findRequest = this.CreateFindGALRequest(Guid.NewGuid().ToString(), Common.GetConfigurationPropertyValue("User1Name", Site), "0-5", 0, 0);
+            #endregion
+
+            #region Call find command
+            FindResponse findResponse = this.CMDAdapter.Find(findRequest);
+            Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
+            #endregion
+        }
         #endregion
+
+        /// <summary>
+        /// This test case is used to verify Find MailBox success test.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S23_TC07_Find_Mail_Success_Test()
+        {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+
+            #region Create a find request
+            FindRequest findRequest = this.CreateFindMailRequest(Guid.NewGuid().ToString(), this.User1Information.InboxCollectionId, Common.GetConfigurationPropertyValue("User1Name", Site),"0-9",0,0);
+            #endregion
+
+            #region Call Find command
+            TestSuites.Common.FindResponse findResponse = this.CMDAdapter.Find(findRequest);
+            Site.Assert.AreEqual("1", findResponse.ResponseData.Status, "If server successfully completed command, server should return status 1");
+            Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172509");
+
+            // Test Case verify requirement: MS-ASCMD_R72172509
+            Site.CaptureRequirementIfAreEqual<string>(
+                "1",
+                findResponse.ResponseData.Status,
+                72172509,
+                @"[In Status (Find)] [When the parent is Find element], [the cause of the status value 1 is] Server successfully completed command.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172520");
+
+            // Test Case verify requirement: MS-ASCMD_R72172520
+            Site.CaptureRequirementIfAreEqual<string>(
+                "1",
+                findResponse.ResponseData.Response.Status,
+                72172520,
+                @"[In Status (Find)] [When the parent is Find element Response element], [the cause of the status value 1 is] Server successfully completed command.");
+            #endregion
+        }
 
         #region Private Methods
         /// <summary>
@@ -530,10 +639,10 @@
         }
 
         /// <summary>
-        /// Create one MailBox find request with default value.
+        /// Create default Find MailBox request with default value.
         /// </summary>
         /// <returns>Return a MailBox FindRequest instance.</returns>
-        private FindRequest CreateMailFindRequest()
+        private FindRequest CreateDefaultFindMailRequest()
         {
             Request.Find find = new Request.Find
             {
@@ -544,134 +653,127 @@
                     {
                         Query = new Request.queryType2
                         {
-                            ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.FreeText},
-                            Items = new string[] { "*" }
+                            ItemsElementName = new Request.ItemsChoiceType11[] {Request.ItemsChoiceType11.Class, Request.ItemsChoiceType11.CollectionId, Request.ItemsChoiceType11.FreeText},
+                            Items = new string[] { "Email",User1Information.InboxCollectionId, Common.GetConfigurationPropertyValue("User1Name", Site) }
                         },
                         Options=new Request.FindExecuteSearchMailBoxSearchCriterionOptions
                         {
-                            Range="0-5",
-                            DeepTraversal=new Request.EmptyTag { }
-                            //Picture=new Request.FindExecuteSearchMailBoxSearchCriterionOptionsPicture
-                            //{
-                            //    MaxSize=2014,
-                            //    MaxSizeSpecified=true,
-                            //    MaxPictures=5,
-                            //    MaxPicturesSpecified=true
-                            //}
+                            Range = "0-5",
+                            DeepTraversal = new Request.EmptyTag { }
                         }
                     },
   
                 },
             };
 
-            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.Class, Request.ItemsChoiceType11.FreeText };
-            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).Items = new string[] { "Email", "*" };
-
-            FindRequest findRequest = Common.CreateFindRequest(find );
-            return findRequest;
-        }
-
-        /// <summary>
-        /// Create one MailBox find request with invalid value.
-        /// </summary>
-        /// <returns>Return MailBox FindRequest instance with invalid value.</returns>
-        private FindRequest CreateMailFindInvalidRequest()
-        {
-            Request.Find find = new Request.Find
-            {
-                SearchId = "",
-                ExecuteSearch = new Request.FindExecuteSearch
-                {
-                    Item = new Request.FindExecuteSearchMailBoxSearchCriterion
-                    {
-                        Query = new Request.queryType2
-                        {
-                            ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.FreeText },
-                            Items = new string[] { "*" }
-                        }
-                    },
-
-                },
-            };
-
-            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.Class, Request.ItemsChoiceType11.FreeText };
-            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).Items = new string[] { "Email", "*" };
-
             FindRequest findRequest = Common.CreateFindRequest(find);
             return findRequest;
         }
 
         /// <summary>
-        /// Create one MailBox find request with invalid range value.
+        /// Create Find MailBox request with parameters value.
         /// </summary>
-        /// <returns>Return MailBox FindRequest instance with invalid Range value.</returns>
-        private FindRequest CreateMailFindInvalidRangeRequest()
+        /// <param name="searchId">The SearchId for Find request.</param>
+        /// <param name="collectionId">The CollectionId for Find request.</param>
+        /// <param name="keyWord">The keyword for Find request query.</param>
+        /// <param name="requestRange">The Range for Find request option.</param>
+        /// <param name="maxPictures">The MaxPictures for Find request option.</param>
+        /// <param name="maxSize">The MaxSize for Find request option.</param>
+        /// <returns>Return a MailBox FindRequest instance.</returns>
+        private FindRequest CreateFindMailRequest(string searchId, string collectionId, string keyWord="MSASCMD", string requestRange = "0-5", uint maxPictures=0, uint maxSize=0)
         {
-            Request.Find find = new Request.Find
+            FindRequest findRequest = CreateDefaultFindMailRequest();
+            if (searchId!=null)
             {
-                SearchId = Guid.NewGuid().ToString(),
-                ExecuteSearch = new Request.FindExecuteSearch
+                findRequest.RequestData.SearchId = searchId;
+            }
+            if (collectionId!=null)
+            {
+                ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)findRequest.RequestData.ExecuteSearch.Item).Query).Items[1] = collectionId;
+            }
+            if (keyWord!=null)
+            {
+                ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)findRequest.RequestData.ExecuteSearch.Item).Query).Items[2] = keyWord;
+            }
+            if (requestRange!=null)
+            {
+                ((Request.FindExecuteSearchMailBoxSearchCriterion)findRequest.RequestData.ExecuteSearch.Item).Options.Range = requestRange;
+            }            
+            if (maxPictures>0&& maxSize>0)
+            {
+                ((Request.FindExecuteSearchMailBoxSearchCriterion)findRequest.RequestData.ExecuteSearch.Item).Options.Picture = new Request.FindExecuteSearchMailBoxSearchCriterionOptionsPicture
                 {
-                    Item = new Request.FindExecuteSearchMailBoxSearchCriterion
-                    {
-                        Query = new Request.queryType2
-                        {
-                            ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.FreeText },
-                            Items = new string[] { "*" }
-                        },
-                        Options=new Request.FindExecuteSearchMailBoxSearchCriterionOptions
-                        {
-                            Range="-1"
-                        }
-                    },
-
-                },
-            };
-
-            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.Class, Request.ItemsChoiceType11.FreeText };
-            ((Request.queryType2)((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Query).Items = new string[] { "Email", "*" };
-            ((Request.FindExecuteSearchMailBoxSearchCriterion)find.ExecuteSearch.Item).Options.Range = "-1";
-            FindRequest findRequest = Common.CreateFindRequest(find); 
+                    MaxPictures=maxPictures,
+                    MaxPicturesSpecified=true,
+                    MaxSize=maxSize,
+                    MaxSizeSpecified=true
+                };
+            }
             return findRequest;
         }
 
         /// <summary>
-        /// Create Find GAL request.
+        /// Create default Find GAL request.
         /// </summary>
         /// <returns>Return Find GAL request instance.</returns>
-        private FindRequest CreateFindGALRequest()
-        {            
+        private FindRequest CreateDefaultFindGALRequest()
+        {
             Request.Find find = new Request.Find
             {
                 SearchId = Guid.NewGuid().ToString(),
-                //ExecuteSearch = new Request.FindExecuteSearch
-                //{
-                //    Item = new Request.FindExecuteSearchGALSearchCriterion
-                //    {
-                //        Query =  "*",
-                //        Options = new Request.FindExecuteSearchGALSearchCriterionOptions
-                //        {
-                //            Range = "0-5"                            
-                //        }
-                //    },
-                //},
 
                 ExecuteSearch = new Request.FindExecuteSearch
                 {
                     Item = new Request.FindExecuteSearchGALSearchCriterion
                     {
-                        Query = "*",
+                        Query = Common.GetConfigurationPropertyValue("User1Name", Site),
+                        Options = new Request.FindExecuteSearchGALSearchCriterionOptions
+                        {
+                            Range = "0-5"
+                        }
                     },
                 },
             };
 
-
-            ((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Query = "*";
-            
-            //((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Options.Range = "0-5";
-            //((Request.FindExecuteSearchGALSearchCriterion)find.ExecuteSearch.Item).Query = "*";
             FindRequest findRequest = Common.CreateFindRequest(find);
             return findRequest;
+        }
+
+        /// <summary>
+        /// Create Find GAL request with parameters value.
+        /// </summary>
+        /// <param name="searchId">The SearchId for Find GAL request.</param>
+        /// <param name="keyWord">The keyWord for Find GAL request.</param>
+        /// <param name="requestRange">The Range for Find GAL request.</param>
+        /// <param name="maxPictures">The MaxPictures for Find GAL request.</param>
+        /// <param name="maxSize">The MaxSize for Find GAL request.</param>
+        /// <returns>Return a GAL FindRequest instance.</returns>
+        private FindRequest CreateFindGALRequest(string searchId, string keyWord="MSASCMD", string requestRange="0-5", uint maxPictures=0, uint maxSize=0)
+        {
+            FindRequest findGALRequest = CreateDefaultFindGALRequest();
+            if (searchId!=null)
+            {
+                findGALRequest.RequestData.SearchId = searchId;
+            }
+            if (keyWord!=null)
+            {
+                ((Request.FindExecuteSearchGALSearchCriterion)findGALRequest.RequestData.ExecuteSearch.Item).Query = keyWord;
+            }
+            if (requestRange!=null)
+            {
+                ((Request.FindExecuteSearchGALSearchCriterion)findGALRequest.RequestData.ExecuteSearch.Item).Options.Range = requestRange;
+            }
+            if (maxPictures>0&&maxSize>0)
+            {
+                ((Request.FindExecuteSearchGALSearchCriterion)findGALRequest.RequestData.ExecuteSearch.Item).Options.Picture = new Request.FindExecuteSearchGALSearchCriterionOptionsPicture
+                {
+                    MaxPictures=maxPictures,
+                    MaxPicturesSpecified=true,
+                    MaxSize=maxSize,
+                    MaxSizeSpecified=true
+                };
+            }
+            return findGALRequest;
         }
         #endregion
     }

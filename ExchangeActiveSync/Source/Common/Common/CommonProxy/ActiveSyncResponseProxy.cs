@@ -4353,7 +4353,7 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
         
         private string statusField;
         
-        private FindResponseResult resultField;
+        private FindResponseResult[] resultField;
         
         private string rangeField;
         
@@ -4380,9 +4380,10 @@ namespace Microsoft.Protocols.TestSuites.Common.Response {
                 this.statusField = value;
             }
         }
-        
+
         /// <remarks/>
-        public FindResponseResult Result {
+        [System.Xml.Serialization.XmlElementAttribute("Result", IsNullable=true)]
+        public FindResponseResult[] Results {
             get {
                 return this.resultField;
             }
