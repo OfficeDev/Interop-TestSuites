@@ -1903,16 +1903,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Response.SyncCollectionsCollectionResponses collectionResponse = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R752");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R752
-            Site.CaptureRequirementIfAreEqual<int>(
-                6,
-                int.Parse(collectionResponse.Add[0].Status),
-                752,
-                @"[In Add(Sync)] [When the client adds a calendar item] A Status element value of 6 is returned in the Sync response if the EndTime element is not included.");
-
-            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4440");
 
             // Verify MS-ASCMD requirement: MS-ASCMD_R4440
