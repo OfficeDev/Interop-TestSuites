@@ -281,7 +281,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 "8",
                 status,
                 3105,
-                @"[In FreeText] If the FreeText element is included as a child element of any element other than the And element, the server responds with a Status element (section 2.2.3.162.12) value of 8 (SearchTooComplex).");
+                @"[In FreeText (Search)] If the FreeText element is included as a child element of any element other than the And element, the server responds with a Status element (section 2.2.3.162.12) value of 8 (SearchTooComplex).");
 
             #endregion
         }
@@ -818,7 +818,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.CaptureRequirementIfIsTrue(
                 hasOfficeElement,
                 5360,
-                @"[In Office] The Office element is only present in response to Search command requests that contain a search:Name element with a value of ""GAL"", as specified in section 2.2.3.110.2.");
+                @"[In Office (Search)] The Office element is only present in response to Search command requests that contain a search:Name element with a value of ""GAL"", as specified in section 2.2.3.110.2.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5337");
@@ -827,7 +827,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.CaptureRequirementIfIsTrue(
                 hasLastNameElement,
                 5337,
-                @"[In LastName] The LastName element is only present in response to Search command requests that contain a search:Name element with a value of ""GAL"", as specified in section 2.2.3.110.2.");
+                @"[In LastName (Search)] The LastName element is only present in response to Search command requests that contain a search:Name element with a value of ""GAL"", as specified in section 2.2.3.110.2.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5330");
@@ -845,7 +845,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.CaptureRequirementIfIsTrue(
                 hasFirstNameElement,
                 5323,
-                @"[In FirstName] The FirstName element is only present in response to Search command requests that contain a search:Name element with a value of ""GAL"", as specified in section 2.2.3.110.2.");
+                @"[In FirstName (Search)] The FirstName element is only present in response to Search command requests that contain a search:Name element with a value of ""GAL"", as specified in section 2.2.3.110.2.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5286");
@@ -854,7 +854,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.CaptureRequirementIfIsTrue(
                 hasAliasElement,
                 5286,
-                @"[In Alias] The Alias element is only present in response to Search command requests that contain a search:Name element with a value of ""GAL"", as specified in section 2.2.3.110.2.");
+                @"[In Alias (Search)] The Alias element is only present in response to Search command requests that contain a search:Name element with a value of ""GAL"", as specified in section 2.2.3.110.2.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5287");
@@ -863,7 +863,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.CaptureRequirementIfIsTrue(
                 hasAliasElement,
                 5287,
-                @"[In Alias] It [Alias element] contains the alias of a recipient in the GAL that matched the search criteria from the corresponding Search command request.");
+                @"[In Alias (Search)] It [Alias element] contains the alias of a recipient in the GAL that matched the search criteria from the corresponding Search command request.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5293");
@@ -872,7 +872,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.CaptureRequirementIfIsTrue(
                 hasCompanyElement,
                 5293,
-                @"[In Company] The Company element is only present in response to Search command requests that contain a search:Name element with a value of ""GAL"", as specified in section 2.2.3.110.2.");
+                @"[In Company (Search)] The Company element is only present in response to Search command requests that contain a search:Name element with a value of ""GAL"", as specified in section 2.2.3.110.2.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5300");
@@ -1149,48 +1149,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             {
                 searchResponse = this.LoopSearch(searchRequest);
             }
-            #endregion
-
-            #region Verify requirements MS-ASCMD_R5841, MS-ASCMD_R5145, MS-ASCMD_R5840, MS-ASCMD_R5842
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5841");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R5841
-            Site.CaptureRequirementIfAreEqual<string>(
-                "1",
-                searchResponse.ResponseData.Response.Store.Status,
-                5841,
-                @"[In Appendix A: Product Behavior] <14> Section 2.2.3.27.4: The following classes are supported for mailbox searches when the MS-ASProtocolVersion header is set to 12.1: [Email, Calendar,] Contacts [, Tasks].");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5145");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R5145
-            Site.CaptureRequirementIfAreEqual<string>(
-                "1",
-                searchResponse.ResponseData.Response.Store.Status,
-                5145,
-                @"[In Appendix A: Product Behavior] <14> Section 2.2.3.27.4: The following classes are supported for mailbox searches when the MS-ASProtocolVersion header is set to 12.1: Email [, Calendar, Contacts, Tasks].");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5840");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R5840
-            Site.CaptureRequirementIfAreEqual<string>(
-                "1",
-                searchResponse.ResponseData.Response.Store.Status,
-                5840,
-                @"[In Appendix A: Product Behavior] <14> Section 2.2.3.27.4: The following classes are supported for mailbox searches when the MS-ASProtocolVersion header is set to 12.1: [Email,] Calendar, [Contacts, Tasks].");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5842");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R5842
-            Site.CaptureRequirementIfAreEqual<string>(
-                "1",
-                searchResponse.ResponseData.Response.Store.Status,
-                5842,
-                @"[In Appendix A: Product Behavior] <14> Section 2.2.3.27.4: The following classes are supported for mailbox searches when the MS-ASProtocolVersion header is set to 12.1: [Email, Calendar, Contacts,] Tasks.");
             #endregion
         }
 
@@ -1610,7 +1568,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.CaptureRequirementIfIsTrue(
                 resultContainsAllEmail,
                 5856,
-                @"[In DeepTraversal] [The DeepTraversal element] indicates that the client wants the server to search all subfolders for the folders that are specified in the query.");
+                @"[In DeepTraversal (Search)] [The DeepTraversal element] indicates that the client wants the server to search all subfolders for the folders that are specified in the query.");
             #endregion
         }
 
@@ -2162,16 +2120,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region Calls search command
             SearchResponse searchResponse = this.CMDAdapter.Search(searchRequest);
             #endregion
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5571");
-
-            // Test Case verify requirement: MS-ASCMD_R5571
-            Site.CaptureRequirementIfAreEqual<string>(
-                "8",
-                searchResponse.ResponseData.Response.Store.Status,
-                5571,
-                @"[In Or] If the Or element is included in a Search command request, the server responds with a Status element (section 2.2.3.162.12) value of 8 (SearchTooComplex).");
         }
 
         /// <summary>

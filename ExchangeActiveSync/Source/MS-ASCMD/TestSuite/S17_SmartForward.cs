@@ -104,15 +104,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             // Compare original content with forward content
             bool isContained = forwardItemContent.Contains(originalContent);
 
-            #region Verify Requirements MS-ASCMD_R543, MS-ASCMD_R532
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R543");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R543
-            Site.CaptureRequirementIfIsTrue(
-                isContained,
-                543,
-                @"[In SmartForward] When the SmartForward command is used for a normal message or a meeting, the behavior of the SmartForward command is the same as that of the SmartReply command (section 2.2.2.18).");
+            #region Verify Requirements  MS-ASCMD_R532            
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R532");
@@ -236,15 +228,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Response.Attachments attachments = (Response.Attachments)TestSuiteBase.GetElementValueFromSyncResponse(user2MailboxChange, mailItemServerId, Response.ItemsChoiceType8.Attachments);
             Site.Assert.AreEqual<int>(1, attachments.Items.Length, "Server should return one attachment, if SmartForward one appointment executes successfully.");
             #endregion
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R542");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R542
-            Site.CaptureRequirementIfIsTrue(
-                attachments.Items.Length == 1 && ((Response.AttachmentsAttachment)attachments.Items[0]).DisplayName.Contains(".eml"),
-                542,
-                @"[In SmartForward] When the SmartForward command is used for an appointment, the original message is included by the server as an attachment to the outgoing message.");
         }
 
         /// <summary>

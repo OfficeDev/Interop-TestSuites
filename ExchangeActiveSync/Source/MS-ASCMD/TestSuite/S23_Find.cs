@@ -74,7 +74,7 @@
                 "1",
                 findResponse.ResponseData.Response.Status,
                 72172520,
-                @"[[In Status (Find)] [When the parent is Response element], [the cause of the status value 1 is] Server successfully completed command.");
+                @"[In Status (Find)] [When the parent is Response element], [the cause of the status value 1 is] Server successfully completed command.");
             #endregion
         }
 
@@ -103,8 +103,7 @@
                 findResponse.ResponseData.Status,
                 72172512,
                 @"[In Status (Find)] [When the parent is Find element], [the cause of the status value 2 is] One or more of the client's search parameters was invalid.");
-
-
+            
             if (Common.IsRequirementEnabled(72172521, this.Site))
             {
                 // Add the debug information
@@ -177,7 +176,7 @@
                     72172518,
                     @"[In Status (Find)] [When the parent is Response element], [the cause of the status value 4 is] The requested range does not begin with 0.");
             }
-            #endregion
+           #endregion
         }
 
         /// <summary>
@@ -367,7 +366,6 @@
                uint.Parse(findResponse.ResponseData.Response.Total)<=(rangeEndIndex+1),
                 37071816,
                 @"[In Range (Find)] If the Find request includes a Range element, the server can return fewer results than requested. ");
-
             #endregion
         }
 
@@ -377,6 +375,8 @@
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC05_Find_MatchedItems()
         {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+
             #region User1 calls SendMail command to send 2 email messages to user2.
             string keyWord = Guid.NewGuid().ToString().Substring(0, 5);
             uint mailIndex = 1;
@@ -431,6 +431,8 @@
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC05_Find_NoMatchedItem()
         {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+
             #region User1 calls SendMail command to send 2 email messages to user2.
             string keyWord = Guid.NewGuid().ToString().Substring(0, 5);
             uint mailIndex = 1;
@@ -473,64 +475,7 @@
             #endregion
         }
 
-        /// <summary>
-        /// This test case is used to verify Find global address list success test.
-        /// </summary>
-        [TestCategory("MSASCMD"), TestMethod()]
-        public void MSASCMD_S23_TC06_Find_GAL_Success_Test()
-        {
-            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-           
-            #region Create Find request with options
-            FindRequest findRequest = this.CreateFindGALRequest(Guid.NewGuid().ToString(),Common.GetConfigurationPropertyValue("User1Name", Site).Substring(0,6), "0-25", 0, 0);
-            #endregion
-
-            #region Call find command
-            FindResponse findResponse = this.CMDAdapter.Find(findRequest);            
-            Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
-            #endregion
-        }
         #endregion
-
-        /// <summary>
-        /// This test case is used to verify Find MailBox success test.
-        /// </summary>
-        [TestCategory("MSASCMD"), TestMethod()]
-        public void MSASCMD_S23_TC07_Find_Mail_Success_Test()
-        {
-            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-
-            #region Create a find request
-            FindRequest findRequest = this.CreateFindMailRequest(Guid.NewGuid().ToString(), this.User1Information.InboxCollectionId, Common.GetConfigurationPropertyValue("User1Name", Site),"0-9",0,0);
-            #endregion
-
-            #region Call Find command
-            TestSuites.Common.FindResponse findResponse = this.CMDAdapter.Find(findRequest);
-            Site.Assert.AreEqual("1", findResponse.ResponseData.Status, "If server successfully completed command, server should return status 1");
-            Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172509");
-
-            // Test Case verify requirement: MS-ASCMD_R72172509
-            Site.CaptureRequirementIfAreEqual<string>(
-                "1",
-                findResponse.ResponseData.Status,
-                72172509,
-                @"[In Status (Find)] [When the parent is Find element], [the cause of the status value 1 is] Server successfully completed command.");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172520");
-
-            // Test Case verify requirement: MS-ASCMD_R72172520
-            Site.CaptureRequirementIfAreEqual<string>(
-                "1",
-                findResponse.ResponseData.Response.Status,
-                72172520,
-                @"[In Status (Find)] [When the parent is Find element Response element], [the cause of the status value 1 is] Server successfully completed command.");
-            #endregion
-        }
-
         #region Private Methods
         /// <summary>
         /// Verify if the classElement is supported.

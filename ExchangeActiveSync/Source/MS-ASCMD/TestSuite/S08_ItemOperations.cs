@@ -786,9 +786,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             data = this.GetDataElement(itemOperationsResponse);
             Site.Assert.IsNull(data, "The Data element of the ItemOperations response should be null.");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5434");
-
             bool existPartElement = false;
 
             for (int i = 0; i < itemOperationsResponse.ResponseData.Response.Fetch[0].Properties.ItemsElementName.Length; i++)
@@ -799,12 +796,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                     break;
                 }
             }
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R5434
-            Site.CaptureRequirementIfIsTrue(
-                existPartElement,
-                5434,
-                @"[In Part] It [Part element] is a child of the Properties element if the item being fetched is located in a document library.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R2302");
