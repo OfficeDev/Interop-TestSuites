@@ -28109,13 +28109,13 @@ Response (section 2.2.3.153.2) </ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6559100806</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R65590806</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.70.1</ns1:Doc_Sect>
 		<ns1:Description>[In FirstName (Find)] The FirstName element is only present in response to Find command requests that contain the GALSearchCriterion element as specified in section 2.2.3.82.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
-		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6559100807</ns1:REQ_ID>
@@ -28219,7 +28219,7 @@ Response (section 2.2.3.153.2) </ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R5323</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.70.2</ns1:Doc_Sect>
-		<ns1:Description>[In FirstName] The FirstName element is only present in response to Search command requests that contain a search:Name element with a value of "GAL", as specified in section 2.2.3.110.2.</ns1:Description>
+		<ns1:Description>[In FirstName(Search)] The FirstName element is only present in response to Search command requests that contain a search:Name element with a value of "GAL", as specified in section 2.2.3.110.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -34905,7 +34905,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R32831608</ns1:REQ_ID>
@@ -34914,7 +34914,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R32831609</ns1:REQ_ID>
@@ -34923,7 +34923,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R32831610</ns1:REQ_ID>
@@ -34932,7 +34932,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R3283101611</ns1:REQ_ID>
@@ -35367,7 +35367,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R33001610</ns1:REQ_ID>
@@ -35376,7 +35376,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R33001016011</ns1:REQ_ID>
@@ -39474,7 +39474,7 @@ Options (section 2.2.3.125.1)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R5360</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.121.2</ns1:Doc_Sect>
-		<ns1:Description>[In Office] The Office element is only present in response to Search command requests that contain a search:Name element with a value of "GAL", as specified in section 2.2.3.114.2.</ns1:Description>
+		<ns1:Description>[In Office (Search)] The Office element is only present in response to Search command requests that contain a search:Name element with a value of "GAL", as specified in section 2.2.3.114.2.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -43100,7 +43100,7 @@ airsyncbase:BodyPartPreference ([MS-ASAIRS] section2.2.2.6), rm:RightsManagement
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-ASCMD_R6958101706</ns1:REQ_ID>
+		<ns1:REQ_ID>MS-ASCMD_R69581706</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.133.1</ns1:Doc_Sect>
 		<ns1:Description>[In Phone (Find)] The Phone element is only present in response to Find command requests that contain the GALSearchCriterion element as specified in section 2.2.3.82.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
@@ -44692,7 +44692,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] ProposedEndTime is also an optional child element of the Attendee element in Sync command responses.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -44701,9 +44701,9 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] If ProposedStartTime is included as a child element, then ProposedEndTime is a required child element as well. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6990101705</ns1:REQ_ID>
@@ -44755,7 +44755,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the parent element is MeetingRequest ([MS-ASEMAIL] section 2.2.2.48).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44764,7 +44764,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] None [Element ProposedEndTime in Sync command response (section 2.2.1.21) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44773,7 +44773,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the data type is Compact DateTime ([MS-ASDTYPE] section 2.7.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44782,7 +44782,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44792,7 +44792,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the parent element is Attendee
 ([MS-ASCAL] section 2.2.2.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44801,7 +44801,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] None [Element ProposedEndTime in Sync command response (section 2.2.1.21) has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44810,7 +44810,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the data type is Compact DateTime ([MS-ASDTYPE] section 2.7.2) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44819,7 +44819,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.140</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedEndTime] Element ProposedEndTime in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44882,7 +44882,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] ProposedEndTime is also an optional child element of the Attendee element in Sync command responses.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
@@ -44893,7 +44893,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R6990101726</ns1:REQ_ID>
@@ -44946,7 +44946,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the parent element is MeetingRequest
 ([MS-ASEMAIL] section.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44955,7 +44955,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] None [Element ProposedStartTime in Sync command response (section 2.2.1.21), has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44964,7 +44964,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the data type is Compact DateTime ([MS-ASDTYPE] .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44973,7 +44973,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44983,7 +44983,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the parent element is Attendee
 ([MS-ASCAL] section 2.2.2.3).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -44992,7 +44992,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] None [Element ProposedStartTime in Sync command response (section 2.2.1.21), has no child element.]</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -45001,7 +45001,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the data type is Compact DateTime ([MS-ASDTYPE] section 2.7.2) .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -45010,7 +45010,7 @@ Data (section 2.2.3.39.1), Part (section 2.2.3.120), Version (section 2.2.3.181)
 		<ns1:Doc_Sect>2.2.3.141</ns1:Doc_Sect>
 		<ns1:Description>[In ProposedStartTime] Element ProposedStartTime in Sync command response (section 2.2.1.21), the number allowed is 0...1 (optional).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
+		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
@@ -48775,7 +48775,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R99910</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.155.1</ns1:Doc_Sect>
-		<ns1:Description>[In In Result (Find)] Element Result in Find command response (section 2.2.1.2), the parent element is Search (section 2.2.3.153.2).</ns1:Description>
+		<ns1:Description>[In Result (Find)] Element Result in Find command response (section 2.2.1.2), the parent element is Response (section 2.2.3.153.2).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -48784,7 +48784,7 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R99911</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.155.1</ns1:Doc_Sect>
-		<ns1:Description>[In In Result (Find)] Element Result in Find command response (section 2.2.1.2), the child element is airsync:Class (section 2.2.3.27.1),airsync:ServerId (section 2.2.3.166.1),airsync:CollectionId (section 2.2.3.30.1),Properties (section 2.2.3.139.1).</ns1:Description>
+		<ns1:Description>[In Result (Find)] Element Result in Find command response (section 2.2.1.2), the child element is airsync:Class (section 2.2.3.27.1),airsync:ServerId (section 2.2.3.166.1),airsync:CollectionId (section 2.2.3.30.1),Properties (section 2.2.3.139.1).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -49920,9 +49920,9 @@ Total (section 2.2.3.184.1) .</ns1:Description>
 		<ns1:Doc_Sect>2.2.3.160</ns1:Doc_Sect>
 		<ns1:Description>[In SearchId] If the client wants to page through Find results by incrementing the Range value, it MUST use the same SearchId in subsequent Find command requests. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R7098101809</ns1:REQ_ID>
@@ -54085,7 +54085,7 @@ Response element], [the meaning of the status value] 1 [is] Success.</ns1:Descri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R72172520</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.177.2</ns1:Doc_Sect>
-		<ns1:Description>[In Status (Find)] [When the parent is Find element Response element], [the cause of the status value 1 is] Server successfully completed command.</ns1:Description>
+		<ns1:Description>[In Status (Find)] [When the parent is Response element], [the cause of the status value 1 is] Server successfully completed command.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -54156,7 +54156,7 @@ Response element], [the meaning of the status value] 3 [is] FolderSync required.
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASCMD_R72172516</ns1:REQ_ID>

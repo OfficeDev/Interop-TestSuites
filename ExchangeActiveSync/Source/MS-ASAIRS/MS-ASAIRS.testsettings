@@ -2,18 +2,19 @@
 <TestSettings name="MS-ASAIRS" id="bf784819-c772-4d11-89c6-b8e5713fcc42" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are the default test settings for running all MS-ASAIRS test cases.</Description>
   <Deployment>
-    <DeploymentItem filename="MS-ASAIRS.runsettings" />
     <DeploymentItem filename="TestSuite\MS-ASAIRS_TestSuite.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASAIRS_RequirementSpecification.xml" />
-    <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASAIRS_TestSuite.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-ASAIRS\TestSuite\MS-ASAIRS_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\Resources\" />
-    <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
-    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ASAIRS.runsettings" />
     <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASAIRS_RequirementSpecification.xml" />
+    <DeploymentItem filename="..\Common\ExchangeCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\Resources\" />
+    <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\ActiveSyncClient\SchemaValidation\" />
+    <DeploymentItem filename="MS-ASAIRS\TestSuite\MS-ASAIRS_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASAIRS_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ASAIRS_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

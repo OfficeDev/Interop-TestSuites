@@ -65,7 +65,7 @@
                 findResponse.ResponseData.Status,
                 72172509,
                 @"[In Status (Find)] [When the parent is Find element], [the cause of the status value 1 is] Server successfully completed command.");
-            
+
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172520");
 
@@ -74,7 +74,7 @@
                 "1",
                 findResponse.ResponseData.Response.Status,
                 72172520,
-                @"[In Status (Find)] [When the parent is Find element Response element], [the cause of the status value 1 is] Server successfully completed command.");
+                @"[In Status (Find)] [When the parent is Response element], [the cause of the status value 1 is] Server successfully completed command.");
             #endregion
         }
 
@@ -85,9 +85,9 @@
         public void MSASCMD_S23_TC02_Find_Mail_InvalidRequest()
         {
             Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-            
+
             #region Create a find request with invalid SearchId.
-            FindRequest findRequest = this.CreateFindMailRequest("",this.User1Information.InboxCollectionId);
+            FindRequest findRequest = this.CreateFindMailRequest("",this.User1Information.InboxCollectionId);            
             #endregion
 
             #region Call Find command
@@ -103,8 +103,7 @@
                 findResponse.ResponseData.Status,
                 72172512,
                 @"[In Status (Find)] [When the parent is Find element], [the cause of the status value 2 is] One or more of the client's search parameters was invalid.");
-
-
+            
             if (Common.IsRequirementEnabled(72172521, this.Site))
             {
                 // Add the debug information
@@ -117,6 +116,35 @@
                     72172521,
                     @"[In Status (Find)] [When the parent is Response element], [the cause of the status value 2 is] One or more of the client's search parameters was invalid.");
             }
+            #endregion
+        }
+
+        /// <summary>
+        /// This test case is used to verify the Find respones status of FolderSync required.
+        /// </summary>
+        [TestCategory("MSASCMD"), TestMethod()]
+        public void MSASCMD_S23_TC08_Find_Mail_FolderSyncRequired()
+        {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+
+            #region Create a find request with invalid SearchId.
+            //Set CollectionId invalid value "-1".
+            FindRequest findRequest = this.CreateFindMailRequest(Guid.NewGuid().ToString(), "-1");
+            #endregion
+
+            #region Call Find command
+            TestSuites.Common.FindResponse findResponse = this.CMDAdapter.Find(findRequest);
+            Site.Assert.AreEqual("3", findResponse.ResponseData.Status, "If server successfully completed command, server should return status 2");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172515");
+
+            // Test Case verify requirement: MS-ASCMD_R72172515
+            Site.CaptureRequirementIfAreEqual<string>(
+                "3",
+                findResponse.ResponseData.Status,
+                72172515,
+                @"[In Status (Find)] [When the parent is Find element], [the cause of the status value 3 is] The folder hierarchy is out of date. ");
             #endregion
         }
 
@@ -148,7 +176,7 @@
                     72172518,
                     @"[In Status (Find)] [When the parent is Response element], [the cause of the status value 4 is] The requested range does not begin with 0.");
             }
-            #endregion
+           #endregion
         }
 
         /// <summary>
@@ -158,15 +186,186 @@
         public void MSASCMD_S23_TC04_Find_GAL_Success()
         {
             Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-            
-            #region Create Find request with options
 
-            FindRequest findRequest = this.CreateDefaultFindGALRequest();
+            #region Create Find request with options
+            int rangeEndIndex = 22;
+            string requestRange = "0-" + rangeEndIndex.ToString();
+            // New SearchId, keyWord="MSASCMD", range="0-22", maxPictures=0, maxSize=0
+            string keyWord = Common.GetConfigurationPropertyValue("User1Name", Site).Substring(0, 6);
+            FindRequest findRequest = this.CreateFindGALRequest(Guid.NewGuid().ToString(), keyWord, requestRange, 0, 0);
             #endregion
 
             #region Call find command
             FindResponse findResponse = this.CMDAdapter.Find(findRequest);
             Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
+            #endregion
+
+            #region Verify Requirements
+            int findResultCount = findResponse.ResponseData.Response.Results.Length;
+            bool hasAliasElement = false;
+            bool hasCompanyElement = false;
+            bool hasEmailAddressElement = false;
+            bool hasFirstNameElement = false;
+            bool hasLastNameElement = false;
+            bool hasDisplayNameElement = false;
+            bool hasMobilePhoneElement = false;
+            bool hasHomePhoneElement = false;
+            bool hasOfficeElement = false;
+            bool hasPhoneElement = false;
+            bool hasTitleElement = false;
+
+            foreach (Response.FindResponseResult result in findResponse.ResponseData.Response.Results)
+            {
+                if (result.Properties != null)
+                {
+                    // Verify optional property values.
+                    foreach (Response.ItemsChoiceType14 itemElementName in result.Properties.ItemsElementName)
+                    {
+                        switch (itemElementName)
+                        {
+                            case Response.ItemsChoiceType14.Alias:
+                                hasAliasElement = true;
+                                break;
+                            case Response.ItemsChoiceType14.Company:
+                                hasCompanyElement = true;
+                                break;
+                            case Response.ItemsChoiceType14.EmailAddress:
+                                hasEmailAddressElement = true;
+                                break;
+                            case Response.ItemsChoiceType14.FirstName:
+                                hasFirstNameElement = true;
+                                break;
+                            case Response.ItemsChoiceType14.LastName:
+                                hasLastNameElement = true;
+                                break;
+                            case Response.ItemsChoiceType14.DisplayName:
+                                hasDisplayNameElement = true;
+                                break;
+                            case Response.ItemsChoiceType14.MobilePhone:
+                                hasMobilePhoneElement = true;
+                                break;
+                            case Response.ItemsChoiceType14.HomePhone:
+                                hasHomePhoneElement = true;
+                                break;
+                            case Response.ItemsChoiceType14.Office:
+                                hasOfficeElement = true;
+                                break;
+                            case Response.ItemsChoiceType14.Phone:
+                                hasPhoneElement = true;
+                                break;
+                            case Response.ItemsChoiceType14.Title:
+                                hasTitleElement = true;
+                                break;
+                        }
+                    }
+                }
+            }
+
+            // Verify display name in find result is in order.
+            List<object> displayName = GetElementsFromFindResponse(findResponse, Response.ItemsChoiceType14.DisplayName);
+            List<object> alias = GetElementsFromFindResponse(findResponse, Response.ItemsChoiceType14.Alias);
+            int compareResult = string.Compare((string)displayName[0], (string)displayName[1], StringComparison.CurrentCulture);
+            bool displayNameInOrder = true;
+            for (int displayNameIndex = 1; displayNameIndex < rangeEndIndex; displayNameIndex++)
+            {
+                int otherCompareResult = string.Compare((string)displayName[displayNameIndex], (string)displayName[displayNameIndex + 1], StringComparison.CurrentCulture);
+                if (compareResult != otherCompareResult)
+                {
+                    displayNameInOrder = false;
+                }
+            }
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R1002501");
+
+            // Verify MS-ASCMD requirement: MS-ASCMD_R1002501
+            Site.CaptureRequirementIfIsTrue(
+                displayName.Count == findResultCount && alias.Count == findResultCount,
+                1002501,
+                @"[In Find] For each GAL entry that is found, the Find command returns email alias and display name.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R131999");
+
+            // Test Case verify requirement: MS-ASCMD_R131999
+            Site.CaptureRequirementIfAreEqual<string>(
+                findResponse.ResponseData.Response.Total,
+                findResponse.ResponseData.Response.Results.Length.ToString(),
+                131999,
+                @"[In Find] [Searching the Global Address List (GAL)] The server MUST return entries up to the number that is requested, and MUST also indicate the total number of entries that are found.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R132000");
+
+            // Verify MS-ASCMD requirement: MS-ASCMD_R132000
+            Site.CaptureRequirementIfIsTrue(
+                this.User1Information.UserName.StartsWith(keyWord, StringComparison.OrdinalIgnoreCase),
+                132000,
+                @"[In Find] [Searching the Global Address List (GAL)] The text query string that is provided to the Find command is used in a prefix-string match.");
+
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R132004");
+
+            // Verify MS-ASCMD requirement: MS-ASCMD_R132004
+            Site.CaptureRequirementIfIsTrue(
+                displayNameInOrder,
+                132004,
+                @"[In Find] [Searching the Global Address List (GAL)] The Find command results are sorted by the server according to their ordering in the GAL (that is, by the display name property).");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R61641061");
+
+            // Verify MS-ASCMD requirement: MS-ASCMD_R61641061
+            Site.CaptureRequirementIfIsTrue(
+                hasAliasElement,
+                61641061,
+                @"[In Alias (Find)] The Alias element is only present in response to Find command requests that contain the GALSearchCriterion element as specified in section 2.2.3.82.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R61641062");
+
+            // Verify MS-ASCMD requirement: MS-ASCMD_R61641062
+            Site.CaptureRequirementIfIsTrue(
+                hasAliasElement,
+                61641062,
+                @"[In Alias (Find)] It[Alias element] contains the alias of a recipient in the GAL that matched the search criteria from the corresponding Find command request.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R63510605");
+
+            // Verify MS-ASCMD requirement: MS-ASCMD_R63510605
+            Site.CaptureRequirementIfIsTrue(
+                hasCompanyElement,
+                63510605,
+                @"[In Company (Find)] The Company element is only present in response to Find command requests that contain the GALSearchCriterion element as specified in section 2.2.3.82.");
+            
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R65590806");
+
+            // Verify MS-ASCMD requirement: MS-ASCMD_R65590806
+            Site.CaptureRequirementIfIsTrue(
+                hasFirstNameElement,
+                65590806,
+                @"[In FirstName (Find)] The FirstName element is only present in response to Find command requests that contain the GALSearchCriterion element as specified in section 2.2.3.82.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R69581706");
+
+            // Verify MS-ASCMD requirement: MS-ASCMD_R69581706
+            Site.CaptureRequirementIfIsTrue(
+                hasPhoneElement,
+                69581706,
+                @"[In Phone (Find)] The Phone element is only present in response to Find command requests that contain the GALSearchCriterion element as specified in section 2.2.3.82.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R37071816");
+
+            // Verify MS-ASCMD requirement: MS-ASCMD_R37071816
+            Site.CaptureRequirementIfIsTrue(
+               uint.Parse(findResponse.ResponseData.Response.Total)<=(rangeEndIndex+1),
+                37071816,
+                @"[In Range (Find)] If the Find request includes a Range element, the server can return fewer results than requested. ");
             #endregion
         }
 
@@ -176,6 +375,8 @@
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC05_Find_MatchedItems()
         {
+            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
+
             #region User1 calls SendMail command to send 2 email messages to user2.
             string keyWord = Guid.NewGuid().ToString().Substring(0, 5);
             uint mailIndex = 1;
@@ -224,65 +425,57 @@
             #endregion
         }
 
-
         /// <summary>
-        /// This test case is used to verify Find global address list success test.
+        /// This test case is used to verify the Find response when the found items have the multiple matched items.
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
-        public void MSASCMD_S23_TC06_Find_GAL_Success_Test()
-        {
-            Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
-            #region Create Find request with options
-
-            FindRequest findRequest = this.CreateFindGALRequest(Guid.NewGuid().ToString(), Common.GetConfigurationPropertyValue("User1Name", Site), "0-5", 0, 0);
-            #endregion
-
-            #region Call find command
-            FindResponse findResponse = this.CMDAdapter.Find(findRequest);
-            Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
-            #endregion
-        }
-        #endregion
-
-        /// <summary>
-        /// This test case is used to verify Find MailBox success test.
-        /// </summary>
-        [TestCategory("MSASCMD"), TestMethod()]
-        public void MSASCMD_S23_TC07_Find_Mail_Success_Test()
+        public void MSASCMD_S23_TC05_Find_NoMatchedItem()
         {
             Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
-            #region Create a find request
-            FindRequest findRequest = this.CreateFindMailRequest(Guid.NewGuid().ToString(), this.User1Information.InboxCollectionId, Common.GetConfigurationPropertyValue("User1Name", Site),"0-9",0,0);
+            #region User1 calls SendMail command to send 2 email messages to user2.
+            string keyWord = Guid.NewGuid().ToString().Substring(0, 5);
+            uint mailIndex = 1;
+            string emailSubject = keyWord + Common.GenerateResourceName(Site, "find", mailIndex);
+            SendMailResponse responseSendMail = this.SendPlainTextEmail(null, emailSubject, this.User1Information.UserName, this.User2Information.UserName, null);
+            Site.Assert.AreEqual(string.Empty, responseSendMail.ResponseDataXML, "If SendMail command executes successfully, server should return empty xml data");
+            mailIndex++;
+            string emailSubject2 = keyWord + Common.GenerateResourceName(Site, "find", mailIndex);
+            SendMailResponse responseSendMail2 = this.SendPlainTextEmail(null, emailSubject2, this.User1Information.UserName, this.User2Information.UserName, null);
+            Site.Assert.AreEqual(string.Empty, responseSendMail2.ResponseDataXML, "If SendMail command executes successfully, server should return empty xml data");
+            #endregion
+
+            #region Sync user2 mailbox changes
+            // Switch to user2 mailbox
+            this.SwitchUser(this.User2Information);
+            this.GetMailItem(this.User2Information.InboxCollectionId, emailSubject);
+            this.GetMailItem(this.User2Information.InboxCollectionId, emailSubject2);
+            TestSuiteBase.RecordCaseRelativeItems(this.User2Information, this.User2Information.InboxCollectionId, emailSubject, emailSubject2);
+            #endregion
+
+            #region Create a find request for finding mail.
+            // New a keyword that No item matched.
+            keyWord= Guid.NewGuid().ToString().Substring(0, 5);
+            FindRequest findRequest = this.CreateFindMailRequest(Guid.NewGuid().ToString(), this.User2Information.InboxCollectionId, keyWord, "0-5", 0, 0);
             #endregion
 
             #region Call Find command
-            TestSuites.Common.FindResponse findResponse = this.CMDAdapter.Find(findRequest);
-            Site.Assert.AreEqual("1", findResponse.ResponseData.Status, "If server successfully completed command, server should return status 1");
+
+            FindResponse findResponse = this.CMDAdapter.Find(findRequest);
             Site.Assert.AreEqual("1", findResponse.ResponseData.Response.Status, "If server successfully completed command, server should return status 1");
-
+            
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172509");
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R38391805");
 
-            // Test Case verify requirement: MS-ASCMD_R72172509
-            Site.CaptureRequirementIfAreEqual<string>(
-                "1",
-                findResponse.ResponseData.Status,
-                72172509,
-                @"[In Status (Find)] [When the parent is Find element], [the cause of the status value 1 is] Server successfully completed command.");
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R72172520");
-
-            // Test Case verify requirement: MS-ASCMD_R72172520
-            Site.CaptureRequirementIfAreEqual<string>(
-                "1",
-                findResponse.ResponseData.Response.Status,
-                72172520,
-                @"[In Status (Find)] [When the parent is Find element Response element], [the cause of the status value 1 is] Server successfully completed command.");
+            // Verify MS-ASCMD requirement: MS-ASCMD_R38391805
+            Site.CaptureRequirementIfIsNull(
+                findResponse.ResponseData.Response.Results,
+                38391805,
+                @"[In Result (Find)] If no matches are found, the Result element is not present in the Response container element of the response XML.");
             #endregion
         }
 
+        #endregion
         #region Private Methods
         /// <summary>
         /// Verify if the classElement is supported.
@@ -404,6 +597,29 @@
         {
             List<object> element = new List<object>();
             foreach (Response.SearchResponseStoreResult result in searchResponse.ResponseData.Response.Store.Result)
+            {
+                for (int itemIndex = 0; itemIndex < result.Properties.ItemsElementName.Length; itemIndex++)
+                {
+                    if (result.Properties.ItemsElementName[itemIndex] == elementType)
+                    {
+                        element.Add(result.Properties.Items[itemIndex]);
+                    }
+                }
+            }
+
+            return element;
+        }
+
+        /// <summary>
+        /// Get elements from Find command response.
+        /// </summary>
+        /// <param name="searchResponse">The Find command response.</param>
+        /// <param name="elementType">The element type need to get.</param>
+        /// <returns>The element object list.</returns>
+        private static List<object> GetElementsFromFindResponse(FindResponse findResponse, Response.ItemsChoiceType14 elementType)
+        {
+            List<object> element = new List<object>();
+            foreach (Response.FindResponseResult result in findResponse.ResponseData.Response.Results)
             {
                 for (int itemIndex = 0; itemIndex < result.Properties.ItemsElementName.Length; itemIndex++)
                 {
