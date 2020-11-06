@@ -113,6 +113,21 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         }
 
         /// <summary>
+        /// Find items on server.
+        /// </summary>
+        /// <param name="findRequest">The request for find operation.</param>
+        /// <returns>The find response which is returned from the server.</returns>
+        public FindResponse Find(FindRequest findRequest)
+        {
+            FindResponse response = this.activeSyncClient.Find(findRequest);
+            Site.Assert.IsNotNull(response, "If the operation is successful, the response should not be null.");
+            this.VerifyTransport();
+            this.VerifyFindCommand(response);
+            this.VerifyWBXMLCapture();
+            return response;
+        }
+
+        /// <summary>
         /// Search data on the server with an invalid Search request which contains an E-mail Class element.
         /// </summary>
         /// <param name="searchRequest">The request for search operation.</param>
