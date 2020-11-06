@@ -946,27 +946,31 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCAL
 
             #endregion
 
-            if (this.IsActiveSyncProtocolVersion121
-                || this.IsActiveSyncProtocolVersion140
-                || this.IsActiveSyncProtocolVersion141
-                || this.IsActiveSyncProtocolVersion160
-                || this.IsActiveSyncProtocolVersion161)
+            if (Common.IsRequirementEnabled(313, this.Site))
             {
-                Site.Assert.IsNotNull(calendarOnOrganizer.Calendar.MeetingStatus, "The MeetingStatus element should not be null.");
-                
-                
-                
-                // Add the debug information 
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R313");
+                if (this.IsActiveSyncProtocolVersion121
+                    || this.IsActiveSyncProtocolVersion140
+                    || this.IsActiveSyncProtocolVersion141
+                    || this.IsActiveSyncProtocolVersion160
+                    || this.IsActiveSyncProtocolVersion161)
+                {
+                    Site.Assert.IsNotNull(calendarOnOrganizer.Calendar.MeetingStatus, "The MeetingStatus element should not be null.");
 
-                // Verify MS-ASCAL requirement: MS-ASCAL_R313
-                Site.CaptureRequirementIfAreEqual<byte>(
-                    5,
-                    calendarOnOrganizer.Calendar.MeetingStatus.Value,
-                    313,
-                    @"[In MeetingStatus][The value 5 means] The meeting has been canceled and the user was the meeting organizer.");
-                
+
+
+                    // Add the debug information 
+                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCAL_R313");
+
+                    // Verify MS-ASCAL requirement: MS-ASCAL_R313
+                    Site.CaptureRequirementIfAreEqual<byte>(
+                        5,
+                        calendarOnOrganizer.Calendar.MeetingStatus.Value,
+                        313,
+                        @"[In MeetingStatus][The value 5 means] The meeting has been canceled and the user was the meeting organizer.");
+
+                }
             }
+
         }
 
         #endregion
