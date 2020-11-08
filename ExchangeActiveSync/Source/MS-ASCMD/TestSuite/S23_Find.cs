@@ -429,7 +429,7 @@
         /// This test case is used to verify the Find response when the found items have the multiple matched items.
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
-        public void MSASCMD_S23_TC05_Find_NoMatchedItem()
+        public void MSASCMD_S23_TC06_Find_NoMatchedItem()
         {
             Site.Assume.AreEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Find command is only supported when the MS-ASProtocolVersion header is set to 16.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
