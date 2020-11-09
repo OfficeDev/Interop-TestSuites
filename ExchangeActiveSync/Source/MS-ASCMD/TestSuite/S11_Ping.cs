@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading;
     using Microsoft.Protocols.TestSuites.Common;
     using Microsoft.Protocols.TestTools;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -215,31 +216,42 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             this.RecordDeviceInfoChanged();
             this.CMDAdapter.ChangeDeviceID("FirstDeviceID");
             #endregion
-
+            
             #region Sync user folder changes
             this.FolderSync();
             #endregion
-
+            
             #region Switch to new device and create one folder
             this.CMDAdapter.ChangeDeviceID("SecondDeviceID");
             string folderSynKey = this.GetFolderSyncKey();
 
             // Create one mail type folder 
+            int counter = 0;
+            int waitTime = int.Parse(Common.GetConfigurationPropertyValue("WaitTime", this.Site));
+            int retryCount = int.Parse(Common.GetConfigurationPropertyValue("RetryCount", this.Site));
+
             string newFolderName = Guid.NewGuid().ToString().Replace("-", string.Empty);
             FolderCreateRequest folderCreateRequest = Common.CreateFolderCreateRequest(folderSynKey, 12, newFolderName, this.User1Information.InboxCollectionId);
-            FolderCreateResponse folderCreateResponse = this.CMDAdapter.FolderCreate(folderCreateRequest);
+            FolderCreateResponse folderCreateResponse;
+            do
+            {
+                Thread.Sleep(waitTime);
+                folderCreateResponse = this.CMDAdapter.FolderCreate(folderCreateRequest);
+                counter++;
+            }
+            while (folderCreateResponse.ResponseData.Status == "6");       
+            
             Site.Assert.AreEqual<int>(
                 1,
                 int.Parse(folderCreateResponse.ResponseData.Status),
                 "After folder create success, server should return status 1");
-            #endregion
-
+            #endregion          
             #region Switch back to old device and send one ping request
             this.CMDAdapter.ChangeDeviceID("FirstDeviceID");
             PingRequest pingRequest = CreatePingRequest(this.User1Information.InboxCollectionId, Request.PingFolderClass.Email);
             PingResponse pingResponse = this.CMDAdapter.Ping(pingRequest);
             #endregion
-
+            
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4257");
 
