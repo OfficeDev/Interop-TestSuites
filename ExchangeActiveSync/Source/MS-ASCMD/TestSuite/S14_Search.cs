@@ -1036,7 +1036,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             }
             #endregion
 
-            #region Verify requirements MS-ASCMD_R1322, MS-ASCMD_R920,MS-ASCMD_R5883
+            #region Verify requirements MS-ASCMD_R1322, MS-ASCMD_R920
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R920");
 
