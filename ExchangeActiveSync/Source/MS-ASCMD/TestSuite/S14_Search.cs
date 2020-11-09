@@ -1036,7 +1036,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             }
             #endregion
 
-            #region Verify requirements MS-ASCMD_R1322, MS-ASCMD_R920,MS-ASCMD_R5883
+            #region Verify requirements MS-ASCMD_R1322, MS-ASCMD_R920
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R920");
 
@@ -1046,20 +1046,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                 searchResponse.ResponseData.Response.Store.Status,
                 920,
                 @"[In Class(Search)] The valid airsync:Class element values are: Tasks, Email, Calendar, Contacts, Notes, SMS<14>.");
-
-
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site) == "14.1")
-            {
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5883");
-
-                // Verify MS-ASCMD requirement: MS-ASCMD_R5883
-                Site.CaptureRequirementIfAreEqual<string>(
-                    "1",
-                    searchResponse.ResponseData.Response.Store.Status,
-                    5883,
-                    @"[In Appendix A: Product Behavior] <14> Section 2.2.3.27.4: The SMS and Notes classes are only available if the MS-ASProtocolVersion header is set to [14.0 or] 14.1.");
-            }
 
             bool isAllResultContainClass = false;
             foreach (Response.SearchResponseStoreResult result in searchResponse.ResponseData.Response.Store.Result)

@@ -330,6 +330,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASWBXML
             this.codePages[8].AddToken(0x0B, "Status");
             this.codePages[8].AddToken(0x0C, "UserResponse");
             this.codePages[8].AddToken(0x0E, "InstanceId");
+            this.codePages[8].AddToken(0x10, "ProposedStartTime");
+            this.codePages[8].AddToken(0x11, "ProposedEndTime");
             this.codePages[8].AddToken(0x12, "SendResponse");
 
             // Code Page 9: Tasks

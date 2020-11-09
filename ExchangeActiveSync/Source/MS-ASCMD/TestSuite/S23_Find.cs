@@ -79,7 +79,7 @@
         }
 
         /// <summary>
-        /// This test case is used to verify the Find respones status of invalid Find command request.
+        /// This test case is used to verify the Find respones status of invalid Find Mail command request.
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC02_Find_Mail_InvalidRequest()
@@ -149,7 +149,7 @@
         }
 
         /// <summary>
-        /// This test case is used to verify the Find respones status of invalid Range in Find command request.
+        /// This test case is used to verify the Find respones status of invalid Range in Find Mail command request.
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC03_Find_Mail_InvalidRange()
@@ -426,7 +426,7 @@
         }
 
         /// <summary>
-        /// This test case is used to verify the Find response when the found items have the multiple matched items.
+        /// This test case is used to verify the Find response when no matched item was found.
         /// </summary>
         [TestCategory("MSASCMD"), TestMethod()]
         public void MSASCMD_S23_TC06_Find_NoMatchedItem()
