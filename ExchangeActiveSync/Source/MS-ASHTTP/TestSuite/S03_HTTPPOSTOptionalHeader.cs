@@ -285,17 +285,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
             catch (System.Net.WebException exception)
             {
                 int statusCode = ((System.Net.HttpWebResponse)exception.Response).StatusCode.GetHashCode();
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R422");
-
-                // Verify MS-ASHTTP requirement: MS-ASHTTP_R422
-                Site.CaptureRequirementIfAreEqual<int>(
-                    503,
-                    statusCode,
-                    422,
-                    @"[In User-Agent Change Tracking] If the server blocks a client from changing its User-Agent header value, it [server] returns an HTTP error 503.");
-
+                
                 if (Common.IsRequirementEnabled(456, this.Site))
                 {
                     // Add the debug information
