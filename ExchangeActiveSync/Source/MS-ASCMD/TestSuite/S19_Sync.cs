@@ -896,6 +896,8 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Class element is not supported in a Sync command response when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.0");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.1");
+           
             #region Add a new calendar
             string calendarSubject = Common.GenerateResourceName(Site, "calendarSubject");
             DateTime startTime = DateTime.Now.AddDays(1.0);
@@ -1899,16 +1901,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             SyncResponse syncResponse = this.Sync(syncRequest);
             Site.Assert.IsNotNull(syncResponse.ResponseData.Item, "The items returned in the Sync command response should not be null.");
             Response.SyncCollectionsCollectionResponses collectionResponse = TestSuiteBase.GetCollectionItem(syncResponse, Response.ItemsChoiceType10.Responses) as Response.SyncCollectionsCollectionResponses;
-
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R752");
-
-            // Verify MS-ASCMD requirement: MS-ASCMD_R752
-            Site.CaptureRequirementIfAreEqual<int>(
-                6,
-                int.Parse(collectionResponse.Add[0].Status),
-                752,
-                @"[In Add(Sync)] [When the client adds a calendar item] A Status element value of 6 is returned in the Sync response if the EndTime element is not included.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4440");
@@ -3236,7 +3228,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region Call Sync command to indicate to the server that JobTitle element is not ghosted.
             Request.Supported supported = new Request.Supported
             {
-                Items = new object[] { string.Empty },
+                Items = new string[] { string.Empty },
                 ItemsElementName = new Request.ItemsChoiceType[] { Request.ItemsChoiceType.JobTitle }
             };
 
@@ -4176,7 +4168,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             DateTime endTime = startTime.AddHours(1.0);
             Request.SyncCollectionAdd calendarData;
 
-            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0")&&!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
             {
                 calendarData = new Request.SyncCollectionAdd
                 {
@@ -4186,7 +4178,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         ItemsElementName =
                             new Request.ItemsChoiceType8[]
                         {
-                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
+                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location1,
                             Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime,
                             Request.ItemsChoiceType8.UID
                         },
@@ -4210,7 +4202,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         ItemsElementName =
                             new Request.ItemsChoiceType8[]
                         {
-                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location1,
+                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
                             Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime
                         },
                         Items =
@@ -4244,7 +4236,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             startTime = DateTime.Now.AddDays(-10);
             endTime = startTime.AddHours(1.0);
 
-            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0"))
+            if (!Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.0")&& !Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("16.1"))
             {
                 calendarData = new Request.SyncCollectionAdd
                 {
@@ -4254,7 +4246,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         ItemsElementName =
                             new Request.ItemsChoiceType8[]
                         {
-                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
+                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location1,
                             Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime,
                             Request.ItemsChoiceType8.UID
                         },
@@ -4278,7 +4270,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         ItemsElementName =
                             new Request.ItemsChoiceType8[]
                         {
-                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location1,
+                            Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
                             Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime
                         },
                         Items =
@@ -4363,7 +4355,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             #region Add a new Note item
             string noteSubject = Common.GenerateResourceName(Site, "noteSubject");
             Request.Body noteBody = new Request.Body { Type = 1, Data = "Content of the body." };
-            Request.Categories3 categories = new Request.Categories3 { Category = new string[] { "blue category" } };
+            Request.Categories4 categories = new Request.Categories4 { Category = new string[] { "blue category" } };
 
             Request.SyncCollectionAdd noteData = new Request.SyncCollectionAdd
             {
@@ -4427,6 +4419,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Class element is not supported in a Sync command response when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.0");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.1");
 
             this.Sync(TestSuiteBase.CreateEmptySyncRequest(this.User1Information.CalendarCollectionId));
 
@@ -4455,7 +4448,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         ItemsElementName =
                             new Request.ItemsChoiceType8[] 
                             { 
-                                Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location,
+                                Request.ItemsChoiceType8.Subject, Request.ItemsChoiceType8.Location1,
                                 Request.ItemsChoiceType8.StartTime, Request.ItemsChoiceType8.EndTime,
                                 Request.ItemsChoiceType8.Recurrence, Request.ItemsChoiceType8.Exceptions,
                                 Request.ItemsChoiceType8.UID
@@ -4813,7 +4806,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                             new Request.ItemsChoiceType8[]
                         {
                             Request.ItemsChoiceType8.To, Request.ItemsChoiceType8.Subject,
-                            Request.ItemsChoiceType8.Location,
+                            Request.ItemsChoiceType8.Location1,
                             Request.ItemsChoiceType8.EndTime
                         },
                         Items = new object[] { to, subject, location, endTime }
@@ -4834,7 +4827,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                             new Request.ItemsChoiceType8[]
                         {
                             Request.ItemsChoiceType8.To, Request.ItemsChoiceType8.Subject,
-                            Request.ItemsChoiceType8.Location1,
+                            Request.ItemsChoiceType8.Location,
                             Request.ItemsChoiceType8.EndTime
                         },
                         Items = new object[] { 

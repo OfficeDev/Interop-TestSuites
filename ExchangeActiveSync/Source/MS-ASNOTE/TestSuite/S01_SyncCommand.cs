@@ -76,7 +76,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             // Verify MS-ASNOTE requirement: MS-ASNOTE_R211
             // If the value of the single category element is the same in request and response, then MS-ASNOTE_R211 can be captured.
             Site.CaptureRequirementIfAreEqual<string>(
-                ((Request.Categories3)addElements[Request.ItemsChoiceType8.Categories2]).Category[0],
+                ((Request.Categories4)addElements[Request.ItemsChoiceType8.Categories2]).Category[0],
                 note.Categories.Category[0],
                 211,
                 @"[In Category] [The Category element] specifies a user-selected label that has been applied to the note.");
@@ -130,7 +130,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
         {
             #region Call method Sync to add a note to the server
             Dictionary<Request.ItemsChoiceType8, object> addElements = this.CreateNoteElements();
-            addElements[Request.ItemsChoiceType8.Categories2] = new Request.Categories3();
+            addElements[Request.ItemsChoiceType8.Categories2] = new Request.Categories4();
             SyncStore addResult = this.SyncAdd(addElements, 1);
             Response.SyncCollectionsCollectionResponsesAdd item = addResult.AddResponses[0];
             #endregion
@@ -139,7 +139,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             // changeElements:Change the note's subject by replacing its subject with a new subject.
             Dictionary<Request.ItemsChoiceType7, object> changeElements = new Dictionary<Request.ItemsChoiceType7, object>();
             string changedSubject = Common.GenerateResourceName(Site, "subject");
-            changeElements.Add(Request.ItemsChoiceType7.Subject1, changedSubject);
+            changeElements.Add(Request.ItemsChoiceType7.Subject2, changedSubject);
 
             // changeElements:Change the note's MessageClass by replacing its MessageClass with a new MessageClass.
             changeElements.Add(Request.ItemsChoiceType7.MessageClass, "IPM.StickyNote.MSASNOTE");
@@ -156,16 +156,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
 
             // The subject of the note is updated. 
             this.ExistingNoteSubjects.Remove(addElements[Request.ItemsChoiceType8.Subject1].ToString());
-            this.ExistingNoteSubjects.Add(changeElements[Request.ItemsChoiceType7.Subject1].ToString());
+            this.ExistingNoteSubjects.Add(changeElements[Request.ItemsChoiceType7.Subject2].ToString());
             #endregion
 
             #region Call method Sync to synchronize the note item with the server.
             // Synchronize the changes with server
             SyncStore result = this.SyncChanges(addResult.SyncKey, 1);
 
-            bool isNoteFound = TestSuiteHelper.CheckSyncChangeCommands(result, changeElements[Request.ItemsChoiceType7.Subject1].ToString(), this.Site);
+            bool isNoteFound = TestSuiteHelper.CheckSyncChangeCommands(result, changeElements[Request.ItemsChoiceType7.Subject2].ToString(), this.Site);
 
-            Site.Assert.IsTrue(isNoteFound, "The note with subject:{0} should be returned in Sync command response.", changeElements[Request.ItemsChoiceType7.Subject1].ToString());
+            Site.Assert.IsTrue(isNoteFound, "The note with subject:{0} should be returned in Sync command response.", changeElements[Request.ItemsChoiceType7.Subject2].ToString());
 
             Note note = result.ChangeElements[0].Note;
 
@@ -179,7 +179,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
                 @"[In Sync Command Response] The absence of an airsyncbase:Body element (section 2.2.2.1) within an airsync:Change element is not to be interpreted as an implicit delete.");
 
             Site.Assert.AreEqual<string>(
-                changeElements[Request.ItemsChoiceType7.Subject1].ToString(),
+                changeElements[Request.ItemsChoiceType7.Subject2].ToString(),
                 note.Subject,
                 "The subject element in Change Command response should be the same with the changed value of subject in Change Command request.");
 
@@ -211,26 +211,26 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             #region Call method Sync to synchronize the note item with the server.
             SyncStore result = this.SyncChanges(1);
 
-            Note note=null;
+            Note note =null;
 
             for (int i = 0; i < result.AddElements.Count; i++)
             {
                 if (addResult.AddElements != null && addResult.AddElements.Count > 0)
                 {
-                    if (result.AddElements[i].ServerId.Equals(addResult.AddElements[0].ServerId))
+                    if (addResult.CollectionStatus==1&& result.AddElements[0].Note.Subject.ToString()==addElements[Request.ItemsChoiceType8.Subject1].ToString())
                     {
                         note = result.AddElements[i].Note;
                         break;
                     }
                 }
-                else if(addResult.AddResponses!=null && addResult.AddResponses.Count > 0)
+                else if (addResult.AddResponses != null && addResult.AddResponses.Count > 0)
                 {
-                    if (result.AddElements[i].ServerId.Equals(addResult.AddResponses[0].ServerId))
+                    if (addResult.CollectionStatus == 1 && result.AddElements[0].Note.Subject.ToString() == addElements[Request.ItemsChoiceType8.Subject1].ToString())
                     {
                         note = result.AddElements[i].Note;
                         break;
-                    }
-                }
+                    }  
+                }             
             }
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASNOTE_R84");
@@ -297,7 +297,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
             lastModifiedDate = DateTime.UtcNow.ToString("yyyyMMddTHHmmssZ", CultureInfo.InvariantCulture);
             changeElements.Add(Request.ItemsChoiceType7.LastModifiedDate, lastModifiedDate);
             string changedSubject = Common.GenerateResourceName(Site, "subject");
-            changeElements.Add(Request.ItemsChoiceType7.Subject1, changedSubject);
+            changeElements.Add(Request.ItemsChoiceType7.Subject2, changedSubject);
             changeElements = TestSuiteHelper.CombineChangeAndAddNoteElements(addElements, changeElements);
             this.SyncChange(result.SyncKey, item.ServerId, changeElements);
 
@@ -307,13 +307,13 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
 
             result = this.SyncChanges(result.SyncKey, 1);
 
-            isNoteFound = TestSuiteHelper.CheckSyncChangeCommands(result, changeElements[Request.ItemsChoiceType7.Subject1].ToString(), this.Site);
+            isNoteFound = TestSuiteHelper.CheckSyncChangeCommands(result, changeElements[Request.ItemsChoiceType7.Subject2].ToString(), this.Site);
 
-            Site.Assert.IsTrue(isNoteFound, "The note with subject:{0} should be returned in Sync command response.", changeElements[Request.ItemsChoiceType7.Subject1].ToString());
+            Site.Assert.IsTrue(isNoteFound, "The note with subject:{0} should be returned in Sync command response.", changeElements[Request.ItemsChoiceType7.Subject2].ToString());
 
             // The subject of the note is updated. 
             this.ExistingNoteSubjects.Remove(addElements[Request.ItemsChoiceType8.Subject1].ToString());
-            this.ExistingNoteSubjects.Add(changeElements[Request.ItemsChoiceType7.Subject1].ToString());
+            this.ExistingNoteSubjects.Add(changeElements[Request.ItemsChoiceType7.Subject2].ToString());
 
             note = result.ChangeElements[0].Note;
 
@@ -329,7 +329,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
                 @"[In Sync Command Response] Any of the elements for the Notes class[airsyncbase:Body, Subject, MessageClass, LastModifiedDate, Categories or Category], as specified in section 2.2.2, can be included in a Sync command response as child elements of the airsync:ApplicationData element ([MS-ASCMD] section 2.2.3.11) within [either an airsync:Add element ([MS-ASCMD] section 2.2.3.7.2) or] an airsync:Change element ([MS-ASCMD] section 2.2.3.24).");
 
             Site.Assert.AreEqual<string>(
-                changeElements[Request.ItemsChoiceType7.Subject1].ToString(),
+                changeElements[Request.ItemsChoiceType7.Subject2].ToString(),
                 note.Subject,
                 "The subject element in Change Command response should be the same with the changed value of subject in Change Command request.");
 
@@ -517,7 +517,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASNOTE
         {
             #region Call method Sync to add a note with two child elements in a Categories element to the server
             Dictionary<Request.ItemsChoiceType8, object> addElements = this.CreateNoteElements();
-            Request.Categories3 categories = new Request.Categories3 { Category = new string[2] };
+            Request.Categories4 categories = new Request.Categories4 { Category = new string[2] };
             Collection<string> category = new Collection<string> { "blue category", "red category" };
             category.CopyTo(categories.Category, 0);
             addElements[Request.ItemsChoiceType8.Categories2] = categories;

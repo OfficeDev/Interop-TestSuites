@@ -125,7 +125,9 @@ namespace Microsoft.Protocols.TestSuites.Common
                         ReadXsdFile("SmartReplyResponse.xsd"),
                         ReadXsdFile("SyncResponse.xsd"),
                         ReadXsdFile("Tasks.xsd"),
-                        ReadXsdFile("ValidateCertResponse.xsd")
+                        ReadXsdFile("ValidateCertResponse.xsd"),
+                        ReadXsdFile("Find.xsd"),
+                        ReadXsdFile("FindResponse.xsd")
                     };
 
                     this.xmlSchemaList = list.ToArray();

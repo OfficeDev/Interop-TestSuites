@@ -414,7 +414,7 @@ namespace Microsoft.Protocols.TestSuites.Common.DataStructures
                     {
                         case Response.ItemsChoiceType3.Categories:
                         case Response.ItemsChoiceType3.Categories2:
-                        case Response.ItemsChoiceType3.Categories3:
+                        //case Response.ItemsChoiceType3.Categories3:
                         case Response.ItemsChoiceType3.Categories4:
                             break;
                         case Response.ItemsChoiceType3.Categories1:

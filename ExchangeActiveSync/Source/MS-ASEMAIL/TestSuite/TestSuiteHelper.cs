@@ -275,7 +275,7 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
                 ical.AppendLine("X-MICROSOFT-DISALLOW-COUNTER:TRUE");
             }
 
-            if (!string.IsNullOrEmpty(calendar.Reminder))
+            if (calendar.Reminder.HasValue)
             {
                 ical.AppendLine("BEGIN:VALARM");
                 ical.AppendLine("TRIGGER:-PT" + calendar.Reminder + "M");
@@ -386,6 +386,59 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
             };
 
             return Common.CreateSearchRequest(new Request.SearchStore[] { searchStore });
+        }
+
+        /// <summary>
+        /// Builds a Find request on the Mailbox store by using the specified keyword and folder collection ID
+        /// In general, returns the XML formatted find request as follows:
+        /// <!--
+        /// <?xml version="1.0" encoding="utf-8"?>
+        /// <Find xmlns="Find">
+        /// <SearchId>30483e1c-e7a6-4096-ba2d-3c49caf77bd7</SearchId>
+        /// <ExecuteSearch>
+        ///   <MailBoxSearchCriterion>
+        ///     <Query>
+        ///       <Class xmlns="AirSync">Email</Class>
+        ///       <airsync:CollectionId>5</airsync:CollectionId>
+        ///       <FreeText>MSASEMAIL_S01_TC32_subject_051909_480252</FreeText>
+        ///     </Query>
+        ///     <Options>  
+        ///       <Range>0-4</Range>
+        ///       <DeepTraversal/>
+        ///     </Options>
+        ///   </MailBoxSearchCriterion>
+        /// </ExecuteSearch>
+        /// </Find>
+        /// -->
+        /// </summary>
+        /// <param name="keyword">Specify a string value for which to search. Refer to [MS-ASCMD] section 2.2.3.73</param>
+        /// <param name="folderCollectionId">Specify the folder in which to search. Refer to [MS-ASCMD] section 2.2.3.30.4</param>
+        /// <returns>Returns a FindRequest instance</returns>
+        internal static FindRequest CreateFindRequest(string folderCollectionId, string keyword)
+        {
+            Request.Find find = new Request.Find
+            {
+                SearchId = Guid.NewGuid().ToString(),
+                ExecuteSearch = new Request.FindExecuteSearch
+                {
+                    Item = new Request.FindExecuteSearchMailBoxSearchCriterion
+                    {
+                        Query = new Request.queryType2
+                        {
+                            ItemsElementName = new Request.ItemsChoiceType11[] { Request.ItemsChoiceType11.Class, Request.ItemsChoiceType11.CollectionId, Request.ItemsChoiceType11.FreeText },
+                            Items = new string[] { "Email", folderCollectionId, keyword}
+                        },
+                        Options = new Request.FindExecuteSearchMailBoxSearchCriterionOptions
+                        {
+                            Range = "0-5",
+                            DeepTraversal = new Request.EmptyTag {}
+                        }
+                    },
+
+                },
+            };
+
+            return Common.CreateFindRequest(find);
         }
 
         /// <summary>
@@ -1122,7 +1175,7 @@ Content-Type: text/calendar; charset=""us-ascii""; method=REQUEST
 
             // Set the UID
             string uID = Guid.NewGuid().ToString();
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", testSite).Equals("16.0"))
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", testSite).Equals("16.0")|| Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", testSite).Equals("16.1"))
             {
                 propertiesToValueMap.Add(Request.ItemsChoiceType8.ClientUid, uID);
             }

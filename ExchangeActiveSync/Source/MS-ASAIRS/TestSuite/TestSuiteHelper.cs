@@ -669,7 +669,7 @@ Content-Disposition: attachment;
 
             // Set the UID
             string uID = Guid.NewGuid().ToString();
-            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", testSite).Equals("16.0"))
+            if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", testSite).Equals("16.0")|| Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", testSite).Equals("16.1"))
             {
                 propertiesToValueMap.Add(Request.ItemsChoiceType8.ClientUid, uID);
             }
@@ -806,7 +806,7 @@ Content-Disposition: attachment;
                 ical.AppendLine("X-MICROSOFT-DISALLOW-COUNTER:TRUE");
             }
 
-            if (!string.IsNullOrEmpty(calendar.Reminder))
+            if (calendar.Reminder.HasValue)
             {
                 ical.AppendLine("BEGIN:VALARM");
                 ical.AppendLine("TRIGGER:-PT" + calendar.Reminder + "M");

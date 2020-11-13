@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="FolderHierarchy"
-    targetNamespace="FolderHierarchy" elementFormDefault="qualified"
-    attributeFormDefault="unqualified">
-  <xs:element name="FolderUpdate">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="Status"/>
-        <xs:element ref="SyncKey" minOccurs="0"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-</xs:schema>
+<?xml version="1.0" encoding="UTF-8"?>
+ <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="FolderHierarchy" 
+     targetNamespace="FolderHierarchy" elementFormDefault="qualified" 
+     attributeFormDefault="unqualified">
+   <xs:element name="FolderUpdate">
+     <xs:complexType>
+       <xs:sequence>
+         <xs:element ref="Status"/>
+         <xs:element ref="SyncKey" minOccurs="0"/>
+       </xs:sequence>
+     </xs:complexType>
+   </xs:element>
+ </xs:schema>

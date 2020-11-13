@@ -381,6 +381,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
         {
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Options element is not supported when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
             Site.Assume.AreNotEqual<string>("16.0", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.0");
+            Site.Assume.AreNotEqual<string>("16.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "Recurrences cannot be added in protocol version 16.1");
 
             #region Add a new calendar
             string calendarSubject = Common.GenerateResourceName(Site, "calendarSubject");
@@ -906,17 +907,26 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                     { 
                         new Request.GetItemEstimateCollection
                         {
-                            CollectionId = this.User1Information.ContactsCollectionId,
-                            SyncKey = this.LastSyncKey,
-                            Options = new Request.Options[]
+                            ItemsElementName=new Request.ItemsChoiceType10[]
                             {
-                                new Request.Options
+                                Request.ItemsChoiceType10.SyncKey,
+                                Request.ItemsChoiceType10.CollectionId,
+                                
+                            },
+                             Items = new object[]{
+                                this.LastSyncKey,
+                                this.User1Information.ContactsCollectionId,
+                             
+                               
+                            },
+                            Options = new Request.Options[]{
+                                new Request.Options()
                                 {
-                                    Items = new object[]
+                                    Items =new object[]
                                     {
                                         "Contacts"
                                     },
-                                    ItemsElementName = new Request.ItemsChoiceType1[]
+                                    ItemsElementName =new Request.ItemsChoiceType1[]
                                     {
                                         Request.ItemsChoiceType1.Class
                                     }
@@ -925,9 +935,16 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         },
                         new Request.GetItemEstimateCollection
                         {
-                            CollectionId = Common.GenerateResourceName(Site, "InvalidCollectionId"),
-                            SyncKey = this.LastSyncKey,
-                            Options = new Request.Options[] 
+                             ItemsElementName = new Request.ItemsChoiceType10[]{
+                                 Request.ItemsChoiceType10.SyncKey,
+                                 Request.ItemsChoiceType10.CollectionId,                              
+                        },
+                        Items = new object[]
+                        {
+                            this.LastSyncKey,
+                            Common.GenerateResourceName(Site, "InvalidCollectionId"),    
+                        },
+                        Options = new Request.Options[]
                             {
                                 new Request.Options
                                 {
@@ -1106,9 +1123,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             Site.Assume.AreNotEqual<string>("12.1", Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site), "The Options element is not supported when the MS-ASProtocolVersion header is set to 12.1. MS-ASProtocolVersion header value is determined using Common PTFConfig property named ActiveSyncProtocolVersion.");
 
             #region Call GetItemEstimate with the ConversationMode element for collections that do not store e-mail.
-            GetItemEstimateRequest getItemEstimateRequest = TestSuiteBase.CreateGetItemEstimateRequest(this.LastSyncKey, this.User1Information.ContactsCollectionId, null);
-            getItemEstimateRequest.RequestData.Collections[0].ConversationMode = true;
-            getItemEstimateRequest.RequestData.Collections[0].ConversationModeSpecified = true;
+            GetItemEstimateRequest getItemEstimateRequest = TestSuiteBase.CreateGetItemEstimateRequest(this.LastSyncKey, this.User1Information.ContactsCollectionId, null, true);
+            //getItemEstimateRequest.RequestData.Collections[0].ConversationMode = true;
+            //getItemEstimateRequest.RequestData.Collections[0].ConversationModeSpecified = true;
             GetItemEstimateResponse getItemEstimateResponse = this.CMDAdapter.GetItemEstimate(getItemEstimateRequest);
 
             // Add the debug information
@@ -1202,9 +1219,19 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
             {
                 Request.GetItemEstimateCollection collection = new Request.GetItemEstimateCollection
                 {
-                    CollectionId = this.User2Information.InboxCollectionId,
-                    SyncKey = this.LastSyncKey,
-                    Options = new Request.Options[] { option }
+                    ItemsElementName = new Request.ItemsChoiceType10[]
+                    {
+                        Request.ItemsChoiceType10.SyncKey,
+                        Request.ItemsChoiceType10.CollectionId,                       
+                        
+                    },
+                    Items = new object[]
+                    {
+                        this.LastSyncKey,
+                        this.User2Information.InboxCollectionId,                     
+                       
+                    },
+                    Options = new Request.Options[] { option } 
                 };
 
                 collections.Add(collection);

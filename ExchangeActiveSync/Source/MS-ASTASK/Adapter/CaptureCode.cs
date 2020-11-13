@@ -41,7 +41,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
             Site.CaptureRequirementIfIsTrue(
                 this.activeSyncClient.ValidationResult,
                 3,
-                @"[In Message Syntax] The markup that is used by this protocol MUST be well-formed XML, as specified in [XML].");
+                @"[In Message Syntax] The markup that is used by this protocol MUST be well-formed XML, as specified in [XML10/5].");
         }
 
         /// <summary>
@@ -259,7 +259,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
                             // Since schema is validated, this requirement can be captured directly.
                             Site.CaptureRequirement(
                                 77,
-                                @"[In CalendarType] The CalendarType element<1> is a child element of the Recurrence element (section 2.2.2.18) that specifies the calendar system used by the task recurrence.");
+                                @"[In CalendarType] The CalendarType element is a child element of the Recurrence element (section 2.2.2.20) that specifies the calendar system used by the task recurrence.");
 
                             // Add the debug information
                             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASTASK_R79");
@@ -267,7 +267,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
                             // Since schema is validated, this requirement can be captured directly.
                             Site.CaptureRequirement(
                                 79,
-                                @"[In CalendarType] The value of this element[CalendarType] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.7.");
+                                @"[In CalendarType] The value of this element[CalendarType] is an unsignedbyte data type, as specified in [MS-ASDTYPE] section 2.8.");
 
                             string[] expectedCalendarTypeValues = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "14", "15", "20" };
 
@@ -542,7 +542,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASTASK
 
                                     // Verify MS-ASTASK requirement: MS-ASTASK_R633
                                     Site.CaptureRequirementIfIsFalse(
-                                        task.Recurrence.StartSpecified,
+                                        task.Recurrence.Start != null,
                                         633,
                                         @"[In Appendix A: Product Behavior] <2> Section 2.2.2.25:  Microsoft Exchange Server 2010 Service Pack 1 (SP1), the initial release version of Exchange 2013, and Exchange 2016 Preview do not return the Start element when protocol version is 14.0.");
                                 }

@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:airsyncbase=
-    "AirSyncBase" xmlns:calendar="Calendar" xmlns:contacts="Contacts"
+     "AirSyncBase" xmlns:calendar="Calendar" xmlns:contacts="Contacts"
     xmlns:contacts2="Contacts2" xmlns:documentlibrary="DocumentLibrary"
-    xmlns:email="Email" xmlns:email2="Email2" xmlns:rm="RightsManagement"
-    xmlns:notes="Notes" xmlns:tasks="Tasks" xmlns="AirSync" targetNamespace="AirSync"
+    xmlns:email="Email" xmlns:email2="Email2" xmlns:notes="Notes" xmlns:rm="RightsManagement"
+    xmlns:tasks="Tasks" xmlns="AirSync" targetNamespace="AirSync"
     elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:element name="Sync">
     <xs:complexType>
@@ -59,9 +59,9 @@
                                             <xs:element
                                                 ref="airsyncbase:NativeBodyType"/>
                                             <xs:element
-	                                              ref="airsyncbase:InstanceId"/>
+                                                ref="airsyncbase:InstanceId"/>
                                             <xs:element
-	                                              ref="airsyncbase:Location"/>
+                                                ref="airsyncbase:Location"/>
                                             <xs:group ref="calendar:AllProps"/>
                                             <xs:group ref="contacts:AllProps"/>
                                             <xs:group ref="contacts2:AllProps"/>
@@ -99,9 +99,9 @@
                                               <xs:element
                                                   ref="airsyncbase:NativeBodyType"/>
                                               <xs:element
-	                                                ref="airsyncbase:InstanceId"/>
+                                                  ref="airsyncbase:InstanceId"/>
                                               <xs:element
-	                                                ref="airsyncbase:Location"/>
+                                                  ref="airsyncbase:Location"/>
                                               <xs:group ref="calendar:AllProps"/>
                                               <xs:group ref="contacts:AllProps"/>
                                               <xs:group
@@ -138,6 +138,7 @@
                                     <xs:sequence>
                                       <xs:element ref="Class" minOccurs="0"/>
                                       <xs:element ref="ServerId"/>
+                                      <xs:element ref="airsyncbase:InstanceId" minOccurs="0"/>
                                       <xs:element ref="Status"/>
                                     </xs:sequence>
                                   </xs:complexType>
@@ -155,7 +156,7 @@
                                           <xs:sequence>
                                             <xs:choice maxOccurs="unbounded">
                                               <xs:element
-                                                  ref="airsyncbase:Attachments"/>
+                                           ref="airsyncbase:Attachments"/>
                                               <xs:element
                                                   ref="airsyncbase:Body"/>
                                               <xs:element
@@ -184,6 +185,7 @@
                                   <xs:complexType>
                                     <xs:sequence>
                                       <xs:element ref="ServerId"/>
+                                      <xs:element ref="airsyncbase:InstanceId" minOccurs="0"/>
                                       <xs:element ref="Status"/>
                                     </xs:sequence>
                                   </xs:complexType>
@@ -203,8 +205,8 @@
                                                   ref="airsyncbase:Body"/>
                                               <xs:element
                                                   ref="airsyncbase:NativeBodyType"/>
-                                            <xs:element
-                                                ref="airsyncbase:Location"/>
+                                              <xs:element
+                                                  ref="airsyncbase:Location"/>
                                               <xs:group ref="calendar:AllProps"/>
                                               <xs:group ref="contacts:AllProps"/>
                                               <xs:group

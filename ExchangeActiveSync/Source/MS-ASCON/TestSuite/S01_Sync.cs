@@ -145,7 +145,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             Site.CaptureRequirementIfIsNotNull(
                 syncStore,
                 204,
-                @"[In Marking a Conversation as Read or Unread] The server sends a Sync command response as specified in [MS-ASCMD] section 2.2.2.19.");
+                @"[In Marking a Conversation as Read or Unread] The server sends a Sync command response as specified in [MS-ASCMD] section 2.2.1.21.");
             #endregion
         }
         #endregion
@@ -187,7 +187,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             Site.CaptureRequirementIfIsNotNull(
                 syncStore,
                 209,
-                @"[In Flagging a Conversation for Follow-up] The server sends a Sync command response, as specified in [MS-ASCMD] section 2.2.2.19.");
+                @"[In Flagging a Conversation for Follow-up] The server sends a Sync command response, as specified in [MS-ASCMD] section 2.2.1.21.");
 
             // Check whether flag status property is changed to 2 for the most recent flag in the conversation.
             syncItems = this.CallSyncCommand(User1Information.InboxCollectionId, false);
@@ -348,7 +348,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             Site.CaptureRequirementIfIsNotNull(
                 syncStore,
                 201,
-                @"[In Deleting a Conversation] The server sends a Sync command response as specified in [MS-ASCMD] section 2.2.2.19.");
+                @"[In Deleting a Conversation] The server sends a Sync command response as specified in [MS-ASCMD] section 2.2.1.21.");
             #endregion
 
             #region Sync messages in the Inbox and Deleted Items folder after conversation deleted.
@@ -635,17 +635,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
                 @"[In ConversationIndex] Additional timestamps are added when the message is forwarded [or replied to].");
 
             // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R105");
-            Site.Log.Add(LogEntryKind.Debug, "After User2 forward the email to User3, the ConversationIndex is {0} and its length is {1}.", conversationIndexForward, conversationIndexForward.Length);
-
-            // Verify MS-ASCON requirement: MS-ASCON_R105
-            // If the ConversationIndex element is longer than the ConversationIndex of the most recent email which means additional timestamp has been added to ConversationIndex, then this requirement can be captured.
-            Site.CaptureRequirementIfIsTrue(
-                additionalTimestampAdded,
-                105,
-                @"[In Response Level] The Response Level field contains information about the time the message was forwarded [or replied to].");
-
-            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R259");
 
             // Verify MS-ASCON requirement: MS-ASCON_R259
@@ -801,7 +790,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             Site.CaptureRequirementIfIsNotNull(
                 syncItem.Email.BodyPart,
                 234,
-                @"[In Sending a Message Part] If the client Sync command request ([MS-ASCMD] section 2.2.2.19) [, Search command request ([MS-ASCMD] section 2.2.2.14) or ItemOperations command request 9([MS-ASCMD] section 2.2.2.8)] includes the airsyncbase:BodyPartPreference element (section 2.2.2.2), then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.");
+                @"[In Sending a Message Part] If the client Sync command request ([MS-ASCMD] section 2.2.1.21) [, Search command request ([MS-ASCMD] section 2.2.1.16) or ItemOperations command request 9([MS-ASCMD] section 2.2.1.10)] includes the airsyncbase:BodyPartPreference element (section 2.2.2.2), then the server uses the airsyncbase:BodyPart element (section 2.2.2.1) to encapsulate the message part in the response.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCON_R38");
@@ -809,7 +798,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCON
             // A message part and its meta-data are encapsulated by BodyPart element in the Sync response, so this requirement can be captured.
             Site.CaptureRequirement(
                 38,
-                @"[In BodyPart] The airsyncbase:BodyPart element<1> ([MS-ASAIRS] section 2.2.2.5) encapsulates a message part and its meta-data in a Sync command response ([MS-ASCMD] section 2.2.2.19) [, an ItemOperations command response ([MS-ASCMD] section 2.2.2.8) or a Search command response ([MS-ASCMD] section 2.2.2.14)].");
+                @"[In BodyPart] The airsyncbase:BodyPart element ([MS-ASAIRS] section 2.2.2.10) encapsulates a message part and its meta-data in a Sync command response ([MS-ASCMD] section 2.2.1.21) [, an ItemOperations command response ([MS-ASCMD] section 2.2.1.10) or a Search command response ([MS-ASCMD] section 2.2.1.16)].");
             #endregion
 
             #region Calls Sync command with both BodyPreference and BodyPartPreference elements.

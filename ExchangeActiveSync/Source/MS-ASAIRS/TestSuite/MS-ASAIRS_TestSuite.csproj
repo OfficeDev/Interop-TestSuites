@@ -40,6 +40,7 @@
   <ItemGroup>
     <Content Include="MS-ASAIRS_RequirementSpecification.xml" />
     <None Include="MS-ASAIRS_ExchangeServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-ASAIRS_ExchangeServer2019_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-ASAIRS_TestSuite.deployment.ptfconfig" />
     <None Include="MS-ASAIRS_TestSuite.ptfconfig" />
     <None Include="MS-ASAIRS_ExchangeServer2007_SHOULDMAY.deployment.ptfconfig" />

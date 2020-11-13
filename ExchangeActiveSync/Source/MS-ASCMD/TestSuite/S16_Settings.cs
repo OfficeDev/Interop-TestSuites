@@ -256,7 +256,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
 
             SettingsResponse settingsResponse = this.CMDAdapter.Settings(settingsRequest);
 
-            #region Verify Requirements MS-ASCMD_R5898, MS-ASCMD_R4387, MS-ASCMD_R5901, MS-ASCMD_R5905, MS-ASCMD_R5915, MS-ASCMD_R733, MS-ASCMD_R3679, MS-ASCMD_R5178, MS-ASCMD_R5844, MS-ASCMD_R5169, MS-ASCMD_R5843
+            #region Verify Requirements MS-ASCMD_R5898, MS-ASCMD_R4387, MS-ASCMD_R5901, MS-ASCMD_R5905, MS-ASCMD_R5915, MS-ASCMD_R733, MS-ASCMD_R3679, MS-ASCMD_R5178, MS-ASCMD_R5169, MS-ASCMD_R5843
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R4387");
 
@@ -364,27 +364,6 @@ namespace Microsoft.Protocols.TestSuites.MS_ASCMD
                         emailAddressElementIndex > getElementStarIndex && emailAddressElementIndex < getElementEndIndex,
                         5169,
                         @"[In Appendix A: Product Behavior] <33> Section 2.2.3.54: The EmailAddresses element is only supported as a child element of the Get element when the MS-ASProtocolVersion header is set to 12.1 [or 14.0].");
-                }
-
-                if (Common.GetConfigurationPropertyValue("ActiveSyncProtocolVersion", this.Site).Equals("14.0"))
-                {
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5844");
-
-                    // Verify MS-ASCMD requirement: MS-ASCMD_R5844
-                    Site.CaptureRequirementIfIsTrue(
-                        emailAddressElementIndex > getElementStarIndex && emailAddressElementIndex < getElementEndIndex,
-                        5844,
-                        @"[In Appendix A: Product Behavior] <39> Section 2.2.3.75: The EmailAddresses element is only supported as a child element of the Get element when the MS-ASProtocolVersion header is set to [12.1 or] 14.0.");
-
-                    // Add the debug information
-                    Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASCMD_R5843");
-
-                    // Verify MS-ASCMD requirement: MS-ASCMD_R5843
-                    Site.CaptureRequirementIfIsTrue(
-                        emailAddressElementIndex > getElementStarIndex && emailAddressElementIndex < getElementEndIndex,
-                        5843,
-                        @"[In Appendix A: Product Behavior] <33> Section 2.2.3.54: The EmailAddresses element is only supported as a child element of the Get element when the MS-ASProtocolVersion header is set to [12.1 or] 14.0.");
                 }
             }
             #endregion

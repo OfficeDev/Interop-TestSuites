@@ -23,7 +23,12 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <summary>
         /// The SUT is Exchange Server 2016
         /// </summary>
-        ExchangeServer2016
+        ExchangeServer2016,
+
+        /// <summary>
+        /// The SUT is Exchange Server 2019
+        /// </summary>
+        ExchangeServer2019
     }
 
     /// <summary>
@@ -129,12 +134,17 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <summary>
         /// Autodiscover command.
         /// </summary>
-        Autodiscover = 23,
+        Autodiscover = 5,
 
         /// <summary>
         /// GetHierarchy command.
         /// </summary>
-        GetHierarchy = 24,
+        GetHierarchy = 6,
+
+        /// <summary>
+        /// Find command.
+        /// </summary>
+        Find = 23,
 
         /// <summary>
         /// Not exist command.

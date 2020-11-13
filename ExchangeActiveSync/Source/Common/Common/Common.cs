@@ -811,6 +811,18 @@ MIME-Version: 1.0
         }
 
         /// <summary>
+        /// Create an empty FindRequest instance
+        /// </summary>
+        /// <returns>An empty FindRequest instance</returns>
+        public static FindRequest FindSearchRequest()
+        {
+            FindRequest request = new FindRequest();
+            Request.Find requestData = new Request.Find();
+            request.RequestData = requestData;
+            return request;
+        }
+
+        /// <summary>
         /// Create a SearchRequest using specified information
         /// </summary>
         /// <param name="searchStores">Specified SearchStore arrays</param>
@@ -819,6 +831,22 @@ MIME-Version: 1.0
         {
             SearchRequest request = new SearchRequest();
             Request.Search requestData = new Request.Search { Items = searchStores };
+            request.RequestData = requestData;
+            return request;
+        }
+
+        /// <summary>
+        /// Create an empty instance using specified information
+        /// </summary>
+        /// <param name="find">Specified Find</param>
+        /// <returns>An FindRequest instance</returns>
+        public static FindRequest CreateFindRequest(Request.Find find)
+        {
+            FindRequest request = new FindRequest();
+            Request.Find requestData = new Request.Find
+            {   SearchId=find.SearchId,
+                ExecuteSearch = find.ExecuteSearch
+            };
             request.RequestData = requestData;
             return request;
         }
@@ -1130,9 +1158,13 @@ MIME-Version: 1.0
             {
                 convertedVersion = "160";
             }
+            else if (string.Equals(originalVersion, "16.1", StringComparison.CurrentCultureIgnoreCase))
+            {
+                convertedVersion = "161";
+            }
             else
             {
-                site.Assert.Fail(originalVersion + " is not a valid value of ActiveSyncProtocolVersion property, the value should be 12.1, 14.0, 14.1 or 16.0.");
+                site.Assert.Fail(originalVersion + " is not a valid value of ActiveSyncProtocolVersion property, the value should be 12.1, 14.0, 14.1, 16.0 or 16.1.");
             }
 
             return convertedVersion;
@@ -1480,8 +1512,9 @@ MIME-Version: 1.0
         /// Load the SearchStore from the SearchResponse
         /// </summary>
         /// <param name="search">The returned Search response.</param>
+        /// <param name="protocolVer">The protocol version specifies the version of ActiveSync protocol used to communicate with the server.</param>
         /// <returns>A SearchStore instance</returns>
-        public static DataStructures.SearchStore LoadSearchResponse(SearchResponse search)
+        public static DataStructures.SearchStore LoadSearchResponse(SearchResponse search,string protocolVer)
         {
             DataStructures.SearchStore searchStore = new DataStructures.SearchStore();
 
@@ -1527,7 +1560,7 @@ MIME-Version: 1.0
                     Class = result.Class,
                     CollectionId = result.CollectionId,
                     Note = DataStructures.Note.DeserializeFromSearchProperties<DataStructures.Note>(result.Properties),
-                    Calendar = DataStructures.Calendar.DeserializeFromSearchProperties<DataStructures.Calendar>(result.Properties),
+                    Calendar = DataStructures.Calendar.DeserializeFromSearchProperties<DataStructures.Calendar>(result.Properties, protocolVer),
                     Contact = DataStructures.Contact.DeserializeFromSearchProperties<DataStructures.Contact>(result.Properties),
                     Email = DataStructures.Email.DeserializeFromSearchProperties<DataStructures.Email>(result.Properties),
                     Task = DataStructures.Task.DeserializeFromSearchProperties<DataStructures.Task>(result.Properties)

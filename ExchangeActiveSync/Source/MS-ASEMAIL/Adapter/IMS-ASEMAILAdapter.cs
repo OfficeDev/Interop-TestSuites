@@ -42,7 +42,14 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
         /// <param name="searchRequest">The request for search operation.</param>
         /// <returns>The search response which is returned from the server.</returns>
         SearchResponse Search(SearchRequest searchRequest);
-        
+
+        /// <summary>
+        /// Find items on server.
+        /// </summary>
+        /// <param name="findRequest">The request for find operation.</param>
+        /// <returns>The find response which is returned from the server.</returns>
+        FindResponse Find(FindRequest findRequest);
+
         /// <summary>
         /// Search data on the server with an invalid Search request which contains an E-mail Class element.
         /// </summary>

@@ -285,17 +285,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
             catch (System.Net.WebException exception)
             {
                 int statusCode = ((System.Net.HttpWebResponse)exception.Response).StatusCode.GetHashCode();
-
-                // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-ASHTTP_R422");
-
-                // Verify MS-ASHTTP requirement: MS-ASHTTP_R422
-                Site.CaptureRequirementIfAreEqual<int>(
-                    503,
-                    statusCode,
-                    422,
-                    @"[In User-Agent Change Tracking] If the server blocks a client from changing its User-Agent header value, it [server] returns an HTTP error 503.");
-
+                
                 if (Common.IsRequirementEnabled(456, this.Site))
                 {
                     // Add the debug information
@@ -307,7 +297,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                         503,
                         statusCode,
                         456,
-                        @"[In Appendix A: Product Behavior] Implementation can be configured to use different values for the allowed number of changes and the time period. (<8> Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to use different values for the allowed number of changes and the time period.)");
+                        @"[In Appendix A: Product Behavior] Implementation can be configured to use different values for the allowed number of changes and the time period. (<9> Section 3.2.5.1.1:  Exchange 2013 , Exchange 2016, and Exchange 2019 can be configured to use different values for the allowed number of changes and the time period.)");
                 }
             }
 
@@ -355,7 +345,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASHTTP
                 Site.CaptureRequirementIfIsTrue(
                     isCorrectBlocked,
                     457,
-                    @"[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (<9> Section 3.2.5.1.1:  Exchange 2013 and Exchange 2016 Preview can be configured to block clients for an amount of time other than 14 hours.)");
+                    @"[In Appendix A: Product Behavior] Implementation can be configured to block clients for an amount of time other than 14 hours. (<10> Section 3.2.5.1.1:  Exchange 2013, Exchange 2016, and Exchange 2019 can be configured to block clients for an amount of time other than 14 hours.)");
             }
 
             // Wait for 1 minute

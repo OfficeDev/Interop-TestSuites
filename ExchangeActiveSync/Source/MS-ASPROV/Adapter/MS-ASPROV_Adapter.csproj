@@ -46,6 +46,7 @@
     <Compile Include="SUTControlAdapter\IMS-ASPROVSUTControlAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="SUTControlAdapter\Implementation\AccountOnlyWipeData.ps1" />
     <None Include="SUTControlAdapter\Implementation\RemoveDevice.ps1" />
     <None Include="SUTControlAdapter\Implementation\WipeData.ps1" />
   </ItemGroup>
