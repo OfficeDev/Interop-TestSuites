@@ -1,7 +1,6 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
-
 /.vs/Merge Code/v15
 /ExchangeActiveSync/Source/Common/obj/Debug
 /ExchangeActiveSync/Source/Common/obj/Release
@@ -170,4 +169,6 @@
 /SharePoint/Source/MS-WEBSS/TestSuite/obj
 /SharePoint/Source/MS-WEBSS/Adapter/obj
 /ExchangeWebServices/Source/MS-OXWSITEMID/Adapter/obj
+
+/.vs
 /FileSyncandWOPI/Source/.vs/SharePointFileSyncAndWOPIProtocolTestSuites/v15
