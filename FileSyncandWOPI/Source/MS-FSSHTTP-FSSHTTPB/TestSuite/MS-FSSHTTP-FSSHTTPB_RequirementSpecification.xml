@@ -5895,11 +5895,11 @@ Indicates an error when a subrequest dependency type that is not valid is specif
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2170</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In DependencyTypes][OnExecute]If RequestB has an OnExecute dependency on RequestA, the dependency succeeds if RequestA succeeds OR (RequestA failed NOT because an OnSuccess dependency failed AND RequestA failed NOT because an OnFailure dependency failed AND RequestA failed NOT because an OnExecute dependency failed) </ns1:Description>
+		<ns1:Description>[In DependencyTypes][OnExecute]If RequestB has an OnExecute dependency on RequestA, the dependency succeeds if RequestA succeeds OR (RequestA failed NOT because an OnSuccess dependency failed AND RequestA failed NOT because an OnFail dependency failed AND RequestA failed NOT because an OnExecute dependency failed) </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R333</ns1:REQ_ID>
@@ -12686,7 +12686,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1788</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.29</ns1:Doc_Sect>
-		<ns1:Description>[In GetDocMetaInfoPropertyType] The GetDocMetaInfoProperty complex type contains a metainfo key/value pair that is related either to the file against which the request is made or its parent directory as part of the corresponding GetDocMetaInfo subrequest.</ns1:Description>
+		<ns1:Description>[In GetDocMetaInfoPropertyType] The GetDocMetaInfoPropertyType complex type contains a metainfo key/value pair that is related either to the file against which the request is made or its parent directory as part of the corresponding GetDocMetaInfo subrequest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -19278,7 +19278,7 @@ Returns an error code value set to "Success".</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1029</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Join Coauthoring Session] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
+		<ns1:Description>[In Join Coauthoring Session] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -19651,7 +19651,7 @@ Returns an error code value set to "Success".</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1059</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In Refresh Coauthoring Session] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
+		<ns1:Description>[In Refresh Coauthoring Session] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -19860,7 +19860,7 @@ The current client is not present in the coauthoring session.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1077</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.4</ns1:Doc_Sect>
-		<ns1:Description>[In Convert to Exclusive Lock] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
+		<ns1:Description>[In Convert to Exclusive Lock] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -20126,7 +20126,7 @@ The current client is not present in the coauthoring session.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1099</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.6</ns1:Doc_Sect>
-		<ns1:Description>[In Mark Transition to Complete] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
+		<ns1:Description>[In Mark Transition to Complete] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -20272,7 +20272,7 @@ The current client is not present in the coauthoring session.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1111</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In Get Coauthoring Session] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
+		<ns1:Description>[In Get Coauthoring Session] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -20820,7 +20820,7 @@ If the AllowFallbackToExclusive attribute is set to false, the protocol server r
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1163</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In Get Lock] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
+		<ns1:Description>[In Get Lock] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -20962,7 +20962,7 @@ Return "Success" if no clients are present in the coauthoring session.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1174</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Release Lock] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
+		<ns1:Description>[In Release Lock] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -21091,7 +21091,7 @@ If the coauthoring feature is disabled, the protocol server returns an error cod
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1184</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Refresh Lock] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
+		<ns1:Description>[In Refresh Lock] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -21305,7 +21305,7 @@ If the coauthoring feature is disabled, the protocol server returns an error cod
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1202</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In Convert to Exclusive Lock] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
+		<ns1:Description>[In Convert to Exclusive Lock] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8, and generic error code types are defined in section 2.2.5.6.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -21780,7 +21780,7 @@ The file is already locked with an exclusive lock with a different exclusive loc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1250</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Get Lock] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8.</ns1:Description>
+		<ns1:Description>[In Get Lock] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -21890,7 +21890,7 @@ The file is already locked with a shared lock.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1256</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.2</ns1:Doc_Sect>
-		<ns1:Description>[In Release Lock] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8.</ns1:Description>
+		<ns1:Description>[In Release Lock] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -22034,7 +22034,7 @@ The file is already locked with a shared lock.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1268</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Refresh Lock] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8.</ns1:Description>
+		<ns1:Description>[In Refresh Lock] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -22308,7 +22308,7 @@ Starts a coauthoring session for the file if one is not already present and adds
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1288</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.4</ns1:Doc_Sect>
-		<ns1:Description>[In Convert to Schema Lock with Coauthoring Transition Tracked] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8.</ns1:Description>
+		<ns1:Description>[In Convert to Schema Lock with Coauthoring Transition Tracked] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -22524,7 +22524,7 @@ Starts a coauthoring session for the file if one is not already present and adds
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1307</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.5</ns1:Doc_Sect>
-		<ns1:Description>[In Convert to Schema Lock] LockCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8.</ns1:Description>
+		<ns1:Description>[In Convert to Schema Lock] LockAndCoauthRelatedErrorCodeTypes is defined in section 2.2.5.8.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -24204,7 +24204,7 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2369</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.13</ns1:Doc_Sect>
-		<ns1:Description>[AmIAlone Subrequest]The AmIAloneSubResponseDataType defines the type of the SubResponseData element inside the AmIAloneSubResponse element. </ns1:Description>
+		<ns1:Description>[AmIAlone Subrequest]The AmIAloneSubResponseDataType defines the type of the SubResponseData element inside the AmIAlone SubResponse element. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24322,7 +24322,7 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2382</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.14</ns1:Doc_Sect>
-		<ns1:Description>[LockStatus Subrequest]The LockStatusSubResponseDataType defines the type of the SubResponseData element inside the LockStatusSubResponse element. </ns1:Description>
+		<ns1:Description>[LockStatus Subrequest]The LockStatusSubResponseDataType defines the type of the SubResponseData element inside the LockStatus SubResponse element. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
