@@ -2,28 +2,4 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/SharePoint/Source/MS-SITESS/TestSuite/obj/Debug
-/SharePoint/Source/MS-SITESS/TestSuite/obj/Release
-/SharePoint/Source/MS-VERSS
-/SharePoint/Source/MS-VIEWSS
-/SharePoint/Source/MS-WDVMODUU
-/SharePoint/Source/MS-WEBSS
-/SharePoint/Source/MS-WSSREST
-/SharePoint/Source/MS-WWSP
-/SharePoint/Source/MS-SITESS/Adapter/obj
-/SharePoint/Source/MS-SHDACCWS
 /.vs
-/ExchangeActiveSync/Source
-/ExchangeMAPI/Source
-/ExchangeWebServices/Source
-/FileSyncandWOPI/Source
-/SharePoint/Source/Common/obj
-/SharePoint/Source/MS-ADMINS
-/SharePoint/Source/MS-AUTHWS
-/SharePoint/Source/MS-COPYS
-/SharePoint/Source/MS-CPSWS
-/SharePoint/Source/MS-DWSS
-/SharePoint/Source/MS-LISTSWS
-/SharePoint/Source/MS-MEETS
-/SharePoint/Source/MS-OFFICIALFILE
-/SharePoint/Source/MS-OUTSPS
