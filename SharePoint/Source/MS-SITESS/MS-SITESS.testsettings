@@ -4,8 +4,8 @@
   <Deployment>
     <DeploymentItem filename="TestSuite\MS-SITESS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Proxy\MS-SITESS.wsdl" />
-    <DeploymentItem filename="..\Common\Proxy\SOAP11.xsd" />
     <DeploymentItem filename="..\Common\Script\Get-ConfigurationPropertyValue.ps1" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetUserCodeEnabled.ps1" />
     <DeploymentItem filename="TestSuite\MS-SITESS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-SITESS_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-SITESS.runsettings" />
@@ -17,17 +17,18 @@
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetStatusCode.ps1" />
     <DeploymentItem filename="TestSuite\MS-SITESS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetWebProperties.ps1" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetUserCodeEnabled.ps1" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetFormDigestTimeout.ps1" />
+    <DeploymentItem filename="TestSuite\MS-SITESS_SharePointFoundation2013SP1_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-SITESS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetDocumentLibraryFileNames.ps1" />
     <DeploymentItem filename="TestSuite\MS-SITESS_RequirementSpecification.xml" />
-    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetSiteGuid.ps1" />
+    <DeploymentItem filename="..\Common\Proxy\SOAP11.xsd" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\PostWebForm.ps1" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\RemoveWeb.ps1" />
     <DeploymentItem filename="TestSuite\MS-SITESS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-SITESS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetSiteGuid.ps1" />
     <DeploymentItem filename="TestSuite\MS-SITESS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\EmptyDocumentLibrary.ps1" />
   </Deployment>

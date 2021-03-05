@@ -201,6 +201,11 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         public const string SharePointFoundation2013 = "SharePointFoundation2013";
 
         /// <summary>
+        /// Microsoft SharePoint Foundation 2013 Preview.
+        /// </summary>
+        public const string SharePointFoundation2013SP1 = "SharePointFoundation2013SP1";
+
+        /// <summary>
         /// Microsoft Office SharePoint Server 2007 SP3.
         /// </summary>
         public const string SharePointServer2007 = "SharePointServer2007";
