@@ -457,16 +457,17 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
 
             #endregion Capture requirements
 
-            this.sutAdapter.EmptyDocumentLibrary(string.Empty, string.Empty, Common.GetConfigurationPropertyValue(Constants.ValidLibraryName, this.Site));
-
-            // Invoke the ExportWeb operation with cabSize set to 0x0018, 1 is expected to be returned and only one cmp file is expected to be exported.
-            exportWebResult = 0;
-            cabSize = -1;
-            exportJobName = Constants.ExportJobName + Common.FormatCurrentDateTime();
-            exportWebResult = this.sitessAdapter.ExportWeb(exportJobName, exportUrl, dataPath, true, true, true, cabSize);
-
             if (Common.IsRequirementEnabled(532, this.Site))
             {
+                this.sutAdapter.EmptyDocumentLibrary(string.Empty, string.Empty, Common.GetConfigurationPropertyValue(Constants.ValidLibraryName, this.Site));
+
+                // Invoke the ExportWeb operation with cabSize set to 0x0018, 1 is expected to be returned and only one cmp file is expected to be exported.
+                exportWebResult = 0;
+                cabSize = -1;
+                exportJobName = Constants.ExportJobName + Common.FormatCurrentDateTime();
+                exportWebResult = this.sitessAdapter.ExportWeb(exportJobName, exportUrl, dataPath, true, true, true, cabSize);
+
+
                 bool isR532Verified = exportWebResult == 1 || exportWebResult == 7;
 
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R532");
@@ -476,8 +477,9 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                     isR532Verified,
                     532,
                     @"[In Appendix B: Product Behavior] <4> Section 3.1.4.2.2.1: If the value of cabSize is less than zero, Implementation does return a value of 1 or 7  but the server does not successfully complete the operation. The return code is not deterministic.(Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013 follow this behavior.)");
-            }
 
+                Thread.Sleep(10000);
+            }
         }
 
         /// <summary>
@@ -486,7 +488,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         [TestCategory("MSSITESS"), TestMethod()]
         public void MSSITESS_S01_TC04_ExportingFailureInvalidExportUrl()
         {
-            Thread.Sleep(10000);
+            //Thread.Sleep(10000);
             Site.Assume.IsTrue(Common.IsRequirementEnabled(5311, this.Site), @"Test is executed only when R5311Enabled is set to true.");
 
             #region Variables
@@ -500,7 +502,6 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
 
             // Initialize the web service with an authenticated account.
             this.sitessAdapter.InitializeWebService(UserAuthenticationOption.Authenticated);
-
             // Invoke the ExportWeb operation with invalid webUrl, 4 is expected to be returned.
             exportWebResult = this.sitessAdapter.ExportWeb(Constants.ExportJobName, exportUrl, dataPath, true, true, true, cabSize);
 

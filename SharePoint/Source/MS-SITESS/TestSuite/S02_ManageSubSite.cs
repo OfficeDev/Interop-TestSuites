@@ -692,7 +692,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR400,
                     400,
-                    @"[In Appendix B: Product Behavior] <7> Section 3.1.4.5.2.2: Implementation does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element.(Microsoft SharePoint Foundation 2010 and SharePoint Foundation 2013 follow this behavior.)");
+                    @"[In Appendix B: Product Behavior] <7> Section 3.1.4.5.2.2: Implementation does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element.(Microsoft SharePoint Foundation 2010 and SharePoint Foundation 2013 and SharePoint Server 2016 and SharePoint Server 2019 follow this behavior.)");
             }
 
             if (Common.IsRequirementEnabled(1561, this.Site))
@@ -794,7 +794,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 Site.CaptureRequirementIfIsTrue(
                     presence,
                     523001,
-                    @"[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite.  <17> Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010.");
+                    @"[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite.  <17> Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010 and Microsoft SharePoint Foundation 2013 Service Pack 1 (SP1).");
             }
 
             if (Common.IsRequirementEnabled(523002,this.Site))
@@ -869,7 +869,7 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 Site.CaptureRequirementIfIsTrue(
                     presence,
                     557001,
-                    @"[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite.  <17> Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010.");
+                    @"[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite.  <17> Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010 and Microsoft SharePoint Foundation 2013 Service Pack 1 (SP1).");
             }
 
             if (Common.IsRequirementEnabled(557002, this.Site))
