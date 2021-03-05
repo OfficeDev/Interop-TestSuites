@@ -589,6 +589,7 @@ namespace Microsoft.Protocols.TestSuites.Common
             if ((string.Compare(propSutVersion, "WindowsSharePointServices3", true) != 0)
                 && (string.Compare(propSutVersion, "SharePointFoundation2010", true) != 0)
                 && (string.Compare(propSutVersion, "SharePointFoundation2013", true) != 0)
+                && (string.Compare(propSutVersion, "SharePointFoundation2013SP1", true) != 0)
                 && (string.Compare(propSutVersion, "SharePointServer2007", true) != 0)
                 && (string.Compare(propSutVersion, "SharePointServer2010", true) != 0)
                 && (string.Compare(propSutVersion, "SharePointServer2013", true) != 0)
@@ -599,7 +600,8 @@ namespace Microsoft.Protocols.TestSuites.Common
                 exceptionInfo += @"Please use one of following valid value for common property ""SutVersion"": " + "\r\n";
                 exceptionInfo += @" ""WindowsSharePointServices3"", the SUT is Windows® SharePoint® Services 3.0 Service Pack 3 (SP3);" + "\r\n";
                 exceptionInfo += @" ""SharePointFoundation2010"", the SUT is Microsoft® SharePoint® Foundation 2010 Service Pack 2 (SP2);" + "\r\n";
-                exceptionInfo += @" ""SharePointFoundation2013"", the SUT is Microsoft® SharePoint® Foundation 2013 Service Pack 1 (SP1);" + "\r\n";
+                exceptionInfo += @" ""SharePointFoundation2013"", the SUT is Microsoft® SharePoint® Foundation 2013;" + "\r\n";
+                exceptionInfo += @" ""SharePointFoundation2013SP1"", the SUT is Microsoft® SharePoint® Foundation 2013 Service Pack 1 (SP1);" + "\r\n";
                 exceptionInfo += @" ""SharePointServer2007"", the SUT is Microsoft® Office SharePoint® Server 2007 Service Pack 3 (SP3);" + "\r\n";
                 exceptionInfo += @" ""SharePointServer2010"", the SUT is Microsoft® SharePoint® Server 2010 Service Pack 2 (SP2);" + "\r\n";
                 exceptionInfo += @" ""SharePointServer2013"", the SUT is Microsoft® SharePoint® Server 2013 Service Pack 1 (SP1). " + "\r\n";

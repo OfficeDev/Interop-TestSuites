@@ -133,7 +133,8 @@ function GetSharePointVersion
     $script:SharePointServer2007           = "Microsoft Office SharePoint Server 2007",   "12.0.6612.1000", "SP3"
     $script:SharePointFoundation2010       = "Microsoft SharePoint Foundation 2010",      "14.0.7015.1000", "SP2"
     $script:SharePointServer2010           = "Microsoft SharePoint Server 2010",          "14.0.7015.1000", "SP2"
-    $script:SharePointFoundation2013       = "Microsoft SharePoint Foundation 2013",      "15.0.4571.1502", "SP1"
+    $script:SharePointFoundation2013       = "Microsoft SharePoint Foundation 2013",      "15.0.4420.1017", ""
+    $script:SharePointFoundation2013SP1    = "Microsoft SharePoint Foundation 2013",      "15.0.4571.1502", "SP1"
     $script:SharePointServer2013           = "Microsoft SharePoint Server 2013",          "15.0.4571.1502", "SP1"
     $script:SharePointServer2016           = "Microsoft SharePoint Server 2016",          "16.0.4351.1000", ""
     $script:SharePointServer2019           = "Microsoft SharePoint Server 2019",          "16.0.10337.12109", ""
@@ -186,7 +187,7 @@ function GetSharePointVersion
                 $isRecommendMinorVersion = CompareSharePointMinorVersion $version $recommendVersion
                 break
             }        
-            elseif($item.DisplayName -eq $script:SharePointFoundation2013[0])
+            elseif($item.DisplayName -eq $script:SharePointFoundation2013[0] -and $item.DisplayVersion -eq $script:SharePointFoundation2013[1] )
             {
                 $version = $item.DisplayVersion
                 $SharePointVersion = $script:SharePointFoundation2013[0]
@@ -194,7 +195,16 @@ function GetSharePointVersion
                 $recommendMinorVersion = $script:SharePointFoundation2013[2]
                 $isRecommendMinorVersion = CompareSharePointMinorVersion $version $recommendVersion
                 break
-            }        
+            } 
+             elseif($item.DisplayName -eq $script:SharePointFoundation2013SP1[0] -and $item.DisplayVersion -eq $script:SharePointFoundation2013SP1[1] )
+            {
+                $version = $item.DisplayVersion
+                $SharePointVersion = $script:SharePointFoundation2013SP1[0]
+                $recommendVersion = $script:SharePointFoundation2013SP1[1]
+                $recommendMinorVersion = $script:SharePointFoundation2013SP1[2]
+                $isRecommendMinorVersion = CompareSharePointMinorVersion $version $recommendVersion
+                break
+            }       
             elseif($item.DisplayName -eq "$SharePointServer2013NameInKey")
             {
                 $version = $item.DisplayVersion
@@ -3774,7 +3784,8 @@ function GetSharePointServerVersion
     $script:SharePointServer2007OnSUT           = "SharePointServer2007","Microsoft Office SharePoint Server 2007 ","SP3"
     $script:SharePointFoundation2010OnSUT       = "SharePointFoundation2010","Microsoft SharePoint Foundation 2010","SP2"
     $script:SharePointServer2010OnSUT           = "SharePointServer2010","Microsoft SharePoint Server 2010","SP2"
-    $script:SharePointFoundation2013OnSUT       = "SharePointFoundation2013","Microsoft SharePoint Foundation 2013","SP1"
+    $script:SharePointFoundation2013OnSUT       = "SharePointFoundation2013","Microsoft SharePoint Foundation 2013","","15.0.4420.1017"
+    $script:SharePointFoundation2013SP1OnSUT    = "SharePointFoundation2013SP1","Microsoft SharePoint Foundation 2013", "Service Pack 1 (SP1)","15.0.4571.1502"
     $script:SharePointServer2013OnSUT           = "SharePointServer2013","Microsoft SharePoint Server 2013","SP1"
     $script:SharePointServer2016OnSUT           = "SharePointServer2016","Microsoft SharePoint Server 2016"
     $script:SharePointServer2019OnSUT           = "SharePointServer2019","Microsoft SharePoint Server 2019"
@@ -3785,7 +3796,7 @@ function GetSharePointServerVersion
 
    $sutVersion = invoke-command -computer $computerName -Credential $credential -ErrorAction SilentlyContinue -scriptblock{
     param(
-    $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointServer2013OnSUT,$script:SharePointServer2016OnSUT,$script:SharePointServer2019OnSUT
+    $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointFoundation2013SP1OnSUT,$script:SharePointServer2013OnSUT,$script:SharePointServer2016OnSUT,$script:SharePointServer2019OnSUT
     )
 
         $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
@@ -3815,11 +3826,16 @@ function GetSharePointServerVersion
                 $SharePointVersion = $script:SharePointServer2010OnSUT
                 break
             }        
-            elseif($item.DisplayName -eq $script:SharePointFoundation2013OnSUT[1])
+            elseif($item.DisplayName -eq $script:SharePointFoundation2013OnSUT[1] -and $item.DisplayVersion -eq $script:SharePointFoundation2013OnSUT[3])
             {
-                $SharePointVersion = $script:SharePointFoundation2013OnSUT
+                $SharePointVersion = $script:SharePointFoundation2013OnSUT[0], $script:SharePointFoundation2013OnSUT[1]
                 break
-            }        
+            } 
+            elseif($item.DisplayName -eq $script:SharePointFoundation2013SP1OnSUT[1] -and $item.DisplayVersion -eq $script:SharePointFoundation2013SP1OnSUT[3])
+            {
+                $SharePointVersion = $script:SharePointFoundation2013SP1OnSUT[0], $script:SharePointFoundation2013SP1OnSUT[1],$script:SharePointFoundation2013SP1OnSUT[2]
+                break
+            }       
             elseif($item.DisplayName -eq $script:SharePointServer2013OnSUT[1])
             {
                 $SharePointVersion = $script:SharePointServer2013OnSUT[0], $script:SharePointServer2013OnSUT[1].TrimEnd(),$script:SharePointServer2013OnSUT[2]
@@ -3837,7 +3853,7 @@ function GetSharePointServerVersion
             }
         }
         return $SharePointVersion
-    }-ArgumentList $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointServer2013OnSUT,$script:SharePointServer2016OnSUT,$script:SharePointServer2019OnSUT
+    }-ArgumentList $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointFoundation2013SP1OnSUT,$script:SharePointServer2013OnSUT,$script:SharePointServer2016OnSUT,$script:SharePointServer2019OnSUT
     
     return $sutVersion
 }
@@ -3868,8 +3884,10 @@ function GetSharePointVersionManually
     Output "6: Microsoft SharePoint Server 2013 SP1" "Cyan"
     Output "7: Microsoft SharePoint Server 2016" "Cyan"
     Output "8: Microsoft SharePoint Server 2019" "Cyan"
+    Output "9: Microsoft SharePoint Foundation 2013" "Cyan"
+
     $isManualSelectVersion = $true
-    $sutVersionChoices = @('1: Windows SharePoint Services 3.0 SP3','2: Microsoft Office SharePoint Server 2007 SP3','3: Microsoft SharePoint Foundation 2010 SP2','4: Microsoft SharePoint Server 2010 SP2','5: Microsoft SharePoint Foundation 2013 SP1','6: Microsoft SharePoint Server 2013 SP1','7: Microsoft SharePoint Server 2016','8: Microsoft SharePoint Server 2019')
+    $sutVersionChoices = @('1: Windows SharePoint Services 3.0 SP3','2: Microsoft Office SharePoint Server 2007 SP3','3: Microsoft SharePoint Foundation 2010 SP2','4: Microsoft SharePoint Server 2010 SP2','5: Microsoft SharePoint Foundation 2013 SP1','6: Microsoft SharePoint Server 2013 SP1','7: Microsoft SharePoint Server 2016','8: Microsoft SharePoint Server 2019','9: Microsoft SharePoint Foundation 2013')
     $sutVersion = ReadUserChoice $sutVersionChoices "sutVersion"
     Switch($sutVersion)
     {
@@ -3877,10 +3895,11 @@ function GetSharePointVersionManually
         "2" {$sutVersion = $script:SharePointServer2007OnSUT[0], $script:SharePointServer2007OnSUT[1].TrimEnd(),$script:SharePointServer2007OnSUT[2]; break }
         "3" {$sutVersion = $script:SharePointFoundation2010OnSUT; break }
         "4" {$sutVersion = $script:SharePointServer2010OnSUT; break }
-        "5" {$sutVersion = $script:SharePointFoundation2013OnSUT; break }
+        "5" {$sutVersion = $script:SharePointFoundation2013SP1OnSUT[0], $script:SharePointFoundation2013SP1OnSUT[1],$script:SharePointFoundation2013SP1OnSUT[2]; break }
         "6" {$sutVersion = $script:SharePointServer2013OnSUT[0], $script:SharePointServer2013OnSUT[1].TrimEnd(),$script:SharePointServer2013OnSUT[2]; break } 
         "7" {$sutVersion = $script:SharePointServer2016OnSUT[0], $script:SharePointServer2016OnSUT[1]; break }
-        "8" {$sutVersion = $script:SharePointServer2019OnSUT[0], $script:SharePointServer2019OnSUT[1]; break }       
+        "8" {$sutVersion = $script:SharePointServer2019OnSUT[0], $script:SharePointServer2019OnSUT[1]; break }  
+        "9" {$sutVersion = $script:SharePointFoundation2013OnSUT[0],$script:SharePointFoundation2013OnSUT[1]; break }     
     }
     
     return $sutVersion

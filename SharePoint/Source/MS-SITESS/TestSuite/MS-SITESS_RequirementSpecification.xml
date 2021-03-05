@@ -4619,7 +4619,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R400</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;7&gt; Section 3.1.4.5.2.2: Implementation does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element.(Microsoft SharePoint Foundation 2010 SharePoint Foundation 2013 and SharePoint Server 2016 above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;7&gt; Section 3.1.4.5.2.2: Implementation does not return the SOAP fault. It returns a successful GetSiteTemplatesResponse with an empty TemplateList element.(Microsoft SharePoint Foundation 2010 SharePoint Foundation 2013 and SharePoint Server 2016 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-SITESS_R156:i,MS-SITESS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4866,7 +4866,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R523001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite.  &lt;17&gt; Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to false, and anonymous authentication is not allowed for the subsite.  &lt;17&gt; Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010 and Microsoft SharePoint Foundation 2013 Service Pack 1 (SP1).</ns1:Description>
 		<ns1:Derived>MS-SITESS_R523:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -4888,7 +4888,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R557001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite.  &lt;17&gt; Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does be enabled for the subsite to be created, when presence set to omitted, and anonymous authentication is not allowed for the subsite.  &lt;17&gt; Section 3.1.4.9.2.1:  If anonymous authentication is not allowed for the subsite, the online presence information will be enabled on SharePoint Foundation 2010 and Microsoft SharePoint Foundation 2013 Service Pack 1 (SP1).</ns1:Description>
 		<ns1:Derived>MS-SITESS_R557:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.Common
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Reflection;
     using System.Reflection.Emit;
     using System.Threading;
@@ -92,7 +93,8 @@ namespace Microsoft.Protocols.TestSuites.Common
                 baseType);
 
             MethodInfo[] abeforerinterlocked = typeof(Interlocked).GetMethods();
-            MethodInfo compareexchangeinfo = abeforerinterlocked[17].MakeGenericMethod(typeof(System.EventHandler<CustomerEventArgs>));
+            MethodInfo compareexchange = abeforerinterlocked.Where(m => m.IsGenericMethodDefinition == true && m.Name == "CompareExchange").FirstOrDefault();
+            MethodInfo compareexchangeinfo = compareexchange.MakeGenericMethod(typeof(System.EventHandler<CustomerEventArgs>));
             FieldBuilder fieldInjector = type.DefineField("fieldInjector", typeof(XmlWriterInjector), FieldAttributes.Private); // Build Event
             Type afterEventType = typeof(EventHandler<CustomerEventArgs>);
             FieldBuilder fieldAfter = type.DefineField("After", afterEventType, FieldAttributes.Public);
