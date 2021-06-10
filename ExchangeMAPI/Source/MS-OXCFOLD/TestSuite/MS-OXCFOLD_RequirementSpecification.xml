@@ -4400,7 +4400,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10345</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.642) specifies the number of messages in a folder, as computed by the message store.</ns1:Description>
+		<ns1:Description>[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.646) specifies the number of messages in a folder, as computed by the message store.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4427,7 +4427,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10347</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagContentUnreadCount Property] The PidTagContentUnreadCount property ([MS-OXPROPS] section 2.644) specifies the number of unread messages in a folder, as computed by the message store.</ns1:Description>
+		<ns1:Description>[In PidTagContentUnreadCount Property] The PidTagContentUnreadCount property ([MS-OXPROPS] section 2.648) specifies the number of unread messages in a folder, as computed by the message store.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4445,7 +4445,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10348</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDeletedOn Property] The PidTagDeletedOn property ([MS-OXPROPS] section 2.666) specifies the time when the folder was soft deleted.</ns1:Description>
+		<ns1:Description>[In PidTagDeletedOn Property] The PidTagDeletedOn property ([MS-OXPROPS] section 2.670) specifies the time when the folder was soft deleted.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4463,7 +4463,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10349</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAddressBookEntryId Property] The PidTagAddressBookEntryId property ([MS-OXPROPS] section 2.517) contains an Address Book EntryID structure, as specified in [MS-OXCDATA] section 2.2.5.2, that specifies the name-service entry ID of a directory object that refers to a public folder. &lt;10&gt; </ns1:Description>
+		<ns1:Description>[In PidTagAddressBookEntryId Property] The PidTagAddressBookEntryId property ([MS-OXPROPS] section 2.521) contains an Address Book EntryID structure, as specified in [MS-OXCDATA] section 2.2.5.2, that specifies the name-service entry ID of a directory object that refers to a public folder. &lt;10&gt; </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4500,7 +4500,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1035110</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderFlags Property] The PidTagFolderId property ([MS-OXPROPS] section 2.697) contains a computed value that specifies the type or state of a folder.</ns1:Description>
+		<ns1:Description>[In PidTagFolderFlags Property] The PidTagFolderId property ([MS-OXPROPS] section 2.701) contains a computed value that specifies the type or state of a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4563,7 +4563,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10351</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.696) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.</ns1:Description>
+		<ns1:Description>[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.700) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4581,7 +4581,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10027</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.854) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.</ns1:Description>
+		<ns1:Description>[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.858) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4599,7 +4599,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10028</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.716) specifies the number of subfolders in the folder.</ns1:Description>
+		<ns1:Description>[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.720) specifies the number of subfolders in the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4626,7 +4626,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R352002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagHierRev Property] The PidTagHierRev property ([MS-OXPROPS] section 2.717) specifies the time, in Coordinated Universal Time (UTC), to trigger the client in cached mode to synchronize the folder hierarchy.</ns1:Description>
+		<ns1:Description>[In PidTagHierRev Property] The PidTagHierRev property ([MS-OXPROPS] section 2.721) specifies the time, in Coordinated Universal Time (UTC), to trigger the client in cached mode to synchronize the folder hierarchy.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4644,7 +4644,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10353</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.792) specifies the aggregate size of messages in the folder.</ns1:Description>
+		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.796) specifies the aggregate size of messages in the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4662,7 +4662,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10354</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.11</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.793) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).</ns1:Description>
+		<ns1:Description>[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.797) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4680,7 +4680,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10355</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.12</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1028) specifies whether the folder has any subfolders.</ns1:Description>
+		<ns1:Description>[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1032) specifies whether the folder has any subfolders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4716,7 +4716,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3001</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.13</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLocalCommitTime Property] The PidTagLocalCommitTime property ([MS-OXPROPS] section 2.768) specifies the time, in Coordinated Universal Time (UTC), that the folder was last changed.</ns1:Description>
+		<ns1:Description>[In PidTagLocalCommitTime Property] The PidTagLocalCommitTime property ([MS-OXPROPS] section 2.772) specifies the time, in Coordinated Universal Time (UTC), that the folder was last changed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4734,7 +4734,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLocalCommitTimeMax Property] The PidTagLocalCommitTimeMax property ([MS-OXPROPS] section 2.769) specifies the most recent time that a top level object within a folder was changed.</ns1:Description>
+		<ns1:Description>[In PidTagLocalCommitTimeMax Property] The PidTagLocalCommitTimeMax property ([MS-OXPROPS] section 2.773) specifies the most recent time that a top level object within a folder was changed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4761,7 +4761,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R3006</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1.15</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDeletedCountTotal Property] The PidTagDeletedCountTotal property ([MS-OXPROPS] section 2.665) specifies the total number of messages that have been deleted from a folder, excluding messages that have been deleted from the folder's subfolders.</ns1:Description>
+		<ns1:Description>[In PidTagDeletedCountTotal Property] The PidTagDeletedCountTotal property ([MS-OXPROPS] section 2.669) specifies the total number of messages that have been deleted from a folder, excluding messages that have been deleted from the folder's subfolders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4779,7 +4779,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10356</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAttributeHidden Property] The PidTagAttributeHidden property ([MS-OXPROPS] section 2.607) specifies whether the folder is hidden.</ns1:Description>
+		<ns1:Description>[In PidTagAttributeHidden Property] The PidTagAttributeHidden property ([MS-OXPROPS] section 2.611) specifies whether the folder is hidden.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4815,7 +4815,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10359</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.633) contains a comment about the purpose or content of the folder.</ns1:Description>
+		<ns1:Description>[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.637) contains a comment about the purpose or content of the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4851,7 +4851,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10036</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagContainerClass Property] The PidTagContainerClass property ([MS-OXPROPS] section 2.638) specifies the type of Message object that the folder contains.</ns1:Description>
+		<ns1:Description>[In PidTagContainerClass Property] The PidTagContainerClass property ([MS-OXPROPS] section 2.642) specifies the type of Message object that the folder contains.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4878,7 +4878,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1228</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[PidTagContainerHierarchy Property] The PidTagContainerHierarchy property ([MS-OXPROPS] section 2.641) contains identifiers of the subfolders that are contained in the folder.</ns1:Description>
+		<ns1:Description>[PidTagContainerHierarchy Property] The PidTagContainerHierarchy property ([MS-OXPROPS] section 2.645) contains identifiers of the subfolders that are contained in the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4905,7 +4905,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10360</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDisplayName Property] The PidTagDisplayName property ([MS-OXPROPS] section 2.672) specifies the display name of the folder.</ns1:Description>
+		<ns1:Description>[In PidTagDisplayName Property] The PidTagDisplayName property ([MS-OXPROPS] section 2.676) specifies the display name of the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4933,7 +4933,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R1231</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[PidTagFolderAssociatedContents Property] The PidTagFolderAssociatedContents property ([MS-OXPROPS] section 2.695) contains identifiers of the FAI messages that are contained in the folder.</ns1:Description>
+		<ns1:Description>[PidTagFolderAssociatedContents Property] The PidTagFolderAssociatedContents property ([MS-OXPROPS] section 2.699) contains identifiers of the FAI messages that are contained in the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4960,7 +4960,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10362</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagFolderType Property] The PidTagFolderType property ([MS-OXPROPS] section 2.698) specifies the type of the folder.</ns1:Description>
+		<ns1:Description>[In PidTagFolderType Property] The PidTagFolderType property ([MS-OXPROPS] section 2.702) specifies the type of the folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5024,7 +5024,7 @@ PidTagLastModificationTime ([MS-OXCMSG] section 2.2.2.2)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R10367</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.2.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRights Property] The PidTagRights property ([MS-OXPROPS] section 2.931) specifies the client's folder permissions.</ns1:Description>
+		<ns1:Description>[In PidTagRights Property] The PidTagRights property ([MS-OXPROPS] section 2.935) specifies the client's folder permissions.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
