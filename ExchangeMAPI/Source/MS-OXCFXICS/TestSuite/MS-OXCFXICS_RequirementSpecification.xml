@@ -18680,7 +18680,7 @@ The server MUST return the RopBufferTooSmall ROP ([MS-OXCROPS] section 2.2.15.1)
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFXICS_R2240</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.9.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSynchronizationImportHierarchyChange Request] If a conflict has occurred, the server: MAY generate a conflict notification message.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSynchronizationImportHierarchyChange Request] If a conflict has occurred, the server: generate a conflict notification message.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
