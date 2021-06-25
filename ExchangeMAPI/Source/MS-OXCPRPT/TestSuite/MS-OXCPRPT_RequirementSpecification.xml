@@ -121,7 +121,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R13</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAccess Property] The PidTagAccess property ([MS-OXPROPS] section 2.499) indicates the operations available to the client for the object.</ns1:Description>
+		<ns1:Description>[In PidTagAccess Property] The PidTagAccess property ([MS-OXPROPS] section 2.505) indicates the operations available to the client for the object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -212,7 +212,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R24</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAccessLevel Property] The PidTagAccessLevel property ([MS-OXPROPS] section 2.501) indicates the client's access level to the object.</ns1:Description>
+		<ns1:Description>[In PidTagAccessLevel Property] The PidTagAccessLevel property ([MS-OXPROPS] section 2.507) indicates the client's access level to the object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -338,7 +338,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R34</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLastModifierName Property] The PidTagLastModifierName property ([MS-OXPROPS] section 2.760) contains the name of the last mail user to modify the object.</ns1:Description>
+		<ns1:Description>[In PidTagLastModifierName Property] The PidTagLastModifierName property ([MS-OXPROPS] section 2.766) contains the name of the last mail user to modify the object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -410,7 +410,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R38</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagObjectType Property] The PidTagObjectType property ([MS-OXPROPS] section 2.807) indicates the type of Server object.</ns1:Description>
+		<ns1:Description>[In PidTagObjectType Property] The PidTagObjectType property ([MS-OXPROPS] section 2.813) indicates the type of Server object.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -527,7 +527,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R50</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRecordKey Property] The PidTagRecordKey property ([MS-OXPROPS] section 2.904) contains a unique binary-comparable identifier for a specific object</ns1:Description>
+		<ns1:Description>[In PidTagRecordKey Property] The PidTagRecordKey property ([MS-OXPROPS] section 2.910) contains a unique binary-comparable identifier for a specific object</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -581,7 +581,7 @@ Create associated contents table.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPRPT_R54</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSearchKey Property] The PidTagSearchKey property ([MS-OXPROPS] section 2.991) contains a unique binary-comparable key that identifies an object for a search.</ns1:Description>
+		<ns1:Description>[In PidTagSearchKey Property] The PidTagSearchKey property ([MS-OXPROPS] section 2.997) contains a unique binary-comparable key that identifies an object for a search.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
