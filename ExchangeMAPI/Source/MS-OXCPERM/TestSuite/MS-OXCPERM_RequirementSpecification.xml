@@ -619,7 +619,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R1062</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagAccessControlListData Property] The PidTagAccessControlListData property ([MS-OXPROPS] section 2.500) contains a variable-length binary large object (BLOB) that constitutes a permissions list for a folder.</ns1:Description>
+		<ns1:Description>[In PidTagAccessControlListData Property] The PidTagAccessControlListData property ([MS-OXPROPS] section 2.506) contains a variable-length binary large object (BLOB) that constitutes a permissions list for a folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -664,7 +664,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R70</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagEntryId Property] The PidTagEntryId property ([MS-OXPROPS] section 2.677) identifies the Address Book object that specifies a user.</ns1:Description>
+		<ns1:Description>[In PidTagEntryId Property] The PidTagEntryId property ([MS-OXPROPS] section 2.683) identifies the Address Book object that specifies a user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -709,7 +709,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R74</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberId Property] The PidTagMemberId property ([MS-OXPROPS] section 2.776) specifies the unique identifier that the server generates for each user.</ns1:Description>
+		<ns1:Description>[In PidTagMemberId Property] The PidTagMemberId property ([MS-OXPROPS] section 2.782) specifies the unique identifier that the server generates for each user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -754,7 +754,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R81</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberName Property] The PidTagMemberName property ([MS-OXPROPS] section 2.777) specifies the user-readable name of the user.</ns1:Description>
+		<ns1:Description>[In PidTagMemberName Property] The PidTagMemberName property ([MS-OXPROPS] section 2.783) specifies the user-readable name of the user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -808,7 +808,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCPERM_R87</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMemberRights Property] The PidTagMemberRights property ([MS-OXPROPS] section 2.778) specifies the folder permissions that are granted to the specified user.</ns1:Description>
+		<ns1:Description>[In PidTagMemberRights Property] The PidTagMemberRights property ([MS-OXPROPS] section 2.784) specifies the folder permissions that are granted to the specified user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
