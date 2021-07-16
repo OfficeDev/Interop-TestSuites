@@ -2107,7 +2107,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 // "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)", then capture R2504
                 Site.CaptureRequirement(
                                 2504,
-                                @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<81> Section 3.1.4.30: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                                @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<82> Section 3.1.4.30: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
             }
 
             this.Site.Assert.IsTrue(isFault, "The operation doesn't catch any Soap Fault messages.");

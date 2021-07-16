@@ -3269,7 +3269,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                        "0x82000006",
                        exp.Detail.LastChild.InnerText,
                        2026,
-                       @"[In UpdateContentTypeXmlDocument operation] [If listName does not correspond to a list from either of these checks, the protocol server should<80> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
+                       @"[In UpdateContentTypeXmlDocument operation] [If listName does not correspond to a list from either of these checks, the protocol server should<81> return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
                 }
             }
             finally
@@ -3454,7 +3454,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2502,
                     2502,
-                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<80> Section 3.1.4.29: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<81> Section 3.1.4.29: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
 
                 isReturnSopeFault = true;
             }
@@ -4069,7 +4069,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     "0x82000006",
                     exp.Detail.LastChild.InnerText,
                     1975,
-                    @"[In UpdateContentType operation] [If the specified listName does not correspond to a list from either of these checks, a SOAP fault should<73> be returned with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
+                    @"[In UpdateContentType operation] [If the specified listName does not correspond to a list from either of these checks, a SOAP fault should<77> be returned with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.");
             }
             finally
             {
@@ -4117,7 +4117,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                     isVerifyR2496,
                     2496,
-                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<76> Section 3.1.4.27: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                    @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<77> Section 3.1.4.27: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
 
                 isReturnSopeFault = true;
             }
@@ -4653,7 +4653,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsTrue(
                       string.IsNullOrEmpty(errorCode) && expectedErrorString.Equals(errorString, StringComparison.OrdinalIgnoreCase),
                       2499,
-                      @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<78> Section 3.1.4.28: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
+                      @"[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (<79> Section 3.1.4.28: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: ""GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)"".)");
             }
             #endregion
         }

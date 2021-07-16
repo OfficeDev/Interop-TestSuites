@@ -778,7 +778,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 this.Site.CaptureRequirementIfIsFalse(
                     isSoapFaultExist,
                     7851,
-                    @"[In UndoCheckOut operation] Implementation does not return a SOAP fault if the pageUrl is an invalid URL. <74> Section 3.1.4.26: wss3 does not return a SOAP fault.");
+                    @"[In UndoCheckOut operation] Implementation does not return a SOAP fault if the pageUrl is an invalid URL. <75> Section 3.1.4.26: wss3 does not return a SOAP fault.");
             }
 
             if (Common.IsRequirementEnabled(7852, this.Site))
