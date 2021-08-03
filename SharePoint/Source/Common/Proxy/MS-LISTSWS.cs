@@ -11674,19 +11674,23 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private string flags2Field;
 
-        private string rootFolderIdField;
-
-        private string irmSyncableField;
-
         private string complianceTagField;
 
-        private string complianceFlagsField;
+        private int complianceFlagsField;
+
+        private bool complianceFlagsFieldSpecified;
 
         private string userModifiedField;
 
-        private string listSchemaVersionField;
+        private int listSchemaVersionField;
+
+        private bool listSchemaVersionFieldSpecified;
 
         private string aclVersionField;
+
+        private string rootFolderIdField;
+
+        private string irmSyncableField;
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
@@ -12726,6 +12730,104 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ComplianceTag
+        {
+            get
+            {
+                return this.complianceTagField;
+            }
+            set
+            {
+                this.complianceTagField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int ComplianceFlags
+        {
+            get
+            {
+                return this.complianceFlagsField;
+            }
+            set
+            {
+                this.complianceFlagsField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ComplianceFlagsSpecified
+        {
+            get
+            {
+                return this.complianceFlagsFieldSpecified;
+            }
+            set
+            {
+                this.complianceFlagsFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string UserModified
+        {
+            get
+            {
+                return this.userModifiedField;
+            }
+            set
+            {
+                this.userModifiedField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public int ListSchemaVersion
+        {
+            get
+            {
+                return this.listSchemaVersionField;
+            }
+            set
+            {
+                this.listSchemaVersionField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool ListSchemaVersionSpecified
+        {
+            get
+            {
+                return this.listSchemaVersionFieldSpecified;
+            }
+            set
+            {
+                this.listSchemaVersionFieldSpecified = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string AclVersion
+        {
+            get
+            {
+                return this.aclVersionField;
+            }
+            set
+            {
+                this.aclVersionField = value;
+            }
+        }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
         public string RootFolderId
         {
             get
@@ -12749,76 +12851,6 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.irmSyncableField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string ComplianceTag
-        {
-            get
-            {
-                return this.complianceTagField;
-            }
-            set
-            {
-                this.complianceTagField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string ComplianceFlags
-        {
-            get
-            {
-                return this.complianceFlagsField;
-            }
-            set
-            {
-                this.complianceFlagsField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string UserModified
-        {
-            get
-            {
-                return this.userModifiedField;
-            }
-            set
-            {
-                this.userModifiedField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string ListSchemaVersion
-        {
-            get
-            {
-                return this.listSchemaVersionField;
-            }
-            set
-            {
-                this.listSchemaVersionField = value;
-            }
-        }
-
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string AclVersion
-        {
-            get
-            {
-                return this.aclVersionField;
-            }
-            set
-            {
-                this.aclVersionField = value;
             }
         }
     }
