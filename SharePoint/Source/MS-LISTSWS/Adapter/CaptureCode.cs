@@ -630,12 +630,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 @"[ListDefinitionCT.Direction: ]Specifies the direction that items in the list are laid "
                 + "out in when displayed.");
 
-            // Verify R542000801
-            Site.CaptureRequirementIfIsNotNull(
-                list.ComplianceTag,
-                542000801,
-                @"[ListDefinitionCT.ComplianceTag:]Specifies compliance tag.");
-
             // Verify R542000802
             Site.CaptureRequirementIfIsNotNull(
                 list.ComplianceFlags,
@@ -656,12 +650,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 list.ListSchemaVersion,
                 542000804,
                 @"[ListDefinitionCT.ListSchemaVersion:]Specifies the version for list schema.");
-
-            // Verify R542000805
-            Site.CaptureRequirementIfIsNotNull(
-                list.AclVersion,
-                542000805,
-                @"[ListDefinitionCT.AclVersion:]Specifies the version for access control list (ACL).");
 
             // Verify MS-LISTSWS requirement: MS-LISTSWS_R121.
             // If the actual Direction value is contained in the expected domain of 
