@@ -49,6 +49,8 @@
     <DeploymentItem filename="SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchClaimsAuthentication.ps1" />
     <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-ONESTORE\TestSuite\Resources\Open Notebook.onetoc2" />
+    <DeploymentItem filename="MS-ONESTORE\TestSuite\Resources\AlternativePackaging.one" />
+    <DeploymentItem filename="MS-ONESTORE\TestSuite\Resources\AlternativePackaging.onetoc2" />
     <DeploymentItem filename="MS-ONESTORE\TestSuite\MS-ONESTORE_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WOPI\TestSuite\MS-WOPI_TestSuite.deployment.ptfconfig" />
