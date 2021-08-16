@@ -630,26 +630,41 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 @"[ListDefinitionCT.Direction: ]Specifies the direction that items in the list are laid "
                 + "out in when displayed.");
 
-            // Verify R542000802
-            Site.CaptureRequirementIfIsNotNull(
-                list.ComplianceFlags,
-                542000802,
-                @"[ListDefinitionCT.ComplianceFlags:]Specifies compliance flags.");
+            if (Common.IsRequirementEnabled(1518047, this.Site))
+            {
+                // Verify R542000801
+                Site.CaptureRequirementIfIsNotNull(
+                    list.ComplianceTag,
+                    542000801,
+                    @"[ListDefinitionCT.ComplianceTag:]Specifies compliance tag.");
 
-            // Verify R542000803
-            // If the UserModified can be parsed to a DateTime, then the following 
-            // requirement can be captured.
-            bool isR542000803 = DateTime.TryParseExact(list.UserModified, parseFormat, CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out created);
-            Site.CaptureRequirementIfIsTrue(
-                isR542000803,
-                542000803,
-                @"[ListDefinitionCT.UserModified:]Specifies the date and time.");
+                // Verify R542000802
+                Site.CaptureRequirementIfIsNotNull(
+                    list.ComplianceFlags,
+                    542000802,
+                    @"[ListDefinitionCT.ComplianceFlags:]Specifies compliance flags.");
 
-            // Verify R542000804
-            Site.CaptureRequirementIfIsNotNull(
-                list.ListSchemaVersion,
-                542000804,
-                @"[ListDefinitionCT.ListSchemaVersion:]Specifies the version for list schema.");
+                // Verify R542000803
+                // If the UserModified can be parsed to a DateTime, then the following 
+                // requirement can be captured.
+                bool isR542000803 = DateTime.TryParseExact(list.UserModified, parseFormat, CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out created);
+                Site.CaptureRequirementIfIsTrue(
+                    isR542000803,
+                    542000803,
+                    @"[ListDefinitionCT.UserModified:]Specifies the date and time.");
+
+                // Verify R542000804
+                Site.CaptureRequirementIfIsNotNull(
+                    list.ListSchemaVersion,
+                    542000804,
+                    @"[ListDefinitionCT.ListSchemaVersion:]Specifies the version for list schema.");
+
+                // Verify R542000805
+                Site.CaptureRequirementIfIsNotNull(
+                    list.AclVersion,
+                    542000805,
+                    @"[ListDefinitionCT.AclVersion:]Specifies the version for access control list (ACL).");
+            }            
 
             // Verify MS-LISTSWS requirement: MS-LISTSWS_R121.
             // If the actual Direction value is contained in the expected domain of 
