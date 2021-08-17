@@ -925,7 +925,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0,
                 pidTagMessageSizeExtended,
                 10354,
-                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.793) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
+                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.797) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
             #endregion
             #endregion
         }
