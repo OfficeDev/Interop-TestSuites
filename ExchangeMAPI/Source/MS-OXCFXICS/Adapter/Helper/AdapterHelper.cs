@@ -1,6 +1,8 @@
 namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
 {
     using Microsoft.Protocols.TestTools;
+    using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Adapter helper
