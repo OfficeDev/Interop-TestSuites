@@ -1,44 +1,47 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestSite xmlns="http://schemas.microsoft.com/windows/ProtocolsTest/2007/07/TestConfig"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <!-- Note: Property values are case-insensitive unless otherwise specified; and when they are loaded, the string in square brackets ([...]) will be replaced with the actual property value. -->
   <Properties>
     <!-- The CommonConfigurationFileName property specifies the name of the common configuration file. -->
     <Property name="CommonConfigurationFileName" value="SharePointCommonConfiguration.deployment.ptfconfig" />
+
     <!-- System under test (SUT) section begins. When setting the values of properties in this section, ensure that the values match the SUT settings and configuration. -->
     <!-- The TargetServiceUrl property specifies the fully qualified URL of the service which the test suite will run on. -->
     <Property name="TargetServiceUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/_vti_bin/workflow.asmx" />
     <!-- The SiteCollectionName property specifies the name of the site collection used by this test suite. -->
-    <Property name="SiteCollectionName" value="MSWWSP_SiteCollection" />
+    <Property name="SiteCollectionName" value="MSWWSP_SiteCollection"/>
     <!-- The WorkflowAssociationName property specifies the name of the "Workflow Association" which is associated with the current document library. -->
-    <Property name="WorkflowAssociationName" value="MSWWSP_Workflow" />
+    <Property name="WorkflowAssociationName" value="MSWWSP_Workflow"/>
     <!-- The MSWWSPTestAccount property specifies the username for the test account. This account must be added to the group specified in the UserGroupOnSUT property. -->
-    <Property name="MSWWSPTestAccount" value="MSWWSP_User" />
+    <Property name="MSWWSPTestAccount" value="MSWWSP_User"/>
     <!-- The KeyWordForAssignedToField property specifies a keyword included in the "AssignedTo" field. The property value depends on the SUT implementation. Note that Microsoft products will contain the display name in the "AssignedTo" field. All tasks started by the test suite should be assigned to the test account specified in the MSWWSPTestAccount property. -->
-    <Property name="KeyWordForAssignedToField" value="MSWWSP_User" />
+    <Property name="KeyWordForAssignedToField" value="MSWWSP_User"/>
     <!-- The MSWWSPTestAccountPassword property specifies the password for the user specified in the MSWWSPTestAccount property. The property value is case-sensitive. -->
-    <Property name="MSWWSPTestAccountPassword" value="4FK_H##3CL1ka" />
+    <Property name="MSWWSPTestAccountPassword" value="Password01!"/>
     <!-- The UserGroupOnSUT property specifies a security group on the SUT. This group must contain the account specified in the MSWWSPTestAccount property. -->
-    <Property name="UserGroupOnSUT" value="MSWWSP_UserGroup" />
+    <Property name="UserGroupOnSUT" value="MSWWSP_UserGroup"/>
     <!-- The CurrentDocLibraryListName property specifies the name of a document library on the SUT. This document library includes a workflow association and a document item so that the test suite can start a workflow from the document item according to the workflow association. -->
-    <Property name="CurrentDocLibraryListName" value="MSWWSP_DocumentLibrary" />
+    <Property name="CurrentDocLibraryListName" value="MSWWSP_DocumentLibrary"/>
     <!-- The CurrentTaskListName property specifies the name of a task list on the SharePoint server. This task list is used on the current workflow association setting. All tasks starting from the workflow association will present as a list item in this task list. -->
-    <Property name="CurrentTaskListName" value="Tasks" />
+    <Property name="CurrentTaskListName" value="Tasks"/>
     <!-- SUT section ends. -->
+
     <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
     <!-- The startworkflowParameterDataFile property specifies the path of the XML file that contains the startworkflow parameter. The property value needs to be changed if you need to run on a workflow association with a non-approval default workflow template. -->
-    <Property name="startworkflowParameterDataFile" value="startworkflowParameters_[SUTVersionShortName].xml" />
+    <Property name="startworkflowParameterDataFile" value="startworkflowParameters_[SUTVersionShortName].xml"/>
     <!-- The startworkflowParameterDataFileForClaim property specifies the path of the XML file that contains the startworkflow parameter. This property is used to start a task by the ClaimReleaseTask operation. The property value needs to be changed if you need to run on a workflow association with a non-"approval" default workflow template. -->
-    <Property name="startworkflowParameterDataFileForClaim" value="startworkflowParameters_Claim_[SUTVersionShortName].xml" />
+    <Property name="startworkflowParameterDataFileForClaim" value="startworkflowParameters_Claim_[SUTVersionShortName].xml"/>
     <!-- The WorkFlowAssociationXsdFile property specifies the path of the XSD file that contains the WorkFlowAssociation schema definition. The property value must be specified if you need to validate the schema of the workflow association data. -->
-    <Property name="WorkFlowAssociationXsdFile" value="workflowAssociationData_[SUTVersionShortName].xsd" />
+    <Property name="WorkFlowAssociationXsdFile" value="workflowAssociationData_[SUTVersionShortName].xsd"/>
     <!-- The AlertToDoDataFile property specifies the path of the XML file that contains the AlertToDo task information. The property value needs to be changed if you need to run on a workflow association with a non-"approval" default workflow template. -->
-    <Property name="AlertToDoDataFile" value="AlertToDoData.xml" />
+    <Property name="AlertToDoDataFile" value="AlertToDoData.xml"/>
     <!-- The AlertedValuePlaceHolder property specifies the placeholder that indicates where a value of an element will be replaced in the XML file that contains the AlertToDo task information. Ensure that only one placeholder is present in that XMl file. -->
-    <Property name="AlertedValuePlaceHolder" value="[AlertTodoUpdatedValue]" />
+    <Property name="AlertedValuePlaceHolder" value="[AlertTodoUpdatedValue]"/>
     <!-- The AssignedToPlaceHolder property specifies the placeholder that indicates where a value of an element will be replaced in the XML file that contains the startworkflowParameters of normal task information. Test suite will replace this placeholder with the target account(user/group) name value. Ensure only one placeholder will present in that XMl file. The property value is case-sensitive. -->
-    <Property name="AssignedToPlaceHolder" value="[AssignedTo]" />
+    <Property name="AssignedToPlaceHolder" value="[AssignedTo]"/>
     <!-- The ValidateWorkFlowAssociation property specifies whether the schema validation of the workflow association data is enabled. The property value must be true. -->
-    <Property name="ValidateWorkFlowAssociation" value="true" />
+    <Property name="ValidateWorkFlowAssociation" value="true"/>
     <!-- The ServiceTimeOut property specifies the number of minutes to wait for the response of the MS-WWSP web service. -->
     <Property name="ServiceTimeOut" value="10" />
     <!-- The DelayTimeBeforeModifyTask property specifies the number of seconds will be delayed before the SOAP operation modifies a workflow task. -->
