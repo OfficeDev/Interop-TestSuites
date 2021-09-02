@@ -230,6 +230,7 @@
     <DeploymentItem filename="MS-WEBSS\Adapter\SUTControlAdapter\Implementation\GetObjectId.ps1" />
     <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VERSS\TestSuite\MS-VERSS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_SubscriptionEditionPreview.xml" />
     <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\MS-OFFICIALFILE_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
@@ -270,8 +271,10 @@
     <DeploymentItem filename="MS-LISTSWS\TestSuite\Resources\Attachment.txt" />
     <DeploymentItem filename="MS-WWSP\Adapter\Proxy\WorkflowAssociationData_2013.xsd" />
     <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="Adapter\Proxy\WorkflowAssociationData_SubscriptionEditionPreview.xsd" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\MS-SITESS.wsdl" />
+    <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_Claim_SubscriptionEditionPreview.xml" />
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
@@ -297,9 +300,6 @@
     <DeploymentItem filename="MS-DWSS\Adapter\Schemas\SimpleTypes.xsd" />
     <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-WWSP\Adapter\Proxy\WorkflowAssociationData_SubscriptionEditionPreview.xsd" />
-    <DeploymentItem filename="MS-WWSP\TestSuite\Resources\StartworkflowParameters_SubscriptionEditionPreview.xml" />
-    <DeploymentItem filename="MS-WWSP\TestSuite\Resources\StartworkflowParameters_Claim_SubscriptionEditionPreview.xml" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
