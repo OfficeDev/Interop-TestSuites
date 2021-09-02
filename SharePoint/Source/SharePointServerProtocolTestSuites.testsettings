@@ -13,7 +13,7 @@
     <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\MS-CPSWS.wsdl" />
     <DeploymentItem filename="SharePointServerProtocolTestSuites.runsettings" />
-    <DeploymentItem filename="MS-LISTSWS\TestSuite\Resources\Message.txt" />   
+    <DeploymentItem filename="MS-LISTSWS\TestSuite\Resources\Message.txt" />
     <DeploymentItem filename="MS-LISTSWS\Adapter\SUTControlAdapter\Implementation\MoveFile.ps1" />
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
