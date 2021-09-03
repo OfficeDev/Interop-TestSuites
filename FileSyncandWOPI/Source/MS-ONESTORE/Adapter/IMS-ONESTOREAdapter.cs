@@ -21,5 +21,11 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
         /// </summary>
         /// <returns>Return the instacne of OneNoteRevisionStoreFile.</returns>
         OneNoteRevisionStoreFile LoadOneNoteFile(string fileName);
+
+        /// <summary>
+        /// Load and parse the OneNote alternative packaging file.
+        /// </summary>
+        /// <returns>Return the instacne of OneNoteAlternativePackagingFile.</returns>
+        AlternativePackaging LoadOneNoteFileWithAlternativePackaging(string fileName);
     }
 }

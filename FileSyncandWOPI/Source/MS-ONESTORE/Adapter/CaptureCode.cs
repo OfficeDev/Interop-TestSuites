@@ -5,6 +5,7 @@
     using System.Collections.Generic;
     using TestTools;
     using System.Linq;
+    using Microsoft.Protocols.TestSuites.SharedAdapter;
 
     /// <summary>
     /// The class provides the methods to write capture code.
@@ -4289,6 +4290,102 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
                 instance.guidFooter,
                 855,
                 @"[In FileDataStoreObject][guidFooter] MUST be {71FBA722-0F79-4A0B-BB13-899256426B24}.");
+        }
+
+        /// <summary>
+        /// This method is used to verify the requirements related with Alternative Packaging structure.
+        /// </summary>
+        /// <param name="file">The OneNote file of Alternative Packaging structure.</param>
+        /// <param name="fileName">The file name of the OneNote file.</param>
+        /// <param name="site">Instance of ITestSite</param>
+        private void VerifyAlternativePackagingFile(AlternativePackaging file, string fileName, ITestSite site)
+        {
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R975
+            site.CaptureRequirementIfAreEqual(
+                    Guid.Parse("{7B5C52E4-D88C-4DA7-AEB1-5378D02996D3}"),
+                    file.guidFileType,
+                    975,
+                    @"[In Packaging Structure] guidFileType (16 bytes): A GUID, as specified by [MS-DTYP], MUST be ""{7B5C52E4-D88C-4DA7-AEB1-5378D02996D3}""");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R976
+            site.CaptureRequirementIfIsInstanceOfType(
+                    file.guidFile,
+                    typeof(Guid),
+                    976,
+                    @"[In Packaging Structure] guidFile (16 bytes): A GUID, as specified by [MS-DTYP], that specifies the identity of this package store file. SHOULD be globally unique.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R977
+            site.CaptureRequirementIfIsInstanceOfType(
+                    file.guidLegacyFileVersion,
+                    typeof(Guid),
+                    977,
+                    @"[In Packaging Structure] guidLegacyFileVersion (16 bytes): A GUID, as specified by [MS-DTYP], that specifies the version of this package store file. SHOULD be globally unique.<10>");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R979
+            site.CaptureRequirementIfAreEqual(
+                    Guid.Parse("{638DE92F-A6D4-4bc1-9A36-B3FC2511A5B7}"),
+                    file.guidFileFormat,
+                    979,
+                    @"[In Packaging Structure] MUST be ""{638DE92F-A6D4-4bc1-9A36-B3FC2511A5B7}"".");
+
+            //Verify MS-ONESTORE requirement: MS-ONESTORE_R980
+            site.CaptureRequirementIfAreEqual<uint>(
+                    0,
+                    file.rgbReserved,
+                    980,
+                    @"[In Header] rgbReserved (728 bytes): MUST be zero.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R982
+            site.CaptureRequirementIfIsTrue(
+                    file.packagingStart is StreamObjectHeaderStart32bit,
+                    982,
+                    @"[In Packaging Structure] Packaging Start (4 bytes): A 32-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.2, with a Header Type of  0x00, Compound of 0x1, Type of 0x7A, and Length set to the length of the Storage Index Extended GUID plus the length of the guidCellSchemaId.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R983
+            site.CaptureRequirementIfIsTrue(
+                    file.storageIndexExtendedGUID is ExGuid,
+                    983,
+                    @"[In Packaging Structure] Storage Index Extended GUID (variable): An extended GUID, as specified in [MS-FSSHTTPB] section 2.2.1.7) that specifies the storage index.");
+
+            if (fileName.EndsWith(".one"))
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R986
+                site.CaptureRequirementIfAreEqual(
+                        Guid.Parse("{1F937CB4-B26F-445F-B9F8-17E20160E461}"),
+                        file.guidCellSchemaId,
+                        986,
+                        @"[In Packaging Structure] File type "".one"" specifies value: {1F937CB4-B26F-445F-B9F8-17E20160E461}.");
+            }
+            else if (fileName.EndsWith(".onetoc2"))
+            {
+                // Verify MS-ONESTORE requirement: MS-ONESTORE_R987
+                site.CaptureRequirementIfAreEqual(
+                        Guid.Parse("{E4DBFD38-E5C7-408B-A8A1-0E7B421E1F5F}"),
+                        file.guidCellSchemaId,
+                        987,
+                        @"[In Packaging Structure] File type "".onetoc2"" specifies value: {E4DBFD38-E5C7-408B-A8A1-0E7B421E1F5F}.");
+            }
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R988
+            site.CaptureRequirementIfIsTrue(
+                    file.dataElementPackage is DataElementPackage,
+                    988,
+                    @"[In Packaging Structure] Data Element Package (variable): A data element package, as specified in [MS-FSSHTTPB] section 2.2.1.12, that specifies the serialized data elements.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R989
+            site.CaptureRequirementIfIsTrue(
+                    file.packagingEnd is StreamObjectHeaderEnd16bit,
+                    989,
+                    @"[In Packaging Structure] Packaging Start (4 bytes): A 32-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.2, with a Header Type of  0x00, Compound of 0x1, Type of 0x7A, and Length set to the length of the Storage Index Extended GUID plus the length of the guidCellSchemaId.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R990
+            List<byte> packagingEndByteList = file.packagingEnd.SerializeToByteList();
+            int packagingEndValue = packagingEndByteList[0] + packagingEndByteList[1] * 16 * 16;
+            site.CaptureRequirementIfAreEqual(
+                    Convert.ToInt32("0x1EB", 16),
+                    packagingEndValue,
+                    990,
+                    @"[In Packaging Structure] The value of this field MUST be 0x1EB.");
         }
     }
 }

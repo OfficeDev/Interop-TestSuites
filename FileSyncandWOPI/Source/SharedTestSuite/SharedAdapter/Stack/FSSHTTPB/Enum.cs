@@ -528,11 +528,16 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// Object Group Metadata Declarations
         /// </summary>
         ObjectGroupMetadataDeclarations = 0x79,
-        
+
         /// <summary>
         /// Object Group Metadata
         /// </summary>
         ObjectGroupMetadata = 0x78,
+
+        /// <summary>
+        /// Alternative Packaging
+        /// </summary>
+        AlternativePackaging = 0x7A,
 
         /// <summary>
         /// Allocate Extended GUID Range Request
@@ -715,7 +720,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// Object Group Metadata Declarations, new added in MOSS2013.
         /// </summary>
         ObjectGroupMetadataDeclarations = 0x79,
-        
+
+        /// <summary>
+        /// Alternative Packaging
+        /// </summary>
+        AlternativePackaging = 0x7A,
+
         /// <summary>
         /// Target PartitionId, new added in MOSS2013.
         /// </summary>
