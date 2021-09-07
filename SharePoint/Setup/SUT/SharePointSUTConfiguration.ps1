@@ -261,9 +261,13 @@ elseif ($SharePointVersion -eq $SharePointServer2019[0])
 {
     $product = "16.0" 
 }
-if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0])
+elseif ($SharePointVersion -eq $SharePointServerSubscriptionEditionPreview[0])
 {
-	$SharePointShellSnapIn = Get-PSSnapin | Where-Object -FilterScript {$_.Name -eq "Microsoft.SharePoint.PowerShell"}
+    $product = "16.0" 
+}
+if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0] -or $SharePointVersion -eq $SharePointServerSubscriptionEditionPreview[0])
+{
+	$SharePointShellSnapIn = Get-PSSnapin -Registered | Where-Object -FilterScript {$_.Name -eq "Microsoft.SharePoint.PowerShell"}
 	if($SharePointShellSnapIn -eq $null)
 	{
 		Add-PSSnapin Microsoft.SharePoint.PowerShell
@@ -781,6 +785,12 @@ CreateListItem $MSWEBSSSiteObject $MSWEBSSDocumentLibrary 101
 Output "Steps for manual configuration:" "Yellow"
 Output "Upload test data $MSWEBSSTestData to http://$sutComputerName/sites/$MSWEBSSSiteCollectionObject/$MSWEBSSSite ..." "Yellow"
 UploadFileToSharePointFolder $MSWEBSSSiteObject $MSWEBSSDocumentLibrary $MSWEBSSTestData ".\$MSWEBSSTestData" $true
+
+Output "Steps for manual configuration:" "Yellow"
+Output "Turn off MUI to http://$sutComputerName/sites/$MSWEBSSSiteCollectionObject/$MSWEBSSSite ..." "Yellow"
+$site = Get-SPSite http://$sutComputerName/sites/$MSWEBSSSiteCollectionName
+$site.allwebs |foreach {Write-Host $_.URL+ " " +  $_.IsMultiLingual}
+$site.allwebs |foreach {$_.IsMultiLingual = $false; $_.Update()}
 
 $MSWEBSSSiteObject.Dispose()
 $MSWEBSSSiteCollectionObject.Dispose()
