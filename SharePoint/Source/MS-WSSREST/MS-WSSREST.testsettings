@@ -19,7 +19,7 @@
     <DeploymentItem filename="TestSuite\MS-WSSREST_TestSuite.ptfconfig" />
     <DeploymentItem filename="..\Common\Proxy\SOAP11.xsd" />
     <DeploymentItem filename="TestSuite\MS-WSSREST_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
-	<DeploymentItem filename="TestSuite\MS-WSSREST_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+	  <DeploymentItem filename="TestSuite\MS-WSSREST_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
