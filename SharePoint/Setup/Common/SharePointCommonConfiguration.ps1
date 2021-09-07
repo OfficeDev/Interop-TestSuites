@@ -3812,7 +3812,6 @@ function GetSharePointServerVersion
     $script:SharePointServer2013OnSUT           = "SharePointServer2013","Microsoft SharePoint Server 2013","SP1"
     $script:SharePointServer2016OnSUT           = "SharePointServer2016","Microsoft SharePoint Server 2016"
     $script:SharePointServer2019OnSUT           = "SharePointServer2019","Microsoft SharePoint Server 2019"
-    $script:SharePointServer2019OnSUT           = "SharePointServer2019","Microsoft SharePoint Server 2019"
     $script:SharePointServerSubscriptionEditionPreviewOnSUT           = "SharePointServerSubscriptionEditionPreview","Microsoft SharePoint Server Subscription Edition Preview"
     $SharePointVersion                          = "Unknown Version"
     
