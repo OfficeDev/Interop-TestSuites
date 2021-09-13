@@ -17,11 +17,12 @@
     <DeploymentItem filename="..\Common\Proxy\SOAP12.xsd" />
     <DeploymentItem filename="..\Common\Script\Get-ConfigurationPropertyValue.ps1" />
     <DeploymentItem filename="TestSuite\MS-ADMINS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
-	<DeploymentItem filename="TestSuite\MS-ADMINS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
-<DeploymentItem filename="TestSuite\MS-ADMINS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+	  <DeploymentItem filename="TestSuite\MS-ADMINS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ADMINS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ADMINS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Proxy\SOAP11.xsd" />
     <DeploymentItem filename="TestSuite\MS-ADMINS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ADMINS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
