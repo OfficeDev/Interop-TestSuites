@@ -34,7 +34,7 @@
         </AssemblyResolution>
       </UnitTestRunConfig>
     </TestTypeSpecific>
-    <AgentRule name="LocalMachineDefaultRole">
+    <AgentRule name="Execution Agents">
     </AgentRule>
   </Execution>
   <Properties />
