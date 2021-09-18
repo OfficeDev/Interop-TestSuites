@@ -52,6 +52,7 @@
     <None Include="MS-CPSWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-CPSWS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-CPSWS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-CPSWS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-CPSWS_TestSuite.deployment.ptfconfig" />
     <None Include="MS-CPSWS_TestSuite.ptfconfig" />
     <None Include="MS-CPSWS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
