@@ -205,7 +205,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 ErrorCodeValue.Success,
                 this.Result,
                 1268,
-                @"[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1050) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.569) properties.");
+                @"[In NspiModProps] This protocol supports the PidTagUserX509Certificate ([MS-OXPROPS] section 2.1054) and PidTagAddressBookX509Certificate ([MS-OXPROPS] section 2.575) properties.");
 
             bool isR1289Verified = reservedOfModProps != 0 && ErrorCodeValue.Success == this.Result;
 
