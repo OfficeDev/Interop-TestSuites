@@ -1470,13 +1470,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXNSPI
                 // The property sequence is ensured by the above asserts, so MS-OXNSPI_R1863 can be captured directly.
                 this.Site.CaptureRequirement(
                     1863,
-                    @"[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The server MUST return the following properties for each container in the hierarchy, in the order listed: PidTagEntryId ([MS-OXPROPS] section 2.674)
-                    PidTagContainerFlags ([MS-OXPROPS] section 2.640)
-                    PidTagDepth ([MS-OXPROPS] section 2.669)
-                    PidTagAddressBookContainerId ([MS-OXPROPS] section 2.508)
-                    PidTagDisplayName ([MS-OXPROPS] section 2.672)
-                    PidTagAddressBookIsMaster ([MS-OXPROPS] section 2.541)
-                    PidTagAddressBookParentEntryId ([MS-OXPROPS] section 2.555) (optional, and MUST be the seventh column if it [property PidTagAddressBookParentEntryId] is included)");
+                    @"[In NspiGetSpecialTable] [Server Processing Rules: Upon receiving message NspiGetSpecialTable, the server MUST process the data from the message subject to the following constraints:] [Constraint 14] The server MUST return the following properties for each container in the hierarchy, in the order listed: PidTagEntryId ([MS-OXPROPS] section 2.683)
+                    PidTagContainerFlags ([MS-OXPROPS] section 2.644)
+                    PidTagDepth ([MS-OXPROPS] section 2.673)
+                    PidTagAddressBookContainerId ([MS-OXPROPS] section 2.512)
+                    PidTagDisplayName ([MS-OXPROPS] section 2.676)
+                    PidTagAddressBookIsMaster ([MS-OXPROPS] section 2.545)
+                    PidTagAddressBookParentEntryId ([MS-OXPROPS] section 2.559) (optional, and MUST be the seventh column if it [property PidTagAddressBookParentEntryId] is included)");
 
                 // The property must have a value according to the above asserts, so MS-OXNSPI_R1864 can be captured directly.
                 this.Site.CaptureRequirement(
