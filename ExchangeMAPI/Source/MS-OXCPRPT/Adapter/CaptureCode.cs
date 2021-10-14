@@ -164,7 +164,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPRPT
                                 Common.GetConfigurationPropertyValue("UserName", this.Site).ToLower(),
                                 result,
                                 34,
-                                @"[In PidTagLastModifierName Property] The PidTagLastModifierName property ([MS-OXPROPS] section 2.760) contains the name of the last mail user to modify the object.");
+                                @"[In PidTagLastModifierName Property] The PidTagLastModifierName property ([MS-OXPROPS] section 2.766) contains the name of the last mail user to modify the object.");
 
                             Site.CaptureRequirementIfAreNotEqual<ServerObjectType>(
                                  ServerObjectType.Folder,

@@ -77,6 +77,8 @@
     </None>
     <None Include="MS-ONESTORE_TestSuite.ptfconfig" />
     <None Include="MS-ONESTORE_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="Resources\AlternativePackaging.one" />
+    <None Include="Resources\AlternativePackaging.onetoc2" />
     <None Include="Resources\Encryption.one" />
     <None Include="Resources\InvalidData.one" />
     <None Include="Resources\LargeData.one" />

@@ -52,6 +52,22 @@ namespace Microsoft.Protocols.TestSuites.MS_ONESTORE
 
             return oneNoteFile;
         }
+
+        /// <summary>
+        /// Load and parse the OneNote alternative packaging file.
+        /// </summary>
+        /// <returns>Return the instacne of OneNoteAlternativePackagingFile.</returns>
+        public AlternativePackaging LoadOneNoteFileWithAlternativePackaging(string fileName)
+        {
+            byte[] buffer = File.ReadAllBytes(fileName);
+
+            AlternativePackaging oneNoteFile = new AlternativePackaging();
+            oneNoteFile.DoDeserializeFromByteArray(buffer, 0);
+
+            this.VerifyAlternativePackagingFile(oneNoteFile, fileName, this.Site);
+
+            return oneNoteFile;
+        }
         #endregion MS_ONESTOREAdapter Members
     }
 }

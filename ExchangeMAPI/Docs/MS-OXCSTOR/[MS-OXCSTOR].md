@@ -1,6 +1,6 @@
 ## [MS-OXCSTOR]: Store Object Protocol
-- [MS-OXCSTOR] v20181001 is used to develop the test suite. 
-- Release date, 10/1/2018.
+- [MS-OXCSTOR] v20210422 is used to develop the test suite. 
+- Release date, 4/22/2021.
 
 
 To find the new landing page for [MS-OXCSTOR], please visit https://msdn.microsoft.com/en-us/library/cc433479(v=exchg.80).aspx

@@ -30,6 +30,8 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Property name="OnetocFileLocal" value="Open Notebook.onetoc2"/>
     <!-- The NoSectionFile property specifies the file path of the file which is a onetoc2 file and not contain section. -->
     <Property name="NoSectionFile" value="NoSection.onetoc2"/>
+    <Property name="OneFileWithAlternativePackaging" value="AlternativePackaging.one"/>
+    <Property name="OnetocFileWithAlternativePackaging" value="AlternativePackaging.onetoc2"/>
     <!-- SUT section ends. -->
     <!-- Test suite client section begins. Properties in this section are not associated with SUT settings and can retain default values. -->
     <!-- The HttpEndPointName property specifies the name of the endpoint which is configured by the App.config file when the transport type is HTTP. The property value is case-sensitive. -->

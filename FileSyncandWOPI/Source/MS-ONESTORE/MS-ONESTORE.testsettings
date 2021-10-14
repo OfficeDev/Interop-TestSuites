@@ -33,6 +33,8 @@
     <DeploymentItem filename="TestSuite\Resources\LargeData.one" />
     <DeploymentItem filename="TestSuite\Resources\Open Notebook.onetoc2" />
     <DeploymentItem filename="TestSuite\Resources\NoSection.onetoc2" />
+    <DeploymentItem filename="TestSuite\Resources\AlternativePackaging.one" />
+	<DeploymentItem filename="TestSuite\Resources\AlternativePackaging.onetoc2" />
     <DeploymentItem filename="TestSuite\MS-ONESTORE_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ONESTORE_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ONESTORE_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />

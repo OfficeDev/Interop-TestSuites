@@ -599,6 +599,47 @@
                 }
             }
         }
+
+        /// <summary>
+        /// The test case is validate that the requirements related with Alternative Packaging structure.
+        /// </summary>
+        [TestCategory("MSONESTORE"), TestMethod]
+        public void MSONESTORE_S02_TC06_LoadOneNoteWithAlternativePackaging()
+        {
+            // Get the file name that contains the .one file data.
+            string oneFile = Common.GetConfigurationPropertyValue("OneFileWithAlternativePackaging", Site);
+            SharedContext.Current.Site = this.Site;
+
+            // Call adapter to load .one file in local.
+            this.Adapter.LoadOneNoteFileWithAlternativePackaging(oneFile);
+
+            // Get the file name that contains the .onetoc2 file data.
+            string onetocFile = Common.GetConfigurationPropertyValue("OnetocFileWithAlternativePackaging", Site);
+
+            // Call adapter to load .onetoc2 file in local.
+            this.Adapter.LoadOneNoteFileWithAlternativePackaging(onetocFile);
+
+            // If the OneNote file parse successfully, below requirements will be verified.
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R970
+            Site.CaptureRequirement(
+                     970,
+                     @"[In Alternative Encoding Using the File Synchronization via SOAP Over HTTP Protocol] The alternative packaging format is used as the file format for .one and .onetoc2 files stored on a server.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R971
+            Site.CaptureRequirement(
+                     971,
+                     @"[In Alternative Encoding Using the File Synchronization via SOAP Over HTTP Protocol] The alternative packaging format is effectively an envelope format that contains the equivalent of the results of an Query Changes sub-request, as specified in [MS-FSSHTTPB] section 2.2.2.1.3, for the full contents of the file.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R972
+            Site.CaptureRequirement(
+                     972,
+                     @"[In Alternative Encoding Using the File Synchronization via SOAP Over HTTP Protocol] When a revision store file is encoded using the File Synchronization via SOAP Over HTTP Protocol, specified in [MS-FSSHTTP], the encoded file contains a packaging structure that contains a data element package, as specified in [MS-FSSHTTPB] section 2.2.1.12, that specifies the serialized data elements that comprise the revision store file as specified in section 2.7.");
+
+            // Verify MS-ONESTORE requirement: MS-ONESTORE_R973
+            Site.CaptureRequirement(
+                     973,
+                     @"[In Packaging Structure] The Packaging structure MUST be at the beginning of the file.");
+        }
         #endregion
     }
 }

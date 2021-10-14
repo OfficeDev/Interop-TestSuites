@@ -8819,7 +8819,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R971</ns1:REQ_ID>
@@ -8828,7 +8828,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R972</ns1:REQ_ID>
@@ -8837,7 +8837,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R973</ns1:REQ_ID>
@@ -8846,7 +8846,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R974</ns1:REQ_ID>
@@ -8864,7 +8864,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R976</ns1:REQ_ID>
@@ -8873,7 +8873,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 		<ns1:VerificationComment>Partial derived requirement: MS-ONESTORE_R97601</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -8893,7 +8893,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R978</ns1:REQ_ID>
@@ -8902,7 +8902,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement:MS-ONESTORE_R979</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R979</ns1:REQ_ID>
@@ -8911,7 +8912,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R980</ns1:REQ_ID>
@@ -8920,7 +8921,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R981</ns1:REQ_ID>
@@ -8938,7 +8939,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R983</ns1:REQ_ID>
@@ -8947,7 +8948,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R984</ns1:REQ_ID>
@@ -8956,7 +8957,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement:MS-ONESTORE_R986, MS-ONESTORE_R987</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R985</ns1:REQ_ID>
@@ -8965,7 +8967,8 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
+		<ns1:VerificationComment>Verified by requirement:MS-ONESTORE_R986, MS-ONESTORE_R987</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R986</ns1:REQ_ID>
@@ -8974,7 +8977,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R987</ns1:REQ_ID>
@@ -8983,7 +8986,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R988</ns1:REQ_ID>
@@ -8992,7 +8995,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R989</ns1:REQ_ID>
@@ -9001,7 +9004,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R990</ns1:REQ_ID>
@@ -9010,7 +9013,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R991</ns1:REQ_ID>

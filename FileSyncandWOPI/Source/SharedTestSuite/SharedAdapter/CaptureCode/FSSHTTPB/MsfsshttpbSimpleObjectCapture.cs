@@ -395,7 +395,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             streamEndType == 0x62 ||
             streamEndType == 0x6B ||
             streamEndType == 0x083 ||
-            streamEndType == 0x79;
+            streamEndType == 0x79 ||
+            streamEndType == 0x7A;
 
             site.Assert.IsTrue(
                         flag,

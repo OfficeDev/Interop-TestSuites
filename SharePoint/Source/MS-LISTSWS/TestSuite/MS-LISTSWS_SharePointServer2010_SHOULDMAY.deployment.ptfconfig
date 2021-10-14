@@ -273,5 +273,7 @@
     <Property name="R542000901Enabled" value="false" />
     <!-- Set R542001001Enabled to true to verify that implementation does return the ListDefinitionCT.IrmSyncable attribute. Set R542001001Enabled to false to disable this requirement. -->
     <Property name="R542001001Enabled" value="false" />
+    <!-- Set R1518047Enabled to true to verify that implementation does return the ListDefinitionCT.ComplianceTag/ListDefinitionCT.ComplianceFlags/ListDefinitionCT.UserModified/ListDefinitionCT.ListSchemaVersion/ListDefinitionCT.AclVersion attribute. Set R1518047Enabled to false to disable this requirement. -->
+    <Property name="R1518047Enabled" value="false" />
   </Properties>
 </TestSite>

@@ -89,6 +89,7 @@
     <Compile Include="Stack\FileStructrue\ObjectGroupList.cs" />
     <Compile Include="Stack\FileStructrue\ObjectSpaceManifestList.cs" />
     <Compile Include="Stack\FileStructrue\OneNoteRevisionStore.cs" />
+    <Compile Include="Stack\FileStructrue\AlternativePackaging.cs" />
     <Compile Include="Stack\FileStructrue\RevisionManifestList.cs" />
     <Compile Include="Stack\FileStructrue\RootFileNodeList.cs" />
     <Compile Include="Stack\FileStructrue\TransactionEntry.cs" />
@@ -98,6 +99,10 @@
     <ProjectReference Include="..\..\Common\Common.csproj">
       <Project>{0CEFB8C0-114E-4936-A3C1-9CEB0ABBD92C}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SharedTestSuite\SharedAdapter\SharedAdapter.csproj">
+      <Project>{46573EAE-E1E9-4768-B8B8-536DC678CCAE}</Project>
+      <Name>SharedAdapter</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(ExtendedTargetsPath)\Microsoft.CSharp.targets" Condition="'$(BUILD_COREXT)'=='1'" />
