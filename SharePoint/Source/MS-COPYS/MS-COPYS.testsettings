@@ -11,6 +11,7 @@
     <DeploymentItem filename="TestSuite\MS-COPYS_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-COPYS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-COPYS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-COPYS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-COPYS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-COPYS_RequirementSpecification.xml" />
     <DeploymentItem filename="TestSuite\MS-COPYS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
