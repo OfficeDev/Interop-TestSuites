@@ -1,6 +1,6 @@
 ## [MS-ADMINS]: Administration Web Service Protocol
-- [MS-ADMINS] v20190618 is used to develop the test suite.
-- Release date, 06/18/2019.
+- [MS-ADMINS] v20210720 is used to develop the test suite.
+- Release date, 07/20/2021.
 
 To find the new landing page for [MS-ADMINS], please visit https://msdn.microsoft.com/en-us/library/cc313072(v=office.12).aspx
 
