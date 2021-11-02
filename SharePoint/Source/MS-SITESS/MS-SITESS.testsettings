@@ -20,6 +20,7 @@
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetFormDigestTimeout.ps1" />
     <DeploymentItem filename="TestSuite\MS-SITESS_SharePointFoundation2013SP1_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-SITESS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-SITESS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetDocumentLibraryFileNames.ps1" />
     <DeploymentItem filename="TestSuite\MS-SITESS_RequirementSpecification.xml" />
     <DeploymentItem filename="..\Common\Proxy\SOAP11.xsd" />

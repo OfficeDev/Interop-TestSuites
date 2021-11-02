@@ -122,14 +122,14 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 string[] urls = new string[] { result.Url };
                 bool[] urlss = this.sitessAdapter.IsScriptSafeUrlUsingCustomizedDomain(urls);
 
-                // If IsScriptSafeUrlUsingCustomizedDomain is true, it indicates a URL is a valid script safe URL for the current site by checking against CustomScriptSafeDomains property of the site collection.
+                // If IsScriptSafeUrlUsingCustomizedDomain is true, it indicates a URL is a valid script safe URL for the current site by checking against the customized script safe domains property of the site collection.
                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-SITESS_R32702701");
 
                 // Verify MS-SITESS requirement: MS-SITESS_R32702701
                 Site.CaptureRequirementIfIsTrue(
                     urlss[0],
                     32702701,
-                    @"[InArrayOfBoolean]  boolean: Indicates whether a URL is a valid script safe URL for the current site by checking against CustomScriptSafeDomains property of the site collection.");
+                    @"[InArrayOfBoolean]  boolean: Indicates whether a URL is a valid script safe URL for the current site by checking against the customized script safe domains property of the site collection.");
             }
             #endregion Capture requirements
 
