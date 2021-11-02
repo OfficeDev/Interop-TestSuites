@@ -4178,7 +4178,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R327001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
-		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain] This operation [IsScriptSafeUrlUsingCustomizedDomain]&lt;20&gt; is used to validate whether the specified URLs are valid script safe URLS for the current site by checking against CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomain] This operation [IsScriptSafeUrlUsingCustomizedDomain]&lt;20&gt; is used to validate whether the specified URLs are valid script safe URLs for the current site by checking against the customized script safe domains property of the site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4237,7 +4237,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R327007</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainSoapIn] This message [IsScriptSafeUrlUsingCustomizedDomainSoapIn] is the request message for validating whether the specified URLs are valid script safe URLs for the current site by checking against the CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainSoapIn] This message [IsScriptSafeUrlUsingCustomizedDomainSoapIn] is the request message for validating whether the specified URLs are valid script safe URLs for the current site by checking against the customized script safe domains property of the site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4266,7 +4266,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R327010</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainSoapOut] This message [IsScriptSafeUrlUsingCustomizedDomainSoapOut] is the response message for validating whether the specified URLs are valid script safe URLs for the current site by checking against CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Description>[In IsScriptSafeUrlUsingCustomizedDomainSoapOut] This message [IsScriptSafeUrlUsingCustomizedDomainSoapOut] is the response message for validating whether the specified URLs are valid script safe URLs for the current site by checking against the customized script safe domains property of the site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4437,7 +4437,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R327027</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12.3.1 </ns1:Doc_Sect>
-		<ns1:Description>[InArrayOfBoolean]  boolean: Indicates whether a URL is a valid script safe URL for the current site by checking against CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Description>[InArrayOfBoolean]  boolean: Indicates whether a URL is a valid script safe URL for the current site by checking against the customized script safe domains property of the site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4446,7 +4446,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R32702701</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12.3.1 </ns1:Doc_Sect>
-		<ns1:Description>[InArrayOfBoolean]  boolean: [True] Indicates a URL is a valid script safe URL for the current site by checking against CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Description>[InArrayOfBoolean]  boolean: [True] Indicates a URL is a valid script safe URL for the current site by checking against the customized script safe domains property of the site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4455,7 +4455,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-SITESS_R32702702</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12.3.1 </ns1:Doc_Sect>
-		<ns1:Description>[InArrayOfBoolean]  boolean: [False] Indicates a URL is not a URL is a valid script safe URL for the current site by checking against CustomScriptSafeDomains property of the site collection.</ns1:Description>
+		<ns1:Description>[InArrayOfBoolean]  boolean: [False] Indicates a URL is not a URL is a valid script safe URL for the current site by checking against the customized script safe domains property of the site collection.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
