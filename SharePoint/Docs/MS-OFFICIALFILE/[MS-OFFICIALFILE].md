@@ -1,6 +1,6 @@
 ## [MS-OFFICIALFILE]: Official File Web Service Protocol
-- [MS-OFFICIALFILE] v20181001 is used to develop the test suite.
-- Release date, 10/01/2018.
+- [MS-OFFICIALFILE] v20210720 is used to develop the test suite.
+- Release date, 7/20/2021.
 
 To find the new landing page for [MS-OFFICIALFILE], please visit https://msdn.microsoft.com/en-us/library/cc313141(v=office.12).aspx
 
