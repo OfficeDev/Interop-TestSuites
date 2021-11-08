@@ -23,6 +23,7 @@
     <DeploymentItem filename="Adapter\Schemas\ADOXML-C2F41010-65B3-11d1-A29F-00AA00C14882.xsd" />
     <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-DWSS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-DWSS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\Schemas\DwsResponseResult.xsd" />
     <DeploymentItem filename="..\Common\Proxy\SOAP12.xsd" />
     <DeploymentItem filename="Adapter\Schemas\ADOXML-BDC6E3F0-6DA3-11d1-A2A3-00AA00C14882.xsd" />
