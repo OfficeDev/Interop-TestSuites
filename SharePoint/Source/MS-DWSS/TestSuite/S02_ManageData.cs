@@ -1193,7 +1193,7 @@ namespace Microsoft.Protocols.TestSuites.MS_DWSS
                     HttpStatusCode.Unauthorized,
                     ((HttpWebResponse)webException.Response).StatusCode,
                     1680,
-                    @"[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text ""401 Unauthorized"" instead of the ""NoAccess"" error if the authenticated user is not permitted to access this information. (Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013 will never return the ""NoAccess"" error code; instead, these product versions will return HTTP status code 401 with a response body containing the text ""401 Unauthorized"".)");
+                    @"[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text ""401 Unauthorized"" instead of the ""NoAccess"" error if the authenticated user is not permitted to access this information. (Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, SharePoint Server 2016 and SharePoint Server 2019 will never return the ""NoAccess"" error code; instead, these product versions will return HTTP status code 401 with a response body containing the text ""401 Unauthorized"".)");
 
                 // If R1680 is verified, then the server did return HTTP status code 401 when the user is unauthorized.
                 this.Site.CaptureRequirement(
