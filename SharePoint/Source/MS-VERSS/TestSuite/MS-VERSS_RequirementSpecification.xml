@@ -1201,7 +1201,7 @@ http://www.contoso.com/Repository/_vti_bin/versions.asmx</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17201, MS-VERSS_R1930101, MS-VERSS_R1930201, MS-VERSS_R1930202, MS-VERSS_R1930203, MS-VERSS_R1930204, MS-VERSS_R1930213, MS-VERSS_R1930214, MS-VERSS_R19302, MS-VERSS_R1930205,MS-VERSS_R1930208</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17201, MS-VERSS_R1930101, MS-VERSS_R1931101, MS-VERSS_R1930201, MS-VERSS_R1930202, MS-VERSS_R1930203, MS-VERSS_R1930204, MS-VERSS_R1930213, MS-VERSS_R1930214, MS-VERSS_R19302, MS-VERSS_R1930205,MS-VERSS_R1930208</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R17203</ns1:REQ_ID>
@@ -1489,7 +1489,7 @@ http://schemas.microsoft.com/sharepoint/soap/DeleteVersion.</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17600, MS-VERSS_R17601, MS-VERSS_R17602, MS-VERSS_R17621, MS-VERSS_R19602, MS-VERSS_R19620, MS-VERSS_R197, MS-VERSS_R19702, MS-VERSS_R19701, MS-VERSS_R19703, MS-VERSS_R19704, MS-VERSS_R19705</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-VERSS_R17600, MS-VERSS_R17601, MS-VERSS_R17602, MS-VERSS_R17621, MS-VERSS_R19602, MS-VERSS_R1960102, MS-VERSS_R19620, MS-VERSS_R197, MS-VERSS_R19702, MS-VERSS_R19701, MS-VERSS_R19703, MS-VERSS_R19704, MS-VERSS_R19705</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R178</ns1:REQ_ID>
@@ -2539,6 +2539,167 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931101</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid characters, invalid character contains ("),(%),(&amp;),(*),(:),(&lt;),(=),(&gt;),({),(|),(}),(~),(\t),(..) and Any character that has a value less than 32 or greater than 126. (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R172:i,MS-VERSS_R1:i,MS-VERSS_R17203:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931103</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Double quotation mark ("). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931105</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Percent sign (%). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931106</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Ampersand (&amp;). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931107</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Asterisk (*). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931108</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Colon (:). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931109</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Left angle bracket (&lt;). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931110</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Equal sign (=). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931111</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Right angle bracket (&gt;). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931114</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Left curly bracket ({). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931116</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Vertical bar (|). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931117</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Right curly bracket (}). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931118</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Tilde (~). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931119</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Two consecutive dots (..). (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931120</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character that has a value less than 32 or greater than 126. (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1931113</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Tab (\t), it is not at the end of the fileName. (&lt;3&gt; Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1931101:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R1930201</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does truncates all characters after the first "#" in the file name. (&lt;4&gt; Section 3.1.4.1.2.2:  Windows SharePoint Services truncates all characters after the first "#" in the file name.)</ns1:Description>
@@ -3000,6 +3161,167 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960102</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid characters, invalid character contains ("),(%),(&amp;),(*),(:),(&lt;),(=)(&gt;),({),(|),(}),(~),(/),(..) and Any character that has a value less than 32 or greater than 126. (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R176:i,MS-VERSS_R11401:i,MS-VERSS_R1:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960103</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Double quotation mark ("). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960105</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Percent sign (%). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960106</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Ampersand (&amp;). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960107</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Asterisk (*). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960108</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Colon (:). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960109</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left angle bracket (&lt;). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960110</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Equal sign (=). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960111</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Right angle bracket (&gt;). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960114</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left curly bracket ({). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960115</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Vertical bar (|). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960116</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Right curly bracket (}). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960117</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Tilde (~). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960104</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Forward slash (/). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960118</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Two consecutive dots (..). (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-VERSS_R1960119</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character that has a value less than 32 or greater than 126. (&lt;5&gt; Section 3.1.4.2.2.2:  SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)</ns1:Description>
+		<ns1:Derived>MS-VERSS_R1960102:c</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R197</ns1:REQ_ID>
@@ -3583,7 +3905,7 @@ http://schemas.microsoft.com/sharepoint/soap/RestoreVersion.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-VERSS_R24901</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that two consecutive dots (..) is at the end of the fileName. (&lt;10&gt; Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016, two consecutive dots (..) are ignored at the end of the fileName.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return an error to indicate that two consecutive dots (..) is at the end of the fileName. (&lt;10&gt; Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, SharePoint Server 2016 and SharePoint Server 2019 two consecutive dots (..) are ignored at the end of the fileName.)</ns1:Description>
 		<ns1:Derived>MS-VERSS_R192:i,MS-VERSS_R1:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

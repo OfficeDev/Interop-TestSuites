@@ -20,6 +20,8 @@
     <Property name="R24500Enabled" value="false"/>
     <!-- Set R1930101Enabled to true to verify that the server returns error code 0x81070905 for invalid characters. Set R1930101Enabled to false to disable this requirement. -->
     <Property name="R1930101Enabled" value="true"/>
+    <!-- Set R1931101Enabled to true to verify that the server returns a SOAP exception without an error code for invalid characters. Set R1931101Enabled to false to disable this requirement. -->
+    <Property name="R1931101Enabled" value="false"/>
     <!-- Set R19701Enabled to true to verify that the server returns a soap exception for the pound sign (#) truncated file name does not exist on the server. Set R19701Enabled to false to disable this requirement. -->
     <Property name="R19701Enabled" value="true"/>
     <!-- Set R17602Enabled to true to verify that the server returns error code 0x80131600 for the pound sign (#) truncated file name does not exist on the server. Set R17602Enabled to false to disable this requirement. -->
