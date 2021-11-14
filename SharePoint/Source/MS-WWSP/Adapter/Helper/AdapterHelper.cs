@@ -304,6 +304,10 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
                 {
                     expectedSutPlaceHolderValue = "2019";
                 }
+                else if (currentVersion.Equals("SharePointServerSubscriptionEditionPreview", StringComparison.OrdinalIgnoreCase))
+                {
+                    expectedSutPlaceHolderValue = "SubscriptionEditionPreview";
+                }
                 else
                 {
                     throw new Exception("Could Not Generate correct workflowAssociation Schema File name.");

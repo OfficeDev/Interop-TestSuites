@@ -363,7 +363,7 @@ Microsoft® SharePoint® Foundation 2013].");
         [TestCategory("MSWEBSS"), TestMethod()]
         public void MSWEBSS_S08_TC11_CustomizeCss_Succeed()
         {
-            this.Site.Assume.IsFalse(Common.GetConfigurationPropertyValue("SutVersion", this.Site) == "SharePointServer2019", "It doesn't support on SharePoint Server 2019");
+            this.Site.Assume.IsFalse(Common.GetConfigurationPropertyValue("SutVersion", this.Site) == "SharePointServer2019"|| Common.GetConfigurationPropertyValue("SutVersion", this.Site) == "SharePointServerSubscriptionEditionPreview", "It doesn't support on SharePoint Server 2019 and Microsoft SharePoint Server Subscription Edition Preview");
 
             Adapter.CustomizeCss(Common.GetConfigurationPropertyValue("CssFile_Valid", this.Site));
         }

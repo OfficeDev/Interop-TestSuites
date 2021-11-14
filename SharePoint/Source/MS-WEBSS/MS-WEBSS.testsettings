@@ -22,6 +22,7 @@
     <DeploymentItem filename="TestSuite\MS-WEBSS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Proxy\MS-WEBSS.wsdl" />
     <DeploymentItem filename="..\Common\Proxy\SOAP11.xsd" />
+    <DeploymentItem filename="TestSuite\MS-WEBSS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
