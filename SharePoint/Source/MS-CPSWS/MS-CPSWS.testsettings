@@ -13,6 +13,7 @@
     <DeploymentItem filename="TestSuite\MS-CPSWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-CPSWS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-CPSWS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-CPSWS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-CPSWS_RequirementSpecification.xml" />
     <DeploymentItem filename="..\Common\Proxy\MS-CPSWS.wsdl" />
     <DeploymentItem filename="..\Common\Proxy\XML.xsd" />
