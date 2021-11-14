@@ -70,7 +70,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                 Site.CaptureRequirement(
                          "MS-OFFICIALFILE",
                          6001,
-                         @"[In Transport] Protocol messages MUST be formatted as specified either in [SOAP1.1] (Section 4, SOAP Envelope) or in [SOAP1.2/1] (Section 5, SOAP Message Construct).");
+                         @"[In Transport] Protocol messages MUST be formatted as specified either in [SOAP1.1] (Section 4, SOAP Envelope) or in [SOAP1.2-1/2007] (Section 5, SOAP Message Construct).");
             }
             else
             {

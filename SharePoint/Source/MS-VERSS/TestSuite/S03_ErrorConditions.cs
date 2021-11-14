@@ -985,8 +985,8 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
             this.testSuiteHelper.AddOneFileVersion(this.fileName);
 
             // The variable is used to save the invalid characters for file name.
-            string[] invalidCharacters = new string[] 
-            { 
+            string[] invalidCharacters = new string[]
+            {
                 "\"", "#", "%", "&", "*", ":", "<", "=", ">", "?", "\\",
                 "{", "|", "}", "~", "..", "\t", "\n", "\r"
             };
@@ -1084,8 +1084,9 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
 
             bool isR17201Enabled = Common.IsRequirementEnabled(17201, this.Site);
             bool isR1930101Enabled = Common.IsRequirementEnabled(1930101, this.Site);
+            bool isR1931101Enabled = Common.IsRequirementEnabled(1931101, this.Site);
 
-            if (isR17201Enabled || isR1930101Enabled || Common.IsRequirementEnabled(1930213, this.Site) || Common.IsRequirementEnabled(1930203, this.Site) || Common.IsRequirementEnabled(1930214, this.Site) || Common.IsRequirementEnabled(1930204, this.Site))
+            if (isR17201Enabled || isR1930101Enabled || isR1931101Enabled || Common.IsRequirementEnabled(1930213, this.Site) || Common.IsRequirementEnabled(1930203, this.Site) || Common.IsRequirementEnabled(1930214, this.Site) || Common.IsRequirementEnabled(1930204, this.Site))
             {
                 foreach (string invalidCharacter in invalidCharacters)
                 {
@@ -1093,6 +1094,13 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                     string fileRelativeUrlWithInvalidCharacter = this.documentLibrary + "/" +
                         this.fileName.Substring(0, this.fileName.IndexOf(".", System.StringComparison.CurrentCulture)) + invalidCharacter +
                         this.fileName.Substring(this.fileName.IndexOf(".", System.StringComparison.CurrentCulture));
+
+                    if (isR1931101Enabled)
+                    {
+                        fileRelativeUrlWithInvalidCharacter = this.documentLibrary + "/" +
+                        this.fileName.Substring(0, 2) + invalidCharacter + this.fileName.Substring(2, this.fileName.IndexOf(".", System.StringComparison.CurrentCulture)) +
+                        this.fileName.Substring(this.fileName.IndexOf(".", System.StringComparison.CurrentCulture));
+                    }
 
                     try
                     {
@@ -1131,6 +1139,17 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     1930103,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Double quotation mark (""). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
+                            }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931103");
+
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931103,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Double quotation mark (""). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
                             }
                         }
                         else if (invalidCharacter == "#")
@@ -1187,6 +1206,17 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     1930105,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Percent sign (%). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
                             }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931105");
+
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931105,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Percent sign (%). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
+                            }
                         }
                         else if (invalidCharacter == "&")
                         {
@@ -1212,6 +1242,17 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     1930106,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Ampersand (&). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
+                            }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931106");
+
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931106,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Ampersand (&). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
                             }
                         }
                         else if (invalidCharacter == "*")
@@ -1239,6 +1280,17 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     1930107,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Asterisk (*). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
                             }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931107");
+
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931107,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Asterisk (*). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
+                            }
                         }
                         else if (invalidCharacter == ":")
                         {
@@ -1264,6 +1316,17 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     1930108,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Colon (:). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
+                            }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931108");
+
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931108,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Colon (:). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
                             }
                         }
                         else if (invalidCharacter == "<")
@@ -1291,6 +1354,18 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     1930109,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Left angle bracket (<). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
+                            }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931109");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1931109
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931109,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Left angle bracket (<). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
                             }
                         }
                         else if (invalidCharacter == "=")
@@ -1333,6 +1408,18 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     1930111,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Right angle bracket (>). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
+                            }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931111");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1931111
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931111,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Right angle bracket (>). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
                             }
                         }
                         else if (invalidCharacter == "?")
@@ -1391,6 +1478,18 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     1930114,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Left curly bracket ({). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
                             }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931114");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1931114
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931114,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Left curly bracket ({). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
+                            }
                         }
                         else if (invalidCharacter == "|")
                         {
@@ -1418,6 +1517,18 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     1930116,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Vertical bar (|). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
+                            }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931116");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1931116
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931116,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Vertical bar (|). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
                             }
                         }
                         else if (invalidCharacter == "}")
@@ -1447,6 +1558,18 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     1930117,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Right curly bracket (}). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
                             }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931117");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1931117
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931117,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Right curly bracket (}). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
+                            }
                         }
                         else if (invalidCharacter == "~")
                         {
@@ -1474,6 +1597,18 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     1930118,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Tilde (~). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
+                            }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931118");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1931118
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931118,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Tilde (~). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
                             }
                         }
                         else if (invalidCharacter == "..")
@@ -1503,6 +1638,18 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     1930119,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Two consecutive dots (..). (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
                             }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931119");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1931119
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931119,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Two consecutive dots (..). (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
+                            }
                         }
                         else if (invalidCharacter == "\t")
                         {
@@ -1531,6 +1678,18 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     1930113,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Tab (\t), it is not at the end of the fileName. (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
                             }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931113");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1931113
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931113,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character Tab (\t), it is not at the end of the fileName. (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
+                            }
                         }
                         else if (invalidCharacter == "\n" || invalidCharacter == "\r")
                         {
@@ -1558,6 +1717,18 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     1930120,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character that has a value less than 32 or greater than 126. (<3> Section 3.1.4.1.2.2: Windows SharePoint Services 3.0 returns the 0x81070905 error code for invalid characters.)");
+                            }
+
+                            if (isR1931101Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1931120");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1931120
+                                Site.CaptureRequirementIfIsNull(
+                                    errorCode,
+                                    1931120,
+                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070905 to indicate that the fileName element of the DeleteAllVersions element contains invalid character that has a value less than 32 or greater than 126. (<3> Section 3.1.4.1.2.2: SharePoint Server 2019 return a SOAP exception without an error code.)");
                             }
                         }
                     }
@@ -1603,10 +1774,10 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
             DeleteVersionResponseDeleteVersionResult deleteVersionResponse;
 
             // The variable is used to save the invalid characters for file name.
-            string[] invalidCharacters = new string[] 
-            { 
+            string[] invalidCharacters = new string[]
+            {
                 "\"", "#", "%", "&", "*", ":", "<", "=", ">", "?",
-                "\\", "{", "|", "}", "~", "/", "..", "\t", "\n", "\r" 
+                "\\", "{", "|", "}", "~", "/", "..", "\t", "\n", "\r"
             };
 
             // The variable is used to save the file relative URL that contains "# or ? and file name" 
@@ -1707,8 +1878,9 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
 
             bool isR17601Enabled = Common.IsRequirementEnabled(17601, this.Site);
             bool isR19602Enabled = Common.IsRequirementEnabled(19602, this.Site);
+            bool isR1960102Enabled = Common.IsRequirementEnabled(1960102, this.Site);
 
-            if (isR17601Enabled || isR19602Enabled || Common.IsRequirementEnabled(17602, this.Site) || Common.IsRequirementEnabled(19701, this.Site) || Common.IsRequirementEnabled(17621, this.Site)
+            if (isR17601Enabled || isR19602Enabled || isR1960102Enabled || Common.IsRequirementEnabled(17602, this.Site) || Common.IsRequirementEnabled(19701, this.Site) || Common.IsRequirementEnabled(17621, this.Site)
                 || Common.IsRequirementEnabled(19703, this.Site) || Common.IsRequirementEnabled(17600, this.Site) || Common.IsRequirementEnabled(19620, this.Site)|| Common.IsRequirementEnabled(19707, this.Site))
             {
                 foreach (string invalidCharacter in invalidCharacters)
@@ -1754,6 +1926,16 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    errorCode,
                                    19603,
                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Double quotation mark (""). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
+                            }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960103
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960103,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Double quotation mark (""). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "#")
@@ -1810,6 +1992,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     19605,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Percent sign (%). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
                             }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960105");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960105
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960105,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Percent sign (%). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                            }
                         }
                         else if (invalidCharacter == "&")
                         {
@@ -1837,6 +2032,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     19606,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Ampersand (&). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
+                            }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960106");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960106
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960106,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Ampersand (&). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "*")
@@ -1866,6 +2074,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     19607,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Asterisk (*). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
                             }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960107");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960107
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960107,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Asterisk (*). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                            }
                         }
                         else if (invalidCharacter == ":")
                         {
@@ -1894,6 +2115,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     19608,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Colon (:). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
                             }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960108");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960108
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960108,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Colon (:). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                            }
                         }
                         else if (invalidCharacter == "<")
                         {
@@ -1921,6 +2155,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     19609,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left angle bracket (<). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
+                            }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960109");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960109
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960109,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left angle bracket (<). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                          else if (invalidCharacter == "=")
@@ -1970,6 +2217,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     19611,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Right angle bracket (>). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
+                            }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960111");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960111
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960111,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Right angle bracket (>). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "=")
@@ -2043,6 +2303,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     19614,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left curly bracket ({). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
                             }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960114");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960114
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960114,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left curly bracket ({). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                            }
                         }
                         else if (invalidCharacter == "|")
                         {
@@ -2070,6 +2343,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     19615,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Vertical bar (|). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
+                            }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960115");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960115
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960115,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Vertical bar (|). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "}")
@@ -2099,6 +2385,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     19616,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Right curly bracket (}). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
                             }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960116");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960116
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960116,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Right curly bracket (}). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                            }
                         }
                         else if (invalidCharacter == "~")
                         {
@@ -2126,6 +2425,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     19617,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Tilde (~). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
+                            }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960117");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960117
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960117,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Tilde (~). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "/")
@@ -2155,6 +2467,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     19604,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Forward slash (/). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
                             }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960104");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960104
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960104,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Forward slash (/). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                            }
                         }
                         else if (invalidCharacter == "..")
                         {
@@ -2182,6 +2507,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     19618,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Two consecutive dots (..). (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
+                            }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960118");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960118
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960118,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Two consecutive dots (..). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "\t")
@@ -2232,6 +2570,19 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     19619,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character that has a value less than 32 or greater than 126. (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
+                            }
+
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960119");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960119
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960119,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character that has a value less than 32 or greater than 126. (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                     }
@@ -2362,7 +2713,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                             Site.CaptureRequirementIfIsTrue(
                                 isCurrentVersionIncreased,
                                 24901,
-                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that two consecutive dots (..) is at the end of the fileName. (<10> Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013 and SharePoint Server 2016, two consecutive dots (..) are ignored at the end of the fileName.)");
+                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that two consecutive dots (..) is at the end of the fileName. (<10> Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, SharePoint Server 2016 and SharePoint Server 2019 two consecutive dots (..) are ignored at the end of the fileName.)");
                         }
                     }
                 }
