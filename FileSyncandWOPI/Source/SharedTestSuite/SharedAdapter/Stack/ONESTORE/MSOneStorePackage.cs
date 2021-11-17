@@ -119,10 +119,18 @@
         public static HeaderCell CreateInstance(ObjectGroupDataElementData objectElement)
         {
             HeaderCell instance = new HeaderCell();
-            instance.ObjectDeclaration = objectElement.ObjectGroupDeclarations.ObjectDeclarationList[0];
-            ObjectGroupObjectData objectData = objectElement.ObjectGroupData.ObjectGroupObjectDataList[0];
-            instance.ObjectData = new ObjectSpaceObjectPropSet();
-            instance.ObjectData.DoDeserializeFromByteArray(objectData.Data.Content.ToArray(), 0);
+
+            for (int i = 0; i < objectElement.ObjectGroupDeclarations.ObjectDeclarationList.Count; i++)
+            {
+                if (objectElement.ObjectGroupDeclarations.ObjectDeclarationList[i].ObjectPartitionID != null && objectElement.ObjectGroupDeclarations.ObjectDeclarationList[i].ObjectPartitionID.DecodedValue == 1)
+                {
+                    instance.ObjectDeclaration = objectElement.ObjectGroupDeclarations.ObjectDeclarationList[0];
+                    ObjectGroupObjectData objectData = objectElement.ObjectGroupData.ObjectGroupObjectDataList[0];
+                    instance.ObjectData = new ObjectSpaceObjectPropSet();
+                    instance.ObjectData.DoDeserializeFromByteArray(objectData.Data.Content.ToArray(), 0);
+                    break;
+                }
+            }
 
             return instance;
         }
