@@ -124,8 +124,8 @@
             {
                 if (objectElement.ObjectGroupDeclarations.ObjectDeclarationList[i].ObjectPartitionID != null && objectElement.ObjectGroupDeclarations.ObjectDeclarationList[i].ObjectPartitionID.DecodedValue == 1)
                 {
-                    instance.ObjectDeclaration = objectElement.ObjectGroupDeclarations.ObjectDeclarationList[0];
-                    ObjectGroupObjectData objectData = objectElement.ObjectGroupData.ObjectGroupObjectDataList[0];
+                    instance.ObjectDeclaration = objectElement.ObjectGroupDeclarations.ObjectDeclarationList[i];
+                    ObjectGroupObjectData objectData = objectElement.ObjectGroupData.ObjectGroupObjectDataList[i];
                     instance.ObjectData = new ObjectSpaceObjectPropSet();
                     instance.ObjectData.DoDeserializeFromByteArray(objectData.Data.Content.ToArray(), 0);
                     break;
