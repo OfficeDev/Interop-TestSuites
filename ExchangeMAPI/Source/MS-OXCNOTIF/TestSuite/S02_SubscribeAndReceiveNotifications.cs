@@ -1972,13 +1972,13 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R17");
 
             // Verify MS-OXCNOTIF requirement: MS-OXCNOTIF_R17
-            // Client can receive SearchComplete notification indicates that a search operation has been completed on the server.
+            // Client can receive SearchCompleted notification indicates that a search operation has been completed on the server.
             bool isVerifiedR17 = isSearchCompleted;
 
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR17,
                 17,
-                @"[In Server Event Types] SearchComplete: A search operation has been completed on the server.");
+                @"[In Server Event Types] SearchCompleted: A search operation has been completed on the server.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCNOTIF_R47");
