@@ -10503,7 +10503,7 @@ long NspiModLinkAtt(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1314</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.15</ns1:Doc_Sect>
-		<ns1:Description>[In NspiModLinkAtt] lpEntryIds: A BinaryArray value.</ns1:Description>
+		<ns1:Description>[In NspiModLinkAtt] lpEntryIds: A BinaryArray_r value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
