@@ -125,7 +125,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             Site.CaptureRequirementIfIsTrue(
                 isDelContentType,
                 109,
-                @"[In DeleteContentType] If no exceptions are encountered during the processing of the request, the content type with the requested identifier MUST be removed from the list of content types on the site (2).");
+                @"[In DeleteContentType] If no exceptions are encountered during the processing of the request, the content type with the requested identifier MUST be removed from the list of content types on the site.");
         }
 
         /// <summary>

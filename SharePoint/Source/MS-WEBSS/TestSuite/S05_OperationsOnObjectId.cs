@@ -196,7 +196,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             #region Capture ListItem Related Requirement
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R313
-            // If the specified URL corresponds to an object on the site (2), use that object as input parameter.
+            // If the specified URL corresponds to an object on the site, use that object as input parameter.
             // the server can respond correctly.
             Site.CaptureRequirementIfIsNotNull(
                 getObjectIdFromUrlResult,
@@ -262,7 +262,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 // Verify MS-WEBSS requirement: MS-WEBSS_R314
                 Site.CaptureRequirement(
                     314,
-                    @"[In GetObjectIdFromUrl] Otherwise [If the specified URL not corresponds to an object on the site (2), use that object. ], the protocol server MUST return a SOAP exception.");
+                    @"[In GetObjectIdFromUrl] Otherwise [If the specified URL not corresponds to an object on the site, use that object. ], the protocol server MUST return a SOAP exception.");
             }
         }
 
