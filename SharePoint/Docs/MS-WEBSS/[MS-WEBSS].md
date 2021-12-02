@@ -1,6 +1,6 @@
 ## [MS-WEBSS]: Webs Web Service Protocol
-- [MS-WEBSS] v20210720 is used to develop the test suite.
-- Release date, 07/20/2021.
+- [MS-WEBSS] v20210816 is used to develop the test suite.
+- Release date, 08/16/2021.
 
 To find the new landing page for [MS-WEBSSS], please visit https://msdn.microsoft.com/en-us/library/cc313050(v=office.12).aspx
 The new landing page includes the following:
