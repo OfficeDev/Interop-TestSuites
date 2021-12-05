@@ -110,7 +110,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR125,
                 125,
-                @"[In GetActivatedFeatures] The GetActivatedFeaturesResponse element MUST contain a single string, formatted as a comma-delimited list of GUIDs, each identifying an activated feature on the site (2).");
+                @"[In GetActivatedFeatures] The GetActivatedFeaturesResponse element MUST contain a single string, formatted as a comma-delimited list of GUIDs, each identifying an activated feature on the site.");
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R806
             // COMMENT: If all the substrings split from the result of the operation can be initialized 
@@ -140,7 +140,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR806 && isVerifiedR125,
                 127,
-                @"[In GetActivatedFeatures] The value of GetActivatedFeaturesResult MUST be a comma-delimited list of GUIDs of features activated on the site (2), followed by a comma-delimited list of GUIDs of features activated on the parent site collection.");
+                @"[In GetActivatedFeatures] The value of GetActivatedFeaturesResult MUST be a comma-delimited list of GUIDs of features activated on the site, followed by a comma-delimited list of GUIDs of features activated on the parent site collection.");
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R137,MS-WEBSS_R138
             // COMMENT: If all the substrings split from the result of the operation can be initialized 
@@ -231,7 +231,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedR132,
                 132,
-                @"[In GetActivatedFeaturesSoapOut] It[GetActivatedFeaturesSoapOut] consists of a string consisting of a comma-delimited list of GUIDs, where each GUID identifies a feature activated in the site (2) or the site collection.");
+                @"[In GetActivatedFeaturesSoapOut] It[GetActivatedFeaturesSoapOut] consists of a string consisting of a comma-delimited list of GUIDs, where each GUID identifies a feature activated in the site or the site collection.");
         }
 
         /// <summary> 

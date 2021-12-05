@@ -1414,7 +1414,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
                 ValidationResult.Success,
                 SchemaValidation.ValidationResult,
                 406,
-                @"[In RevertAllFileContentStreams] If the operation succeeds, the protocol server MUST return a RevertAllFileContentStreamsReponse element.");
+                @"[In RevertAllFileContentStreams] If the operation succeeds, the protocol server MUST return a RevertAllFileContentStreamsResponse element.");
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R413
             Site.CaptureRequirementIfIsTrue(
