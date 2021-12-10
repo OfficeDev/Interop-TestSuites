@@ -260,7 +260,10 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             }
             try
             {
-                Adapter.GetActivatedFeatures();
+                if (Common.IsRequirementEnabled(1040, this.Site))
+                {
+                    Adapter.GetActivatedFeatures();
+                }
             }
             catch(SoapException)
             {
