@@ -101,8 +101,6 @@
     <Property name="R271501Enabled" value="true"/>
     <!-- Set R271502Enabled to true to verify that for ROP RopCopyFolder the implementation sets zero value to PartialCompletion field of the ROP response, if the ROP fails for a subset of targets, as specified in section 2.2.1.8.2. Set R271502Enabled to false to disable this requirement.-->
     <Property name="R271502Enabled" value="false"/>
-    <!-- Set R764001Enabled to true to verify that if this bit DELETE_HARD_DELETE is set, implement does not hard delete the folder. Set R764001Enabled to false to disable this requirement.-->
-    <Property name="R764001Enabled" value="false"/>
     <!-- Set R764002Enabled to true to verify that if this bit DELETE_HARD_DELETE is set, implement does hard delete the folder. Set R764002Enabled to false to disable this requirement.-->
     <Property name="R764002Enabled" value="true"/>
   </Properties>
