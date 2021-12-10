@@ -156,6 +156,7 @@
     <DeploymentItem filename="Common\Proxy\MS-LISTSWS.wsdl" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\MS-OFFICIALFILE_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-LISTSWS\Adapter\SUTControlAdapter\Implementation\SetWebAppPresence.ps1" />

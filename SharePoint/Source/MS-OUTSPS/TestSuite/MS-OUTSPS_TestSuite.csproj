@@ -56,6 +56,7 @@
     <None Include="MS-OUTSPS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OUTSPS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OUTSPS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-OUTSPS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OUTSPS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-OUTSPS_TestSuite.deployment.ptfconfig" />
     <None Include="MS-OUTSPS_TestSuite.ptfconfig" />
