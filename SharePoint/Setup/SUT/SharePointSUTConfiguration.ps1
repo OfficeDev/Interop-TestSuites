@@ -267,7 +267,7 @@ elseif ($SharePointVersion -eq $SharePointServerSubscriptionEditionPreview[0])
 }
 if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -eq $SharePointServer2010[0] -or $SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0] -or $SharePointVersion -eq $SharePointServerSubscriptionEditionPreview[0])
 {
-	$SharePointShellSnapIn = Get-PSSnapin -Registered | Where-Object -FilterScript {$_.Name -eq "Microsoft.SharePoint.PowerShell"}
+	$SharePointShellSnapIn = Get-PSSnapin | Where-Object -FilterScript {$_.Name -eq "Microsoft.SharePoint.PowerShell"}
 	if($SharePointShellSnapIn -eq $null)
 	{
 		Add-PSSnapin Microsoft.SharePoint.PowerShell

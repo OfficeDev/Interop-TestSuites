@@ -1,4 +1,4 @@
-namespace Microsoft.Protocols.TestSuites.MS_ADMINS
+﻿namespace Microsoft.Protocols.TestSuites.MS_ADMINS
 {
     using System;
     using System.Globalization;
@@ -580,36 +580,39 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
         [TestCategory("MSADMINS"), TestMethod()]
         public void MSADMINS_S01_TC13_CreateSiteSuccessfully_TitleExceedMaxLength()
         {
-            // Call GetLanguages method to obtain LCID values used in the protocol server deployment. 
-            GetLanguagesResponseGetLanguagesResult lcids = this.adminsAdapter.GetLanguages();
-            Site.Assert.IsNotNull(lcids, "Get languages should succeed and a list of LCIDs should return. If no LCID returns the get languages method is failed.");
+            if (Common.IsRequirementEnabled(3034, this.Site))
+            {            
+                // Call GetLanguages method to obtain LCID values used in the protocol server deployment. 
+                GetLanguagesResponseGetLanguagesResult lcids = this.adminsAdapter.GetLanguages();
+                Site.Assert.IsNotNull(lcids, "Get languages should succeed and a list of LCIDs should return. If no LCID returns the get languages method is failed.");
 
-            int lcid = lcids.Languages[0];
-            string title = TestSuiteBase.GenerateRandomString(256);
-            string url = Common.GetConfigurationPropertyValue("UrlWithOutPort", this.Site) + TestSuiteBase.GenerateUniqueSiteTitle();
-            string description = TestSuiteBase.GenerateRandomString(20);
-            string webTemplate = Common.GetConfigurationPropertyValue("CustomizedTemplate", this.Site);
-            string ownerLogin = Common.GetConfigurationPropertyValue("OwnerLogin", this.Site);
-            string ownerName = TestSuiteBase.GenerateUniqueOwnerName();
-            string ownerEmail = TestSuiteBase.GenerateEmail(20);
-            string portalUrl = TestSuiteBase.GeneratePortalUrl(20);
-            string portalName = TestSuiteBase.GenerateUniquePortalName();
+                int lcid = lcids.Languages[0];
+                string title = TestSuiteBase.GenerateRandomString(256);
+                string url = Common.GetConfigurationPropertyValue("UrlWithOutPort", this.Site) + TestSuiteBase.GenerateUniqueSiteTitle();
+                string description = TestSuiteBase.GenerateRandomString(20);
+                string webTemplate = Common.GetConfigurationPropertyValue("CustomizedTemplate", this.Site);
+                string ownerLogin = Common.GetConfigurationPropertyValue("OwnerLogin", this.Site);
+                string ownerName = TestSuiteBase.GenerateUniqueOwnerName();
+                string ownerEmail = TestSuiteBase.GenerateEmail(20);
+                string portalUrl = TestSuiteBase.GeneratePortalUrl(20);
+                string portalName = TestSuiteBase.GenerateUniquePortalName();
 
-            // Call CreateSite method to create a site collection with the length of title exceeds maximum characters 255.
-            string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
-            Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
+                // Call CreateSite method to create a site collection with the length of title exceeds maximum characters 255.
+                string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
+                Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            string titleReturned = sutAdapter.GetSiteProperty(result, "Title");
+                string titleReturned = sutAdapter.GetSiteProperty(result, "Title");
 
-            // If create site successfully, and the exceeded part of title length were truncated, the MS-ADMINS_R3034 can be verified.
-            Site.CaptureRequirementIfAreEqual<string>(
-                title.Substring(0, 255),
-                titleReturned,
-                3034,
-                @"[In CreateSite]If the length of the Title exceeds 255 characters, the CreateSite operation will succeed without exception, the exceeded characters are truncated.");
+                // If create site successfully, and the exceeded part of title length were truncated, the MS-ADMINS_R3034 can be verified.
+                Site.CaptureRequirementIfAreEqual<string>(
+                    title.Substring(0, 255),
+                    titleReturned,
+                    3034,
+                    @"[In CreateSite]If the length of the Title exceeds 255 characters, the CreateSite operation will succeed without exception, the exceeded characters are truncated.");
 
-            // Call DeleteSite method to delete the site collection created in above steps.
-            this.adminsAdapter.DeleteSite(result);
+                // Call DeleteSite method to delete the site collection created in above steps.
+                this.adminsAdapter.DeleteSite(result);
+            }
         }
 
         /// <summary>
@@ -618,32 +621,35 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
         [TestCategory("MSADMINS"), TestMethod()]
         public void MSADMINS_S01_TC14_CreateSiteSuccessfully_TitleLessThanMaxLength()
         {
-            // Call GetLanguages method to obtain LCID values used in the protocol server deployment. 
-            GetLanguagesResponseGetLanguagesResult lcids = this.adminsAdapter.GetLanguages();
-            Site.Assert.IsNotNull(lcids, "Get languages should succeed and a list of LCIDs should return. If no LCID returns the get languages method is failed.");
+            if (Common.IsRequirementEnabled(3034, this.Site))
+            {
+                // Call GetLanguages method to obtain LCID values used in the protocol server deployment. 
+                GetLanguagesResponseGetLanguagesResult lcids = this.adminsAdapter.GetLanguages();
+                Site.Assert.IsNotNull(lcids, "Get languages should succeed and a list of LCIDs should return. If no LCID returns the get languages method is failed.");
 
-            int lcid = lcids.Languages[0];
-            string title = TestSuiteBase.GenerateRandomString(254);
-            string url = Common.GetConfigurationPropertyValue("UrlWithOutPort", this.Site) + TestSuiteBase.GenerateUniqueSiteTitle();
-            string description = TestSuiteBase.GenerateRandomString(20);
-            string webTemplate = Common.GetConfigurationPropertyValue("CustomizedTemplate", this.Site);
-            string ownerLogin = Common.GetConfigurationPropertyValue("OwnerLogin", this.Site);
-            string ownerName = TestSuiteBase.GenerateUniqueOwnerName();
-            string ownerEmail = TestSuiteBase.GenerateEmail(20);
-            string portalUrl = TestSuiteBase.GeneratePortalUrl(20);
-            string portalName = TestSuiteBase.GenerateUniquePortalName();
+                int lcid = lcids.Languages[0];
+                string title = TestSuiteBase.GenerateRandomString(254);
+                string url = Common.GetConfigurationPropertyValue("UrlWithOutPort", this.Site) + TestSuiteBase.GenerateUniqueSiteTitle();
+                string description = TestSuiteBase.GenerateRandomString(20);
+                string webTemplate = Common.GetConfigurationPropertyValue("CustomizedTemplate", this.Site);
+                string ownerLogin = Common.GetConfigurationPropertyValue("OwnerLogin", this.Site);
+                string ownerName = TestSuiteBase.GenerateUniqueOwnerName();
+                string ownerEmail = TestSuiteBase.GenerateEmail(20);
+                string portalUrl = TestSuiteBase.GeneratePortalUrl(20);
+                string portalName = TestSuiteBase.GenerateUniquePortalName();
 
-            // Call CreateSite method to create a site collection with the length of title less than maximum characters 255.
-            string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
-            Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
+                // Call CreateSite method to create a site collection with the length of title less than maximum characters 255.
+                string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
+                Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            // If create site successfully with the length of title less than maximum characters 255, then MS-ADMINS_R3015 can be verified.
-            Site.CaptureRequirement(
-            3015,
-                @"[In CreateSite]If the length of the Title is 254 characters, the CreateSite operation will succeed.");
-            
-            // Call DeleteSite method to delete the site collection created in above steps.
-            this.adminsAdapter.DeleteSite(result);
+                // If create site successfully with the length of title less than maximum characters 255, then MS-ADMINS_R3015 can be verified.
+                Site.CaptureRequirement(
+                3015,
+                    @"[In CreateSite]If the length of the Title is 254 characters, the CreateSite operation will succeed.");
+
+                // Call DeleteSite method to delete the site collection created in above steps.
+                this.adminsAdapter.DeleteSite(result);
+            }
         }
 
         /// <summary>
@@ -652,32 +658,35 @@ namespace Microsoft.Protocols.TestSuites.MS_ADMINS
         [TestCategory("MSADMINS"), TestMethod()]
         public void MSADMINS_S01_TC15_CreateSiteSuccessfully_TitleEqualsToMaxLength()
         {
-            // Call GetLanguages method to obtain LCID values used in the protocol server deployment. 
-            GetLanguagesResponseGetLanguagesResult lcids = this.adminsAdapter.GetLanguages();
-            Site.Assert.IsNotNull(lcids, "Get languages should succeed and a list of LCIDs should return. If no LCID returns the get languages method is failed.");
+            if (Common.IsRequirementEnabled(3034, this.Site))
+            {
+                // Call GetLanguages method to obtain LCID values used in the protocol server deployment. 
+                GetLanguagesResponseGetLanguagesResult lcids = this.adminsAdapter.GetLanguages();
+                Site.Assert.IsNotNull(lcids, "Get languages should succeed and a list of LCIDs should return. If no LCID returns the get languages method is failed.");
 
-            int lcid = lcids.Languages[0];
-            string title = TestSuiteBase.GenerateRandomString(255);
-            string url = Common.GetConfigurationPropertyValue("UrlWithOutPort", this.Site) + TestSuiteBase.GenerateUniqueSiteTitle();
-            string description = TestSuiteBase.GenerateRandomString(20);
-            string webTemplate = Common.GetConfigurationPropertyValue("CustomizedTemplate", this.Site);
-            string ownerLogin = Common.GetConfigurationPropertyValue("OwnerLogin", this.Site);
-            string ownerName = TestSuiteBase.GenerateUniqueOwnerName();
-            string ownerEmail = TestSuiteBase.GenerateEmail(20);
-            string portalUrl = TestSuiteBase.GeneratePortalUrl(20);
-            string portalName = TestSuiteBase.GenerateUniquePortalName();
+                int lcid = lcids.Languages[0];
+                string title = TestSuiteBase.GenerateRandomString(255);
+                string url = Common.GetConfigurationPropertyValue("UrlWithOutPort", this.Site) + TestSuiteBase.GenerateUniqueSiteTitle();
+                string description = TestSuiteBase.GenerateRandomString(20);
+                string webTemplate = Common.GetConfigurationPropertyValue("CustomizedTemplate", this.Site);
+                string ownerLogin = Common.GetConfigurationPropertyValue("OwnerLogin", this.Site);
+                string ownerName = TestSuiteBase.GenerateUniqueOwnerName();
+                string ownerEmail = TestSuiteBase.GenerateEmail(20);
+                string portalUrl = TestSuiteBase.GeneratePortalUrl(20);
+                string portalName = TestSuiteBase.GenerateUniquePortalName();
 
-            // Call CreateSite method to create a site collection with the length of title equals to maximum characters 255.
-            string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
-            Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
+                // Call CreateSite method to create a site collection with the length of title equals to maximum characters 255.
+                string result = this.adminsAdapter.CreateSite(url, title, description, lcid, webTemplate, ownerLogin, ownerName, ownerEmail, portalUrl, portalName);
+                Site.Assert.IsTrue(Uri.IsWellFormedUriString(result, UriKind.Absolute), "Create site should succeed.");
 
-            // If create site successfully with the length of title equals to maximum characters 255, then MS-ADMINS_R3016 can be verified.
-            Site.CaptureRequirement(
-                3016,
-                @"[In CreateSite]If the length of the Title is 255 characters, the CreateSite operation will succeed.");
-            
-            // Call DeleteSite method to delete the site collection created in above steps.
-            this.adminsAdapter.DeleteSite(result);
+                // If create site successfully with the length of title equals to maximum characters 255, then MS-ADMINS_R3016 can be verified.
+                Site.CaptureRequirement(
+                    3016,
+                    @"[In CreateSite]If the length of the Title is 255 characters, the CreateSite operation will succeed.");
+
+                // Call DeleteSite method to delete the site collection created in above steps.
+                this.adminsAdapter.DeleteSite(result);
+            }
         }
 
         /// <summary>

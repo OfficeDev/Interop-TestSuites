@@ -114,8 +114,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WEBSS
             Site.CaptureRequirementIfIsTrue(
                 isVerifiedGetWeb,
                 950,
-                @"[In Messages] [Message] GetWebSoapOut [Description] 
-The response to the request for the title, URL, description, language, and theme of the specified site (2).");
+                @"[In Messages] [Message] GetWebSoapOut [Description] The response to the request for the title, URL, description, language, and theme of the specified site.");
 
             // Verify MS-WEBSS requirement: MS-WEBSS_R353
             Site.CaptureRequirementIfIsTrue(
