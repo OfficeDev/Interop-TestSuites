@@ -444,7 +444,7 @@ xmlns:core="http://schemas.microsoft.com/sharepoint/soap/">
             <s:element name="displayName" type="s:string" minOccurs="1"/>
             <s:element name="parentType" type="core:ContentTypeId" minOccurs="1"/>
             <s:element name="newFields" type="AddOrUpdateFieldsDefinition" minOccurs="0"/>
-            <s:element name="contentTypeProperties" minOccurs="1">
+            <s:element name="contentTypeProperties" minOccurs="0" maxOccurs="1">
               <s:complexType>
                 <s:sequence>
                   <s:element name="ContentType" type="ContentTypePropertyDefinition" minOccurs="0" />
@@ -465,7 +465,7 @@ xmlns:core="http://schemas.microsoft.com/sharepoint/soap/">
         <s:complexType>
           <s:sequence>
             <s:element name="contentTypeId" type="core:ContentTypeId" minOccurs="1"/>
-            <s:element name="contentTypeProperties" minOccurs="1">
+            <s:element name="contentTypeProperties" minOccurs="0" maxOccurs="1">
               <s:complexType>
                 <s:sequence>
                   <s:element name="ContentType" type="ContentTypePropertyDefinition" minOccurs="0" />
