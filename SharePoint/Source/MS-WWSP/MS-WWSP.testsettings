@@ -48,7 +48,7 @@
     <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_Claim_SubscriptionEditionPreview.xml" />
     <DeploymentItem filename="Adapter\Proxy\WorkflowAssociationData_SubscriptionEditionPreview.xsd" />
     <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_SubscriptionEditionPreview.xml" />
-    <DeploymentItem filename="TestSuite\MS-WWSP_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-WWSP_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
