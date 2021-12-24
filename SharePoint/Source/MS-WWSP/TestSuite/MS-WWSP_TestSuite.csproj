@@ -63,7 +63,7 @@
     <None Include="MS-WWSP_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WWSP_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WWSP_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
-    <None Include="MS-WWSP_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-WWSP_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-WWSP_TestSuite.deployment.ptfconfig" />
     <None Include="MS-WWSP_TestSuite.ptfconfig" />
     <None Include="MS-WWSP_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
