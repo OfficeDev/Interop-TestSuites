@@ -207,6 +207,7 @@
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VERSS\TestSuite\MS-VERSS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\MS-SHDACCWS.wsdl" />
     <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_TestSuite.ptfconfig" />
