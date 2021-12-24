@@ -54,6 +54,8 @@
     <Content Include="Resources\StartworkflowParameters_Claim_2013.xml" />
     <Content Include="Resources\StartworkflowParameters_Claim_2016.xml" />
     <Content Include="Resources\StartworkflowParameters_Claim_2019.xml" />
+    <Content Include="Resources\StartworkflowParameters_Claim_SubscriptionEdition.xml" />
+    <Content Include="Resources\StartworkflowParameters_SubscriptionEdition.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MS-WWSP_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />

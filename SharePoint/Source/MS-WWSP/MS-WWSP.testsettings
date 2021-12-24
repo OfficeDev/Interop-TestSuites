@@ -45,9 +45,9 @@
     <DeploymentItem filename="..\Common\Proxy\MS-WWSP.wsdl" />
     <DeploymentItem filename="TestSuite\MS-WWSP_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-WWSP_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_Claim_SubscriptionEditionPreview.xml" />
-    <DeploymentItem filename="Adapter\Proxy\WorkflowAssociationData_SubscriptionEditionPreview.xsd" />
-    <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_SubscriptionEditionPreview.xml" />
+    <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_Claim_SubscriptionEdition.xml" />
+    <DeploymentItem filename="Adapter\Proxy\WorkflowAssociationData_SubscriptionEdition.xsd" />
+    <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_SubscriptionEdition.xml" />
     <DeploymentItem filename="TestSuite\MS-WWSP_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
