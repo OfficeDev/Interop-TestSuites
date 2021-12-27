@@ -304,7 +304,7 @@
     <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WEBSS\TestSuite\MS-WEBSS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" /> 
   </Deployment>
   <Execution>
