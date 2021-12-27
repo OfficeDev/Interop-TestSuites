@@ -9,10 +9,10 @@
     <!-- Set R1002Enabled to true to verify that implementation does additionally support SOAP over HTTPS for securing communication with protocol clients as specified in section 2.1. Set R1002Enabled to false to disable this requirement. -->
     <Property name="R1002Enabled" value="true" />
     <!-- Set R3034Enabled to true to verify that CreateSite with TitleExceedMaxLength. Set R3034Enabled to false to disable this requirement. -->
-    <Property name="R3034Enabled" value="false" />
+    <Property name="R3034Enabled" value="true" />
     <!-- Set R3015Enabled to true to verify that CreateSite with TitleLessThanMaxLength. Set R3015Enabled to false to disable this requirement. -->
-    <Property name="R3015Enabled" value="false" />
+    <Property name="R3015Enabled" value="true" />
     <!-- Set R3016Enabled to true to verify that CreateSite with TitleEqualsToMaxLength. Set R3016Enabled to false to disable this requirement. -->
-    <Property name="R3016Enabled" value="false" />
+    <Property name="R3016Enabled" value="true" />
   </Properties>
 </TestSite>
