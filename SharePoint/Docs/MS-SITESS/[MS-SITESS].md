@@ -1,6 +1,6 @@
 ## [MS-SITESS]: Sites Web Service Protocol
 - [MS-SITESS] v20211005 is used to develop the test suite.
-- Release date, 05/10/2021.
+- Release date, 10/05/2021.
 
 To find the new landing page for [MS-SITESS]], please visit https://msdn.microsoft.com/en-us/library/cc313065(v=office.12).aspx
 

@@ -138,7 +138,7 @@ function GetSharePointVersion
     $script:SharePointServer2013           = "Microsoft SharePoint Server 2013",          "15.0.4571.1502", "SP1"
     $script:SharePointServer2016           = "Microsoft SharePoint Server 2016",          "16.0.4351.1000", ""
     $script:SharePointServer2019           = "Microsoft SharePoint Server 2019",          "16.0.10337.12109", ""
-    $script:SharePointServerSubscriptionEdition           = "Microsoft SharePoint Server Subscription Edition",          "16.0.14131.20314", ""
+    $script:SharePointServerSubscriptionEdition           = "Microsoft SharePoint Server Subscription Edition",          "16.0.14326.20450", ""
     $SharePointVersion                     = "Unknown Version"    
     
     $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
