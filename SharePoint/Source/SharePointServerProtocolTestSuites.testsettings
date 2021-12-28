@@ -278,6 +278,8 @@
     <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_Claim_SubscriptionEditionPreview.xml" />
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WWSP\TestSuite\Resources\AlertToDoData.xml" />
     <DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_RequirementSpecification.xml" />
