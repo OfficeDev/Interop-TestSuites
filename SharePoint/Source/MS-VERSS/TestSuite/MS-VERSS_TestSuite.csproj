@@ -49,7 +49,7 @@
     <None Include="MS-VERSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-VERSS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-VERSS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
-    <None Include="MS-VERSS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-VERSS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-VERSS_TestSuite.deployment.ptfconfig" />
     <None Include="MS-VERSS_TestSuite.ptfconfig" />
     <None Include="MS-VERSS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
