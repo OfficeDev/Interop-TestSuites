@@ -1599,7 +1599,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Call GetListItemChangesWithKnowledge with empty row limit and without knowledge
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult getListKnowledgeResultWithEmptyRowLimit = null;
-            getListKnowledgeResultWithEmptyRowLimit = this.listswsAdapter.GetListItemChangesWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                getListKnowledgeResultWithEmptyRowLimit = this.listswsAdapter.GetListItemChangesWithKnowledge(
                                  listName,
                                  null,
                                  null,
@@ -1610,18 +1612,18 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                  null,
                                  null);
 
-            DataTable data = AdapterHelper.ExtractData(getListKnowledgeResultWithEmptyRowLimit.listitems.data.Any);
+                DataTable data = AdapterHelper.ExtractData(getListKnowledgeResultWithEmptyRowLimit.listitems.data.Any);
 
-            // Because insert 10 items, so if the result contains 10 total items,
-            // then requirement R22201 can be captured.
-            // R22201 is case derived from R2220, capture R22201.
-            Site.CaptureRequirementIfAreEqual<int>(
-                10,
-                data.Rows.Count,
-                22201,
-                @"[In GetListItemChangesWithKnowledge]  Implementation does retrieve all rows when get list item changes with knowledge excluding this parameter[rowLimit] or passing an empty element, unless the knowledge parameter is specified. (The 2007 Microsoft® Office system/Windows® SharePoint® Services 3.0 and above follow this behavior.)");
+                // Because insert 10 items, so if the result contains 10 total items,
+                // then requirement R22201 can be captured.
+                // R22201 is case derived from R2220, capture R22201.
+                Site.CaptureRequirementIfAreEqual<int>(
+                    10,
+                    data.Rows.Count,
+                    22201,
+                    @"[In GetListItemChangesWithKnowledge]  Implementation does retrieve all rows when get list item changes with knowledge excluding this parameter[rowLimit] or passing an empty element, unless the knowledge parameter is specified. (The 2007 Microsoft® Office system/Windows® SharePoint® Services 3.0 and above follow this behavior.)");
+            }
         }
-
         /// <summary>
         /// This test case is used to test the GetListItemChangesWithKnowledge operation when the list name is not valid GUID.
         /// </summary>
@@ -1672,19 +1674,21 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     @"{0} return a SOAP fault with error code 0x82000006, this indicates that the list does not exist or might have been deleted by another user.",
                     sutVersion);
             }
-
-            // If the error code equals 0x82000006, capture R1084 and R2354.
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                // If the error code equals 0x82000006, capture R1084 and R2354.
                 Site.CaptureRequirementIfAreEqual<string>(
                         "0x82000006",
                         errorCode,
                         1084,
                         @"[In GetListItemChangesWithKnowledge operation] If the specified listName does not correspond to a list from either of these checks, the protocol server MUST return a SOAP fault with error code 0x82000006.");
 
-            Site.CaptureRequirementIfAreEqual<string>(
-                    "0x82000006",
-                    errorCode,
-                    2354,
-                    "[In GetListItemChangesWithKnowledge operation] [If listName does not correspond to a list from either of these checks, the protocol server MUST return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user");
+                Site.CaptureRequirementIfAreEqual<string>(
+                        "0x82000006",
+                        errorCode,
+                        2354,
+                        "[In GetListItemChangesWithKnowledge operation] [If listName does not correspond to a list from either of these checks, the protocol server MUST return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user");
+            }
         }
 
         /// <summary>
@@ -1757,79 +1761,81 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             updates.Batch.Method[0].Field[0].Value = propertyValue;
 
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult updateListItemsResult = null;
-            updateListItemsResult = this.listswsAdapter.UpdateListItemsWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                updateListItemsResult = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                                 listGuid,
                                                                 updates,
                                                                 null,
                                                                 null);
 
-            if (null == updateListItemsResult || null == updateListItemsResult.Results || 0 == updateListItemsResult.Results.Length)
-            {
-                this.Site.Assert.Fail("Could not update the [vti_contentchangeunit] property for the MetaInfo field");
+                if (null == updateListItemsResult || null == updateListItemsResult.Results || 0 == updateListItemsResult.Results.Length)
+                {
+                    this.Site.Assert.Fail("Could not update the [vti_contentchangeunit] property for the MetaInfo field");
+                }
+
+                #endregion
+
+                // Get the ViewFields whose Properties is true and reference field is MetaInfo.
+                // "MetaInfo" is required Field in [MS-LISTSWS]
+                string metaInfoFieldName = "MetaInfo";
+                CamlViewFields viewFields = TestSuiteHelper.CreateViewFields(true, new List<string> { metaInfoFieldName });
+                GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult getListItemResult = null;
+                getListItemResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                                        listGuid,
+                                                                        null,
+                                                                        null,
+                                                                        viewFields,
+                                                                        null,
+                                                                        null,
+                                                                        null,
+                                                                        null,
+                                                                        null);
+
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R743
+                if (getListItemResult == null || getListItemResult.listitems == null
+                    || getListItemResult.listitems.data == null || getListItemResult.listitems.data.Any == null)
+                {
+                    this.Site.Assert.Fail("Get list item response error.");
+                }
+
+                if (getListItemResult.listitems.data.Any.Length == 0)
+                {
+                    this.Site.Assert.Fail("Get list item data error");
+                }
+
+                // A return value represents the schema definition which is read from specified xsd file.
+                XmlNode[] anyItems = getListItemResult.listitems.data.Any;
+
+                // "ows_MetaInfo_" is required prefix in [MS-LISTSWS]
+                string expectedPrefix = "ows_MetaInfo_";
+                DataTable zrowData = AdapterHelper.ExtractData(anyItems);
+
+                // Pick up the items which begin with "ows_MetaInfo_"
+                var matchColumn = from DataColumn columnItem in zrowData.Columns
+                                  where 0 == columnItem.ColumnName.IndexOf(expectedPrefix, StringComparison.OrdinalIgnoreCase)
+                                  select columnItem;
+
+                // Find out whether there is an item that contains the added property name in the column.
+                // vti_contentchangeunit is required property in [MS-LISTSWS]
+                string expectedAddedPropertyName = "vti_contentchangeunit";
+                bool isContaincontentchangeunit = matchColumn.Any(founder => (0 < founder.ColumnName.IndexOf(expectedAddedPropertyName, StringComparison.OrdinalIgnoreCase)));
+
+                // If contains OWS_Metatinfo prefix
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R2339
+                Site.CaptureRequirementIfIsTrue(
+                    isContaincontentchangeunit,
+                    2339,
+                    @"[In GetListItemChangesWithKnowledge] [In viewFields element] If the Properties attribute of the ViewFields structure is set to TRUE and the MetaInfo field is referenced in FieldRef element, then properties related to the list MUST be returned with the prefix ""ows_MetaInfo_"".");
+
+                // If contains vti_contentchangeunit MetoInfo property 
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R1144
+                Site.CaptureRequirementIfIsTrue(
+                    isContaincontentchangeunit,
+                    1144,
+                    @"[In GetListItemChangesWithKnowledgeResponse]If the protocol client requests the MetaInfo field for the list items, the protocol server MUST return the vti_contentchangeunit Metainfo property if the property was set in the item or document and the list item or document has not been updated since the time the property was set by a client.");
             }
-
-            #endregion
-
-            // Get the ViewFields whose Properties is true and reference field is MetaInfo.
-            // "MetaInfo" is required Field in [MS-LISTSWS]
-            string metaInfoFieldName = "MetaInfo";
-            CamlViewFields viewFields = TestSuiteHelper.CreateViewFields(true, new List<string> { metaInfoFieldName });
-            GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult getListItemResult = null;
-            getListItemResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                                                    listGuid,
-                                                                    null,
-                                                                    null,
-                                                                    viewFields,
-                                                                    null,
-                                                                    null,
-                                                                    null,
-                                                                    null,
-                                                                    null);
-
-            // Verify MS-LISTSWS requirement: MS-LISTSWS_R743
-            if (getListItemResult == null || getListItemResult.listitems == null
-                || getListItemResult.listitems.data == null || getListItemResult.listitems.data.Any == null)
-            {
-                this.Site.Assert.Fail("Get list item response error.");
-            }
-
-            if (getListItemResult.listitems.data.Any.Length == 0)
-            {
-                this.Site.Assert.Fail("Get list item data error");
-            }
-
-            // A return value represents the schema definition which is read from specified xsd file.
-            XmlNode[] anyItems = getListItemResult.listitems.data.Any;
-
-            // "ows_MetaInfo_" is required prefix in [MS-LISTSWS]
-            string expectedPrefix = "ows_MetaInfo_";
-            DataTable zrowData = AdapterHelper.ExtractData(anyItems);
-
-            // Pick up the items which begin with "ows_MetaInfo_"
-            var matchColumn = from DataColumn columnItem in zrowData.Columns
-                              where 0 == columnItem.ColumnName.IndexOf(expectedPrefix, StringComparison.OrdinalIgnoreCase)
-                              select columnItem;
-
-            // Find out whether there is an item that contains the added property name in the column.
-            // vti_contentchangeunit is required property in [MS-LISTSWS]
-            string expectedAddedPropertyName = "vti_contentchangeunit";
-            bool isContaincontentchangeunit = matchColumn.Any(founder => (0 < founder.ColumnName.IndexOf(expectedAddedPropertyName, StringComparison.OrdinalIgnoreCase)));
-
-            // If contains OWS_Metatinfo prefix
-            // Verify MS-LISTSWS requirement: MS-LISTSWS_R2339
-            Site.CaptureRequirementIfIsTrue(
-                isContaincontentchangeunit,
-                2339,
-                @"[In GetListItemChangesWithKnowledge] [In viewFields element] If the Properties attribute of the ViewFields structure is set to TRUE and the MetaInfo field is referenced in FieldRef element, then properties related to the list MUST be returned with the prefix ""ows_MetaInfo_"".");
-
-            // If contains vti_contentchangeunit MetoInfo property 
-            // Verify MS-LISTSWS requirement: MS-LISTSWS_R1144
-            Site.CaptureRequirementIfIsTrue(
-                isContaincontentchangeunit,
-                1144,
-                @"[In GetListItemChangesWithKnowledgeResponse]If the protocol client requests the MetaInfo field for the list items, the protocol server MUST return the vti_contentchangeunit Metainfo property if the property was set in the item or document and the list item or document has not been updated since the time the property was set by a client.");
         }
-
         /// <summary>
         /// The test case is used to verify GetListItemChangesWithKnowledge Operation when the viewFields parameter is not specified but contains a correct formatted GUID and refers to a view that does not exist.
         /// </summary>
@@ -1869,15 +1875,16 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             Site.Assert.IsTrue(
                             isSoapFaultExist,
                             "When the list id is a correctly formatted GUID and refers to a view that does not exist, the server will return soap fault exception.");
-
-            // Verify MS-LISTSWS requirement: MS-LISTSWS_R1086
-            Site.CaptureRequirementIfAreEqual<string>(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R1086
+                Site.CaptureRequirementIfAreEqual<string>(
                 "0x82000005",
                 errorCode,
                 1086,
                 @"[In GetListItemChangesWithKnowledge operation] If the viewFields parameter is not specified and the viewName parameter contains a correctly formatted GUID and refers to a view that does not exist, the protocol server MUST return a SOAP fault with error code 0x82000005.");
+            }
         }
-
         /// <summary>
         /// This test case is used to test the GetListItemChangesWithKnowledge operation whether the row limit is specified or not.
         /// </summary>
@@ -1894,156 +1901,159 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Call the GetListItemChangesWithKnowledge when the knowledge is not specified.
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult result = null;
-            result = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                                        listId,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null);
-            DataTable data = AdapterHelper.ExtractData(result.listitems.data.Any);
-
-            // If the response is fine and contains only 101 items,
-            // it can be concluded that the server is using the list specified by the list name parameter in the request.
-            Site.CaptureRequirementIfAreEqual<int>(
-                            101,
-                            data.Rows.Count,
-                            1082,
-                            "[In GetListItemChangesWithKnowledge operation]If the specified listName is a valid GUID and corresponds to the identification of a list on the site, use that list.");
-
-            // If the returned items number equals 101, capture requirement 101.
-            Site.CaptureRequirementIfAreEqual<int>(
-                            101,
-                            data.Rows.Count,
-                            1089,
-                            "[In GetListItemChangesWithKnowledge operation]Otherwise, all list items specified by the listName parameter that match the criteria passed in MUST be returned, [unless the protocol server encounters an unexpected situation and MUST return a SOAP fault.]");
-
-            // Call the GetListItemChangesWithKnowledge with list title.
-            result = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                                        listName,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null);
-            data = AdapterHelper.ExtractData(result.listitems.data.Any);
-
-            // If the response is fine and contain only 101 items,
-            // it can be concluded that the server is using the list specified by the list name parameter in the request.
-            Site.CaptureRequirementIfAreEqual<int>(
-                            101,
-                            data.Rows.Count,
-                            1083,
-                            "[In GetListItemChangesWithKnowledge operation]2. If the specified listName is not a valid GUID [or does not correspond to the identification of a list on the site, ]check if the listName corresponds to the List title of a list on the site and if so, use that list.");
-
-            // If the returned items number equals 101, the following requirement can be captured.
-            Site.CaptureRequirementIfAreEqual<int>(
-                            101,
-                            data.Rows.Count,
-                            2162,
-                            "[If listName]does not correspond to the identification of a list on the site, check if the listName corresponds to the List title of a list on the site and if so, use that list.");
-
-            // Call GetListItemChangesWithKnowledge with specified list id and row limit.
-            string rowLimit = "2";
-            result = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                                        listId,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        rowLimit,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null);
-
-            // If the returned rows count does not exceed the specified row limit number,
-            // capture the requirements R1108 and R2168.
-            data = AdapterHelper.ExtractData(result.listitems.data.Any);
-            int rowCount = data.Rows.Count;
-            bool isMatchRowLimit = rowCount <= Convert.ToInt32(rowLimit);
-            Site.CaptureRequirementIfIsTrue(
-                            isMatchRowLimit,
-                            1108,
-                            "[In GetListItemChangesWithKnowledge]The protocol server MUST NOT return more inserted or updated list items than this parameter specifies.");
-
-            Site.CaptureRequirementIfIsTrue(
-                            isMatchRowLimit,
-                            2168,
-                            "[In GetListItemChangesWithKnowledge][If excluded by the protocol client, all items in the list MUST be returned, subject to the default row limit of the view or the] overriding rowLimit parameter.");
-
-            // This Requirement was not full captured, we only verify the case which is subject to row limit,
-            // but does not verify the case which is subject to the view default row limit.
-            // The reason is that constructing a view costs too much work.
-            Site.CaptureRequirementIfIsTrue(
-                          isMatchRowLimit,
-                          1113,
-                          "[In GetListItemChangesWithKnowledge]If excluded by the protocol client, all items in the list MUST be returned, [subject to the default row limit of the view or the overriding rowLimit parameter.]");
-
-            // Verify requirement R1109.
-            // Call GetListItems to get current items.
-            GetListItemsResponseGetListItemsResult listItems = null;
-            listItems = this.listswsAdapter.GetListItems(
-                                                    listId,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null);
-            DataTable listItemsData = AdapterHelper.ExtractData(listItems.listitems.data.Any);
-
-            // Remove the first list items in this list.
-            string colunmIdName = AdapterHelper.PrefixOws + AdapterHelper.FieldIDName;
-            List<string> allItemsId = new List<string>();
-            string id = Convert.ToString(listItemsData.Rows[0][colunmIdName]);
-            allItemsId.Add(id);
-
-            TestSuiteHelper.RemoveListItems(listId, allItemsId, OnErrorEnum.Continue);
-
-            // Call the GetListItemChangesWithKnowledge with list ID
-            result = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                                        listId,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null,
-                                                        null);
-            data = AdapterHelper.ExtractData(result.listitems.data.Any);
-
-            // Verify if the deleted item is returned.
-            bool isItemChangesExist = false;
-            foreach (DataRow row in data.Rows)
+            if (Common.IsRequirementEnabled(2221, this.Site))
             {
-                if (id == Convert.ToString(row[colunmIdName]))
+                result = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                        listId,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null);
+                DataTable data = AdapterHelper.ExtractData(result.listitems.data.Any);
+
+                // If the response is fine and contains only 101 items,
+                // it can be concluded that the server is using the list specified by the list name parameter in the request.
+                Site.CaptureRequirementIfAreEqual<int>(
+                                101,
+                                data.Rows.Count,
+                                1082,
+                                "[In GetListItemChangesWithKnowledge operation]If the specified listName is a valid GUID and corresponds to the identification of a list on the site, use that list.");
+
+                // If the returned items number equals 101, capture requirement 101.
+                Site.CaptureRequirementIfAreEqual<int>(
+                                101,
+                                data.Rows.Count,
+                                1089,
+                                "[In GetListItemChangesWithKnowledge operation]Otherwise, all list items specified by the listName parameter that match the criteria passed in MUST be returned, [unless the protocol server encounters an unexpected situation and MUST return a SOAP fault.]");
+
+                // Call the GetListItemChangesWithKnowledge with list title.
+                result = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                            listName,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null);
+                data = AdapterHelper.ExtractData(result.listitems.data.Any);
+
+                // If the response is fine and contain only 101 items,
+                // it can be concluded that the server is using the list specified by the list name parameter in the request.
+                Site.CaptureRequirementIfAreEqual<int>(
+                                101,
+                                data.Rows.Count,
+                                1083,
+                                "[In GetListItemChangesWithKnowledge operation]2. If the specified listName is not a valid GUID [or does not correspond to the identification of a list on the site, ]check if the listName corresponds to the List title of a list on the site and if so, use that list.");
+
+                // If the returned items number equals 101, the following requirement can be captured.
+                Site.CaptureRequirementIfAreEqual<int>(
+                                101,
+                                data.Rows.Count,
+                                2162,
+                                "[If listName]does not correspond to the identification of a list on the site, check if the listName corresponds to the List title of a list on the site and if so, use that list.");
+
+                // Call GetListItemChangesWithKnowledge with specified list id and row limit.
+                string rowLimit = "2";
+                result = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                            listId,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            rowLimit,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null);
+
+                // If the returned rows count does not exceed the specified row limit number,
+                // capture the requirements R1108 and R2168.
+                data = AdapterHelper.ExtractData(result.listitems.data.Any);
+                int rowCount = data.Rows.Count;
+                bool isMatchRowLimit = rowCount <= Convert.ToInt32(rowLimit);
+                Site.CaptureRequirementIfIsTrue(
+                                isMatchRowLimit,
+                                1108,
+                                "[In GetListItemChangesWithKnowledge]The protocol server MUST NOT return more inserted or updated list items than this parameter specifies.");
+
+                Site.CaptureRequirementIfIsTrue(
+                                isMatchRowLimit,
+                                2168,
+                                "[In GetListItemChangesWithKnowledge][If excluded by the protocol client, all items in the list MUST be returned, subject to the default row limit of the view or the] overriding rowLimit parameter.");
+
+                // This Requirement was not full captured, we only verify the case which is subject to row limit,
+                // but does not verify the case which is subject to the view default row limit.
+                // The reason is that constructing a view costs too much work.
+                Site.CaptureRequirementIfIsTrue(
+                              isMatchRowLimit,
+                              1113,
+                              "[In GetListItemChangesWithKnowledge]If excluded by the protocol client, all items in the list MUST be returned, [subject to the default row limit of the view or the overriding rowLimit parameter.]");
+
+                // Verify requirement R1109.
+                // Call GetListItems to get current items.
+                GetListItemsResponseGetListItemsResult listItems = null;
+                listItems = this.listswsAdapter.GetListItems(
+                                                        listId,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null);
+                DataTable listItemsData = AdapterHelper.ExtractData(listItems.listitems.data.Any);
+
+                // Remove the first list items in this list.
+                string colunmIdName = AdapterHelper.PrefixOws + AdapterHelper.FieldIDName;
+                List<string> allItemsId = new List<string>();
+                string id = Convert.ToString(listItemsData.Rows[0][colunmIdName]);
+                allItemsId.Add(id);
+
+                TestSuiteHelper.RemoveListItems(listId, allItemsId, OnErrorEnum.Continue);
+
+                // Call the GetListItemChangesWithKnowledge with list ID
+                result = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                            listId,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null,
+                                                            null);
+                data = AdapterHelper.ExtractData(result.listitems.data.Any);
+
+                // Verify if the deleted item is returned.
+                bool isItemChangesExist = false;
+                foreach (DataRow row in data.Rows)
                 {
-                    isItemChangesExist = true;
-                    break;
+                    if (id == Convert.ToString(row[colunmIdName]))
+                    {
+                        isItemChangesExist = true;
+                        break;
+                    }
                 }
+
+                // If the deleted item is not returned and the total number of rows is 100, capture R1109.
+                Site.Log.Add(
+                            LogEntryKind.Debug,
+                            "The actual value: isItemChangesExist[{0}] for requirement #1109",
+                            isItemChangesExist);
+
+                Site.Log.Add(
+                            LogEntryKind.Debug,
+                            "The actual value: Rows count [{0}] for requirement #1109",
+                            data.Rows.Count);
+
+                bool isR1109Verified = !isItemChangesExist && data.Rows.Count == 100;
+
             }
-
-            // If the deleted item is not returned and the total number of rows is 100, capture R1109.
-            Site.Log.Add(
-                        LogEntryKind.Debug,
-                        "The actual value: isItemChangesExist[{0}] for requirement #1109",
-                        isItemChangesExist);
-
-            Site.Log.Add(
-                        LogEntryKind.Debug,
-                        "The actual value: Rows count [{0}] for requirement #1109",
-                        data.Rows.Count);
-
-            bool isR1109Verified = !isItemChangesExist && data.Rows.Count == 100;
-
-           }
+        }
 
         /// <summary>
         /// This test case is used to verify GetListItemChangesWithKnowledge operation with specified knowledge.
@@ -2061,7 +2071,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Get the syncKnowledge.
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult result = null;
-            result = this.listswsAdapter.GetListItemChangesWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                result = this.listswsAdapter.GetListItemChangesWithKnowledge(
                                             listId,
                                             null,
                                             null,
@@ -2071,118 +2083,118 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                             null,
                                             null,
                                             null);
-            syncKnowledge knowledge = result.listitems.Changes.MadeWithKnowledge.syncKnowledge;
-            bool isMoreChangeIncludedWithoutKnowledge = string.Compare("True", result.listitems.Changes.MoreChanges, StringComparison.OrdinalIgnoreCase) == 0;
+                syncKnowledge knowledge = result.listitems.Changes.MadeWithKnowledge.syncKnowledge;
+                bool isMoreChangeIncludedWithoutKnowledge = string.Compare("True", result.listitems.Changes.MoreChanges, StringComparison.OrdinalIgnoreCase) == 0;
 
-            // Insert 20 items again
-            int totalNumber = 20;
-            TestSuiteHelper.AddListItems(listId, totalNumber);
+                // Insert 20 items again
+                int totalNumber = 20;
+                TestSuiteHelper.AddListItems(listId, totalNumber);
 
-            // Call GetListItemChangesWithKnowledge to get all the 20 items which are make after the knowledge is retrieved.
-            GetListItemChangesWithKnowledgeKnowledge syncKnowledge = new GetListItemChangesWithKnowledgeKnowledge();
-            syncKnowledge.syncKnowledge = knowledge;
-            result = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                            listId,
-                                            null,
-                                            null,
-                                            null,
-                                            null,
-                                            null,
-                                            null,
-                                            syncKnowledge,
-                                            null);
+                // Call GetListItemChangesWithKnowledge to get all the 20 items which are make after the knowledge is retrieved.
+                GetListItemChangesWithKnowledgeKnowledge syncKnowledge = new GetListItemChangesWithKnowledgeKnowledge();
+                syncKnowledge.syncKnowledge = knowledge;
+                result = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                listId,
+                                                null,
+                                                null,
+                                                null,
+                                                null,
+                                                null,
+                                                null,
+                                                syncKnowledge,
+                                                null);
 
-            // If the RowLimit is not specified, the server will response all changes made to list items after the knowledge data structure.
-            DataTable data = AdapterHelper.ExtractData(result.listitems.data.Any);
-            this.Site.Assert.AreEqual<int>(
-                            totalNumber,
-                            data.Rows.Count,
-                            "The response will include changes made to list items after the knowledge data structure was retrieved if there are no RowLimit specified.");
+                // If the RowLimit is not specified, the server will response all changes made to list items after the knowledge data structure.
+                DataTable data = AdapterHelper.ExtractData(result.listitems.data.Any);
+                this.Site.Assert.AreEqual<int>(
+                                totalNumber,
+                                data.Rows.Count,
+                                "The response will include changes made to list items after the knowledge data structure was retrieved if there are no RowLimit specified.");
 
-            // Insert another 20 items again.
-            TestSuiteHelper.AddListItems(listId, totalNumber);
+                // Insert another 20 items again.
+                TestSuiteHelper.AddListItems(listId, totalNumber);
 
-            // Call GetListItemChangesWithKnowledge with previous knowledge and specified RowLimit.
-            syncKnowledge.syncKnowledge = result.listitems.Changes.MadeWithKnowledge.syncKnowledge;
-            int expectRowLimit = 5;
-            result = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                            listId,
-                                            null,
-                                            null,
-                                            null,
-                                            expectRowLimit.ToString(),
-                                            null,
-                                            null,
-                                            syncKnowledge,
-                                            null);
-            data = AdapterHelper.ExtractData(result.listitems.data.Any);
+                // Call GetListItemChangesWithKnowledge with previous knowledge and specified RowLimit.
+                syncKnowledge.syncKnowledge = result.listitems.Changes.MadeWithKnowledge.syncKnowledge;
+                int expectRowLimit = 5;
+                result = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                listId,
+                                                null,
+                                                null,
+                                                null,
+                                                expectRowLimit.ToString(),
+                                                null,
+                                                null,
+                                                syncKnowledge,
+                                                null);
+                data = AdapterHelper.ExtractData(result.listitems.data.Any);
 
-            // If the RowLimit is specified, the return items will restricted by this element.
-            this.Site.Assert.AreEqual<int>(
+                // If the RowLimit is specified, the return items will restricted by this element.
+                this.Site.Assert.AreEqual<int>(
+                                expectRowLimit,
+                                data.Rows.Count,
+                                "The 5 items will be returned if the RowLimit value is 5 when calling GetListItemChangesWithKnowledge.");
+
+                // If whether the RowLimit is specified or not, the server only return the changes made after knowledge
+                // then R1114 can be captured.
+                this.Site.CaptureRequirementIfAreEqual<int>(
                             expectRowLimit,
                             data.Rows.Count,
-                            "The 5 items will be returned if the RowLimit value is 5 when calling GetListItemChangesWithKnowledge.");
+                            1114,
+                            @"[In GetListItemChangesWithKnowledge]If specified, the response will include changes made to list items after the knowledge data structure was retrieved, subject to the row limit restrictions just described.");
 
-            // If whether the RowLimit is specified or not, the server only return the changes made after knowledge
-            // then R1114 can be captured.
-            this.Site.CaptureRequirementIfAreEqual<int>(
-                        expectRowLimit,
-                        data.Rows.Count,
-                        1114,
-                        @"[In GetListItemChangesWithKnowledge]If specified, the response will include changes made to list items after the knowledge data structure was retrieved, subject to the row limit restrictions just described.");
+                bool isMoreChange = string.Compare("True", result.listitems.Changes.MoreChanges, StringComparison.OrdinalIgnoreCase) == 0;
+                this.Site.Assert.IsTrue(
+                                isMoreChange,
+                                "If there are more changes, the server will response attribute MoreChanges 'True', but actual value is {0}",
+                                result.listitems.Changes.MoreChanges);
 
-            bool isMoreChange = string.Compare("True", result.listitems.Changes.MoreChanges, StringComparison.OrdinalIgnoreCase) == 0;
-            this.Site.Assert.IsTrue(
+                // If the attribute MoreChange is "True", then R1120 and R1131 can be captured.
+                this.Site.CaptureRequirementIfIsTrue(
                             isMoreChange,
-                            "If there are more changes, the server will response attribute MoreChanges 'True', but actual value is {0}",
-                            result.listitems.Changes.MoreChanges);
+                            1120,
+                            @"[In GetListItemChangesWithKnowledge]The Changes element in the response MUST include the attribute MoreChanges set to ""TRUE"" to indicate that protocol clients can make another call to GetListItemChangesWithKnowledge by using the new knowledge from the most recent response to retrieve subsequent changes.");
+                this.Site.CaptureRequirementIfIsTrue(
+                            isMoreChange,
+                            1131,
+                            @"[In GetListItemChangesWithKnowledgeResponse][Attribute of MoreChanges]The Changes element in the response MUST include the attribute MoreChanges set to ""TRUE"" if more changes are known to the protocol server than were returned to the protocol client.");
+                this.Site.CaptureRequirementIfIsTrue(
+                            !isMoreChangeIncludedWithoutKnowledge && isMoreChange,
+                            1133,
+                            @"[In GetListItemChangesWithKnowledgeResponse][Attribute of Morechanges]MoreChanges MUST be included in the result only if the knowledge parameter was specified by the protocol client in the request.");
 
-            // If the attribute MoreChange is "True", then R1120 and R1131 can be captured.
-            this.Site.CaptureRequirementIfIsTrue(
-                        isMoreChange,
-                        1120,
-                        @"[In GetListItemChangesWithKnowledge]The Changes element in the response MUST include the attribute MoreChanges set to ""TRUE"" to indicate that protocol clients can make another call to GetListItemChangesWithKnowledge by using the new knowledge from the most recent response to retrieve subsequent changes.");
-            this.Site.CaptureRequirementIfIsTrue(
-                        isMoreChange,
-                        1131,
-                        @"[In GetListItemChangesWithKnowledgeResponse][Attribute of MoreChanges]The Changes element in the response MUST include the attribute MoreChanges set to ""TRUE"" if more changes are known to the protocol server than were returned to the protocol client.");
-            this.Site.CaptureRequirementIfIsTrue(
-                        !isMoreChangeIncludedWithoutKnowledge && isMoreChange,
-                        1133,
-                        @"[In GetListItemChangesWithKnowledgeResponse][Attribute of Morechanges]MoreChanges MUST be included in the result only if the knowledge parameter was specified by the protocol client in the request.");
+                // Add one field to make schema changed. 
+                TestSuiteHelper.AddFieldsToList(
+                                    listId,
+                                    new List<string> { TestSuiteHelper.GetUniqueFieldName() },
+                                    new List<string> { "Text" },
+                                    new List<string> { null });
 
-            // Add one field to make schema changed. 
-            TestSuiteHelper.AddFieldsToList(
-                                listId,
-                                new List<string> { TestSuiteHelper.GetUniqueFieldName() },
-                                new List<string> { "Text" },
-                                new List<string> { null });
+                // Retrieve the knowledge again.
+                syncKnowledge.syncKnowledge = result.listitems.Changes.MadeWithKnowledge.syncKnowledge;
+                result = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                listId,
+                                                null,
+                                                null,
+                                                null,
+                                                null,
+                                                null,
+                                                null,
+                                                syncKnowledge,
+                                                null);
 
-            // Retrieve the knowledge again.
-            syncKnowledge.syncKnowledge = result.listitems.Changes.MadeWithKnowledge.syncKnowledge;
-            result = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                            listId,
-                                            null,
-                                            null,
-                                            null,
-                                            null,
-                                            null,
-                                            null,
-                                            syncKnowledge,
-                                            null);
+                bool isSchemaChange = string.Compare("True", result.listitems.Changes.SchemaChanged, StringComparison.OrdinalIgnoreCase) == 0;
+                this.Site.Assert.IsTrue(
+                                isSchemaChange,
+                                "If there are schema changed, the server will response attribute SchemaChanged 'True', but actual value is {0}",
+                                result.listitems.Changes.SchemaChanged);
 
-            bool isSchemaChange = string.Compare("True", result.listitems.Changes.SchemaChanged, StringComparison.OrdinalIgnoreCase) == 0;
-            this.Site.Assert.IsTrue(
-                            isSchemaChange,
-                            "If there are schema changed, the server will response attribute SchemaChanged 'True', but actual value is {0}",
-                            result.listitems.Changes.SchemaChanged);
-
-            this.Site.CaptureRequirementIfIsTrue(
-                            isSchemaChange,
-                            1134,
-                            @"[In GetListItemChangesWithKnowledgeResponse][Attribute of SchemaChanged]The SchemaChanged attribute MUST be set to ""TRUE"" if there have schema changes made to the list.");
+                this.Site.CaptureRequirementIfIsTrue(
+                                isSchemaChange,
+                                1134,
+                                @"[In GetListItemChangesWithKnowledgeResponse][Attribute of SchemaChanged]The SchemaChanged attribute MUST be set to ""TRUE"" if there have schema changes made to the list.");
+            }
         }
-
         /// <summary>
         /// This test case is used to test the GetListItemChangesWithKnowledge 
         /// operation when all input parameters are valid.
@@ -2205,93 +2217,95 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             bool isSoapFaultExisted = false;
             CamlViewFields viewFields = TestSuiteHelper.CreateViewFields(true, new List<string> { AdapterHelper.FieldAuthorName });
             CamlQueryOptions queryOptions = CreateDefaultCamlQueryOptions();
-            try
+            if (Common.IsRequirementEnabled(2221, this.Site))
             {
-                getListItemChangesresult = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                                                        uniqueListName,
-                                                                        null,
-                                                                        null,
-                                                                        viewFields,
-                                                                        null,
-                                                                        queryOptions,
-                                                                        null,
-                                                                        null,
-                                                                        null);
-            }
-            catch (SoapException)
-            {
-                isSoapFaultExisted = true;
-            }
+                try
+                {
+                    getListItemChangesresult = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                                            uniqueListName,
+                                                                            null,
+                                                                            null,
+                                                                            viewFields,
+                                                                            null,
+                                                                            queryOptions,
+                                                                            null,
+                                                                            null,
+                                                                            null);
+                }
+                catch (SoapException)
+                {
+                    isSoapFaultExisted = true;
+                }
 
-            string addedItemNumberStrValue = addedItemNumber.ToString();
-            if (null == getListItemChangesresult || null == getListItemChangesresult.listitems || null == getListItemChangesresult.listitems.data
-                || !addedItemNumberStrValue.Equals(getListItemChangesresult.listitems.data.ItemCount))
-            {
-                this.Site.Assert.Fail("The response of GetListItemChangesSinceToken operation does not contain any List item change.");
-            }
+                string addedItemNumberStrValue = addedItemNumber.ToString();
+                if (null == getListItemChangesresult || null == getListItemChangesresult.listitems || null == getListItemChangesresult.listitems.data
+                    || !addedItemNumberStrValue.Equals(getListItemChangesresult.listitems.data.ItemCount))
+                {
+                    this.Site.Assert.Fail("The response of GetListItemChangesSinceToken operation does not contain any List item change.");
+                }
 
-            // If the operation succeeds, then R24881 can be captured.
-            this.Site.CaptureRequirementIfIsFalse(
-                isSoapFaultExisted,
-                24881,
-                @"Implementation does support this method [GetListItemChangesWithKnowledge]. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
+                // If the operation succeeds, then R24881 can be captured.
+                this.Site.CaptureRequirementIfIsFalse(
+                    isSoapFaultExisted,
+                    24881,
+                    @"Implementation does support this method [GetListItemChangesWithKnowledge]. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
 
-            #region CaptureRequirement 1083,2162,1412,11461
-            // Capture R1083 and R2162 if the GetListItemChangesWithKnowledge succeeds.
-            this.Site.CaptureRequirementIfIsFalse(
-                isSoapFaultExisted,
-                1083,
-                @"[In GetListItemChangesWithKnowledge operation]2. If the specified listName is "
-                + "not a valid GUID [or does not correspond to the identification of a list on the site, ]"
-                + "check if the listName corresponds to the List title of a list on the site and if so, "
-                + "use that list.");
+                #region CaptureRequirement 1083,2162,1412,11461
+                // Capture R1083 and R2162 if the GetListItemChangesWithKnowledge succeeds.
+                this.Site.CaptureRequirementIfIsFalse(
+                    isSoapFaultExisted,
+                    1083,
+                    @"[In GetListItemChangesWithKnowledge operation]2. If the specified listName is "
+                    + "not a valid GUID [or does not correspond to the identification of a list on the site, ]"
+                    + "check if the listName corresponds to the List title of a list on the site and if so, "
+                    + "use that list.");
 
-            Site.CaptureRequirementIfIsFalse(
-                isSoapFaultExisted,
-                2162,
-                @"[If listName]does not correspond to the identification of a list on the site, check if "
-                + "the listName corresponds to the List title of a list on the site and if so, use that list.");
-
-            DataTable itemRowData = AdapterHelper.ExtractData(getListItemChangesresult.listitems.data.Any);
-            bool isAllAttributesBeginWithOws = false;
-            bool isAllAttributesCorrespond = false;
-
-            GetListResponseGetListResult getListResult = this.listswsAdapter.GetList(uniqueListName);
-            if (null == getListResult || null == getListResult.List || null == getListResult.List.Fields
-                || null == getListResult.List.Fields.Field)
-            {
-                this.Site.Assert.IsNotNull(getListResult, "Could not get the valid fields' data from response of GetList operation");
-            }
-
-            ValidateOwsPrefixAndAttributeName(
-                                        itemRowData,
-                                        getListResult,
-                                        out isAllAttributesBeginWithOws,
-                                        out isAllAttributesCorrespond);
-
-            // If all "attribute" name begin with "OWS_", capture 1412
-            Site.Log.Add(
-                    LogEntryKind.Debug,
-                    "The actual value: isAllAttributesBeginWithOws[{0}] for requirement #R1412",
-                    isAllAttributesBeginWithOws,
-                    null == getListResult.List.Fields.Field ? "NullOrEmpty" : "Not NullOrEmpty");
-
-            Site.CaptureRequirementIfIsTrue(
-                isAllAttributesBeginWithOws,
-                1141,
-                @"[In GetListItemChangesWithKnowledgeResponse]The names of the attributes containing the list item data in inner z:row elements are prefixed by ""ows_"".");
-
-            if (Common.IsRequirementEnabled(11461, this.Site))
-            {
                 Site.CaptureRequirementIfIsFalse(
-                    getListItemChangesresult.listitems.MaxRecommendedEmbeddedFileSizeSpecified,
-                    11461,
-                    @"Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] <68> Section 3.1.4.23.2.2: This attribute is not returned by wss3 and wss4.");
+                    isSoapFaultExisted,
+                    2162,
+                    @"[If listName]does not correspond to the identification of a list on the site, check if "
+                    + "the listName corresponds to the List title of a list on the site and if so, use that list.");
+
+                DataTable itemRowData = AdapterHelper.ExtractData(getListItemChangesresult.listitems.data.Any);
+                bool isAllAttributesBeginWithOws = false;
+                bool isAllAttributesCorrespond = false;
+
+                GetListResponseGetListResult getListResult = this.listswsAdapter.GetList(uniqueListName);
+                if (null == getListResult || null == getListResult.List || null == getListResult.List.Fields
+                    || null == getListResult.List.Fields.Field)
+                {
+                    this.Site.Assert.IsNotNull(getListResult, "Could not get the valid fields' data from response of GetList operation");
+                }
+
+                ValidateOwsPrefixAndAttributeName(
+                                            itemRowData,
+                                            getListResult,
+                                            out isAllAttributesBeginWithOws,
+                                            out isAllAttributesCorrespond);
+
+                // If all "attribute" name begin with "OWS_", capture 1412
+                Site.Log.Add(
+                        LogEntryKind.Debug,
+                        "The actual value: isAllAttributesBeginWithOws[{0}] for requirement #R1412",
+                        isAllAttributesBeginWithOws,
+                        null == getListResult.List.Fields.Field ? "NullOrEmpty" : "Not NullOrEmpty");
+
+                Site.CaptureRequirementIfIsTrue(
+                    isAllAttributesBeginWithOws,
+                    1141,
+                    @"[In GetListItemChangesWithKnowledgeResponse]The names of the attributes containing the list item data in inner z:row elements are prefixed by ""ows_"".");
+
+                if (Common.IsRequirementEnabled(11461, this.Site))
+                {
+                    Site.CaptureRequirementIfIsFalse(
+                        getListItemChangesresult.listitems.MaxRecommendedEmbeddedFileSizeSpecified,
+                        11461,
+                        @"Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] <68> Section 3.1.4.23.2.2: This attribute is not returned by wss3 and wss4.");
+                }
+
+                #endregion
             }
-
-            #endregion
         }
-
         /// <summary>
         /// This test case is used to verify the names of the attributes containing the list item data in inner z:row elements prefixed by "ows_" in the response of GetListItemChangesWithKnowledgeResponse operation.  
         /// </summary> 
@@ -2309,43 +2323,45 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             #endregion
 
             #region Invoke "GetListItemChangesWithKnowledge" to get last item changes.
-            GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult getListItemChangesWithKnowledgeResult = null;
-            getListItemChangesWithKnowledgeResult
-                = this.listswsAdapter.GetListItemChangesWithKnowledge(listName, null, null, null, null, null, null, null, null);
-            Site.Assert.IsNotNull(getListItemChangesWithKnowledgeResult, "The response of \"GetListItemChangesWithKnowledge\" is null!");
-            #endregion
-
-            #region Confirm the Requirement 1141
-            bool captureR1141 = true;
-            Site.Assert.IsNotNull(getListItemChangesWithKnowledgeResult.listitems, "The \"listitems\" is null in the response of \"GetListItemChangesWithKnowledge\"");
-            Site.Assert.IsNotNull(getListItemChangesWithKnowledgeResult.listitems.data, "The \"listitems.data\" is null in the response of \"GetListItemChangesWithKnowledge\"");
-            Site.Assert.IsNotNull(getListItemChangesWithKnowledgeResult.listitems.data.Any, "The \"listitems.data.Any\" is null in the response of \"GetListItemChangesWithKnowledge\"");
-            foreach (XmlElement row in getListItemChangesWithKnowledgeResult.listitems.data.Any)
+                GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult getListItemChangesWithKnowledgeResult = null;
+            if (Common.IsRequirementEnabled(2221, this.Site))
             {
-                System.Collections.IEnumerator attributeEnumerator = row.Attributes.GetEnumerator();
-                while (attributeEnumerator.MoveNext())
+                getListItemChangesWithKnowledgeResult
+                    = this.listswsAdapter.GetListItemChangesWithKnowledge(listName, null, null, null, null, null, null, null, null);
+                Site.Assert.IsNotNull(getListItemChangesWithKnowledgeResult, "The response of \"GetListItemChangesWithKnowledge\" is null!");
+                #endregion
+
+                #region Confirm the Requirement 1141
+                bool captureR1141 = true;
+                Site.Assert.IsNotNull(getListItemChangesWithKnowledgeResult.listitems, "The \"listitems\" is null in the response of \"GetListItemChangesWithKnowledge\"");
+                Site.Assert.IsNotNull(getListItemChangesWithKnowledgeResult.listitems.data, "The \"listitems.data\" is null in the response of \"GetListItemChangesWithKnowledge\"");
+                Site.Assert.IsNotNull(getListItemChangesWithKnowledgeResult.listitems.data.Any, "The \"listitems.data.Any\" is null in the response of \"GetListItemChangesWithKnowledge\"");
+                foreach (XmlElement row in getListItemChangesWithKnowledgeResult.listitems.data.Any)
                 {
-                    XmlAttribute curAttribute = (XmlAttribute)attributeEnumerator.Current;
-                    string attributeName = curAttribute.Name;
-                    string prefix = attributeName.Substring(0, 4);
-                    if (prefix != "ows_")
+                    System.Collections.IEnumerator attributeEnumerator = row.Attributes.GetEnumerator();
+                    while (attributeEnumerator.MoveNext())
                     {
-                        captureR1141 = false;
-                        string errorInfo = string.Format("The prefix of attribute {0} is not \"ows_\"", attributeName);
-                        Site.Log.Add(LogEntryKind.TestFailed, errorInfo);
-                        break;
+                        XmlAttribute curAttribute = (XmlAttribute)attributeEnumerator.Current;
+                        string attributeName = curAttribute.Name;
+                        string prefix = attributeName.Substring(0, 4);
+                        if (prefix != "ows_")
+                        {
+                            captureR1141 = false;
+                            string errorInfo = string.Format("The prefix of attribute {0} is not \"ows_\"", attributeName);
+                            Site.Log.Add(LogEntryKind.TestFailed, errorInfo);
+                            break;
+                        }
                     }
                 }
+
+                Site.CaptureRequirementIfIsTrue(
+                        captureR1141,
+                        1141,
+                        "[In GetListItemChangesWithKnowledgeResponse]The names of the attributes containing the list item data in inner z:row elements are prefixed by \"ows_\".");
+
+                #endregion
             }
-
-            Site.CaptureRequirementIfIsTrue(
-                    captureR1141,
-                    1141,
-                    "[In GetListItemChangesWithKnowledgeResponse]The names of the attributes containing the list item data in inner z:row elements are prefixed by \"ows_\".");
-
-            #endregion
         }
-
         /// <summary>
         ///  This test case is used to test that the response does not contain ServerTime attribute when there is not item changes in GetListItemChangesWithKnowledge.
         /// </summary>
@@ -2359,7 +2375,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Call GetListItemChangesWithKnowledge without knowledge.
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult result = null;
-            result = this.listswsAdapter.GetListItemChangesWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                result = this.listswsAdapter.GetListItemChangesWithKnowledge(
                                                         listId,
                                                         null,
                                                         null,
@@ -2370,15 +2388,15 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                                         null,
                                                         null);
 
-            // Now there are no changes in the list, if the returned ServerTime equals null,
-            // R1136 can be captured.
-            Site.CaptureRequirementIfIsNull(
-                result.listitems.Changes.ServerTime,
-                1136,
-                @"[In GetListItemChangesWithKnowledgeResponse][Attribute of ServerTime]This "
-                    + "attribute MUST NOT be set if there no changes are returned.");
+                // Now there are no changes in the list, if the returned ServerTime equals null,
+                // R1136 can be captured.
+                Site.CaptureRequirementIfIsNull(
+                    result.listitems.Changes.ServerTime,
+                    1136,
+                    @"[In GetListItemChangesWithKnowledgeResponse][Attribute of ServerTime]This "
+                        + "attribute MUST NOT be set if there no changes are returned.");
+            }
         }
-
         /// <summary>
         ///  This test case is used to validate GetListItemChangesWithKnowledge operation when RowLimit parameter is set as 0.
         /// </summary>
@@ -2395,7 +2413,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Call GetListItemChangesWithKnowledge with empty row limit and without knowledge
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult getListKnowledgeResultWithZeroRowLimit = null;
-            getListKnowledgeResultWithZeroRowLimit = this.listswsAdapter.GetListItemChangesWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                getListKnowledgeResultWithZeroRowLimit = this.listswsAdapter.GetListItemChangesWithKnowledge(
                                  listName,
                                  null,
                                  null,
@@ -2406,18 +2426,18 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                  null,
                                  null);
 
-            DataTable data = AdapterHelper.ExtractData(getListKnowledgeResultWithZeroRowLimit.listitems.data.Any);
+                DataTable data = AdapterHelper.ExtractData(getListKnowledgeResultWithZeroRowLimit.listitems.data.Any);
 
-            // Because insert 10 items, so if the result contains 10 total items,
-            // then requirement R22202 will be able to be captured.
-            // R22202 is case derived from R2220, capture R22202.
-            Site.CaptureRequirementIfAreEqual<int>(
-                    10,
-                    data.Rows.Count,
-                    22202,
-                    @"[In GetListItemChangesWithKnowledge] Implementation does retrieve all rows when get list item changes with knowledge excluding this parameter[rowLimit] or specifying a value of 0, unless the knowledge parameter is specified. (The 2007 Microsoft® Office system/Windows® SharePoint® Services 3.0 and above follow this behavior.)");
+                // Because insert 10 items, so if the result contains 10 total items,
+                // then requirement R22202 will be able to be captured.
+                // R22202 is case derived from R2220, capture R22202.
+                Site.CaptureRequirementIfAreEqual<int>(
+                        10,
+                        data.Rows.Count,
+                        22202,
+                        @"[In GetListItemChangesWithKnowledge] Implementation does retrieve all rows when get list item changes with knowledge excluding this parameter[rowLimit] or specifying a value of 0, unless the knowledge parameter is specified. (The 2007 Microsoft® Office system/Windows® SharePoint® Services 3.0 and above follow this behavior.)");
+            }
         }
-
         /// <summary>
         /// This test case is used to test the GetListItemChangesWithKnowledge operation with viewFields parameter.
         /// </summary>
@@ -2445,7 +2465,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Invoke the GetListItemChangesSinceToken operation with null viewName parameter.
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult nullViewNameAndViewFieldsResult = null;
-            nullViewNameAndViewFieldsResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                nullViewNameAndViewFieldsResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
                                                                     uniqueListName,
                                                                     null,
                                                                     null,
@@ -2456,65 +2478,65 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                                                     null,
                                                                     null);
 
-            // Invoke the GetListItemChangesSinceToken operation with invalid viewName parameter.
-            string invalidGUID = TestSuiteHelper.GetInvalidGuidAndNocorrespondString();
-            GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult invalidViewNameAndNullViewFieldsResult = null;
-            invalidViewNameAndNullViewFieldsResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                                                    uniqueListName,
-                                                                    invalidGUID,
-                                                                    null,
-                                                                    null,
-                                                                    null,
-                                                                    null,
-                                                                    null,
-                                                                    null,
-                                                                    null);
+                // Invoke the GetListItemChangesSinceToken operation with invalid viewName parameter.
+                string invalidGUID = TestSuiteHelper.GetInvalidGuidAndNocorrespondString();
+                GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult invalidViewNameAndNullViewFieldsResult = null;
+                invalidViewNameAndNullViewFieldsResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                                        uniqueListName,
+                                                                        invalidGUID,
+                                                                        null,
+                                                                        null,
+                                                                        null,
+                                                                        null,
+                                                                        null,
+                                                                        null,
+                                                                        null);
 
-            // If the server returns the same responses, capture 2276.
-            bool isSame = TestSuiteHelper.DeepCompare(nullViewNameAndViewFieldsResult, invalidViewNameAndNullViewFieldsResult);
-            Site.CaptureRequirementIfIsTrue(
-                isSame,
-                2276,
-                @"If the viewFields parameter is not specified and the viewName parameter does not contain a correctly formatted GUID, the server response will be same if we use invalid and empty viewName parameter.");
+                // If the server returns the same responses, capture 2276.
+                bool isSame = TestSuiteHelper.DeepCompare(nullViewNameAndViewFieldsResult, invalidViewNameAndNullViewFieldsResult);
+                Site.CaptureRequirementIfIsTrue(
+                    isSame,
+                    2276,
+                    @"If the viewFields parameter is not specified and the viewName parameter does not contain a correctly formatted GUID, the server response will be same if we use invalid and empty viewName parameter.");
 
-            // Create viewFields 
-            string fieldName = Common.GetConfigurationPropertyValue("ListFieldText", this.Site);
-            CamlViewFields viewFields = TestSuiteHelper.CreateViewFields(true, new List<string> { fieldName });
+                // Create viewFields 
+                string fieldName = Common.GetConfigurationPropertyValue("ListFieldText", this.Site);
+                CamlViewFields viewFields = TestSuiteHelper.CreateViewFields(true, new List<string> { fieldName });
 
-            // Invoke the GetListItemChangesSinceToken operation with valid viewName and viewFields parameters.
-            GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult validViewNameAndViewFieldsResult = null;
-            validViewNameAndViewFieldsResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                                                    uniqueListName,
-                                                                    strViewGUID,
-                                                                    null,
-                                                                    viewFields,
-                                                                    null,
-                                                                    null,
-                                                                    null,
-                                                                    null,
-                                                                    null);
+                // Invoke the GetListItemChangesSinceToken operation with valid viewName and viewFields parameters.
+                GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult validViewNameAndViewFieldsResult = null;
+                validViewNameAndViewFieldsResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                                        uniqueListName,
+                                                                        strViewGUID,
+                                                                        null,
+                                                                        viewFields,
+                                                                        null,
+                                                                        null,
+                                                                        null,
+                                                                        null,
+                                                                        null);
 
-            // Invoke the GetListItemChangesSinceToken operation with null viewName and valid viewFields parameters.
-            GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult nullViewNameAndValidViewFieldsResult = null;
-            nullViewNameAndValidViewFieldsResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                                                    uniqueListName,
-                                                                    null,
-                                                                    null,
-                                                                    viewFields,
-                                                                    null,
-                                                                    null,
-                                                                    null,
-                                                                    null,
-                                                                    null);
+                // Invoke the GetListItemChangesSinceToken operation with null viewName and valid viewFields parameters.
+                GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult nullViewNameAndValidViewFieldsResult = null;
+                nullViewNameAndValidViewFieldsResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                                        uniqueListName,
+                                                                        null,
+                                                                        null,
+                                                                        viewFields,
+                                                                        null,
+                                                                        null,
+                                                                        null,
+                                                                        null,
+                                                                        null);
 
-            // If the server returns the same responses, capture 2271.
-            isSame = TestSuiteHelper.DeepCompare(validViewNameAndViewFieldsResult, nullViewNameAndValidViewFieldsResult);
-            Site.CaptureRequirementIfIsTrue(
-                isSame,
-                2271,
-                @"if the viewFields parameter is specified, the server response will be same if we use valid and empty viewName parameter.");
+                // If the server returns the same responses, capture 2271.
+                isSame = TestSuiteHelper.DeepCompare(validViewNameAndViewFieldsResult, nullViewNameAndValidViewFieldsResult);
+                Site.CaptureRequirementIfIsTrue(
+                    isSame,
+                    2271,
+                    @"if the viewFields parameter is specified, the server response will be same if we use valid and empty viewName parameter.");
+            }
         }
-
         #endregion
 
         #region GetListItemChanges
@@ -5317,36 +5339,38 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             items.Add(item);
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items);
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            result = this.listswsAdapter.UpdateListItemsWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                 listName,
                                                 updates,
                                                 null,
                                                 null);
 
-            this.Site.Assert.AreEqual<int>(
-                                1,
-                                result.Results.Length,
-                                "If only insert one item, then there will be one result element.");
+                this.Site.Assert.AreEqual<int>(
+                                    1,
+                                    result.Results.Length,
+                                    "If only insert one item, then there will be one result element.");
 
-            // Verify MS-LISTSWS requirement: MS-LISTSWS_R2356
-            Site.CaptureRequirementIfAreNotEqual<string>(
-                "0x00000000",
-                result.Results[0].ErrorCode,
-                2356,
-                @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [In Method element] [In Field element]  The protocol server MUST return an error indicating why the update failed, if the field is not a special field.");
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R2356
+                Site.CaptureRequirementIfAreNotEqual<string>(
+                    "0x00000000",
+                    result.Results[0].ErrorCode,
+                    2356,
+                    @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [In Method element] [In Field element]  The protocol server MUST return an error indicating why the update failed, if the field is not a special field.");
 
-            this.Site.CaptureRequirementIfIsTrue(
-                result.Results[0].ErrorCode.IndexOf("0x", StringComparison.OrdinalIgnoreCase) == 0,
-                2324,
-                @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element] Otherwise, [If an operation does not complete successfully] the ErrorCode MUST be set to a hexadecimal representation of the error encountered.");
+                this.Site.CaptureRequirementIfIsTrue(
+                    result.Results[0].ErrorCode.IndexOf("0x", StringComparison.OrdinalIgnoreCase) == 0,
+                    2324,
+                    @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element] Otherwise, [If an operation does not complete successfully] the ErrorCode MUST be set to a hexadecimal representation of the error encountered.");
 
-            // Verify MS-LISTSWS requirement: MS-LISTSWS_R2367
-            Site.CaptureRequirementIfIsNotNull(
-                AdapterHelper.GetElementValue(result.Results[0].Any, "ErrorText"),
-                2367,
-                @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element] Otherwise, [If an operation does not complete successfully] the ErrorText element MUST have a description of the error.");
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R2367
+                Site.CaptureRequirementIfIsNotNull(
+                    AdapterHelper.GetElementValue(result.Results[0].Any, "ErrorText"),
+                    2367,
+                    @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element] Otherwise, [If an operation does not complete successfully] the ErrorText element MUST have a description of the error.");
+            }
         }
-
         /// <summary>
         /// The test case is used to verify UpdateListItemWithKnowledge operation when TRUE and ListVersion is specified with a number.
         /// </summary>
@@ -5389,26 +5413,28 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // Plus the current version with 1, then the ListVersion is not valid.
             updates.Batch.ListVersion = currentVersion + 1;
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult updateItemsResult = null;
-            updateItemsResult = this.listswsAdapter.UpdateListItemsWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                updateItemsResult = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                     listID,
                                                     updates,
                                                     null,
                                                     null);
 
-            // If set LockSchema is TRUE and ListVersion is specified with an error number, the SUT will return a an error code.
-            Site.Assert.AreEqual<int>(
-                                1,
-                                updateItemsResult.Results.Length,
-                                "When only insert one item, the UpdateListItems return only one result");
+                // If set LockSchema is TRUE and ListVersion is specified with an error number, the SUT will return a an error code.
+                Site.Assert.AreEqual<int>(
+                                    1,
+                                    updateItemsResult.Results.Length,
+                                    "When only insert one item, the UpdateListItems return only one result");
 
-            // Verify MS-LISTSWS requirement: MS-LISTSWS_R2348
-            Site.CaptureRequirementIfAreEqual<string>(
-                "0x80070666",
-                updateItemsResult.Results[0].ErrorCode,
-                2348,
-                @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [LockSchema attribute]  If TRUE and ListVersion is specified with a number, the protocol server MUST return a SOAP fault with error code 0x80070666 if the schema version passed in by the protocol client does not match the list schema version on the protocol server.");
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R2348
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "0x80070666",
+                    updateItemsResult.Results[0].ErrorCode,
+                    2348,
+                    @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [LockSchema attribute]  If TRUE and ListVersion is specified with a number, the protocol server MUST return a SOAP fault with error code 0x80070666 if the schema version passed in by the protocol client does not match the list schema version on the protocol server.");
+            }
         }
-
         /// <summary>
         /// This test case is used to test UpdateListItemWithKnowledge operation in the case that the value of OnError attribute is OnErrorReturn.
         /// </summary>
@@ -5448,36 +5474,38 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            result = this.listswsAdapter.UpdateListItemsWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                         listName,
                                         updates,
                                         null,
                                         null);
 
-            this.Site.Assert.AreEqual<int>(
-                                    3,
-                                    result.Results.Length,
-                                    "When insert three items, there are must be three result elements.");
+                this.Site.Assert.AreEqual<int>(
+                                        3,
+                                        result.Results.Length,
+                                        "When insert three items, there are must be three result elements.");
 
-            this.Site.Assert.AreEqual<string>(
-                "0x00000000",
-                result.Results[0].ErrorCode,
-                "When insert the first item, the return result error code is not equal 0x800704c7.");
+                this.Site.Assert.AreEqual<string>(
+                    "0x00000000",
+                    result.Results[0].ErrorCode,
+                    "When insert the first item, the return result error code is not equal 0x800704c7.");
 
-            this.Site.Assert.AreNotEqual<string>(
-                "0x00000000",
-                result.Results[1].ErrorCode,
-                "When insert the second item, the return result error code is not equal 0x800704c7.");
+                this.Site.Assert.AreNotEqual<string>(
+                    "0x00000000",
+                    result.Results[1].ErrorCode,
+                    "When insert the second item, the return result error code is not equal 0x800704c7.");
 
-            // If third one contains "0x800704c7" then verify R2314.
-            // Verify MS-LISTSWS requirement: MS-LISTSWS_R2314
-            Site.CaptureRequirementIfAreEqual<string>(
-                "0x800704c7",
-                result.Results[2].ErrorCode,
-                2314,
-                @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element] [If the OnError attribute of the Batch element is set to Return] If a Method operation fails, then all subsequent Method operation in the Batch MUST fail with an error of 0x800704c7.");
+                // If third one contains "0x800704c7" then verify R2314.
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R2314
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "0x800704c7",
+                    result.Results[2].ErrorCode,
+                    2314,
+                    @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element] [If the OnError attribute of the Batch element is set to Return] If a Method operation fails, then all subsequent Method operation in the Batch MUST fail with an error of 0x800704c7.");
+            }
         }
-
         /// <summary>
         /// The test case will verify UpdateListItemWithKnowledge operation when owsHiddenversion conflicts.
         /// </summary>
@@ -5514,106 +5542,108 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                                                 updatedItems);
 
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            result = this.listswsAdapter.UpdateListItemsWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                     listID,
                                                     updates,
                                                     null,
                                                     null);
 
-            Site.Assert.AreEqual<int>(
-                                1,
-                                result.Results.Length,
-                                "After updating one item using UpdateListItems with invalid owshiddenversion, the server MUST return one result");
+                Site.Assert.AreEqual<int>(
+                                    1,
+                                    result.Results.Length,
+                                    "After updating one item using UpdateListItems with invalid owshiddenversion, the server MUST return one result");
 
-            // Verify MS-LISTSWS requirement: MS-LISTSWS_R2320
-            bool isR2320Verified = int.Parse(result.Results[0].Version) == int.Parse(invalidowsVersion) + 1;
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R2320
+                bool isR2320Verified = int.Parse(result.Results[0].Version) == int.Parse(invalidowsVersion) + 1;
 
-            Site.CaptureRequirementIfIsTrue(
-                isR2320Verified,
-                2320,
-                @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element] The Version attribute MUST be the owshiddenversion contained in the UpdateListItems request plus 1.");
+                Site.CaptureRequirementIfIsTrue(
+                    isR2320Verified,
+                    2320,
+                    @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element] The Version attribute MUST be the owshiddenversion contained in the UpdateListItems request plus 1.");
 
-            // Verify MS-LISTSWS requirement: MS-LISTSWS_R2360
-            Site.CaptureRequirementIfAreEqual<string>(
-                "0x81020015",
-                result.Results[0].ErrorCode,
-                2360,
-                @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [In Method element] [In Field element]  If the owshiddenversion specified by the protocol client is different than the current value of the owshiddenversion field's value for the list item on the protocol server, the protocol server MUST return error code 0x81020015.");
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R2360
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "0x81020015",
+                    result.Results[0].ErrorCode,
+                    2360,
+                    @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [In Method element] [In Field element]  If the owshiddenversion specified by the protocol client is different than the current value of the owshiddenversion field's value for the list item on the protocol server, the protocol server MUST return error code 0x81020015.");
 
-            Site.CaptureRequirementIfAreEqual<string>(
-              "0x81020015",
-              result.Results[0].ErrorCode,
-              2353,
-              @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [In Method element] [Update attribute] [If additional field references not set those columns to the value specified] an error will be returned.");
+                Site.CaptureRequirementIfAreEqual<string>(
+                  "0x81020015",
+                  result.Results[0].ErrorCode,
+                  2353,
+                  @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [In Method element] [Update attribute] [If additional field references not set those columns to the value specified] an error will be returned.");
 
-            bool isListAttributeExist = result.Results[0].List != null;
-            bool isVersionAttributeExist = result.Results[0].Version != null;
+                bool isListAttributeExist = result.Results[0].List != null;
+                bool isVersionAttributeExist = result.Results[0].Version != null;
 
-            Site.Assert.IsTrue(
-                        isListAttributeExist,
-                        "When returns error code 0x81020015 in the operation UpdateListItems, the list attribute must be exist.");
+                Site.Assert.IsTrue(
+                            isListAttributeExist,
+                            "When returns error code 0x81020015 in the operation UpdateListItems, the list attribute must be exist.");
 
-            // Verify MS-LISTSWS requirement: MS-LISTSWS_R2318
-            bool isVersionAndListAttrExist = isVersionAttributeExist && isListAttributeExist;
+                // Verify MS-LISTSWS requirement: MS-LISTSWS_R2318
+                bool isVersionAndListAttrExist = isVersionAttributeExist && isListAttributeExist;
 
-            Site.Log.Add(
-                    LogEntryKind.Debug,
-                    "The actual value: isVersionAndListAttrExist[{0}] for requirement #R2318",
-                    string.IsNullOrEmpty(result.Results[0].Version) ? "NullOrEmpty" : result.Results[0].Version);
+                Site.Log.Add(
+                        LogEntryKind.Debug,
+                        "The actual value: isVersionAndListAttrExist[{0}] for requirement #R2318",
+                        string.IsNullOrEmpty(result.Results[0].Version) ? "NullOrEmpty" : result.Results[0].Version);
 
-            Site.CaptureRequirementIfIsTrue(
-                isVersionAndListAttrExist,
-                2318,
-                @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element]The List and Version attributes MUST be returned if a Method operation fails with an error of 0x81020015.");
+                Site.CaptureRequirementIfIsTrue(
+                    isVersionAndListAttrExist,
+                    2318,
+                    @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element]The List and Version attributes MUST be returned if a Method operation fails with an error of 0x81020015.");
 
-            // Construct one update item which contains owshiddenversion equal to the value in the server.
-            updatedItems.Clear();
-            cmds.Clear();
-            item.Clear();
+                // Construct one update item which contains owshiddenversion equal to the value in the server.
+                updatedItems.Clear();
+                cmds.Clear();
+                item.Clear();
 
-            // Set the updated item id.
-            item.Add(AdapterHelper.FieldIDName, ids[0]);
+                // Set the updated item id.
+                item.Add(AdapterHelper.FieldIDName, ids[0]);
 
-            // Set the valid  owsVersion.
-            owsHiddenVersion = TestSuiteHelper.GetOwsHiddenVersion(listID);
-            item.Add(AdapterHelper.FieldOwshiddenversionName, owsHiddenVersion);
+                // Set the valid  owsVersion.
+                owsHiddenVersion = TestSuiteHelper.GetOwsHiddenVersion(listID);
+                item.Add(AdapterHelper.FieldOwshiddenversionName, owsHiddenVersion);
 
-            // Set update the new value.
-            string validFieldName = Common.GetConfigurationPropertyValue("ListFieldText", this.Site);
-            string newFieldValue = TestSuiteHelper.GenerateRandomString(5);
-            item.Add(validFieldName, newFieldValue);
-            updatedItems.Add(item);
-            cmds.Add(MethodCmdEnum.Update);
+                // Set update the new value.
+                string validFieldName = Common.GetConfigurationPropertyValue("ListFieldText", this.Site);
+                string newFieldValue = TestSuiteHelper.GenerateRandomString(5);
+                item.Add(validFieldName, newFieldValue);
+                updatedItems.Add(item);
+                cmds.Add(MethodCmdEnum.Update);
 
-            // Call UpdateListItems to insert the item using List GUID.
-            updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, updatedItems, OnErrorEnum.Continue);
-            result = this.listswsAdapter.UpdateListItemsWithKnowledge(listID, updates, null, null);
+                // Call UpdateListItems to insert the item using List GUID.
+                updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, updatedItems, OnErrorEnum.Continue);
+                result = this.listswsAdapter.UpdateListItemsWithKnowledge(listID, updates, null, null);
 
-            // The number of result element in the  UpdateListItems response MUST be equal to the number of Method in the request.
-            Site.Assert.AreEqual<int>(
-                        1,
-                        result.Results.Length,
-                        "The number of result element in the  UpdateListItems response MUST be equal to the number of Method in the request.");
-            DataTable updateResultData = AdapterHelper.ExtractData(result.Results[0].Any);
-            string columnName = string.Format("{0}{1}", AdapterHelper.PrefixOws, validFieldName);
+                // The number of result element in the  UpdateListItems response MUST be equal to the number of Method in the request.
+                Site.Assert.AreEqual<int>(
+                            1,
+                            result.Results.Length,
+                            "The number of result element in the  UpdateListItems response MUST be equal to the number of Method in the request.");
+                DataTable updateResultData = AdapterHelper.ExtractData(result.Results[0].Any);
+                string columnName = string.Format("{0}{1}", AdapterHelper.PrefixOws, validFieldName);
 
-            // If the first successful operation contains one and only one z:row
-            // and the field value in the z:row element equals the value in the request,
-            // R949 can be captured.
-            bool isSuccess = result.Results[0].ErrorCode == "0x00000000"
-                                        && updateResultData.Rows.Count == 1
-                                        && Convert.ToString(updateResultData.Rows[0][columnName]) == newFieldValue;
+                // If the first successful operation contains one and only one z:row
+                // and the field value in the z:row element equals the value in the request,
+                // R949 can be captured.
+                bool isSuccess = result.Results[0].ErrorCode == "0x00000000"
+                                            && updateResultData.Rows.Count == 1
+                                            && Convert.ToString(updateResultData.Rows[0][columnName]) == newFieldValue;
 
-            // This requirement is not fully verified, since the error case costs too much to simulate.
-            // In this situation, we just verify the successful case.
-            Site.CaptureRequirementIfIsTrue(
-                isSuccess,
-                2359,
-                @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [In Method element] [In Field element]
+                // This requirement is not fully verified, since the error case costs too much to simulate.
+                // In this situation, we just verify the successful case.
+                Site.CaptureRequirementIfIsTrue(
+                    isSuccess,
+                    2359,
+                    @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [In Method element] [In Field element]
                     If the owshiddenversion value specified by the protocol client is equal to the owshiddenversion field's value for the list item on the protocol server, 
                     the protocol server MUST update the list item or return an error indicating why the update failed.");
+            }
         }
-
         #endregion
 
         #region UpdateListItem
@@ -6144,8 +6174,9 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             #endregion
 
             #region Capture Requirements R1153, R1154
-
-            Site.CaptureRequirementIfAreEqual<string>(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                Site.CaptureRequirementIfAreEqual<string>(
                 "0x82000006",
                 errorCode,
                 1153,
@@ -6153,18 +6184,18 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 + "either of these checks, the protocol server MUST return a SOAP fault with error "
                 + "code 0x82000006.");
 
-            Site.CaptureRequirementIfAreEqual<string>(
-                    "0x82000006",
-                    errorCode,
-                1154,
-                @"[In UpdateListItemsWithKnowledge] [If listName does not correspond to a list from "
-                + "either of these checks, the protocol server MUST return a SOAP fault with error "
-                + "code 0x82000006.] This indicates that the list does not exist or might have been "
-                + "deleted by another user.");
+                Site.CaptureRequirementIfAreEqual<string>(
+                        "0x82000006",
+                        errorCode,
+                    1154,
+                    @"[In UpdateListItemsWithKnowledge] [If listName does not correspond to a list from "
+                    + "either of these checks, the protocol server MUST return a SOAP fault with error "
+                    + "code 0x82000006.] This indicates that the list does not exist or might have been "
+                    + "deleted by another user.");
 
-            #endregion
+                #endregion
+            }
         }
-
         /// <summary>
         ///  This test case is used to test LockSchema" attribute's default false value in UpdateListItemsWithKnowledge operation.
         /// </summary>
@@ -6202,31 +6233,32 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // Set an incorrect list version value.
             updates.Batch.ListVersion = (uint)listDef.Version + 1;
             updates.Batch.ListVersionSpecified = true;
-
-            UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result =
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result =
             result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                     listId,
                                                     updates,
                                                     null,
                                                     null);
 
-            // There must be one result element.
-            Site.Assert.AreEqual<int>(
-                                    1,
-                                    result.Results.Length,
-                                    "There are at least one result corresponding with the one New method");
+                // There must be one result element.
+                Site.Assert.AreEqual<int>(
+                                        1,
+                                        result.Results.Length,
+                                        "There are at least one result corresponding with the one New method");
 
-            // If there is no SoapException and the error code equals 0x00000000,
-            // capture requirement R2085.
-            Site.CaptureRequirementIfAreEqual<string>(
-                "0x00000000",
-                result.Results[0].ErrorCode,
-                2349,
-                "[In UpdateListItemsWithKnowledge][In Bench element][In LockSchema attribute] "
-                        + "This defaults to FALSE.[ the server will not fail, if the schema version passed in "
-                        + "by the protocol client does not match the list schema version on the protocol server. ]");
+                // If there is no SoapException and the error code equals 0x00000000,
+                // capture requirement R2085.
+                Site.CaptureRequirementIfAreEqual<string>(
+                    "0x00000000",
+                    result.Results[0].ErrorCode,
+                    2349,
+                    "[In UpdateListItemsWithKnowledge][In Bench element][In LockSchema attribute] "
+                            + "This defaults to FALSE.[ the server will not fail, if the schema version passed in "
+                            + "by the protocol client does not match the list schema version on the protocol server. ]");
+            }
         }
-
         /// <summary>
         /// This method is used to test the UpdateListItemsWithKnowledge operation when the Method element's Cmd attribute uses "New" "Update" "Delete" "Move" value.
         /// </summary>
@@ -6255,218 +6287,220 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
 
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult resultWhenIncludeId = null;
-            resultWhenIncludeId = this.listswsAdapter.UpdateListItemsWithKnowledge(listId, updates, null, null);
-
-            // Get new item ID from UpdateListItemsWithKnowledge response.
-            DataTable data = AdapterHelper.ExtractData(resultWhenIncludeId.Results[0].Any);
-            string columnNameId = string.Format("{0}{1}", AdapterHelper.PrefixOws, AdapterHelper.FieldIDName);
-
-            List<string> updatedListItemIds = new List<string>();
-            foreach (DataRow row in data.Rows)
+            if (Common.IsRequirementEnabled(2221, this.Site))
             {
-                updatedListItemIds.Add(row[columnNameId].ToString());
-            }
+                resultWhenIncludeId = this.listswsAdapter.UpdateListItemsWithKnowledge(listId, updates, null, null);
 
-            // Get item IDs from GetListItems response.
-            GetListItemsResponseGetListItemsResult getListItemsResult = this.listswsAdapter.GetListItems(listId, null, null, null, null, null, null);
-            data = AdapterHelper.ExtractData(getListItemsResult.listitems.data.Any);
+                // Get new item ID from UpdateListItemsWithKnowledge response.
+                DataTable data = AdapterHelper.ExtractData(resultWhenIncludeId.Results[0].Any);
+                string columnNameId = string.Format("{0}{1}", AdapterHelper.PrefixOws, AdapterHelper.FieldIDName);
 
-            List<string> getListItemIds = new List<string>();
-            foreach (DataRow row in data.Rows)
-            {
-                getListItemIds.Add(row[columnNameId].ToString());
-            }
-
-            // If new item ID exists in the GetListItems response, it means the new item has been added. R20921 is captured.
-            bool isR20921Verified = true;
-            foreach (string id in updatedListItemIds)
-            {
-                if (!getListItemIds.Contains(id))
+                List<string> updatedListItemIds = new List<string>();
+                foreach (DataRow row in data.Rows)
                 {
-                    isR20921Verified = false;
+                    updatedListItemIds.Add(row[columnNameId].ToString());
                 }
-            }
 
-            Site.CaptureRequirementIfIsTrue(
-                isR20921Verified,
-                20921,
-                @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItems element] [In updates element] [In Batch element] [In Method element] [New attribute] Adds a new list item to the specified list.");
-
-            // In the z:row, we can only make sure the attribute value which 
-            // is specified by validFieldName is equal, and for all the other attribute there is no 
-            // guarantee. So all the other attributes in the z:row will be ignored except the 
-            // specified one.  
-            foreach (UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResultResult result in resultWhenIncludeId.Results)
-            {
-                foreach (XmlElement row in result.Any)
-                {
-                    IgnoreAttributeExcept(
-                                    row,
-                                    validFieldName);
-                }
-            }
-
-            // Re-construct one insert item without ID.
-            items.Clear();
-            cmds.Clear();
-            newItem.Clear();
-            newItem.Add(validFieldName, fieldValue);
-            items.Add(newItem);
-            cmds.Add(MethodCmdEnum.New);
-
-            // Construct the UpdateListItemsWithKnowledgeUpdates instance.
-            updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
-
-            UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult resultWhenExcludeId = null;
-            resultWhenExcludeId = this.listswsAdapter.UpdateListItemsWithKnowledge(listId, updates, null, null);
-
-            data = AdapterHelper.ExtractData(resultWhenExcludeId.Results[0].Any);
-            foreach (DataRow row in data.Rows)
-            {
-                updatedListItemIds.Add(row[columnNameId].ToString());
-            }
-
-            // In the z:row, we can only make sure the attribute value which 
-            // is specified by validFieldName is equal, and for all the other attribute there is no 
-            // guarantee. So all the other attributes in the z:row will be ignored except the 
-            // specified one.
-            foreach (UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResultResult result in resultWhenExcludeId.Results)
-            {
-                foreach (XmlElement row in result.Any)
-                {
-                    IgnoreAttributeExcept(
-                                    row,
-                                    validFieldName);
-                }
-            }
-
-            // If ignore some field in z:row element and both result are same, capture R2289.
-            bool isSame = TestSuiteHelper.DeepCompare(resultWhenIncludeId, resultWhenExcludeId);
-            Site.CaptureRequirementIfIsTrue(
-                isSame,
-                2351,
-                    "[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] "
-                    + "[In Batch element] [In Method element] [New attribute] The server response will be "
-                    + "same in both <Field Name=\"ID\"> exists in request or not.");
-
-            // There are 2 list items. Update the first item and delete the last item.
-            items.Clear();
-            cmds.Clear();
-
-            Dictionary<string, string> updatedItem = new Dictionary<string, string>();
-            string newFieldValue = TestSuiteHelper.GenerateRandomString(10);
-            updatedItem.Add("ID", updatedListItemIds.First());
-            updatedItem.Add(validFieldName, newFieldValue);
-            items.Add(updatedItem);
-            cmds.Add(MethodCmdEnum.Update);
-
-            Dictionary<string, string> deletedItem = new Dictionary<string, string>();
-            deletedItem.Add("ID", updatedListItemIds.Last());
-            items.Add(deletedItem);
-            cmds.Add(MethodCmdEnum.Delete);
-
-            updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
-
-            // Call UpdateListItemsWithKnowledge operation to update the first item and delete the last item.
-            this.listswsAdapter.UpdateListItemsWithKnowledge(listId, updates, null, null);
-
-            // Call GetListItems operation.
-            CamlViewFields viewFields = TestSuiteHelper.CreateViewFields(true, new List<string> { validFieldName });
-            getListItemsResult = this.listswsAdapter.GetListItems(listId, null, null, viewFields, null, null, null);
-            data = AdapterHelper.ExtractData(getListItemsResult.listitems.data.Any);
-
-            getListItemIds.Clear();
-            string columnNameField = string.Format("{0}{1}", AdapterHelper.PrefixOws, validFieldName);
-            bool isR20931Verified = false;
-
-            foreach (DataRow row in data.Rows)
-            {
                 // Get item IDs from GetListItems response.
-                getListItemIds.Add(row[columnNameId].ToString());
-
-                // Check if the updated item has been updated successfully.
-                if (row[columnNameId].ToString().Equals(updatedListItemIds.First(), StringComparison.OrdinalIgnoreCase))
-                {
-                    if (row[columnNameField].ToString().Equals(newFieldValue, StringComparison.Ordinal))
-                    {
-                        isR20931Verified = true;
-                    }
-                }
-            }
-
-            // If the updated item in GetListItems response has been updated successfully, R20931 is captured.
-            Site.CaptureRequirementIfIsTrue(
-                isR20931Verified,
-                20931,
-                @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItems element] [In updates element] [In Batch element] [In Method element] [Update attribute] Updates fields for a specific list item.");
-
-            // If GetListItems response does not contain the deleted item ID, it means the item has been deleted. Then R20941 is captured.
-            Site.CaptureRequirementIfIsFalse(
-                getListItemIds.Contains(updatedListItemIds.Last()),
-                20941,
-                @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItems element] [In updates element] [In Batch element] [In Method element] [Delete attribute]Deletes a specific list item.");
-
-            // Verify 'Move' method.
-            if (Common.IsRequirementEnabled(20962, this.Site))
-            {
-                // Create 2 document libraries.
-                string sourceListName = TestSuiteHelper.GetUniqueListName();
-                string sourceList = TestSuiteHelper.CreateList(sourceListName, Convert.ToInt32(TemplateType.Document_Library));
-
-                string destinationListName = TestSuiteHelper.GetUniqueListName();
-                string destinationList = TestSuiteHelper.CreateList(destinationListName, Convert.ToInt32(TemplateType.Document_Library));
-
-                // Get the root folder of destination list.
-                GetListResponseGetListResult getListResult = this.listswsAdapter.GetList(destinationList);
-                string rootFolder = getListResult.List.RootFolder;
-
-                // Upload a document to source list.
-                IMS_LISTSWSSUTControlAdapter sutControlAdapter = this.Site.GetAdapter<IMS_LISTSWSSUTControlAdapter>();
-                string absoluteFileUrl = sutControlAdapter.UploadFile(sourceListName);
-
-                Site.Assert.IsTrue(
-                    !string.IsNullOrEmpty(absoluteFileUrl),
-                    "Upload file to the list {0} should be successful, the file path is [{1}]",
-                    sourceListName,
-                    absoluteFileUrl);
-
-                // Get the uploaded file name.
-                string uploadFileName = absoluteFileUrl.Substring(absoluteFileUrl.LastIndexOf('/'));
-
-                // Get uploaded item ID.
-                getListItemsResult = this.listswsAdapter.GetListItems(sourceList, null, null, null, null, null, null);
+                GetListItemsResponseGetListItemsResult getListItemsResult = this.listswsAdapter.GetListItems(listId, null, null, null, null, null, null);
                 data = AdapterHelper.ExtractData(getListItemsResult.listitems.data.Any);
 
-                // Get the value of "ID" and "MoveNewUrl" fields.                
-                string fileID = (string)data.Rows[0][columnNameId];
-                string moveNewUrl = rootFolder.TrimEnd('/') + "/" + uploadFileName.Trim('/');
+                List<string> getListItemIds = new List<string>();
+                foreach (DataRow row in data.Rows)
+                {
+                    getListItemIds.Add(row[columnNameId].ToString());
+                }
 
-                // Construct one insert item with ID.
+                // If new item ID exists in the GetListItems response, it means the new item has been added. R20921 is captured.
+                bool isR20921Verified = true;
+                foreach (string id in updatedListItemIds)
+                {
+                    if (!getListItemIds.Contains(id))
+                    {
+                        isR20921Verified = false;
+                    }
+                }
+
+                Site.CaptureRequirementIfIsTrue(
+                    isR20921Verified,
+                    20921,
+                    @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItems element] [In updates element] [In Batch element] [In Method element] [New attribute] Adds a new list item to the specified list.");
+
+                // In the z:row, we can only make sure the attribute value which 
+                // is specified by validFieldName is equal, and for all the other attribute there is no 
+                // guarantee. So all the other attributes in the z:row will be ignored except the 
+                // specified one.  
+                foreach (UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResultResult result in resultWhenIncludeId.Results)
+                {
+                    foreach (XmlElement row in result.Any)
+                    {
+                        IgnoreAttributeExcept(
+                                        row,
+                                        validFieldName);
+                    }
+                }
+
+                // Re-construct one insert item without ID.
                 items.Clear();
                 cmds.Clear();
-                Dictionary<string, string> movedItem = new Dictionary<string, string>();
-                movedItem.Add("ID", fileID);
-                movedItem.Add("FileRef", absoluteFileUrl);
-                movedItem.Add("MoveNewUrl", moveNewUrl);
-                items.Add(movedItem);
-                cmds.Add(MethodCmdEnum.Move);
+                newItem.Clear();
+                newItem.Add(validFieldName, fieldValue);
+                items.Add(newItem);
+                cmds.Add(MethodCmdEnum.New);
 
                 // Construct the UpdateListItemsWithKnowledgeUpdates instance.
-                UpdateListItemsWithKnowledgeUpdates moveUpdates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
+                updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
 
-                // Call UpdateListItemsWithKnowledge method to move file.
-                UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult moveResult = null;
-                moveResult = this.listswsAdapter.UpdateListItemsWithKnowledge(sourceList, moveUpdates, null, null);
+                UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult resultWhenExcludeId = null;
+                resultWhenExcludeId = this.listswsAdapter.UpdateListItemsWithKnowledge(listId, updates, null, null);
 
-                // Error code "0x00000000" indicates the operation completes successfully. Then R20962 captured.
-                Site.CaptureRequirementIfAreEqual<string>(
-                    "0x00000000",
-                    moveResult.Results[0].ErrorCode,
-                    20962,
-                    @"Implementation does support this behavior[UpdateListItemsWithKnowledge.Move]. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
+                data = AdapterHelper.ExtractData(resultWhenExcludeId.Results[0].Any);
+                foreach (DataRow row in data.Rows)
+                {
+                    updatedListItemIds.Add(row[columnNameId].ToString());
+                }
+
+                // In the z:row, we can only make sure the attribute value which 
+                // is specified by validFieldName is equal, and for all the other attribute there is no 
+                // guarantee. So all the other attributes in the z:row will be ignored except the 
+                // specified one.
+                foreach (UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResultResult result in resultWhenExcludeId.Results)
+                {
+                    foreach (XmlElement row in result.Any)
+                    {
+                        IgnoreAttributeExcept(
+                                        row,
+                                        validFieldName);
+                    }
+                }
+
+                // If ignore some field in z:row element and both result are same, capture R2289.
+                bool isSame = TestSuiteHelper.DeepCompare(resultWhenIncludeId, resultWhenExcludeId);
+                Site.CaptureRequirementIfIsTrue(
+                    isSame,
+                    2351,
+                        "[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] "
+                        + "[In Batch element] [In Method element] [New attribute] The server response will be "
+                        + "same in both <Field Name=\"ID\"> exists in request or not.");
+
+                // There are 2 list items. Update the first item and delete the last item.
+                items.Clear();
+                cmds.Clear();
+
+                Dictionary<string, string> updatedItem = new Dictionary<string, string>();
+                string newFieldValue = TestSuiteHelper.GenerateRandomString(10);
+                updatedItem.Add("ID", updatedListItemIds.First());
+                updatedItem.Add(validFieldName, newFieldValue);
+                items.Add(updatedItem);
+                cmds.Add(MethodCmdEnum.Update);
+
+                Dictionary<string, string> deletedItem = new Dictionary<string, string>();
+                deletedItem.Add("ID", updatedListItemIds.Last());
+                items.Add(deletedItem);
+                cmds.Add(MethodCmdEnum.Delete);
+
+                updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
+
+                // Call UpdateListItemsWithKnowledge operation to update the first item and delete the last item.
+                this.listswsAdapter.UpdateListItemsWithKnowledge(listId, updates, null, null);
+
+                // Call GetListItems operation.
+                CamlViewFields viewFields = TestSuiteHelper.CreateViewFields(true, new List<string> { validFieldName });
+                getListItemsResult = this.listswsAdapter.GetListItems(listId, null, null, viewFields, null, null, null);
+                data = AdapterHelper.ExtractData(getListItemsResult.listitems.data.Any);
+
+                getListItemIds.Clear();
+                string columnNameField = string.Format("{0}{1}", AdapterHelper.PrefixOws, validFieldName);
+                bool isR20931Verified = false;
+
+                foreach (DataRow row in data.Rows)
+                {
+                    // Get item IDs from GetListItems response.
+                    getListItemIds.Add(row[columnNameId].ToString());
+
+                    // Check if the updated item has been updated successfully.
+                    if (row[columnNameId].ToString().Equals(updatedListItemIds.First(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        if (row[columnNameField].ToString().Equals(newFieldValue, StringComparison.Ordinal))
+                        {
+                            isR20931Verified = true;
+                        }
+                    }
+                }
+
+                // If the updated item in GetListItems response has been updated successfully, R20931 is captured.
+                Site.CaptureRequirementIfIsTrue(
+                    isR20931Verified,
+                    20931,
+                    @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItems element] [In updates element] [In Batch element] [In Method element] [Update attribute] Updates fields for a specific list item.");
+
+                // If GetListItems response does not contain the deleted item ID, it means the item has been deleted. Then R20941 is captured.
+                Site.CaptureRequirementIfIsFalse(
+                    getListItemIds.Contains(updatedListItemIds.Last()),
+                    20941,
+                    @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItems element] [In updates element] [In Batch element] [In Method element] [Delete attribute]Deletes a specific list item.");
+
+                // Verify 'Move' method.
+                if (Common.IsRequirementEnabled(20962, this.Site))
+                {
+                    // Create 2 document libraries.
+                    string sourceListName = TestSuiteHelper.GetUniqueListName();
+                    string sourceList = TestSuiteHelper.CreateList(sourceListName, Convert.ToInt32(TemplateType.Document_Library));
+
+                    string destinationListName = TestSuiteHelper.GetUniqueListName();
+                    string destinationList = TestSuiteHelper.CreateList(destinationListName, Convert.ToInt32(TemplateType.Document_Library));
+
+                    // Get the root folder of destination list.
+                    GetListResponseGetListResult getListResult = this.listswsAdapter.GetList(destinationList);
+                    string rootFolder = getListResult.List.RootFolder;
+
+                    // Upload a document to source list.
+                    IMS_LISTSWSSUTControlAdapter sutControlAdapter = this.Site.GetAdapter<IMS_LISTSWSSUTControlAdapter>();
+                    string absoluteFileUrl = sutControlAdapter.UploadFile(sourceListName);
+
+                    Site.Assert.IsTrue(
+                        !string.IsNullOrEmpty(absoluteFileUrl),
+                        "Upload file to the list {0} should be successful, the file path is [{1}]",
+                        sourceListName,
+                        absoluteFileUrl);
+
+                    // Get the uploaded file name.
+                    string uploadFileName = absoluteFileUrl.Substring(absoluteFileUrl.LastIndexOf('/'));
+
+                    // Get uploaded item ID.
+                    getListItemsResult = this.listswsAdapter.GetListItems(sourceList, null, null, null, null, null, null);
+                    data = AdapterHelper.ExtractData(getListItemsResult.listitems.data.Any);
+
+                    // Get the value of "ID" and "MoveNewUrl" fields.                
+                    string fileID = (string)data.Rows[0][columnNameId];
+                    string moveNewUrl = rootFolder.TrimEnd('/') + "/" + uploadFileName.Trim('/');
+
+                    // Construct one insert item with ID.
+                    items.Clear();
+                    cmds.Clear();
+                    Dictionary<string, string> movedItem = new Dictionary<string, string>();
+                    movedItem.Add("ID", fileID);
+                    movedItem.Add("FileRef", absoluteFileUrl);
+                    movedItem.Add("MoveNewUrl", moveNewUrl);
+                    items.Add(movedItem);
+                    cmds.Add(MethodCmdEnum.Move);
+
+                    // Construct the UpdateListItemsWithKnowledgeUpdates instance.
+                    UpdateListItemsWithKnowledgeUpdates moveUpdates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
+
+                    // Call UpdateListItemsWithKnowledge method to move file.
+                    UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult moveResult = null;
+                    moveResult = this.listswsAdapter.UpdateListItemsWithKnowledge(sourceList, moveUpdates, null, null);
+
+                    // Error code "0x00000000" indicates the operation completes successfully. Then R20962 captured.
+                    Site.CaptureRequirementIfAreEqual<string>(
+                        "0x00000000",
+                        moveResult.Results[0].ErrorCode,
+                        20962,
+                        @"Implementation does support this behavior[UpdateListItemsWithKnowledge.Move]. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
+                }
             }
         }
-
         /// <summary>
         /// This test case is used to test the attribute "OnError" with value "Continue" or default value in UpdateListItemsWithKnowledge operation.
         /// </summary>
@@ -6508,151 +6542,153 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Continue);
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            result = this.listswsAdapter.UpdateListItemsWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                                 listId,
                                                                 updates,
                                                                 null,
                                                                 null);
 
-            // Capture R2315 if there are three result elements,
-            // because we have there method in the request.
-            Site.CaptureRequirementIfAreEqual<int>(
-                            3,
-                            result.Results.Length,
-                            2315,
-                            "[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse]"
-                                + "[In UpdateListItemsWithKnowledgeResult element] If the OnError attribute of the Batch "
-                                + "element is set to Continue, then each Method corresponds to a Result.");
-
-            // Call GetListItems to get current items.
-            GetListItemsResponseGetListItemsResult listItems = null;
-            listItems = this.listswsAdapter.GetListItems(
-                                                    listId,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null);
-            DataTable data = AdapterHelper.ExtractData(listItems.listitems.data.Any);
-
-            // If there is only one item exist, the third insert will be aborted due to 
-            // the failure of the second insert operation.
-            Site.CaptureRequirementIfAreEqual<int>(
-                                 2,
-                                 data.Rows.Count,
-                                 1507,
-                                 @"[OnErrorEnum]Continue: Continues running subsequent methods after an error is encountered.");
-
-            Site.CaptureRequirementIfAreEqual<int>(
-                                 2,
-                                 data.Rows.Count,
-                                 2316,
+                // Capture R2315 if there are three result elements,
+                // because we have there method in the request.
+                Site.CaptureRequirementIfAreEqual<int>(
+                                3,
+                                result.Results.Length,
+                                2315,
                                 "[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse]"
-                                    + "[In UpdateListItemsWithKnowledgeResult element] [If the OnError attribute of the Batch "
-                                    + "element is set to Continue,] The outcome of a Method operation MUST not affect the other Method operations.");
+                                    + "[In UpdateListItemsWithKnowledgeResult element] If the OnError attribute of the Batch "
+                                    + "element is set to Continue, then each Method corresponds to a Result.");
 
-            if (Common.IsRequirementEnabled(4010, this.Site))
-            {
+                // Call GetListItems to get current items.
+                GetListItemsResponseGetListItemsResult listItems = null;
+                listItems = this.listswsAdapter.GetListItems(
+                                                        listId,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null);
+                DataTable data = AdapterHelper.ExtractData(listItems.listitems.data.Any);
+
+                // If there is only one item exist, the third insert will be aborted due to 
+                // the failure of the second insert operation.
                 Site.CaptureRequirementIfAreEqual<int>(
                                      2,
                                      data.Rows.Count,
-                                     4010,
-                                     @"[In UpdateListItemsWithKnowledge][In Bench element][In OnError attribute] Implementation does execute the subsequent methods in the batch [if ""OnError=Continue""] when encountering an error."
-                                     + @"(The 2007 Microsoft® Office system/Windows® SharePoint® Services 3.0 and above follow this behavior.)");
+                                     1507,
+                                     @"[OnErrorEnum]Continue: Continues running subsequent methods after an error is encountered.");
+
+                Site.CaptureRequirementIfAreEqual<int>(
+                                     2,
+                                     data.Rows.Count,
+                                     2316,
+                                    "[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse]"
+                                        + "[In UpdateListItemsWithKnowledgeResult element] [If the OnError attribute of the Batch "
+                                        + "element is set to Continue,] The outcome of a Method operation MUST not affect the other Method operations.");
+
+                if (Common.IsRequirementEnabled(4010, this.Site))
+                {
+                    Site.CaptureRequirementIfAreEqual<int>(
+                                         2,
+                                         data.Rows.Count,
+                                         4010,
+                                         @"[In UpdateListItemsWithKnowledge][In Bench element][In OnError attribute] Implementation does execute the subsequent methods in the batch [if ""OnError=Continue""] when encountering an error."
+                                         + @"(The 2007 Microsoft® Office system/Windows® SharePoint® Services 3.0 and above follow this behavior.)");
+                }
+
+                // Remove all the list items in this list.
+                string colunmIdName = AdapterHelper.PrefixOws + AdapterHelper.FieldIDName;
+                List<string> allItemsId = new List<string>();
+                foreach (DataRow row in data.Rows)
+                {
+                    string id = Convert.ToString(row[colunmIdName]);
+                    allItemsId.Add(id);
+                }
+
+                TestSuiteHelper.RemoveListItems(listId, allItemsId, OnErrorEnum.Continue);
+
+                // Construct UpdateListItemsUpdates instance not specified OnError, using the default value.
+                updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items);
+
+                // Call UpdateListItems using the default OnError value.
+                result = this.listswsAdapter.UpdateListItemsWithKnowledge(listId, updates, null, null);
+
+                // Call the GetListItems to get the current list items.
+                listItems = this.listswsAdapter.GetListItems(
+                                                        listId,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null);
+                data = AdapterHelper.ExtractData(listItems.listitems.data.Any);
+
+                // The UpdateListItmes does not send OnError, but if there are still 2 items,
+                // the third insert won’t be aborted due to the failure of the second insert operation.
+                // The behavior is the same on Continue.
+                Site.CaptureRequirementIfAreEqual<int>(
+                                     2,
+                                     data.Rows.Count,
+                                     2343,
+                                    @"[In UpdateListItemsWithKnowledge][In Bench element][In OnError attribute] "
+                                        + "The default is to continue executing subsequent items.");
+
+                // Remove all the list items in this list.
+                allItemsId = new List<string>();
+                foreach (DataRow row in data.Rows)
+                {
+                    string id = Convert.ToString(row[colunmIdName]);
+                    allItemsId.Add(id);
+                }
+
+                TestSuiteHelper.RemoveListItems(listId, allItemsId, OnErrorEnum.Continue);
+
+                // Try to update an item.
+                Dictionary<string, string> itemOfUpdated = new Dictionary<string, string>();
+                itemOfUpdated.Add(validFieldName, TestSuiteHelper.GenerateRandomString(5));
+
+                // Set the list item ID equal to 1 and Current List does not contain any list item. The list item which "ID" is equal to 1 does not exist in Current List.
+                itemOfUpdated.Add("ID", "1");
+                items = new List<Dictionary<string, string>>();
+                items.Add(itemOfUpdated);
+                cmds = new List<MethodCmdEnum>();
+                cmds.Add(MethodCmdEnum.Update);
+
+                updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Continue);
+                UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult resultOfUpdateListItemWithKnowledge = null;
+                resultOfUpdateListItemWithKnowledge = this.listswsAdapter.UpdateListItemsWithKnowledge(
+                                                                    listId,
+                                                                    updates,
+                                                                    null,
+                                                                    null);
+
+                // Here is one method in request, so there is one matched result element in response.
+                if (null == resultOfUpdateListItemWithKnowledge || null == resultOfUpdateListItemWithKnowledge.Results
+                    || 1 != resultOfUpdateListItemWithKnowledge.Results.Length)
+                {
+                    this.Site.Assert.Fail("Could not get the expected result information from response of UpdateListItemsWithKnowledge operation");
+                }
+
+                // Here is one list item in request, so that there is one z:row that should be returned.
+                if (null == resultOfUpdateListItemWithKnowledge.Results[0].Any || 1 != resultOfUpdateListItemWithKnowledge.Results[0].Any.Length)
+                {
+                    this.Site.Assert.Fail("Could not get the updated list item detail from response of UpdateListItemsWithKnowledge operation");
+                }
+
+                // If the SUT protocol presents the error code "0x81020016" in the response of resultOfUpdateListItemWithKnowledge operation,
+                // capture R2328.
+                Site.CaptureRequirementIfAreEqual<string>(
+                             "0x81020016",
+                             resultOfUpdateListItemWithKnowledge.Results[0].ErrorCode,
+                               2328,
+                               "[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse]"
+                            + "[In UpdateListItemsWithKnowledgeResult element]  This [error code 0x81020016] "
+                            + "specifies that the list item referred to in the request does not exist.");
             }
-
-            // Remove all the list items in this list.
-            string colunmIdName = AdapterHelper.PrefixOws + AdapterHelper.FieldIDName;
-            List<string> allItemsId = new List<string>();
-            foreach (DataRow row in data.Rows)
-            {
-                string id = Convert.ToString(row[colunmIdName]);
-                allItemsId.Add(id);
-            }
-
-            TestSuiteHelper.RemoveListItems(listId, allItemsId, OnErrorEnum.Continue);
-
-            // Construct UpdateListItemsUpdates instance not specified OnError, using the default value.
-            updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items);
-
-            // Call UpdateListItems using the default OnError value.
-            result = this.listswsAdapter.UpdateListItemsWithKnowledge(listId, updates, null, null);
-
-            // Call the GetListItems to get the current list items.
-            listItems = this.listswsAdapter.GetListItems(
-                                                    listId,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null);
-            data = AdapterHelper.ExtractData(listItems.listitems.data.Any);
-
-            // The UpdateListItmes does not send OnError, but if there are still 2 items,
-            // the third insert won’t be aborted due to the failure of the second insert operation.
-            // The behavior is the same on Continue.
-            Site.CaptureRequirementIfAreEqual<int>(
-                                 2,
-                                 data.Rows.Count,
-                                 2343,
-                                @"[In UpdateListItemsWithKnowledge][In Bench element][In OnError attribute] "
-                                    + "The default is to continue executing subsequent items.");
-
-            // Remove all the list items in this list.
-            allItemsId = new List<string>();
-            foreach (DataRow row in data.Rows)
-            {
-                string id = Convert.ToString(row[colunmIdName]);
-                allItemsId.Add(id);
-            }
-
-            TestSuiteHelper.RemoveListItems(listId, allItemsId, OnErrorEnum.Continue);
-
-            // Try to update an item.
-            Dictionary<string, string> itemOfUpdated = new Dictionary<string, string>();
-            itemOfUpdated.Add(validFieldName, TestSuiteHelper.GenerateRandomString(5));
-
-            // Set the list item ID equal to 1 and Current List does not contain any list item. The list item which "ID" is equal to 1 does not exist in Current List.
-            itemOfUpdated.Add("ID", "1");
-            items = new List<Dictionary<string, string>>();
-            items.Add(itemOfUpdated);
-            cmds = new List<MethodCmdEnum>();
-            cmds.Add(MethodCmdEnum.Update);
-
-            updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Continue);
-            UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult resultOfUpdateListItemWithKnowledge = null;
-            resultOfUpdateListItemWithKnowledge = this.listswsAdapter.UpdateListItemsWithKnowledge(
-                                                                listId,
-                                                                updates,
-                                                                null,
-                                                                null);
-
-            // Here is one method in request, so there is one matched result element in response.
-            if (null == resultOfUpdateListItemWithKnowledge || null == resultOfUpdateListItemWithKnowledge.Results
-                || 1 != resultOfUpdateListItemWithKnowledge.Results.Length)
-            {
-                this.Site.Assert.Fail("Could not get the expected result information from response of UpdateListItemsWithKnowledge operation");
-            }
-
-            // Here is one list item in request, so that there is one z:row that should be returned.
-            if (null == resultOfUpdateListItemWithKnowledge.Results[0].Any || 1 != resultOfUpdateListItemWithKnowledge.Results[0].Any.Length)
-            {
-                this.Site.Assert.Fail("Could not get the updated list item detail from response of UpdateListItemsWithKnowledge operation");
-            }
-
-            // If the SUT protocol presents the error code "0x81020016" in the response of resultOfUpdateListItemWithKnowledge operation,
-            // capture R2328.
-            Site.CaptureRequirementIfAreEqual<string>(
-                         "0x81020016",
-                         resultOfUpdateListItemWithKnowledge.Results[0].ErrorCode,
-                           2328,
-                           "[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse]"
-                        + "[In UpdateListItemsWithKnowledgeResult element]  This [error code 0x81020016] "
-                        + "specifies that the list item referred to in the request does not exist.");
         }
-
         /// <summary>
         ///  This test case is used to test the server behavior when the value of OnError attribute in the input parameters is “Return” in UpdateListItemsWithKnowledge operation.
         /// </summary>
@@ -6693,79 +6729,81 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            result = this.listswsAdapter.UpdateListItemsWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                                 listId,
                                                                 updates,
                                                                 null,
                                                                 null);
 
-            // Capture R2313 if there are three result elements,
-            // because we have three methods in the request.
-            Site.CaptureRequirementIfAreEqual<int>(
-                            3,
-                            result.Results.Length,
-                            2313,
-                            @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse]"
-                            + "[In UpdateListItemsWithKnowledgeResult element] If the OnError attribute of the Batch "
-                            + "element is set to Return, then there MUST be a Result element for each Method operation.");
+                // Capture R2313 if there are three result elements,
+                // because we have three methods in the request.
+                Site.CaptureRequirementIfAreEqual<int>(
+                                3,
+                                result.Results.Length,
+                                2313,
+                                @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse]"
+                                + "[In UpdateListItemsWithKnowledgeResult element] If the OnError attribute of the Batch "
+                                + "element is set to Return, then there MUST be a Result element for each Method operation.");
 
-            // If there are any error, this means that
-            // the server cannot set the column with the specified value. Then capture requirement R2352.
-            Site.CaptureRequirementIfAreNotEqual<string>(
-                "0x00000000",
-                result.Results[1].ErrorCode,
-                2352,
-                "[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element]"
-                    + "[In Batch element] [In Method element] [New attribute] [If Additional field "
-                    + "references DO NOT set those columns to the value specified,] an error will be returned.");
+                // If there are any error, this means that
+                // the server cannot set the column with the specified value. Then capture requirement R2352.
+                Site.CaptureRequirementIfAreNotEqual<string>(
+                    "0x00000000",
+                    result.Results[1].ErrorCode,
+                    2352,
+                    "[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element]"
+                        + "[In Batch element] [In Method element] [New attribute] [If Additional field "
+                        + "references DO NOT set those columns to the value specified,] an error will be returned.");
 
-            if (result.Results[1].ErrorCode == "0x81020014")
-            {
-                // If the error equals 0x81020014, the second item insert will fail. Then capture requirement 2120.
-                // There is no mandatory rule in this document to specify the server MUST return 0x81020014 in this case,
-                // So there is no force rule to capture this requirement.
-                Site.CaptureRequirement(
-                    2327,
-                    @"[In UpdateListItemsWithKnowledgeResult][In "
-                        + "UpdateListItemsWithKnowledgeResponse][In "
-                        + "UpdateListItemsWithKnowledgeResult element] This [0x81020014] "
-                        + "specifies a generic error has been encountered, such as an invalid value "
-                        + "being specified for a Field.");
-            }
+                if (result.Results[1].ErrorCode == "0x81020014")
+                {
+                    // If the error equals 0x81020014, the second item insert will fail. Then capture requirement 2120.
+                    // There is no mandatory rule in this document to specify the server MUST return 0x81020014 in this case,
+                    // So there is no force rule to capture this requirement.
+                    Site.CaptureRequirement(
+                        2327,
+                        @"[In UpdateListItemsWithKnowledgeResult][In "
+                            + "UpdateListItemsWithKnowledgeResponse][In "
+                            + "UpdateListItemsWithKnowledgeResult element] This [0x81020014] "
+                            + "specifies a generic error has been encountered, such as an invalid value "
+                            + "being specified for a Field.");
+                }
 
-            // Call GetListItems to get current items.
-            GetListItemsResponseGetListItemsResult listItems = null;
-            listItems = this.listswsAdapter.GetListItems(
-                                                    listId,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null,
-                                                    null);
-            DataTable data = AdapterHelper.ExtractData(listItems.listitems.data.Any);
+                // Call GetListItems to get current items.
+                GetListItemsResponseGetListItemsResult listItems = null;
+                listItems = this.listswsAdapter.GetListItems(
+                                                        listId,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null,
+                                                        null);
+                DataTable data = AdapterHelper.ExtractData(listItems.listitems.data.Any);
 
-            // If there is only one item existing, the third insert will be aborted due to 
-            // the failure of the second insert operation.
-            Site.CaptureRequirementIfAreEqual<int>(
-                                 1,
-                                 data.Rows.Count,
-                                 1506,
-                                "[OnErrorEnum]Return: [If the request includes the simple type with value \"Return\", "
-                                    + "the protocol server] Stops any more methods from running after the first error is encountered.");
-
-            if (Common.IsRequirementEnabled(4008, this.Site))
-            {
+                // If there is only one item existing, the third insert will be aborted due to 
+                // the failure of the second insert operation.
                 Site.CaptureRequirementIfAreEqual<int>(
                                      1,
                                      data.Rows.Count,
-                                     4008,
-                                     @"[In UpdateListItemsWithKnowledge][In Bench element][In OnError attribute] Implementation does result in the entire operation"
-                                     + @"being aborted [if ""OnError=Return""],[or whether subsequent methods in the batch should be executed.] when encountering an error."
-                                     + @"(The 2007 Microsoft® Office system/Windows® SharePoint® Services 3.0 and above follow this behavior.)");
+                                     1506,
+                                    "[OnErrorEnum]Return: [If the request includes the simple type with value \"Return\", "
+                                        + "the protocol server] Stops any more methods from running after the first error is encountered.");
+
+                if (Common.IsRequirementEnabled(4008, this.Site))
+                {
+                    Site.CaptureRequirementIfAreEqual<int>(
+                                         1,
+                                         data.Rows.Count,
+                                         4008,
+                                         @"[In UpdateListItemsWithKnowledge][In Bench element][In OnError attribute] Implementation does result in the entire operation"
+                                         + @"being aborted [if ""OnError=Return""],[or whether subsequent methods in the batch should be executed.] when encountering an error."
+                                         + @"(The 2007 Microsoft® Office system/Windows® SharePoint® Services 3.0 and above follow this behavior.)");
+                }
             }
         }
-
         /// <summary>
         /// This test case is used to test UpdateListItemsWithKnowledge operation in the case that the attribute "PreCalc" will be ignored by the server.
         /// </summary>
@@ -6793,59 +6831,61 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
             updates.Batch.PreCalc = "TRUE";
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult resultWhenPreCalcTrue = null;
-            resultWhenPreCalcTrue = this.listswsAdapter.UpdateListItemsWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                resultWhenPreCalcTrue = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                                 listId,
                                                                 updates,
                                                                 null,
                                                                 null);
 
-            // In the z:row, we can only make sure the attribute value which 
-            // is specified by validFieldName is equal, and for all the other attribute there is no 
-            // guarantee. So all the other attributes in the z:row will be ignored except the 
-            // specified one. 
-            foreach (UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResultResult result in resultWhenPreCalcTrue.Results)
-            {
-                foreach (XmlElement row in result.Any)
+                // In the z:row, we can only make sure the attribute value which 
+                // is specified by validFieldName is equal, and for all the other attribute there is no 
+                // guarantee. So all the other attributes in the z:row will be ignored except the 
+                // specified one. 
+                foreach (UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResultResult result in resultWhenPreCalcTrue.Results)
                 {
-                    IgnoreAttributeExcept(
-                                    row,
-                                    validFieldName);
+                    foreach (XmlElement row in result.Any)
+                    {
+                        IgnoreAttributeExcept(
+                                        row,
+                                        validFieldName);
+                    }
                 }
-            }
 
-            // Reset the PreCalc to some invalid value.
-            updates.Batch.PreCalc = "NotValidBoolean";
-            UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult resultWhenPreCalcInvalid = null;
-            resultWhenPreCalcInvalid = this.listswsAdapter.UpdateListItemsWithKnowledge(
-                                                                listId,
-                                                                updates,
-                                                                null,
-                                                                null);
+                // Reset the PreCalc to some invalid value.
+                updates.Batch.PreCalc = "NotValidBoolean";
+                UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult resultWhenPreCalcInvalid = null;
+                resultWhenPreCalcInvalid = this.listswsAdapter.UpdateListItemsWithKnowledge(
+                                                                    listId,
+                                                                    updates,
+                                                                    null,
+                                                                    null);
 
-            // In the z:row, we can only make sure the attribute value which 
-            // is specified by validFieldName is equal, and for all the other attribute there is no 
-            // guarantee. So all the other attributes in the z:row will be ignored except the 
-            // specified one. 
-            foreach (UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResultResult result in resultWhenPreCalcInvalid.Results)
-            {
-                foreach (XmlElement row in result.Any)
+                // In the z:row, we can only make sure the attribute value which 
+                // is specified by validFieldName is equal, and for all the other attribute there is no 
+                // guarantee. So all the other attributes in the z:row will be ignored except the 
+                // specified one. 
+                foreach (UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResultResult result in resultWhenPreCalcInvalid.Results)
                 {
-                    IgnoreAttributeExcept(
-                                    row,
-                                    validFieldName);
+                    foreach (XmlElement row in result.Any)
+                    {
+                        IgnoreAttributeExcept(
+                                        row,
+                                        validFieldName);
+                    }
                 }
-            }
 
-            // If ignore some fields in z:row element and both results are the same then capture R2344.
-            bool isSame = TestSuiteHelper.DeepCompare(resultWhenPreCalcTrue, resultWhenPreCalcInvalid);
-            Site.CaptureRequirementIfIsTrue(
-                        isSame,
-                        2344,
-                        "[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] "
-                            + "[In updates element] [In Batch element] [PreCalc attribute] The response of server will "
-                            + "be same for different values of PreCalc.");
+                // If ignore some fields in z:row element and both results are the same then capture R2344.
+                bool isSame = TestSuiteHelper.DeepCompare(resultWhenPreCalcTrue, resultWhenPreCalcInvalid);
+                Site.CaptureRequirementIfIsTrue(
+                            isSame,
+                            2344,
+                            "[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] "
+                                + "[In updates element] [In Batch element] [PreCalc attribute] The response of server will "
+                                + "be same for different values of PreCalc.");
+            }
         }
-
         /// <summary>
         /// This test case is used to test UpdateListItemsWithKnowledge operation when the listName is a valid GUID. 
         /// </summary>
@@ -6895,151 +6935,152 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             {
                 isSoapExceptionExist = true;
             }
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                this.Site.Assert.IsNotNull(updateListItemsWithKnowledgeResult, "UpdateListItemWithKnowledge operation with valid GUID is successful.");
 
-            this.Site.Assert.IsNotNull(updateListItemsWithKnowledgeResult, "UpdateListItemWithKnowledge operation with valid GUID is successful.");
+                // If there is no any SoapException exist, then capture R25151.
+                this.Site.CaptureRequirementIfIsFalse(
+                        isSoapExceptionExist,
+                        25151,
+                        @"Implementation does support this method[UpdateListItemsWithKnowledge]. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
 
-            // If there is no any SoapException exist, then capture R25151.
-            this.Site.CaptureRequirementIfIsFalse(
-                    isSoapExceptionExist,
-                    25151,
-                    @"Implementation does support this method[UpdateListItemsWithKnowledge]. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
+                #region Capture Requirement R1155
 
-            #region Capture Requirement R1155
+                // Verify if the FieldName is valid, the ErrorCode is equal to "0x00000000".
+                bool isValisFieldName = updateListItemsWithKnowledgeResult.Results[0].ErrorCode.Equals("0x00000000");
+                Site.Assert.IsTrue(isValisFieldName, "the ErrorCode is equal to 0x00000000.");
 
-            // Verify if the FieldName is valid, the ErrorCode is equal to "0x00000000".
-            bool isValisFieldName = updateListItemsWithKnowledgeResult.Results[0].ErrorCode.Equals("0x00000000");
-            Site.Assert.IsTrue(isValisFieldName, "the ErrorCode is equal to 0x00000000.");
+                // Verify if the FiledName is invalid, the ErrorCode is not equal to "0x00000000"".
+                bool isInValidFieldName = !updateListItemsWithKnowledgeResult.Results[1].ErrorCode.Equals("0x00000000");
+                Site.Assert.IsTrue(isInValidFieldName, "the ErrorCode is equal not to 0x00000000.");
 
-            // Verify if the FiledName is invalid, the ErrorCode is not equal to "0x00000000"".
-            bool isInValidFieldName = !updateListItemsWithKnowledgeResult.Results[1].ErrorCode.Equals("0x00000000");
-            Site.Assert.IsTrue(isInValidFieldName, "the ErrorCode is equal not to 0x00000000.");
+                // Verify R1155.
+                Site.CaptureRequirement(
+                    1155,
+                    @"[In UpdateListItemsWithKnowledge]Otherwise, the protocol server MUST process "
+                    + "the batched operations on the list and return success or failure conditions per "
+                    + "operation.");
 
-            // Verify R1155.
-            Site.CaptureRequirement(
-                1155,
-                @"[In UpdateListItemsWithKnowledge]Otherwise, the protocol server MUST process "
-                + "the batched operations on the list and return success or failure conditions per "
-                + "operation.");
+                #endregion
 
-            #endregion
+                #region Capture Requirement R1151, R2358
 
-            #region Capture Requirement R1151, R2358
+                // Call GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult operation by using the List Guid 
+                // to verify whether the item exists in the specified list.
+                CamlViewFields fields = TestSuiteHelper.CreateViewFields(false, new List<string> { validFieldName });
+                GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult getListItemWithKnowledgeResult = null;
+                getListItemWithKnowledgeResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
+                                                                                                      listId,
+                                                                                                      null,
+                                                                                                      null,
+                                                                                                      fields,
+                                                                                                      null,
+                                                                                                      null,
+                                                                                                      null,
+                                                                                                      null,
+                                                                                                      null);
 
-            // Call GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult operation by using the List Guid 
-            // to verify whether the item exists in the specified list.
-            CamlViewFields fields = TestSuiteHelper.CreateViewFields(false, new List<string> { validFieldName });
-            GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult getListItemWithKnowledgeResult = null;
-            getListItemWithKnowledgeResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
-                                                                                                  listId,
-                                                                                                  null,
-                                                                                                  null,
-                                                                                                  fields,
-                                                                                                  null,
-                                                                                                  null,
-                                                                                                  null,
-                                                                                                  null,
-                                                                                                  null);
+                string columnName = string.Format("{0}{1}", AdapterHelper.PrefixOws, validFieldName);
+                DataTable data = AdapterHelper.ExtractData(getListItemWithKnowledgeResult.listitems.data.Any);
+                bool isUseList = data.Rows.Count == 1 && Convert.ToString(data.Rows[0][columnName]) == fieldValue;
 
-            string columnName = string.Format("{0}{1}", AdapterHelper.PrefixOws, validFieldName);
-            DataTable data = AdapterHelper.ExtractData(getListItemWithKnowledgeResult.listitems.data.Any);
-            bool isUseList = data.Rows.Count == 1 && Convert.ToString(data.Rows[0][columnName]) == fieldValue;
+                Site.Log.Add(
+                         LogEntryKind.Debug,
+                         "The actual value: data.Rows.Count[{0}],columnName[{1}] for requirement #R1151",
+                         data.Rows.Count,
+                         0 == data.Rows.Count ? "NoRows" : data.Rows[0][columnName]);
 
-            Site.Log.Add(
-                     LogEntryKind.Debug,
-                     "The actual value: data.Rows.Count[{0}],columnName[{1}] for requirement #R1151",
-                     data.Rows.Count,
-                     0 == data.Rows.Count ? "NoRows" : data.Rows[0][columnName]);
-
-            // If the specified list contains one item and the field value in the z:row element equals to value in
-            // the UpdateListItemsWithKnowledge request, then R1151 should be covered.
-            Site.CaptureRequirementIfIsTrue(
-                isUseList,
-                1151,
-                @"[In UpdateListItemsWithKnowledge]If the specified listName is a valid GUID and corresponds to 
+                // If the specified list contains one item and the field value in the z:row element equals to value in
+                // the UpdateListItemsWithKnowledge request, then R1151 should be covered.
+                Site.CaptureRequirementIfIsTrue(
+                    isUseList,
+                    1151,
+                    @"[In UpdateListItemsWithKnowledge]If the specified listName is a valid GUID and corresponds to 
                 the identification of a list on the site, use that list.");
 
-            // If the protocol client does not specify the owshiddenversion field reference in 
-            // the UpdateListItemsWithKnow request, then capture R2358.
-            Site.CaptureRequirement(
-               2358,
-               @"[In UpdateListItemsWithKnowledge operation] [In "
-               + "UpdateListItemsWithKnowledge element] [In updates element] [In Batch "
-               + "element] [In Method element] [In Field element] If the protocol client does "
-               + "not specify the owshiddenversion field reference in the "
-               + "UpdateListItemsWithKnow request, then the protocol server MUST overwrite "
-               + "any changes in the list item or return an error.");
+                // If the protocol client does not specify the owshiddenversion field reference in 
+                // the UpdateListItemsWithKnow request, then capture R2358.
+                Site.CaptureRequirement(
+                   2358,
+                   @"[In UpdateListItemsWithKnowledge operation] [In "
+                   + "UpdateListItemsWithKnowledge element] [In updates element] [In Batch "
+                   + "element] [In Method element] [In Field element] If the protocol client does "
+                   + "not specify the owshiddenversion field reference in the "
+                   + "UpdateListItemsWithKnow request, then the protocol server MUST overwrite "
+                   + "any changes in the list item or return an error.");
 
-            #endregion
+                #endregion
 
-            #region Capture Requirements R2326
+                #region Capture Requirements R2326
 
-            string fieldCounter = Common.GetConfigurationPropertyValue("ListFieldCounter", this.Site);
+                string fieldCounter = Common.GetConfigurationPropertyValue("ListFieldCounter", this.Site);
 
-            // Set the value of Counter as "1".
-            string fieldCounterValue = "1";
-            cmds = new List<MethodCmdEnum>(1);
-            items = new List<Dictionary<string, string>>(1);
-            Dictionary<string, string> item3 = new Dictionary<string, string>();
-            item3.Add(fieldCounter, fieldCounterValue);
-            items.Add(item3);
-            cmds.Add(MethodCmdEnum.New);
+                // Set the value of Counter as "1".
+                string fieldCounterValue = "1";
+                cmds = new List<MethodCmdEnum>(1);
+                items = new List<Dictionary<string, string>>(1);
+                Dictionary<string, string> item3 = new Dictionary<string, string>();
+                item3.Add(fieldCounter, fieldCounterValue);
+                items.Add(item3);
+                cmds.Add(MethodCmdEnum.New);
 
-            // Call UpdateListItemsWithKnowledge with valid Guid. Add a counter.
-            updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Continue);
+                // Call UpdateListItemsWithKnowledge with valid Guid. Add a counter.
+                updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Continue);
 
-            updateListItemsWithKnowledgeResult
-           = this.listswsAdapter.UpdateListItemsWithKnowledge(
-                                                               listId,
-                                                               updates,
-                                                               null,
-                                                               null);
+                updateListItemsWithKnowledgeResult
+               = this.listswsAdapter.UpdateListItemsWithKnowledge(
+                                                                   listId,
+                                                                   updates,
+                                                                   null,
+                                                                   null);
 
-            // Get the value of the "ID" from the server.
-            columnName = string.Format("{0}{1}", AdapterHelper.PrefixOws, "ID");
-            data = AdapterHelper.ExtractData(updateListItemsWithKnowledgeResult.Results[0].Any);
-            string id = Convert.ToString(data.Rows[0][columnName]);
+                // Get the value of the "ID" from the server.
+                columnName = string.Format("{0}{1}", AdapterHelper.PrefixOws, "ID");
+                data = AdapterHelper.ExtractData(updateListItemsWithKnowledgeResult.Results[0].Any);
+                string id = Convert.ToString(data.Rows[0][columnName]);
 
-            // As description, if update the list item, must add the ID value for the specified list item.
-            cmds = new List<MethodCmdEnum>(1);
-            items = new List<Dictionary<string, string>>(1);
-            Dictionary<string, string> item4 = new Dictionary<string, string>();
-            item4.Add("ID", id);
+                // As description, if update the list item, must add the ID value for the specified list item.
+                cmds = new List<MethodCmdEnum>(1);
+                items = new List<Dictionary<string, string>>(1);
+                Dictionary<string, string> item4 = new Dictionary<string, string>();
+                item4.Add("ID", id);
 
-            // Set an invalid value for the counter, Guid is not integer. 
-            item4.Add(fieldCounter, Guid.NewGuid().ToString());
-            items.Add(item4);
-            cmds.Add(MethodCmdEnum.Update);
-            updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Continue);
+                // Set an invalid value for the counter, Guid is not integer. 
+                item4.Add(fieldCounter, Guid.NewGuid().ToString());
+                items.Add(item4);
+                cmds.Add(MethodCmdEnum.Update);
+                updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Continue);
 
-            updateListItemsWithKnowledgeResult
-           = this.listswsAdapter.UpdateListItemsWithKnowledge(
-                                                               listId,
-                                                               updates,
-                                                               null,
-                                                               null);
+                updateListItemsWithKnowledgeResult
+               = this.listswsAdapter.UpdateListItemsWithKnowledge(
+                                                                   listId,
+                                                                   updates,
+                                                                   null,
+                                                                   null);
 
-            // If the specified item is not be changed, then R2326 should be covered.
-            columnName = string.Format("{0}{1}", AdapterHelper.PrefixOws, fieldCounter);
-            data = AdapterHelper.ExtractData(updateListItemsWithKnowledgeResult.Results[0].Any);
-            bool isReturnInZRowElement = Convert.ToString(data.Rows[0][columnName]) == fieldCounterValue;
+                // If the specified item is not be changed, then R2326 should be covered.
+                columnName = string.Format("{0}{1}", AdapterHelper.PrefixOws, fieldCounter);
+                data = AdapterHelper.ExtractData(updateListItemsWithKnowledgeResult.Results[0].Any);
+                bool isReturnInZRowElement = Convert.ToString(data.Rows[0][columnName]) == fieldCounterValue;
 
-            Site.Log.Add(
-            LogEntryKind.Debug,
-            "The actual value: columnName[{0}] for requirement #R2326",
-            0 == data.Rows.Count ? "NoRows" : data.Rows[0][columnName]);
+                Site.Log.Add(
+                LogEntryKind.Debug,
+                "The actual value: columnName[{0}] for requirement #R2326",
+                0 == data.Rows.Count ? "NoRows" : data.Rows[0][columnName]);
 
-            Site.CaptureRequirementIfIsTrue(
-                isReturnInZRowElement,
-                2326,
-                @"[In UpdateListItemsWithKnowledgeResult][In "
-                + "UpdateListItemsWithKnowledgeResponse][In "
-                + "UpdateListItemsWithKnowledgeResult element] On failure, the z:row element "
-                + "MUST contain the list item data that exists on the server if the list item "
-                + "specified in the request exists.");
+                Site.CaptureRequirementIfIsTrue(
+                    isReturnInZRowElement,
+                    2326,
+                    @"[In UpdateListItemsWithKnowledgeResult][In "
+                    + "UpdateListItemsWithKnowledgeResponse][In "
+                    + "UpdateListItemsWithKnowledgeResult element] On failure, the z:row element "
+                    + "MUST contain the list item data that exists on the server if the list item "
+                    + "specified in the request exists.");
 
-            #endregion
+                #endregion
+            }
         }
-
         /// <summary>
         /// This test case is used to test the UpdateListItemsWithKnowledge operation when listName is not a GUID but a valid list title. 
         /// </summary>
@@ -7072,104 +7113,106 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Continue);
 
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            result = this.listswsAdapter.UpdateListItemsWithKnowledge(
+            if (Common.IsRequirementEnabled(2221, this.Site))
+            {
+                result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                 listName,
                                                 updates,
                                                 null,
                                                 null);
 
-            // The number of result element in the  UpdateListItems response MUST be equal to the number of Method in the request.
-            Site.Assert.AreEqual<int>(
-                        2,
-                        result.Results.Length,
-                        "The number of result element in the  UpdateListItems response MUST be equal to the number of Method in the request.");
+                // The number of result element in the  UpdateListItems response MUST be equal to the number of Method in the request.
+                Site.Assert.AreEqual<int>(
+                            2,
+                            result.Results.Length,
+                            "The number of result element in the  UpdateListItems response MUST be equal to the number of Method in the request.");
 
-            // Expect the first result is successful but the second one is failed.
-            bool isFirstResultSuccess = result.Results[0].ErrorCode == "0x00000000";
-            bool isSecondResultFail = result.Results[1].ErrorCode != "0x00000000";
+                // Expect the first result is successful but the second one is failed.
+                bool isFirstResultSuccess = result.Results[0].ErrorCode == "0x00000000";
+                bool isSecondResultFail = result.Results[1].ErrorCode != "0x00000000";
 
-            // If the first operation result equals to 0x00000000, capture 
-            // Requirement R2323.
-            Site.CaptureRequirementIfIsTrue(
-                isFirstResultSuccess,
-                2323,
-                @"[In UpdateListItemsWithKnowledgeResult][In "
-                    + "UpdateListItemsWithKnowledgeResponse][In "
-                    + "UpdateListItemsWithKnowledgeResult element] If an operation completes "
-                    + "successfully, the value of the ErrorCode MUST be set to 0x00000000.");
+                // If the first operation result equals to 0x00000000, capture 
+                // Requirement R2323.
+                Site.CaptureRequirementIfIsTrue(
+                    isFirstResultSuccess,
+                    2323,
+                    @"[In UpdateListItemsWithKnowledgeResult][In "
+                        + "UpdateListItemsWithKnowledgeResponse][In "
+                        + "UpdateListItemsWithKnowledgeResult element] If an operation completes "
+                        + "successfully, the value of the ErrorCode MUST be set to 0x00000000.");
 
-            DataTable resultData1 = AdapterHelper.ExtractData(result.Results[0].Any);
-            string columnName = string.Format("{0}{1}", AdapterHelper.PrefixOws, validFieldName);
+                DataTable resultData1 = AdapterHelper.ExtractData(result.Results[0].Any);
+                string columnName = string.Format("{0}{1}", AdapterHelper.PrefixOws, validFieldName);
 
-            // If the first successful operation contains one and only one z:row
-            // and the field value in the z:row element equals the value in the request,
-            // the requirement R2325 will be able to be captured.
-            bool isContainUpdateData = resultData1.Rows.Count == 1
-                                            && Convert.ToString(resultData1.Rows[0][columnName]) == fieldValue;
-            Site.CaptureRequirementIfIsTrue(
-                isContainUpdateData,
-                2325,
-                @"[In UpdateListItemsWithKnowledgeResult][In "
-                    + "UpdateListItemsWithKnowledgeResponse][In "
-                    + "UpdateListItemsWithKnowledgeResult element]If the operation succeeded, "
-                    + "the z:row element MUST contain the updated data for the list item that is "
-                    + "operated on.");
+                // If the first successful operation contains one and only one z:row
+                // and the field value in the z:row element equals the value in the request,
+                // the requirement R2325 will be able to be captured.
+                bool isContainUpdateData = resultData1.Rows.Count == 1
+                                                && Convert.ToString(resultData1.Rows[0][columnName]) == fieldValue;
+                Site.CaptureRequirementIfIsTrue(
+                    isContainUpdateData,
+                    2325,
+                    @"[In UpdateListItemsWithKnowledgeResult][In "
+                        + "UpdateListItemsWithKnowledgeResponse][In "
+                        + "UpdateListItemsWithKnowledgeResult element]If the operation succeeded, "
+                        + "the z:row element MUST contain the updated data for the list item that is "
+                        + "operated on.");
 
-            // Call GetListItems operation by using the List GUID to verify 
-            // the operation of inserting item just happens to the specified list.
-            CamlViewFields fields = TestSuiteHelper.CreateViewFields(false, new List<string> { validFieldName });
-            GetListItemsResponseGetListItemsResult itemResult = null;
-            itemResult = this.listswsAdapter.GetListItems(
-                                                listId,
-                                                null,
-                                                null,
-                                                fields,
-                                                null,
-                                                null,
-                                                null);
+                // Call GetListItems operation by using the List GUID to verify 
+                // the operation of inserting item just happens to the specified list.
+                CamlViewFields fields = TestSuiteHelper.CreateViewFields(false, new List<string> { validFieldName });
+                GetListItemsResponseGetListItemsResult itemResult = null;
+                itemResult = this.listswsAdapter.GetListItems(
+                                                    listId,
+                                                    null,
+                                                    null,
+                                                    fields,
+                                                    null,
+                                                    null,
+                                                    null);
 
-            // If the list specified by the GUID only contains one item
-            // and the field value in the z:row element equals the value in the UpdateListItems request,
-            // we use the proper list in the UpdateListItems operation.
-            // R1152 and R2160 can be captured in this condition.
-            DataTable data = AdapterHelper.ExtractData(itemResult.listitems.data.Any);
-            bool isUseProperList = data.Rows.Count == 1
-                                    && Convert.ToString(data.Rows[0][columnName]) == fieldValue;
-            Site.CaptureRequirementIfIsTrue(
-                isUseProperList,
-                1152,
-                @"[In UpdateListItemsWithKnowledge]If the specified listName is not a valid "
-                    + "GUID [or does not correspond to the identification of a list on the site,] "
-                    + "check if the listName corresponds to the list title of a list on the site and, "
-                    + "if so, use that list.");
-            Site.CaptureRequirementIfIsTrue(
-                isUseProperList,
-                2160,
-                @"[If the specified listName ]does not correspond to the identification of a list "
-                    + "on the site, check if the listName corresponds to the list title of a list on the "
-                    + "site and, if so, use that list.");
+                // If the list specified by the GUID only contains one item
+                // and the field value in the z:row element equals the value in the UpdateListItems request,
+                // we use the proper list in the UpdateListItems operation.
+                // R1152 and R2160 can be captured in this condition.
+                DataTable data = AdapterHelper.ExtractData(itemResult.listitems.data.Any);
+                bool isUseProperList = data.Rows.Count == 1
+                                        && Convert.ToString(data.Rows[0][columnName]) == fieldValue;
+                Site.CaptureRequirementIfIsTrue(
+                    isUseProperList,
+                    1152,
+                    @"[In UpdateListItemsWithKnowledge]If the specified listName is not a valid "
+                        + "GUID [or does not correspond to the identification of a list on the site,] "
+                        + "check if the listName corresponds to the list title of a list on the site and, "
+                        + "if so, use that list.");
+                Site.CaptureRequirementIfIsTrue(
+                    isUseProperList,
+                    2160,
+                    @"[If the specified listName ]does not correspond to the identification of a list "
+                        + "on the site, check if the listName corresponds to the list title of a list on the "
+                        + "site and, if so, use that list.");
 
-            // If we make sure using the proper list
-            // and the operation result contains either successful or failed result,
-            // R1155 can be captured.
-            Site.CaptureRequirementIfIsTrue(
-                isUseProperList && isFirstResultSuccess && isSecondResultFail,
-                1155,
-                @"[In UpdateListItemsWithKnowledge]Otherwise, the protocol server MUST process "
-                + "the batched operations on the list and return success or failure conditions per "
-                + "operation.");
+                // If we make sure using the proper list
+                // and the operation result contains either successful or failed result,
+                // R1155 can be captured.
+                Site.CaptureRequirementIfIsTrue(
+                    isUseProperList && isFirstResultSuccess && isSecondResultFail,
+                    1155,
+                    @"[In UpdateListItemsWithKnowledge]Otherwise, the protocol server MUST process "
+                    + "the batched operations on the list and return success or failure conditions per "
+                    + "operation.");
 
-            // If the field value of the list item equals the value in request, R2355 can be captured.
-            Site.CaptureRequirementIfAreEqual<string>(
-                fieldValue,
-                Convert.ToString(data.Rows[0][columnName]),
-                2355,
-                @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] "
-                + "[In Batch element] [In Method element] [In Field element] The protocol server "
-                + "MUST set the field's value equal to the value of the Field element in the protocol client request, "
-                + "if the field is not a special field.");
+                // If the field value of the list item equals the value in request, R2355 can be captured.
+                Site.CaptureRequirementIfAreEqual<string>(
+                    fieldValue,
+                    Convert.ToString(data.Rows[0][columnName]),
+                    2355,
+                    @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] "
+                    + "[In Batch element] [In Method element] [In Field element] The protocol server "
+                    + "MUST set the field's value equal to the value of the Field element in the protocol client request, "
+                    + "if the field is not a special field.");
+            }
         }
-
         #endregion
 
         #region UpdateListItems
