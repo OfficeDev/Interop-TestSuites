@@ -2335,7 +2335,7 @@ function SetServerAuthenticationMode
     </configuration>
 "@       
     
-    if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0])
+    if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0] -or $SharePointVersion -eq $SharePointServerSubscriptionEdition[0])
     {
         $mumberShip = "LdapMember"
         $roleManager = "LdapRole"
@@ -2399,7 +2399,7 @@ function SetServerAuthenticationMode
             }
         }
         
-        if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0])
+        if($SharePointVersion -eq $SharePointServer2013[0] -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0] -or $SharePointVersion -eq $SharePointServerSubscriptionEdition[0])
         {
             $stsRoleProviders = $stsRoot."system.web".roleManager.providers.add
             $stsRoleProvider = $stsRoleProviders | where {$_.name -eq $roleManager} 
