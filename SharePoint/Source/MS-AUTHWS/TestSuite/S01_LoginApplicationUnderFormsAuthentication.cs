@@ -206,25 +206,28 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
             AuthenticationMode authMode = this.authwsAdapter.Mode();
             Site.Assert.AreEqual<AuthenticationMode>(AuthenticationMode.Forms, authMode, "The current authentication mode should be 'Forms', actually the mode is {0}", authMode);
 
-            // Invoke the Login operation with invalid user name.
-            LoginResult loginResult = this.authwsAdapter.Login(this.invalidUserName, this.validPassword);
-            Site.Assert.IsNotNull(loginResult, "Login result is not null");
-            Site.Assert.IsNull(loginResult.CookieName, "The CookieName is not returned");
+            if (Common.IsRequirementEnabled(83, this.Site))
+            {
+                // Invoke the Login operation with invalid user name.
+                LoginResult loginResult = this.authwsAdapter.Login(this.invalidUserName, this.validPassword);
+                Site.Assert.IsNotNull(loginResult, "Login result is not null");
+                Site.Assert.IsNull(loginResult.CookieName, "The CookieName is not returned");
 
-            // If the Login operation failed with invalid user name, and the CookieName element is not returned, MS-AUTHWS_74 can be directly verified.
-            Site.CaptureRequirement(
-                74,
-                @"[In LoginResult] This element [CookieName element] MUST NOT be present if the Login WSDL operation failed.");
+                // If the Login operation failed with invalid user name, and the CookieName element is not returned, MS-AUTHWS_74 can be directly verified.
+                Site.CaptureRequirement(
+                    74,
+                    @"[In LoginResult] This element [CookieName element] MUST NOT be present if the Login WSDL operation failed.");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "If the Login operation failed with invalid user name, and the value of returned ErrorCode is 'PasswordNotMatch', MS-AUTHWS_R84 can be verified.");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "If the Login operation failed with invalid user name, and the value of returned ErrorCode is 'PasswordNotMatch', MS-AUTHWS_R84 can be verified.");
 
-            // If the Login operation failed with invalid user name, and the value of returned ErrorCode is 'PasswordNotMatch', MS-AUTHWS_R84 can be verified.
-            Site.CaptureRequirementIfAreEqual<LoginErrorCode>(
-                LoginErrorCode.PasswordNotMatch,
-                loginResult.ErrorCode,
-                84,
-                @"[In LoginErrorCode] The value of LoginErrorCode is ""PasswordNotMatch"", when the Login operation failed because the logon name is not found by the server, [or the password does not match what is stored on the server].");
+                // If the Login operation failed with invalid user name, and the value of returned ErrorCode is 'PasswordNotMatch', MS-AUTHWS_R84 can be verified.
+                Site.CaptureRequirementIfAreEqual<LoginErrorCode>(
+                    LoginErrorCode.PasswordNotMatch,
+                    loginResult.ErrorCode,
+                    84,
+                    @"[In LoginErrorCode] The value of LoginErrorCode is ""PasswordNotMatch"", when the Login operation failed because the logon name is not found by the server, [or the password does not match what is stored on the server].");
+            }
         }
 
         /// <summary>
@@ -237,20 +240,23 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
             AuthenticationMode authMode = this.authwsAdapter.Mode();
             Site.Assert.AreEqual<AuthenticationMode>(AuthenticationMode.Forms, authMode, "The current authentication mode should be 'Forms', actually the mode is {0}", authMode);
 
-            // Invoke the Login operation with invalid password.
-            LoginResult loginResult = this.authwsAdapter.Login(this.validUserName, this.invalidPassword);
-            Site.Assert.IsNotNull(loginResult, "Login result is not null");
-            Site.Assert.IsNull(loginResult.CookieName, "The CookieName is not returned");
+            if (Common.IsRequirementEnabled(83, this.Site))
+            {
+                // Invoke the Login operation with invalid password.
+                LoginResult loginResult = this.authwsAdapter.Login(this.validUserName, this.invalidPassword);
+                Site.Assert.IsNotNull(loginResult, "Login result is not null");
+                Site.Assert.IsNull(loginResult.CookieName, "The CookieName is not returned");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "If the Login operation failed with invalid password, and the value of returned ErrorCode is 'PasswordNotMatch', MS-AUTHWS_R85 can be verified.");
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "If the Login operation failed with invalid password, and the value of returned ErrorCode is 'PasswordNotMatch', MS-AUTHWS_R85 can be verified.");
 
-            // If the Login operation failed with invalid password, and the value of returned ErrorCode is 'PasswordNotMatch', MS-AUTHWS_R85 can be verified.
-            Site.CaptureRequirementIfAreEqual<LoginErrorCode>(
-                LoginErrorCode.PasswordNotMatch,
-                loginResult.ErrorCode,
-                85,
-                @"[In LoginErrorCode] The value of LoginErrorCode is ""PasswordNotMatch"", the Login operation failed because the password does not match what is stored on the server.");
+                // If the Login operation failed with invalid password, and the value of returned ErrorCode is 'PasswordNotMatch', MS-AUTHWS_R85 can be verified.
+                Site.CaptureRequirementIfAreEqual<LoginErrorCode>(
+                    LoginErrorCode.PasswordNotMatch,
+                    loginResult.ErrorCode,
+                    85,
+                    @"[In LoginErrorCode] The value of LoginErrorCode is ""PasswordNotMatch"", the Login operation failed because the password does not match what is stored on the server.");
+            }
         }
         #endregion Test Cases
 
