@@ -66,7 +66,7 @@
     <!-- Set R2483Enabled to true to verify that GetListItemChangesSinceToken operation does not ignore the changeToken parameter as specified in section 7. Set R2483Enabled to false to disable this requirement. -->
     <Property name="R2483Enabled" value="False" />
     <!-- Set R2220Enabled to true to verify that GetListItemChangesWithKnowledge operation does retrieve all rows when get list item changes with knowledge as specified in section 3.1.4.23.2.1. Set R2220Enabled to false to disable this requirement. -->
-    <Property name="R2220Enabled" value="True" />
+    <Property name="R2220Enabled" value="false" />
     <!-- Set R2489Enabled to true to verify that GetListItems operation does not return a SOAP fault with error code 0x82000006 as specified in section 7. Set R2489Enabled to false to disable this requirement. -->
     <Property name="R2489Enabled" value="False" />
     <!-- Set R2764Enabled to true to verify that GetListItems operation does return a SOAP fault with error code 0x82000006 as specified in section 3.1.4.24. Set R2764Enabled to false to disable this requirement. -->
@@ -102,9 +102,9 @@
     <!-- Set R2230Enabled to true to verify that the SUT does support GetListContentTypesAndProperties operation as specified in section 3.1.4.20. Set R2230Enabled to false to disable this requirement. -->
     <Property name="R2230Enabled" value="True" />
     <!-- Set R25151Enabled to true to verify that the SUT does support UpdateListItemsWithKnowledge operation as specified in section 7. Set R25151Enabled to false to to disable this requirement. -->
-    <Property name="R25151Enabled" value="True" />
+    <Property name="R25151Enabled" value="false" />
     <!-- Set R24881Enabled to true to verify that the SUT does support GetListItemChangesWithKnowledge operations specified in section 7.Set R24881Enabled to false to false to disable this requirement. -->
-    <Property name="R24881Enabled" value="True" />
+    <Property name="R24881Enabled" value="false" />
     <!-- Set R2219Enabled to true to verify that GetListItemChangesSinceToken operation does specify rowLimit to indicate the maximum number of rows of data to return in section the response as specified in section 3.1.4.22.2.1. Set R2219Enabled to false to disable this requirement. -->
     <Property name="R2219Enabled" value="True" />
     <!-- Set R677Enabled to true to verify that GetListItemChangesSinceToken operation does retrieve all rows when specifying a value of 0,unless the changeToken parameter is specified as specified in section 3.1.4.22.2.1. Set R677Enabled to false to disable this requirement. -->
@@ -275,7 +275,5 @@
     <Property name="R542001001Enabled" value="true" />
     <!-- Set R1518047Enabled to true to verify that implementation does return the ListDefinitionCT.ComplianceTag/ListDefinitionCT.ComplianceFlags/ListDefinitionCT.UserModified/ListDefinitionCT.ListSchemaVersion/ListDefinitionCT.AclVersion attribute. Set R1518047Enabled to false to disable this requirement. -->
     <Property name="R1518047Enabled" value="true" />
-    <!--Set R2221Enabled to true to verify the GetListItemChangesWithKnowledge operation has problems in the SharePointServerSubscriptionEdition. -->
-    <Property name="R2221Enabled" value="false" />
   </Properties>
 </TestSite>

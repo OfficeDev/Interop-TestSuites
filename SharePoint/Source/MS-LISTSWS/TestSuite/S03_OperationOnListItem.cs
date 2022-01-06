@@ -1599,8 +1599,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Call GetListItemChangesWithKnowledge with empty row limit and without knowledge
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult getListKnowledgeResultWithEmptyRowLimit = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 getListKnowledgeResultWithEmptyRowLimit = this.listswsAdapter.GetListItemChangesWithKnowledge(
                                  listName,
                                  null,
@@ -1622,7 +1620,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     data.Rows.Count,
                     22201,
                     @"[In GetListItemChangesWithKnowledge]  Implementation does retrieve all rows when get list item changes with knowledge excluding this parameter[rowLimit] or passing an empty element, unless the knowledge parameter is specified. (The 2007 Microsoft® Office system/Windows® SharePoint® Services 3.0 and above follow this behavior.)");
-            }
         }
         /// <summary>
         /// This test case is used to test the GetListItemChangesWithKnowledge operation when the list name is not valid GUID.
@@ -1674,8 +1671,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     @"{0} return a SOAP fault with error code 0x82000006, this indicates that the list does not exist or might have been deleted by another user.",
                     sutVersion);
             }
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 // If the error code equals 0x82000006, capture R1084 and R2354.
                 Site.CaptureRequirementIfAreEqual<string>(
                         "0x82000006",
@@ -1688,7 +1683,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                         errorCode,
                         2354,
                         "[In GetListItemChangesWithKnowledge operation] [If listName does not correspond to a list from either of these checks, the protocol server MUST return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user");
-            }
         }
 
         /// <summary>
@@ -1761,8 +1755,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             updates.Batch.Method[0].Field[0].Value = propertyValue;
 
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult updateListItemsResult = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 updateListItemsResult = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                                 listGuid,
                                                                 updates,
@@ -1834,7 +1826,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     isContaincontentchangeunit,
                     1144,
                     @"[In GetListItemChangesWithKnowledgeResponse]If the protocol client requests the MetaInfo field for the list items, the protocol server MUST return the vti_contentchangeunit Metainfo property if the property was set in the item or document and the list item or document has not been updated since the time the property was set by a client.");
-            }
         }
         /// <summary>
         /// The test case is used to verify GetListItemChangesWithKnowledge Operation when the viewFields parameter is not specified but contains a correct formatted GUID and refers to a view that does not exist.
@@ -1875,15 +1866,12 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             Site.Assert.IsTrue(
                             isSoapFaultExist,
                             "When the list id is a correctly formatted GUID and refers to a view that does not exist, the server will return soap fault exception.");
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 // Verify MS-LISTSWS requirement: MS-LISTSWS_R1086
                 Site.CaptureRequirementIfAreEqual<string>(
                 "0x82000005",
                 errorCode,
                 1086,
                 @"[In GetListItemChangesWithKnowledge operation] If the viewFields parameter is not specified and the viewName parameter contains a correctly formatted GUID and refers to a view that does not exist, the protocol server MUST return a SOAP fault with error code 0x82000005.");
-            }
         }
         /// <summary>
         /// This test case is used to test the GetListItemChangesWithKnowledge operation whether the row limit is specified or not.
@@ -1901,8 +1889,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Call the GetListItemChangesWithKnowledge when the knowledge is not specified.
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult result = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 result = this.listswsAdapter.GetListItemChangesWithKnowledge(
                                                         listId,
                                                         null,
@@ -2052,7 +2038,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
                 bool isR1109Verified = !isItemChangesExist && data.Rows.Count == 100;
 
-            }
         }
 
         /// <summary>
@@ -2071,8 +2056,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Get the syncKnowledge.
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult result = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 result = this.listswsAdapter.GetListItemChangesWithKnowledge(
                                             listId,
                                             null,
@@ -2193,7 +2176,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                 isSchemaChange,
                                 1134,
                                 @"[In GetListItemChangesWithKnowledgeResponse][Attribute of SchemaChanged]The SchemaChanged attribute MUST be set to ""TRUE"" if there have schema changes made to the list.");
-            }
         }
         /// <summary>
         /// This test case is used to test the GetListItemChangesWithKnowledge 
@@ -2217,8 +2199,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             bool isSoapFaultExisted = false;
             CamlViewFields viewFields = TestSuiteHelper.CreateViewFields(true, new List<string> { AdapterHelper.FieldAuthorName });
             CamlQueryOptions queryOptions = CreateDefaultCamlQueryOptions();
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 try
                 {
                     getListItemChangesresult = this.listswsAdapter.GetListItemChangesWithKnowledge(
@@ -2304,7 +2284,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 }
 
                 #endregion
-            }
         }
         /// <summary>
         /// This test case is used to verify the names of the attributes containing the list item data in inner z:row elements prefixed by "ows_" in the response of GetListItemChangesWithKnowledgeResponse operation.  
@@ -2324,8 +2303,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             #region Invoke "GetListItemChangesWithKnowledge" to get last item changes.
                 GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult getListItemChangesWithKnowledgeResult = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 getListItemChangesWithKnowledgeResult
                     = this.listswsAdapter.GetListItemChangesWithKnowledge(listName, null, null, null, null, null, null, null, null);
                 Site.Assert.IsNotNull(getListItemChangesWithKnowledgeResult, "The response of \"GetListItemChangesWithKnowledge\" is null!");
@@ -2360,7 +2337,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                         "[In GetListItemChangesWithKnowledgeResponse]The names of the attributes containing the list item data in inner z:row elements are prefixed by \"ows_\".");
 
                 #endregion
-            }
         }
         /// <summary>
         ///  This test case is used to test that the response does not contain ServerTime attribute when there is not item changes in GetListItemChangesWithKnowledge.
@@ -2375,8 +2351,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Call GetListItemChangesWithKnowledge without knowledge.
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult result = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 result = this.listswsAdapter.GetListItemChangesWithKnowledge(
                                                         listId,
                                                         null,
@@ -2395,7 +2369,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     1136,
                     @"[In GetListItemChangesWithKnowledgeResponse][Attribute of ServerTime]This "
                         + "attribute MUST NOT be set if there no changes are returned.");
-            }
         }
         /// <summary>
         ///  This test case is used to validate GetListItemChangesWithKnowledge operation when RowLimit parameter is set as 0.
@@ -2413,8 +2386,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Call GetListItemChangesWithKnowledge with empty row limit and without knowledge
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult getListKnowledgeResultWithZeroRowLimit = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 getListKnowledgeResultWithZeroRowLimit = this.listswsAdapter.GetListItemChangesWithKnowledge(
                                  listName,
                                  null,
@@ -2436,7 +2407,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                         data.Rows.Count,
                         22202,
                         @"[In GetListItemChangesWithKnowledge] Implementation does retrieve all rows when get list item changes with knowledge excluding this parameter[rowLimit] or specifying a value of 0, unless the knowledge parameter is specified. (The 2007 Microsoft® Office system/Windows® SharePoint® Services 3.0 and above follow this behavior.)");
-            }
         }
         /// <summary>
         /// This test case is used to test the GetListItemChangesWithKnowledge operation with viewFields parameter.
@@ -2465,8 +2435,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Invoke the GetListItemChangesSinceToken operation with null viewName parameter.
             GetListItemChangesWithKnowledgeResponseGetListItemChangesWithKnowledgeResult nullViewNameAndViewFieldsResult = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 nullViewNameAndViewFieldsResult = this.listswsAdapter.GetListItemChangesWithKnowledge(
                                                                     uniqueListName,
                                                                     null,
@@ -2535,7 +2503,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     isSame,
                     2271,
                     @"if the viewFields parameter is specified, the server response will be same if we use valid and empty viewName parameter.");
-            }
         }
         #endregion
 
@@ -5339,8 +5306,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             items.Add(item);
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items);
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                 listName,
                                                 updates,
@@ -5369,7 +5334,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     AdapterHelper.GetElementValue(result.Results[0].Any, "ErrorText"),
                     2367,
                     @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element] Otherwise, [If an operation does not complete successfully] the ErrorText element MUST have a description of the error.");
-            }
         }
         /// <summary>
         /// The test case is used to verify UpdateListItemWithKnowledge operation when TRUE and ListVersion is specified with a number.
@@ -5413,8 +5377,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // Plus the current version with 1, then the ListVersion is not valid.
             updates.Batch.ListVersion = currentVersion + 1;
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult updateItemsResult = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 updateItemsResult = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                     listID,
                                                     updates,
@@ -5433,7 +5395,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     updateItemsResult.Results[0].ErrorCode,
                     2348,
                     @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [LockSchema attribute]  If TRUE and ListVersion is specified with a number, the protocol server MUST return a SOAP fault with error code 0x80070666 if the schema version passed in by the protocol client does not match the list schema version on the protocol server.");
-            }
         }
         /// <summary>
         /// This test case is used to test UpdateListItemWithKnowledge operation in the case that the value of OnError attribute is OnErrorReturn.
@@ -5474,8 +5435,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                         listName,
                                         updates,
@@ -5504,7 +5463,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     result.Results[2].ErrorCode,
                     2314,
                     @"[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse][In UpdateListItemsWithKnowledgeResult element] [If the OnError attribute of the Batch element is set to Return] If a Method operation fails, then all subsequent Method operation in the Batch MUST fail with an error of 0x800704c7.");
-            }
         }
         /// <summary>
         /// The test case will verify UpdateListItemWithKnowledge operation when owsHiddenversion conflicts.
@@ -5542,8 +5500,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                                                 updatedItems);
 
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                     listID,
                                                     updates,
@@ -5642,7 +5598,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     @"[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] [In updates element] [In Batch element] [In Method element] [In Field element]
                     If the owshiddenversion value specified by the protocol client is equal to the owshiddenversion field's value for the list item on the protocol server, 
                     the protocol server MUST update the list item or return an error indicating why the update failed.");
-            }
         }
         #endregion
 
@@ -6174,8 +6129,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             #endregion
 
             #region Capture Requirements R1153, R1154
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 Site.CaptureRequirementIfAreEqual<string>(
                 "0x82000006",
                 errorCode,
@@ -6194,7 +6147,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     + "deleted by another user.");
 
                 #endregion
-            }
         }
         /// <summary>
         ///  This test case is used to test LockSchema" attribute's default false value in UpdateListItemsWithKnowledge operation.
@@ -6233,8 +6185,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // Set an incorrect list version value.
             updates.Batch.ListVersion = (uint)listDef.Version + 1;
             updates.Batch.ListVersionSpecified = true;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result =
             result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                     listId,
@@ -6257,7 +6207,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     "[In UpdateListItemsWithKnowledge][In Bench element][In LockSchema attribute] "
                             + "This defaults to FALSE.[ the server will not fail, if the schema version passed in "
                             + "by the protocol client does not match the list schema version on the protocol server. ]");
-            }
         }
         /// <summary>
         /// This method is used to test the UpdateListItemsWithKnowledge operation when the Method element's Cmd attribute uses "New" "Update" "Delete" "Move" value.
@@ -6287,8 +6236,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
 
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult resultWhenIncludeId = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 resultWhenIncludeId = this.listswsAdapter.UpdateListItemsWithKnowledge(listId, updates, null, null);
 
                 // Get new item ID from UpdateListItemsWithKnowledge response.
@@ -6499,7 +6446,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                         20962,
                         @"Implementation does support this behavior[UpdateListItemsWithKnowledge.Move]. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)");
                 }
-            }
         }
         /// <summary>
         /// This test case is used to test the attribute "OnError" with value "Continue" or default value in UpdateListItemsWithKnowledge operation.
@@ -6542,8 +6488,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Continue);
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                                 listId,
                                                                 updates,
@@ -6687,7 +6631,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                "[In UpdateListItemsWithKnowledgeResult][In UpdateListItemsWithKnowledgeResponse]"
                             + "[In UpdateListItemsWithKnowledgeResult element]  This [error code 0x81020016] "
                             + "specifies that the list item referred to in the request does not exist.");
-            }
         }
         /// <summary>
         ///  This test case is used to test the server behavior when the value of OnError attribute in the input parameters is “Return” in UpdateListItemsWithKnowledge operation.
@@ -6729,8 +6672,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                                 listId,
                                                                 updates,
@@ -6802,7 +6743,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                          + @"being aborted [if ""OnError=Return""],[or whether subsequent methods in the batch should be executed.] when encountering an error."
                                          + @"(The 2007 Microsoft® Office system/Windows® SharePoint® Services 3.0 and above follow this behavior.)");
                 }
-            }
         }
         /// <summary>
         /// This test case is used to test UpdateListItemsWithKnowledge operation in the case that the attribute "PreCalc" will be ignored by the server.
@@ -6831,8 +6771,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Return);
             updates.Batch.PreCalc = "TRUE";
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult resultWhenPreCalcTrue = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 resultWhenPreCalcTrue = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                                 listId,
                                                                 updates,
@@ -6884,7 +6822,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                             "[In UpdateListItemsWithKnowledge operation] [In UpdateListItemsWithKnowledge element] "
                                 + "[In updates element] [In Batch element] [PreCalc attribute] The response of server will "
                                 + "be same for different values of PreCalc.");
-            }
         }
         /// <summary>
         /// This test case is used to test UpdateListItemsWithKnowledge operation when the listName is a valid GUID. 
@@ -6935,8 +6872,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             {
                 isSoapExceptionExist = true;
             }
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 this.Site.Assert.IsNotNull(updateListItemsWithKnowledgeResult, "UpdateListItemWithKnowledge operation with valid GUID is successful.");
 
                 // If there is no any SoapException exist, then capture R25151.
@@ -7079,7 +7014,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     + "specified in the request exists.");
 
                 #endregion
-            }
         }
         /// <summary>
         /// This test case is used to test the UpdateListItemsWithKnowledge operation when listName is not a GUID but a valid list title. 
@@ -7113,8 +7047,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             UpdateListItemsWithKnowledgeUpdates updates = TestSuiteHelper.CreateUpdateListWithKnowledgeItems(cmds, items, OnErrorEnum.Continue);
 
             UpdateListItemsWithKnowledgeResponseUpdateListItemsWithKnowledgeResult result = null;
-            if (Common.IsRequirementEnabled(2221, this.Site))
-            {
                 result = this.listswsAdapter.UpdateListItemsWithKnowledge(
                                                 listName,
                                                 updates,
@@ -7211,7 +7143,6 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     + "[In Batch element] [In Method element] [In Field element] The protocol server "
                     + "MUST set the field's value equal to the value of the Field element in the protocol client request, "
                     + "if the field is not a special field.");
-            }
         }
         #endregion
 
