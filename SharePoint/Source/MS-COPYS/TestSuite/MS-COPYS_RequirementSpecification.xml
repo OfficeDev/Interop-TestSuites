@@ -2350,7 +2350,7 @@ http://schemas.microsoft.com/sharepoint/soap/CopyIntoItems</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-COPYS_R280</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3</ns1:Doc_Sect>
-		<ns1:Description>[In CopyIntoItemsLocal] Unless otherwise specified, the method behavior for the source IRI, content, fields, and destination locations for the CopyItemsIntoLocal operation is the same as the CopyIntoItems operation, as specified in section 3.1.4.2.&lt;6&gt;</ns1:Description>
+		<ns1:Description>[In CopyIntoItemsLocal] Unless otherwise specified, the method behavior for the source IRI, content, fields, and destination locations for the CopyIntoItemsLocal operation is the same as the CopyIntoItems operation, as specified in section 3.1.4.2.&lt;6&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

@@ -6,7 +6,7 @@
     <DeploymentItem filename="..\Common\Script\Get-ConfigurationPropertyValue.ps1" />
     <DeploymentItem filename="TestSuite\MS-MEETS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-MEETS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-MEETS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-MEETS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-MEETS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-MEETS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-MEETS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
