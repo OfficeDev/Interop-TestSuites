@@ -1752,18 +1752,18 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
             // Enable the versioning of the list.
             bool isSetVersionSuccess = this.sutControlAdapterInstance.SetVersioning(this.documentLibrary, true, true);
             Site.Assert.IsTrue(
-                isSetVersionSuccess, 
+                isSetVersionSuccess,
                 "SetVersioning operation returns {0}, TRUE means the operation was executed successfully," +
-                " FALSE means the operation failed", 
+                " FALSE means the operation failed",
                 isSetVersionSuccess);
 
             // Upload the file into specific list.
             bool isAddFileSuccess =
                 this.sutControlAdapterInstance.AddFile(this.documentLibrary, this.fileName, TestSuiteHelper.UploadFileName);
             Site.Assert.IsTrue(
-                isAddFileSuccess, 
+                isAddFileSuccess,
                 "AddFile operation returns {0}, TRUE means the operation was executed successfully," +
-                " FALSE means the operation failed", 
+                " FALSE means the operation failed",
                 isAddFileSuccess);
 
             // Check out and check in file six times to create six versions of the file. 
@@ -1881,7 +1881,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
             bool isR1960102Enabled = Common.IsRequirementEnabled(1960102, this.Site);
 
             if (isR17601Enabled || isR19602Enabled || isR1960102Enabled || Common.IsRequirementEnabled(17602, this.Site) || Common.IsRequirementEnabled(19701, this.Site) || Common.IsRequirementEnabled(17621, this.Site)
-                || Common.IsRequirementEnabled(19703, this.Site) || Common.IsRequirementEnabled(17600, this.Site) || Common.IsRequirementEnabled(19620, this.Site)|| Common.IsRequirementEnabled(19707, this.Site))
+                || Common.IsRequirementEnabled(19703, this.Site) || Common.IsRequirementEnabled(17600, this.Site) || Common.IsRequirementEnabled(19620, this.Site) || Common.IsRequirementEnabled(19707, this.Site))
             {
                 foreach (string invalidCharacter in invalidCharacters)
                 {
@@ -1906,7 +1906,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         if (invalidCharacter == "\"")
                         {
                             if (isR17601Enabled)
-                            { 
+                            {
                                 // Add the debug information
                                 Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R17603");
 
@@ -2170,7 +2170,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left angle bracket (<). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
                             }
                         }
-                         else if (invalidCharacter == "=")
+                        else if (invalidCharacter == "=")
                         {
                             string sutVersion = Common.GetConfigurationPropertyValue("SutVersion", this.Site);
                             if (sutVersion == "WindowsSharePointServices3" || sutVersion == "SharePointServer2007")
@@ -2234,7 +2234,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         }
                         else if (invalidCharacter == "=")
                         {
-                            
+
                             if (isR17601Enabled)
                             {
                                 // Add the debug information
