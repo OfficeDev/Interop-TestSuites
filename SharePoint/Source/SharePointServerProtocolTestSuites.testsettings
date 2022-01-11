@@ -306,6 +306,7 @@
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" /> 
+    <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

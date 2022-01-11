@@ -2,24 +2,24 @@
 <TestSettings name="MS-AUTHWS" id="f9e41233-e6df-4e18-8166-746082b696e0" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <Description>These are default test settings for a local test run.</Description>
   <Deployment>
-    <DeploymentItem filename="TestSuite\MS-AUTHWS_TestSuite.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-AUTHWS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\Proxy\XML.xsd" />
-    <DeploymentItem filename="..\Common\Proxy\SOAP12.xsd" />
-    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-AUTHWS_RequirementSpecification.xml" />
+    <DeploymentItem filename="..\Common\Proxy\SOAP12.xsd" />
+    <DeploymentItem filename="MS-AUTHWS.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-AUTHWS_TestSuite.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
+    <DeploymentItem filename="..\Common\Proxy\XML.xsd" />
+    <DeploymentItem filename="TestSuite\MS-AUTHWS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Proxy\MS-AUTHWS.wsdl" />
     <DeploymentItem filename="..\Common\Proxy\SOAP11.xsd" />
-    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-AUTHWS.runsettings" />
+    <DeploymentItem filename="TestSuite\MS-AUTHWS_TestSuite.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-AUTHWS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
