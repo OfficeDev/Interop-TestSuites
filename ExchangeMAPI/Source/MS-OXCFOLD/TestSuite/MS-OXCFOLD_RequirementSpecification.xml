@@ -8886,20 +8886,9 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R764001</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If this bit [DELETE_HARD_DELETE] is set, implement does not hard delete the folder. (Microsoft Exchange server 2013 and above follow this behavior).</ns1:Description>
-		<ns1:Derived>MS-OXCFOLD_R114:I,MS-OXCFOLD_R764:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R764002</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If this bit [DELETE_HARD_DELETE] is set, implement does hard delete the folder. &lt;4&gt; Section 2.2.1.3.1:  For Exchange 2003, Exchange 2007 and Exchange 2010, if DELETE_HARD_DELETE is set, the folder is hard deleted.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] If this bit [DELETE_HARD_DELETE] is set, implement does hard delete the folder. &lt;4&gt; Section 2.2.1.3.1:  For Exchange 2003 and later, if DELETE_HARD_DELETE is set, the folder is hard deleted.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R114:I,MS-OXCFOLD_R764:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9016,7 +9005,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R350001</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not support the PidTagAddressBookEntryId property. &lt;10&gt; Section 2.2.2.2.1.4:  Exchange 2013, Exchange 2016 and Exchange 2019 do not support the PidTagAddressBookEntryId property.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] The implementation does not support the PidTagAddressBookEntryId property. &lt;10&gt; Section 2.2.2.2.1.4:  Exchange 2013 and later do not support the PidTagAddressBookEntryId property.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R350:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9114,7 +9103,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R123402</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. &lt;15&gt; Section 3.2.5.3:  Exchange 2010, Exchange 2013, Exchange 2016 and Exchange 2019 ignore invalid bits instead of failing the ROP.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does ignore invalid bits instead of failing the ROP [RopDeleteFolder], if the client sets an invalid bit in the DeleteFolderFlags field of the ROP request buffer. &lt;15&gt; Section 3.2.5.3:  Exchange 2010 and later ignore invalid bits instead of failing the ROP.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1234:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -9223,7 +9212,7 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R124802</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. &lt;20&gt; Section 3.2.5.9: Update Rollup 4 for Exchange Server 2010 Service Pack 2 (SP2), Exchange 2013, Exchange 2016 and Exchange 2019 return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder.</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder. &lt;20&gt; Section 3.2.5.9: Update Rollup 4 for Exchange Server 2010 Service Pack 2 (SP2) and later return ecNotSupported when the RopEmptyFolder ROP is called on the Root folder.</ns1:Description>
 		<ns1:Derived>MS-OXCFOLD_R1248:i,MS-OXCFOLD_R113:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

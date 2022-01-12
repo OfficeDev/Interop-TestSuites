@@ -2566,7 +2566,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R219</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.13.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopQueryColumnsAll ROP Request Buffer] This protocol [MS-OXCTABL] adds no additional field information to the RopQueryColumns ROP request buffer.</ns1:Description>
+		<ns1:Description>[In RopQueryColumnsAll ROP Request Buffer] This protocol [MS-OXCTABL] adds no additional field information to the RopQueryColumnsAll ROP request buffer.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
