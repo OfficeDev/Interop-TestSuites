@@ -3123,7 +3123,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R542000801</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionCT.ComplianceTag:]Specifies compliance tag.</ns1:Description>
+		<ns1:Description>[ListDefinitionCT.ComplianceTag:]Specifies compliance tag.&lt;19&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3132,7 +3132,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R542000802</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionCT.ComplianceFlags:]Specifies compliance flags.</ns1:Description>
+		<ns1:Description>[ListDefinitionCT.ComplianceFlags:]Specifies compliance flags.&lt;20&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3141,7 +3141,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R542000803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionCT.UserModified:]Specifies the date and time.</ns1:Description>
+		<ns1:Description>[ListDefinitionCT.UserModified:]Specifies the date and time.&lt;21&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3150,7 +3150,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R542000804</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionCT.ListSchemaVersion:]Specifies the version for list schema.</ns1:Description>
+		<ns1:Description>[ListDefinitionCT.ListSchemaVersion:]Specifies the version for list schema.&lt;22&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3159,7 +3159,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R542000805</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionCT.AclVersion:]Specifies the version for access control list (ACL).</ns1:Description>
+		<ns1:Description>[ListDefinitionCT.AclVersion:]Specifies the version for access control list (ACL).&lt;23&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3168,7 +3168,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R5420009</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionCT.RootFolderId:] The GUID of the root folder of the list.&lt;19&gt;</ns1:Description>
+		<ns1:Description>[ListDefinitionCT.RootFolderId:] The GUID of the root folder of the list.&lt;24&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3178,7 +3178,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R5420010</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.11</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionCT.IrmSyncable:] True, if Information Rights Management (IRM) can be synchronized on the list.&lt;20&gt;</ns1:Description>
+		<ns1:Description>[ListDefinitionCT.IrmSyncable:] True, if Information Rights Management (IRM) can be synchronized on the list.&lt;25&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3279,7 +3279,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1410</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionSchema.Validation]If present, this element MUST not be longer than 1024 characters.&lt;21&gt;</ns1:Description>
+		<ns1:Description>[ListDefinitionSchema.Validation]If present, this element MUST not be longer than 1024 characters.&lt;26&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3298,7 +3298,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1412</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionSchema.Validation.Message] If present, this element MUST not be longer than 1024 characters.&lt;22&gt;</ns1:Description>
+		<ns1:Description>[ListDefinitionSchema.Validation.Message] If present, this element MUST not be longer than 1024 characters.&lt;27&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3335,7 +3335,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1416</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionSchema.ValidationDisplayNames]Commas MUST be replaced with the appropriate separator character according to the Locale attribute of the RegionalSettings element.&lt;23&gt;</ns1:Description>
+		<ns1:Description>[ListDefinitionSchema.ValidationDisplayNames]Commas MUST be replaced with the appropriate separator character according to the Locale attribute of the RegionalSettings element.&lt;28&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3623,7 +3623,7 @@ Value Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1440</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
-		<ns1:Description>[UniqueId:] Specifies the unique identifier of the list item.&lt;24&gt;</ns1:Description>
+		<ns1:Description>[UniqueId:] Specifies the unique identifier of the list item.&lt;29&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3642,7 +3642,7 @@ Value Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1442</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
-		<ns1:Description>[MetaInfo_vti_clientid:]This MUST be set only if the MetaInfo property was set for the item and the value is not empty.&lt;25&gt;</ns1:Description>
+		<ns1:Description>[MetaInfo_vti_clientid:]This MUST be set only if the MetaInfo property was set for the item and the value is not empty.&lt;30&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3652,7 +3652,7 @@ Value Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1443</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.13</ns1:Doc_Sect>
-		<ns1:Description>[ServerChangeUnit:] Specifies the synchronization version, as described in [MS-XSSK] section 1.3, for the change.&lt;26&gt;</ns1:Description>
+		<ns1:Description>[ServerChangeUnit:] Specifies the synchronization version, as described in [MS-XSSK] section 1.3, for the change.&lt;31&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3836,7 +3836,7 @@ Value Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R267</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.15</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateListFieldsRequest] [Method.AddToView] This is an optional parameter, and the protocol server MUST assume the default view if the value of the parameter is not a GUID &lt;27&gt;.</ns1:Description>
+		<ns1:Description>[In UpdateListFieldsRequest] [Method.AddToView] This is an optional parameter, and the protocol server MUST assume the default view if the value of the parameter is not a GUID &lt;32&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4952,7 +4952,7 @@ perform inserts, updates, or deletions on specified list items in a list.</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R295</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In AddAttachment] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;28&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In AddAttachment] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;33&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4962,7 +4962,7 @@ perform inserts, updates, or deletions on specified list items in a list.</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1550</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In AddAttachment] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;28&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or it might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In AddAttachment] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;33&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or it might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5289,7 +5289,7 @@ Contains the response to a request to add an attachment to the specified list it
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R310</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In AddDiscussionBoardItem operation] The AddDiscussionBoardItem operation&lt;29&gt; is used to add new discussion items to a specified discussion board.</ns1:Description>
+		<ns1:Description>[In AddDiscussionBoardItem operation] The AddDiscussionBoardItem operation&lt;34&gt; is used to add new discussion items to a specified discussion board.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5347,7 +5347,7 @@ Contains the response to a request to add an attachment to the specified list it
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R318</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In AddDiscussionBoardItem operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;30&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In AddDiscussionBoardItem operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;35&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5357,7 +5357,7 @@ Contains the response to a request to add an attachment to the specified list it
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1572</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In AddDiscussionBoardItem operation] [ If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;30&gt; return a SOAP fault with error code 0x82000006.] This indicates that a list corresponding to the specified listName does not exist on the server.</ns1:Description>
+		<ns1:Description>[In AddDiscussionBoardItem operation] [ If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;35&gt; return a SOAP fault with error code 0x82000006.] This indicates that a list corresponding to the specified listName does not exist on the server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6022,7 +6022,7 @@ Contains the response to a request to add a new list to the site.</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R352</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In AddListFromFeature operation] The AddListFromFeature operation&lt;31&gt; is used to add a new list to the specified site based on the specified template and feature.</ns1:Description>
+		<ns1:Description>[In AddListFromFeature operation] The AddListFromFeature operation&lt;36&gt; is used to add a new list to the specified site based on the specified template and feature.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6062,7 +6062,7 @@ Contains the response to a request to add a new list to the site.</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R358</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In AddListFromFeature operation] If the templateID provided is not one of the known list template identifiers, the protocol server SHOULD&lt;32&gt; return a SOAP fault with the error string "Parameter {0} is missing or invalid".</ns1:Description>
+		<ns1:Description>[In AddListFromFeature operation] If the templateID provided is not one of the known list template identifiers, the protocol server SHOULD&lt;37&gt; return a SOAP fault with the error string "Parameter {0} is missing or invalid".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6072,7 +6072,7 @@ Contains the response to a request to add a new list to the site.</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2299</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In AddListFromFeature operation] If no templateID parameter is provided, the protocol server SHOULD&lt;32&gt; return a SOAP fault with the error string "Parameter {0} is missing or invalid".</ns1:Description>
+		<ns1:Description>[In AddListFromFeature operation] If no templateID parameter is provided, the protocol server SHOULD&lt;37&gt; return a SOAP fault with the error string "Parameter {0} is missing or invalid".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6081,7 +6081,7 @@ Contains the response to a request to add a new list to the site.</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1602</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In AddListFromFeature operation] [If the templateID provided is not one of the known list template identifiers or no templateID parameter is provided, the protocol server SHOULD&lt;32&gt; return a SOAP fault with the error string "Parameter {0} is missing or invalid".]This indicates that the list template is missing or invalid.</ns1:Description>
+		<ns1:Description>[In AddListFromFeature operation] [If the templateID provided is not one of the known list template identifiers or no templateID parameter is provided, the protocol server SHOULD&lt;37&gt; return a SOAP fault with the error string "Parameter {0} is missing or invalid".]This indicates that the list template is missing or invalid.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6645,7 +6645,7 @@ The request to add a wiki page to a wiki library.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1623</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[ApplyContentTypeToList] The ApplyContentTypeToList operation&lt;33&gt; is used to apply an existing site content type to the requested list.</ns1:Description>
+		<ns1:Description>[ApplyContentTypeToList] The ApplyContentTypeToList operation&lt;38&gt; is used to apply an existing site content type to the requested list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6721,7 +6721,7 @@ The request to add a wiki page to a wiki library.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R378</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In ApplyContentTypeToList operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;34&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In ApplyContentTypeToList operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;39&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6731,7 +6731,7 @@ The request to add a wiki page to a wiki library.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1626</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6</ns1:Doc_Sect>
-		<ns1:Description>[In ApplyContentTypeToList operation] [If listName does not correspond to a list from either of these checks, the protocol server should&lt;34&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In ApplyContentTypeToList operation] [If listName does not correspond to a list from either of these checks, the protocol server should&lt;39&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -6993,7 +6993,7 @@ Contains the response to a request to apply an existing site content type to the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1638</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[CheckInFile]The CheckInFile operation&lt;35&gt; is used to check in documents to a document library.</ns1:Description>
+		<ns1:Description>[CheckInFile]The CheckInFile operation&lt;40&gt; is used to check in documents to a document library.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7051,7 +7051,7 @@ Contains the response to a request to apply an existing site content type to the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R392</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In CheckInFile operation] If the pageUrl is an invalid URL, the protocol server SHOULD&lt;36&gt; return a SOAP fault with error string "Invalid URI: The format of the URI could not be determined".</ns1:Description>
+		<ns1:Description>[In CheckInFile operation] If the pageUrl is an invalid URL, the protocol server SHOULD&lt;41&gt; return a SOAP fault with error string "Invalid URI: The format of the URI could not be determined".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7061,7 +7061,7 @@ Contains the response to a request to apply an existing site content type to the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1641</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In CheckInFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD&lt;36&gt; return a SOAP fault with error string "Invalid URI: The format of the URI could not be determined".] This indicates that the parameter pageUrl is invalid.</ns1:Description>
+		<ns1:Description>[In CheckInFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD&lt;41&gt; return a SOAP fault with error string "Invalid URI: The format of the URI could not be determined".] This indicates that the parameter pageUrl is invalid.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7390,7 +7390,7 @@ OverwriteCheckIn</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1661</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[CheckOutFile]The CheckOutFile operation&lt;37&gt; is used to check out a document in a document library.</ns1:Description>
+		<ns1:Description>[CheckOutFile]The CheckOutFile operation&lt;42&gt; is used to check out a document in a document library.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7448,7 +7448,7 @@ OverwriteCheckIn</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R408</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In CheckOutFile operation] If the pageUrl is an invalid URL, the protocol server SHOULD&lt;38&gt; return a SOAP fault with error string "Invalid URI: The format of the URI could not be determined.".</ns1:Description>
+		<ns1:Description>[In CheckOutFile operation] If the pageUrl is an invalid URL, the protocol server SHOULD&lt;43&gt; return a SOAP fault with error string "Invalid URI: The format of the URI could not be determined.".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7458,7 +7458,7 @@ OverwriteCheckIn</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1664</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In CheckOutFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD&lt;38&gt; return a SOAP fault with error string "Invalid URI: The format of the URI could not be determined.". ]There is no error code for this fault.</ns1:Description>
+		<ns1:Description>[In CheckOutFile operation] [If the pageUrl is an invalid URL, the protocol server SHOULD&lt;43&gt; return a SOAP fault with error string "Invalid URI: The format of the URI could not be determined.". ]There is no error code for this fault.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7670,7 +7670,7 @@ http://schemas.microsoft.com/sharepoint/soap/CheckOutFile</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1674</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8.2.1</ns1:Doc_Sect>
-		<ns1:Description>[CheckOutFile]lastmodified : A string in date format [RFC1123] section 5.2.14 that represents the date and time of the last modification by the site (2) to the file; for example, "20 Jun 1982 12:00:00 GMT".&lt;39&gt;</ns1:Description>
+		<ns1:Description>[CheckOutFile]lastmodified : A string in date format [RFC1123] section 5.2.14 that represents the date and time of the last modification by the site (2) to the file; for example, "20 Jun 1982 12:00:00 GMT".&lt;44&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7748,7 +7748,7 @@ http://schemas.microsoft.com/sharepoint/soap/CheckOutFile</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1680</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[CreateContentType]The CreateContentType operation&lt;40&gt; is used to create a new content type on a list.</ns1:Description>
+		<ns1:Description>[CreateContentType]The CreateContentType operation&lt;45&gt; is used to create a new content type on a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7797,7 +7797,7 @@ http://schemas.microsoft.com/sharepoint/soap/CheckOutFile</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R424</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[In CreateContentType operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;41&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In CreateContentType operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;46&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7807,7 +7807,7 @@ http://schemas.microsoft.com/sharepoint/soap/CheckOutFile</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R4080</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[In CreateContentType operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;41&gt; return a SOAP fault with error code 0x82000006.] This indicates that the listName specified does not exist or it could have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In CreateContentType operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;46&gt; return a SOAP fault with error code 0x82000006.] This indicates that the listName specified does not exist or it could have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8307,7 +8307,7 @@ Contains the response to a request to create a new content type on a list.</ns1:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1698</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
-		<ns1:Description>[DeleteAttachment] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;42&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[DeleteAttachment] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;47&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8317,7 +8317,7 @@ Contains the response to a request to create a new content type on a list.</ns1:
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1699</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
-		<ns1:Description>[DeleteAttachment] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;42&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[DeleteAttachment] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;47&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8585,7 +8585,7 @@ Contains the response to a request to remove the attachment from the specified l
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R480</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentType operation] The DeleteContentType operation&lt;43&gt; is used to remove the association between the specified list and the specified content type.</ns1:Description>
+		<ns1:Description>[In DeleteContentType operation] The DeleteContentType operation&lt;48&gt; is used to remove the association between the specified list and the specified content type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8643,7 +8643,7 @@ Contains the response to a request to remove the attachment from the specified l
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R488</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentType operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;44&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In DeleteContentType operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;49&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8653,7 +8653,7 @@ Contains the response to a request to remove the attachment from the specified l
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1713</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentType operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;44&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In DeleteContentType operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;49&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8902,7 +8902,7 @@ Contains the response to a request to remove the association between the specifi
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R497</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentTypeXmlDocument operation] The DeleteContentTypeXmlDocument operation&lt;45&gt; is used to delete an XML document property from XML document collection in a content type of a list.</ns1:Description>
+		<ns1:Description>[In DeleteContentTypeXmlDocument operation] The DeleteContentTypeXmlDocument operation&lt;50&gt; is used to delete an XML document property from XML document collection in a content type of a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8960,7 +8960,7 @@ Contains the response to a request to remove the association between the specifi
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R505</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentTypeXmlDocument operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;46&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In DeleteContentTypeXmlDocument operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;51&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8970,7 +8970,7 @@ Contains the response to a request to remove the association between the specifi
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1725</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteContentTypeXmlDocument operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server should&lt;46&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In DeleteContentTypeXmlDocument operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server should&lt;51&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9288,7 +9288,7 @@ Contains the response to a request to delete an XML document Property from XML d
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R523</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.13</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteList operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;47&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In DeleteList operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;52&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9298,7 +9298,7 @@ Contains the response to a request to delete an XML document Property from XML d
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1738</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.13</ns1:Doc_Sect>
-		<ns1:Description>[In DeleteList operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;47&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or it might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In DeleteList operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;52&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or it might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9538,7 +9538,7 @@ Contains the response to a request to delete the specified list from the specifi
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R537</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.14</ns1:Doc_Sect>
-		<ns1:Description>[In GetAttachmentCollection operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;48&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In GetAttachmentCollection operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;53&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9548,7 +9548,7 @@ Contains the response to a request to delete the specified list from the specifi
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1747</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.14</ns1:Doc_Sect>
-		<ns1:Description>[In GetAttachmentCollection operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;48&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or it might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In GetAttachmentCollection operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;53&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or it might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -9557,7 +9557,7 @@ Contains the response to a request to delete the specified list from the specifi
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R3037</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.14</ns1:Doc_Sect>
-		<ns1:Description>[In GetAttachmentCollection operation] If the listItemID is a negative value, the server SHOULD&lt;49&gt; return a SOAP fault with error code 0x81020014.</ns1:Description>
+		<ns1:Description>[In GetAttachmentCollection operation] If the listItemID is a negative value, the server SHOULD&lt;54&gt; return a SOAP fault with error code 0x81020014.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9936,7 +9936,7 @@ The request to return the list of URLs of attachments associated with a specifie
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R558</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.15</ns1:Doc_Sect>
-		<ns1:Description>[In GetList operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;50&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In GetList operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;55&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9946,7 +9946,7 @@ The request to return the list of URLs of attachments associated with a specifie
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1764</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.15</ns1:Doc_Sect>
-		<ns1:Description>[In GetList operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;50&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In GetList operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;55&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10215,7 +10215,7 @@ Contains the response to a request to retrieve properties and fields for a speci
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R571</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.16</ns1:Doc_Sect>
-		<ns1:Description>[In GetListAndView operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;51&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In GetListAndView operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;56&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10225,7 +10225,7 @@ Contains the response to a request to retrieve properties and fields for a speci
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1776</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.16</ns1:Doc_Sect>
-		<ns1:Description>[In GetListAndView operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;51&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In GetListAndView operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;56&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -10746,7 +10746,7 @@ The request to retrieve information about all the lists on the current site.</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R586</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.18</ns1:Doc_Sect>
-		<ns1:Description>[In GetListContentType operation] The GetListContentType operation&lt;52&gt; is used to get content type data for a given content type identifier.</ns1:Description>
+		<ns1:Description>[In GetListContentType operation] The GetListContentType operation&lt;57&gt; is used to get content type data for a given content type identifier.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10804,7 +10804,7 @@ The request to retrieve information about all the lists on the current site.</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R594</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.18</ns1:Doc_Sect>
-		<ns1:Description>[In GetListContentType operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;53&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In GetListContentType operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;58&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10814,7 +10814,7 @@ The request to retrieve information about all the lists on the current site.</ns
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1804</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.18</ns1:Doc_Sect>
-		<ns1:Description>[In GetListContentType operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server should&lt;53&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In GetListContentType operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server should&lt;58&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11064,7 +11064,7 @@ The request to get content type data for a given content type identifier.</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R601</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.19</ns1:Doc_Sect>
-		<ns1:Description>[In GetListContentTypes operation] The GetListContentTypes operation &lt;54&gt; is used to retrieve all content types from a list.</ns1:Description>
+		<ns1:Description>[In GetListContentTypes operation] The GetListContentTypes operation &lt;59&gt; is used to retrieve all content types from a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11279,7 +11279,7 @@ The request to retrieve all content types from a list.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R611</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.19.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetListContentTypes operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;55&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In GetListContentTypes operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;60&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11289,7 +11289,7 @@ The request to retrieve all content types from a list.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1825</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.19.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetListContentTypes operation] [If listName does not correspond to a list from either of these checks, the protocol server should&lt;55&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In GetListContentTypes operation] [If listName does not correspond to a list from either of these checks, the protocol server should&lt;60&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11416,7 +11416,7 @@ The request to retrieve all content types from a list.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1832</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.19.2.2</ns1:Doc_Sect>
-		<ns1:Description>[GetListContentTypesResponse]GetListContentTypesResult.ContentTypes.ContentTypeOrder: A string of content type identifiers delimited by commas.&lt;56&gt;</ns1:Description>
+		<ns1:Description>[GetListContentTypesResponse]GetListContentTypesResult.ContentTypes.ContentTypeOrder: A string of content type identifiers delimited by commas.&lt;61&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11561,7 +11561,7 @@ The request to retrieve all content types from a list.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1020</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.20</ns1:Doc_Sect>
-		<ns1:Description>[In GetListContentTypesAndProperties operation] All protocol servers SHOULD&lt;57&gt; support this operation.</ns1:Description>
+		<ns1:Description>[In GetListContentTypesAndProperties operation] All protocol servers SHOULD&lt;62&gt; support this operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12234,7 +12234,7 @@ Contains the response to a request to retrieve all content types from a list and
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2642</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChanges operation] [If the specified listName is an empty string, the protocol server SHOULD&lt;56&gt; return a SOAP fault with error code 0x82000006.]This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In GetListItemChanges operation] [If the specified listName is an empty string, the protocol server SHOULD&lt;63&gt; return a SOAP fault with error code 0x82000006.]This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -12291,7 +12291,7 @@ Contains the response to a request to retrieve all content types from a list and
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R3018</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChanges operation] If the specified listName is an empty string, the protocol server SHOULD&lt;58&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In GetListItemChanges operation] If the specified listName is an empty string, the protocol server SHOULD&lt;63&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12328,7 +12328,7 @@ Contains the response to a request to retrieve all content types from a list and
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R632</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChanges operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;59&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In GetListItemChanges operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;64&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12338,7 +12338,7 @@ Contains the response to a request to retrieve all content types from a list and
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1846</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChanges operation] [If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;59&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In GetListItemChanges operation] [If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;64&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -12385,7 +12385,7 @@ Contains the response to a request to retrieve all content types from a list and
 		<ns1:REQ_ID>MS-LISTSWS_R2645</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21.1</ns1:Doc_Sect>
 		<ns1:Description>[In Messages] GetListItemChangesSoapOut
-: The response to a GetListItemsSoapIn request.</ns1:Description>
+: The response to a GetListItemChangesSoapIn request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -12470,7 +12470,7 @@ The request to retrieve the list items that have been inserted or updated after 
 		<ns1:REQ_ID>MS-LISTSWS_R2648</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.21.2</ns1:Doc_Sect>
 		<ns1:Description>[In Elements] GetListItemChangesResponse: 
-Contains the response to a GetListItemsSoapIn request, as specified in section 3.1.4.21.1.1.</ns1:Description>
+Contains the response to a GetListItemChangesSoapIn request, as specified in section 3.1.4.21.1.1.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -12742,7 +12742,7 @@ This protocol server response included in the listitems element is modeled on th
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R650</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.22</ns1:Doc_Sect>
-		<ns1:Description>The GetListItemChangesSinceToken operation&lt;60&gt; is used to return changes made to a specified list after the event expressed by the change token, if specified, or to return all the list items in the list.</ns1:Description>
+		<ns1:Description>The GetListItemChangesSinceToken operation&lt;65&gt; is used to return changes made to a specified list after the event expressed by the change token, if specified, or to return all the list items in the list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12800,7 +12800,7 @@ This protocol server response included in the listitems element is modeled on th
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R658</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.22</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;61&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In GetListItemChangesSinceToken operation] If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;66&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12810,7 +12810,7 @@ This protocol server response included in the listitems element is modeled on th
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1877</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.22</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;61&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In GetListItemChangesSinceToken operation] [If the specified listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;66&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -12828,7 +12828,7 @@ This protocol server response included in the listitems element is modeled on th
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R661</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.22</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken operation] If the viewFields parameter is not specified and the viewName parameter contains an invalid GUID, the server SHOULD&lt;62&gt; ignore the viewName parameter.</ns1:Description>
+		<ns1:Description>[In GetListItemChangesSinceToken operation] If the viewFields parameter is not specified and the viewName parameter contains an invalid GUID, the server SHOULD&lt;67&gt; ignore the viewName parameter.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12858,7 +12858,7 @@ This protocol server response included in the listitems element is modeled on th
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R663</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.22</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken operation] If the value of the changeToken parameter is empty, the protocol server SHOULD ignore the changeToken parameter&lt;63&gt;.</ns1:Description>
+		<ns1:Description>[In GetListItemChangesSinceToken operation] If the value of the changeToken parameter is empty, the protocol server SHOULD ignore the changeToken parameter&lt;68&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13307,7 +13307,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetListItemChangesSinceToken</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R698</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.22.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken operation] [In GetListItemChangesSinceToken element] [In changeToken field] If the changeToken parameter is specified and the total number of list items that have been inserted or updated is greater than 40, only the first 40 items that changed are returned&lt;64&gt;.</ns1:Description>
+		<ns1:Description>[In GetListItemChangesSinceToken operation] [In GetListItemChangesSinceToken element] [In changeToken field] If the changeToken parameter is specified and the total number of list items that have been inserted or updated is greater than 40, only the first 40 items that changed are returned&lt;69&gt;.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13484,7 +13484,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetListItemChangesSinceToken</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R715</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.22.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken operation]The inner XML of the Changes element MUST contain the full List element from the GetList operation (section 3.1.4.15) if no change token was passed in the request or if there have been schema changes made to the list after the change token.&lt;65&gt;</ns1:Description>
+		<ns1:Description>[In GetListItemChangesSinceToken operation]The inner XML of the Changes element MUST contain the full List element from the GetList operation (section 3.1.4.15) if no change token was passed in the request or if there have been schema changes made to the list after the change token.&lt;70&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13650,7 +13650,7 @@ ViewFormPages       0x0000000000001000 Allow viewing of forms, views, and applic
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R708</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.22.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken operation] [In GetListItemChangesSinceToken element] [In GetListItemChangesSinceTokenResult element] [In listitems element] [In Changes element] [MaxRecommendedEmbeddedFileSize attribute]The default is 500 megabytes.&lt;66&gt;</ns1:Description>
+		<ns1:Description>[In GetListItemChangesSinceToken operation] [In GetListItemChangesSinceToken element] [In GetListItemChangesSinceTokenResult element] [In listitems element] [In Changes element] [MaxRecommendedEmbeddedFileSize attribute]The default is 500 megabytes.&lt;71&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13669,7 +13669,7 @@ ViewFormPages       0x0000000000001000 Allow viewing of forms, views, and applic
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1078</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.23</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesWithKnowledge operation] The GetListItemChangesWithKnowledge operation is used to return changes made to a specified list after the event expressed by the knowledge parameter, if specified, or to return all the list items in the list.&lt;67&gt;</ns1:Description>
+		<ns1:Description>[In GetListItemChangesWithKnowledge operation] The GetListItemChangesWithKnowledge operation is used to return changes made to a specified list after the event expressed by the knowledge parameter, if specified, or to return all the list items in the list.&lt;72&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14449,7 +14449,7 @@ The top-level element, which contains a listitems element.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1144001</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.23.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesWithKnowledgeResponse]The following attributes [MinTimeBetweenSyncs, RecommendedTimeBetweenSyncs, MaxBulkDocumentSyncSize, MaxRecommendedEmbeddedFileSize, AlternateUrls, EffectivePermMask] are specified for listtems.</ns1:Description>
+		<ns1:Description>[In GetListItemChangesWithKnowledgeResponse]The following attributes [MinTimeBetweenSyncs, RecommendedTimeBetweenSyncs, MaxBulkDocumentSyncSize, MaxRecommendedEmbeddedFileSize, AlternateUrls, EffectivePermMask] are specified for listitems.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -14497,7 +14497,7 @@ See the description of the MaxBulkDocumentSyncSize attribute in GetListItemChang
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1146</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.23.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesWithKnowledgeResponse][MaxRecommendedEmbeddedFileSize Attribute]The default is 500 megabytes.&lt;68&gt;</ns1:Description>
+		<ns1:Description>[In GetListItemChangesWithKnowledgeResponse][MaxRecommendedEmbeddedFileSize Attribute]The default is 500 megabytes.&lt;73&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14536,7 +14536,7 @@ See the description of the EffectivePermMask attribute in GetListItemChangesSinc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2661</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItems] [If listName and viewName are both empty, the protocol server SHOULD&lt;69&gt; return a SOAP fault with error code 0x82000006]This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In GetListItems] [If listName and viewName are both empty, the protocol server SHOULD&lt;74&gt; return a SOAP fault with error code 0x82000006]This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -14602,7 +14602,7 @@ See the description of the EffectivePermMask attribute in GetListItemChangesSinc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R727</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItems operation] If the specified listName is not empty and does not correspond to a list from either of these checks, the protocol server SHOULD&lt;69&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In GetListItems operation] If the specified listName is not empty and does not correspond to a list from either of these checks, the protocol server SHOULD&lt;74&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14612,7 +14612,7 @@ See the description of the EffectivePermMask attribute in GetListItemChangesSinc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1911</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItems operation] [If the specified listName is not empty and does not correspond to a list from either of these checks, the protocol server SHOULD&lt;69&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or could have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In GetListItems operation] [If the specified listName is not empty and does not correspond to a list from either of these checks, the protocol server SHOULD&lt;74&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or could have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -14621,7 +14621,7 @@ See the description of the EffectivePermMask attribute in GetListItemChangesSinc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R3019</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItems operation] If listName and viewName are both empty, the protocol server SHOULD&lt;70&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In GetListItems operation] If listName and viewName are both empty, the protocol server SHOULD&lt;75&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15190,7 +15190,7 @@ The request to retrieve details about list items in a list that satisfy specifie
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R757</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.25</ns1:Doc_Sect>
-		<ns1:Description>[In GetVersionCollection operation] The GetVersionCollection operation&lt;71&gt; is used to return version information for the specified field of a specified list item within a specified list.</ns1:Description>
+		<ns1:Description>[In GetVersionCollection operation] The GetVersionCollection operation&lt;76&gt; is used to return version information for the specified field of a specified list item within a specified list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15266,7 +15266,7 @@ The request to retrieve details about list items in a list that satisfy specifie
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R765</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.25</ns1:Doc_Sect>
-		<ns1:Description>[In GetVersionCollection operation] If the specified strListID does not correspond to a list from either of these checks, the protocol server SHOULD&lt;72&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In GetVersionCollection operation] If the specified strListID does not correspond to a list from either of these checks, the protocol server SHOULD&lt;77&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15276,7 +15276,7 @@ The request to retrieve details about list items in a list that satisfy specifie
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1943</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.25</ns1:Doc_Sect>
-		<ns1:Description>[In GetVersionCollection operation] [If the specified strListID does not correspond to a list from either of these checks, the protocol server SHOULD&lt;71&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In GetVersionCollection operation] [If the specified strListID does not correspond to a list from either of these checks, the protocol server SHOULD&lt;76&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -15285,7 +15285,7 @@ The request to retrieve details about list items in a list that satisfy specifie
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R766</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.25</ns1:Doc_Sect>
-		<ns1:Description>[In GetVersionCollection operation] If the strListItemID does not correspond to a list item in a specified list on the site, the protocol server MUST return a SOAP fault to indicate that the strListItemID parameter is missing or invalid. When strListItemID is a negative value, the error code is 0x81020014. When strListItemID is zero or a positive value that does not correspond to a list item in a specified list on the site, there is no error code.&lt;73&gt;</ns1:Description>
+		<ns1:Description>[In GetVersionCollection operation] If the strListItemID does not correspond to a list item in a specified list on the site, the protocol server MUST return a SOAP fault to indicate that the strListItemID parameter is missing or invalid. When strListItemID is a negative value, the error code is 0x81020014. When strListItemID is zero or a positive value that does not correspond to a list item in a specified list on the site, there is no error code.&lt;78&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15666,7 +15666,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetVersionCollection</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R778</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.26</ns1:Doc_Sect>
-		<ns1:Description>[In UndoCheckOut operation] The UndoCheckOut operation&lt;74&gt; is used to undo the check out of the specified file in a document library.</ns1:Description>
+		<ns1:Description>[In UndoCheckOut operation] The UndoCheckOut operation&lt;79&gt; is used to undo the check out of the specified file in a document library.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15724,7 +15724,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetVersionCollection</ns1:Descripti
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R785</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.26</ns1:Doc_Sect>
-		<ns1:Description>[In UndoCheckOut operation] If the pageUrl is an invalid URL, the protocol server SHOULD&lt;75&gt; return a SOAP fault with the error string: "Invalid URI: The format of the URI could not be determined.".</ns1:Description>
+		<ns1:Description>[In UndoCheckOut operation] If the pageUrl is an invalid URL, the protocol server SHOULD&lt;80&gt; return a SOAP fault with the error string: "Invalid URI: The format of the URI could not be determined.".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15799,7 +15799,7 @@ The request to undo the check out of the specified file in a document library.</
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R788</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.26.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In UndoCheckOut operation] The UpdoCheckOutSoapIn message is the request to undo the checkout of the specified document based on its location..</ns1:Description>
+		<ns1:Description>[In UndoCheckOut operation] The UndoCheckOutSoapIn message is the request to undo the checkout of the specified document based on its location..</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -15827,7 +15827,7 @@ http://schemas.microsoft.com/sharepoint/soap/UndoCheckOut</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R789</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.26.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In UndoCheckOut operation] The UpdoCheckOutSoapOut message is the response that confirms the operation to undo the checkout of the document.</ns1:Description>
+		<ns1:Description>[In UndoCheckOut operation] The UndoCheckOutSoapOut message is the response that confirms the operation to undo the checkout of the document.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -15967,7 +15967,7 @@ http://schemas.microsoft.com/sharepoint/soap/UndoCheckOut</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R792</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.27</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentType operation] The UpdateContentType operation&lt;76&gt; is used to update a content type on a list.</ns1:Description>
+		<ns1:Description>[In UpdateContentType operation] The UpdateContentType operation&lt;81&gt; is used to update a content type on a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16025,7 +16025,7 @@ http://schemas.microsoft.com/sharepoint/soap/UndoCheckOut</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R800</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.27</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentType operation] If the specified listName does not correspond to a list from either of these checks, a SOAP fault SHOULD&lt;77&gt; be returned with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In UpdateContentType operation] If the specified listName does not correspond to a list from either of these checks, a SOAP fault SHOULD&lt;82&gt; be returned with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16035,7 +16035,7 @@ http://schemas.microsoft.com/sharepoint/soap/UndoCheckOut</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1975</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.27</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentType operation] [If the specified listName does not correspond to a list from either of these checks, a SOAP fault should&lt;77&gt; be returned with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In UpdateContentType operation] [If the specified listName does not correspond to a list from either of these checks, a SOAP fault should&lt;82&gt; be returned with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16780,7 +16780,7 @@ Contains the response to a request to update a content type on a list.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R835</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.28</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentTypesXmlDocument operation] The UpdateContentTypesXmlDocument operation&lt;78&gt; is used to update XML document properties of the content type collection on a list.</ns1:Description>
+		<ns1:Description>[In UpdateContentTypesXmlDocument operation] The UpdateContentTypesXmlDocument operation&lt;83&gt; is used to update XML document properties of the content type collection on a list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16903,7 +16903,7 @@ Contains the response to a request to update a content type on a list.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R846</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.28</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentTypesXmlDocument operation] If the list specified by the listName is not found, the protocol server SHOULD&lt;79&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In UpdateContentTypesXmlDocument operation] If the list specified by the listName is not found, the protocol server SHOULD&lt;84&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16913,7 +16913,7 @@ Contains the response to a request to update a content type on a list.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2011</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.28</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentTypesXmlDocument operation] [If the list specified by the listName is not found, the protocol server should&lt;78&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In UpdateContentTypesXmlDocument operation] [If the list specified by the listName is not found, the protocol server should&lt;84&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17253,7 +17253,7 @@ Contains the response to a request to update XML document properties of the cont
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R858</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.29</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentTypeXmlDocument operation] The UpdateContentTypeXmlDocument operation&lt;80&gt; is used to update the XML document of a list content type.</ns1:Description>
+		<ns1:Description>[In UpdateContentTypeXmlDocument operation] The UpdateContentTypeXmlDocument operation&lt;85&gt; is used to update the XML document of a list content type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17311,7 +17311,7 @@ Contains the response to a request to update XML document properties of the cont
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R866</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.29</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentTypeXmlDocument operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;81&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In UpdateContentTypeXmlDocument operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;86&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17321,7 +17321,7 @@ Contains the response to a request to update XML document properties of the cont
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2026</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.29</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateContentTypeXmlDocument operation] [If listName does not correspond to a list from either of these checks, the protocol server should&lt;81&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In UpdateContentTypeXmlDocument operation] [If listName does not correspond to a list from either of these checks, the protocol server should&lt;86&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17681,7 +17681,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R886</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.30</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateList operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;82&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In UpdateList operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;87&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17691,7 +17691,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentTypeXmlDocument</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2039</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.30</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateList operation] [If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;82&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In UpdateList operation] [If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;87&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -18102,7 +18102,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2156</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.30.2.1</ns1:Doc_Sect>
-		<ns1:Description>[Attribute PreserveEmptyValues is means] TRUE if Null values are preserved for expression evaluation. FALSE if there are no special requirements on how the protocol server treats Null values.&lt;83&gt;</ns1:Description>
+		<ns1:Description>[Attribute PreserveEmptyValues is means] TRUE if Null values are preserved for expression evaluation. FALSE if there are no special requirements on how the protocol server treats Null values.&lt;88&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -18120,7 +18120,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2158</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.30.2.1</ns1:Doc_Sect>
-		<ns1:Description>[Attribute StrictTypeCoercion means] TRUE if expressions anywhere in the list that include invalid type casts such as casting a date to a string SHOULD return an error instead of attempting to perform the cast.&lt;84&gt;</ns1:Description>
+		<ns1:Description>[Attribute StrictTypeCoercion means] TRUE if expressions anywhere in the list that include invalid type casts such as casting a date to a string SHOULD return an error instead of attempting to perform the cast.&lt;89&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -18138,7 +18138,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2055</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.30.2.1</ns1:Doc_Sect>
-		<ns1:Description>[Validation.Message]newFields :  An UpdateFieldsRequest object that defines the new fields to be added to the list.</ns1:Description>
+		<ns1:Description>[Validation.Message]newFields :  An UpdateListFieldsRequest object that defines the new fields to be added to the list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -18147,7 +18147,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2056</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.30.2.1</ns1:Doc_Sect>
-		<ns1:Description>[Validation.Message]updateFields : An UpdateFieldsRequest object that defines the fields to be updated in the list</ns1:Description>
+		<ns1:Description>[Validation.Message]updateFields : An UpdateListFieldsRequest object that defines the fields to be updated in the list</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -18156,7 +18156,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2057</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.30.2.1</ns1:Doc_Sect>
-		<ns1:Description>[Validation.Message]deleteFields : An UpdateFieldsRequest object that defines the fields to be deleted from the list.</ns1:Description>
+		<ns1:Description>[Validation.Message]deleteFields : An UpdateListFieldsRequest object that defines the fields to be deleted from the list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -18352,7 +18352,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R909</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.31</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateListItems operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;85&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
+		<ns1:Description>[In UpdateListItems operation] If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;90&gt; return a SOAP fault with error code 0x82000006.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -18362,7 +18362,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2068</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.31</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateListItems operation] [If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;85&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
+		<ns1:Description>[In UpdateListItems operation] [If listName does not correspond to a list from either of these checks, the protocol server SHOULD&lt;90&gt; return a SOAP fault with error code 0x82000006.] This indicates that the list does not exist or might have been deleted by another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -18371,7 +18371,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R3023</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.31</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateListItems operation] If listName is an empty string, the server SHOULD&lt;86&gt; return the SOAP fault: "Cannot access a closed Stream".</ns1:Description>
+		<ns1:Description>[In UpdateListItems operation] If listName is an empty string, the server SHOULD&lt;91&gt; return the SOAP fault: "Cannot access a closed Stream".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -19179,7 +19179,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2096</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.31.2.1</ns1:Doc_Sect>
-		<ns1:Description>[Move&lt;87&gt;]Allows the protocol client to move a document in a document library to a new destination.</ns1:Description>
+		<ns1:Description>[Move&lt;92&gt;]Allows the protocol client to move a document in a document library to a new destination.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -19790,7 +19790,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1147</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.32</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateListItemsWithKnowledge]The UpdateListItemsWithKnowledge operation is used to make inserts, updates, and deletions to specified list items in a list. &lt;88&gt;</ns1:Description>
+		<ns1:Description>[In UpdateListItemsWithKnowledge]The UpdateListItemsWithKnowledge operation is used to make inserts, updates, and deletions to specified list items in a list. &lt;93&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -20732,7 +20732,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R542000902</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[ListDefinitionCT.RootFolderId]. [In Appendix B: Product Behavior] &lt;19&gt; Section 2.2.4.11:  This attribute is not returned in Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[ListDefinitionCT.RootFolderId]. [In Appendix B: Product Behavior] &lt;24&gt; Section 2.2.4.11:  This attribute is not returned in Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R5420009:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20753,7 +20753,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R542001002</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[ListDefinitionCT.IrmSyncable]. [In Appendix B: Product Behavior] &lt;20&gt; Section 2.2.4.11:  This attribute is not returned in Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[ListDefinitionCT.IrmSyncable]. [In Appendix B: Product Behavior] &lt;25&gt; Section 2.2.4.11:  This attribute is not returned in Windows SharePoint Services 2.0, Windows SharePoint Services 3.0, SharePoint Foundation 2010 and SharePoint Foundation 2013.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R5420010:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20773,7 +20773,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2417</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.Validation]. [In Appendix B: Product Behavior] &lt;21&gt; Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation] is not returned in Windows SharePoint Services 2.0.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.Validation]. [In Appendix B: Product Behavior] &lt;26&gt; Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation] is not returned in Windows SharePoint Services 2.0.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1410:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20783,7 +20783,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2418</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.Validation]. [In Appendix B: Product Behavior] &lt;21&gt; Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation] is not returned in Windows SharePoint Services 3.0.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.Validation]. [In Appendix B: Product Behavior] &lt;26&gt; Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation] is not returned in Windows SharePoint Services 3.0.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1410:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20805,7 +20805,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2419</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.Validation.Message]. [In Appendix B: Product Behavior] &lt;22&gt; Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation.Message] is not returned in Windows SharePoint Services 2.0.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.Validation.Message]. [In Appendix B: Product Behavior] &lt;27&gt; Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation.Message] is not returned in Windows SharePoint Services 2.0.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1412:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20815,7 +20815,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2420</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.Validation.Message]. [In Appendix B: Product Behavior] &lt;22&gt; Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation.Message] is not returned in Windows SharePoint Services 3.0.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.Validation.Message]. [In Appendix B: Product Behavior] &lt;27&gt; Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation.Message] is not returned in Windows SharePoint Services 3.0.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1412:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20837,7 +20837,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2421</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.ValidationDisplayNames]. [In Appendix B: Product Behavior] &lt;23&gt; Section 2.2.4.12: This element [ListDefinitionSchema.ValidationDisplayNames] is not returned in Windows SharePoint Services 2.0.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.ValidationDisplayNames]. [In Appendix B: Product Behavior] &lt;28&gt; Section 2.2.4.12: This element [ListDefinitionSchema.ValidationDisplayNames] is not returned in Windows SharePoint Services 2.0.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1416:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20847,7 +20847,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2422</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.ValidationDisplayNames]. [In Appendix B: Product Behavior] &lt;23&gt; Section 2.2.4.12: This element [ListDefinitionSchema.ValidationDisplayNames] is not returned in Windows SharePoint Services 3.0.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[ListDefinitionSchema.ValidationDisplayNames]. [In Appendix B: Product Behavior] &lt;28&gt; Section 2.2.4.12: This element [ListDefinitionSchema.ValidationDisplayNames] is not returned in Windows SharePoint Services 3.0.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1416:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20868,7 +20868,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2423</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[ListItemChangeDefinition.UniqueId]. [In Appendix B: Product Behavior] &lt;24&gt; Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[ListItemChangeDefinition.UniqueId]. [In Appendix B: Product Behavior] &lt;29&gt; Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1440:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20889,7 +20889,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2424</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[ListItemChangeDefinition.MetaInfo_vti_clientid]. [In Appendix B: Product Behavior] &lt;25&gt; Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[ListItemChangeDefinition.MetaInfo_vti_clientid]. [In Appendix B: Product Behavior] &lt;30&gt; Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1442:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20910,7 +20910,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2425</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implemementation does not return this attribute[ServerChangeUnit]. &lt;26&gt; Section 2.2.4.13: This attribute[ServerChangeUnit] is not returned in Windows SharePoint Services 3.0.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implemementation does not return this attribute[ServerChangeUnit]. &lt;31&gt; Section 2.2.4.13: This attribute[ServerChangeUnit] is not returned in Windows SharePoint Services 3.0.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -20920,7 +20920,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2426</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;28&gt; Section 3.1.4.1: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;33&gt; Section 3.1.4.1: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R295:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20931,7 +20931,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2427</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;28&gt; Section 3.1.4.1: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;33&gt; Section 3.1.4.1: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R295:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20952,7 +20952,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2428</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[AddDiscussionBoardItem]. [In Appendix B: Product Behavior] &lt;29&gt; Section 3.1.4.2:  Windows SharePoint Services 2.0 does not support this operation [AddDiscussionBoardItem].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[AddDiscussionBoardItem]. [In Appendix B: Product Behavior] &lt;34&gt; Section 3.1.4.2:  Windows SharePoint Services 2.0 does not support this operation [AddDiscussionBoardItem].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R310:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -20973,7 +20973,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2429</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;30&gt; Section 3.1.4.2: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;35&gt; Section 3.1.4.2: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R318:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -20984,7 +20984,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2430</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;30&gt; Section 3.1.4.2: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;35&gt; Section 3.1.4.2: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R318:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21005,7 +21005,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2431</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[AddListFromFeature]. [In Appendix B: Product Behavior] &lt;31&gt; Section 3.1.4.4:  Windows SharePoint Services 2.0 does not support this operation [AddListFromFeature].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[AddListFromFeature]. [In Appendix B: Product Behavior] &lt;36&gt; Section 3.1.4.4:  Windows SharePoint Services 2.0 does not support this operation [AddListFromFeature].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R352:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -21037,7 +21037,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2771</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior][In AddListFromFeature operation] Implementation does returns a SOAP fault with error code 0x81072101, if the templateID provided is not one of the known list template identifiers . (&lt;32&gt; Section 3.1.4.4:  Windows SharePoint Services 3.0 returns a SOAP fault with error code 0x81072101.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior][In AddListFromFeature operation] Implementation does returns a SOAP fault with error code 0x81072101, if the templateID provided is not one of the known list template identifiers . (&lt;37&gt; Section 3.1.4.4:  Windows SharePoint Services 3.0 returns a SOAP fault with error code 0x81072101.)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R358:i, MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21048,7 +21048,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2432</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[ApplyContentTypeToList]. [In Appendix B: Product Behavior] &lt;33&gt; Section 3.1.4.6:  Windows SharePoint Services 2.0 does not support this operation [ApplyContentTypeToList].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[ApplyContentTypeToList]. [In Appendix B: Product Behavior] &lt;38&gt; Section 3.1.4.6:  Windows SharePoint Services 2.0 does not support this operation [ApplyContentTypeToList].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1623:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -21069,7 +21069,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2433</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;34&gt; Section 3.1.4.6: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;39&gt; Section 3.1.4.6: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R378:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21080,7 +21080,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2434</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;34&gt; Section 3.1.4.6: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;39&gt; Section 3.1.4.6: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R378:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21101,7 +21101,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2435</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[CheckInFile]. [In Appendix B: Product Behavior] &lt;35&gt; Section 3.1.4.7:  Windows SharePoint Services 2.0 does not support this operation [CheckInFile].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[CheckInFile]. [In Appendix B: Product Behavior] &lt;40&gt; Section 3.1.4.7:  Windows SharePoint Services 2.0 does not support this operation [CheckInFile].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1638:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -21133,7 +21133,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R3922</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In CheckInFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(&lt;36&gt; Section 3.1.4.7:  Windows SharePoint Services 3.0 does not return a SOAP fault..)</ns1:Description>
+		<ns1:Description>[In CheckInFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(&lt;41&gt; Section 3.1.4.7:  Windows SharePoint Services 3.0 does not return a SOAP fault..)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R392:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21144,7 +21144,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2436</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[CheckOutFile]. [In Appendix B: Product Behavior] &lt;37&gt; Section 3.1.4.8:  Windows SharePoint Services 2.0 does not support this operation[CheckOutFile].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[CheckOutFile]. [In Appendix B: Product Behavior] &lt;42&gt; Section 3.1.4.8:  Windows SharePoint Services 2.0 does not support this operation[CheckOutFile].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1661:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -21176,7 +21176,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R4082</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In CheckOutFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(&lt;38&gt; Section 3.1.4.8:  wss3 does not return a SOAP fault.)</ns1:Description>
+		<ns1:Description>[In CheckOutFile operation] [If the pageUrl is an invalid URL] Implementation does not return a SOAP fault.(&lt;43&gt; Section 3.1.4.8:  wss3 does not return a SOAP fault.)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R408:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21187,7 +21187,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R16741</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;39&gt; Section 3.1.4.8.2.1:  Windows SharePoint Services 3.0 does not support this format.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;44&gt; Section 3.1.4.8.2.1:  Windows SharePoint Services 3.0 does not support this format.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -21196,7 +21196,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2437</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[CreateContentType]. [In Appendix B: Product Behavior] &lt;40&gt; Section 3.1.4.9:  Windows SharePoint Services 2.0 does not support this operation[CreateContentType].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[CreateContentType]. [In Appendix B: Product Behavior] &lt;45&gt; Section 3.1.4.9:  Windows SharePoint Services 2.0 does not support this operation[CreateContentType].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1680:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -21217,7 +21217,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2438</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;41&gt; Section 3.1.4.9: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;46&gt; Section 3.1.4.9: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R424:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21228,7 +21228,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2439</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;41&gt; Section 3.1.4.9: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;46&gt; Section 3.1.4.9: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R424:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21249,7 +21249,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2440</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;42&gt; Section 3.1.4.10: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;47&gt; Section 3.1.4.10: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1698:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21260,7 +21260,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2441</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;42&gt; Section 3.1.4.10: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;47&gt; Section 3.1.4.10: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1698:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21281,7 +21281,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2442</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[DeleteContentType]. [In Appendix B: Product Behavior] &lt;43&gt; Section 3.1.4.11: Windows SharePoint Services 2.0 does not support this operation[DeleteContentType].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[DeleteContentType]. [In Appendix B: Product Behavior] &lt;48&gt; Section 3.1.4.11: Windows SharePoint Services 2.0 does not support this operation[DeleteContentType].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R480:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -21302,7 +21302,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2443</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;44&gt; Section 3.1.4.11: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;49&gt; Section 3.1.4.11: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R488:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21313,7 +21313,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2444</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;44&gt; Section 3.1.4.11: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;49&gt; Section 3.1.4.11: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R488:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21334,7 +21334,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2445</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[DeleteContentTypeXmlDocument]. [In Appendix B: Product Behavior] &lt;45&gt; Section 3.1.4.12:  Windows SharePoint Services 2.0 does not support this operation[DeleteContentTypeXmlDocument].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[DeleteContentTypeXmlDocument]. [In Appendix B: Product Behavior] &lt;50&gt; Section 3.1.4.12:  Windows SharePoint Services 2.0 does not support this operation[DeleteContentTypeXmlDocument].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R497:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -21355,7 +21355,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2446</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;46&gt; Section 3.1.4.12: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;51&gt; Section 3.1.4.12: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R505:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21366,7 +21366,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2447</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;46&gt; Section 3.1.4.12: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;51&gt; Section 3.1.4.12: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R505:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21387,7 +21387,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2448</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;47&gt; Section 3.1.4.13: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;52&gt; Section 3.1.4.13: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R523:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21398,7 +21398,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2449</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;47&gt; Section 3.1.4.13: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;52&gt; Section 3.1.4.13: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R523:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21419,7 +21419,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2450</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;48&gt; Section 3.1.4.14: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;53&gt; Section 3.1.4.14: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R537:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21430,7 +21430,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2451</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;48&gt; Section 3.1.4.14: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;53&gt; Section 3.1.4.14: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R537:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21451,7 +21451,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R30371</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In GetAttachmentCollection operation]  Implementation does return the following SOAP fault with no error code: "Value does not fall within the expected range.",  if the listItemID is a negative value. (&lt;49&gt; Section 3.1.4.14: wss3 return the following SOAP fault with no error code: "Value does not fall within the expected range.")</ns1:Description>
+		<ns1:Description>[In GetAttachmentCollection operation]  Implementation does return the following SOAP fault with no error code: "Value does not fall within the expected range.",  if the listItemID is a negative value. (&lt;54&gt; Section 3.1.4.14: wss3 return the following SOAP fault with no error code: "Value does not fall within the expected range.")</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R3037:i, MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21473,7 +21473,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2452</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;50&gt; Section 3.1.4.15: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;55&gt; Section 3.1.4.15: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R558:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21484,7 +21484,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2453</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;50&gt; Section 3.1.4.15: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;55&gt; Section 3.1.4.15: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R558:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21505,7 +21505,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2454</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;51&gt; Section 3.1.4.16: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;56&gt; Section 3.1.4.16: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R571:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21516,7 +21516,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2455</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;51&gt; Section 3.1.4.16: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not return a SOAP fault with error code 0x82000006. (&lt;56&gt; Section 3.1.4.16: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R571:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21537,7 +21537,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2456</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[GetListContentType]. [In Appendix B: Product Behavior] &lt;52&gt; Section 3.1.4.18:  Windows SharePoint Services 2.0 does not support this operation[GetListContentType].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[GetListContentType]. [In Appendix B: Product Behavior] &lt;57&gt; Section 3.1.4.18:  Windows SharePoint Services 2.0 does not support this operation[GetListContentType].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R586:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -21558,7 +21558,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2457</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;53&gt; Section 3.1.4.18: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;58&gt; Section 3.1.4.18: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R594:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21569,7 +21569,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2458</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;53&gt; Section 3.1.4.18: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;58&gt; Section 3.1.4.18: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R594:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21590,7 +21590,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2459</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[GetListContentTypes]. [In Appendix B: Product Behavior] &lt;54&gt; Section 3.1.4.19:  Windows SharePoint Services 2.0 does not support this operation[GetListContentTypes].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[GetListContentTypes]. [In Appendix B: Product Behavior] &lt;59&gt; Section 3.1.4.19:  Windows SharePoint Services 2.0 does not support this operation[GetListContentTypes].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R601:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -21611,7 +21611,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2460</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;55&gt; Section 3.1.4.19.2.1: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;60&gt; Section 3.1.4.19.2.1: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R611:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21622,7 +21622,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2461</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;55&gt; Section 3.1.4.19.2.1: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;60&gt; Section 3.1.4.19.2.1: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R611:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21654,7 +21654,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2462</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior][GetListContentTypesResponse]Implementation does not return this attribute[GetListContentTypesResult.ContentTypes.ContentTypeOrder].(&lt;56&gt; Section 3.1.4.19.2.2: The attribute is not returned in Windows SharePoint Services 3.0.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior][GetListContentTypesResponse]Implementation does not return this attribute[GetListContentTypesResult.ContentTypes.ContentTypeOrder].(&lt;61&gt; Section 3.1.4.19.2.2: The attribute is not returned in Windows SharePoint Services 3.0.)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1832:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21665,7 +21665,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2463</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not support this operation [GetListContentTypesAndProperties]. (&lt;57&gt; Section 3.1.4.20:  Windows SharePoint Services 2.0 do not support the GetListContentTypesAndProperties operation (section 3.1.4.20).)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not support this operation [GetListContentTypesAndProperties]. (&lt;62&gt; Section 3.1.4.20:  Windows SharePoint Services 2.0 do not support the GetListContentTypesAndProperties operation (section 3.1.4.20).)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1020:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21675,7 +21675,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2464</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not support this operation [GetListContentTypesAndProperties]. (&lt;57&gt; Section 3.1.4.20:  Windows SharePoint Services 3.0 do not support the GetListContentTypesAndProperties operation (section 3.1.4.20).)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]Implementation does not support this operation [GetListContentTypesAndProperties]. (&lt;62&gt; Section 3.1.4.20:  Windows SharePoint Services 3.0 do not support the GetListContentTypesAndProperties operation (section 3.1.4.20).)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1020:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21696,7 +21696,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R5881</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [In GetListItemChanges operation] Implementation does return a SOAP fault with no error code, if the specified listName is an empty string. ( &lt;58&gt; Section 3.1.4.21: In Windows SharePoint Services 2.0, this error code is not returned in the SOAP fault.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [In GetListItemChanges operation] Implementation does return a SOAP fault with no error code, if the specified listName is an empty string. ( &lt;63&gt; Section 3.1.4.21: In Windows SharePoint Services 2.0, this error code is not returned in the SOAP fault.)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R3018:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21706,7 +21706,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R5882</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] [In GetListItemChanges operation] Implementation does return a SOAP fault with no error code, if the specified listName is an empty string. ( &lt;58&gt; Section 3.1.4.21: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010 this error code is not returned in the SOAP fault.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] [In GetListItemChanges operation] Implementation does return a SOAP fault with no error code, if the specified listName is an empty string. ( &lt;63&gt; Section 3.1.4.21: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010 this error code is not returned in the SOAP fault.)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R3018:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21728,7 +21728,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2480</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;59&gt; Section 3.1.4.21: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;64&gt; Section 3.1.4.21: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R632:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21739,7 +21739,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2481</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;59&gt; Section 3.1.4.21: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;64&gt; Section 3.1.4.21: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R632:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21760,7 +21760,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2482</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[GetListItemChangesSinceToken]. [In Appendix B: Product Behavior]&lt;60&gt; Section 3.1.4.22:  Windows SharePoint Services 2.0 does not support this operation[GetListItemChangesSinceToken].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[GetListItemChangesSinceToken]. [In Appendix B: Product Behavior]&lt;65&gt; Section 3.1.4.22:  Windows SharePoint Services 2.0 does not support this operation[GetListItemChangesSinceToken].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R650:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -21781,7 +21781,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R6581</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken operation] Implementation does not return error code in the SOAP fault, if the specified listName does not correspond to a list from either of these checks. (&lt;61&gt; Section 3.1.4.22: In Windows SharePoint Services 3.0, this error code is not returned in the SOAP fault.)</ns1:Description>
+		<ns1:Description>[In GetListItemChangesSinceToken operation] Implementation does not return error code in the SOAP fault, if the specified listName does not correspond to a list from either of these checks. (&lt;66&gt; Section 3.1.4.22: In Windows SharePoint Services 3.0, this error code is not returned in the SOAP fault.)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R658:i, MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21803,7 +21803,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R6612</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken operation] Implementation does return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)", if the viewFields parameter is not specified and the viewName parameter contains an invalid GUID. (&lt;62&gt; Section 3.1.4.22:  Windows SharePoint Services 3.0 returns the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)")</ns1:Description>
+		<ns1:Description>[In GetListItemChangesSinceToken operation] Implementation does return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)", if the viewFields parameter is not specified and the viewName parameter contains an invalid GUID. (&lt;67&gt; Section 3.1.4.22:  Windows SharePoint Services 3.0 returns the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)")</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R661:i, MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21835,7 +21835,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2483</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does not ignore the changeToken parameter. (&lt;63&gt; Section 3.1.4.22: In Windows SharePoint Services 3.0, if the value of the changeToken parameter is empty, the protocol server will return a SOAP fault. There is no error code for this fault.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does not ignore the changeToken parameter. (&lt;68&gt; Section 3.1.4.22: In Windows SharePoint Services 3.0, if the value of the changeToken parameter is empty, the protocol server will return a SOAP fault. There is no error code for this fault.)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R663:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21889,7 +21889,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R7080</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] &lt;66&gt; Section 3.1.4.22.2.2: This attribute is not returned by Windows SharePoint Services 2.0.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] &lt;71&gt; Section 3.1.4.22.2.2: This attribute is not returned by Windows SharePoint Services 2.0.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R708:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21899,7 +21899,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R7081</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior]  &lt;66&gt; Section 3.1.4.22.2.2: This attribute is not returned by Windows SharePoint Services 3.0 and SharePoint Foundation 2010.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior]  &lt;71&gt; Section 3.1.4.22.2.2: This attribute is not returned by Windows SharePoint Services 3.0 and SharePoint Foundation 2010.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R708:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21931,7 +21931,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2486</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In GetListItemChangesSinceToken operation]Implementation does not return the FileFragment element.[In Appendix B: Product Behavior] &lt;65&gt; Section 3.1.4.22.2.2: In Windows SharePoint Services 3.0, the FileFragment element is not returned.</ns1:Description>
+		<ns1:Description>[In GetListItemChangesSinceToken operation]Implementation does not return the FileFragment element.[In Appendix B: Product Behavior] &lt;70&gt; Section 3.1.4.22.2.2: In Windows SharePoint Services 3.0, the FileFragment element is not returned.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R715:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -21973,7 +21973,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2488</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[GetListItemChangesWithKnowledge]. [In Appendix B: Product Behavior]&lt;67&gt; Section 3.1.4.23:  Windows SharePoint Services 2.0 and Windows SharePoint Services 3.0 do not support this operation.</ns1:Description>
+		<ns1:Description>Implementation does not support this method[GetListItemChangesWithKnowledge]. [In Appendix B: Product Behavior]&lt;72&gt; Section 3.1.4.23:  Windows SharePoint Services 2.0 and Windows SharePoint Services 3.0 do not support this operation.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1078:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22025,7 +22025,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R11460</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] &lt;68&gt; Section 3.1.4.23.2.2: This attribute is not returned by wss2.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] &lt;73&gt; Section 3.1.4.23.2.2: This attribute is not returned by wss2.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1146:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22035,7 +22035,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R11461</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] &lt;68&gt; Section 3.1.4.23.2.2: This attribute is not returned by wss3 and wss4.</ns1:Description>
+		<ns1:Description>Implementation does not return this attribute[MaxRecommendedEmbeddedFileSize attribute]. [In Appendix B: Product Behavior] &lt;73&gt; Section 3.1.4.23.2.2: This attribute is not returned by wss3 and wss4.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1146:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22056,7 +22056,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2489</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;69&gt; Section 3.1.4.24: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;74&gt; Section 3.1.4.24: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R727:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22067,7 +22067,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2490</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;69&gt; Section 3.1.4.24: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;74&gt; Section 3.1.4.24: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R727:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22088,7 +22088,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R5893</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior][In GetListItems operation] Implementation does return a SOAP fault with no error code, if listName and viewName are both empty. (&lt;70&gt; Section 3.1.4.24: In Windows SharePoint Services 2.0, this error code is not returned in the SOAP fault.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior][In GetListItems operation] Implementation does return a SOAP fault with no error code, if listName and viewName are both empty. (&lt;75&gt; Section 3.1.4.24: In Windows SharePoint Services 2.0, this error code is not returned in the SOAP fault.)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R3019:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22098,7 +22098,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R5894</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior][In GetListItems operation] Implementation does return a SOAP fault with no error code, if listName and viewName are both empty. (&lt;70&gt; Section 3.1.4.24: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010, this error code is not returned in the SOAP fault.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior][In GetListItems operation] Implementation does return a SOAP fault with no error code, if listName and viewName are both empty. (&lt;75&gt; Section 3.1.4.24: In Windows SharePoint Services 3.0 and SharePoint Foundation 2010, this error code is not returned in the SOAP fault.)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R3019:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22120,7 +22120,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2491</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[GetVersionCollection]. [In Appendix B: Product Behavior]&lt;71&gt; Section 3.1.4.25:  Windows SharePoint Services 2.0 does not support this operation[GetVersionCollection].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[GetVersionCollection]. [In Appendix B: Product Behavior]&lt;76&gt; Section 3.1.4.25:  Windows SharePoint Services 2.0 does not support this operation[GetVersionCollection].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R757:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22141,7 +22141,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2492</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;72&gt; Section 3.1.4.25: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;77&gt; Section 3.1.4.25: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R765:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22152,7 +22152,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2493</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;72&gt; Section 3.1.4.25: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;77&gt; Section 3.1.4.25: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R765:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22214,7 +22214,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R7661</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP fault with no error code and the error string "Value does not fall within the expected range." when strListItemID is a negative value, is zero, or is a positive value that does not correspond to a list item in a specified list on the site. (&lt;73&gt; Section 3.1.4.25: When strListItemID is a negative value, is zero, or is a positive value that does not correspond to a list item in a specified list on the site, Windows SharePoint Services 3.0 returns a SOAP fault with no error code and the error string "Value does not fall within the expected range.".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP fault with no error code and the error string "Value does not fall within the expected range." when strListItemID is a negative value, is zero, or is a positive value that does not correspond to a list item in a specified list on the site. (&lt;78&gt; Section 3.1.4.25: When strListItemID is a negative value, is zero, or is a positive value that does not correspond to a list item in a specified list on the site, Windows SharePoint Services 3.0 returns a SOAP fault with no error code and the error string "Value does not fall within the expected range.".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R766:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22255,7 +22255,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2494</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[UndoCheckOut]. [In Appendix B: Product Behavior]&lt;74&gt; Section 3.1.4.26:  Windows SharePoint Services 2.0 does not support this operation[UndoCheckOut].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[UndoCheckOut]. [In Appendix B: Product Behavior]&lt;79&gt; Section 3.1.4.26:  Windows SharePoint Services 2.0 does not support this operation[UndoCheckOut].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R778:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22276,7 +22276,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R7851</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In UndoCheckOut operation] Implementation does not return a SOAP fault if the pageUrl is an invalid URL. &lt;75&gt; Section 3.1.4.26: wss3 does not return a SOAP fault.</ns1:Description>
+		<ns1:Description>[In UndoCheckOut operation] Implementation does not return a SOAP fault if the pageUrl is an invalid URL. &lt;80&gt; Section 3.1.4.26: wss3 does not return a SOAP fault.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R785:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22298,7 +22298,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2495</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[UpdateContentType]. [In Appendix B: Product Behavior]&lt;76&gt; Section 3.1.4.27:  Windows SharePoint Services 2.0 does not support this operation[UpdateContentType].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[UpdateContentType]. [In Appendix B: Product Behavior]&lt;81&gt; Section 3.1.4.27:  Windows SharePoint Services 2.0 does not support this operation[UpdateContentType].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R792:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22319,7 +22319,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2496</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;77&gt; Section 3.1.4.27: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;82&gt; Section 3.1.4.27: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R800:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22330,7 +22330,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2497</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;77&gt; Section 3.1.4.27: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;82&gt; Section 3.1.4.27: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R800:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22351,7 +22351,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2498</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[UpdateContentTypesXmlDocument]. [In Appendix B: Product Behavior]&lt;78&gt; Section 3.1.4.28:  Windows SharePoint Services 2.0 does not support this operation[UpdateContentTypesXmlDocument].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[UpdateContentTypesXmlDocument]. [In Appendix B: Product Behavior]&lt;83&gt; Section 3.1.4.28:  Windows SharePoint Services 2.0 does not support this operation[UpdateContentTypesXmlDocument].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R835:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22372,7 +22372,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2499</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;79&gt; Section 3.1.4.28: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;84&gt; Section 3.1.4.28: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R846:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22383,7 +22383,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2500</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;79&gt; Section 3.1.4.28: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;84&gt; Section 3.1.4.28: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R846:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22404,7 +22404,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2501</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[UpdateContentTypeXmlDocument]. [In Appendix B: Product Behavior]&lt;80&gt; Section 3.1.4.29:  Windows SharePoint Services 2.0 does not support this operation[UpdateContentTypeXmlDocument].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[UpdateContentTypeXmlDocument]. [In Appendix B: Product Behavior]&lt;85&gt; Section 3.1.4.29:  Windows SharePoint Services 2.0 does not support this operation[UpdateContentTypeXmlDocument].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R858:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22425,7 +22425,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2502</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;81&gt; Section 3.1.4.29: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;86&gt; Section 3.1.4.29: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R866:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22436,7 +22436,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2503</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;81&gt; Section 3.1.4.29: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;86&gt; Section 3.1.4.29: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R866:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22457,7 +22457,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2504</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;82&gt; Section 3.1.4.30: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;87&gt; Section 3.1.4.30: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R886:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22468,7 +22468,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2505</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;82&gt; Section 3.1.4.30: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return a SOAP fault with error code 0x82000006. (&lt;87&gt; Section 3.1.4.30: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R886:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22489,7 +22489,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2510</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP fault with no error code. (&lt;85&gt; Section 3.1.4.31: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP fault with no error code. (&lt;90&gt; Section 3.1.4.31: Windows SharePoint Services 3.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R909:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22499,7 +22499,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2511</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP fault with no error code. (&lt;85&gt; Section 3.1.4.31: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)". )</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return a SOAP fault with no error code. (&lt;90&gt; Section 3.1.4.31: Windows SharePoint Services 2.0 return the following SOAP fault with no error code: "GUID should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx)". )</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R909:i,MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22575,7 +22575,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R30231</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In UpdateListItems operation] Implementation does return the SOAP fault: "Object reference not set to an instance of an object.", if listName is an empty string. (&lt;86&gt; Section 3.1.4.31:  Windows SharePoint Services 3.0 returns the SOAP fault: "Object reference not set to an instance of an object".)</ns1:Description>
+		<ns1:Description>[In UpdateListItems operation] Implementation does return the SOAP fault: "Object reference not set to an instance of an object.", if listName is an empty string. (&lt;91&gt; Section 3.1.4.31:  Windows SharePoint Services 3.0 returns the SOAP fault: "Object reference not set to an instance of an object".)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R3023:i, MS-LISTSWS_R976:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -22597,7 +22597,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2512</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this behavior[UpdateListItems.Move]. [In Appendix B: Product Behavior]&lt;87&gt; Section 3.1.4.31.2.1:  Windows SharePoint Services 2.0 does not support this behavior[UpdateListItems.Move].</ns1:Description>
+		<ns1:Description>Implementation does not support this behavior[UpdateListItems.Move]. [In Appendix B: Product Behavior]&lt;92&gt; Section 3.1.4.31.2.1:  Windows SharePoint Services 2.0 does not support this behavior[UpdateListItems.Move].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R2096:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22607,7 +22607,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2513</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this behavior[UpdateListItems.Move]. [In Appendix B: Product Behavior]&lt;87&gt; Section 3.1.4.31.2.1:  Windows SharePoint Services 3.0 does not support this behavior[UpdateListItems.Move].</ns1:Description>
+		<ns1:Description>Implementation does not support this behavior[UpdateListItems.Move]. [In Appendix B: Product Behavior]&lt;92&gt; Section 3.1.4.31.2.1:  Windows SharePoint Services 3.0 does not support this behavior[UpdateListItems.Move].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R2096:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22639,7 +22639,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2514</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[UpdateListItemsWithKnowledge]. [In Appendix B: Product Behavior]&lt;88&gt; Section 3.1.4.32:  Windows SharePoint Services 2.0 do not support this method[UpdateListItemsWithKnowledge].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[UpdateListItemsWithKnowledge]. [In Appendix B: Product Behavior]&lt;93&gt; Section 3.1.4.32:  Windows SharePoint Services 2.0 do not support this method[UpdateListItemsWithKnowledge].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1147:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22649,7 +22649,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2515</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[UpdateListItemsWithKnowledge]. [In Appendix B: Product Behavior]&lt;88&gt; Section 3.1.4.32:  Windows SharePoint Services 3.0 do not support this method[UpdateListItemsWithKnowledge].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[UpdateListItemsWithKnowledge]. [In Appendix B: Product Behavior]&lt;93&gt; Section 3.1.4.32:  Windows SharePoint Services 3.0 do not support this method[UpdateListItemsWithKnowledge].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1147:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
