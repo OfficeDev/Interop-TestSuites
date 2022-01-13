@@ -200,6 +200,7 @@
     <DeploymentItem filename="MS-SITESS\Adapter\SUTControlAdapter\Implementation\SetUserCodeEnabled.ps1" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\Adapter\SUTControlAdapter\Implementation\GetStatusCode.ps1" />
