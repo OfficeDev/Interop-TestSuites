@@ -12,6 +12,7 @@
     <DeploymentItem filename="SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\GetListGuidByName.ps1" />
     <DeploymentItem filename="SharedTestSuite\SharedAdapter\SUTControlAdapter\Implementation\SwitchCellStorageService.ps1" />
     <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WOPI\TestSuite\MS-WOPI_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WOPI\TestSuite\MS-WOPI_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_TestSuite.deployment.ptfconfig" />
@@ -31,6 +32,7 @@
     <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-ONESTORE\TestSuite\Resources\Encryption.one" />
     <DeploymentItem filename="MS-WOPI\TestSuite\MS-WOPI_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-WOPI\TestSuite\MS-WOPI_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ONESTORE\TestSuite\MS-ONESTORE_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WOPI\TestSuite\MS-WOPI_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ONESTORE\TestSuite\MS-ONESTORE_TestSuite.ptfconfig" />
@@ -52,6 +54,7 @@
     <DeploymentItem filename="MS-ONESTORE\TestSuite\Resources\AlternativePackaging.one" />
     <DeploymentItem filename="MS-ONESTORE\TestSuite\Resources\AlternativePackaging.onetoc2" />
     <DeploymentItem filename="MS-ONESTORE\TestSuite\MS-ONESTORE_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-ONESTORE\TestSuite\MS-ONESTORE_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WOPI\TestSuite\MS-WOPI_TestSuite.deployment.ptfconfig" />
   </Deployment>
