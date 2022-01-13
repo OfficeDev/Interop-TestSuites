@@ -1,6 +1,6 @@
 ## [MS-WDVMODUU]: Office Document Update Utility Extensions
-- [MS-WDVMODUU] v20181001 is used to develop the test suite.
-- Release date, 10/1/2018.
+- [MS-WDVMODUU] v20211005 is used to develop the test suite.
+- Release date, 10/5/2021.
 
 To find the new landing page for [MS-WDVMODUU], please visit https://msdn.microsoft.com/en-us/library/cc313043(v=office.12).aspx
 
