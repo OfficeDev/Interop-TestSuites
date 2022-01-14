@@ -521,9 +521,9 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
                 {
                     expectedSutPlaceHolderValue = "2019";
                 }
-                else if (currentVersion.Equals("SharePointServerSubscriptionEditionPreview", StringComparison.OrdinalIgnoreCase))
+                else if (currentVersion.Equals("SharePointServerSubscriptionEdition", StringComparison.OrdinalIgnoreCase))
                 {
-                    expectedSutPlaceHolderValue = "SubscriptionEditionPreview";
+                    expectedSutPlaceHolderValue = "SubscriptionEdition";
                 }
                 else
                 {

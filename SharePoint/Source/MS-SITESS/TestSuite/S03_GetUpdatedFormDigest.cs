@@ -84,7 +84,8 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointFoundation2013SP1 ||
                 Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2013 || 
                 Common.GetConfigurationPropertyValue(Constants.SutVersion,this.Site) == Constants.SharePointServer2016 ||
-                Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2019)
+                Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2019 ||
+                Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServerSubscriptionEdition)
             {
                 Site.Assert.IsTrue(formDigestExpired.Contains(Constants.TimeOutInformationForSP2013AndSP2016), "digest expired");
             }
@@ -161,7 +162,8 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
                 Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointFoundation2013SP1 ||
                 Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2013 || 
                 Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2016 ||
-                Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2019)
+                Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServer2019 ||
+                Common.GetConfigurationPropertyValue(Constants.SutVersion, this.Site) == Constants.SharePointServerSubscriptionEdition)
             {
                 Site.Assert.IsTrue(formDigestExpired.Contains(Constants.TimeOutInformationForSP2013AndSP2016), "digest expired");
             }
