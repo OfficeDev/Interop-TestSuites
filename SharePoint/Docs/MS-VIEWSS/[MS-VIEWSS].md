@@ -1,6 +1,6 @@
 ## [MS-VIEWSS]: Views Web Service Protocol
-- [MS-VIEWSS] v20210720 is used to develop the test suite.
-- Release date, 07/20/2021.
+- [MS-VIEWSS] v20211005 is used to develop the test suite.
+- Release date, 10/05/2021.
 
 To find the new landing page for [MS-VIEWSS], please visit https://msdn.microsoft.com/en-us/library/cc313116(v=office.12).aspx
 

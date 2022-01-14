@@ -62,7 +62,7 @@
     <None Include="MS-AUTHWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-AUTHWS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-AUTHWS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
-    <None Include="MS-AUTHWS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-AUTHWS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-AUTHWS_TestSuite.deployment.ptfconfig" />
     <None Include="MS-AUTHWS_TestSuite.ptfconfig" />
     <None Include="MS-AUTHWS_WindowsSharePointServices3_SHOULDMAY.deployment.ptfconfig" />

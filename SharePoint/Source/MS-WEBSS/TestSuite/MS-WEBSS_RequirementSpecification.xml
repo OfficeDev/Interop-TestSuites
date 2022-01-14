@@ -1317,7 +1317,7 @@ The request to create a content type on the context site.</ns1:Description>
       &lt;s:element name="displayName" type="s:string" minOccurs="1"/&gt;
       &lt;s:element name="parentType" type="s:string" minOccurs="1"/&gt;
       &lt;s:element name="newFields" type="AddOrUpdateFieldsDefinition" minOccurs="0"/&gt;
-      &lt;s:element name="contentTypeProperties" minOccurs="1"&gt;
+      &lt;s:element name="contentTypeProperties" minOccurs="0" maxOccurs="1"&gt;
         &lt;s:complexType&gt;
           &lt;s:sequence&gt;
             &lt;s:element name="ContentType" type="ContentTypePropertyDefinition" minOccurs="0" /&gt;
@@ -7664,7 +7664,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateContentType</ns1:Description>
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
       &lt;s:element name="contentTypeId" type="s:string" minOccurs="0"/&gt;
-      &lt;s:element name="contentTypeProperties" minOccurs="1"&gt;
+      &lt;s:element name="contentTypeProperties" minOccurs="0" maxOccurs="1"&gt;
         &lt;s:complexType&gt;
           &lt;s:sequence&gt;
             &lt;s:element name="ContentType" type="ContentTypePropertyDefinition" minOccurs="0" /&gt;
