@@ -21,6 +21,7 @@
     <DeploymentItem filename="..\MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="..\MS-FSSHTTP-FSSHTTPB\TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ONESTORE_RequirementSpecification.xml" />
     <DeploymentItem filename="..\MS-WOPI\Adapter\SUTControlAdapter\Implementation\RemoveWOPIDiscoveryRecord.ps1" />
     <DeploymentItem filename="..\MS-WOPI\Adapter\SUTControlAdapter\Implementation\AddFileToSUT.ps1" />
@@ -41,7 +42,7 @@
     <DeploymentItem filename="TestSuite\MS-ONESTORE_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ONESTORE_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ONESTORE_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-ONESTORE_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-ONESTORE_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-ONESTORE_TestSuite.deployment.ptfconfig" />
   </Deployment>
   <Execution>

@@ -18,6 +18,7 @@
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\MS-OFFICIALFILE_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-OFFICIALFILE\TestSuite\MS-OFFICIALFILE_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OUTSPS\Adapter\SUTControlAdapter\Implementation\AddOneFileToDocumentLibrary.ps1" />
     <DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
@@ -26,6 +27,7 @@
     <DeploymentItem filename="MS-VERSS\TestSuite\MS-VERSS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-LISTSWS\TestSuite\MS-LISTSWS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_TestSuite.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VIEWSS\Adapter\ViewHtmlFile\ViewHtmlConfigure.xml" />
@@ -126,7 +128,7 @@
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OUTSPS\Adapter\SUTControlAdapter\Implementation\UploadFileWithFolder.ps1" />
     <DeploymentItem filename="MS-VERSS\Adapter\SUTControlAdapter\Implementation\GetFileVersions.ps1" />
-    <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-LISTSWS\Adapter\SUTControlAdapter\Implementation\GetWebAppRecycleBin.ps1" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_TestSuite.ptfconfig" />
     <DeploymentItem filename="MS-WWSP\Adapter\SUTControlAdapter\Implementation\CleanUpStartedTasks.ps1" />
@@ -198,6 +200,7 @@
     <DeploymentItem filename="MS-SITESS\Adapter\SUTControlAdapter\Implementation\SetUserCodeEnabled.ps1" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\Adapter\SUTControlAdapter\Implementation\GetStatusCode.ps1" />
@@ -207,6 +210,7 @@
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-WDVMODUU\TestSuite\MS-WDVMODUU_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VERSS\TestSuite\MS-VERSS_SharePointFoundation2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\MS-SHDACCWS.wsdl" />
     <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_TestSuite.ptfconfig" />
@@ -237,6 +241,7 @@
     <DeploymentItem filename="MS-SITESS\TestSuite\MS-SITESS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SHDACCWS\TestSuite\MS-SHDACCWS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-DWSS\TestSuite\MS-DWSS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-DWSS\TestSuite\MS-DWSS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Common\Proxy\MS-WSSCAML.xsd" />
     <DeploymentItem filename="MS-SITESS\Adapter\SUTControlAdapter\Implementation\SetFormDigestTimeout.ps1" />
     <DeploymentItem filename="MS-WWSP\Adapter\SUTControlAdapter\Implementation\GetListIdByName.ps1" />
@@ -278,10 +283,13 @@
     <DeploymentItem filename="TestSuite\Resources\StartworkflowParameters_Claim_SubscriptionEditionPreview.xml" />
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-COPYS\TestSuite\MS-COPYS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-AUTHWS\TestSuite\MS-AUTHWS_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WWSP\TestSuite\Resources\AlertToDoData.xml" />
     <DeploymentItem filename="MS-OUTSPS\TestSuite\MS-OUTSPS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-MEETS\TestSuite\MS-MEETS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-SITESS\Adapter\SUTControlAdapter\Implementation\GetSiteGuid.ps1" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-WWSP\TestSuite\Resources\StartworkflowParameters_2013.xml" />
@@ -300,8 +308,9 @@
     <DeploymentItem filename="MS-DWSS\Adapter\Schemas\SimpleTypes.xsd" />
     <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WEBSS\TestSuite\MS-WEBSS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-ADMINS\TestSuite\MS-ADMINS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />

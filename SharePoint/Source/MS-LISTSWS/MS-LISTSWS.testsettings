@@ -31,6 +31,7 @@
     <DeploymentItem filename="TestSuite\MS-LISTSWS_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetWebAppRecycleBin.ps1" />
     <DeploymentItem filename="TestSuite\MS-LISTSWS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-LISTSWS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
