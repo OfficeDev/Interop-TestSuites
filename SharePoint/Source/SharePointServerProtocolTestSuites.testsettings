@@ -309,7 +309,7 @@
     <DeploymentItem filename="MS-DWSS\Adapter\Schemas\SimpleTypes.xsd" />
     <DeploymentItem filename="MS-VIEWSS\TestSuite\MS-VIEWSS_RequirementSpecification.xml" />
     <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
-	<DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
+	  <DeploymentItem filename="MS-CPSWS\TestSuite\MS-CPSWS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WWSP\TestSuite\MS-WWSP_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WSSREST\TestSuite\MS-WSSREST_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="MS-WEBSS\TestSuite\MS-WEBSS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
