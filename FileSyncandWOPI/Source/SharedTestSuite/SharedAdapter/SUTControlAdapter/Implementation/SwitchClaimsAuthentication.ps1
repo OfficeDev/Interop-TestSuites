@@ -25,7 +25,7 @@ $ret = invoke-command -computer $computerName -Credential $credential -scriptblo
 	$SharePointServer2013           = "SharePointServer2013","Microsoft SharePoint Server 2013 "        
 	$SharePointServer2016           = "SharePointServer2016","Microsoft SharePoint Server 2016"        
 	$SharePointServer2019           = "SharePointServer2019","Microsoft SharePoint Server 2019" 
-	$SharePointServerSubscriptionEdition           = "SharePointServerSubscriptionEdition","Microsoft SharePoint Server Subscription Edition" 
+	$SharePointServerSubscriptionEdition           = "SharePointServer2019","Microsoft SharePoint Server Subscription Edition" 
 
 	$SharePointVersion              = "Unknown Version"
 	$keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
@@ -89,7 +89,7 @@ $ret = invoke-command -computer $computerName -Credential $credential -scriptblo
 	}
 	
 	# If the SharePoint version is SharePointFoundation2013 or SharePointServer2013, then need to update the authentication mode.
-	if($SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0]  -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0])
+	if($SharePointVersion -eq $SharePointFoundation2013[0] -or $SharePointVersion -eq $SharePointServer2013[0]  -or $SharePointVersion -eq $SharePointServer2016[0] -or $SharePointVersion -eq $SharePointServer2019[0] -or $SharePointVersion -eq $SharePointServerSubscriptionEdition[0])
 	{
         # load assemblies.
         [System.Reflection.Assembly]::LoadWithPartialName("Microsoft.SharePoint") | out-null
