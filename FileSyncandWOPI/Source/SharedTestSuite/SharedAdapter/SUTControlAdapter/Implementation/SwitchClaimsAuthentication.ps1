@@ -25,6 +25,7 @@ $ret = invoke-command -computer $computerName -Credential $credential -scriptblo
 	$SharePointServer2013           = "SharePointServer2013","Microsoft SharePoint Server 2013 "        
 	$SharePointServer2016           = "SharePointServer2016","Microsoft SharePoint Server 2016"        
 	$SharePointServer2019           = "SharePointServer2019","Microsoft SharePoint Server 2019" 
+	$SharePointServerSubscriptionEdition           = "SharePointServerSubscriptionEdition","Microsoft SharePoint Server Subscription Edition" 
 
 	$SharePointVersion              = "Unknown Version"
 	$keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
@@ -72,6 +73,11 @@ $ret = invoke-command -computer $computerName -Credential $credential -scriptblo
 		elseif($item.DisplayName -eq $SharePointServer2019[1])
 		{
 			$SharePointVersion = $SharePointServer2019[0]
+			break
+		}
+	    elseif($item.DisplayName -eq $SharePointServerSubscriptionEdition[1])
+		{
+			$SharePointVersion = $SharePointServerSubscriptionEdition[0]
 			break
 		}
 	}

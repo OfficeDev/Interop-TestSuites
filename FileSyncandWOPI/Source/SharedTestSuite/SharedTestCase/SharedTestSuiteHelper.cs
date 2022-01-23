@@ -128,7 +128,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(fileContent, out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(subRequestId, storageIndexExGuid);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(subRequestId, storageIndexExGuid, null);
             cellRequest.AddSubRequest(putChange, dataElements);
 
             CellSubRequestType cellSubRequest = CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
@@ -224,11 +224,11 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                                 bool isPartialLast = false,
                                 bool isFavorCoherencyFailureOverNotFound = true,
                                 bool isAbortRemainingPutChangesOnFailure = false,
-                                bool isMultiRequestPutHint = false,
+                                //bool isMultiRequestPutHint = false,
                                 bool isReturnCompleteKnowledgeIf = true,
                                 bool isLastWriterWinsOnNextChange = false)
         {
-            PutChangesCellSubRequest putChanges = new PutChangesCellSubRequest(subRequestId, storageIndexExGuid);
+            PutChangesCellSubRequest putChanges = new PutChangesCellSubRequest(subRequestId, storageIndexExGuid, null);
             putChanges.ExpectedStorageIndexExtendedGUID = expectStorageIndexExGuid;
 
             putChanges.ImplyNullExpectedIfNoMapping = Convert.ToInt32(isImplyNullExpectedIfNoMapping);
@@ -236,7 +236,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             putChanges.PartialLast = Convert.ToInt32(isPartialLast);
             putChanges.FavorCoherencyFailureOverNotFound = Convert.ToInt32(isFavorCoherencyFailureOverNotFound);
             putChanges.AbortRemainingPutChangesOnFailure = Convert.ToInt32(isAbortRemainingPutChangesOnFailure);
-            putChanges.MultiRequestPutHint = Convert.ToInt32(isMultiRequestPutHint);
+            //putChanges.MultiRequestPutHint = Convert.ToInt32(isMultiRequestPutHint);
             putChanges.ReturnCompleteKnowledgeIfPossible = Convert.ToInt32(isReturnCompleteKnowledgeIf);
             putChanges.LastWriterWinsOnNextChange = Convert.ToInt32(isLastWriterWinsOnNextChange);
 
