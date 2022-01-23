@@ -47,7 +47,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         SharePointServer2019,
 
         /// <summary>
-        /// The SUT is Microsoft SharePoint Server Subscription Edition Preview.
+        /// The SUT is Microsoft SharePoint Server Subscription Edition.
         /// </summary>
         SharePointServerSubscriptionEdition
     }
