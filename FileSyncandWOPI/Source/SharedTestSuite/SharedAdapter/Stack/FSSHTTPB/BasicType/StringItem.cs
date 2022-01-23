@@ -2,7 +2,6 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 {
     using System;
     using System.Collections.Generic;
-    ///using Microsoft.Protocols.TestSuites.Common;
 
     /// <summary>
     /// The count and content of an arbitrary wide character string.
