@@ -1566,6 +1566,67 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                             @"[Additional Flags] F – Require Storage Mappings Rooted (1 bit): A bit that specifies that the Put Changes request will fail coherency if any of the supplied Storage Indexes are unrooted.");
             }
         }
+
+        /// <summary>
+        /// A method used to verify whether E-Abort Remaining Put Changes on Failure (1 bit) is set to zero or 1, the protocol server returns the same response.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S13_TC25_PutChanges_Reserve1Byte()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Create a putChanges cellSubRequest Reserved field is set to zero.
+            FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            ExGuid storageIndexExGuid;
+            List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            putChange.Reserve1Byte = 0;
+            cellRequest.AddSubRequest(putChange, dataElements);
+            CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            CellSubResponseType cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                "The first PutChanges operation should succeed.");
+
+            // Extract the fsshttpb response
+            FsshttpbResponse fsshttpbResponseFirst = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
+
+            // Create a putChanges cellSubRequest Reserved field is set to 1.
+            cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
+            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            putChange.Reserve1Byte = 1;
+            cellRequest.AddSubRequest(putChange, dataElements);
+            cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
+            response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { cellSubRequest });
+            cellSubResponse = SharedTestSuiteHelper.ExtractSubResponse<CellSubResponseType>(response, 0, 0, this.Site);
+            this.Site.Assert.AreEqual<ErrorCodeType>(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
+                "The second PutChanges operation should succeed.");
+
+            // Extract the fsshttpb response
+            FsshttpbResponse fsshttpbResponseSecond = SharedTestSuiteHelper.ExtractFsshttpbResponse(cellSubResponse, this.Site);
+
+            // If the main part of the two subResponse is same, then capture MS-FSSHTTPB requirement: MS-FSSHTTPB_R217102
+            bool isVerifiedR217102 = SharedTestSuiteHelper.CompareSucceedFsshttpbPutChangesResponse(fsshttpbResponseFirst, fsshttpbResponseSecond, this.Site);
+            this.Site.Log.Add(TestTools.LogEntryKind.Debug, "Expect the two put changes responses are same, actual {0}", isVerifiedR217102);
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                Site.CaptureRequirementIfIsTrue(
+                         isVerifiedR217102,
+                         "MS-FSSHTTPB",
+                         217102,
+                         @"[In Put Changes] Whenever the Reserved field is set to 0 or 1, the protocol server must return the same response.");
+            }
+            else
+            {
+                Site.Assert.IsTrue(isVerifiedR217102, @"[In Put Changes] Whenever the Reserved field is set to 0 or 1, the protocol server must return the same response.");
+            }
+        }
         #endregion 
     }
 }
