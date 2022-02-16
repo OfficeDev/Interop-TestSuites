@@ -69,7 +69,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         }
 
         /// <summary>
-        /// Initializes a new instance of the CellIDArray class, this is default constructor.
+        /// Initializes a new instance of the StringItemArray class, this is default constructor.
         /// </summary>
         public StringItemArray()
         {
@@ -82,7 +82,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public ulong Count { get; set; }
 
         /// <summary>
-        /// Gets or sets a cell ID list that specifies a list of cells.
+        /// Gets or sets a String Items list that specifies a list of cells.
         /// </summary>
         public List<StringItem> Content { get; set; }
 
