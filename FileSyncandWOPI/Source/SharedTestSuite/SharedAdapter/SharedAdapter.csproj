@@ -142,12 +142,12 @@
   <ItemGroup>
     <Compile Include="CaptureCode\FSSHTTPB\MsfsshttpbDataElementCapture.cs" />
     <Compile Include="CaptureCode\FSSHTTPB\MsfsshttpbNodeObjectCapture.cs" />
+    <None Include="SUTControlAdapter\Implementation\SwitchClaimsAuthentication.ps1" />
     <None Include="SUTControlAdapter\Implementation\UploadTextFile.ps1" />
     <None Include="SUTControlAdapter\Implementation\ChangeDocLibraryStatus.ps1" />
     <None Include="SUTControlAdapter\Implementation\GetListGuidByName.ps1" />
     <None Include="SUTControlAdapter\Implementation\SetMaxNumOfCoauthUsers.ps1" />
     <None Include="SUTControlAdapter\Implementation\SwitchCellStorageService.ps1" />
-    <None Include="SUTControlAdapter\Implementation\SwitchClaimsAuthentication.ps1" />
     <None Include="SUTControlAdapter\Implementation\SwitchCoauthoringFeature.ps1" />
     <None Include="SUTControlAdapter\Implementation\SwitchMajorVersioning.ps1" />
   </ItemGroup>

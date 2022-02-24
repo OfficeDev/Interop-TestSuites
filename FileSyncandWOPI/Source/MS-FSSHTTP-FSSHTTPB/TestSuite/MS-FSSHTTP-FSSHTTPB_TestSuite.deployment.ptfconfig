@@ -8,7 +8,7 @@
     <!-- The HttpTargetServiceUrl property specifies the fully qualified URL of the service that test suite will run on, when the transport type is HTTP. -->
     <Property name="HttpTargetServiceUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/_vti_bin/CellStorage.svc/CellStorageService" />
     <!-- The HttpsTargetServiceUrl property specifies the fully qualified URL of the service that test suite will run on, when the transport type is HTTPS. -->
-    <Property name="HttpsTargetServiceUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/_vti_bin/CellStorage.https.svc/CellStorageService" />
+    <Property name="HttpsTargetServiceUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/_vti_bin/CellStorage.svc/CellStorageService" />
     <!-- The SiteCollectionName property specifies the site collection name. -->
     <Property name="SiteCollectionName" value="MSFSSHTTPFSSHTTPB_SiteCollection" />
     <!-- The MSFSSHTTPFSSHTTPBLibraryName property specifies the name of the document library that contains test files. -->

@@ -12,6 +12,11 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
     [TestClass]
     public abstract class S11_QueryAccess : SharedTestSuiteBase
     {
+        /// <summary>
+        /// Gets or sets Author Logins (variable): A String Item Array (section 2.2.1.14) structure that defines author login information.
+        /// </summary>
+        public StringItemArray StringItemArrayAuthorLogin { get; set; }
+
         #region Test Suite Initialization and clean up
 
         /// <summary>
@@ -45,6 +50,20 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         {
             // Initialize the default file URL, for this scenario, the target file URL should not need unique for each test case, just using the preparing one.
             this.DefaultFileUrl = Common.GetConfigurationPropertyValue("NormalFile", this.Site);
+            // Initialize the Author Login information
+            ulong Count = 0;
+            List<StringItem> Content = new List<StringItem>();
+            StringItem stringItemUserName01 = new StringItem();
+            stringItemUserName01.Content = this.UserName01;
+            Content.Add(stringItemUserName01);
+            StringItem stringItemPassword01 = new StringItem();
+            stringItemPassword01.Content = this.Password01;
+            Content.Add(stringItemPassword01);
+            StringItemArray stringItemArrayAuthorLogin = new StringItemArray();
+            stringItemArrayAuthorLogin.Count = Count;
+            stringItemArrayAuthorLogin.Content = Content;
+            Count = (ulong)Content.Count;
+            this.StringItemArrayAuthorLogin = stringItemArrayAuthorLogin;
         }
 
         #endregion
@@ -71,7 +90,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(System.Text.Encoding.Unicode.GetBytes("bad"), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
             putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
             dataElements.AddRange(fsshttpbResponse.DataElementPackage.DataElements);
             cellRequest.AddSubRequest(putChange, dataElements);

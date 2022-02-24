@@ -140,6 +140,55 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public void VerifyStringItem(StringItem instance, ITestSite site)
         {
             // There is not capture codes for this structure, this structure is not used by the protocol.
+            // If the instance is not null and there are no parsing errors, then the String Item related adapter requirements can be directly captured.
+            if (null == instance)
+            {
+                site.Assert.Fail("The instance of type StringItem is null due to parsing error or type casting error.");
+            }
+
+            // Directly capture requirement MS-FSSHTTPB_R54, if there are no parsing errors. 
+            site.CaptureRequirement(
+                     "MS-FSSHTTPB",
+                     54,
+                     @"[In String Item] Count (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the count of characters in the string.");
+
+            // Directly capture requirement MS-FSSHTTPB_R56, if there are no parsing errors. 
+            site.CaptureRequirement(
+                     "MS-FSSHTTPB",
+                     56,
+                     @"[In String Item] Content (variable): It[Content (variable)] MUST NOT be null-terminated.");
+        }
+
+        /// <summary>
+        /// This method is used to test String Item Array related adapter requirements.
+        /// </summary>
+        /// <param name="instance">Specify the instance which need to be verified.</param> 
+        /// <param name="site">Specify the ITestSite instance.</param>
+        public void VerifyStringItemArray(StringItem instance, ITestSite site)
+        {
+            // If the instance is not null and there are no parsing errors, then the String Item Array related adapter requirements can be directly captured.
+            if (null == instance)
+            {
+                site.Assert.Fail("The instance of type StringItemArray is null due to parsing error or type casting error.");
+            }
+
+            // Directly capture requirement MS-FSSHTTPB_R500, if there are no parsing errors. 
+            site.CaptureRequirement(
+                     "MS-FSSHTTPB",
+                     500,
+                     @"[In String Item Array][String Item Array]The length and content of an array of String Items as specified in section 2.2.1.4.");
+
+            // Directly capture requirement MS-FSSHTTPB_R502, if there are no parsing errors. 
+            site.CaptureRequirement(
+                     "MS-FSSHTTPB",
+                     502,
+                     @"[In String Item Array] Count (variable): A compact unsigned 64-bit integer (section 2.2.1.1) that specifies the count of String Items in the array.");
+
+            // Directly capture requirement MS-FSSHTTPB_R503, if there are no parsing errors. 
+            site.CaptureRequirement(
+                     "MS-FSSHTTPB",
+                     503,
+                     @"[In String Item Array] Content (variable): A String Item Array that specifies an array of items.");
         }
 
         /// <summary>
