@@ -75,7 +75,7 @@ $ret = invoke-command -computer $computerName -Credential $credential -scriptblo
 			$SharePointVersion = $SharePointServer2019[0]
 			break
 		}
-	    elseif($item.DisplayName -eq $SharePointServerSubscriptionEdition[1])
+		elseif($item.DisplayName -eq $SharePointServerSubscriptionEdition[1])
 		{
 			$SharePointVersion = $SharePointServerSubscriptionEdition[0]
 			break

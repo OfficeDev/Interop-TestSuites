@@ -22,7 +22,7 @@
     <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointServer2007_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointServer2010_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OFFICIALFILE_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\UnholdFiles.ps1" />
   </Deployment>

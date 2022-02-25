@@ -231,6 +231,12 @@ namespace Microsoft.Protocols.TestSuites.MS_SITESS
         public const string SharePointServer2019 = "SharePointServer2019";
 
         /// <summary>
+        /// Microsoft SharePoint Server Subscription Edition.
+        /// </summary>
+        /// 
+        public const string SharePointServerSubscriptionEdition = "SharePointServerSubscriptionEdition";
+
+        /// <summary>
         /// The name of the property which specifies the language code identifier (LCID) for the display language of the specified subsite got by SUT control adapter.
         /// </summary>
         public const string SubSitePropertyLanguage = "SubSitePropertyLanguage";

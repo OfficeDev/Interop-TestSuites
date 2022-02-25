@@ -28,7 +28,7 @@
     <DeploymentItem filename="MS-VERSS.runsettings" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\SetVersioning.ps1" />
     <DeploymentItem filename="TestSuite\MS-VERSS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
-    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-VERSS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\AddFile.ps1" />
     <DeploymentItem filename="Adapter\SUTControlAdapter\Implementation\GetFileVersions.ps1" />
     <DeploymentItem filename="TestSuite\MS-VERSS_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />

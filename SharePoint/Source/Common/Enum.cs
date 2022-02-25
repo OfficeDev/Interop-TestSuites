@@ -80,7 +80,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <summary>
         /// The SUT is Microsoft SharePoint Server Subscription Edition Preview.
         /// </summary>
-        SharePointServerSubscriptionEditionPreview
+        SharePointServerSubscriptionEdition
     }
 
     /// <summary>

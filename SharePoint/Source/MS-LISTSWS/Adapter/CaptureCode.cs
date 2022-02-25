@@ -1151,7 +1151,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsNull(
                         listDefinitionSchema.Validation,
                         2418,
-                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation]. [In Appendix B: Product Behavior] <21> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation] is not returned in Windows SharePoint Services 3.0.");
+                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation]. [In Appendix B: Product Behavior] <26> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation] is not returned in Windows SharePoint Services 3.0.");
                 }
 
                 if (Common.IsRequirementEnabled(2420, this.Site))
@@ -1160,7 +1160,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsNull(
                         listDefinitionSchema.Validation,
                         2420,
-                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation.Message]. [In Appendix B: Product Behavior] <22> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation.Message] is not returned in Windows SharePoint Services 3.0.");
+                        @"Implementation does not return this attribute[ListDefinitionSchema.Validation.Message]. [In Appendix B: Product Behavior] <27> Section 2.2.4.12: This attribute[ListDefinitionSchema.Validation.Message] is not returned in Windows SharePoint Services 3.0.");
                 }
 
                 if (Common.IsRequirementEnabled(2422, this.Site))
@@ -1169,7 +1169,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsNull(
                         listDefinitionSchema.ValidationDisplayNames,
                         2422,
-                        @"Implementation does not return this attribute[ListDefinitionSchema.ValidationDisplayNames]. [In Appendix B: Product Behavior] <23> Section 2.2.4.12: This attribute[ListDefinitionSchema.ValidationDisplayNames] is not returned in Windows SharePoint Services 3.0.");
+                        @"Implementation does not return this attribute[ListDefinitionSchema.ValidationDisplayNames]. [In Appendix B: Product Behavior] <28> Section 2.2.4.12: This attribute[ListDefinitionSchema.ValidationDisplayNames] is not returned in Windows SharePoint Services 3.0.");
                 }
             }
         }
@@ -1239,7 +1239,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     change.UniqueId,
                     2423,
-                    @"Implementation does not return this attribute[ListItemChangeDefinition.UniqueId]. [In Appendix B: Product Behavior] <24> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListItemChangeDefinition.UniqueId]. [In Appendix B: Product Behavior] <29> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
             }
 
             if (Common.IsRequirementEnabled(2424, this.Site))
@@ -1248,7 +1248,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 Site.CaptureRequirementIfIsNull(
                     change.MetaInfo_vti_clientid,
                     2424,
-                    @"Implementation does not return this attribute[ListItemChangeDefinition.MetaInfo_vti_clientid]. [In Appendix B: Product Behavior] <25> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
+                    @"Implementation does not return this attribute[ListItemChangeDefinition.MetaInfo_vti_clientid]. [In Appendix B: Product Behavior] <30> Section 2.2.4.13: This attribute is not returned in Windows SharePoint Services 3.0.");
             }
 
             if (Common.IsRequirementEnabled(2425, this.Site))
@@ -1258,7 +1258,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     change.ServerChangeUnit,
                     2425,
                     @"[In Appendix B: Product Behavior] Implemementation does not return this attribute[ServerChangeUnit]. "
-                    + "<26> Section 2.2.4.13: This attribute[ServerChangeUnit] is not returned in Windows SharePoint Services 3.0.");
+                    + "<31> Section 2.2.4.13: This attribute[ServerChangeUnit] is not returned in Windows SharePoint Services 3.0.");
             }
         }
 
@@ -3194,7 +3194,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     Site.CaptureRequirementIfIsFalse(
                         isFileFragmentExist,
                         2486,
-                        @"[In GetListItemChangesSinceToken operation]Implementation does not return the FileFragment element.[In Appendix B: Product Behavior] <65> Section 3.1.4.22.2.2: In Windows SharePoint Services 3.0, the FileFragment element is not returned.");
+                        @"[In GetListItemChangesSinceToken operation]Implementation does not return the FileFragment element.[In Appendix B: Product Behavior] <70> Section 3.1.4.22.2.2: In Windows SharePoint Services 3.0, the FileFragment element is not returned.");
                 }
             }
 

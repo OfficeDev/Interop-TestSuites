@@ -22,7 +22,7 @@
     <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-SHDACCWS_RequirementSpecification.xml" />
     <DeploymentItem filename="..\Common\Proxy\SOAP11.xsd" />
-    <DeploymentItem filename="TestSuite\MS-SHDACCWS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-SHDACCWS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>
