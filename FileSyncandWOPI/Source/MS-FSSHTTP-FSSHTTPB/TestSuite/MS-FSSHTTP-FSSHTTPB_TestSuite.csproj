@@ -53,6 +53,7 @@
     <None Include="MS-FSSHTTP-FSSHTTPB_SharePointServer2013_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-FSSHTTP-FSSHTTPB_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-FSSHTTP-FSSHTTPB_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
+    <None Include="MS-FSSHTTP-FSSHTTPB_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <None Include="MS-FSSHTTP-FSSHTTPB_TestSuite.deployment.ptfconfig" />
     <None Include="MS-FSSHTTP-FSSHTTPB_TestSuite.ptfconfig" />
   </ItemGroup>
