@@ -174,7 +174,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// Gets or sets a value: A compact unsigned 64-bit integer (section 2.2.1.1) that MUST be ignored.
         /// If the IsAdditionalFlagsUsed is false, this property will be ignored.
         /// </summary>
-        public Compact64bitInt Reserve9Byte { get; set; }
+        public Compact64bitInt Reserve2 { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the lock id is used.
@@ -274,8 +274,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 additionalFlagsWriter.AppendInit32(this.Reserve, 10);              
                 byteList.AddRange(additionalFlagsWriter.Bytes);
 
-                this.Reserve9Byte = new Compact64bitInt(0x0002000000000000);
-                byteList.AddRange(this.Reserve9Byte.SerializeToByteList());
+                this.Reserve2 = new Compact64bitInt(0x0002000000000000);
+                byteList.AddRange(this.Reserve2.SerializeToByteList());
 
             }
 
