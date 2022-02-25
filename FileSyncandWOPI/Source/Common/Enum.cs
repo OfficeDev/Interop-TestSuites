@@ -40,8 +40,8 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// The SUT is Microsoft SharePoint Server 2013 SP1.
         /// </summary>
         SharePointServer2013,
-
         /// <summary>
+
         /// The SUT is Microsoft SharePoint Server 2016.
         /// </summary>
         SharePointServer2016,

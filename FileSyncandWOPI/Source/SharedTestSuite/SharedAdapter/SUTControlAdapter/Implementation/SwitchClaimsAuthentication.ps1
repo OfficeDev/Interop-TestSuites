@@ -25,7 +25,8 @@ $ret = invoke-command -computer $computerName -Credential $credential -scriptblo
 	$SharePointServer2013           = "SharePointServer2013","Microsoft SharePoint Server 2013 "        
 	$SharePointServer2016           = "SharePointServer2016","Microsoft SharePoint Server 2016"        
 	$SharePointServer2019           = "SharePointServer2019","Microsoft SharePoint Server 2019" 
-	$SharePointServerSubscriptionEdition           = "SharePointServerSubscriptionEdition","Microsoft SharePoint Server Subscription Edition"
+	$SharePointServerSubscriptionEdition           = "SharePointServerSubscriptionEdition","Microsoft SharePoint Server Subscription Edition" 
+
 	$SharePointVersion              = "Unknown Version"
 	$keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
 	$items = $keys | foreach-object {Get-ItemProperty $_.PsPath}    
