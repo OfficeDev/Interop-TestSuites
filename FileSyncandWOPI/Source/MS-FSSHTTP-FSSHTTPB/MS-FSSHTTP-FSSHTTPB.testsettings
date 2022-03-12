@@ -25,6 +25,7 @@
     <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointFoundation2013_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2016_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
+    <DeploymentItem filename="TestSuite\MS-FSSHTTP-FSSHTTPB_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
   </Deployment>
   <Execution>
     <TestTypeSpecific>

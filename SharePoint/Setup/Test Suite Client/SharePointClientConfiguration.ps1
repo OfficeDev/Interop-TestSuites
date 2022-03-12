@@ -970,7 +970,7 @@ Output "Configuration for the MS-WDVMODUU_TestSuite.deployment.ptfconfig file is
 #-----------------------------------------------------
 # Configuration for MS-SHDACCWS ptfconfig file.
 #-----------------------------------------------------
-if($sutVersion -eq "SharePointFoundation2013" -or $sutVersion -eq "SharePointServer2013" -or $sutVersion -eq "SharePointFoundation2010" -or $sutVersion -eq "SharePointServer2010" -or $sutVersion -eq "SharePointServer2016" -or $sutVersion -eq "SharePointServer2019" -or $sutVersion -eq "SharePointServerSubscriptionEditionPreview")
+if($sutVersion -eq "SharePointFoundation2013" -or $sutVersion -eq "SharePointServer2013" -or $sutVersion -eq "SharePointFoundation2010" -or $sutVersion -eq "SharePointServer2010" -or $sutVersion -eq "SharePointServer2016" -or $sutVersion -eq "SharePointServer2019" -or $sutVersion -eq "SharePointServerSubscriptionEdition")
 {
 	Output "Configure the MS-SHDACCWS_TestSuite.deployment.ptfconfig file ..." "White"
 
@@ -1146,7 +1146,7 @@ if($sutVersion -eq "SharePointFoundation2013" -or $sutVersion -eq "SharePointSer
 #-----------------------------------------------------
 # Configuration for MS-OFFICIALFILE ptfconfig file.
 #-----------------------------------------------------
-if($sutVersion -eq "SharePointServer2013" -or $sutVersion -eq "SharePointServer2010" -or $sutVersion -eq "SharePointServer2007" -or $sutVersion -eq "SharePointServer2016" -or $sutVersion -eq "SharePointServer2019")
+if($sutVersion -eq "SharePointServer2013" -or $sutVersion -eq "SharePointServer2010" -or $sutVersion -eq "SharePointServer2007" -or $sutVersion -eq "SharePointServer2016" -or $sutVersion -eq "SharePointServer2019" -or $sutVersion -eq "SharePointServerSubscriptionEdition")
 {
     Output "Configure the MS-OFFICIALFILE_TestSuite.deployment.ptfconfig file ..." "White"
     #The urls of site which are used by MS-OFFICIALFILE test suite

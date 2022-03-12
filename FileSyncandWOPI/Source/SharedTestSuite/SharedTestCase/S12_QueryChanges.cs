@@ -14,6 +14,11 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
     [TestClass]
     public abstract class S12_QueryChanges : SharedTestSuiteBase
     {
+        /// <summary>
+        /// Gets or sets Author Logins (variable): A String Item Array (section 2.2.1.14) structure that defines author login information.
+        /// </summary>
+        public StringItemArray StringItemArrayAuthorLogin { get; set; }
+
         #region Test Suite Initialization
 
         /// <summary>
@@ -47,6 +52,21 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         {
             // Initialize the default file URL.
             this.DefaultFileUrl = this.PrepareFile();
+
+            // Initialize the Author Login information
+            ulong Count = 0;
+            List<StringItem> Content = new List<StringItem>();
+            StringItem stringItemUserName01 = new StringItem();
+            stringItemUserName01.Content = this.UserName01;
+            Content.Add(stringItemUserName01);
+            StringItem stringItemPassword01 = new StringItem();
+            stringItemPassword01.Content = this.Password01;
+            Content.Add(stringItemPassword01);
+            StringItemArray stringItemArrayAuthorLogin = new StringItemArray();
+            stringItemArrayAuthorLogin.Count = Count;
+            stringItemArrayAuthorLogin.Content = Content;
+            Count = (ulong)Content.Count;
+            this.StringItemArrayAuthorLogin = stringItemArrayAuthorLogin;
         }
 
         #endregion
@@ -638,6 +658,11 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S12_TC15_QueryChanges_AllowFragments_One()
         {
+            if (!Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 1348, this.Site))
+            {
+                Site.Assume.Inconclusive("Implementation does not support Allow Fragments 2 flag.");
+            }
+            
             // Initialize the service
             string fileUrl = Common.GetConfigurationPropertyValue("BigFile", this.Site);
             this.InitializeContext(fileUrl, this.UserName01, this.Password01, this.Domain);
@@ -1273,7 +1298,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(queryResponse, this.Site);
 
             DataElement fragDataElement = queryResponse.DataElementPackage.DataElements.FirstOrDefault(e => e.DataElementType == DataElementType.FragmentDataElementData);
-
+            
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 Site.CaptureRequirementIfIsNotNull(
@@ -1305,7 +1330,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             queryResponse = SharedTestSuiteHelper.ExtractFsshttpbResponse(subResponse, this.Site);
             SharedTestSuiteHelper.ExpectMsfsshttpbSubResponseSucceed(queryResponse, this.Site);
             fragDataElement = queryResponse.DataElementPackage.DataElements.FirstOrDefault(e => e.DataElementType == DataElementType.FragmentDataElementData);
-
+            
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
                 Site.CaptureRequirementIfIsNotNull(
@@ -1583,7 +1608,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
             putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
             dataElements.AddRange(queryResponse.DataElementPackage.DataElements);
             cellRequest.AddSubRequest(putChange, dataElements);

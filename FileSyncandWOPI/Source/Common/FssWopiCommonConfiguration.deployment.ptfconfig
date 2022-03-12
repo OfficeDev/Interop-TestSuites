@@ -16,7 +16,8 @@
          "SharePointServer2010" (Microsoft® SharePoint® Server 2010 Service Pack 2 (SP2));
          "SharePointServer2013" (Microsoft® SharePoint® Server 2013 Service Pack 1 (SP1));
          "SharePointServer2016" (Microsoft® SharePoint® Server 2016); 
-         "SharePointServer2016" (Microsoft® SharePoint® Server 2019). -->
+         "SharePointServer2019" (Microsoft® SharePoint® Server 2019);
+         "SharePointServerSubscriptionEdition" (Microsoft® SharePoint® Server Subscription Edition). -->
     <Property name="SutVersion" value="SharePointServer2019"/>
     <!-- The TargetSiteCollectionUrl property specifies the fully qualified URL of the service which the test suite would be run on. -->
     <Property name="TargetSiteCollectionUrl" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]" />

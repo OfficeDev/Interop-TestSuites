@@ -1,6 +1,6 @@
 ## [MS-CPSWS]: SharePoint Claim Provider Web Service Protocol
-- [MS-CPSWS] v20210720 is used to develop the test suite.
-- Release date, 7/20/2021.
+- [MS-CPSWS] v20211005 is used to develop the test suite.
+- Release date, 10/05/2021.
 
 To find the new landing page for [MS-CPSWS], please visit https://msdn.microsoft.com/en-us/library/dd921005(v=office.12).aspx
 

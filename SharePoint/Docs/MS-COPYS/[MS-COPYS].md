@@ -1,6 +1,6 @@
 ## [MS-COPYS]: Copy Web Service Protocol
-- [MS-COPYS] v20210720 is used to develop the test suite.
-- Release date, 07/20/2021.
+- [MS-COPYS] v20211005 is used to develop the test suite.
+- Release date, 10/05/2021.
 
 To find the new landing page for [MS-COPYS], please visit https://msdn.microsoft.com/en-us/library/cc313170(v=office.12).aspx
 
