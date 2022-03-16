@@ -29,55 +29,38 @@ AddTimesStampsToLogFile "Start" "$logFile"
 $sutComputerName                    = $env:ComputerName
 $environmentResourceFile            = "$commonScriptDirectory\ExchangeTestSuite.config"
 
-$MSOXWSATTUser01              = ReadConfigFileNode "$environmentResourceFile" "MSOXWSATTUser01"
-$MSOXWSATTUser01Password      = ReadConfigFileNode "$environmentResourceFile" "MSOXWSATTUser01Password"
+$userPassword              = ReadConfigFileNode "$environmentResourceFile" "userPassword"
 
-$MSOXWSBTRFUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSBTRFUser01"
-$MSOXWSBTRFUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSBTRFUser01Password"
+$MSASAIRSUser01      = ReadConfigFileNode "$environmentResourceFile" "MSASAIRSUser01"
+$MSASAIRSUser02      = ReadConfigFileNode "$environmentResourceFile" "MSASAIRSUser02"
 
-$MSOXWSCONTUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCONTUser01"
-$MSOXWSCONTUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCONTUser01Password"
+$MSASCMDUser01      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser01"
+$MSASCMDUser02      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser02"
+$MSASCMDUser03      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser03"
+$MSASCMDUser04      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser04"
+$MSASCMDUser05      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser05"
+$MSASCMDUser06      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser06"
+$MSASCMDUser07      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser07"
+$MSASCMDUser08      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser08"
+$MSASCMDUser09      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser09"
+$MSASCMDUser10      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser10"
+$MSASCMDUser11      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser11"
+$MSASCMDUser12      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser12"
+$MSASCMDUser13      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser13"
+$MSASCMDUser14      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser14"
+$MSASCMDUser15      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser15"
+$MSASCMDUser16      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser16"
+$MSASCMDUser17      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser17"
+$MSASCMDUser18      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser18"
+$MSASCMDUser19      = ReadConfigFileNode "$environmentResourceFile" "MSASCMDUser19"
 
-$MSOXWSCOREPublicFolderMailboxPrefix = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCOREPublicFolderMailboxPrefix"
-$MSOXWSCOREPublicFolderMailbox = $MSOXWSCOREPublicFolderMailboxPrefix + $sutComputerName
-$MSOXWSCOREPublicFolder       = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCOREPublicFolder"
-$MSOXWSCOREUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCOREUser01"
-$MSOXWSCOREUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCOREUser01Password"
-$MSOXWSCOREUser02             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCOREUser02"
-$MSOXWSCOREUser02Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSCOREUser02Password"
+$MSASEMAILUser01      = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser01"
+$MSASEMAILUser02      = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser02"
+$MSASEMAILUser03      = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser03"
+$MSASEMAILUser04      = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser04"
+$MSASEMAILUser05      = ReadConfigFileNode "$environmentResourceFile" "MSASEMAILUser05"
 
-$MSOXWSFOLDUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSFOLDUser01"
-$MSOXWSFOLDUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSFOLDUser01Password"
-$MSOXWSFOLDUser02             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSFOLDUser02"
-$MSOXWSFOLDUser02Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSFOLDUser02Password"
-$MSOXWSFOLDManagedFolder1     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSFOLDManagedFolder1"
-$MSOXWSFOLDManagedFolder2     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSFOLDManagedFolder2"
-
-$MSOXWSMSGUser01              = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMSGUser01"
-$MSOXWSMSGUser01Password      = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMSGUser01Password"
-$MSOXWSMSGUser02              = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMSGUser02"
-$MSOXWSMSGUser02Password      = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMSGUser02Password"
-$MSOXWSMSGUser03              = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMSGUser03"
-$MSOXWSMSGUser03Password      = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMSGUser03Password"
-$MSOXWSMSGRoom01              = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMSGRoom01"
-$MSOXWSMSGRoom01Password      = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMSGRoom01Password"
-
-$MSOXWSMTGSUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser01"
-$MSOXWSMTGSUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser01Password"
-$MSOXWSMTGSUser02             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser02"
-$MSOXWSMTGSUser02Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser02Password"
-$MSOXWSMTGSRoom01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSRoom01"
-$MSOXWSMTGSRoom01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSRoom01Password"
-$MSOXWSMTGSUser03             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser03"
-$MSOXWSMTGSUser03Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSMTGSUser03Password"
-
-$MSOXWSSYNCUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser01"
-$MSOXWSSYNCUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser01Password"
-$MSOXWSSYNCUser02             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser02"
-$MSOXWSSYNCUser02Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSSYNCUser02Password"
-
-$MSOXWSTASKUser01             = ReadConfigFileNode "$environmentResourceFile" "MSOXWSTASKUser01"
-$MSOXWSTASKUser01Password     = ReadConfigFileNode "$environmentResourceFile" "MSOXWSTASKUser01Password"
+$MSASTASKUser01      = ReadConfigFileNode "$environmentResourceFile" "MSASTASKUser01"
 
 $Exchange2013                 = "Microsoft Exchange Server 2013"
 $Exchange2010                 = "Microsoft Exchange Server 2010"
@@ -380,24 +363,32 @@ else
     $mailboxDatabaseName = $mailboxDatabases.Name
 }
 
-CreateMailboxUser  $MSOXWSATTUser01   $MSOXWSATTUser01Password        $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSBTRFUser01  $MSOXWSBTRFUser01Password       $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSCONTUser01  $MSOXWSCONTUser01Password       $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSCOREUser01  $MSOXWSCOREUser01Password       $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSCOREUser02  $MSOXWSCOREUser02Password       $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSFOLDUser01  $MSOXWSFOLDUser01Password       $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSFOLDUser02  $MSOXWSFOLDUser02Password       $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSMSGUser01   $MSOXWSMSGUser01Password        $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSMSGUser02   $MSOXWSMSGUser02Password        $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSMSGUser03   $MSOXWSMSGUser03Password        $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSMSGRoom01   $MSOXWSMSGRoom01Password        $mailboxDatabaseName $domain $room
-CreateMailboxUser  $MSOXWSMTGSUser01  $MSOXWSMTGSUser01Password       $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSMTGSUser02  $MSOXWSMTGSUser02Password       $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSMTGSRoom01  $MSOXWSMTGSRoom01Password       $mailboxDatabaseName $domain $room
-CreateMailboxUser  $MSOXWSSYNCUser01  $MSOXWSSYNCUser01Password       $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSSYNCUser02  $MSOXWSSYNCUser02Password       $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSTASKUser01  $MSOXWSTASKUser01Password       $mailboxDatabaseName $domain
-CreateMailboxUser  $MSOXWSMTGSUser03  $MSOXWSMTGSUser03Password       $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASAIRSUser01   $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASAIRSUser02   $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser01    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser02    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser03    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser04    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser05    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser06    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser07    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser08    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser09    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser10    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser11    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser12    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser13    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser14    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser15    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser16    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser17    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser18    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASCMDUser19    $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASEMAILUser01  $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASEMAILUser02  $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASEMAILUser04  $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASEMAILUser05  $userPassword        $mailboxDatabaseName $domain
+CreateMailboxUser  $MSASTASKUser01   $userPassword        $mailboxDatabaseName $domain
 
 #-------------------------------------------------------------
 # Add delegate for specified mailbox user
