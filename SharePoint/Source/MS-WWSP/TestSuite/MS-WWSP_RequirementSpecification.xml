@@ -537,7 +537,13 @@ urn:schemas-microsoft-com:rowset</ns1:Description>
 		<ns1:Description>[In ToDoData][The ToDoData schema is:]  &lt;s:element name="ToDoData" &gt;
   &lt;s:complexType&gt;
     &lt;s:sequence&gt;
-      &lt;s:element name="xml" type="rs:data" minOccurs="0" maxOccurs="1" /&gt;
+      &lt;s:element name="xml" minOccurs="0" maxOccurs="1"&gt;
+        &lt;s:complexType&gt;
+          &lt;s:sequence&gt;
+            &lt;s:element ref="rs:data" maxOccurs="1" /&gt;
+          &lt;/s:sequence&gt;
+        &lt;/s:complexType&gt;
+      &lt;/s:element&gt;
     &lt;/s:sequence&gt;
   &lt;/s:complexType&gt;
 &lt;/s:element&gt;</ns1:Description>
@@ -1323,12 +1329,10 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/ClaimReleaseTask</ns1:Desc
           &lt;s:sequence&gt;
             &lt;s:element name="TaskData" minOccurs="1" maxOccurs="1"&gt;
               &lt;s:complexType&gt;
-                &lt;s:sequence&gt;
                   &lt;s:attribute name="AssignedTo" type="s:string" use="required"&gt;
                   &lt;s:attribute name="TaskGroup" type="s:string" use="required"&gt;
                   &lt;s:attribute name="ItemId" type="s:int" use="required"&gt;
                   &lt;s:attribute name="ListId" type="s1:guid" use="required"&gt;
-                &lt;/s:sequence&gt;
               &lt;/s:complexType&gt;
             &lt;/s:element&gt;
           &lt;/s:sequence&gt;
@@ -1475,7 +1479,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetTemplatesForItem</ns1:D
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-WWSP_R157</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In GetTemplatesForItemSoapOut] This message is the response to the GetTemplatesFromItem SOAP operation.</ns1:Description>
+		<ns1:Description>[In GetTemplatesForItemSoapOut] This message is the response to the GetTemplatesForItem SOAP operation.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1588,7 +1592,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetTemplatesForItem</ns1:D
       &lt;s:element name="GetTemplatesForItemResult" minOccurs="0"&gt;
         &lt;s:complexType mixed="true"&gt;
           &lt;s:sequence&gt;
-            &lt;s:element name="TemplateData" ref="tns:TemplateData" minOccurs="1" maxOccurs="1"/&gt;
+            &lt;s:element  ref="tns:TemplateData" minOccurs="1" maxOccurs="1"/&gt;
           &lt;/s:sequence&gt;
         &lt;/s:complexType&gt;
       &lt;/s:element&gt;
@@ -1793,7 +1797,7 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetToDosForItem</ns1:Descr
       &lt;s:element name="GetToDosForItemResult" minOccurs="0"&gt;
         &lt;s:complexType mixed="true"&gt;
           &lt;s:sequence&gt;
-            &lt;s:element name="ToDoData" ref="s1:ToDoData" minOccurs="1" maxOccurs="1"/&gt;
+            &lt;s:element  ref="tns:ToDoData" minOccurs="1" maxOccurs="1"/&gt;
           &lt;/s:sequence&gt;
         &lt;/s:complexType&gt;
       &lt;/s:element&gt;
@@ -2010,8 +2014,8 @@ http://schemas.microsoft.com/sharepoint/soap/workflow/GetWorkflowDataForItem</ns
              &lt;s:element name="WorkflowData" minOccurs="1" maxOccurs="1"&gt;
                &lt;s:complexType&gt;
                  &lt;s:sequence&gt;
-                   &lt;s:element name="ToDoData" ref="s1:ToDoData" minOccurs="1" maxOccurs="1" /&gt;
-                   &lt;s:element name="TemplateData" ref="tns:TemplateData" minOccurs="1" maxOccurs="1" /&gt;
+                   &lt;s:element  ref="tns:ToDoData" minOccurs="1" maxOccurs="1" /&gt;
+                   &lt;s:element  ref="tns:TemplateData" minOccurs="1" maxOccurs="1" /&gt;
                    &lt;s:element name="ActiveWorkflowsData" minOccurs="1" maxOccurs="1" &gt;
                      &lt;s:complexType&gt;
                        &lt;s:sequence&gt;
