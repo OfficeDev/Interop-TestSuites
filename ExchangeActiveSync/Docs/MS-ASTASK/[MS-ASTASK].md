@@ -1,6 +1,6 @@
 ## [MS-ASTASK]: Exchange ActiveSync: Tasks Class Protocol
-- [MS-ASTASK] v20181211 is used to develop the test suite.
-- Release date, 12/11/2018
+- [MS-ASTASK] v20211116 is used to develop the test suite.
+- Release date, 11/16/2021
 
 To find the new landing page for [MS-ASTASK], please visit https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-astask/b8fe2664-50ba-4d00-bf6b-e4deab352c89 
 
