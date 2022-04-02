@@ -1,6 +1,6 @@
 ## [MS-ASAIRS]: Exchange ActiveSync: AirSyncBase Namespace Protocol
-- [MS-ASAIRS] v20190618 is used to develop the test suite.
-- Release date, 06/18/2019.
+- [MS-ASAIRS] v20211116 is used to develop the test suite.
+- Release date, 11/16/2021.
 
 To find the new landing page for [MS-ASAIRS], please visit https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/MS-ASAIRS/d1ba7987-41bf-483d-9045-96dfe11e3d1c
 

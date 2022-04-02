@@ -1,6 +1,6 @@
 ## [MS-DWSS]: Document Workspace Web Service Protocol
-- [MS-DWSS] v20211005 is used to develop the test suite.
-- Release date, 10/5/2021.
+- [MS-DWSS] v20211116 is used to develop the test suite.
+- Release date, 11/16/2021.
 
 To find the new landing page for [MS-DWSS], please visit https://msdn.microsoft.com/en-us/library/cc313084(v=office.12).aspx
 
