@@ -1989,7 +1989,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCNOTIF
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR47,
                 47,
-                @"[In RopRegisterNotification ROP Request Buffer] [NotificationTypes value] 0x0080: The server sends notifications to the client when SearchComplete events occur within the scope of interest.");
+                @"[In RopRegisterNotification ROP Request Buffer] [NotificationTypes value] 0x0080: The server sends notifications to the client when SearchCompleted events occur within the scope of interest.");
 
             this.VerifyServerCreateSessionContaintAndSaveInformation(isSearchCompleted);
             #endregion
