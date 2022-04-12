@@ -73,5 +73,7 @@
     <Property name="R1275108Enabled" value="true"/>
     <!--Set R336002Enabled to true to implementation does use the AbchPersonItemType complex type. Set R336002Enabled to false to disable this requirement-->
     <Property name="R336002Enabled" value="true"/>
+    <!--Set R336002Enabled to true to implementation does use the AbchPersonItemType complex type. Set R336002Enabled to false to disable this requirement-->
+    <Property name="R336002Enabled" value="false"/>
   </Properties>
 </TestSite>
