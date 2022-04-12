@@ -151,6 +151,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         [TestCategory("MSOXWSCONT"), TestMethod()]
         public void MSOXWSCONT_S06_TC02_OperateContactItemWithOptionalElements()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(338800, this.Site), "Implementation does not support the  GetItem operations for contact item.");
             #region Step 1:Create the contact item.
             // Create a full property contact item.
             ContactItemType item = this.CreateFullPropertiesContact();
@@ -232,7 +233,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             this.ExistContactItems.CopyTo(itemArray, 0);
 
             GetItemResponseType getItemResponse = this.CallGetItemOperation(itemArray);
-
+ 
             // Check the response.
             Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
             #endregion

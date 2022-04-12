@@ -501,7 +501,7 @@ elseif($ExchangeVersion -ge $Exchange2010)
     $pfAdminGroup = "Public Folder Management"
 }
 AddUserToExchangeAdminGroup $ExchangeVersion $MSOXWSFOLDUser01 $pfAdminGroup
-if ($ExchangeVersion -eq $Exchange2016)
+if ($ExchangeVersion -ge $Exchange2016)
 {
     $cONTGroup = "Recipient Management"
 AddUserToExchangeAdminGroup $ExchangeVersion $MSOXWSCONTUser01 $cONTGroup
