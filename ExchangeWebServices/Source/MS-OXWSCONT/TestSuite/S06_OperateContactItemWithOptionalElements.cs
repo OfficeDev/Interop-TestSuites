@@ -232,7 +232,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             ItemIdType[] itemArray = new ItemIdType[this.ExistContactItems.Count];
             this.ExistContactItems.CopyTo(itemArray, 0);
 
-           GetItemResponseType getItemResponse = this.CallGetItemOperation(itemArray);
+            GetItemResponseType getItemResponse = this.CallGetItemOperation(itemArray);
  
             // Check the response.
             Common.CheckOperationSuccess(getItemResponse, 1, this.Site);

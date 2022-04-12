@@ -126,19 +126,19 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
  
             GetItemResponseType getItemResponse = this.CallGetItemOperation(itemArray);
 
-                // Check the response.
-                Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
+            // Check the response.
+            Common.CheckOperationSuccess(getItemResponse, 1, this.Site);
 
-                ContactItemType[] contacts = Common.GetItemsFromInfoResponse<ContactItemType>(getItemResponse);
+            ContactItemType[] contacts = Common.GetItemsFromInfoResponse<ContactItemType>(getItemResponse);
 
-                Site.Assert.AreEqual<int>(
-                    1,
-                    contacts.Length,
-                    string.Format(
-                        "The count of items from response should be 1, actual: '{0}'.", contacts.Length));
+            Site.Assert.AreEqual<int>(
+                1,
+                contacts.Length,
+                string.Format(
+                    "The count of items from response should be 1, actual: '{0}'.", contacts.Length));
 
-                this.VerifyChildElementInContactItemTypeComplexType(contacts[0], item);
-                #endregion
+            this.VerifyChildElementInContactItemTypeComplexType(contacts[0], item);
+            #endregion
         }
 
         /// <summary>
