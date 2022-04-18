@@ -109,6 +109,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
         [TestCategory("MSOXWSCONT"), TestMethod()]
         public void MSOXWSCONT_S01_TC02_VerifyContactItemWithAllElement()
         {
+            Site.Assume.IsTrue(Common.IsRequirementEnabled(338800, this.Site), "Implementation does not support the GetItem operations for contact item.");
             #region Step 1:Create the all property contact item.
             // Create a full property contact item.
             ContactItemType item = this.CreateFullPropertiesContact();
@@ -122,7 +123,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // The contact item to get.
             ItemIdType[] itemArray = new ItemIdType[this.ExistContactItems.Count];
             this.ExistContactItems.CopyTo(itemArray, 0);
-
+ 
             GetItemResponseType getItemResponse = this.CallGetItemOperation(itemArray);
 
             // Check the response.
