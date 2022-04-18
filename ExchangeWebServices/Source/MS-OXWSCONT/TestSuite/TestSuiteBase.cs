@@ -329,7 +329,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 AssistantName = Common.GenerateResourceName(
                         this.Site,
                         "AssistantName"),
-                Birthday = Convert.ToDateTime("1988-10-16"),
+                Birthday = Convert.ToDateTime("1988-10-16 11:59:00"),
                 BirthdaySpecified = true,
                 BusinessHomePage = "http://www.microsoft.com",
                 JobTitle = Common.GenerateResourceName(
@@ -378,7 +378,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 },
                 PostalAddressIndex = PhysicalAddressIndexType.Business,
                 PostalAddressIndexSpecified = true,
-                WeddingAnniversary = Convert.ToDateTime("2010-10-10"),
+                WeddingAnniversary = Convert.ToDateTime("2010-10-10 11:59:00"),
                 WeddingAnniversarySpecified = true
             };
 
