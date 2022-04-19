@@ -72,7 +72,7 @@
     <!--Set R1275108Enabled to true to implementation does use the IPPhone value. Set R1275108Enabled to false to disable this requirement-->
     <Property name="R1275108Enabled" value="true"/>
     <!--Set R336002Enabled to true to implementation does use the AbchPersonItemType complex type. Set R336002Enabled to false to disable this requirement-->
-    <Property name="R336002Enabled" value="true"/>
+    <Property name="R336002Enabled" value="false"/>
     <!--Set R338800Enabled to true to implementation does use the GetItem operations for contact item. Set R338800Enabled to false to disable this requirement-->
     <Property name="R338800Enabled" value="false"/>
   </Properties>
