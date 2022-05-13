@@ -1,4 +1,13 @@
 ﻿#-------------------------------------------------------------------------
+# Copyright (c) 2015 Microsoft Corporation. All rights reserved.
+# Use of this sample source code is subject to the terms of the Microsoft license 
+# agreement under which you licensed this sample source code and is provided AS-IS.
+# If you did not accept the terms of the license agreement, you are not authorized 
+# to use this sample source code. For the terms of the license, please see the 
+# license agreement between you and Microsoft.
+#-------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------
 # Configuration script exit code definition:
 # 1. A normal termination will set the exit code to 0
 # 2. An uncaught THROW will set the exit code to 1
@@ -138,7 +147,7 @@ function GetExchangeServerVersion
             $recommendMinorVersion = $ExchangeServer2013[2]
             $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
             break
-        }  
+        }   
         if($item.DisplayName.StartsWith($ExchangeServer2016[0]))
         {
             $version = $item.DisplayVersion
@@ -147,7 +156,7 @@ function GetExchangeServerVersion
             $recommendMinorVersion = $ExchangeServer2016[2]
             $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
             break
-        } 
+        }
         if($item.DisplayName.StartsWith($ExchangeServer2019[0]))
         {
             $version = $item.DisplayVersion
@@ -156,7 +165,7 @@ function GetExchangeServerVersion
             $recommendMinorVersion = $ExchangeServer2019[2]
             $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
             break
-        }       
+        }
     }
     if ($ExchangeVersion -eq "Unknown Version")
     {
@@ -236,64 +245,6 @@ function CheckExchangeInstalledOnDCOrNot
             exit 0
         }
         
-    }
-}
-
-#----------------------------------------------------------------------------------------------------------------------------------------
-# <summary>
-# Add delegate of mailbox user to another mailbox user. 
-# </summary>
-# <param name="mainMailboxUser">The name of mailbox user that will grant the delegate permission.</param>
-# <param name="mainMailboxUserPassword">The password of the mailbox user.</param>
-# <param name="delegateMailboxUser">The name of the mailbox user that will be assigned the delegate permission.</param>
-# <param name="sutComputerName">The name of the server that the Microsoft Exchange Server installed on.</param>
-# <param name="domainName">The name of the domain.</param>
-# <param name="ExchangeVersion">The version of Microsoft Exchange Server.</param>
-#--------------------------------------------------------------------------------------------------------------------------------
-function AddDelegateForMaiboxUser
-{
-    param(
-    [string]$mainMailboxUser,
-    [string]$mainMailboxUserPassword,
-    [string]$delegateMailboxUser,
-    [string]$sutComputerName,
-    [string]$domainName,
-    [string]$ExchangeVersion
-    )
-	
-    $currentPath= & {Split-Path $MyInvocation.scriptName}
-    $dllPath = $currentPath.SubString(0,$currentPath.LastIndexOf("\")+1) +"SUT"
-
-
-    if(!(Test-Path "$dllPath\MS_OXWSDLGM_ServerAdapter.dll"))
-    {
-        Output "The file MS_OXWSDLGM_ServerAdapter.dll is not found, the case related with delegate can not be tested." "Red"
-    }
-    else
-    {
-        $asm=[Reflection.Assembly]::LoadFrom("$dllpath\MS_OXWSDLGM_ServerAdapter.dll")
-        $delegateInstance = New-Object Microsoft.Protocols.TestSuites.OXWSDLGM.OXWSDLGMAdapter
-        if($ExchangeVersion -eq $Exchange2007)
-        {
-            $version = "Exchange2007_SP3"
-        }   
-        elseif($ExchangeVersion -ge $Exchange2010)
-        {
-            $version = "Exchange2010_SP3"
-        }
-        $delegateInfo= $delegateInstance.AddDelegate($mainMailboxUser, $mainMailboxUserPassword, $delegateMailboxUser, "Https", $sutComputerName, "/ews/exchange.asmx", $domainName, $version)
-        if($delegateInfo -eq "NoError")
-        {
-            Output "Added the delegate of mailbox user $mainMailboxUser to mailbox user $delegateMailboxUser successfully." "Green"
-        }
-        elseif($delegateInfo.contains("DelegateAlreadyExists"))
-        {
-            Output "The delegate of mailbox user $mainMailboxUser has already been set to mailbox user $delegateMailboxUser." "Yellow"
-        }
-	    else
-        {
-            throw "Failed to add the delegate of mailbox user $mainMailboxUser to $delegateMailboxUser."
-        }  
     }
 }
 
@@ -1128,21 +1079,21 @@ function GetExchangeServerVersionOnSUT
             {
                 $ExchangeVersion = $Exchange2013[1]
                 break
-            }  
-            if($item.DisplayName.StartsWith($Exchange2016[0]))
+            }   
+	    if($item.DisplayName.StartsWith($Exchange2016[0]))
             {
                 $ExchangeVersion = $Exchange2016[1]
                 break
-            } 
+            }
             if($item.DisplayName.StartsWith($Exchange2019[0]))
             {
                 $ExchangeVersion = $Exchange2019[1]
                 break
-            }     
+            }
         }    
         return $ExchangeVersion
     }
-    ,
+
     $ExchangeVersions = @("ExchangeServer2007","ExchangeServer2010","ExchangeServer2013","ExchangeServer2016","ExchangeServer2019")
     if($ExchangeVersions -notcontains $sutVersion )
     {
@@ -1150,13 +1101,13 @@ function GetExchangeServerVersionOnSUT
         $sutVersionChoices = @('1: Microsoft Exchange Server 2007',
                                '2: Microsoft Exchange Server 2010',
                                '3: Microsoft Exchange Server 2013',
-                               '4: Microsoft Exchange Server 2016',
-                               '5: Microsoft Exchange Server 2019')   
+			       '4: Microsoft Exchange Server 2016',
+                   '5: Microsoft Exchange Server 2019')   
         OutputQuestion "Select the Exchange version: "
         OutputQuestion ($sutVersionChoices[0])
         OutputQuestion ($sutVersionChoices[1])
         OutputQuestion ($sutVersionChoices[2])
-        OutputQuestion ($sutVersionChoices[3])
+	    OutputQuestion ($sutVersionChoices[3])
         OutputQuestion ($sutVersionChoices[4])
             
         $sutVersion = ReadUserChoice $sutVersionChoices "sutVersion"
@@ -1165,7 +1116,7 @@ function GetExchangeServerVersionOnSUT
             "1" { $sutVersion = $ExchangeVersions[0]; break }
             "2" { $sutVersion = $ExchangeVersions[1]; break }
             "3" { $sutVersion = $ExchangeVersions[2]; break }
-            "4" { $sutVersion = $ExchangeVersions[3]; break }
+	        "4" { $sutVersion = $ExchangeVersions[3]; break }
             "5" { $sutVersion = $ExchangeVersions[4]; break }
         }
     }
@@ -1176,9 +1127,175 @@ function GetExchangeServerVersionOnSUT
     return $sutVersion
 }
 
+#-----------------------------------------------------------------------------------
+# <summary>
+# Configure the SSL settings of the specified page in IIS.
+# </summary>
+# <param name="pageName">The page name that will be configured for SSL settings.</param>
+# <param name="labelName">The label of the object that will be configured for SSL settings.</param>
+# <param name="SSLStatus">The SSL status that will be configured to for the specified page.</param>
+#-----------------------------------------------------------------------------------
+function ConfigureSSLSettings
+{
+    param(
+    [string]$pageName,
+    [string]$labelName,
+    [string]$SSLStatus
+    )
+
+    switch ($SSLStatus)
+    {
+        "None"{ $expectSSLStatus = $false }
+        "Ssl" { $expectSSLStatus = $true }
+    }
+		
+    $retryCount = 20
+    do
+    {
+        cmd /c $env:windir\system32\inetsrv\appcmd.exe set config $pageName /commit:APPHOST /section:system.webServer/security/access /sslFlags:$SSLStatus
+        Start-Sleep -s 3
+        $EASWebSettingsObj = get-wmiobject -namespace "root/MicrosoftIISv2" -query "select * from IIsWebVirtualDirSetting where Name='$labelName'" -computer $Env:ComputerName
+        $currentSSLStatus = $EASWebSettingsObj.AccessSSL
+        $retryCount = $retryCount-1
+    }
+    while($currentSSLStatus -ne $expectSSLStatus -and $retryCount -gt 0)
+
+    if($currentSSLStatus -ne $expectSSLStatus)
+    {
+        if($SSLStatus -eq "None")
+        {
+            Throw "Failed to clear the `"Require SSL`" and set `"Ignore`" for Client certificates in the `"SSL Settings`" page of `"$pageName`" in IIS."
+        }
+        else
+        {
+            Throw "Failed to enable the `"Require SSL`" and set `"Ignore`" for Client certificates in the `"SSL Settings`" page of `"$pageName`" in IIS."
+        }
+    }
+}
+
+#----------------------------------------------------------------------------------------------------------------------------------------
+# <summary>
+# Add delegate of mailbox user to another mailbox user. 
+# </summary>
+# <param name="mainMailboxUser">The name of mailbox user that will grant the delegate permission.</param>
+# <param name="mainMailboxUserPassword">The password of the mailbox user.</param>
+# <param name="delegateMailboxUser">The name of the mailbox user that will be assigned the delegate permission.</param>
+# <param name="sutComputerName">The name of the server that the Microsoft Exchange Server installed on.</param>
+# <param name="domainName">The name of the domain.</param>
+# <param name="ExchangeVersion">The version of Microsoft Exchange Server.</param>
+#--------------------------------------------------------------------------------------------------------------------------------
+function AddDelegateForMaiboxUser
+{
+    param(
+    [string]$mainMailboxUser,
+    [string]$mainMailboxUserPassword,
+    [string]$delegateMailboxUser,
+    [string]$sutComputerName,
+    [string]$domainName,
+    [string]$ExchangeVersion
+    )
+	
+    $currentPath= & {Split-Path $MyInvocation.scriptName}
+    $dllPath = $currentPath.SubString(0,$currentPath.LastIndexOf("\")+1) +"SUT"
+
+
+    if(!(Test-Path "$dllPath\MS_OXWSDLGM_ServerAdapter.dll"))
+    {
+        Output "The file MS_OXWSDLGM_ServerAdapter.dll is not found, the case related with delegate can not be tested." "Red"
+    }
+    else
+    {
+        $asm=[Reflection.Assembly]::LoadFrom("$dllpath\MS_OXWSDLGM_ServerAdapter.dll")
+        $delegateInstance = New-Object Microsoft.Protocols.TestSuites.OXWSDLGM.OXWSDLGMAdapter
+        if($ExchangeVersion -eq $Exchange2007)
+        {
+            $version = "Exchange2007_SP3"
+        }   
+        elseif($ExchangeVersion -ge $Exchange2010)
+        {
+            $version = "Exchange2010_SP3"
+        }
+        $delegateInfo= $delegateInstance.AddDelegate($mainMailboxUser, $mainMailboxUserPassword, $delegateMailboxUser, "Https", $sutComputerName, "/ews/exchange.asmx", $domainName, $version)
+        if($delegateInfo -eq "NoError")
+        {
+            Output "Added the delegate of mailbox user $mainMailboxUser to mailbox user $delegateMailboxUser successfully." "Green"
+        }
+        elseif($delegateInfo.contains("DelegateAlreadyExists"))
+        {
+            Output "The delegate of mailbox user $mainMailboxUser has already been set to mailbox user $delegateMailboxUser." "Yellow"
+        }
+	    else
+        {
+            throw "Failed to add the delegate of mailbox user $mainMailboxUser to $delegateMailboxUser."
+        }  
+    }
+}
+#----------------------------------------------------------------------------------------------------------------------------------------------------------
+# <summary>
+# Move meeting forward notification email to Deleted Items for specified mailbox user. 
+# </summary>
+# <param name="mailboxUser">The name of mailbox user that will enable the setting to move meeting forward notification email to Deleted Items.</param>
+# <param name="ExchangeVersion">The version of Microsoft Exchange Server.</param>
+#----------------------------------------------------------------------------------------------------------------------------------------------------------
+function MoveNotificationEmailToDeleteFolder
+{
+    param(
+    [string]$mailboxUser,
+    [string]$ExchangeVersion
+    )
+	
+    #--------------------------------------------------
+    # Parameter validation
+    #--------------------------------------------------
+    if(($mailboxUser -eq $null) -or ($mailboxUser -eq ""))
+    {
+    	Throw "Parameter mailboxUser cannot be empty."
+    }
+    if(($ExchangeVersion -eq $null) -or ($ExchangeVersion -eq ""))
+    {
+    	Throw "Parameter ExchangeVersion cannot be empty."
+    }
+	
+    if($ExchangeVersion -eq $Exchange2007)
+    {
+        $calendarAttendantConfig = Get-MailboxCalendarSettings -Identity $mailboxUser   
+        if($calendarAttendantConfig.RemoveForwardedMeetingNotifications -eq $false)
+        {
+            Set-MailboxCalendarSettings -Identity $mailboxUser -RemoveForwardedMeetingNotifications:$true  
+            Output "Enabled the setting such that moving meeting forward notification email to the Deleted Items folder for mailbox user $mailboxUser successfully." "Green"  
+        }
+        else
+        {
+            Output "Setting to move meeting forward notification email to the Deleted Items folder for mailbox user $mailboxUser has already been set." "Yellow"
+        }
+    }
+    elseif($ExchangeVersion -ge $Exchange2010)
+    {
+        if ($ExchangeVersion -eq $Exchange2010) 
+        {
+            $connectUri = 'http://'+ $sutComputerName + '/PowerShell'
+            $session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri $connectUri -Authentication Kerberos  
+            Import-PSSession $session -AllowClobber -DisableNameChecking |Out-File -FilePath $logFile -Append -encoding ASCII -width 100
+            Set-AdminAuditLogConfig -AdminAuditLogEnabled $false
+        }
+        $calendarAttendantConfig = Get-CalendarProcessing -Identity $mailboxUser
+        if($calendarAttendantConfig.RemoveForwardedMeetingNotifications -eq $false)
+        {
+            Set-CalendarProcessing -Identity $mailboxUser -RemoveForwardedMeetingNotifications:$true 
+            Output "Enabled the setting such that moving meeting forward notification email to the Deleted Items folder for mailbox user $mailboxUser successfully." "Green"  
+        }
+        else
+        {
+            Output "Setting to move meeting forward notification email to the Deleted Items folder for mailbox user $mailboxUser has already been set." "Yellow"
+        }
+    }
+}
+
 $global:Exchange2007 = "Microsoft Exchange Server 2007"
 $global:Exchange2010 = "Microsoft Exchange Server 2010"
 $global:Exchange2013 = "Microsoft Exchange Server 2013"
 $global:Exchange2016 = "Microsoft Exchange Server 2016"
 $global:Exchange2019 = "Microsoft Exchange Server 2019"
 [void][System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.AccountManagement")
+
+
