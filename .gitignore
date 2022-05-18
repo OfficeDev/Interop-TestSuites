@@ -1,8 +1,0 @@
-﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
-################################################################################
-
-/.vs
-/FileSyncandWOPI/Source/MS-ONESTORE/.vs/MS-ONESTORE/v16
-/SharePoint/Source/MS-VERSS/.vs/MS-VERSS/v16
-/ExchangeMAPI/Source

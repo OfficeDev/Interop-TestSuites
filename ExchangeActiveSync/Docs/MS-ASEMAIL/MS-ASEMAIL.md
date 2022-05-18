@@ -1,6 +1,6 @@
 ## [MS-ASEMAIL]: Exchange ActiveSync: Email Class Protocol
-- [MS-ASEMAIL] v20181001 is used to provides an XML representation of email data that is sent or received by mobile devices.
-- Release date, 10/1/2018.
+- [MS-ASEMAIL] v20211116 is used to provides an XML representation of email data that is sent or received by mobile devices.
+- Release date, 11/16/2021.
 
 To find the new landing page for [MS-ASEMAIL], please visit https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-asemail/f3d27369-e0f5-4164-aa5e-9b1abda16f5f
 

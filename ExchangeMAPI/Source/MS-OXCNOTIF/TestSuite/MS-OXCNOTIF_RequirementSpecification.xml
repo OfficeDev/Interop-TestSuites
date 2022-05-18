@@ -467,7 +467,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCNOTIF_R47</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopRegisterNotification ROP Request Buffer] [NotificationTypes value] 0x0080: The server sends notifications to the client when SearchComplete events occur within the scope of interest.</ns1:Description>
+		<ns1:Description>[In RopRegisterNotification ROP Request Buffer] [NotificationTypes value] 0x0080: The server sends notifications to the client when SearchCompleted events occur within the scope of interest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

@@ -1815,7 +1815,7 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             this.UpdateEmail(userInformation.InboxCollectionId, getEmailItem.SyncKey, null, emailItem.ServerId, flag, null);
 
             // Get the server changes of adding flag and category
-            return this.SyncChanges(getEmailItem.SyncKey, this.User1Information.InboxCollectionId, null);
+            return this.SyncChanges(getEmailItem.SyncKey, userInformation.InboxCollectionId, null);
         }
         #endregion
     }

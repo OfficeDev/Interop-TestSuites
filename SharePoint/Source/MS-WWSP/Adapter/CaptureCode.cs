@@ -56,7 +56,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
       <s:element name=""GetTemplatesForItemResult"" minOccurs=""0"">
         <s:complexType mixed=""true"">
           <s:sequence>
-            <s:element name=""TemplateData"" ref=""tns:TemplateData"" minOccurs=""1"" maxOccurs=""1""/>
+            <s:element ref=""tns:TemplateData"" minOccurs=""1"" maxOccurs=""1""/>
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -133,7 +133,7 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
       <s:element name=""GetToDosForItemResult"" minOccurs=""0"">
         <s:complexType mixed=""true"">
           <s:sequence>
-            <s:element name=""ToDoData"" ref=""s1:ToDoData"" minOccurs=""1"" maxOccurs=""1""/>
+            <s:element ref=""tns:ToDoData"" minOccurs=""1"" maxOccurs=""1""/>
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -208,8 +208,8 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
             <s:element name=""WorkflowData"" minOccurs=""1"" maxOccurs=""1"">
               <s:complexType>
                 <s:sequence>
-                  <s:element name=""ToDoData"" ref=""s1:ToDoData"" minOccurs=""1"" maxOccurs=""1"" />
-                  <s:element name=""TemplateData"" ref=""tns:TemplateData"" minOccurs=""1"" maxOccurs=""1"" />
+                  <s:element ref=""tns:ToDoData"" minOccurs=""1"" maxOccurs=""1"" />
+                  <s:element ref=""tns:TemplateData"" minOccurs=""1"" maxOccurs=""1"" />
                   <s:element name=""ActiveWorkflowsData"" minOccurs=""1"" maxOccurs=""1"" >
                     <s:complexType>
                       <s:sequence>
@@ -571,12 +571,10 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
           <s:sequence>
             <s:element name=""TaskData"" minOccurs=""1"" maxOccurs=""1"">
               <s:complexType>
-                <s:sequence>
-                  <s:attribute name=""AssignedTo"" type=""s:string"" use=""required"">
-                  <s:attribute name=""TaskGroup"" type=""s:string"" use=""required"">
-                  <s:attribute name=""ItemId"" type=""s:int"" use=""required"">
-                  <s:attribute name=""ListId"" type=""s1:guid"" use=""required"">
-                </s:sequence>
+                <s:attribute name=""AssignedTo"" type=""s:string"" use=""required"">
+                <s:attribute name=""TaskGroup"" type=""s:string"" use=""required"">
+                <s:attribute name=""ItemId"" type=""s:int"" use=""required"">
+                <s:attribute name=""ListId"" type=""s1:guid"" use=""required"">
               </s:complexType>
             </s:element>
           </s:sequence>
@@ -784,8 +782,14 @@ namespace Microsoft.Protocols.TestSuites.MS_WWSP
                                         @"[In ToDoData][The ToDoData schema is:]  <s:element name=""ToDoData"" >
   <s:complexType>
     <s:sequence>
-      <s:element name=""xml"" type=""rs:data"" minOccurs=""0"" maxOccurs=""1"" />
-    </s:sequence>
+      <s:element name=""xml"" minOccurs=""0"" maxOccurs=""1"" >
+        <s:complexType>
+	      <s:sequence>
+	        <s:element ref=""rs: data"" maxOccurs=""1"" />
+          </ s:sequence >
+        </ s:complexType >
+      </ s:element >
+    </ s:sequence>
   </s:complexType>
 </s:element>");
 

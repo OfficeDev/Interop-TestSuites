@@ -2998,9 +2998,9 @@ namespace Microsoft.Protocols.TestSuites.MS_ASEMAIL
             Site.CaptureRequirementIfIsTrue(
                 this.activeSyncClient.ValidationResult,
                 847,
-                @"[In Until] The value of this element[Until] is a dateTime value, as specified in [MS-ASDTYPE] section 2.3.");
+                @"[In Until] The value of this element[Until] is a string value, as specified in [MS-ASDTYPE] section 2.7.");
 
-            this.VerifyDateTimeStructure();
+            this.VerifyStringStructure();
         }
 
         /// <summary>
