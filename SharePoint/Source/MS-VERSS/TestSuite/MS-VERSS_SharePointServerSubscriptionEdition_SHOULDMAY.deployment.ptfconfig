@@ -28,7 +28,7 @@
     <Property name="R17602Enabled" value="true"/>
     <!-- Set R19602Enabled to true to verify that the server returns error code 0x81070970 for invalid characters . Set R19602Enabled to false to disable this requirement. -->
     <Property name="R19602Enabled" value="false"/>
-    <!-- Set R1960102Enabled to true to verify that the server returns error code 0x80131600 for invalid characters . Set R19602Enabled to false to disable this requirement. -->
+    <!-- Set R1960102Enabled to true to verify that the server returns error code 0x80131600 for invalid characters . Set R1960102Enabled to false to disable this requirement. -->
     <Property name="R1960102Enabled" value="true"/>    
     <!-- Set R197Enabled to true to verify that the server truncates all characters after the first "#" in the file name. Set R197Enabled to false to disable this requirement. -->
     <Property name="R197Enabled" value="true"/>
@@ -67,7 +67,7 @@
     <!-- Set R202Enabled to true to verify that the server returns error code 0x81070970 to indicate that the folder name of the RestoreVersion element contains invalid characters. Set R202Enabled to false to disable this requirement. -->
     <Property name="R202Enabled" value="false"/>
     <!-- Set R24901Enabled to true to verify that the server will return no error code for Two consecutive dots (..) is at the end of fileName for RestoreVersion element. Set R24901Enabled to false to disable this requirement. -->
-    <Property name="R24901Enabled" value="true"/>
+    <Property name="R24901Enabled" value="false"/>
     <!-- Set R16401Enabled to true to verify that the server does returns 'createRaw' attribute in VersionData complex type. Set R16401Enabled to false to disable this requirement. -->
     <Property name="R16401Enabled" value="true"/>
     <!-- Set R16402Enabled to true to verify that the server does not returns 'createRaw' attribute in VersionData complex type. Set R16402Enabled to false to disable this requirement. -->
