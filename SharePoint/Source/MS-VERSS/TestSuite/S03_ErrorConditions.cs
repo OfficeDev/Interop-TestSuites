@@ -2747,21 +2747,17 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                         bool isCurrentVersionIncreased = AdapterHelper.IsCurrentVersionIncreased(
                             currentVersionBeforeRestore,
                             currentVersionAfterRestore);
-
-                        if (truncatedCharacter == "..")
+                        if (Common.IsRequirementEnabled(24901, this.Site))
                         {
-                            if (Common.IsRequirementEnabled(24901, this.Site))
-                            {
-                                // Add the debug information
-                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R24901");
-
-                                // Verify MS-VERSS requirement: MS-VERSS_R24901
-                                Site.CaptureRequirementIfIsTrue(
-                                    isCurrentVersionIncreased,
-                                    24901,
-                                    @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that two consecutive dots (..) is at the end of the fileName. (<10> Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, SharePoint Server 2016 and SharePoint Server 2019 two consecutive dots (..) are ignored at the end of the fileName.)");
-                            }
+                            // Add the debug information\
+                            Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R24901");
+                            // Verify MS-VERSS requirement: MS-VERSS_R24901
+                            Site.CaptureRequirementIfIsTrue(
+                                isCurrentVersionIncreased,
+                                24901,
+                                @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that two consecutive dots (..) is at the end of the fileName. (<10> Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, SharePoint Server 2016 and SharePoint Server 2019 two consecutive dots (..) are ignored at the end of the fileName.)");
                         }
+                        
                     }
                 }
             }
