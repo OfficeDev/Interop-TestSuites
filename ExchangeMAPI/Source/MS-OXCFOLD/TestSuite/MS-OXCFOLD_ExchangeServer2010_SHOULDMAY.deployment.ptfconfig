@@ -30,7 +30,7 @@
     <!-- Set R106601Enabled to true to verify that for ROP RopCreateFolder the implementation does fail the ROP and return ecAccessdenied in the ReturnValue of the ROP response, if the client does not have permissions to create the folder, as specified in section 3.2.5.2. Set R106601Enabled to false to disable this requirement. -->
     <Property name="R106601Enabled" value="false" />
     <!-- Set R106602Enabled to true to verify that for ROP RopCreateFolder the implementation does fail the ROP and return ecNoCreateSubfolderRight in the ReturnValue of the ROP response, if the client does not have permissions to create the folder, as specified in section 3.2.5.2. Set R106602Enabled to false to disable this requirement. -->
-    <Property name="R106602Enabled" value="false" />
+    <Property name="R106602Enabled" value="true" />
     <!-- Set R116001Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does fail the operation with ecInvalidParam in the ReturnValue of the ROP response, if the client sets an invalid bit in the SearchFlags field, as specified in section 3.2.5.4. Set R116001Enabled to false to disable this requirement. -->
     <Property name="R116001Enabled" value="true" />
     <!-- Set R116002Enabled to true to verify that for ROP RopSetSearchCriteria the implementation does not fail the operation, if the client sets an invalid bit in the SearchFlags field, as specified in section 3.2.5.4. Set R116002Enabled to false to disable this requirement. -->
