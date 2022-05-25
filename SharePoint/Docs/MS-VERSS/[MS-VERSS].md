@@ -1,6 +1,6 @@
 ## [MS-VERSS]: Versions Web Service Protocol
-- [MS-VERSS] v20211005 is used to develop the test suite.
-- Release date, 10/05/2021.
+- [MS-VERSS] v20220215 is used to develop the test suite.
+- Release date, 02/15/2022.
 
 To find the new landing page for [MS-VERSS], please visit https://msdn.microsoft.com/en-us/library/cc313064(v=office.12).aspx
 
