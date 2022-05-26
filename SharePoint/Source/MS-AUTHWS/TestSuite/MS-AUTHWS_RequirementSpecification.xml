@@ -1192,7 +1192,7 @@ http://schemas.microsoft.com/sharepoint/soap/Mode</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R830</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] A SOAP exception is returned when the Login operation failed because the logon name is not found by the server, or the password does not match what is stored on the server. (&lt;3&gt; Section 3.1.4.21.4.1:  SharePoint Server Subscription Edition returns a SOAP exception.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] A SOAP exception is returned when the Login operation failed because the logon name is not found by the server, or the password does not match what is stored on the server. (&lt;3&gt; Section 3.1.4.1.4.1:  SharePoint Server Subscription Edition returns a SOAP exception.)</ns1:Description>
 		<ns1:Derived>MS-AUTHWS_R83:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
