@@ -217,7 +217,7 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
                     Site.Log.Add(LogEntryKind.Debug, "SoapException is returned when the Login operation failed because the logon name is not found by the server, or the password does not match what is stored on the server, MS-AUTHWS_R830 can be verified.");
                 }
             }
-            else if(Common.IsRequirementEnabled(83, this.Site))
+            else
             {
                 // Invoke the Login operation with invalid user name.
                 LoginResult loginResult = this.authwsAdapter.Login(this.invalidUserName, this.validPassword);
@@ -262,7 +262,7 @@ namespace Microsoft.Protocols.TestSuites.MS_AUTHWS
                     Site.Log.Add(LogEntryKind.Debug, "SoapException is returned when the Login operation failed because the logon name is not found by the server, or the password does not match what is stored on the server, MS-AUTHWS_R830 can be verified.");
                 }
             }
-            else if (Common.IsRequirementEnabled(83, this.Site))
+            else
             {
                 // Invoke the Login operation with invalid password.
                 LoginResult loginResult = this.authwsAdapter.Login(this.validUserName, this.invalidPassword);
