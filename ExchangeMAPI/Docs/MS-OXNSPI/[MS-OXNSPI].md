@@ -1,6 +1,6 @@
 ## [MS-OXNSPI]: Exchange Server Name Service Provider Interface (NSPI) Protocol
-- [MS-OXNSPI] v20210817 is used to develop the test suite.  
-- Release date, 8/17/2021.
+- [MS-OXNSPI] v20220215 is used to develop the test suite.  
+- Release date, 2/15/2022.
 
 To find the new landing page for [MS-OXNSPI], please visit https://msdn.microsoft.com/en-us/library/hh354767(v=EXCHG.80).aspx
 

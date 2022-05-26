@@ -16,7 +16,7 @@
     <Property name="R191Enabled" value="false" />
     <!-- Set R193Enabled to true to verify that implementation does not use authentication if the AuthenticationMode is "None". Set R193Enabled to false to disable this requirement. -->
     <Property name="R193Enabled" value="true" />
-    <!-- Set R83Enabled to true to verify the Login operation under Forms authentication mode is failed with invalid user name or password. Set R83Enabled to false to disable this requirement. -->
-    <Property name="R83Enabled" value="true" />
+    <!-- Set R830Enabled to true to verify the Login operation under Forms authentication mode is failed with invalid user name or password. Set R830Enabled to false to disable this requirement. -->
+    <Property name="R830Enabled" value="false" />
   </Properties>
 </TestSite>
