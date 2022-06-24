@@ -230,6 +230,7 @@ if($sutVersion -ge "ExchangeServer2010")
     OutputQuestion "3: Protocol version is 14.1" 
     OutputQuestion "4: Protocol version is 16.0" 
     OutputQuestion "5: Protocol version is 16.1" 
+    OutputQuestion "For Exchange 2010 and 2013, the supported values are 12.1,14.0 and 14.1."
     $protocolVersions =@('1','2','3','4','5')
     $protocolVersion = ReadUserChoice $protocolVersions "protocolVersion"
     Switch ($protocolVersion)
