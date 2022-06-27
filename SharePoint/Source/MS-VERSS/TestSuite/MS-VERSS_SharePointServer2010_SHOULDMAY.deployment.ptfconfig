@@ -26,7 +26,7 @@
     <Property name="R19701Enabled" value="false"/>
     <!-- Set R17602Enabled to true to verify that the server returns error code 0x80131600 for the pound sign (#) truncated file name does not exist on the server. Set R17602Enabled to false to disable this requirement. -->
     <Property name="R17602Enabled" value="true"/>
-	<!-- Set R1960102Enabled to true to verify that the server returns error code 0x80131600 for invalid characters . Set R19602Enabled to false to disable this requirement. -->
+	  <!-- Set R1960102Enabled to true to verify that the server returns error code 0x80131600 for invalid characters . Set R1960102Enabled to false to disable this requirement. -->
     <Property name="R1960102Enabled" value="false"/>
     <!-- Set R19602Enabled to true to verify that the server returns error code 0x81070970 for invalid characters . Set R19602Enabled to false to disable this requirement. -->
     <Property name="R19602Enabled" value="false"/>

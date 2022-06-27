@@ -1935,7 +1935,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960103,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Double quotation mark (""). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Double quotation mark (""). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "#")
@@ -2003,7 +2003,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960105,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Percent sign (%). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Percent sign (%). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "&")
@@ -2044,7 +2044,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960106,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Ampersand (&). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Ampersand (&). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "*")
@@ -2085,7 +2085,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960107,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Asterisk (*). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Asterisk (*). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == ":")
@@ -2126,7 +2126,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960108,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Colon (:). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Colon (:). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "<")
@@ -2167,7 +2167,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960109,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left angle bracket (<). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left angle bracket (<). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "=")
@@ -2229,7 +2229,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960111,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Right angle bracket (>). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Right angle bracket (>). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "=")
@@ -2314,7 +2314,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960114,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left curly bracket ({). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Left curly bracket ({). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "|")
@@ -2355,7 +2355,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960115,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Vertical bar (|). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Vertical bar (|). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "}")
@@ -2396,7 +2396,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960116,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Right curly bracket (}). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Right curly bracket (}). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "~")
@@ -2437,7 +2437,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960117,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Tilde (~). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Tilde (~). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "/")
@@ -2478,7 +2478,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960104,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Forward slash (/). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Forward slash (/). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "..")
@@ -2519,7 +2519,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960118,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Two consecutive dots (..). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Two consecutive dots (..). (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "\t")
@@ -2542,6 +2542,18 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                     errorCode,
                                     19620,
                                     @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Tab (\t) character, it is not at the end of the fileName. (<5> Section 3.1.4.2.2.2:  Windows SharePoint Services 3.0 returns the 0x81070970 error code for invalid characters.)");
+                            }
+                            if (isR1960102Enabled)
+                            {
+                                // Add the debug information
+                                Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R1960120");
+
+                                // Verify MS-VERSS requirement: MS-VERSS_R1960120
+                                Site.CaptureRequirementIfAreEqual<string>(
+                                   "0x80131600",
+                                   errorCode,
+                                   1960120,
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character Tab (\t) character, it is not at the end of the fileName. (<5> Section 3.1.4.2.2.2:  SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                         else if (invalidCharacter == "\n" || invalidCharacter == "\r")
@@ -2582,7 +2594,7 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                    "0x80131600",
                                    errorCode,
                                    1960119,
-                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character that has a value less than 32 or greater than 126. (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 returns 0x80131600 error code for invalid characters.)");
+                                   @"[In Appendix B: Product Behavior] Implementation does return error code 0x81070970 to indicate that the fileName element of the DeleteVersion element contains invalid character that has a value less than 32 or greater than 126. (<5> Section 3.1.4.2.2.2: SharePoint Server 2019 and SharePoint Server Subscription Edition returns 0x80131600 error code for invalid characters.)");
                             }
                         }
                     }
@@ -2655,10 +2667,12 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                 "~", "\"", "\\", "..", "#", "\n", "\r" 
             };
 
+            bool isR24901Enabled = Common.IsRequirementEnabled(24901, this.Site);
+
             // The variable is used to save the file relative URL that contains '/' or ".." is at the end of file name.
             foreach (string truncatedCharacter in invalidCharacters)
             {
-                if (truncatedCharacter == "/" || truncatedCharacter == "..")
+                if (truncatedCharacter == "/")
                 {
                     string fileURL = string.Empty;
 
@@ -2701,54 +2715,86 @@ namespace Microsoft.Protocols.TestSuites.MS_VERSS
                                 @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that the forward slash (/) character is at the end of the fileName.(<10> Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010, and SharePoint Foundation 2013, the forward slash (/) character is ignored at the end of the fileName.)");
                         }
                     }
+                }
 
-                    if (truncatedCharacter == "..")
+                if (truncatedCharacter == "..")
+                {
+                    if (isR24901Enabled)
                     {
+                        string fileURL = string.Empty;
+
+                        // Call GetVersions with the relative filename to get details about all versions of the file.
+                        GetVersionsResponseGetVersionsResult getVersionsResponse = this.protocolAdapterInstance.GetVersions(this.fileRelativeUrl);
+
+                        // Get the current version of the file.
+                        string currentVersionBeforeRestore = AdapterHelper.GetCurrentVersion(getVersionsResponse.results.result);
+
+                        // Get the previous version which is specific to be restored.
+                        string restoreFileVersion = AdapterHelper.GetPreviousVersion(getVersionsResponse.results.result);
+
+                        fileURL = this.documentLibrary + "/" + this.fileName + truncatedCharacter;
+
+                        // Call RestoreVersion operation using relative fileName and restore a specified file to a specific version.
+                        RestoreVersionResponseRestoreVersionResult restoreVersionReponse = this.protocolAdapterInstance.RestoreVersion(fileURL, restoreFileVersion);
+
+                        // Verify the RestoreVersion results.
+                        this.testSuiteHelper.VerifyResultsInformation(restoreVersionReponse.results, OperationName.RestoreVersion, true);
+
+                        // Get the current version in RestoreVersion response.
+                        string currentVersionAfterRestore = AdapterHelper.GetCurrentVersion(restoreVersionReponse.results.result);
+
+                        // Verify whether the current version was increased by RestoreVersion.
+                        bool isCurrentVersionIncreased = AdapterHelper.IsCurrentVersionIncreased(
+                            currentVersionBeforeRestore,
+                            currentVersionAfterRestore);
                         if (Common.IsRequirementEnabled(24901, this.Site))
                         {
-                            // Add the debug information
+                            // Add the debug information\
                             Site.Log.Add(LogEntryKind.Debug, "Verify MS-VERSS_R24901");
-
                             // Verify MS-VERSS requirement: MS-VERSS_R24901
                             Site.CaptureRequirementIfIsTrue(
                                 isCurrentVersionIncreased,
                                 24901,
                                 @"[In Appendix B: Product Behavior] Implementation does not return an error to indicate that two consecutive dots (..) is at the end of the fileName. (<10> Section 3.1.4.4.2.2: In Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, SharePoint Server 2016 and SharePoint Server 2019 two consecutive dots (..) are ignored at the end of the fileName.)");
                         }
+                        
                     }
                 }
             }
 
             // The variable is used to save the file relative URL that contains ".." is at the end of folder name.
-            string truncatedCharacterInFolderName = "..";
-            string fileURLWithFolderName = string.Empty;
+            if (isR24901Enabled)
+            {
+                string truncatedCharacterInFolderName = "..";
+                string fileURLWithFolderName = string.Empty;
 
-            // Call GetVersions with the relative filename to get details about all versions of the file.
-            GetVersionsResponseGetVersionsResult getVersionsResponseForFolderName = this.protocolAdapterInstance.GetVersions(this.documentLibrary + "/" + folderName + "/" + this.fileName);
+                // Call GetVersions with the relative filename to get details about all versions of the file.
+                GetVersionsResponseGetVersionsResult getVersionsResponseForFolderName = this.protocolAdapterInstance.GetVersions(this.documentLibrary + "/" + folderName + "/" + this.fileName);
 
-            // Get the current version of the file.
-            string currentVersion = AdapterHelper.GetCurrentVersion(getVersionsResponseForFolderName.results.result);
+                // Get the current version of the file.
+                string currentVersion = AdapterHelper.GetCurrentVersion(getVersionsResponseForFolderName.results.result);
 
-            // Get the previous version which is specific to be restored.
-            string restoreVersion = AdapterHelper.GetPreviousVersion(getVersionsResponseForFolderName.results.result);
+                // Get the previous version which is specific to be restored.
+                string restoreVersion = AdapterHelper.GetPreviousVersion(getVersionsResponseForFolderName.results.result);
 
-            fileURLWithFolderName = this.documentLibrary + "/" + folderName + truncatedCharacterInFolderName + "/" + this.fileName;
+                fileURLWithFolderName = this.documentLibrary + "/" + folderName + truncatedCharacterInFolderName + "/" + this.fileName;
 
-            // Call RestoreVersion operation using relative fileName and restore a specified file to a specific version.
-            RestoreVersionResponseRestoreVersionResult restoreVersionReponseForFolderName = this.protocolAdapterInstance.RestoreVersion(fileURLWithFolderName, restoreVersion);
+                // Call RestoreVersion operation using relative fileName and restore a specified file to a specific version.
+                RestoreVersionResponseRestoreVersionResult restoreVersionReponseForFolderName = this.protocolAdapterInstance.RestoreVersion(fileURLWithFolderName, restoreVersion);
 
-            // Get the current version in RestoreVersion response.
-            string afterRestoreVersion = AdapterHelper.GetCurrentVersion(restoreVersionReponseForFolderName.results.result);
+                // Get the current version in RestoreVersion response.
+                string afterRestoreVersion = AdapterHelper.GetCurrentVersion(restoreVersionReponseForFolderName.results.result);
 
-            // Verify whether the current version was increased by RestoreVersion.
-            bool isIncreased = AdapterHelper.IsCurrentVersionIncreased(
-                currentVersion,
-                afterRestoreVersion);
-                    
-            Site.Assert.IsTrue(
-                isIncreased,
-                "{0} does not return an error to indicate that two consecutive dots (..) is at the end of the folder name.",
-                sutVersion);
+                // Verify whether the current version was increased by RestoreVersion.
+                bool isIncreased = AdapterHelper.IsCurrentVersionIncreased(
+                    currentVersion,
+                    afterRestoreVersion);
+
+                Site.Assert.IsTrue(
+                    isIncreased,
+                    "{0} does not return an error to indicate that two consecutive dots (..) is at the end of the folder name.",
+                    sutVersion);
+            }
 
             // Call GetVersions with the relative filename to get details about all versions of the file.
             GetVersionsResponseGetVersionsResult getVersionsResponseForVerifyInvalidCharacters = 

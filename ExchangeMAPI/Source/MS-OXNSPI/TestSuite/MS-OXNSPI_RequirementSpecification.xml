@@ -14105,7 +14105,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1194001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the value "GeneralFailure" if SortType field in the input parameter pStat has any value other than SortTypeDisplayName .(Exchange 2007, Exchange 2010, Exchange 2013 and Exchange 2016 follows this behavior)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the value "GeneralFailure" if SortType field in the input parameter pStat has any value other than SortTypeDisplayName .(Exchange 2007, Exchange 2010 follows this behavior)</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1527:i, MS-OXNSPI_R1194:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -14116,7 +14116,7 @@ long NspiGetTemplateInfo(
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXNSPI_R1194002</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the value "Success" if SortType field in the input parameter pStat has any value other than SortTypeDisplayName .&lt;6&gt; Section 3.1.4.1.1411:  Exchange 2019 returns "Success".</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] Implementation does return the value "Success" if SortType field in the input parameter pStat has any value other than SortTypeDisplayName .&lt;6&gt; Section 3.1.4.1.1411:  Exchange 2013, Exchange 2016, and 2019 returns "Success".</ns1:Description>
 		<ns1:Derived>MS-OXNSPI_R1527:i, MS-OXNSPI_R1194:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

@@ -24,8 +24,8 @@
     <!-- Set R748001Enabled to true to verify that the input parameter lpVersion does not impact the search results. SetR748001Enabled to false to disable this requirement.-->
     <Property name="R748001Enabled" value="true" />
     <!-- Set R119401Enabled to true to verify that if the SortType field in the input parameter pStat has any value other than SortTypeDisplayName, the implementation return the value "GeneralFailure". SetR119401Enabled to false to disable this requirement.-->
-    <Property name="R1194001Enabled" value="true" />
+    <Property name="R1194001Enabled" value="false" />
     <!-- Set R119402Enabled to true to verify that if the SortType field in the input parameter pStat has any value other than SortTypeDisplayName, the implementation return the value "Success". SetR119402Enabled to false to disable this requirement.-->
-    <Property name="R1194002Enabled" value="false" />
+    <Property name="R1194002Enabled" value="true" />
   </Properties>
 </TestSite>

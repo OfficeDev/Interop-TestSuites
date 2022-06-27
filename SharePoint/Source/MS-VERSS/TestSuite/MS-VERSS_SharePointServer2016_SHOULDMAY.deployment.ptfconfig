@@ -28,7 +28,7 @@
     <Property name="R17602Enabled" value="true"/>
     <!-- Set R19602Enabled to true to verify that the server returns error code 0x81070970 for invalid characters . Set R19602Enabled to false to disable this requirement. -->
     <Property name="R19602Enabled" value="false"/>
-	<!-- Set R1960102Enabled to true to verify that the server returns error code 0x80131600 for invalid characters . Set R19602Enabled to false to disable this requirement. -->
+	  <!-- Set R1960102Enabled to true to verify that the server returns error code 0x80131600 for invalid characters . Set R1960102Enabled to false to disable this requirement. -->
     <Property name="R1960102Enabled" value="false"/> 
     <!-- Set R197Enabled to true to verify that the server truncates all characters after the first "#" in the file name. Set R197Enabled to false to disable this requirement. -->
     <Property name="R197Enabled" value="true"/>

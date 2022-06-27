@@ -21973,7 +21973,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2488</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[GetListItemChangesWithKnowledge]. [In Appendix B: Product Behavior]&lt;72&gt; Section 3.1.4.23:  Windows SharePoint Services 2.0 and Windows SharePoint Services 3.0 do not support this operation.</ns1:Description>
+		<ns1:Description>Implementation does not support this method[GetListItemChangesWithKnowledge]. [In Appendix B: Product Behavior]&lt;72&gt; Section 3.1.4.23:  Windows SharePoint Services 2.0, Windows SharePoint Services 3.0 and SharePoint Server Subscription Edition do not support this operation.</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1078:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -21983,7 +21983,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R24881</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does support this method [GetListItemChangesWithKnowledge]. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>Implementation does support this method [GetListItemChangesWithKnowledge]. (Microsoft SharePoint Foundation 2010 and above follow this behavior, except for SharePoint Server Subscription Edition.)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1078:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22649,7 +22649,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2515</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does not support this method[UpdateListItemsWithKnowledge]. [In Appendix B: Product Behavior]&lt;93&gt; Section 3.1.4.32:  Windows SharePoint Services 3.0 do not support this method[UpdateListItemsWithKnowledge].</ns1:Description>
+		<ns1:Description>Implementation does not support this method[UpdateListItemsWithKnowledge]. [In Appendix B: Product Behavior]&lt;93&gt; Section 3.1.4.32:  Windows SharePoint Services 3.0 and SharePoint Server Subscription Edition do not support this method[UpdateListItemsWithKnowledge].</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1147:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -22659,7 +22659,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R25151</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>Implementation does support this method[UpdateListItemsWithKnowledge]. (Microsoft SharePoint Foundation 2010 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>Implementation does support this method[UpdateListItemsWithKnowledge]. (Microsoft SharePoint Foundation 2010 and above follow this behavior, except for SharePoint Server Subscription Edition.)</ns1:Description>
 		<ns1:Derived>MS-LISTSWS_R1147:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>

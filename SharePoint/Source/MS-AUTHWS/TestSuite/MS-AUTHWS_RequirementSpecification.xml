@@ -784,7 +784,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-AUTHWS_R83</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.4.1</ns1:Doc_Sect>
-		<ns1:Description>[In LoginErrorCode] The value of LoginErrorCode is "PasswordNotMatch", when the Login operation failed because the logon name is not found by the server, or the password does not match what is stored on the server.</ns1:Description>
+		<ns1:Description>[In LoginErrorCode] The value of LoginErrorCode is "PasswordNotMatch", when the Login operation failed because the logon name is not found by the server, or the password does not match what is stored on the server .&lt;3&gt;  (Microsoft SharePoint 2007，2010,  2013, 2016 and  2019 follow this behavior)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1183,6 +1183,17 @@ http://schemas.microsoft.com/sharepoint/soap/Mode</ns1:Description>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the element TimeoutSeconds that specifies the number of seconds before the cookie, which is specified in the CookieName element, expires. (The Microsoft SharePoint Foundation 2010, Microsoft SharePoint Foundation 2013 and Microsoft SharePoint Server 2016 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-AUTHWS_R76:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-AUTHWS_R830</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] A SOAP exception is returned when the Login operation failed because the logon name is not found by the server, or the password does not match what is stored on the server. (&lt;3&gt; Section 3.1.4.1.4.1:  SharePoint Server Subscription Edition returns a SOAP exception.)</ns1:Description>
+		<ns1:Derived>MS-AUTHWS_R83:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
