@@ -417,7 +417,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                   <s:attribute name=""WebImageHeight"" type=""s:string"" />
                   <s:attribute name=""Flags"" type=""s:int"" />
                   <s:attribute name=""ItemCount"" type=""s:int"" use=""required"" />
-                  <s:attribute name=""AnonymousPermMask"" type=""unsignedLong"" />
+                  <s:attribute name=""AnonymousPermMask"" type=""s:unsignedLong"" />
                   <s:attribute name=""RootFolder"" type=""s:string"" />
                   <s:attribute name=""ReadSecurity"" type=""s:int"" use=""required"" />
                   <s:attribute name=""WriteSecurity"" type=""s:int"" use=""required"" />
@@ -467,11 +467,11 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                   <s:attribute name=""Flags2"" type = ""s:int"" use = ""optional""/>
 	              <s:attribute name=""ComplianceTag"" type=""s:string"" use=""optional""/>
 	              <s:attribute name=""ComplianceFlags"" type=""s:int"" use=""optional""/>
-	              <s:attribute name=""UserModified"" type=""s:datetime"" use=""optional""/>
+	              <s:attribute name=""UserModified"" type=""s:dateTime"" use=""optional""/>
 	              <s:attribute name=""ListSchemaVersion"" type=""s:int"" use=""optional""/>
 	              <s:attribute name=""AclVersion"" type=""s:int"" use=""optional""/>
                   <s:attribute name=""RootFolderId"" type = ""s:string"" use = ""optional""/>
-                  <s:attribute name=""IrmSyncable"" type = ""core:TRUEFALSE"" use = ""optional""/>/>
+                  <s:attribute name=""IrmSyncable"" type = ""core:TRUEFALSE"" use = ""optional""/>
                   </s:complexType> ");
 
             if (Common.IsRequirementEnabled(5417, this.Site))

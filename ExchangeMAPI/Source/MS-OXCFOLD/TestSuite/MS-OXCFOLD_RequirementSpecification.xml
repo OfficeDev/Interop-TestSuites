@@ -1034,12 +1034,11 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R764</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In RopDeleteFolder ROP Request Buffer] DeleteFolderFlags (1 byte): If this bit [DELETE_HARD_DELETE (0x10)] is set, the folder MAY &lt;4&gt; be hard deleted.</ns1:Description>
+		<ns1:Description>[In RopDeleteFolder ROP Request Buffer] DeleteFolderFlags (1 byte): If this bit [DELETE_HARD_DELETE (0x10)] is set, the folder SHOULD be hard deleted.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-OXCFOLD_R764001, MS-OXCFOLD_R764002.</ns1:VerificationComment>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R814</ns1:REQ_ID>
@@ -8884,17 +8883,6 @@ RopHardDeleteMessages (section 2.2.1.12)</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
-		<ns1:REQ_ID>MS-OXCFOLD_R764002</ns1:REQ_ID>
-		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] If this bit [DELETE_HARD_DELETE] is set, implement does hard delete the folder. &lt;4&gt; Section 2.2.1.3.1:  For Exchange 2003 and later, if DELETE_HARD_DELETE is set, the folder is hard deleted.</ns1:Description>
-		<ns1:Derived>MS-OXCFOLD_R114:I,MS-OXCFOLD_R764:i</ns1:Derived>
-		<ns1:Behavior>Product</ns1:Behavior>
-		<ns1:Scope>Server</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
-		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCFOLD_R19702001</ns1:REQ_ID>

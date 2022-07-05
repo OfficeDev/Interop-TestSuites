@@ -1,6 +1,6 @@
 ## [MS-OXCFOLD]: Folder Object Protocol
-- [MS-OXCFOLD] v20220215 is used to develop the test suite.
-- Release date, 2/15/2022.
+- [MS-OXCFOLD] v20220517 is used to develop the test suite.
+- Release date, 5/17/2022.
 
 To find the new landing page for [MS-OXCFOLD], please visit https://msdn.microsoft.com/en-us/library/cc433475(v=exchg.80).aspx 
 

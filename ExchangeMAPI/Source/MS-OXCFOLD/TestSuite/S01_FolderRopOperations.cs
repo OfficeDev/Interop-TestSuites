@@ -1548,16 +1548,16 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 97,
                 @"[In RopDeleteFolder ROP Response Buffer] PartialCompletion (1 byte): otherwise [if the ROP successes for a subset of targets], the value is zero (FALSE).");
 
-            if (Common.IsRequirementEnabled(764002, this.Site))
+            if (Common.IsRequirementEnabled(764, this.Site))
             {
                 // Add the debug information
-                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R764002");
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R764");
 
-                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R764002
+                // Verify MS-OXCFOLD requirement: MS-OXCFOLD_R764
                 Site.CaptureRequirementIfAreNotEqual<uint>(
                     Constants.SuccessCode,
                     openFolderResponse.ReturnValue,
-                    764002,
+                    764,
                     @"[In Appendix A: Product Behavior] If this bit [DELETE_HARD_DELETE] is set, implement does hard delete the folder. &lt;4&gt; Section 2.2.1.3.1:  For Exchange 2003 and later, if DELETE_HARD_DELETE is set, the folder is hard deleted.");
             }
             #endregion
