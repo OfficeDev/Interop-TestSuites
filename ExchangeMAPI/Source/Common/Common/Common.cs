@@ -1621,9 +1621,12 @@ namespace Microsoft.Protocols.TestSuites.Common
                                     }
                                     else
                                     {
+                                        // Consider the presence of shared bytes
+                                        int useSharedSizeOfTwoBytes = useSharedByteHighOrderNibble ? SizeOfFinalTwoBytes : SizeOfFinalTwoBytes - 1;
+
                                         // If next byte is b'11111111' (larger than 279), use the next two bytes to represent length
                                         // These two bytes represent a length of 277+3 (minimum match length)
-                                        length = (int)BitConverter.ToInt16(inputStream, inputBytesCount + SizeOfFinalTwoBytes) + SizeOfMinimumMatch;
+                                        length = (int)BitConverter.ToInt16(inputStream, inputBytesCount + useSharedSizeOfTwoBytes) + SizeOfMinimumMatch;
                                         metadataLength += SizeOfMinimumMatch;
                                     }
                                 }
