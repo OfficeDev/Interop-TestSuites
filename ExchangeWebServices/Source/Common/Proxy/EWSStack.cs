@@ -10566,6 +10566,10 @@ namespace Microsoft.Protocols.TestSuites.Common
 
         private bool birthdayFieldSpecified;
 
+        private System.DateTime birthdayLocalField;
+
+        private bool birthdayLocalFieldSpecified;
+
         private string businessHomePageField;
 
         private string[] childrenField;
@@ -10603,6 +10607,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         private System.DateTime weddingAnniversaryField;
 
         private bool weddingAnniversaryFieldSpecified;
+
+        private System.DateTime weddingAnniversaryLocalField;
+
+        private bool weddingAnniversaryLocalFieldSpecified;
 
         private bool hasPictureField;
 
@@ -10949,6 +10957,18 @@ namespace Microsoft.Protocols.TestSuites.Common
             }
         }
 
+        public System.DateTime BirthdayLocal
+        {
+            get
+            {
+                return this.birthdayLocalField;
+            }
+            set
+            {
+                this.birthdayLocalField = value;
+            }
+        }
+
         /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool BirthdaySpecified
@@ -10960,6 +10980,18 @@ namespace Microsoft.Protocols.TestSuites.Common
             set
             {
                 this.birthdayFieldSpecified = value;
+            }
+        }
+
+        public bool BirthdayLocalSpecified
+        {
+            get
+            {
+                return this.birthdayLocalFieldSpecified;
+            }
+            set
+            {
+                this.birthdayLocalFieldSpecified = value;
             }
         }
 
@@ -11204,6 +11236,20 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
+        public System.DateTime WeddingAnniversaryLocal
+        {
+            get
+            {
+                return this.weddingAnniversaryLocalField;
+            }
+            set
+            {
+                this.weddingAnniversaryLocalField = value;
+            }
+        }
+
+
+        /// <remarks/>
         [System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool WeddingAnniversarySpecified
         {
@@ -11216,6 +11262,21 @@ namespace Microsoft.Protocols.TestSuites.Common
                 this.weddingAnniversaryFieldSpecified = value;
             }
         }
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WeddingAnniversaryLocalSpecified
+        {
+            get
+            {
+                return this.weddingAnniversaryLocalFieldSpecified;
+            }
+            set
+            {
+                this.weddingAnniversaryLocalFieldSpecified = value;
+            }
+        }
+
 
         /// <remarks/>
         public bool HasPicture
@@ -19538,6 +19599,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         contactsBirthday,
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("contacts:BirthdayLocal")]
+        contactsBirthdayLocal,
+
+        /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("contacts:BusinessHomePage")]
         contactsBusinessHomePage,
 
@@ -19692,6 +19757,10 @@ namespace Microsoft.Protocols.TestSuites.Common
         /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("contacts:WeddingAnniversary")]
         contactsWeddingAnniversary,
+
+        /// <remarks/>
+        [System.Xml.Serialization.XmlEnumAttribute("contacts:WeddingAnniversaryLocal")]
+        contactsWeddingAnniversaryLocal,
 
         /// <remarks/>
         [System.Xml.Serialization.XmlEnumAttribute("contacts:UserSMIMECertificate")]
