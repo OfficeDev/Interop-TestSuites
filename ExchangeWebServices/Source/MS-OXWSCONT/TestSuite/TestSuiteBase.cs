@@ -383,7 +383,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 WeddingAnniversary = Convert.ToDateTime("2010-10-10 11:59:00"),
                 WeddingAnniversarySpecified = true,
                 WeddingAnniversaryLocal = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(2010, 10, 10)),
-                WeddingAnniversaryLocalSpecified = true,
+                WeddingAnniversaryLocalSpecified = true
             };
 
             if (Common.IsRequirementEnabled(1275004, this.Site))
@@ -1014,7 +1014,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R7901");
 
-            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R78
+            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R7901
             Site.CaptureRequirementIfIsTrue(
                 responseContactItem.WeddingAnniversaryLocalSpecified,
                 7901,
