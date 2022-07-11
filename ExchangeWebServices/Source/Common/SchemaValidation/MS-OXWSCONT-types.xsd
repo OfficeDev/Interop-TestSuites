@@ -34,6 +34,7 @@
           <xs:element name="PhoneNumbers" type="t:PhoneNumberDictionaryType" minOccurs="0"/>
           <xs:element name="AssistantName" type="xs:string" minOccurs="0"/>
           <xs:element name="Birthday" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="BirthdayLocal" type="xs:dateTime" minOccurs="0"/>
           <xs:element name="BusinessHomePage" type="xs:anyURI" minOccurs="0"/>
           <xs:element name="Children" type="t:ArrayOfStringsType" minOccurs="0"/>
           <xs:element name="Companies" type="t:ArrayOfStringsType" minOccurs="0"/>
@@ -50,6 +51,7 @@
           <xs:element name="SpouseName" type="xs:string" minOccurs="0"/>
           <xs:element name="Surname" type="xs:string" minOccurs="0"/>
           <xs:element name="WeddingAnniversary" type="xs:dateTime" minOccurs="0"/>
+          <xs:element name="WeddingAnniversaryLocal" type="xs:dateTime" minOccurs="0"/>
           <xs:element name="HasPicture" type="xs:boolean" minOccurs="0"/>
           <xs:element name="PhoneticFullName" type="xs:string" minOccurs="0" />
           <xs:element name="PhoneticFirstName" type="xs:string" minOccurs="0" />
