@@ -73,5 +73,9 @@
     <Property name="R1275108Enabled" value="false"/>
     <!--Set R336002Enabled to true to implementation does use the AbchPersonItemType complex type. Set R336002Enabled to false to disable this requirement-->
     <Property name="R336002Enabled" value="false"/>
+    <!--Set R12750102Enabled to true to implementation does use the BirthdayLocal complex type. Set R12750102Enabled to false to disable this requirement-->
+    <Property name="R12750102Enabled" value="false"/>
+    <!--Set R12750104Enabled to true to implementation does use the WeddingAnniversaryLocal complex type. Set R12750104Enabled to false to disable this requirement-->
+    <Property name="R12750104Enabled" value="false"/>
   </Properties>
 </TestSite>
