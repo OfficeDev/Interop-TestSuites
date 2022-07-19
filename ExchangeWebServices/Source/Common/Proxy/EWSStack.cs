@@ -10957,6 +10957,8 @@ namespace Microsoft.Protocols.TestSuites.Common
             }
         }
 
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
         public System.DateTime BirthdayLocal
         {
             get
@@ -10983,6 +10985,8 @@ namespace Microsoft.Protocols.TestSuites.Common
             }
         }
 
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
         public bool BirthdayLocalSpecified
         {
             get
@@ -11236,6 +11240,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
         public System.DateTime WeddingAnniversaryLocal
         {
             get
@@ -11276,7 +11281,6 @@ namespace Microsoft.Protocols.TestSuites.Common
                 this.weddingAnniversaryLocalFieldSpecified = value;
             }
         }
-
 
         /// <remarks/>
         public bool HasPicture

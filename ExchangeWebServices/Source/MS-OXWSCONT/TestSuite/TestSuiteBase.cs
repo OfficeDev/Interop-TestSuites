@@ -801,26 +801,28 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 responseContactItem.Birthday,
                 47,
                 @"[In t:ContactItemType Complex Type] Birthday element: Represents the birthday of the contact (2).");
+            if (Common.IsRequirementEnabled(12750102, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R4701");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R4701");
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R4701
+                Site.CaptureRequirementIfIsTrue(
+                    responseContactItem.BirthdayLocalSpecified,
+                    4701,
+                    @"[In t:ContactItemType Complex Type] The type of the element of BirthdayLocal is xs:dateTime.");
 
-            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R4701
-            Site.CaptureRequirementIfIsTrue(
-                responseContactItem.BirthdayLocalSpecified,
-                4701,
-                @"[In t:ContactItemType Complex Type] The type of the element of BirthdayLocal is xs:dateTime.");
+                // Add the debug information
+                this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R4702");
 
-            // Add the debug information
-            this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R4702");
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R4702
+                this.Site.CaptureRequirementIfAreEqual<DateTime>(
+                    requestContactItem.BirthdayLocal,
+                    responseContactItem.BirthdayLocal,
+                    4702,
+                    @"[In t:ContactItemType Complex Type] BirthdayLocal element: Represents the birthday of the contact (2) in the client's local time zone.<6>");
 
-            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R4702
-            this.Site.CaptureRequirementIfAreEqual<DateTime>(
-                requestContactItem.BirthdayLocal,
-                responseContactItem.BirthdayLocal,
-                4702,
-                @"[In t:ContactItemType Complex Type] BirthdayLocal element: Represents the birthday of the contact (2) in the client's local time zone.<6>");
-
+            }
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R56");
 
@@ -1010,23 +1012,25 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
                 responseContactItem.WeddingAnniversary,
                 79,
                 @"[In t:ContactItemType Complex Type] WeddingAnniversary element: Contains the wedding anniversary date of a contact (2).");
+            if (Common.IsRequirementEnabled(12750104, this.Site))
+            {
+                // Add the debug information
+                Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R7901");
 
-            // Add the debug information
-            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R7901");
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R7901
+                Site.CaptureRequirementIfIsTrue(
+                    responseContactItem.WeddingAnniversaryLocalSpecified,
+                    7901,
+                    @"[In t:ContactItemType Complex Type] The type of the element of WeddingAnniversaryLocal is xs:dateTime");
 
-            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R7901
-            Site.CaptureRequirementIfIsTrue(
-                responseContactItem.WeddingAnniversaryLocalSpecified,
-                7901,
-                @"[In t:ContactItemType Complex Type] The type of the element of WeddingAnniversaryLocal is xs:dateTime");
+                // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R7902
+                this.Site.CaptureRequirementIfAreEqual<DateTime>(
+                    requestContactItem.WeddingAnniversaryLocal,
+                    responseContactItem.WeddingAnniversaryLocal,
+                    7902,
+                    @"[In t:ContactItemType Complex Type] WeddingAnniversaryLocal element: Contains the wedding anniversary date of a contact (2) in the client's local time zone.<7>");
 
-            // Verify MS-OXWSCONT requirement: MS-OXWSCONT_R7902
-            this.Site.CaptureRequirementIfAreEqual<DateTime>(
-                requestContactItem.WeddingAnniversaryLocal,
-                responseContactItem.WeddingAnniversaryLocal,
-                7902,
-                @"[In t:ContactItemType Complex Type] WeddingAnniversaryLocal element: Contains the wedding anniversary date of a contact (2) in the client's local time zone.<7>");
-
+            }
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCONT_R22");
 
