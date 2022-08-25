@@ -248,6 +248,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                 int actualSize = BitConverter.ToInt16(rgbAuxOut, ConstValues.RpcHeaderExtSizeByteSize + ConstValues.RpcHeaderExtFlagsByteSize + ConstValues.RpcHeaderExtVersionByteSize) + AdapterHelper.RPCHeaderExtlength;
                 flagValues.Add(flag);
 
+                
+
+                // If rgbAuxOut is obfuscated (0x02, XorMagic, means the data following the RPC_HEADER_EXT has been obfuscated)
+                if ((flag & (short)RpcHeaderExtFlags.XorMagic) == (short)RpcHeaderExtFlags.XorMagic)
+                {
+                    byte[] rgbXorAuxOut = null;
+                    byte[] rgbOriAuxOut = new byte[size];
+                    Array.Copy(rgbAuxOut, 0, rgbOriAuxOut, 0, size);
+
+                    // According to the Open Specification, every byte of the data to be obfuscated has XOR applied with the value 0xA5.
+                    bool obfuscationResult = false;
+                    rgbXorAuxOut = Common.XOR(rgbOriAuxOut);
+                    if (rgbXorAuxOut != null)
+                    {
+                        obfuscationResult = true;
+                    }
+
+                    Array.Copy(rgbXorAuxOut, 0, rgbAuxOut, AdapterHelper.RPCHeaderExtlength, size - AdapterHelper.RPCHeaderExtlength);
+
+                    // The first true means the current method is EcDoConnectEx.
+                    // The second true means the current field is rgbAuxOut
+                    this.VerifyObfuscationAlgorithm(obfuscationResult, true, true, flag);
+                }
+
                 // Decompress or revert if the rgbAuxOut is compressed or obfuscated.
                 // If rgbAuxOut is Compressed (01, Compressed, means the data that follows the RPC_HEADER_EXT is compressed.)
                 if ((flag & (short)RpcHeaderExtFlags.Compressed) == (short)RpcHeaderExtFlags.Compressed)
@@ -274,28 +298,6 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCRPC
                     // The second true means the current field is rgbAuxOut
                     this.VerifyCompressionAlgorithm(decompressResult, true, true, flag);
                     this.VerifyDIRECT2EncodingAlgorithm(decompressResult);
-                }
-
-                // If rgbAuxOut is obfuscated (0x02, XorMagic, means the data following the RPC_HEADER_EXT has been obfuscated)
-                if ((flag & (short)RpcHeaderExtFlags.XorMagic) == (short)RpcHeaderExtFlags.XorMagic)
-                {
-                    byte[] rgbXorAuxOut = null;
-                    byte[] rgbOriAuxOut = new byte[size];
-                    Array.Copy(rgbAuxOut, 0, rgbOriAuxOut, 0, size);
-
-                    // According to the Open Specification, every byte of the data to be obfuscated has XOR applied with the value 0xA5.
-                    bool obfuscationResult = false;
-                    rgbXorAuxOut = Common.XOR(rgbOriAuxOut);
-                    if (rgbXorAuxOut != null)
-                    {
-                        obfuscationResult = true;
-                    }
-
-                    Array.Copy(rgbXorAuxOut, 0, rgbAuxOut, AdapterHelper.RPCHeaderExtlength, size - AdapterHelper.RPCHeaderExtlength);
-
-                    // The first true means the current method is EcDoConnectEx.
-                    // The second true means the current field is rgbAuxOut
-                    this.VerifyObfuscationAlgorithm(obfuscationResult, true, true, flag);
                 }
 
                 if (rgbAuxOut != null)

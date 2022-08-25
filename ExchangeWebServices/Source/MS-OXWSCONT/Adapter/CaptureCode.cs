@@ -323,6 +323,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
            type = ""xs: dateTime""
            minOccurs = ""0""
           />
+	     <xs:element name=""BirthdayLocal""
+              type = ""xs:dateTime""
+              minOccurs = ""0""
+          />
          < xs:element name = ""BusinessHomePage""
            type = ""xs: anyURI""
            minOccurs = ""0""
@@ -386,6 +390,10 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCONT
          < xs:element name = ""WeddingAnniversary""
            type = ""xs: dateTime""
            minOccurs = ""0""
+          />
+	     <xs:element name=""WeddingAnniversaryLocal""
+              type = ""xs:dateTime""
+              minOccurs = ""0""
           />
          < xs:element name = ""HasPicture""
            type = ""xs: boolean""

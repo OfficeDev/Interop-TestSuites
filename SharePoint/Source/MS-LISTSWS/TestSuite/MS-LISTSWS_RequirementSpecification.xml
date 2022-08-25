@@ -1893,7 +1893,7 @@ ShowInEditForm: When FALSE, indicates that the field is not included in the form
 	  &lt;s:attribute name="WebImageHeight" type="s:string" /&gt;
 	  &lt;s:attribute name="Flags" type="s:int" /&gt;
 	  &lt;s:attribute name="ItemCount" type="s:int" use="required" /&gt;
-	  &lt;s:attribute name="AnonymousPermMask" type="unsignedLong" /&gt;
+	  &lt;s:attribute name="AnonymousPermMask" type="s:unsignedLong" /&gt;
 	  &lt;s:attribute name="RootFolder" type="s:string" /&gt;
 	  &lt;s:attribute name="ReadSecurity" type="s:int" use="required" /&gt;
 	  &lt;s:attribute name="WriteSecurity" type="s:int" use="required" /&gt;
@@ -1943,11 +1943,11 @@ ShowInEditForm: When FALSE, indicates that the field is not included in the form
 	  &lt;s:attribute name="Flags2" type="s:int" use="optional"/&gt;
 	  &lt;s:attribute name="ComplianceTag" type="s:string" use="optional"/&gt;
 	  &lt;s:attribute name="ComplianceFlags" type="s:int" use="optional"/&gt;
-	  &lt;s:attribute name="UserModified" type="s:datetime" use="optional"/&gt;
+	  &lt;s:attribute name="UserModified" type="s:dateTime" use="optional"/&gt;
 	  &lt;s:attribute name="ListSchemaVersion" type="s:int" use="optional"/&gt;
 	  &lt;s:attribute name="AclVersion" type="s:int" use="optional"/&gt;
 	  &lt;s:attribute name="RootFolderId" type="s:string" use="optional"/&gt;
-	  &lt;s:attribute name="IrmSyncable" type="core:TRUEFALSE" use="optional"/&gt;/&gt;
+	  &lt;s:attribute name="IrmSyncable" type="core:TRUEFALSE" use="optional"/&gt;
 	&lt;/s:complexType&gt; </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

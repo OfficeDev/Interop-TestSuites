@@ -1,6 +1,6 @@
 ## [MS-LISTSWS]: Lists Web Service Protocol
-- [MS-LISTSWS] v20220215 is used to develop the test suite.
-- Release date, 02/15/2022.
+- [MS-LISTSWS] v20220517 is used to develop the test suite.
+- Release date, 05/17/2022.
 
 To find the new landing page for [MS-LISTSWS], please visit https://msdn.microsoft.com/en-us/library/cc313068(v=office.12).aspx
 
