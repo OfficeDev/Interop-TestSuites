@@ -6153,7 +6153,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R934</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Match Length] These last 2 bytes allow for a match length of up to 32,768 bytes + 3 bytes (the minimum match length).</ns1:Description>
+		<ns1:Description>[In Match Length] These last 2 bytes allow for a match length of up to 65,535 bytes + 3 bytes (the minimum match length).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6289,7 +6289,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCRPC_R950</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.1.2.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In Match Length] A match length of greater than 278 bytes requires a relatively large number of bits: 3 + 4 + 8 + 16.</ns1:Description>
+		<ns1:Description>[In Match Length] A match length of greater than 279 bytes requires a relatively large number of bits: 3 + 4 + 8 + 16.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

@@ -40,7 +40,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R8</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol server faults MUST be returned either using HTTP status codes as specified in [RFC2616] (Section 10, Status Code Definitions) [or using SOAP faults as specified either in [SOAP1.1] (Section 4.4, SOAP Fault) or in [SOAP1.2/1] (Section 5.4, SOAP Fault)].</ns1:Description>
+		<ns1:Description>[In Transport] Protocol server faults MUST be returned either using HTTP status codes as specified in [RFC2616] (Section 10, Status Code Definitions) [or using SOAP faults as specified either in [SOAP1.1] (Section 4.4, SOAP Fault) or in [SOAP1.2-1/2007] (Section 5.4, SOAP Fault)].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -58,7 +58,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R8002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Transport] Protocol server faults MUST be returned [either using HTTP status codes as specified in [RFC2616] (Section 10, Status Code Definitions) or] using SOAP faults as specified [either in [SOAP1.1] (Section 4.4, SOAP Fault) or] in [SOAP1.2/1] (Section 5.4, SOAP Fault).</ns1:Description>
+		<ns1:Description>[In Transport] Protocol server faults MUST be returned [either using HTTP status codes as specified in [RFC2616] (Section 10, Status Code Definitions) or] using SOAP faults as specified [either in [SOAP1.1] (Section 4.4, SOAP Fault) or] in [SOAP1.2-1/2007] (Section 5.4, SOAP Fault).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -139,7 +139,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R16</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Namespaces] The prefix "soap12" is used for namespace URI "http://schemas.xmlsoap.org/wsdl/soap12/", which refers to "[SOAP1.2/1] and [SOAP1.2/2]".</ns1:Description>
+		<ns1:Description>[In Namespaces] The prefix "soap12" is used for namespace URI "http://schemas.xmlsoap.org/wsdl/soap12/", which refers to "[SOAP1.2-1/2007] and [SOAP1.2-2/2007]".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -661,7 +661,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OFFICIALFILE_R1032</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In ServerInfo] RoutingWeb: If present, it MUST conform to the XML schema of the BooleanType simple type.</ns1:Description>
+		<ns1:Description>[In ServerInfo] RoutingWeb: If present, it MUST conform to the XML schema of the boolean simple type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
