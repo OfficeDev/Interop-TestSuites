@@ -480,7 +480,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
 
                 Site.Log.Add(
                     LogEntryKind.Debug,
-                    "For R1032 the RoutingWeb length MUST conform to the XML schema of the BooleanType simple type, but actual value {0}.",
+                    "For R1032 the RoutingWeb length MUST conform to the XML schema of the boolean simple type, but actual value {0}.",
                     serverInfoInstance.RoutingWeb);
 
                 // Verify MS-OFFICIALFILE requirement: MS-OFFICIALFILE_R1032
@@ -488,7 +488,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OFFICIALFILE
                     isR1032Verified,
                     "MS-OFFICIALFILE",
                     1032,
-                    @"[In ServerInfo] RoutingWeb: If present, it MUST conform to the XML schema of the BooleanType simple type.");
+                    @"[In ServerInfo] RoutingWeb: If present, it MUST conform to the XML schema of the boolean simple type.");
             }
 
             return serverInfoInstance;
