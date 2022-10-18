@@ -820,7 +820,7 @@ The conversion to an exclusive lock failed.");
             SchemaLockSubResponseType schemaLockSubResponse = SharedTestSuiteHelper.ExtractSubResponse<SchemaLockSubResponseType>(response, 0, 0, this.Site);
             ErrorCodeType errorCode = SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site);
 
-           
+
         }
 
         /// <summary>
@@ -1698,7 +1698,7 @@ The conversion to an exclusive lock failed.");
                         lockTypeSpecified ? "specified" : "not specified");
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {   
+            {
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1423
                 Site.CaptureRequirementIfIsTrue(
                          lockTypeSpecified,
