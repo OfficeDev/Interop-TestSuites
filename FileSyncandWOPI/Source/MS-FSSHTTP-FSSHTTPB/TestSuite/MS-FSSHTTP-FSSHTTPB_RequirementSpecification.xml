@@ -19118,7 +19118,7 @@ Returns an error code value set to "Success".</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3104, MS-FSSHTTP_R3105.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3104,MS-FSSHTTP_R310401 ,MS-FSSHTTP_R3105.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1020</ns1:REQ_ID>
@@ -19502,7 +19502,7 @@ Returns an error code value set to "Success".</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3108, MS-FSSHTTP_R3109.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3108, MS-FSSHTTP_R310801,MS-FSSHTTP_R3109.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1047</ns1:REQ_ID>
@@ -21041,7 +21041,7 @@ If the coauthoring feature is disabled, the protocol server returns an error cod
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3121, MS-FSSHTTP_R3122.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R3121, MS-FSSHTTP_R312101,MS-FSSHTTP_R3122.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1179</ns1:REQ_ID>
@@ -25521,7 +25521,18 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3104</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;42&gt; Section 3.1.4.3.1:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled"", SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "LockNotConvertedAsCoauthDisabled", if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;42&gt; Section 3.1.4.3.1:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled"",if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R1550:i,MS-FSSHTTP_R1345:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R310401</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "LockNotConvertedAsCoauthDisabled". (&lt;42&gt; Section 3.1.4.3.1:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "LockNotConvertedAsCoauthDisabled"",if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1550:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25532,7 +25543,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3105</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServer". (Microsoft Office 2013 suites/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServer". (Microsoft Office 2013 suites/Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Workspace 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1550:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25595,7 +25606,18 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3108</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;45&gt; Section 3.1.4.3.3:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled", SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "Success".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;45&gt; Section 3.1.4.3.3:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled".)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R1563:i,MS-FSSHTTP_R1345:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R310801</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to "Success". (&lt;45&gt; Section 3.1.4.3.3:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "Success". )</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1563:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25606,7 +25628,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3109</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to "FileNotLockedOnServer". (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to "FileNotLockedOnServer". (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1563:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25705,7 +25727,19 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3118</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false when sending a Get Lock subrequest, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;49&gt; Section 3.1.4.4.1:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled"", SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "LockNotConvertedAsCoauthDisabled", if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false when sending a Get Lock subrequest, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;49&gt; Section 3.1.4.4.1:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled"", if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
+		<ns1:Derived>
+MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R311801</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false when sending a Get Lock subrequest, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;49&gt; Section 3.1.4.4.1:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "LockNotConvertedAsCoauthDisabled", if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
 		<ns1:Derived>
 MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
@@ -25717,7 +25751,7 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3119</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false when sending a Get Lock subrequest, the implementation does return an error code value set to "FileNotLockedOnServer". (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false when sending a Get Lock subrequest, the implementation does return an error code value set to "FileNotLockedOnServer". (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)</ns1:Description>
 		<ns1:Derived>
 MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
@@ -25781,7 +25815,19 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3121</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;52&gt; Section 3.1.4.4.3:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled", SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "Success".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;52&gt; Section 3.1.4.4.3:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled".)</ns1:Description>
+		<ns1:Derived>
+MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R312101</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "Success". (&lt;52&gt; Section 3.1.4.4.3:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "Success".)</ns1:Description>
 		<ns1:Derived>
 MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
@@ -25793,7 +25839,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3122</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServer". (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServer". (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)</ns1:Description>
 		<ns1:Derived>
 MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
