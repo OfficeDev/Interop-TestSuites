@@ -137,7 +137,8 @@ function GetSharePointVersion
     $script:SharePointServer2013           = "Microsoft SharePoint Server 2013",          "15.0.4571.1502", "SP1"
     $script:SharePointServer2016           = "Microsoft SharePoint Server 2016",          "16.0.4351.1000", ""
     $script:SharePointServer2019           = "Microsoft SharePoint Server 2019",          "16.0.10711.37301", ""
-    $SharePointVersion                     = "Unknown Version"    
+    $script:SharePointServerSubscriptionEdition           = "Microsoft SharePoint Server Subscription Edition",          "16.0.14326.20450", ""
+    $SharePointVersion                     = "Unknown Version"   
     
     $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
     $items = $keys | foreach-object {Get-ItemProperty $_.PsPath}
@@ -219,6 +220,15 @@ function GetSharePointVersion
                 $SharePointVersion = $script:SharePointServer2019[0]
                 $recommendVersion = $script:SharePointServer2019[1]
                 $recommendMinorVersion = $script:SharePointServer2019[2]
+                $isRecommendMinorVersion = CompareSharePointMinorVersion $version $recommendVersion
+                break
+            }
+            elseif($item.DisplayName -eq $script:SharePointServerSubscriptionEdition[0])
+            {
+                $version = $item.DisplayVersion
+                $SharePointVersion = $script:SharePointServerSubscriptionEdition[0]
+                $recommendVersion = $script:SharePointServerSubscriptionEdition[1]
+                $recommendMinorVersion = $script:SharePointServerSubscriptionEdition[2]
                 $isRecommendMinorVersion = CompareSharePointMinorVersion $version $recommendVersion
                 break
             }
@@ -3298,7 +3308,7 @@ function CheckServerInstallationMode
     {
         $sutShortVersion = "15.0"
     }
-    elseif(($SharePointVersion -eq $SharePointServer2016[0]) -or ( $SharePointVersion -eq $SharePointServer2019[0]))
+    elseif(($SharePointVersion -eq $SharePointServer2016[0]) -or ( $SharePointVersion -eq $SharePointServer2019[0]) -or ( $SharePointVersion -eq $SharePointServerSubscriptionEdition[0]))
     {
         $sutShortVersion = "16.0"
     }    
@@ -3709,6 +3719,7 @@ function GetSharePointServerVersion
     $script:SharePointServer2013OnSUT           = "SharePointServer2013","Microsoft SharePoint Server 2013","SP1"
     $script:SharePointServer2016OnSUT           = "SharePointServer2016","Microsoft SharePoint Server 2016"
     $script:SharePointServer2019OnSUT           = "SharePointServer2019","Microsoft SharePoint Server 2019"
+    $script:SharePointServerSubscriptionEditionOnSUT           = "SharePointServerSubscriptionEdition","Microsoft SharePoint Server Subscription Edition"
     $SharePointVersion                          = "Unknown Version"
     
     $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
@@ -3716,7 +3727,7 @@ function GetSharePointServerVersion
 
    $sutVersion = invoke-command -computer $computerName -Credential $credential -ErrorAction SilentlyContinue -scriptblock{
     param(
-    $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointServer2013OnSUT,$script:SharePointServer2016OnSUT,$script:SharePointServer2019OnSUT
+    $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointServer2013OnSUT,$script:SharePointServer2016OnSUT,$script:SharePointServer2019OnSUT,$script:SharePointServerSubscriptionEditionOnSUT
     )
 
         $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
@@ -3766,9 +3777,14 @@ function GetSharePointServerVersion
                 $SharePointVersion = $script:SharePointServer2019OnSUT[0], $script:SharePointServer2019OnSUT[1]
                 break
             }
+            elseif($item.DisplayName.StartsWith($script:SharePointServerSubscriptionEditionOnSUT[1]))
+            {
+                $SharePointVersion = $script:SharePointServerSubscriptionEditionOnSUT[0], $script:SharePointServerSubscriptionEditionOnSUT[1]
+                break
+            }
         }
         return $SharePointVersion
-    }-ArgumentList $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointServer2013OnSUT,$script:SharePointServer2016OnSUT,$script:SharePointServer2019OnSUT
+    }-ArgumentList $script:WindowsSharePointServices3OnSUT,$script:SharePointServer2007OnSUT,$script:SharePointFoundation2010OnSUT,$script:SharePointServer2010OnSUT,$script:SharePointFoundation2013OnSUT,$script:SharePointServer2013OnSUT,$script:SharePointServer2016OnSUT,$script:SharePointServer2019OnSUT,$script:SharePointServerSubscriptionEditionOnSUT
     
     return $sutVersion
 }
@@ -3796,8 +3812,9 @@ function GetSharePointVersionManually
     Output "4: Microsoft SharePoint Server 2013 SP1" "Cyan"
     Output "5: Microsoft SharePoint Server 2016" "Cyan"
     Output "6: Microsoft SharePoint Server 2019" "Cyan"
+    Output "7: Microsoft SharePoint Server Subscription Edition" "Cyan"
     $isManualSelectVersion = $true
-    $sutVersionChoices = @('1: Microsoft SharePoint Foundation 2010 SP2','2: Microsoft SharePoint Server 2010 SP2','3: Microsoft SharePoint Foundation 2013 SP1','4: Microsoft SharePoint Server 2013 SP1','5: Microsoft SharePoint Server 2016','6: Microsoft SharePoint Server 2019')
+    $sutVersionChoices = @('1: Microsoft SharePoint Foundation 2010 SP2','2: Microsoft SharePoint Server 2010 SP2','3: Microsoft SharePoint Foundation 2013 SP1','4: Microsoft SharePoint Server 2013 SP1','5: Microsoft SharePoint Server 2016','6: Microsoft SharePoint Server 2019','7: Microsoft SharePoint Server Subscription Edition')
     $sutVersion = ReadUserChoice $sutVersionChoices "sutVersion"
     Switch($sutVersion)
     {
@@ -3806,7 +3823,8 @@ function GetSharePointVersionManually
         "3" {$sutVersion = $script:SharePointFoundation2013OnSUT[0]; break }
         "4" {$sutVersion = $script:SharePointServer2013OnSUT[0]; break }
         "5" {$sutVersion = $script:SharePointServer2016OnSUT[0]; break } 
-        "6" {$sutVersion = $script:SharePointServer2019OnSUT[0]; break }        
+        "6" {$sutVersion = $script:SharePointServer2019OnSUT[0]; break }
+        "7" {$sutVersion = $script:SharePointServerSubscriptionEditionOnSUT[0]; break }       
     }
     
     return $sutVersion
