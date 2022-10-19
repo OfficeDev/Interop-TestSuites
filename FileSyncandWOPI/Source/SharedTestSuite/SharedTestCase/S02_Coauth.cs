@@ -1067,7 +1067,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3104,
-                             @"[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (<40> Section 3.1.4.3.1:  SharePoint Server 2010 will return an error code value ""FileNotLockedOnServerAsCoauthDisabled"" if the AllowFallbackToExclusive attribute is set to false.)");
+                             @"[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (<42> Section 3.1.4.3.1:  SharePoint Server 2010 will return an error code value ""FileNotLockedOnServerAsCoauthDisabled"", if the AllowFallbackToExclusive attribute is set to false.)");
 
                     Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                              ErrorCodeType.FileNotLockedOnServerAsCoauthDisabled,
@@ -1075,6 +1075,24 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              "MS-FSSHTTP",
                              382,
                              @"[In LockAndCoauthRelatedErrorCodeTypes] FileNotLockedOnServerAsCoauthDisabled indicates an error when no shared lock exists on a file because coauthoring of the file is disabled on the server.");
+                }
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R310401 and MS-FSSHTTP_R383
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 310401, this.Site))
+                {
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.LockNotConvertedAsCoauthDisabled,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             310401,
+                             @"[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (<42> Section 3.1.4.3.1:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value ""LockNotConvertedAsCoauthDisabled"", if the AllowFallbackToExclusive attribute is set to false.)");
+
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.LockNotConvertedAsCoauthDisabled,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             383,
+                             @"[In LockAndCoauthRelatedErrorCodeTypes] Indicates an error when a protocol server fails to process a lock conversion request sent as part of a cell storage service request because coauthoring of the file is disabled on the server.");
                 }
 
                 if (Common.IsRequirementEnabled(11274, this.Site))
@@ -1111,6 +1129,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                         ErrorCodeType.FileNotLockedOnServerAsCoauthDisabled,
                         SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                         @"When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                }
+
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 310401, this.Site))
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
+                        ErrorCodeType.LockNotConvertedAsCoauthDisabled,
+                        SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
+                        @"When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to ""LockNotConvertedAsCoauthDisabled"". (SharePoint Server 2019 and SharePoint Server Subscription Edition follow this behavior.)");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3105, this.Site))
@@ -2288,7 +2314,18 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(refreshSubResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3108,
-                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (<43> Section 3.1.4.3.3:  SharePoint Server 2010 will return an error code value ""FileNotLockedOnServerAsCoauthDisabled"".)");
+                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (<45> Section 3.1.4.3.3:  SharePoint Server 2010 will return an error code value ""FileNotLockedOnServerAsCoauthDisabled"".)");
+                }
+
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 310801, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R310801
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.Success,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(refreshSubResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             310801,
+                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (<45> Section 3.1.4.3.3:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value ""Success"".)");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3109, this.Site))
@@ -2299,7 +2336,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(refreshSubResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3109,
-                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to ""FileNotLockedOnServer"". (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
+                             @"[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to ""FileNotLockedOnServer"". (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
                 }
             }
             else
@@ -2310,6 +2347,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                         ErrorCodeType.FileNotLockedOnServerAsCoauthDisabled,
                         SharedTestSuiteHelper.ConvertToErrorCodeType(refreshSubResponse.ErrorCode, this.Site),
                         @"When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to ""FileNotLockedOnServerAsCoauthDisabled"". (Microsoft Office 2010 suites/Microsoft Office 2013/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+                }
+
+                if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 310801, this.Site))
+                {
+                    Site.Assert.AreEqual<ErrorCodeType>(
+                        ErrorCodeType.Success,
+                        SharedTestSuiteHelper.ConvertToErrorCodeType(refreshSubResponse.ErrorCode, this.Site),
+                        @"When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to ""Success"". (SharePoint Server 2019 and SharePoint Server Subscription Edition follow this behavior.)");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3109, this.Site))
