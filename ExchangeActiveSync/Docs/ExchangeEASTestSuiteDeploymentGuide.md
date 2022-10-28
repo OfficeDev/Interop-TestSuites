@@ -72,6 +72,7 @@ following versions of Exchange Server:
 -   Microsoft Exchange Server 2010 Service Pack 3 (SP3)
 -   Microsoft Exchange Server 2013 Service Pack 1 (SP1)
 -	Microsoft Exchange Server 2016
+-	Microsoft Exchange Server 2019
 
 The following table describes the required server roles for a
 test suite deployment with Microsoft implementation. Installing
@@ -619,6 +620,8 @@ SHOULD/MAY configuration files
 |**MS-XXXX\_ExchangeServer2007\_SHOULDMAY.deployment.ptfconfig**| Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2007 Service Pack 3 (SP3).|
 |**MS-XXXX\_ExchangeServer2010\_SHOULDMAY.deployment.ptfconfig**| Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2010 Service Pack 3 (SP3).|
 |**MS-XXXX\_ExchangeServer2013\_SHOULDMAY.deployment.ptfconfig**| Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2013 Service Pack 1 (SP1).|
+**MS-XXXX\_ExchangeServer2016\_SHOULDMAY.deployment.ptfconfig** | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2016.
+**MS-XXXX\_ExchangeServer2019\_SHOULDMAY.deployment.ptfconfig** | Provides the configuration properties for SHOULD and MAY requirements supported by Microsoft Exchange Server 2019.
 
 ### Configuring the test suite client using the setup configuration script
 
@@ -795,7 +798,7 @@ For more information, see the following:
 |[Open Specifications](http://go.microsoft.com/fwlink/?LinkId=179743)| The Open Specifications documentation on MSDN.|
 |[Exchange Products and Technologies Protocols](http://go.microsoft.com/fwlink/?LinkId=119904) |The Exchange Server Open Specifications documentation on MSDN.|
 |[RFC2119](http://go.microsoft.com/fwlink/?LinkId=117453) | The normative language reference.|
+[Exchange Server 2016/2019 deployment](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/plan-and-deploy?view=exchserver-2019#deploy-exchange-2016-or-exchange-2019)              | The Exchange Server 2016/2019 planning and deployment on TechNet.
 |[Exchange Server 2013 deployment](http://go.microsoft.com/fwlink/?LinkID=266569) |The Exchange Server 2013 planning and deployment on TechNet.
 |[Exchange Server 2010 deployment](http://go.microsoft.com/fwlink/?LinkID=517397) |The Exchange Server 2010 planning and deployment on TechNet.
 |[Exchange Server 2007 deployment](http://go.microsoft.com/fwlink/?LinkID=512508) |The Exchange Server 2007 deployment on TechNet.
-|[Exchange Server 2016 deployment](https://technet.microsoft.com/en-us/library/mt170645(v=exchg.160).aspx) |The Exchange Server 2016 planning and deployment on TechNet.|

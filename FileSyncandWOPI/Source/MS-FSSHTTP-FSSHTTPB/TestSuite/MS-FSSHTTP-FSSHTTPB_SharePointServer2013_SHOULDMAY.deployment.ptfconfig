@@ -247,5 +247,13 @@
   <Property name="R1926Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R8214Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that SharePoint Server 2013 and above performs RDC analysis.  R8214Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement.-->
   <Property name="R8214Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+  <!--Set R310401Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server does return an error code of "LockNotConvertedAsCoauthDisabled" as specified in section 7. Set R310401Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R310401Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R310801Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for coauth subRequest the server does return an error code of "Success" as specified in section 7. Set R310801Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R310801Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R311801Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for schemaLock subRequest the server does return an error code of "LockNotConvertedAsCoauthDisabled" as specified in section 7. Set R311801Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R311801Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
+  <!--Set R312101Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that for schemaLock subRequest the server does return an error code of "Success" as specified in section 7. Set R312101Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+  <Property name="R312101Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
  </Properties>
 </TestSite>

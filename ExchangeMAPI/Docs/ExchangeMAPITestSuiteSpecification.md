@@ -29,8 +29,7 @@ test case. Test cases on the same command or operation are
 grouped into one scenario.
 
 The technical specifications in the following table are included
-in the Exchange MAPI Protocol Test Suites package. The
-technical specifications version is v20140130.
+in the Exchange MAPI Protocol Test Suites package. The version of technical specification MS-OXCFOLD, MS-OXCRPC are v20220816. The version of MS-OXNSPI is v20220215. The version of MS-OXCNOTIF is v20211116. The version of MS-OXCTABL is 20210817. The version of MS-OXCFXICS, MS-OXCPERM, MS-OXCPRPT, MS-OXCSTOR, MS-OXORULE are v20210422. The version of MS-OXCMSG is v20190618. The version of OXCMAPIHTTP is v20181211. And the version of MS-OXCROPS is v20181001.
 
 **Exchange MAPI Protocol technical specifications**
 
@@ -141,7 +140,9 @@ protocol, which test suites run against.
 	-   Microsoft Exchange Server 2007 Service Pack 3 (SP3)
 	-   Microsoft Exchange Server 2010 Service Pack 3 (SP3)
 	-   Microsoft Exchange Server 2013 Service Pack 1 (SP1)
-	-   Microsoft Exchange Server 2016
+	-   Microsoft Exchange Server 2016 
+    -   Microsoft Exchange Server 2019
+
 
 The presence of a second SUT will enable certain multi-server scenarios
 and other test cases that pertain to a second SUT. If a second SUT is

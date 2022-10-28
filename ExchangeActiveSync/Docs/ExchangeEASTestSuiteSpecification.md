@@ -29,8 +29,8 @@ test case. Test cases on the same command or operation are
 grouped into one scenario.
 
 The technical specifications in the following table are included
-in the Exchange EAS Protocol Test Suites package. The
-technical specifications version is v20150630.
+in the Exchange EAS Protocol Test Suites package. The version of technical specification MS-ASAIRS, MS-ASEMAIL, MS-ASTASK are v20211116. The version of MS-ASCMD is v20190618. The version of MS-ASWBXML is v20190319.
+The version of MS-ASCNTC, MS-ASHTTP, MS-ASPROV are v20181211. The version of MS-ASCAL, MS-ASCON, MS-ASDOC, MS-ASNOTE, MS-ASRM are v20181001. And the version of MS-ASDTYPE is v20150630.
 
 **Exchange EAS Protocol technical specifications**
 
@@ -163,6 +163,7 @@ protocol, which test suites run against.
 	-   Microsoft Exchange Server 2010 Service Pack 3 (SP3)
 	-   Microsoft Exchange Server 2013 Service Pack 1 (SP1)
 	-   Microsoft Exchange Server 2016
+    -   Microsoft Exchange Server 2019
 
 **Test Suite Client**
 
