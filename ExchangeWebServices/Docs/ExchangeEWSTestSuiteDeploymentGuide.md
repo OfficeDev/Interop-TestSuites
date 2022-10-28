@@ -587,7 +587,7 @@ References | Description
 [Open Specifications](http://go.microsoft.com/fwlink/?LinkId=179743)                    |   The Open Specifications documentation on MSDN.
 [Exchange Products and Technologies Protocols](http://go.microsoft.com/fwlink/?LinkId=119904)    |The Exchange Server Open Specifications documentation on MSDN.
 [RFC2119](http://go.microsoft.com/fwlink/?LinkId=117453)                                         |The normative language reference.
+[Exchange Server 2016/2019 deployment](https://learn.microsoft.com/en-us/exchange/plan-and-deploy/plan-and-deploy?view=exchserver-2019#deploy-exchange-2016-or-exchange-2019)              | The Exchange Server 2016/2019 planning and deployment on TechNet.
 [Exchange Server 2013 deployment](http://go.microsoft.com/fwlink/?LinkID=266569)                 |The Exchange Server 2013 planning and deployment on TechNet.
 [Exchange Server 2010 deployment](http://go.microsoft.com/fwlink/?LinkID=517397)                 |The Exchange Server 2010 planning and deployment on TechNet.
 [Exchange Server 2007 deployment](http://go.microsoft.com/fwlink/?LinkID=512508)                 |The Exchange Server 2007 deployment on TechNet.
-[Exchange Server 2016 deployment](https://technet.microsoft.com/en-us/library/aa998636(v=exchg.150).aspx)                 |The Exchange Server 2016 planning and deployment on TechNet.

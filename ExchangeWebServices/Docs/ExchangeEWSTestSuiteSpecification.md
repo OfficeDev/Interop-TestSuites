@@ -28,9 +28,8 @@ test case. Test cases on the same command or operation are
 grouped into one scenario.
 
 The technical specifications in the following table are included
-in the Exchange EWS Protocol Test Suites package. The version of
-technical specification MS-OXWSITEMID is v20150330 and the others are
-v20121003.
+in the Exchange EWS Protocol Test Suites package. The version of technical specification MS-OXWSCONT is v20220517. The version of MS-OXWSMTGS is v20200219. The version of MS-OXWSATT, MS-OXWSCORE, MS-OXWSMSG are v20191119.
+The version of MS-OXWSTASK is v20181211. And the version of MS-OXWSSYNC, MS-OXWSFOLD, MS-OXWSITEMID, MS-OXWSBTRF are v20181001.
 
 **Exchange EWS Protocol technical specifications**
 
