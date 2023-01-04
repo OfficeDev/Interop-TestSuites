@@ -3003,6 +3003,182 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
                 }
             }
         }
+
+        /// <summary>
+        /// A method used to verify the coauthoring status returned None when 1. file check out by current user.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S02_TC45_JoinCoauthoringSession_None_1FileCheckOutByCurrentUser()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            // Check out the file
+            if (!this.SutManagedAdapter.CheckOutFile(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain))
+            {
+                this.Site.Assert.Fail("Cannot change the file {0} to check out status using the user name {1} and password {2}", this.DefaultFileUrl, this.UserName01, this.Password01);
+            }
+
+            this.StatusManager.RecordFileCheckOut(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
+
+            CheckLockAvailability();
+
+            // Get the exclusive lock
+            this.PrepareExclusiveLock(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID);
+
+            // Get the coauthoring status of the client
+            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForGetCoauthSessionStatus(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+
+            CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            CoauthSubResponseType getStatusResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(getStatusResponse.ErrorCode, this.Site),
+                "The client should get the coauth status successfully.");
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Capture coauthoring status common related requirements.
+                this.CaptureCoauthStatusRelatedRequirementsWhenGetCoauthoringStatus(getStatusResponse);
+                this.CaptureSucceedCoauthSubRequest(getStatusResponse);
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_187801
+                Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
+                         CoauthStatusType.None,
+                         getStatusResponse.SubResponseData.CoauthStatus,
+                         "MS-FSSHTTP",
+                         187801,
+                         @"[In Join Coauthoring Session] A CoauthStatus of ""None"" can be returned in situations where coauthoring is not achieved because an exclusive lock is returned instead of a shared lock.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_187802
+                Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
+                         CoauthStatusType.None,
+                         getStatusResponse.SubResponseData.CoauthStatus,
+                         "MS-FSSHTTP",
+                         187802,
+                         @"[In Join Coauthoring Session] This can happen when 1. the file is checked out by the current user [or 2. an exclusive lock is held by the current user or 3. the coauthoring feature is disabled and the AllowFallbackToExclusive attribute is set to true on the request.] ");
+
+            }
+            else
+            {
+                Site.Assert.AreEqual<CoauthStatusType>(
+                    CoauthStatusType.None,
+                    getStatusResponse.SubResponseData.CoauthStatus,
+                    @"A CoauthStatus of ""None"" can be returned in situations where coauthoring is not achieved because an exclusive lock is returned instead of a shared lock.");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify the coauthoring status returned None when 2. an exclusive lock is held by the current user.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S02_TC46_JoinCoauthoringSession_None_2FileExclusiveLockHeldByCurrentUser()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
+
+            // Get the exclusive lock
+            this.PrepareExclusiveLock(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID);
+
+            // Get the coauthoring status of the client
+            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForGetCoauthSessionStatus(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+
+            CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            CoauthSubResponseType getStatusResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+            this.Site.Assert.AreEqual(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(getStatusResponse.ErrorCode, this.Site),
+                "The client should get the coauth status successfully.");
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Capture coauthoring status common related requirements.
+                this.CaptureCoauthStatusRelatedRequirementsWhenGetCoauthoringStatus(getStatusResponse);
+                this.CaptureSucceedCoauthSubRequest(getStatusResponse);
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_187801
+                Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
+                         CoauthStatusType.None,
+                         getStatusResponse.SubResponseData.CoauthStatus,
+                         "MS-FSSHTTP",
+                         187801,
+                         @"[In Join Coauthoring Session] A CoauthStatus of ""None"" can be returned in situations where coauthoring is not achieved because an exclusive lock is returned instead of a shared lock.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_187802
+                Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
+                         CoauthStatusType.None,
+                         getStatusResponse.SubResponseData.CoauthStatus,
+                         "MS-FSSHTTP",
+                         187803,
+                         @"[In Join Coauthoring Session] This can happen when [1. the file is checked out by the current user or] 2. an exclusive lock is held by the current user [or 3. the coauthoring feature is disabled and the AllowFallbackToExclusive attribute is set to true on the request]. ");
+
+            }
+            else
+            {
+                Site.Assert.AreEqual<CoauthStatusType>(
+                    CoauthStatusType.None,
+                    getStatusResponse.SubResponseData.CoauthStatus,
+                    @"A CoauthStatus of ""None"" can be returned in situations where coauthoring is not achieved because an exclusive lock is returned instead of a shared lock.");
+            }
+        }
+
+        /// <summary>
+        /// A method used to verify the coauthoring status returned None when 2. an exclusive lock is held by the current user.
+        /// </summary>
+        [TestCategory("SHAREDTESTCASE"), TestMethod()]
+        public void TestCase_S02_TC47_JoinCoauthoringSession_None_3FileCoauthoringFeatureDisableAndAllowFallbackToExclusiveSetTrue()
+        {
+            // Initialize the service
+            this.InitializeContext(this.DefaultFileUrl, this.UserName03, this.Password03, this.Domain);
+
+            // Get the exclusive lock
+            this.PrepareExclusiveLock(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID);
+
+            // Disable the Coauthoring Feature
+            bool isSwitchedSuccessfully = SutPowerShellAdapter.SwitchCoauthoringFeature(true);
+            this.Site.Assert.IsTrue(isSwitchedSuccessfully, "The Coauthoring Feature should be disabled.");
+            this.StatusManager.RecordDisableCoauth();
+
+            // Create a JoinCoauthoringSession subRequest with AllowFallbackToExclusive set to true.
+            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, true);
+            CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            CoauthSubResponseType getStatusResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
+
+            this.Site.Assert.AreEqual(
+                ErrorCodeType.Success,
+                SharedTestSuiteHelper.ConvertToErrorCodeType(getStatusResponse.ErrorCode, this.Site),
+                "The client should get the coauth status successfully.");
+
+            if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
+            {
+                // Capture coauthoring status common related requirements.
+                this.CaptureCoauthStatusRelatedRequirementsWhenGetCoauthoringStatus(getStatusResponse);
+                this.CaptureSucceedCoauthSubRequest(getStatusResponse);
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_187801
+                Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
+                         CoauthStatusType.None,
+                         getStatusResponse.SubResponseData.CoauthStatus,
+                         "MS-FSSHTTP",
+                         187801,
+                         @"[In Join Coauthoring Session] A CoauthStatus of ""None"" can be returned in situations where coauthoring is not achieved because an exclusive lock is returned instead of a shared lock.");
+
+                // Verify MS-FSSHTTP requirement: MS-FSSHTTP_187802
+                Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
+                         CoauthStatusType.None,
+                         getStatusResponse.SubResponseData.CoauthStatus,
+                         "MS-FSSHTTP",
+                         187804,
+                         @"[In Join Coauthoring Session] This can happen when [1. the file is checked out by the current user or 2. an exclusive lock is held by the current user or] 3. the coauthoring feature is disabled and the AllowFallbackToExclusive attribute is set to true on the request.  ");
+            }
+            else
+            {
+                Site.Assert.AreEqual<CoauthStatusType>(
+                    CoauthStatusType.None,
+                    getStatusResponse.SubResponseData.CoauthStatus,
+                    @"A CoauthStatus of ""None"" can be returned in situations where coauthoring is not achieved because an exclusive lock is returned instead of a shared lock.");
+            }
+        }
         #endregion
 
         #endregion
@@ -3010,9 +3186,9 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
         #region Private helper function
 
         /// <summary>
-            /// A method used to capture LockType related requirements when joining coauthoring session.
-            /// </summary>
-            /// <param name="response">A return value represents the CoauthSubResponse information.</param>
+        /// A method used to capture LockType related requirements when joining coauthoring session.
+        /// </summary>
+        /// <param name="response">A return value represents the CoauthSubResponse information.</param>
         private void CaptureLockTypeRelatedRequirementsWhenJoinCoauthoringSession(CoauthSubResponseType response)
         {
             this.Site.Log.Add(
