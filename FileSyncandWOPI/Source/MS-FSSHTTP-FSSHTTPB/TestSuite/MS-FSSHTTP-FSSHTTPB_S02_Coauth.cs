@@ -466,6 +466,15 @@ namespace Microsoft.Protocols.TestSuites.MS_FSSHTTP_FSSHTTPB
                          "MS-FSSHTTP",
                          11265,
                          @"[In Appendix B: Product Behavior] Implementation does return the value ""PathNotFound"" of GenericErrorCodeTypes when the file path is not found. (Microsoft Office 2016/Microsoft SharePoint Server 2016 follow this behavior.)");
+
+                // Verify MS-FSHTTP requirement: MS-FSSHTTP_R11072
+                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                    ErrorCodeType.PathNotFound,
+                    SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site),
+                    "MS-FSHTTP",
+                    11072,
+                    @"[In GenericErrorCodeTypes] PathNotFound indicates an error when the file path is not found.<20>");
+
             }
             else
             {
