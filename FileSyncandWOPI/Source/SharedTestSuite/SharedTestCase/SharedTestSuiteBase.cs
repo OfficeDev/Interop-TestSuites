@@ -771,7 +771,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                                 < xs:complexType >
                                   < xs:sequence >
                                     < xs:element name = ""CacheID"" minOccurs = ""1"" maxOccurs = ""1"" type = ""xs:string"" />
-                                    < xs:element name = ""FriendlyName"" minOccurs = ""0"" maxOccurs = ""1"" type = "" type=""tns: UserNameType"" />
+                                    < xs:element name = ""FriendlyName"" minOccurs = ""0"" maxOccurs = ""1"" type=""tns: UserNameType"" />
                                     < xs:element name = ""LoginName"" minOccurs = ""0"" maxOccurs = ""1"" type = ""tns:UserLoginType"" />
                                     < xs:element name = ""SIPAddress"" minOccurs = ""0"" maxOccurs = ""1"" type = ""xs:string"" />
                                     < xs:element name = ""EmailAddress"" minOccurs = ""0"" maxOccurs = ""1"" type = ""xs:string"" />

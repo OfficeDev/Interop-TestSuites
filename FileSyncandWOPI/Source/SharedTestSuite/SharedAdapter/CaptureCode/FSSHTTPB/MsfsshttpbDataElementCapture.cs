@@ -249,19 +249,19 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      259,
-                     @"[In Storage Index Data Element] Storage Index Manifest Mapping (2 bytes): Zero or one 16-bit Stream Object Header that specifies the Storage Index Manifest Mappings (with Manifest Mapping Extended GUID and Serial Number).");
+                     @"[In Storage Index Data Element] Storage Index Manifest Mapping (2 bytes, optional): Zero or one 16-bit Stream Object Header that specifies the Storage Index Manifest Mappings (with Manifest Mapping Extended GUID and Serial Number).");
 
             // Directly capture requirement MS-FSSHTTPB_R260, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      260,
-                     @"[In Storage Index Data Element] Manifest Mapping Extended GUID (variable): An Extended GUID that specifies the Manifest Mapping.");
+                     @"[In Storage Index Data Element] Manifest Mapping Extended GUID (variable, optional): An Extended GUID that specifies the Manifest Mapping.");
 
             // Directly capture requirement MS-FSSHTTPB_R261, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      261,
-                     @"[In Storage Index Data Element] Manifest Mapping Serial Number (variable): A Serial Number that specifies the Manifest Mapping.");
+                     @"[In Storage Index Data Element] Manifest Mapping Serial Number (variable, optional): A Serial Number that specifies the Manifest Mapping.");
 
             // Verify the stream object header end related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -289,25 +289,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      262,
-                     @"[In Storage Index Data Element] Storage Index Cell Mapping (2 bytes): Zero or more 16-bit Stream Object Header that specifies the  Storage Index Cell Mappings (with cell identifier, cell mapping extended GUID, and Cell Mapping Serial Number).");
+                     @"[In Storage Index Data Element] Storage Index Cell Mapping (2 bytes, optional): Zero or more 16-bit Stream Object Header that specifies the  Storage Index Cell Mappings (with cell identifier, cell mapping extended GUID, and Cell Mapping Serial Number).");
 
             // Directly capture requirement MS-FSSHTTPB_R263, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      263,
-                     @"[In Storage Index Data Element] Cell ID (variable): A Cell ID (section 2.2.1.10) that specifies the cell identifier.");
+                     @"[In Storage Index Data Element] Cell ID (variable, optional): A Cell ID (section 2.2.1.10) that specifies the cell identifier.");
 
             // Directly capture requirement MS-FSSHTTPB_R264, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      264,
-                     @"[In Storage Index Data Element] Cell Mapping Extended GUID (variable): An Extended GUID that specifies the Cell Mapping.");
+                     @"[In Storage Index Data Element] Cell Mapping Extended GUID (variable, optional): An Extended GUID that specifies the Cell Mapping.");
 
             // Directly capture requirement MS-FSSHTTPB_R265, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      265,
-                     @"[In Storage Index Data Element] Cell Mapping Serial Number (variable): A Serial Number that specifies the Cell Mapping.");
+                     @"[In Storage Index Data Element] Cell Mapping Serial Number (variable, optional): A Serial Number that specifies the Cell Mapping.");
 
             // Verify the stream object header end related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -335,25 +335,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      266,
-                     @"[In Storage Index Data Element] Storage Index Revision Mapping (2 bytes): Zero or more 16-bit Stream Object Headers that specify the Storage Index Revision Mappings (with revision and Revision Mapping Extended GUIDs, and Revision Mapping Serial Number).");
+                     @"[In Storage Index Data Element] Storage Index Revision Mapping (2 bytes, optional): Zero or more 16-bit Stream Object Headers that specify the Storage Index Revision Mappings (with revision and Revision Mapping Extended GUIDs, and Revision Mapping Serial Number).");
 
             // Directly capture requirement MS-FSSHTTPB_R267, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      267,
-                     @"[In Storage Index Data Element] Revision Extended GUID (variable): An Extended GUID that specifies the revision.");
+                     @"[In Storage Index Data Element] Revision Extended GUID (variable, optional): An Extended GUID that specifies the revision.");
 
             // Directly capture requirement MS-FSSHTTPB_R268, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      268,
-                     @"[In Storage Index Data Element] Revision Mapping Extended GUID (variable): An Extended GUID that specifies the Revision Mapping.");
+                     @"[In Storage Index Data Element] Revision Mapping Extended GUID (variable, optional): An Extended GUID that specifies the Revision Mapping.");
 
             // Directly capture requirement MS-FSSHTTPB_R269, if there are no parsing errors. 
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      269,
-                     @"[In Storage Index Data Element] Revision Mapping Serial Number (variable): A Serial Number that specifies the Revision Mapping.");
+                     @"[In Storage Index Data Element] Revision Mapping Serial Number (variable, optional): A Serial Number that specifies the Revision Mapping.");
 
             // Verify the stream object header related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -575,7 +575,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      300,
-                     @"[In Revision Manifest Data Elements] Object Group Extended GUID (variable): An Extended GUID that specifies the Object Group for each Revision Manifest Object Group Reference.");
+                     @"[In Revision Manifest Data Elements] Object Group Extended GUID (variable, optional): An Extended GUID that specifies the Object Group for each Revision Manifest Object Group Reference.");
 
             // Verify the stream object header related requirements.
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
@@ -1090,7 +1090,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderEnd.GetType(),
                      "MS-FSSHTTPB",
                      270,
-                     @"[In Storage Index Data Element] Data Element End (1 byte): An 8-bit Stream Object Header that specifies a data element end.");
+                     @"[In Storage Index Data Element] Data Element End (1 byte): An 8-bit Stream Object Header (section 2.2.1.5.3) that specifies a data element end.");
         }
 
         /// <summary>
