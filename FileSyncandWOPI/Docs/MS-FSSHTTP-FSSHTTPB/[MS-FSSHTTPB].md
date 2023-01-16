@@ -1,6 +1,6 @@
 ## [MS-FSSHTTPB]: Binary Requests for File Synchronization via SOAP Protocol
-- [MS-FSSHTTPB] v20220816 is used to develop the test suite.
-- Release date, 08/16/2022.
+- [MS-FSSHTTPB] v20221115 is used to develop the test suite.
+- Release date, 11/15/2022.
 
 To find the new landing page for [MS-FSSHTTPB], please visit https://msdn.microsoft.com/en-us/library/dd965780(v=office.12).aspx
 
