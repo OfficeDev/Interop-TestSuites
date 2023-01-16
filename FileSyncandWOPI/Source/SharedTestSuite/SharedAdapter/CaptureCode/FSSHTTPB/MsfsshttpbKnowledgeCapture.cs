@@ -521,7 +521,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                      instance.StreamObjectHeaderStart.GetType(),
                      "MS-FSSHTTPB",
                      381,
-                     @"[In Content Tag Knowledge] Content Tag Start (2 bytes): A 16-bit Stream Object Header that specifies the Content Tag Knowledge start.");
+                     @"[In Content Tag Knowledge] Content Tag Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1) that specifies the Content Tag Knowledge start.");
 
             // Directly capture requirement MS-FSSHTTPB_R382, if there are no parsing errors. 
             site.CaptureRequirement(
@@ -562,7 +562,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          385,
-                         @"[In Content Tag Knowledge Entry] Content Tag Knowledge Entry Start (variable): A 16-bit or 32-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Knowledge Entry.");
+                         @"[In Content Tag Knowledge Entry] Content Tag Knowledge Entry Start (variable): A 16-bit (section 2.2.1.5.1) or 32-bit Stream Object Header (section 2.2.1.5.2) that specifies the start of a Content Tag Knowledge Entry.");
             }
 
             // Directly capture requirement MS-FSSHTTPB_R386, if there are no parsing errors. 

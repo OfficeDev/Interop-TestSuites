@@ -708,7 +708,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      99064,
-                     @"[In Response Error] Error String Supplemental Info (variable): A string item (section 2.2.1.4) that specifies the supplemental information of the error string for the error string supplemental info start.");
+                     @"[In Response Error] Error String Supplemental Info (variable, optional): A string item (section 2.2.1.4) that specifies the supplemental information of the error string for the error string supplemental info start.");
 
             this.ExpectSingleObject(instance.StreamObjectHeaderStart, site);
         }
