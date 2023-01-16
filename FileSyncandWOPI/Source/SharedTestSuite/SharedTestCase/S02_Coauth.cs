@@ -552,7 +552,10 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
             CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
             CoauthSubResponseType joinResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
-            this.Site.Assert.AreEqual(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site), "The first client should join the coauthoring session successfully.");
+            this.Site.Assert.AreEqual(
+                ErrorCodeType.Success, 
+                SharedTestSuiteHelper.ConvertToErrorCodeType(joinResponse.ErrorCode, this.Site), 
+                "The first client should join the coauthoring session successfully.");
             this.StatusManager.RecordCoauthSession(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
 
             this.CaptureCoauthStatusRelatedRequirementsWhenJoinCoauthoringSession(joinResponse);
@@ -671,6 +674,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Send this subRequest to the protocol server, expect the protocol server not to return CoauthStatus attribute.
             CellStorageResponse response = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
             CoauthSubResponseType subReponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(response, 0, 0, this.Site);
+            
             this.Site.Assert.AreEqual<ErrorCodeType>(ErrorCodeType.Success, SharedTestSuiteHelper.ConvertToErrorCodeType(subReponse.ErrorCode, this.Site), "The coauthoring subRequest should be falls back to exclusive lock successfully.");
             this.StatusManager.RecordExclusiveLock(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID);
 
@@ -3008,7 +3012,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
         /// A method used to verify the coauthoring status returned None when 1. file check out by current user.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S02_TC45_JoinCoauthoringSession_None_1FileCheckOutByCurrentUser()
+        public void TestCase_S02_TC45_JoinCoauthoringSession_None_FileCheckOutByCurrentUser()
         {
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName01, this.Password01, this.Domain);
@@ -3023,25 +3027,14 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 
             CheckLockAvailability();
 
-            // Get the exclusive lock
-            this.PrepareExclusiveLock(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID);
-
             // Get the coauthoring status of the client
-            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForGetCoauthSessionStatus(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
 
             CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
             CoauthSubResponseType getStatusResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
-            this.Site.Assert.AreEqual(
-                ErrorCodeType.Success,
-                SharedTestSuiteHelper.ConvertToErrorCodeType(getStatusResponse.ErrorCode, this.Site),
-                "The client should get the coauth status successfully.");
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Capture coauthoring status common related requirements.
-                this.CaptureCoauthStatusRelatedRequirementsWhenGetCoauthoringStatus(getStatusResponse);
-                this.CaptureSucceedCoauthSubRequest(getStatusResponse);
-
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_187801
                 Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
                          CoauthStatusType.None,
@@ -3072,7 +3065,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
         /// A method used to verify the coauthoring status returned None when 2. an exclusive lock is held by the current user.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S02_TC46_JoinCoauthoringSession_None_2FileExclusiveLockHeldByCurrentUser()
+        public void TestCase_S02_TC46_JoinCoauthoringSession_None_FileExclusiveLockHeldByCurrentUser()
         {
             // Initialize the service
             this.InitializeContext(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
@@ -3081,21 +3074,14 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
             this.PrepareExclusiveLock(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID);
 
             // Get the coauthoring status of the client
-            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForGetCoauthSessionStatus(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
 
             CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            
             CoauthSubResponseType getStatusResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
-            this.Site.Assert.AreEqual(
-                ErrorCodeType.Success,
-                SharedTestSuiteHelper.ConvertToErrorCodeType(getStatusResponse.ErrorCode, this.Site),
-                "The client should get the coauth status successfully.");
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Capture coauthoring status common related requirements.
-                this.CaptureCoauthStatusRelatedRequirementsWhenGetCoauthoringStatus(getStatusResponse);
-                this.CaptureSucceedCoauthSubRequest(getStatusResponse);
-
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_187801
                 Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
                          CoauthStatusType.None,
@@ -3126,34 +3112,29 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
         /// A method used to verify the coauthoring status returned None when 2. an exclusive lock is held by the current user.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
-        public void TestCase_S02_TC47_JoinCoauthoringSession_None_3FileCoauthoringFeatureDisableAndAllowFallbackToExclusiveSetTrue()
+        public void TestCase_S02_TC47_JoinCoauthoringSession_None_FileCoauthoringFeatureDisableAndAllowFallbackToExclusiveSetTrue()
         {
             // Initialize the service
-            this.InitializeContext(this.DefaultFileUrl, this.UserName03, this.Password03, this.Domain);
-
-            // Get the exclusive lock
-            this.PrepareExclusiveLock(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultExclusiveLockID);
+            this.InitializeContext(this.DefaultFileUrl, this.UserName03, this.Password03, this.Domain);          
 
             // Disable the Coauthoring Feature
             bool isSwitchedSuccessfully = SutPowerShellAdapter.SwitchCoauthoringFeature(true);
             this.Site.Assert.IsTrue(isSwitchedSuccessfully, "The Coauthoring Feature should be disabled.");
             this.StatusManager.RecordDisableCoauth();
 
+            // Waiting change takes effect
+            System.Threading.Thread.Sleep(20 * 1000);
+
             // Create a JoinCoauthoringSession subRequest with AllowFallbackToExclusive set to true.
-            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID, true);
+            CoauthSubRequestType subRequest = SharedTestSuiteHelper.CreateCoauthSubRequestForJoinCoauthSession(SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
+
+            subRequest.SubRequestData.AllowFallbackToExclusive = true;
+            
             CellStorageResponse cellResponse = this.Adapter.CellStorageRequest(this.DefaultFileUrl, new SubRequestType[] { subRequest });
+            
             CoauthSubResponseType getStatusResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
 
-            this.Site.Assert.AreEqual(
-                ErrorCodeType.Success,
-                SharedTestSuiteHelper.ConvertToErrorCodeType(getStatusResponse.ErrorCode, this.Site),
-                "The client should get the coauth status successfully.");
-
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-            {
-                // Capture coauthoring status common related requirements.
-                this.CaptureCoauthStatusRelatedRequirementsWhenGetCoauthoringStatus(getStatusResponse);
-                this.CaptureSucceedCoauthSubRequest(getStatusResponse);
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_187801
                 Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
