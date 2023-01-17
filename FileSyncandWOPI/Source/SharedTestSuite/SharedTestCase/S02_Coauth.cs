@@ -3135,7 +3135,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
             CoauthSubResponseType getStatusResponse = SharedTestSuiteHelper.ExtractSubResponse<CoauthSubResponseType>(cellResponse, 0, 0, this.Site);
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
-
+            {
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_187801
                 Site.CaptureRequirementIfAreEqual<CoauthStatusType>(
                          CoauthStatusType.None,
