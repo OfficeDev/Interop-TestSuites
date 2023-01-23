@@ -1815,11 +1815,12 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R107</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] The RequestToken MUST be specified for each Response element.</ns1:Description>
+		<ns1:Description>[In Response] The RequestToken SHOULD be specified for each Response element.&lt;11&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Adapter</ns1:Verification>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R1127201.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R109</ns1:REQ_ID>
@@ -1871,7 +1872,7 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1664</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] This attribute[ErrorCode] MUST be present only if any of the following is true: The Url attribute of the corresponding Request element does not exist.&lt;11&gt;</ns1:Description>
+		<ns1:Description>[In Response] This attribute[ErrorCode] MUST be present only if any of the following is true: The Url attribute of the corresponding Request element does not exist.&lt;12&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1881,7 +1882,7 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1665</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] This attribute[ErrorCode] MUST be present only if any of the following is true: The Url attribute of the corresponding Request element is an empty string.&lt;11&gt;</ns1:Description>
+		<ns1:Description>[In Response] This attribute[ErrorCode] MUST be present only if any of the following is true: The Url attribute of the corresponding Request element is an empty string.&lt;12&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1891,7 +1892,7 @@ The RequestVersion element specifies the version-specific information about the 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1510</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] ErrorCode attribute MAY&lt;12&gt; be present if the RequestToken attribute of the corresponding Request element is an empty string.</ns1:Description>
+		<ns1:Description>[In Response] ErrorCode attribute MAY&lt;13&gt; be present if the RequestToken attribute of the corresponding Request element is an empty string.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1951,7 +1952,7 @@ An exception occurred during the processing of a subrequest that was not entirel
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11024</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] SuggestedFileName: The suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request.&lt;13&gt;</ns1:Description>
+		<ns1:Description>[In Response] SuggestedFileName: The suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request.&lt;14&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1961,7 +1962,7 @@ An exception occurred during the processing of a subrequest that was not entirel
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11025</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.5</ns1:Doc_Sect>
-		<ns1:Description>[In Response] ResourceID: A string that represents a GUID which specifies the invariant ResourceID for a file, which uniquely identifies the file whose response is being generated.&lt;14&gt;</ns1:Description>
+		<ns1:Description>[In Response] ResourceID: A string that represents a GUID which specifies the invariant ResourceID for a file, which uniquely identifies the file whose response is being generated.&lt;15&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2106,7 +2107,7 @@ An exception occurred during the processing of a subrequest that was not entirel
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R21051</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.6</ns1:Doc_Sect>
-		<ns1:Description>[In ResponseCollection]Else[if no], [WebUrlIsEncoded set to] false. (SharePoint Server 2010 and SharePoint Server 2019 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In ResponseCollection]Else[if no], [WebUrlIsEncoded set to] false. &lt;16&gt;(SharePoint Server 2019 and above follow this behavior.)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2280,7 +2281,7 @@ The user does not have permission to issue a cell storage service request to the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1518</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In ResponseVersion] This ErrorCode attribute MAY&lt;15&gt; be present if this protocol is not enabled on the protocol server.</ns1:Description>
+		<ns1:Description>[In ResponseVersion] This ErrorCode attribute MAY&lt;17&gt; be present if this protocol is not enabled on the protocol server.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2720,7 +2721,7 @@ The version of the message.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11036</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In PropertyType] Id: The property id.</ns1:Description>
+		<ns1:Description>[In PropertyType] Id: A string that identifies the property.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -2729,7 +2730,7 @@ The version of the message.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11037</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In PropertyType] Value: The property value.</ns1:Description>
+		<ns1:Description>[In PropertyType] Value: A string that identifies the value of the property .</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3182,7 +3183,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1676</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequestElementGenericType][Depending on the type of sub request, SubRequestElementGenericType MUST take one of the following forms.] EditorsTableSubRequestType: Type definition for an Editors Table subrequest.</ns1:Description>
+		<ns1:Description>[In SubRequestElementGenericType][Depending on the type of sub request, SubRequestElementGenericType MUST take one of the following forms.] EditorsTableSubRequestType: The type definition for an Editors Table subrequest. when the Type attribute is set to "EditorsTable".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3308,7 +3309,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1679</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequestElementGenericType] EditorsTableSubRequestType is specified in section 2.3.1.23. </ns1:Description>
+		<ns1:Description>[In SubRequestElementGenericType] EditorsTableSubRequestType is specified in section 2.3.1.24. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -5229,7 +5230,7 @@ type definition for exclusive lock subrequest data.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11064</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponseType] ServerCorrelationId: A guid that specifies a unique identifier that equals to the CorrelationId as specified in section 2.2.3.3.&lt;16&gt;</ns1:Description>
+		<ns1:Description>[In SubResponseType] ServerCorrelationId: A guid that specifies a unique identifier that equals to the CorrelationId as specified in section 2.2.3.3.&lt;18&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6128,7 +6129,7 @@ If the other subrequest is not supported. (Microsoft SharePoint Foundation 2010/
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R351</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.5</ns1:Doc_Sect>
-		<ns1:Description>[In ExclusiveLockReturnReasonTypes] CurrentUserHasExclusiveLock: The string value "CurrentUserHasExclusiveLock", indicating that an exclusive lock is granted on the file because the current user who sent the cell storage service request message already has an existing exclusive lock on the file.&lt;17&gt;</ns1:Description>
+		<ns1:Description>[In ExclusiveLockReturnReasonTypes] CurrentUserHasExclusiveLock: The string value "CurrentUserHasExclusiveLock", indicating that an exclusive lock is granted on the file because the current user who sent the cell storage service request message already has an existing exclusive lock on the file.&lt;19&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6233,17 +6234,17 @@ If the other subrequest is not supported. (Microsoft SharePoint Foundation 2010/
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11072</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In GenericErrorCodeTypes] PathNotFound indicates an error when the file path is not found.&lt;18&gt;</ns1:Description>
+		<ns1:Description>[In GenericErrorCodeTypes] PathNotFound indicates an error when the file path is not found.&lt;20&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Test Case</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R11265.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2171</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In GenericErrorCodeTypes]ResourceIdDoesNotExist Indicates an error when neither of the ResourceID and Url attributes identify valid files.</ns1:Description>
+		<ns1:Description>[In GenericErrorCodeTypes] ResourceIdDoesNotExist Indicates an error when neither of the ResourceID and Url attributes identify valid files.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6342,7 +6343,7 @@ If the other subrequest is not supported. (Microsoft SharePoint Foundation 2010/
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R368</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.</ns1:Description>
+		<ns1:Description>[In GenericErrorCodeTypes] WebServiceTurnedOff indicates an error when the web service is turned off during the processing of the cell storage service request.&lt;21&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6382,7 +6383,7 @@ ExclusiveLock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3024</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.6</ns1:Doc_Sect>
-		<ns1:Description>[In GenericErrorCodeTypes] HighLevelExceptionThrown&lt;19&gt; indicates any undefined error that occurs during the processing of the cell storage service request.</ns1:Description>
+		<ns1:Description>[In GenericErrorCodeTypes] HighLevelExceptionThrown&lt;22&gt; indicates any undefined error that occurs during the processing of the cell storage service request.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7199,7 +7200,7 @@ ExclusiveLock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3030</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.5.14</ns1:Doc_Sect>
-		<ns1:Description>[In NewEditorsTableCategoryErrorCodeTypes] The NewEditorsTableCategoryErrorCodeTypes simple type is used to represent error codes for the processing of an EditorsTable subrequest.&lt;20&gt;</ns1:Description>
+		<ns1:Description>[In NewEditorsTableCategoryErrorCodeTypes] The NewEditorsTableCategoryErrorCodeTypes simple type is used to represent error codes for the processing of an EditorsTable subrequest.&lt;23&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -7696,7 +7697,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1708</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.8.1</ns1:Doc_Sect>
-		<ns1:Description>[In SubRequestDataOptionalAttributes][SchemaLockID] The string "29358EC1-E813-4793-8E70-ED0344E7B73C" has been reserved for use for this attribute.&lt;21&gt;</ns1:Description>
+		<ns1:Description>[In SubRequestDataOptionalAttributes][SchemaLockID] The string "29358EC1-E813-4793-8E70-ED0344E7B73C" has been reserved for use for this attribute.&lt;27&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8128,7 +8129,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R465</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.8.2</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponseDataOptionalAttributes] ServerTime specifies the number of 100-nanosecond intervals that have elapsed since 00:00:00 on January 1, 0001, which SHOULD&lt;22&gt; be Coordinated Universal Time (UTC).</ns1:Description>
+		<ns1:Description>[In SubResponseDataOptionalAttributes] ServerTime specifies the number of 100-nanosecond intervals that have elapsed since 00:00:00 on January 1, 0001, which SHOULD&lt;25&gt; be Coordinated Universal Time (UTC).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8263,7 +8264,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3063</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.8.2</ns1:Doc_Sect>
-		<ns1:Description>[In SubResponseDataOptionalAttributes][CoauthStatus] If the ErrorCode attribute that is part of the SubResponse element is set to a value of "Success", the CoauthStatus attribute MUST be specified in a subresponse that is generated in response to one of the following types of cell storage service subrequest operations: A coauthoring subrequest of type "Join coauthoring session".&lt;23&gt;</ns1:Description>
+		<ns1:Description>[In SubResponseDataOptionalAttributes][CoauthStatus] If the ErrorCode attribute that is part of the SubResponse element is set to a value of "Success", the CoauthStatus attribute MUST be specified in a subresponse that is generated in response to one of the following types of cell storage service subrequest operations: A coauthoring subrequest of type "Join coauthoring session".&lt;26&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9501,7 +9502,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of false in
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R5602</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In CoauthSubRequestDataType] If the CoauthRequestType attribute is not provided, an error code SHOULD&lt;25&gt; be returned. </ns1:Description>
+		<ns1:Description>[In CoauthSubRequestDataType] If the CoauthRequestType attribute is not provided, an error code SHOULD&lt;28&gt; be returned. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9755,7 +9756,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of true ind
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1720</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In CoauthSubRequestDataType][SchemaLockID] The string "29358EC1-E813-4793-8E70-ED0344E7B73C" has been reserved for use for this attribute[SchemaLockID].&lt;26&gt;</ns1:Description>
+		<ns1:Description>[In CoauthSubRequestDataType][SchemaLockID] The string "29358EC1-E813-4793-8E70-ED0344E7B73C" has been reserved for use for this attribute[SchemaLockID].&lt;29&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10039,7 +10040,7 @@ Convert to exclusive lock</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3069</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In CoauthSubResponseDataType][CoauthStatusType] If the ErrorCode attribute that is part of the SubResponse element is set to a value of "Success", CoauthStatus MUST be specified in a coauthoring subresponse that is generated in response to all of the following types of coauthoring subrequests: Join coauthoring session.&lt;27&gt;</ns1:Description>
+		<ns1:Description>[In CoauthSubResponseDataType][CoauthStatusType] If the ErrorCode attribute that is part of the SubResponse element is set to a value of "Success", CoauthStatus MUST be specified in a coauthoring subresponse that is generated in response to all of the following types of coauthoring subrequests: Join coauthoring session.&lt;30&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10338,7 +10339,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R6342</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In ExclusiveLockSubRequestDataType]If the ExclusiveLockRequestType attribute is not provided, an error code SHOULD&lt;28&gt; be returned. </ns1:Description>
+		<ns1:Description>[In ExclusiveLockSubRequestDataType]If the ExclusiveLockRequestType attribute is not provided, an error code SHOULD&lt;31&gt; be returned. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10511,7 +10512,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1722</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In ExclusiveLockSubRequestDataType] The string "29358EC1-E813-4793-8E70-ED0344E7B73C" has been reserved for use for this attribute[SchemaLockID].&lt;29&gt;</ns1:Description>
+		<ns1:Description>[In ExclusiveLockSubRequestDataType] The string "29358EC1-E813-4793-8E70-ED0344E7B73C" has been reserved for use for this attribute[SchemaLockID].&lt;32&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10890,7 +10891,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3073</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.13</ns1:Doc_Sect>
-		<ns1:Description>[In SchemaLockSubRequestDataType] If the SchemaLockRequestType attribute is not provided, an error code SHOULD&lt;30&gt; be returned.</ns1:Description>
+		<ns1:Description>[In SchemaLockSubRequestDataType] If the SchemaLockRequestType attribute is not provided, an error code SHOULD&lt;33&gt; be returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -11149,7 +11150,7 @@ A ReleaseLockOnConversionToExclusiveFailure attribute set to a value of true ind
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1723</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.13</ns1:Doc_Sect>
-		<ns1:Description>[In SchemaLockSubRequestDataType] The string "29358EC1-E813-4793-8E70-ED0344E7B73C" has been reserved for use for this attribute[SchemaLockID].&lt;31&gt;</ns1:Description>
+		<ns1:Description>[In SchemaLockSubRequestDataType] The string "29358EC1-E813-4793-8E70-ED0344E7B73C" has been reserved for use for this attribute[SchemaLockID].&lt;34&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12044,7 +12045,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1732</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubRequestDataType] SchemaLockSubRequestDataOptionalAttributes: An attribute group that specifies the set of attributes that are provided only for a SubRequestData element whose parent SubRequest element’s Type attribute is set to "EditorsTable".</ns1:Description>
+		<ns1:Description>[In EditorsTableSubRequestDataType] EditorsTableSubRequestDataOptionalAttributes: An attribute group that specifies the set of attributes that are provided only for a SubRequestData element whose parent SubRequest element’s Type attribute is set to "EditorsTable".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12252,18 +12253,9 @@ Remove Editor Metadata.</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
-		<ns1:REQ_ID>MS-FSSHTTP_R11094</ns1:REQ_ID>
-		<ns1:Doc_Sect>2.3.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubRequestDataType] Value: Ignore.</ns1:Description>
-		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Client</ns1:Scope>
-		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Unverified</ns1:Verification>
-	</ns1:Requirement>
-	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1752</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubRequestDataType] Text: A binary value that is associated with a key in an arbitrary key/value pair of the client’s choice.</ns1:Description>
+		<ns1:Description>[In EditorsTableSubRequestDataType] Value:  A binary value that is associated with a key in an arbitrary key/value pair of the client’s choice.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12272,7 +12264,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11095</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubRequestDataType][Text] The length for Value is limited to 1024 bytes.</ns1:Description>
+		<ns1:Description>[In EditorsTableSubRequestDataType][Value] The length for Value is limited to 1024 bytes.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12281,7 +12273,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1753</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubRequestDataType][Text] The server stores this key/value pair for that particular file for that specific protocol client.</ns1:Description>
+		<ns1:Description>[In EditorsTableSubRequestDataType][Value] The server stores this key/value pair for that particular file for that specific protocol client.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12290,7 +12282,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1754</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubRequestDataType][Text] These [key/value ]pairs are visible to other clients editing or reading the same document.</ns1:Description>
+		<ns1:Description>[In EditorsTableSubRequestDataType][Value] These [key/value ]pairs are visible to other clients editing or reading the same document.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12299,7 +12291,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1755</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubRequestDataType][Text] The text of the SubRequestData element MUST be specified in an EditorsTable (section 3.1.4.8) subrequest type of "Update Editor Metadata".</ns1:Description>
+		<ns1:Description>[In EditorsTableSubRequestDataType][Value] The text of the SubRequestData element MUST be specified in an EditorsTable (section 3.1.4.8) subrequest type of "Update Editor Metadata".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12308,7 +12300,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11096</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubRequestDataType][Text] This text is base64 binary encoded data and indicates the value of the Value attribute.</ns1:Description>
+		<ns1:Description>[In EditorsTableSubRequestDataType][Value] This text is base64 binary encoded data and indicates the value of the Value attribute.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12317,7 +12309,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1756</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.23</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubRequestDataType][Text] The types of EditorsTable subrequests are defined in section 2.3.3.7.</ns1:Description>
+		<ns1:Description>[In EditorsTableSubRequestDataType][Value] The types of EditorsTable subrequests are defined in section 2.3.3.7.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -12796,7 +12788,7 @@ Remove Editor Metadata.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1798</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.30</ns1:Doc_Sect>
-		<ns1:Description>[In GetDocMetaInfoSubResponseType] SubResponseData: A SubResponseType whose child nodes contain information provided by the protocol server that was requested as part of the GetDocMetaInfo subrequest.</ns1:Description>
+		<ns1:Description>[In GetDocMetaInfoSubResponseType] SubResponseData: A GetDocMetaInfoSubResponseDataType whose child nodes contain information provided by the protocol server that was requested as part of the GetDocMetaInfo subrequest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -12885,6 +12877,33 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R180801</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.31</ns1:Doc_Sect>
+		<ns1:Description>[In GetVersionsSubResponseType] Type: A SubRequestAttributeType that specifies the type of the subrequest.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R180802</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.31</ns1:Doc_Sect>
+		<ns1:Description>[In GetVersionsSubResponseType] SubRequestAttributeType is defined in section 2.2.5.11.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R180803</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.3.1.31</ns1:Doc_Sect>
+		<ns1:Description>[In GetVersionsSubResponseType] The Type attribute MUST be set to "GetVersions" for a Get Versions subrequest.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
@@ -13031,7 +13050,7 @@ The ErrorCode attribute that is part of the SubResponse element is set to a valu
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11101</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.1.33</ns1:Doc_Sect>
-		<ns1:Description>[In FileOperationSubRequestDataType]If the FileOperation attribute is not provided,  an error code SHOULD&lt;33&gt; be returned. </ns1:Description>
+		<ns1:Description>[In FileOperationSubRequestDataType]If the FileOperation attribute is not provided,  an error code SHOULD&lt;36&gt; be returned. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15560,7 +15579,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R791</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.2.6</ns1:Doc_Sect>
-		<ns1:Description>[In UserLoginType] UserLoginType is the type definition for the UserLogin attribute.&lt;34&gt;</ns1:Description>
+		<ns1:Description>[In UserLoginType] UserLoginType is the type definition for the UserLogin attribute.&lt;37&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15925,7 +15944,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R800</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataOptionalAttributes] Coalesce: A Boolean value that specifies whether the protocol server SHOULD&lt;35&gt; fully save all changes to the underlying store without storing the changes in any intermediate write cache after processing the subrequest.</ns1:Description>
+		<ns1:Description>[In CellSubRequestDataOptionalAttributes] Coalesce: A Boolean value that specifies whether the protocol server SHOULD&lt;38&gt; fully save all changes to the underlying store without storing the changes in any intermediate write cache after processing the subrequest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -15979,7 +15998,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3088</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubRequestDataOptionalAttributes] When [GetFileProps is] set to true, the protocol server MUST return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element.&lt;36&gt;</ns1:Description>
+		<ns1:Description>[In CellSubRequestDataOptionalAttributes] When [GetFileProps is] set to true, the protocol server MUST return CreateTime and LastModifiedTime as attributes in the cell SubResponseData element.&lt;39&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16572,7 +16591,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3095</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubResponseDataOptionalAttributes][CoalesceErrorMessage] CoalesceErrorMessage MUST be sent only when the CoalesceHResult attribute is set to an integer value which is not equal to 0. &lt;37&gt;</ns1:Description>
+		<ns1:Description>[In CellSubResponseDataOptionalAttributes][CoalesceErrorMessage] CoalesceErrorMessage MUST be sent only when the CoalesceHResult attribute is set to an integer value which is not equal to 0. &lt;40&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -16617,7 +16636,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3097</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In CellSubResponseDataOptionalAttributes][CoalesceHResult] If CoalesceHResult is not equal to 0, it indicates an exception or failure condition that occurred. &lt;38&gt;</ns1:Description>
+		<ns1:Description>[In CellSubResponseDataOptionalAttributes][CoalesceHResult] If CoalesceHResult is not equal to 0, it indicates an exception or failure condition that occurred. &lt;41&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17122,7 +17141,7 @@ A subset of error codes returned for a cell subrequest as part of a cell storage
     &lt;xs:attribute name="UserEmailAddress" type="xs:string" use="optional"/&gt;
     &lt;xs:attribute name="UserSIPAddress" type="xs:string" use="optional" /&gt;
     &lt;xs:attribute name="UserIsAnonymous" type="xs:boolean" use="optional" /&gt;
-    &lt;xs:attribute name="UserLogin" type="xs:UserLoginType" use="required" /&gt;
+    &lt;xs:attribute name="UserLogin" type="xs:UserLoginType" use="optional" /&gt;
 &lt;/xs:attributeGroup&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -17283,7 +17302,7 @@ NO-WS-CTL       =       %d1-8 /         ; US-ASCII control characters
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3100</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.6</ns1:Doc_Sect>
-		<ns1:Description>[In WhoAmISubResponseDataOptionalAttributes][UserIsAnonymous] Protocol servers SHOULD return TRUE if the user is an anonymous guest user.&lt;39&gt;</ns1:Description>
+		<ns1:Description>[In WhoAmISubResponseDataOptionalAttributes][UserIsAnonymous] Protocol servers SHOULD return TRUE if the user is an anonymous guest user.&lt;42&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17349,7 +17368,7 @@ NO-WS-CTL       =       %d1-8 /         ; US-ASCII control characters
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1847</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTableSubRequestDataOptionalAttributes] EditorsTableRequestType: An EditorsTableRequestType that specifies the type of editors table subrequest.</ns1:Description>
+		<ns1:Description>[In EditorsTableSubRequestDataOptionalAttributes] EditorsTableRequestType: An EditorsTableRequestTypes that specifies the type of editors table subrequest.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -19113,7 +19132,7 @@ Returns an error code value set to "Success".</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1550</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Join Coauthoring Session][If the coauthoring feature is disabled on the protocol server, it does one of the following:] If the AllowFallbackToExclusive attribute is set to false, the protocol server returns an error code value set to "FileNotLockedOnServer".&lt;40&gt;</ns1:Description>
+		<ns1:Description>[In Join Coauthoring Session][If the coauthoring feature is disabled on the protocol server, it does one of the following:] If the AllowFallbackToExclusive attribute is set to false, the protocol server returns an error code value set to "FileNotLockedOnServer".&lt;43&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -19200,6 +19219,42 @@ Returns an error code value set to "Success".</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R187801</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Join Coauthoring Session] A CoauthStatus of "None" can be returned in situations where coauthoring is not achieved because an exclusive lock is returned instead of a shared lock.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R187802</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Join Coauthoring Session] This can happen when 1. the file is checked out by the current user [or 2. an exclusive lock is held by the current user or 3. the coauthoring feature] is disabled and the AllowFallbackToExclusive attribute is set to true on the request. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R187803</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Join Coauthoring Session] This can happen when [1. the file is checked out by the current user or] 2. an exclusive lock is held by the current user [or 3. the coauthoring feature] is disabled and the AllowFallbackToExclusive attribute is set to true on the request. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R187804</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
+		<ns1:Description>[In Join Coauthoring Session] This can happen when [1. the file is checked out by the current user or 2. an exclusive lock is held by the current user or] 3. the coauthoring feature is disabled and the AllowFallbackToExclusive attribute is set to true on the request. </ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1026</ns1:REQ_ID>
@@ -19368,7 +19423,7 @@ Returns an error code value set to "Success".</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3106</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Exit Coauthoring Session] If the current client is not already present in the coauthoring session, the protocol server does one of the following: Return an error code of "Success"&lt;41&gt;, if there are other clients present in the coauthoring session.</ns1:Description>
+		<ns1:Description>[In Exit Coauthoring Session] If the current client is not already present in the coauthoring session, the protocol server does one of the following: Return an error code of "Success"&lt;44&gt;, if there are other clients present in the coauthoring session.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -19387,7 +19442,7 @@ Returns an error code value set to "Success".</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1558</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Exit Coauthoring Session][When sending Exit Coauthoring Session subrequest] The protocol server SHOULD&lt;42&gt; return an error code of "FileAlreadyLockedOnServer" if there is a current exclusive lock on the file.</ns1:Description>
+		<ns1:Description>[In Exit Coauthoring Session][When sending Exit Coauthoring Session subrequest] The protocol server SHOULD&lt;45&gt; return an error code of "FileAlreadyLockedOnServer" if there is a current exclusive lock on the file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -19397,7 +19452,7 @@ Returns an error code value set to "Success".</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1560</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Exit Coauthoring Session][When sending Exit Coauthoring Session subrequest] The protocol server SHOULD&lt;37&gt; return an error code of "FileAlreadyLockedOnServer" if there is a shared lock on the file with a different schema lock identifier.</ns1:Description>
+		<ns1:Description>[In Exit Coauthoring Session][When sending Exit Coauthoring Session subrequest] The protocol server SHOULD&lt;45&gt; return an error code of "FileAlreadyLockedOnServer" if there is a shared lock on the file with a different schema lock identifier.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -19497,7 +19552,7 @@ Returns an error code value set to "Success".</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1563</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In Refresh Coauthoring Session][If the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, the protocol server does one of the following:] If the coauthoring feature is disabled, then the protocol server returns an error code value set to "FileNotLockedOnServer".&lt;43&gt;</ns1:Description>
+		<ns1:Description>[In Refresh Coauthoring Session][If the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, the protocol server does one of the following:] If the coauthoring feature is disabled, then the protocol server returns an error code value set to "FileNotLockedOnServer".&lt;46&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -20096,7 +20151,7 @@ The current client is not present in the coauthoring session.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3110</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.6</ns1:Doc_Sect>
-		<ns1:Description>[In Mark Transition to Complete][When sending Mark Transition to Complete subrequest] The protocol server returns an error code value set to "InvalidCoauthSession" to indicate failure if any of the following conditions is true: There is no shared lock.&lt;44&gt;</ns1:Description>
+		<ns1:Description>[In Mark Transition to Complete][When sending Mark Transition to Complete subrequest] The protocol server returns an error code value set to "InvalidCoauthSession" to indicate failure if any of the following conditions is true: There is no shared lock.&lt;47&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -20106,7 +20161,7 @@ The current client is not present in the coauthoring session.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3112</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.6</ns1:Doc_Sect>
-		<ns1:Description>[In Mark Transition to Complete][When sending Mark Transition to Complete subrequest] The protocol server returns an error code value set to "InvalidCoauthSession" to indicate failure if any of the following conditions is true: There is no coauthoring session for the file.&lt;45&gt;</ns1:Description>
+		<ns1:Description>[In Mark Transition to Complete][When sending Mark Transition to Complete subrequest] The protocol server returns an error code value set to "InvalidCoauthSession" to indicate failure if any of the following conditions is true: There is no coauthoring session for the file.&lt;48&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -20216,7 +20271,7 @@ The current client is not present in the coauthoring session.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3114</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In Get Coauthoring Session] If the coauthoring session does not exist, the protocol server returns an error code value set to "Success".&lt;46&gt;</ns1:Description>
+		<ns1:Description>[In Get Coauthoring Session] If the coauthoring session does not exist, the protocol server returns an error code value set to "Success".&lt;49&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -20226,7 +20281,7 @@ The current client is not present in the coauthoring session.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3116</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.7</ns1:Doc_Sect>
-		<ns1:Description>[In Get Coauthoring Session][if] the current client is not present in the coauthoring session, the protocol server returns an error code value set to "Success".&lt;46&gt;</ns1:Description>
+		<ns1:Description>[In Get Coauthoring Session][if] the current client is not present in the coauthoring session, the protocol server returns an error code value set to "Success".&lt;49&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -20745,7 +20800,7 @@ If the AllowFallbackToExclusive attribute is set to true, the protocol server ge
 		<ns1:REQ_ID>MS-FSSHTTP_R1573</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.1</ns1:Doc_Sect>
 		<ns1:Description>[In Get Lock] If the coauthoring feature is disabled on the protocol server, the server does one of the following: 
-If the AllowFallbackToExclusive attribute is set to false, the protocol server returns an error code value set to "FileNotLockedOnServer".&lt;47&gt;</ns1:Description>
+If the AllowFallbackToExclusive attribute is set to false, the protocol server returns an error code value set to "FileNotLockedOnServer".&lt;50&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -20904,7 +20959,7 @@ If the AllowFallbackToExclusive attribute is set to false, the protocol server r
 		<ns1:REQ_ID>MS-FSSHTTP_R1578</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
 		<ns1:Description>[In Release Lock] If the current client is not already present in the coauthoring session, the protocol server does one of the following:
-Return an error code of "InvalidCoauthSession" if there are other clients present in the coauthoring session.&lt;48&gt;</ns1:Description>
+Return an error code of "InvalidCoauthSession" if there are other clients present in the coauthoring session.&lt;51&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -20924,7 +20979,7 @@ Return "Success" if no clients are present in the coauthoring session.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1580</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Release Lock] The protocol server SHOULD&lt;49&gt; return an error code of "FileAlreadyLockedOnServer" if there is a current exclusive lock on the file.</ns1:Description>
+		<ns1:Description>[In Release Lock] The protocol server SHOULD&lt;52&gt; return an error code of "FileAlreadyLockedOnServer" if there is a current exclusive lock on the file.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -20934,7 +20989,7 @@ Return "Success" if no clients are present in the coauthoring session.</ns1:Desc
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1582</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In Release Lock] The protocol server SHOULD&lt;49&gt; return an error code of "FileAlreadyLockedOnServer" if there is a shared lock on the file with a different schema lock identifier.</ns1:Description>
+		<ns1:Description>[In Release Lock] The protocol server SHOULD&lt;52&gt; return an error code of "FileAlreadyLockedOnServer" if there is a shared lock on the file with a different schema lock identifier.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -21036,7 +21091,7 @@ If the coauthoring feature is enabled on the protocol server, the server conside
 		<ns1:REQ_ID>MS-FSSHTTP_R1585</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.3</ns1:Doc_Sect>
 		<ns1:Description>[In Refresh Lock] If the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, the protocol server does one of the following:
-If the coauthoring feature is disabled, the protocol server returns an error code value set to "FileNotLockedOnServer".&lt;50&gt;</ns1:Description>
+If the coauthoring feature is disabled, the protocol server returns an error code value set to "FileNotLockedOnServer".&lt;53&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -21421,7 +21476,7 @@ Release lock
 
 Refresh lock
 
-Convert to schema lock with coauthoring transition.
+Convert to schema lock with coauthoring transition tracked.
 
 Convert to schema lock
 
@@ -22785,7 +22840,7 @@ Starts a coauthoring session for the file if one is not already present and adds
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1329</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.7</ns1:Doc_Sect>
-		<ns1:Description>[In ServerTime Subrequest] The server time SHOULD&lt;51&gt; be expressed in Coordinated Universal Time (UTC).</ns1:Description>
+		<ns1:Description>[In ServerTime Subrequest] The server time SHOULD&lt;54&gt; be expressed in Coordinated Universal Time (UTC).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -22920,7 +22975,7 @@ Starts a coauthoring session for the file if one is not already present and adds
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1955</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTable Subrequest] This operation[EditorsTable Subrequest] is used to request that the protocol server store an editors table entry on the file for the client or perform other editors table operations on a file.&lt;52&gt;&lt;53&gt;</ns1:Description>
+		<ns1:Description>[In EditorsTable Subrequest] This operation[EditorsTable Subrequest] is used to request that the protocol server store an editors table entry on the file for the client or perform other editors table operations on a file.&lt;55&gt;&lt;56&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23092,7 +23147,7 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3123</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTable Subrequest][The protocol server returns results based on the following conditions:] The protocol server returns an error code value set to "EditorMetadataQuotaReached" for an "Update editor metadata" request if the client has already exceeded its quota for key/value pairs.&lt;54&gt;</ns1:Description>
+		<ns1:Description>[In EditorsTable Subrequest][The protocol server returns results based on the following conditions:] The protocol server returns an error code value set to "EditorMetadataQuotaReached" for an "Update editor metadata" request if the client has already exceeded its quota for key/value pairs.&lt;57&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23129,7 +23184,7 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1980</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.8</ns1:Doc_Sect>
-		<ns1:Description>[In EditorsTable Subrequest] To retrieve an editors table, a protocol client MUST send a QueryChanges request as specified in [MS-FSSHTTPB], with the PartitionID attribute set to the corresponding editors table partition on the server.&lt;55&gt;</ns1:Description>
+		<ns1:Description>[In EditorsTable Subrequest] To retrieve an editors table, a protocol client MUST send a QueryChanges request as specified in [MS-FSSHTTPB], with the PartitionID attribute set to the corresponding editors table partition on the server.&lt;58&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23301,7 +23356,7 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1999</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9</ns1:Doc_Sect>
-		<ns1:Description>[In GetDocMetaInfo Subrequest] This operation[GetDocMetaInfo Subrequest] is used to retrieve server metadata properties pertaining to the server file and its parent folder.&lt;56&gt;</ns1:Description>
+		<ns1:Description>[In GetDocMetaInfo Subrequest] This operation[GetDocMetaInfo Subrequest] is used to retrieve server metadata properties pertaining to the server file and its parent folder.&lt;59&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23465,7 +23520,7 @@ If the processing of the GetDocMetaInfo subrequest by the protocol server failed
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2017</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10</ns1:Doc_Sect>
-		<ns1:Description>[In GetVersions Subrequest] This operation[GetVersions Subrequest] is used to retrieve information about a file’s versions.&lt;57&gt;</ns1:Description>
+		<ns1:Description>[In GetVersions Subrequest] This operation[GetVersions Subrequest] is used to retrieve information about a file’s versions.&lt;60&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -23766,7 +23821,7 @@ Otherwise[the processing of the GetVersions subrequest by the protocol server ge
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11231</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.11</ns1:Doc_Sect>
-		<ns1:Description>[In Versioning Subrequest] This operation is used to request information on versions of a file or different types of versioning related operations on a file from the protocol server.&lt;58&gt;</ns1:Description>
+		<ns1:Description>[In Versioning Subrequest] This operation is used to request information on versions of a file or different types of versioning related operations on a file from the protocol server.&lt;61&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24003,7 +24058,7 @@ Depending on the type of error, the ErrorCode is returned as an attribute of the
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2344</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.12</ns1:Doc_Sect>
-		<ns1:Description>[FileOperation SubRequest]This operation is used to make a request to the protocol server for a file operation.&lt;59&gt;</ns1:Description>
+		<ns1:Description>[FileOperation SubRequest]This operation is used to make a request to the protocol server for a file operation.&lt;62&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24158,7 +24213,7 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2361</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.13</ns1:Doc_Sect>
-		<ns1:Description>[AmIAlone Subrequest]This operation is used to find out if the user is alone in a coauthoring session.&lt;60&gt;</ns1:Description>
+		<ns1:Description>[AmIAlone Subrequest]This operation is used to find out if the user is alone in a coauthoring session.&lt;63&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24285,7 +24340,7 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2375</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.14</ns1:Doc_Sect>
-		<ns1:Description>[LockStatus Subrequest]This operation is used to retrieve information about the lock state of a file.&lt;61&gt;</ns1:Description>
+		<ns1:Description>[LockStatus Subrequest]This operation is used to retrieve information about the lock state of a file.&lt;64&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24403,7 +24458,7 @@ If the processing of the FileOperation subrequest by the protocol server failed 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2388</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.15</ns1:Doc_Sect>
-		<ns1:Description>[Properties Subrequest]This operation is used to request information on properties.&lt;62&gt;</ns1:Description>
+		<ns1:Description>[Properties Subrequest]This operation is used to request information on properties.&lt;65&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24731,7 +24786,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1102402</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support SuggestedFileName to specify that the suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request. (&lt;13&gt; Section 2.2.3.5:  The SuggestedFileName attribute is not supported by SharePoint Server 2010 and SharePoint Server 2013.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support SuggestedFileName to specify that the suggested filename that the host returns if the ShouldReturnDisambiguatedFileName flag is set on the Request. (&lt;14&gt; Section 2.2.3.5:  The SuggestedFileName attribute is not supported by SharePoint Server 2010 and SharePoint Server 2013.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24859,9 +24914,31 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R1127201</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string that the RequestToken attribute is not present. &lt;11&gt; Section 2.2.3.5:  In SharePoint Foundation 2010 and SharePoint Server 2010, the RequestToken attribute is not present if the RequestToken attribute of the corresponding Request element is an empty string.</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R107:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R1127202</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is not an empty string that the RequestToken attribute is present.  (SharePoint 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R107:i</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3006</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. &lt;11&gt; Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does return two ErrorCode attributes in Response element. &lt;12&gt; Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1664:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -24872,7 +24949,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3007</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does not return Response element. &lt;11&gt; Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element doesn't exist, the implementation does not return Response element. &lt;12&gt; Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1664:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -24883,7 +24960,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3008</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. &lt;11&gt; Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does return two ErrorCode attributes in Response element. &lt;12&gt; Section 2.2.3.5:  SharePoint Server 2010 will return 2 ErrorCode attributes in Response element.</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1665:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -24894,7 +24971,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3009</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. &lt;11&gt; Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the Url attribute of the corresponding Request element is an empty string, the implementation does not return Response element. &lt;12&gt; Section 2.2.3.5:  SharePoint Server 2013 will not return Response element.</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1665:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -24905,7 +24982,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3010</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (&lt;12&gt; Section 2.2.3.5:  In SharePoint Foundation 2010 and SharePoint Server 2010, the ErrorCode attribute is present if the RequestToken attribute of the corresponding Request element is an empty string.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the RequestToken attribute of the corresponding Request element is an empty string, the implementation does return the ErrorCode attribute in Response element. (&lt;13&gt; Section 2.2.3.5:  In SharePoint Foundation 2010 and SharePoint Server 2010, the ErrorCode attribute is present if the RequestToken attribute of the corresponding Request element is an empty string.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1510:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
@@ -24927,7 +25004,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2456</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support ResourceID attribute. &lt;14&gt; Section 2.2.3.5:  The ResourceID attribute is not supported by SharePoint Server 2010 and SharePoint Server 2013.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support ResourceID attribute. &lt;15&gt; Section 2.2.3.5:  The ResourceID attribute is not supported by SharePoint Server 2010 and SharePoint Server 2013.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24945,9 +25022,29 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R1127501</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support WebUrlIsEncoded attribute. &lt;16&gt; Section 2.2.3.6:  The WebUrlIsEncoded attribute is not supported by SharePoint Workspace 2010, SharePoint Foundation 2010, SharePoint Foundation 2013, SharePoint Server 2010, SharePoint Server 2013, and SharePoint Server 2016.</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R1127502</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support WebUrlIsEncoded attribute.(SharePoint Server 2019 and above follow this behavior.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R2106:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:VerificationComment>This requirement can be enabled/disabled in the deployment.ptfconfig file.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R15181</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  ErrorCode attribute is present if this protocol is not enabled on the protocol server.(&lt;15&gt; Section 2.2.3.7:  In SharePoint Foundation 2010, SharePoint Server 2010, SharePoint Foundation 2013 and SharePoint Server 2013, the ErrorCode attribute is present if this protocol is not enabled on the protocol server.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  ErrorCode attribute is present if this protocol is not enabled on the protocol server.(&lt;17&gt; Section 2.2.3.7:  In SharePoint Foundation 2010, SharePoint Server 2010, SharePoint Foundation 2013 and SharePoint Server 2013, the ErrorCode attribute is present if this protocol is not enabled on the protocol server.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24966,7 +25063,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11263</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the ServerCorrelationId attribute. &lt;16&gt; Section 2.2.4.8:  SharePoint Server 2010 and SharePoint Server 2013 do not support the ServerCorrelationId attribute.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the ServerCorrelationId attribute. &lt;18&gt; Section 2.2.4.8:  SharePoint Server 2010 and SharePoint Server 2013 do not support the ServerCorrelationId attribute.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -24984,7 +25081,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3023</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return value "CurrentUserHasExclusiveLock". &lt;17&gt; Section 2.2.5.5:  SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2016 will never return this value["CurrentUserHasExclusiveLock"] to the client.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not return value "CurrentUserHasExclusiveLock". &lt;19&gt; Section 2.2.5.5:  SharePoint Server 2010, SharePoint Server 2013 and SharePoint Server 2016 will never return this value["CurrentUserHasExclusiveLock"] to the client.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25013,7 +25110,25 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11266</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support "PathNotFound" of GenericErrorCodeTypes. &lt;18&gt; Section 2.2.5.6:  SharePoint Server 2010 and SharePoint Server 2013 do not support this error code type.["PathNotFound"].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support "PathNotFound" of GenericErrorCodeTypes. &lt;20&gt; Section 2.2.5.6:  SharePoint Server 2010 and SharePoint Server 2013 do not support this error code type.["PathNotFound"].</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R1126601</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return the value "HighLevelExceptionThrown" of GenericErrorCodeTypes when an error when the web service is turned off during the processing of the cell storage service request. (SharePoint Server 2010 and SharePoint Server 2013 follow this behavior.)</ns1:Description>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R1126602</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support "WebServiceTurnedOff" of GenericErrorCodeTypes. &lt;21&gt; Section 2.2.5.6:  SharePoint Server 2016, SharePoint Server 2019 and SharePoint Server Subscription Edition do not support this error code type.["WebServiceTurnedOff"]</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25033,7 +25148,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3026</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support "HighLevelExceptionThrown" of GenericErrorCodeTypes. &lt;19&gt; Section 2.2.5.6:  SharePoint Server 2010 does not support this error code type["HighLevelExceptionThrown"].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support "HighLevelExceptionThrown" of GenericErrorCodeTypes. &lt;22&gt; Section 2.2.5.6:  SharePoint Server 2010 does not support this error code type["HighLevelExceptionThrown"].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25052,7 +25167,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3032</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support NewEditorsTableCategoryErrorCodeTypes. &lt;20&gt; Section 2.2.5.14:  SharePoint Server 2010 does not support this simple type[NewEditorsTableCategoryErrorCodeTypes].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support NewEditorsTableCategoryErrorCodeTypes. &lt;23&gt; Section 2.2.5.14:  SharePoint Server 2010 does not support this simple type[NewEditorsTableCategoryErrorCodeTypes].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25061,7 +25176,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2030</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;20&gt; Section 2.2.8.1:  Microsoft Word 2010 and Microsoft PowerPoint 2010 use the string "29358EC1-E813-4793-8E70-ED0344E7B73C" for the SchemaLockID attribute sent in the different subrequests of type Coauthoring, ExclusiveLock, and SchemaLock.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;24&gt; Section 2.2.8.1:  Microsoft Word 2010 and Microsoft PowerPoint 2010 use the string "29358EC1-E813-4793-8E70-ED0344E7B73C" for the SchemaLockID attribute sent in the different subrequests of type Coauthoring, ExclusiveLock, and SchemaLock.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25070,7 +25185,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1603</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support.&lt;22&gt; Section 2.2.8.2: Servers running Microsoft Office 2010 suites return a time value that is not the current time.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support.&lt;25&gt; Section 2.2.8.2: Servers running Microsoft Office 2010 suites return a time value that is not the current time.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25079,7 +25194,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2031</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;22&gt; Section 2.2.8.2: The protocol client does not change its behavior because the protocol client uses the difference between ServerTime values, not the difference between ServerTime and the time at the client.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;25&gt; Section 2.2.8.2: The protocol client does not change its behavior because the protocol client uses the difference between ServerTime values, not the difference between ServerTime and the time at the client.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25099,7 +25214,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3064</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the ErrorCode attribute that is part of the SubResponse element is set to a value of "Success", the implementation does not return CoauthStatus attribute when client tries to join the coauthoring session and the subrequest falls back to an exclusive lock subrequest. &lt;23&gt; Section 2.2.8.2:  SharePoint Server 2010 will not return CoauthStatus attribute when client tries to join the coauthoring session and the subrequest falls back to an exclusive lock subrequest.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the ErrorCode attribute that is part of the SubResponse element is set to a value of "Success", the implementation does not return CoauthStatus attribute when client tries to join the coauthoring session and the subrequest falls back to an exclusive lock subrequest. &lt;26&gt; Section 2.2.8.2:  SharePoint Server 2010 will not return CoauthStatus attribute when client tries to join the coauthoring session and the subrequest falls back to an exclusive lock subrequest.</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3063:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25120,7 +25235,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2032</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;24&gt; Section 2.3.1.1:  Word 2010 and PowerPoint 2010 use string "29358EC1-E813-4793-8E70-ED0344E7B73C" for the SchemaLockID attribute sent in the different subrequests of type Coauthoring, ExclusiveLock and SchemaLock。</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;27&gt; Section 2.3.1.1:  Word 2010 and PowerPoint 2010 use string "29358EC1-E813-4793-8E70-ED0344E7B73C" for the SchemaLockID attribute sent in the different subrequests of type Coauthoring, ExclusiveLock and SchemaLock.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25129,7 +25244,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R30651</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;25&gt; Section 2.3.1.5:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;28&gt; Section 2.3.1.5:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R5602:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25139,7 +25254,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3066</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;25&gt; Section 2.3.1.5:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the coauthoring subresponse(Microsoft Sharepoint 2013/Microsoft Office 2016/Microsoft Sharepoint Server 2016).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;28&gt; Section 2.3.1.5:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the coauthoring subresponse(Microsoft Sharepoint 2013/Microsoft Office 2016/Microsoft Sharepoint Server 2016).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R5602:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25150,7 +25265,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3065</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;25&gt; Section 2.3.1.5:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the coauthoring subresponse(Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[CoauthRequestType] are not provided, the implementation does return error code. &lt;28&gt; Section 2.3.1.5:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the coauthoring subresponse(Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R5602:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25161,7 +25276,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2033</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;26&gt; Section 2.3.1.5:  Word 2010 and PowerPoint 2010 use the string "29358EC1-E813-4793-8E70-ED0344E7B73C" for the SchemaLockID attribute sent in the different subrequests of type Coauthoring, ExclusiveLock, and SchemaLock.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;29&gt; Section 2.3.1.5:  Word 2010 and PowerPoint 2010 use the string "29358EC1-E813-4793-8E70-ED0344E7B73C" for the SchemaLockID attribute sent in the different subrequests of type Coauthoring, ExclusiveLock, and SchemaLock.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25181,7 +25296,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3070</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] The implementation does not return CoauthStatus attribute and falls back the subrequest to an exclusive lock subrequest. &lt;27&gt; Section 2.3.1.7:  SharePoint Server 2010 will not return CoauthStatus attribute when client tries to join the coauthoring session and the subrequest falls back to an exclusive lock subrequest.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] The implementation does not return CoauthStatus attribute and falls back the subrequest to an exclusive lock subrequest. &lt;30&gt; Section 2.3.1.7:  SharePoint Server 2010 will not return CoauthStatus attribute when client tries to join the coauthoring session and the subrequest falls back to an exclusive lock subrequest.</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3069:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25202,7 +25317,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3071</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[ExclusiveLockRequestType] are not provided, the implementation does return error code. &lt;28&gt; Section 2.3.1.9:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the exclusive lock subresponse(Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[ExclusiveLockRequestType] are not provided, the implementation does return error code. &lt;31&gt; Section 2.3.1.9:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the exclusive lock subresponse(Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R6342:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25213,7 +25328,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3072</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[ExclusiveLockRequestType] are not provided, the implementation does return error code. &lt;28&gt; Section 2.3.1.9:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the exclusive lock subresponse(Microsoft Sharepoint 2013/Microsoft Office 2016/Microsoft Sharepoint Server 2016).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[ExclusiveLockRequestType] are not provided, the implementation does return error code. &lt;31&gt; Section 2.3.1.9:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the exclusive lock subresponse(Microsoft Sharepoint 2013/Microsoft Office 2016/Microsoft Sharepoint Server 2016).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R6342:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25224,7 +25339,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R30711</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[ExclusiveLockRequestType] are not provided, the implementation does return error code. &lt;28&gt; Section 2.3.1.9:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[ExclusiveLockRequestType] are not provided, the implementation does return error code. &lt;31&gt; Section 2.3.1.9:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R6342:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25234,7 +25349,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2034</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;29&gt; Section 2.3.1.9:  Word 2010 and PowerPoint 2010 use the  string "29358EC1-E813-4793-8E70-ED0344E7B73C" for the SchemaLockID attribute sent in the different subrequests of type Coauthoring, ExclusiveLock, and SchemaLock.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;32&gt; Section 2.3.1.9:  Word 2010 and PowerPoint 2010 use the  string "29358EC1-E813-4793-8E70-ED0344E7B73C" for the SchemaLockID attribute sent in the different subrequests of type Coauthoring, ExclusiveLock, and SchemaLock.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25243,7 +25358,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R6662</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;30&gt; Section 2.3.1.13:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the schema lock subresponse(Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.13:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the schema lock subresponse(Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3073:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25254,7 +25369,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3074</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;30&gt; Section 2.3.1.13:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the schema lock subresponse(SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.13:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the schema lock subresponse(SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3073:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25265,7 +25380,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R30741</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;30&gt; Section 2.3.1.13:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[SchemaLockRequestType] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.13:  SharePoint Server 2019 returns HTTP status code 302(Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3073:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25275,7 +25390,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2035</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;31&gt; Section 2.3.1.13:  Word 2010 and PowerPoint 2010 use string "29358EC1-E813-4793-8E70-ED0344E7B73C" for the SchemaLockID attribute sent in the different subrequests of type Coauthoring, ExclusiveLock, and SchemaLock.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;34&gt; Section 2.3.1.13:  Word 2010 and PowerPoint 2010 use string "29358EC1-E813-4793-8E70-ED0344E7B73C" for the SchemaLockID attribute sent in the different subrequests of type Coauthoring, ExclusiveLock, and SchemaLock.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25284,7 +25399,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1604</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;32&gt; Section 2.3.1.18: Servers running Office 2010 return a time value that is not the current time.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;35&gt; Section 2.3.1.18: Servers running Office 2010 return a time value that is not the current time.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25293,7 +25408,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2036</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;32&gt; Section 2.3.1.18: The protocol client does not change its behavior because the protocol client uses the  difference between ServerTime values, not the difference between the ServerTime and the time at the client.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;35&gt; Section 2.3.1.18: The protocol client does not change its behavior because the protocol client uses the  difference between ServerTime values, not the difference between the ServerTime and the time at the client.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25302,7 +25417,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11267</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;36&gt; Section 2.3.1.33:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11101:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25313,7 +25428,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11268</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Server 2016 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;36&gt; Section 2.3.1.33:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Server 2016 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11101:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25324,7 +25439,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R112671</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2019 returns HTTP status code 302(Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;36&gt; Section 2.3.1.33:  SharePoint Server 2019 returns HTTP status code 302(Microsoft SharePoint Server 2019 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11101:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25334,7 +25449,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3086</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute. &lt;34&gt; Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2016/Microsoft SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does add an additional authentication prefix for the UserLogin attribute. &lt;37&gt; Section 2.3.2.6: There is an additional authentication prefix if claims-based authentication mode is enabled. (Microsoft SharePoint Foundation 2016/Microsoft SharePoint Server 2016 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R791:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25345,7 +25460,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11269</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;34&gt; Section 2.3.2.6: For example: " i:0#.w|contoso\user01".</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;37&gt; Section 2.3.2.6: For example: " i:0#.w|contoso\user01".</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -25354,7 +25469,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2037</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;35&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;38&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
 The subrequest is a Put Changes subrequest, as described in [MS-FSSHTTPB] section 2.2.2.1.4, and the Partial bit, as described in [MS-FSSHTTPB] section 2.2.2.1.4, of the Put Changes request is 1.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -25364,7 +25479,7 @@ The subrequest is a Put Changes subrequest, as described in [MS-FSSHTTPB] sectio
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2038</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not save changes to the underlying store. &lt;35&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not save changes to the underlying store. &lt;38&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
 In this case[The subrequest is a Put Changes subrequest, and the Partial bit of the Put Changes request is 1], Servers running Office 2010 do not save changes to the underlying store.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25374,7 +25489,7 @@ In this case[The subrequest is a Put Changes subrequest, and the Partial bit of 
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2039</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does store the changes in a write cache. &lt;35&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does store the changes in a write cache. &lt;38&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
 Instead[saving changes to the underlying store], the changes are stored in a write cache.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25384,7 +25499,7 @@ Instead[saving changes to the underlying store], the changes are stored in a wri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2040</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;35&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;38&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
 Servers running Office 2010 write to an intermediate write cache while processing a subrequest if the subrequest is a Put Changes subrequest, as described in [MS-FSSHTTPB] section 2.2.2.1.4.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
@@ -25394,7 +25509,7 @@ Servers running Office 2010 write to an intermediate write cache while processin
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2041</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not save changes to the underlying store. &lt;35&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not save changes to the underlying store. &lt;38&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
 [Servers running Microsoft 2010 write to an intermediate write cache while processing a subrequest if the subrequest is a Put Changes subrequest] If writing to the write cache fails, servers running Microsoft 2010 do not save changes to the underlying store.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25404,7 +25519,7 @@ Servers running Office 2010 write to an intermediate write cache while processin
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2042</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not save changes to the underlying store. &lt;35&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not save changes to the underlying store. &lt;38&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
 If prior to the current attempt to save changes to the underlying store, there have been from 26 through 73 consecutive failed attempts immediately preceding the current attempt, and the most recent failed attempt is within 60 minutes of the current subrequest, servers running Office 2010 do not save changes to the underlying store.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25414,7 +25529,7 @@ If prior to the current attempt to save changes to the underlying store, there h
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2043</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does store the changes in a write cache. &lt;35&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does store the changes in a write cache. &lt;38&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
 Instead[saving changes to the underlying store], the changes are stored in a write cache.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25424,7 +25539,7 @@ Instead[saving changes to the underlying store], the changes are stored in a wri
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2044</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not save changes to the underlying store. &lt;35&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not save changes to the underlying store. &lt;38&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
 If prior to the current attempt to save changes to the underlying store there have been more than 73 consecutive failed attempts immediately preceding and the most recent failed attempt is within 24 hours of the current subrequest then servers running Office 2010 will not save changes to the underlying store.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25434,7 +25549,7 @@ If prior to the current attempt to save changes to the underlying store there ha
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2045</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does store the changes in a write cache. &lt;35&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does store the changes in a write cache. &lt;38&gt; Section 2.3.3.1: [Servers running Office 2010 save all changes to the underlying store at the end of processing a subrequest, with the following four exceptions:] 
 Instead[saving changes to the underlying store,] the changes will be stored in a write cache.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25455,7 +25570,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3090</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support GetFileProps attribute in Put Changes subrequest. &lt;36&gt; Section 2.3.3.1: Attribute not supported by SharePoint Foundation 2013 and SharePoint Server 2013 in Put Changes subrequest, as described in [MS-FSSHTTPB] section 2.2.1.1.4.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support GetFileProps attribute in Put Changes subrequest. &lt;39&gt; Section 2.3.3.1: Attribute not supported by SharePoint Foundation 2013 and SharePoint Server 2013 in Put Changes subrequest, as described in [MS-FSSHTTPB] section 2.2.1.1.4.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25464,7 +25579,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3096</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  &lt;37&gt; Section 2.3.3.2: Attribute[CoalesceErrorMessage] not supported by SharePoint Server 2013.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  &lt;40&gt; Section 2.3.3.2: Attribute[CoalesceErrorMessage] not supported by SharePoint Server 2013.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25473,7 +25588,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3098</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;38&gt; Section 2.3.3.2: Attribute[CoalesceHResult] not supported by SharePoint Server 2013.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;41&gt; Section 2.3.3.2: Attribute[CoalesceHResult] not supported by SharePoint Server 2013.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25512,7 +25627,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3102</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] The implementation does not support UserIsAnonymous attribute. &lt;39&gt; Section 2.3.3.6: Attribute not supported by Office 2010.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] The implementation does not support UserIsAnonymous attribute. &lt;42&gt; Section 2.3.3.6: Attribute not supported by Office 2010.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25521,7 +25636,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3104</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;42&gt; Section 3.1.4.3.1:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled"",if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;43&gt; Section 3.1.4.3.1:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled"",if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1550:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25532,7 +25647,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R310401</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "LockNotConvertedAsCoauthDisabled". (&lt;42&gt; Section 3.1.4.3.1:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "LockNotConvertedAsCoauthDisabled"",if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "LockNotConvertedAsCoauthDisabled". (&lt;43&gt; Section 3.1.4.3.1:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "LockNotConvertedAsCoauthDisabled"",if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1550:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25554,7 +25669,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1556</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the "exiting coauthoring session" operation, the implementation does return an error code of "Success", if there are other clients present in the coauthoring session. (&lt;41&gt; Section 3.1.4.3.2:  Microsoft SharePoint Foundation 2010/SharePoint Server 2010 /Microsoft Office 2019/Microsoft SharePoint Server 2019 InvalidCoauthSession.) </ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the "exiting coauthoring session" operation, the implementation does return an error code of "Success", if there are other clients present in the coauthoring session. (&lt;44&gt; Section 3.1.4.3.2:  Microsoft SharePoint Foundation 2010/SharePoint Server 2010 /Microsoft Office 2019/Microsoft SharePoint Server 2019 InvalidCoauthSession.) </ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3106:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25565,7 +25680,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3107</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the "exiting coauthoring session" operation, the implementation does return an error code of "Success", if there are other clients present in the coauthoring session. (&lt;41&gt; Section 3.1.4.3.2: Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016  will return an error code of "InvalidCoauthSession", if there are other clients present in the coauthoring session.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the current client is not already present in the coauthoring session when doing the "exiting coauthoring session" operation, the implementation does return an error code of "Success", if there are other clients present in the coauthoring session. (&lt;44&gt; Section 3.1.4.3.2: Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft Office 2016/Microsoft SharePoint Server 2016  will return an error code of "InvalidCoauthSession", if there are other clients present in the coauthoring session.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3106:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25576,7 +25691,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1605</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" when sending Exit Coauthoring Session subrequest. (&lt;42&gt; Section 3.1.4.3.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code of "Success" if there is an exclusive lock on the file.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" when sending Exit Coauthoring Session subrequest. (&lt;45&gt; Section 3.1.4.3.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code of "Success" if there is an exclusive lock on the file.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1558:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25586,7 +25701,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2047</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" when sending Exit Coauthoring Session subrequest. (&lt;42&gt; Section 3.1.4.3.2: SharePoint Server 2013 and SharePoint Server 2010 return an error code of "Success" if there is a shared lock with a different shared lock identifier and a valid coauthoring session containing more than one clients.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" when sending Exit Coauthoring Session subrequest. (&lt;45&gt; Section 3.1.4.3.2: SharePoint Server 2013 and SharePoint Server 2010 return an error code of "Success" if there is a shared lock with a different shared lock identifier and a valid coauthoring session containing more than one clients.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1560:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25596,7 +25711,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R156001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "FileAlreadyLockedOnServer" if there is a shared lock on the file with a different schema lock identifier When sending Exit Coauthoring Session subrequest. (&lt;42&gt; Section 3.1.4.3.2: SharePoint Server 2013 and SharePoint Server 2010 return an error code of "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session containing one client.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "FileAlreadyLockedOnServer" if there is a shared lock on the file with a different schema lock identifier When sending Exit Coauthoring Session subrequest. (&lt;45&gt; Section 3.1.4.3.2: SharePoint Server 2013 and SharePoint Server 2010 return an error code of "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session containing one client.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1560:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25606,7 +25721,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3108</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;45&gt; Section 3.1.4.3.3:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;46&gt; Section 3.1.4.3.3:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled".)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1563:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25617,7 +25732,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R310801</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to "Success". (&lt;45&gt; Section 3.1.4.3.3:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "Success". )</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock in the file coauthoring tracker, if the coauthoring feature is disabled, the implementation does return an error code value set to "Success". (&lt;46&gt; Section 3.1.4.3.3:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "Success". )</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1563:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25650,7 +25765,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3111</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior][When sending Mark Transition to Complete subrequest] The implementation does return an error code value set to "LockRequestFail" to indicate failure if there is no shared lock. (&lt;44&gt; Section 3.1.4.3.6:  SharePoint Server 2010 returns an error code value set to "LockRequestFail" if there is no shared lock.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior][When sending Mark Transition to Complete subrequest] The implementation does return an error code value set to "LockRequestFail" to indicate failure if there is no shared lock. (&lt;47&gt; Section 3.1.4.3.6:  SharePoint Server 2010 returns an error code value set to "LockRequestFail" if there is no shared lock.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3110:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25672,7 +25787,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3113</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior][When sending Mark Transition to Complete subrequest] The implementation does return an error code value set to "LockRequestFail" to indicate failure if there is no coauthoring session for the file. (&lt;45&gt; Section 3.1.4.3.6:  SharePoint Server 2010 returns an error code value set to "LockRequestFail" if there is no coauthoring session for the file)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior][When sending Mark Transition to Complete subrequest] The implementation does return an error code value set to "LockRequestFail" to indicate failure if there is no coauthoring session for the file. (&lt;48&gt; Section 3.1.4.3.6:  SharePoint Server 2010 returns an error code value set to "LockRequestFail" if there is no coauthoring session for the file)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3112:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25683,7 +25798,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1106</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] If the coauthoring session does not exist when doing the "Get Coauthoring session" operation, the implementation does return an error code value set to "InvalidCoauthSession". (&lt;46&gt; Section 3.1.4.3.7:  In SharePoint Server 2010, the protocol server returns an error code value set to "InvalidCoauthSession".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] If the coauthoring session does not exist when doing the "Get Coauthoring session" operation, the implementation does return an error code value set to "InvalidCoauthSession". (&lt;49&gt; Section 3.1.4.3.7:  In SharePoint Server 2010, the protocol server returns an error code value set to "InvalidCoauthSession".)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3114:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25705,7 +25820,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1107</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] if the current client is not present in the coauthoring session when doing the "Get Coauthoring session" operation, the implementation does return an error code value set to "InvalidCoauthSession". (&lt;46&gt; Section 3.1.4.3.7:  In SharePoint Server 2010, the protocol server returns an error code value set to "InvalidCoauthSession".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] if the current client is not present in the coauthoring session when doing the "Get Coauthoring session" operation, the implementation does return an error code value set to "InvalidCoauthSession". (&lt;49&gt; Section 3.1.4.3.7:  In SharePoint Server 2010, the protocol server returns an error code value set to "InvalidCoauthSession".)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3116:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25727,7 +25842,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3118</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false when sending a Get Lock subrequest, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;49&gt; Section 3.1.4.4.1:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled"", if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false when sending a Get Lock subrequest, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;50&gt; Section 3.1.4.4.1:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled", if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
 		<ns1:Derived>
 MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
@@ -25739,7 +25854,7 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R311801</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false when sending a Get Lock subrequest, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;49&gt; Section 3.1.4.4.1:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "LockNotConvertedAsCoauthDisabled", if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the coauthoring feature is disabled on the protocol server, if the AllowFallbackToExclusive attribute is set to false when sending a Get Lock subrequest, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;50&gt; Section 3.1.4.4.1:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "LockNotConvertedAsCoauthDisabled", if the AllowFallbackToExclusive attribute is set to false.)</ns1:Description>
 		<ns1:Derived>
 MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
@@ -25774,7 +25889,7 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3129</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] The implementation does return an error code "Success" if the current client is not already present in the coauthoring session and if there are other clients present in the coauthoring session. (&lt;48&gt; Section 3.1.4.4.2:  SharePoint Server 2010 will return an error code of "Success" if there are other clients present in the coauthoring session.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] The implementation does return an error code "Success" if the current client is not already present in the coauthoring session and if there are other clients present in the coauthoring session. (&lt;51&gt; Section 3.1.4.4.2:  SharePoint Server 2010 will return an error code of "Success" if there are other clients present in the coauthoring session.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1578:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25785,7 +25900,7 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1608</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a current exclusive lock on the file when sending a release lock subrequest. (&lt;49&gt; Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code "Success" if there is an exclusive lock on the file and valid coauthoring session with more than one clients in it.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a current exclusive lock on the file when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code "Success" if there is an exclusive lock on the file and valid coauthoring session with more than one clients in it.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1580:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25795,7 +25910,7 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3120</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (&lt;49&gt; Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1580:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25805,7 +25920,7 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R158201</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (&lt;49&gt; Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1582:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25815,7 +25930,7 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3121</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;52&gt; Section 3.1.4.4.3:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "FileNotLockedOnServerAsCoauthDisabled". (&lt;53&gt; Section 3.1.4.4.3:  SharePoint Server 2010 will return an error code value "FileNotLockedOnServerAsCoauthDisabled".)</ns1:Description>
 		<ns1:Derived>
 MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
@@ -25827,7 +25942,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R312101</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "Success". (&lt;52&gt; Section 3.1.4.4.3:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "Success".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] When the refresh of the shared lock on the file for that specific client fails because the file is no longer locked since the timeout value expired on the lock, if the coauthoring feature is disabled and if the AllowFallbackToExclusive attribute is set to false, the implementation does return an error code value set to "Success". (&lt;53&gt; Section 3.1.4.4.3:  SharePoint Server 2019 and SharePoint Server Subscription Edition will return an error code value "Success".)</ns1:Description>
 		<ns1:Derived>
 MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
@@ -25851,7 +25966,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1611</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support. &lt;51&gt; Section 3.1.4.7: Servers running Office 2010 return a time value that is not the current time.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support. &lt;54&gt; Section 3.1.4.7: Servers running Office 2010 return a time value that is not the current time.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25860,7 +25975,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2049</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;51&gt; Section 3.1.4.7: The protocol client does not change its behavior because the protocol client uses the difference between ServerTime values, not the difference between ServerTime and the time at the client.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;54&gt; Section 3.1.4.7: The protocol client does not change its behavior because the protocol client uses the difference between ServerTime values, not the difference between ServerTime and the time at the client.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25869,7 +25984,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R9000</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support EditorsTable operation. &lt;52&gt; Section 3.1.4.8:  SharePoint Server 2010 does not support this operation[EditorsTable Subrequest].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support EditorsTable operation. &lt;55&gt; Section 3.1.4.8:  SharePoint Server 2010 does not support this operation[EditorsTable Subrequest].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25890,7 +26005,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2050</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (&lt;53&gt; Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a coauthoring lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (&lt;56&gt; Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a coauthoring lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1955:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25901,7 +26016,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2081</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;53&gt; Section 3.1.4.8: Editors table subrequests are used by clients running Office 2013 that do not take locks on documents before editing them.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;56&gt; Section 3.1.4.8: Editors table subrequests are used by clients running Office 2013 that do not take locks on documents before editing them.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25910,7 +26025,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2051</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (&lt;53&gt; Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a schema lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does automatically add a client to the editors table when sending a EditorsTable subrequest. (&lt;56&gt; Section 3.1.4.8: Servers running Office 2013 automatically add a client to the editors table when it takes a schema lock—if the client protocol version is 2.2 or higher as described in section 2.2.5.10.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1955:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25921,7 +26036,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1976</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] The implementation does return an error code value set to "EditorMetadataQuotaReached" for an "Update editor metadata" request if the client has already exceeded 4 key/value pairs. (&lt;54&gt; Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] The implementation does return an error code value set to "EditorMetadataQuotaReached" for an "Update editor metadata" request if the client has already exceeded 4 key/value pairs. (&lt;57&gt; Section 3.1.4.8: Only 4 key/value pairs can be associated with an editor on servers running Office 2013.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R3123:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25932,7 +26047,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2052</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;55&gt; Section 3.1.4.8: On servers running Office 2013, the editors table partition identifier is the GUID "7808F4DD-2385-49d6-B7CE-37AC-A5E4-3602".</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;58&gt; Section 3.1.4.8: On servers running Office 2013, the editors table partition identifier is the GUID "7808F4DD-2385-49d6-B7CE-37AC-A5E4-3602".</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25941,7 +26056,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2053</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does represent the editors table as a compressed XML fragment. (&lt;55&gt; Section 3.1.4.8: On servers running Office 2013, the editors table is represented as a compressed XML fragment.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  Implementation does represent the editors table as a compressed XML fragment. (&lt;58&gt; Section 3.1.4.8: On servers running Office 2013, the editors table is represented as a compressed XML fragment.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1980:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25952,7 +26067,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R9002</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support GetDocMetaInfo operation. &lt;56&gt; Section 3.1.4.9:  SharePoint Server 2010 does not support this operation[GetDocMetaInfo].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support GetDocMetaInfo operation. &lt;59&gt; Section 3.1.4.9:  SharePoint Server 2010 does not support this operation[GetDocMetaInfo].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25972,7 +26087,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3124</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support GetVersions operation. &lt;57&gt; Section 3.1.4.10:  SharePoint Server 2010 does not support this operation[GetVersions].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support GetVersions operation. &lt;60&gt; Section 3.1.4.10:  SharePoint Server 2010 does not support this operation[GetVersions].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25992,7 +26107,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2460</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support Versioning operation. &lt;58&gt; Section 3.1.4.11:  SharePoint Server 2010 and SharePoint Server 2013 do not support this operation[Versioning].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support Versioning operation. &lt;61&gt; Section 3.1.4.11:  SharePoint Server 2010 and SharePoint Server 2013 do not support this operation[Versioning].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -26001,7 +26116,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2462</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support FileOperation operation. &lt;59&gt; Section 3.1.4.12:  SharePoint Server 2010 and SharePoint Server 2013 do not support this operation[FileOperation].</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support FileOperation operation. &lt;62&gt; Section 3.1.4.12:  SharePoint Server 2010 and SharePoint Server 2013 do not support this operation[FileOperation].</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -26010,7 +26125,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2464</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support AmIAlone operation. &lt;60&gt; Section 3.1.4.13:  SharePoint Server 2010 does not support the AmIAlone operation..</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support AmIAlone operation. &lt;63&gt; Section 3.1.4.13:  SharePoint Server 2010 does not support the AmIAlone operation..</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -26019,7 +26134,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R246401</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support AmIAlone operation. &lt;60&gt; (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does support AmIAlone operation. &lt;63&gt; (Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013 and above follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R2361:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>both</ns1:Scope>
@@ -26030,7 +26145,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2466</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support LockStatus operation. &lt;61&gt; Section 3.1.4.14:  SharePoint Server 2010 and SharePoint Server 2013 do not support the LockStatus operation.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support LockStatus operation. &lt;64&gt; Section 3.1.4.14:  SharePoint Server 2010 and SharePoint Server 2013 do not support the LockStatus operation.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -26050,7 +26165,7 @@ MS-FSSHTTP_R1585:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2468</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support Properties operation. &lt;62&gt; Section 3.1.4.15:  SharePoint Server 2010 and SharePoint Server 2013 do not support the Properties operation.</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support Properties operation. &lt;65&gt; Section 3.1.4.15:  SharePoint Server 2010 and SharePoint Server 2013 do not support the Properties operation.</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28605,7 +28720,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R259</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Storage Index Manifest Mapping (2 bytes): Zero or one 16-bit Stream Object Header that specifies the Storage Index Manifest Mappings (with Manifest Mapping Extended GUID and Serial Number).</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Storage Index Manifest Mapping (2 bytes, Optional): Zero or one 16-bit Stream Object Header that specifies the Storage Index Manifest Mappings (with Manifest Mapping Extended GUID and Serial Number).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28614,7 +28729,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R260</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Manifest Mapping Extended GUID (variable): An Extended GUID that specifies the Manifest Mapping.</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Manifest Mapping Extended GUID (variable, Optional): An Extended GUID that specifies the Manifest Mapping.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28623,7 +28738,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R261</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Manifest Mapping Serial Number (variable): A Serial Number that specifies the Manifest Mapping.</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Manifest Mapping Serial Number (variable, Optional): A Serial Number that specifies the Manifest Mapping.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28632,7 +28747,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R262</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Storage Index Cell Mapping (2 bytes): Zero or more 16-bit Stream Object Header that specifies the  Storage Index Cell Mappings (with cell identifier, cell mapping extended GUID, and Cell Mapping Serial Number).</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Storage Index Cell Mapping (2 bytes, Optional): Zero or more 16-bit Stream Object Header that specifies the  Storage Index Cell Mappings (with cell identifier, cell mapping extended GUID, and Cell Mapping Serial Number).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28641,7 +28756,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R263</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Cell ID (variable): A Cell ID (section 2.2.1.10) that specifies the cell identifier.</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Cell ID (variable, Optional): A Cell ID (section 2.2.1.10) that specifies the cell identifier.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28650,7 +28765,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R264</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Cell Mapping Extended GUID (variable): An Extended GUID that specifies the Cell Mapping.</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Cell Mapping Extended GUID (variable, Optional): An Extended GUID that specifies the Cell Mapping.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28659,7 +28774,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R265</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Cell Mapping Serial Number (variable): A Serial Number that specifies the Cell Mapping.</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Cell Mapping Serial Number (variable, Optional): A Serial Number that specifies the Cell Mapping.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28668,7 +28783,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R266</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Storage Index Revision Mapping (2 bytes): Zero or more 16-bit Stream Object Headers that specify the Storage Index Revision Mappings (with revision and Revision Mapping Extended GUIDs, and Revision Mapping Serial Number).</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Storage Index Revision Mapping (2 bytes, Optional): Zero or more 16-bit Stream Object Headers that specify the Storage Index Revision Mappings (with revision and Revision Mapping Extended GUIDs, and Revision Mapping Serial Number).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28677,7 +28792,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R267</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Revision Extended GUID (variable): An Extended GUID that specifies the revision.</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Revision Extended GUID (variable, Optional): An Extended GUID that specifies the revision.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28686,7 +28801,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R268</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Revision Mapping Extended GUID (variable): An Extended GUID that specifies the Revision Mapping.</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Revision Mapping Extended GUID (variable, Optional): An Extended GUID that specifies the Revision Mapping.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28695,7 +28810,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R269</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Revision Mapping Serial Number (variable): A Serial Number that specifies the Revision Mapping.</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Revision Mapping Serial Number (variable, Optional): A Serial Number that specifies the Revision Mapping.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28704,7 +28819,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R270</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.2</ns1:Doc_Sect>
-		<ns1:Description>[In Storage Index Data Element] Data Element End (1 byte): An 8-bit Stream Object Header that specifies a data element end.</ns1:Description>
+		<ns1:Description>[In Storage Index Data Element] Data Element End (1 byte): An 8-bit Stream Object Header (section 2.2.1.5.3) that specifies a data element end.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -28992,7 +29107,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R300</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.5</ns1:Doc_Sect>
-		<ns1:Description>[In Revision Manifest Data Elements] Object Group Extended GUID (variable): An Extended GUID that specifies the Object Group for each Revision Manifest Object Group Reference.</ns1:Description>
+		<ns1:Description>[In Revision Manifest Data Elements] Object Group Extended GUID (variable, Optional): An Extended GUID that specifies the Object Group for each Revision Manifest Object Group Reference.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29531,7 +29646,7 @@ Any value equal to or above 4 signifies a custom frequency.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R4013</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.6.6</ns1:Doc_Sect>
-		<ns1:Description>[In Data Element Hash] A Data Element Hash has the following structure.</ns1:Description>
+		<ns1:Description>[In Data Element Hash] A Data Element Hash has the following structure.&lt;3&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -30426,7 +30541,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R381</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.13.5</ns1:Doc_Sect>
-		<ns1:Description>[In Content Tag Knowledge] Content Tag Start (2 bytes): A 16-bit Stream Object Header that specifies the Content Tag Knowledge start.</ns1:Description>
+		<ns1:Description>[In Content Tag Knowledge] Content Tag Start (2 bytes): A 16-bit Stream Object Header (section 2.2.1.5.1)  that specifies the Content Tag Knowledge start.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30462,7 +30577,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R385</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.13.5.1</ns1:Doc_Sect>
-		<ns1:Description>[In Content Tag Knowledge Entry] Content Tag Knowledge Entry Start (variable): A 16-bit or 32-bit Stream Object Header (section 2.2.1.5.1) that specifies the start of a Content Tag Knowledge Entry.</ns1:Description>
+		<ns1:Description>[In Content Tag Knowledge Entry] Content Tag Knowledge Entry Start (variable): A 16-bit (section 2.2.1.5.1) or 32-bit Stream Object Header (section 2.2.1.5.2) that specifies the start of a Content Tag Knowledge Entry.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30507,7 +30622,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R1213</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.13.6</ns1:Doc_Sect>
-		<ns1:Description>[In Version Token Knowledge]The Version Token Knowledge contains a version token identifying the version of the file that was either queried or updated in the following format.&lt;3&gt;</ns1:Description>
+		<ns1:Description>[In Version Token Knowledge]The Version Token Knowledge contains a version token identifying the version of the file that was either queried or updated in the following format.&lt;4&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -30571,7 +30686,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R388</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Request Message Syntax]  A request message specifies the format used to contain sub-requests (section 2.2.2.1) in the following format.&lt;4&gt;</ns1:Description>
+		<ns1:Description>[In Request Message Syntax]  A request message specifies the format used to contain sub-requests (section 2.2.2.1) in the following format.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -33547,7 +33662,7 @@ Construct a byte array representation of the editors table using UTF-8 encoding.
    &lt;xs:complexType&gt;
      &lt;xs:sequence&gt;
        &lt;xs:element name="CacheID" minOccurs="1" maxOccurs="1" type="xs:string"/&gt;
-       &lt;xs:element name="FriendlyName" minOccurs="0" maxOccurs="1" type=" type="tns:UserNameType" /&gt;
+       &lt;xs:element name="FriendlyName" minOccurs="0" maxOccurs="1" type="tns:UserNameType" /&gt;
        &lt;xs:element name="LoginName" minOccurs="0" maxOccurs="1" type="tns:UserLoginType" /&gt;
        &lt;xs:element name="SIPAddress" minOccurs="0" maxOccurs="1" type="xs:string" /&gt;
        &lt;xs:element name="EmailAddress" minOccurs="0" maxOccurs="1" type="xs:string" /&gt;
@@ -33990,7 +34105,7 @@ Construct a byte array representation of the editors table using UTF-8 encoding.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R99064</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response Error] Error String Supplemental Info (variable): A string item (section 2.2.1.4) that specifies the supplemental information of the error string for the error string supplemental info start.</ns1:Description>
+		<ns1:Description>[In Response Error] Error String Supplemental Info (variable, Optional): A string item (section 2.2.1.4) that specifies the supplemental information of the error string for the error string supplemental info start.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -36057,7 +36172,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R1344</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support  Version Token Knowledge.( &lt;3&gt; Section 2.2.1.13.6:  SharePoint Server 2010 and SharePoint Server 2013 do not support Version Token Knowledge.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support  Version Token Knowledge.( &lt;4&gt; Section 2.2.1.13.6:  SharePoint Server 2010 and SharePoint Server 2013 do not support Version Token Knowledge.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTPB_R1213:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -36078,7 +36193,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R38801</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] &lt;4&gt; Section 2.2.2: Data Element Hashing is not supported by Office 2010 and support is configuration-dependent for other versions.  </ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] &lt;3&gt; 2.2.1.12.6.6: Data Element Hashing is not supported by Office 2010 and support is configuration-dependent for other versions.  </ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -36385,7 +36500,7 @@ Data 11: An unsigned 8 bit integer specifying an opaque value. </ns1:Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R4120</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the Additional Flags. (&lt;20&gt; Section 2.2.2.1.4:  Microsoft Office 2010 suites, SharePoint Server 2010, and SharePoint Workspace 2010 do not support the Additional Flags structure.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does not support the Additional Flags. (&lt;20&gt; Section 2.2.2.1.4:  Office 2010, SharePoint Server 2010, and SharePoint Workspace 2010 do not support the Additional Flags structure.)</ns1:Description>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
