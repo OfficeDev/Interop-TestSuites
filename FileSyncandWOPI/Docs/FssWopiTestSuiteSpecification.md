@@ -182,8 +182,8 @@ methods can be classified into following categories:
 
 ### Message structures
 
-Becuase the C\# proxy class is used by the MS-FSSHTTP-FSSHTTPB test
-suite and the MS-WOPI test suite. So the C\# proxy class is defined in
+Because the C\# proxy class is used by the MS-FSSHTTP-FSSHTTPB test
+suite and the MS-WOPI test suite, it is defined in
 the common library.
 
 Adapters
@@ -236,7 +236,7 @@ several scenarios.
 
 ### Shared test suite
 
-The seventeen shared test scenarios are designed to cover testable requirements for
+17 shared test scenarios are designed to cover testable requirements for
 MS-FSSHTTP behavior in both MS-WOPI and MS-FSSHTTP-FSSHTTPB test
 suites. The following table lists the scenarios in the shared test suite.
 
@@ -262,7 +262,7 @@ S17\_FileOperation | Verifies CellSubRequest operation for fileOperation request
 
 ### MS-FSSHTTP-FSSHTTPB
 
-The seventeen test scenarios are designed to cover testable requirements in the
+17 test scenarios are designed to cover testable requirements in the
 MS-FSSHTTP-FSSHTTPB test suite. The following table lists the scenarios in the MS-FSSHTTP-FSSHTTPB test suite.
 
   Scenario| Description
@@ -290,11 +290,11 @@ MS-FSSHTTP-FSSHTTPB test suite. The following table lists the scenarios in the M
 In the MS-WOPI test suite, there are a total of twenty two scenarios that are
 designed to cover the server-side, testable requirements.
 
-The eighteenth scenarios (from MSWOPI\_S01 to MSWOPI\_S16,MSWOPI\_S21 and MSWOPI\_S22) are designed to verify
+18 scenarios (from MSWOPI\_S01 to MSWOPI\_S16,MSWOPI\_S21 and MSWOPI\_S22) are designed to verify
 the MS-FSSHTTP request embedded in the HTTP body depending on whether or not
 MS-FSSHTTP is implemented.
 
-The four scenarios (from MSWOPI\_S17 to MSWOPI\_S20) are designed to verify the
+4 scenarios (from MSWOPI\_S17 to MSWOPI\_S20) are designed to verify the
 operations defined in the MS-WOPI Open Specification.
 
 The following table lists the scenarios in the MS-WOPI test suite.
