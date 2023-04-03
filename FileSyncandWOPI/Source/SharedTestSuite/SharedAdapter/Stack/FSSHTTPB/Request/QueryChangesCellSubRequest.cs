@@ -17,7 +17,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         {
             this.RequestID = subRequestID;
             this.RequestType = Convert.ToUInt64(RequestTypes.QueryChanges);
-            this.QueryChangesRequest = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.QueryChangesRequest, 1);
+            this.QueryChangesRequest = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.QueryChangesRequest, 2);
             this.Reserved = 0;
             this.AllowFragments = 0;
             this.Reserved1 = 0;
@@ -74,6 +74,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         public int Reserved1 { get; set; }
 
+        /// <summary>
+        /// User Content Equivalent Version Ok (1 bit): This attribute MAY be set. If set, a bit that specifies that if the version of the file cannot be found, it is acceptable to return a substitute version that is equivalent from a user authored content perspective, if such a version exists.
+        /// </summary>
+        public int UserContentEquivalentVersionOk { get; set; }
+
+        /// <summary>
+        /// Reserved (7 bits): A 7-bit reserved field that MUST be set to zero and MUST be ignored.
+        /// </summary>
+        public int ReservedMustBeZero { get; set; }
         /// <summary>
         /// Gets or sets Query Changes Request Arguments (4 bytes): A 32-bit stream object header that specifies a query changes request arguments.
         /// </summary>
@@ -140,6 +149,12 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             bitWriter.AppendInit32(this.AllowFragments2, 1);
             bitWriter.AppendInit32(this.RoundKnowledgeToWholeCellChanges, 1);
             bitWriter.AppendInit32(this.Reserved1, 2);
+            byteList.AddRange(bitWriter.Bytes);
+
+            // User Content Equivalent Version Ok and Reserved
+            bitWriter = new BitWriter(1);
+            bitWriter.AppendInit32(this.UserContentEquivalentVersionOk, 1);
+            bitWriter.AppendInit32(this.ReservedMustBeZero, 7);
             byteList.AddRange(bitWriter.Bytes);
 
             // Cell ID bytes
