@@ -13,11 +13,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
     [TestClass]
     public abstract class S13_PutChanges : SharedTestSuiteBase
     {
-        /// <summary>
-        /// Gets or sets Author Logins (variable): A String Item Array structure that defines author login information.
-        /// </summary>
-        public StringItemArray StringItemArrayAuthorLogin { get; set; }
-
+     
         #region Test Suite Initialization
 
         /// <summary>
@@ -51,21 +47,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         {
             // Initialize the default file URL.
             this.DefaultFileUrl = this.PrepareFile();
-
-            // Initialize the Author Login information
-            ulong Count = 0;
-            List<StringItem> Content = new List<StringItem>();
-            StringItem stringItemUserName01 = new StringItem();
-            stringItemUserName01.Content = this.UserName01;
-            Content.Add(stringItemUserName01);
-            StringItem stringItemPassword01 = new StringItem();
-            stringItemPassword01.Content = this.Password01;
-            Content.Add(stringItemPassword01);
-            StringItemArray stringItemArrayAuthorLogin = new StringItemArray();
-            stringItemArrayAuthorLogin.Count = Count;
-            stringItemArrayAuthorLogin.Content = Content;
-            Count = (ulong)Content.Count;
-            this.StringItemArrayAuthorLogin = stringItemArrayAuthorLogin;
+          
         }
 
         #endregion
@@ -93,7 +75,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
             dataElements.AddRange(fsshttpbResponse.DataElementPackage.DataElements);
             cellRequest.AddSubRequest(putChange, dataElements);
@@ -130,7 +112,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Create a putChanges cellSubRequest
             ExGuid storageIndexExGuid2;
             List<DataElement> dataElements1 = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid2);
-            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid2, this.StringItemArrayAuthorLogin);
+            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid2);
             putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
             cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             cellRequest.AddSubRequest(putChange,  null);
@@ -182,7 +164,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequestSecond = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(System.Text.Encoding.UTF8.GetBytes(SharedTestSuiteHelper.GenerateRandomString(5)), out storageIndexExGuid);
-            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
 
             // Specify ExpectedStorageIndexExtendedGUID
             putChangeSecond.ExpectedStorageIndexExtendedGUID = queryChangeResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
@@ -232,7 +214,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(System.Text.Encoding.Unicode.GetBytes(Common.GenerateResourceName(this.Site, "FileContent")), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
 
             // Assign the ImplyNullExpectedIfNoMapping equal to 0 to make apply the change without checking the expected storage index value. 
             putChange.ImplyNullExpectedIfNoMapping = 0;
@@ -285,7 +267,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Create a putChanges cellSubRequest specified the Expected Storage Index Extended GUID tribute and Imply Null Expected if No Mapping flag set to one
             // Also use the server returns the data elements, in this case the key will exist.
             FsshttpbCellRequest cellRequestFirst = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndex, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndex);
 
             // Assign the ImplyNullExpectedIfNoMapping to 0.
             putChange.ImplyNullExpectedIfNoMapping = 0;
@@ -322,7 +304,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Create a putChanges cellSubRequest specified the Expected Storage Index Extended GUID tribute and Imply Null Expected if No Mapping flag set to one
             // Also use the server returns the data elements, in this case the key will exist.
             FsshttpbCellRequest cellRequestFirst = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndex, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndex);
 
             // Assign the ImplyNullExpectedIfNoMapping to 1.
             putChange.ImplyNullExpectedIfNoMapping = 1;
@@ -351,7 +333,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(System.Text.Encoding.Unicode.GetBytes(Common.GenerateResourceName(this.Site, "FileContent")), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
 
             // Assign the ImplyNullExpectedIfNoMapping equal to 1 to make apply the change with checking the expected storage index value. 
             putChange.ImplyNullExpectedIfNoMapping = 1;
@@ -402,14 +384,14 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuidFirst;
             List<DataElement> dataElementsFirst = DataElementUtils.BuildDataElements(System.Text.Encoding.UTF8.GetBytes("First Content"), out storageIndexExGuidFirst);
-            PutChangesCellSubRequest putChangeFirst = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuidFirst, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChangeFirst = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuidFirst);
             putChangeFirst.Priority = 0;
             cellRequest.AddSubRequest(putChangeFirst, dataElementsFirst);
 
             // Create the second Put changes subRequest with Priority attribute value set to 100.
             ExGuid storageIndexExGuidSecond;
             List<DataElement> dataElementsSecond = DataElementUtils.BuildDataElements(System.Text.Encoding.UTF8.GetBytes("Second Content"), out storageIndexExGuidSecond);
-            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuidSecond, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuidSecond);
             putChangeSecond.Priority = 100;
             cellRequest.AddSubRequest(putChangeSecond, dataElementsSecond);
 
@@ -469,7 +451,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(System.Text.Encoding.Unicode.GetBytes(Common.GenerateResourceName(this.Site, this.DefaultFileUrl)), out storageIndexExGuid);
-            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChangeSecond.ExpectedStorageIndexExtendedGUID = fsshttpbResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
 
             // Favor the coherency failure other than not found element.
@@ -519,7 +501,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             cellRequest.AddSubRequest(putChange, dataElements);
 
             // Make the DataElementPackage reserved value to 0.
@@ -541,7 +523,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequestSecond = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuidSecond;
             List<DataElement> dataElementsSecond = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuidSecond);
-            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuidSecond, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuidSecond);
             cellRequestSecond.AddSubRequest(putChangeSecond, dataElementsSecond);
 
             // Make the DataElementPackage reserved value to 1.
@@ -619,7 +601,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(bytes, out storageIndexExGuid);
 
             // Send the first partial put changes sub request null storageIndexExGuid.
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), null, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), null);
 
             cellRequest.AddSubRequest(putChange, dataElements.Take(4).ToList());
             putChange.Partial = 1;
@@ -634,7 +616,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Send the last partial put changes sub request
             cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
-            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChange.PartialLast = 1;
             cellRequest.AddSubRequest(putChange, dataElements.Skip(4).ToList());
 
@@ -661,7 +643,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             cellRequest.AddSubRequest(putChange, dataElements);
             cellRequest.Reserve1 = 0;
             cellRequest.IsRequestHashingOptionsUsed = true;
@@ -719,7 +701,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             cellRequest.AddSubRequest(putChange, dataElements);
             cellRequest.Reserve2 = 0;
             cellRequest.IsRequestHashingOptionsUsed = true;
@@ -778,7 +760,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             cellRequest.AddSubRequest(putChange, dataElements);
             cellRequest.Reserve3 = 0;
             cellRequest.IsRequestHashingOptionsUsed = true;
@@ -837,7 +819,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChange.AbortRemainingPutChangesOnFailure = 0;
             cellRequest.AddSubRequest(putChange, dataElements);
             CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
@@ -853,7 +835,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Create a putChanges cellSubRequest E-Abort Remaining Put Changes On Failure (1 bit) set to 1.
             cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
-            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChange.AbortRemainingPutChangesOnFailure = 1;
             cellRequest.AddSubRequest(putChange, dataElements);
             cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
@@ -904,7 +886,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
 
-            PutChangesCellSubRequest putChangeFirst = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChangeFirst = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChangeFirst.IsAdditionalFlagsUsed = true;
             putChangeFirst.Reserve = 0;
             cellRequest.AddSubRequest(putChangeFirst, dataElements);
@@ -921,7 +903,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Create another putChanges subRequest with Reserved set to 1.
             cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
-            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChangeSecond.IsAdditionalFlagsUsed = true;
             putChangeSecond.Reserve = 1;
             cellRequest.AddSubRequest(putChangeSecond, dataElements);
@@ -974,7 +956,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
 
             // Make the ReturnAppliedStorageIndexIdEntries  value to 0.
             putChange.IsAdditionalFlagsUsed = true;
@@ -1025,7 +1007,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
 
             // Make the ReturnAppliedStorageIndexIdEntries  value to 1.
             putChange.IsAdditionalFlagsUsed = true;
@@ -1094,7 +1076,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
 
             // Make the ReturnDataElementsAdded value to 1.
             putChange.IsAdditionalFlagsUsed = true;
@@ -1158,7 +1140,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
 
             // Make the ReturnDataElementsAdded value to 0.
             putChange.IsAdditionalFlagsUsed = true;
@@ -1238,7 +1220,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Send the upload put changes request with CheckForIdReuse value as 1.
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             cellRequest.AddSubRequest(putChange, dataElements);
             putChange.IsAdditionalFlagsUsed = true;
             putChange.CheckForIdReuse = 1;
@@ -1319,7 +1301,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequestSecond = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(System.Text.Encoding.UTF8.GetBytes(SharedTestSuiteHelper.GenerateRandomString(5)), out storageIndexExGuid);
-            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
 
             // Specify ExpectedStorageIndexExtendedGUID and FullFileReplacePut flag.
             putChangeSecond.ExpectedStorageIndexExtendedGUID = queryChangeResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
@@ -1377,7 +1359,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChange.IsDiagnosticRequestOptionInputUsed = true;
             putChange.ForceRevisionChainOptimization = 0;
             cellRequest.AddSubRequest(putChange, dataElements);
@@ -1437,7 +1419,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
             putChange.ImplyNullExpectedIfNoMapping = 0;
             dataElements.AddRange(fsshttpbResponse.DataElementPackage.DataElements);
@@ -1464,7 +1446,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Create a putChanges cellSubRequest with specify expected Storage Index and ImplyNullExpectedIfNoMapping set to 1.
             cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChange.ExpectedStorageIndexExtendedGUID = storageIndex;
             putChange.ImplyNullExpectedIfNoMapping = 1;
             dataElements.AddRange(fsshttpbResponse.DataElementPackage.DataElements);
@@ -1530,7 +1512,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequestSecond = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(System.Text.Encoding.UTF8.GetBytes(SharedTestSuiteHelper.GenerateRandomString(5)), out storageIndexExGuid);
-            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChangeSecond = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
 
             // Specify ExpectedStorageIndexExtendedGUID and RequireStorageMappingsRooted flag.
             putChangeSecond.ExpectedStorageIndexExtendedGUID = queryChangeResponse.CellSubResponses[0].GetSubResponseData<QueryChangesSubResponseData>().StorageIndexExtendedGUID;
@@ -1580,7 +1562,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChange.Reserve1Byte = 0;
             cellRequest.AddSubRequest(putChange, dataElements);
             CellSubRequestType cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
@@ -1596,7 +1578,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             // Create a putChanges cellSubRequest Reserved field is set to 1.
             cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
-            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+            putChange = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
             putChange.Reserve1Byte = 1;
             cellRequest.AddSubRequest(putChange, dataElements);
             cellSubRequest = SharedTestSuiteHelper.CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
