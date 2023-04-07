@@ -111,7 +111,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             StreamObjectTypeHeaderStart.ObjectGroupMetadataDeclarations,
             StreamObjectTypeHeaderStart.LeafNodeObject,
             StreamObjectTypeHeaderStart.IntermediateNodeObject,
-            StreamObjectTypeHeaderStart.TargetPartitionId
+            StreamObjectTypeHeaderStart.FsshttpbResponse
         };
 
         /// <summary>
