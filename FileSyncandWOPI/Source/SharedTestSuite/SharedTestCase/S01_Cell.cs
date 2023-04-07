@@ -14,10 +14,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
     [TestClass]
     public abstract class S01_Cell : SharedTestSuiteBase
     {
-        /// <summary>
-        /// Gets or sets Author Logins (variable): A String Item Array (section 2.2.1.14) structure that defines author login information.
-        /// </summary>
-        public StringItemArray StringItemArrayAuthorLogin { get; set; }
 
         #region Test Suite Initialization and clean up
 
@@ -53,20 +49,6 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             // Initialize the default file URL
             this.DefaultFileUrl = this.PrepareFile();
 
-            // Initialize the Author Login information
-            ulong Count = 0;
-            List<StringItem> Content = new List<StringItem>();
-            StringItem stringItemUserName01 = new StringItem();
-            stringItemUserName01.Content = this.UserName01;
-            Content.Add(stringItemUserName01);
-            StringItem stringItemPassword01 = new StringItem();
-            stringItemPassword01.Content = this.Password01;
-            Content.Add(stringItemPassword01);
-            StringItemArray stringItemArrayAuthorLogin = new StringItemArray();
-            stringItemArrayAuthorLogin.Count = Count;
-            stringItemArrayAuthorLogin.Content = Content;
-            Count = (ulong)Content.Count;
-            this.StringItemArrayAuthorLogin = stringItemArrayAuthorLogin;
         }
 
         #endregion
@@ -1010,7 +992,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
                 ExGuid storageIndexExGuid;
                 List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(Site), out storageIndexExGuid);
-                PutChangesCellSubRequest putChangeFsshttpb = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+                PutChangesCellSubRequest putChangeFsshttpb = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
                 cellRequest.AddSubRequest(putChangeFsshttpb, dataElements);
                 putChangeFsshttpb.IsPartitionIDGUIDUsed = true;
                 putChangeFsshttpb.PartitionIdGUID = Guid.Empty;
@@ -1031,7 +1013,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
                 ExGuid storageIndexExGuid;
                 List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(this.Site), out storageIndexExGuid);
-                PutChangesCellSubRequest putChangeFsshttpb = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+                PutChangesCellSubRequest putChangeFsshttpb = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
                 cellRequest.AddSubRequest(putChangeFsshttpb, dataElements);
                 putChangeFsshttpb.IsPartitionIDGUIDUsed = true;
                 putChangeFsshttpb.PartitionIdGUID = Guid.Empty;
@@ -1345,7 +1327,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 FsshttpbCellRequest cellRequest = SharedTestSuiteHelper.CreateFsshttpbCellRequest();
                 ExGuid storageIndexExGuid;
                 List<DataElement> dataElements = DataElementUtils.BuildDataElements(SharedTestSuiteHelper.GenerateRandomFileContent(Site), out storageIndexExGuid);
-                PutChangesCellSubRequest putChangeFsshttpb = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid, this.StringItemArrayAuthorLogin);
+                PutChangesCellSubRequest putChangeFsshttpb = new PutChangesCellSubRequest(SequenceNumberGenerator.GetCurrentFSSHTTPBSubRequestID(), storageIndexExGuid);
                 cellRequest.AddSubRequest(putChangeFsshttpb, dataElements);
                 putChangeFsshttpb.IsLockIdUsed = true;
                 putChangeFsshttpb.LockID = new Guid(subRequest.SubRequestData.SchemaLockID);

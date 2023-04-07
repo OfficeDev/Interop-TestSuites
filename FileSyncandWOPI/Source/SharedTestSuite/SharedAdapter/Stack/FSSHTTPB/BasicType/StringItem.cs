@@ -32,7 +32,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <returns>Return the byte list which store the byte information of StringItem.</returns>
         public override List<byte> SerializeToByteList()
         {
-            throw new NotImplementedException();
+            List<byte> listByte = new List<byte>();
+
+            listByte.AddRange(this.Count.SerializeToByteList().ToArray());
+
+            byte[] contentByte = System.Text.Encoding.UTF8.GetBytes(this.Content);
+            listByte.AddRange(contentByte);
+
+            return listByte;
         }
 
         /// <summary>
@@ -57,22 +64,13 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Easy to maintain one group of classes in one .cs file.")]
     public class StringItemArray : BasicObject
     {
-        /// <summary>
-        /// Initializes a new instance of the StringItemArray class.
-        /// </summary>
-        /// <param name="count">Specify the number of StringItem in the StringItem array.</param>
-        /// <param name="content">Specify the list of StringItem.</param>
-        public StringItemArray(ulong count, List<StringItem> content)
-        {
-            this.Count = count;
-            this.Content = content;
-        }
-
+  
         /// <summary>
         /// Initializes a new instance of the StringItemArray class, this is default constructor.
         /// </summary>
         public StringItemArray()
         {
+            this.Count = 0;
             this.Content = new List<StringItem>();
         }
 

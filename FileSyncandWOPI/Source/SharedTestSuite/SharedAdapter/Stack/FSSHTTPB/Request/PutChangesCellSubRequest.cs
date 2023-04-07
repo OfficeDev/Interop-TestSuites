@@ -14,7 +14,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         /// <param name="subRequestID">Specify the sub request id</param>
         /// <param name="storageIndexExGuid">Specify the storage index ExGuid.</param>
-        public PutChangesCellSubRequest(ulong subRequestID, ExGuid storageIndexExGuid, StringItemArray stringItemArray)
+        public PutChangesCellSubRequest(ulong subRequestID, ExGuid storageIndexExGuid)
         {
             this.RequestID = subRequestID;
             this.RequestType = Convert.ToUInt64(RequestTypes.PutChanges);
@@ -30,11 +30,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             this.LastWriterWinsOnNextChange = 0;
             this.Reserve1Byte = 0;
 
-            if (stringItemArray != null)
-            {
-                this.AuthorLogins = new StringItemArray(stringItemArray.Count, stringItemArray.Content);
-            }     
-            
+            this.AuthorLogins = new StringItemArray();
+            this.AuthorLogins.Count = 1;
+
             this.ContentVersionCoherencyCheck = new BinaryItem();
 
             this.IsAdditionalFlagsUsed = false;
@@ -240,6 +238,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             bitWriter.AppendInit32(this.ReturnCompleteKnowledgeIfPossible, 1);
             bitWriter.AppendInit32(this.LastWriterWinsOnNextChange, 1);
 
+            // ContentVersionCoherencyCheck
+            List<byte> contentVersionCoherencyCheckBytes = this.ContentVersionCoherencyCheck.SerializeToByteList();
+
+            // Author Logins 
+            List<byte> authorLoginsBytes = this.AuthorLogins.SerializeToByteList();
+
+            // Reserve1Byte
+            List<byte> reserve1ByteBytes = new List<byte>(new byte[1]);
+
             List<byte> reservedBytes = new List<byte>(bitWriter.Bytes);
 
             List<byte> byteList = new List<byte>();
@@ -258,6 +265,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             
             // reserved
             byteList.AddRange(reservedBytes);
+
+            // ContentVersionCoherencyCheck
+            byteList.AddRange(contentVersionCoherencyCheckBytes);
+
+            // Author Logins
+            byteList.AddRange(authorLoginsBytes);
+
+            // Reserve1Byte
+            byteList.AddRange(reserve1ByteBytes);
 
             if (this.IsAdditionalFlagsUsed)
             {
