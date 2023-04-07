@@ -52,11 +52,6 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         internal StreamObjectHeaderStart PartitionIdGUIDStart { get; set; }
 
         /// <summary>
-        ///  Gets or sets Target Partition Id end (variable): A 16-bit stream object header that specifies the end of a target partition id.
-        /// </summary>
-        internal StreamObjectHeaderEnd PartitionIdGUIDEnd { get; set; }
-
-        /// <summary>
         /// Gets or sets Sub-request Start (4 bytes): A 32-bit stream object header that specifies a sub-request start.
         /// </summary>
         internal StreamObjectHeaderStart32bit SubRequestStart { get; set; }
@@ -100,9 +95,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 this.PartitionIdGUIDStart = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.TargetPartitionId, 16);
                 byteList.AddRange(this.PartitionIdGUIDStart.SerializeToByteList());
                 byteList.AddRange(this.PartitionIdGUID.ToByteArray());
-
-                this.PartitionIdGUIDEnd = new StreamObjectHeaderEnd16bit(StreamObjectTypeHeaderEnd.TargetPartitionId);
-                byteList.AddRange(this.PartitionIdGUIDEnd.SerializeToByteList());
+            
             }
 
             return byteList;
