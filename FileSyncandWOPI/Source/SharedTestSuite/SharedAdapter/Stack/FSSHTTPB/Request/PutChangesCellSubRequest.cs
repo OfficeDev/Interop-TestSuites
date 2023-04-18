@@ -30,8 +30,20 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             this.LastWriterWinsOnNextChange = 0;
             this.Reserve1Byte = 0;
 
-            this.AuthorLogins = new StringItemArray();
-            this.AuthorLogins.Count = 1;
+            // The AuthorLogins field test data length is 19 bytes.
+            List<StringItem> Content = new List<StringItem>();
+            string str1 = "str1";
+            StringItem str1Item = new StringItem();
+            str1Item.Count = new Compact64bitInt((ulong)str1.Length);
+            str1Item.Content = str1;
+            Content.Add(str1Item);
+            string str2 = "str2";
+            StringItem str2Item = new StringItem();
+            str2Item.Count = new Compact64bitInt((ulong)str2.Length);
+            str2Item.Content = str2;
+            Content.Add(str2Item);
+
+            this.AuthorLogins = new StringItemArray((ulong)Content.Count, Content);            
 
             this.ContentVersionCoherencyCheck = new BinaryItem();
 
@@ -222,9 +234,9 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
             // Expect Storage Index Extended GUID
             List<byte> expectedStorageIndexExtendedGUIDBytes = this.ExpectedStorageIndexExtendedGUID.SerializeToByteList();
-            
-            // Put Changes Request
-            this.PutChangesRequestStart = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.PutChangesRequest, 1 + storageIndexExtendedGUIDBytes.Count + expectedStorageIndexExtendedGUIDBytes.Count);
+
+            // Put Changes Request,21 indicates the byte length of fields ContentVersionCoherencyCheck, Author Logins, and Reserve1Byte.
+            this.PutChangesRequestStart = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.PutChangesRequest, 1 + storageIndexExtendedGUIDBytes.Count + expectedStorageIndexExtendedGUIDBytes.Count + 21);
             List<byte> putChangesRequestBytes = this.PutChangesRequestStart.SerializeToByteList();
             
             // reserved
