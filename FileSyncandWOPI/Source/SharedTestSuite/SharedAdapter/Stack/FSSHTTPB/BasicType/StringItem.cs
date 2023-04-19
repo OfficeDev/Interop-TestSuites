@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 {
     using System;
     using System.Collections.Generic;
+    using System.Text;
 
     /// <summary>
     /// The count and content of an arbitrary wide character string.
@@ -32,14 +33,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <returns>Return the byte list which store the byte information of StringItem.</returns>
         public override List<byte> SerializeToByteList()
         {
-            List<byte> listByte = new List<byte>();
+            List<byte> byteList = new List<byte>();
+            byteList.AddRange(this.Count.SerializeToByteList());
 
-            listByte.AddRange(this.Count.SerializeToByteList().ToArray());
+            ushort[] content = Encoding.Unicode.GetBytes(this.Content).ToUInt16Array();
+            byte[] binaryString = new byte[content.Length * 2];
+            Buffer.BlockCopy(content, 0, binaryString, 0, content.Length * 2);
+            byteList.AddRange(binaryString);
 
-            byte[] contentByte = System.Text.Encoding.UTF8.GetBytes(this.Content);
-            listByte.AddRange(contentByte);
-
-            return listByte;
+            return byteList;
         }
 
         /// <summary>
@@ -64,7 +66,17 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Easy to maintain one group of classes in one .cs file.")]
     public class StringItemArray : BasicObject
     {
-  
+        /// <summary>
+        /// Initializes a new instance of the StringItemArray class.
+        /// </summary>
+        /// <param name="count">Specify the number of StringItem in the StringItem array.</param>
+        /// <param name="content">Specify the list of StringItem.</param>
+        public StringItemArray(ulong count, List<StringItem> content)
+        {
+            this.Count = count;
+            this.Content = content;
+        }
+
         /// <summary>
         /// Initializes a new instance of the StringItemArray class, this is default constructor.
         /// </summary>
@@ -108,4 +120,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             throw new NotImplementedException();
         }
     }
+
+    // Extension method to convert a byte array to an array of UInt16
+    public static class ByteArrayExtensions
+    {
+        public static ushort[] ToUInt16Array(this byte[] bytes)
+        {
+            if (bytes.Length % 2 != 0)
+            {
+                throw new ArgumentException("Byte array length must be even");
+            }
+
+            ushort[] result = new ushort[bytes.Length / 2];
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = BitConverter.ToUInt16(bytes, i * 2);
+            }
+
+            return result;
+        }
+    }
+
 }

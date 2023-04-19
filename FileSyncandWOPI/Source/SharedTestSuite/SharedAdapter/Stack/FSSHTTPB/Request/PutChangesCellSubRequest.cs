@@ -30,10 +30,23 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             this.LastWriterWinsOnNextChange = 0;
             this.Reserve1Byte = 0;
 
-            this.AuthorLogins = new StringItemArray();
-            this.AuthorLogins.Count = 1;
+            List<byte> byteList = new List<byte>();
+            byteList.AddRange(new byte[1]);
+            this.ContentVersionCoherencyCheck = new BinaryItem(byteList);
 
-            this.ContentVersionCoherencyCheck = new BinaryItem();
+            List<StringItem> Content = new List<StringItem>();
+            string str1 = "str1";
+            StringItem str1Item = new StringItem();
+            str1Item.Count = new Compact64bitInt((ulong)str1.Length);
+            str1Item.Content = str1;
+            Content.Add(str1Item);
+            string str2 = "str2";
+            StringItem str2Item = new StringItem();
+            str2Item.Count = new Compact64bitInt((ulong)str2.Length);
+            str2Item.Content = str2;
+            Content.Add(str2Item);
+
+            this.AuthorLogins = new StringItemArray((ulong)Content.Count, Content);        
 
             this.IsAdditionalFlagsUsed = false;
             this.IsLockIdUsed = false;
@@ -222,9 +235,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 
             // Expect Storage Index Extended GUID
             List<byte> expectedStorageIndexExtendedGUIDBytes = this.ExpectedStorageIndexExtendedGUID.SerializeToByteList();
-            
+
+            // ContentVersionCoherencyCheck
+            List<byte> contentVersionCoherencyCheckBytes = this.ContentVersionCoherencyCheck.SerializeToByteList();
+
+            // Author Logins 
+            List<byte> authorLoginsBytes = this.AuthorLogins.SerializeToByteList();
+
             // Put Changes Request
-            this.PutChangesRequestStart = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.PutChangesRequest, 1 + storageIndexExtendedGUIDBytes.Count + expectedStorageIndexExtendedGUIDBytes.Count);
+            this.PutChangesRequestStart = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.PutChangesRequest, 1 + storageIndexExtendedGUIDBytes.Count + expectedStorageIndexExtendedGUIDBytes.Count + contentVersionCoherencyCheckBytes.Count + authorLoginsBytes.Count + 1);
             List<byte> putChangesRequestBytes = this.PutChangesRequestStart.SerializeToByteList();
             
             // reserved
@@ -236,13 +255,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             bitWriter.AppendInit32(this.AbortRemainingPutChangesOnFailure, 1);
             bitWriter.AppendInit32(this.Reserved1Bit, 1);
             bitWriter.AppendInit32(this.ReturnCompleteKnowledgeIfPossible, 1);
-            bitWriter.AppendInit32(this.LastWriterWinsOnNextChange, 1);
-
-            // ContentVersionCoherencyCheck
-            List<byte> contentVersionCoherencyCheckBytes = this.ContentVersionCoherencyCheck.SerializeToByteList();
-
-            // Author Logins 
-            List<byte> authorLoginsBytes = this.AuthorLogins.SerializeToByteList();
+            bitWriter.AppendInit32(this.LastWriterWinsOnNextChange, 1);          
 
             // Reserve1Byte
             List<byte> reserve1ByteBytes = new List<byte>(new byte[1]);
