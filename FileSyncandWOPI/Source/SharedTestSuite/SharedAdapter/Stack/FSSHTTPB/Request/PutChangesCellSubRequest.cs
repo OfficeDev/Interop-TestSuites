@@ -243,7 +243,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             List<byte> authorLoginsBytes = this.AuthorLogins.SerializeToByteList();
 
             // Put Changes Request
-            this.PutChangesRequestStart = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.PutChangesRequest, 1 + storageIndexExtendedGUIDBytes.Count + expectedStorageIndexExtendedGUIDBytes.Count + +contentVersionCoherencyCheckBytes.Count + authorLoginsBytes.Count + 1);
+            this.PutChangesRequestStart = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.PutChangesRequest, 1 + storageIndexExtendedGUIDBytes.Count + expectedStorageIndexExtendedGUIDBytes.Count + contentVersionCoherencyCheckBytes.Count + authorLoginsBytes.Count + 1);
             List<byte> putChangesRequestBytes = this.PutChangesRequestStart.SerializeToByteList();
             
             // reserved
