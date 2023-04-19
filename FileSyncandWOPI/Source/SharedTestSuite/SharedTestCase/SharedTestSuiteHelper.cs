@@ -128,7 +128,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             FsshttpbCellRequest cellRequest = CreateFsshttpbCellRequest();
             ExGuid storageIndexExGuid;
             List<DataElement> dataElements = DataElementUtils.BuildDataElements(fileContent, out storageIndexExGuid);
-            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(subRequestId, storageIndexExGuid, null);
+            PutChangesCellSubRequest putChange = new PutChangesCellSubRequest(subRequestId, storageIndexExGuid);
             cellRequest.AddSubRequest(putChange, dataElements);
 
             CellSubRequestType cellSubRequest = CreateCellSubRequest(SequenceNumberGenerator.GetCurrentToken(), cellRequest.ToBase64());
@@ -228,7 +228,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                                 bool isReturnCompleteKnowledgeIf = true,
                                 bool isLastWriterWinsOnNextChange = false)
         {
-            PutChangesCellSubRequest putChanges = new PutChangesCellSubRequest(subRequestId, storageIndexExGuid, null);
+            PutChangesCellSubRequest putChanges = new PutChangesCellSubRequest(subRequestId, storageIndexExGuid);
             putChanges.ExpectedStorageIndexExtendedGUID = expectStorageIndexExGuid;
 
             putChanges.ImplyNullExpectedIfNoMapping = Convert.ToInt32(isImplyNullExpectedIfNoMapping);

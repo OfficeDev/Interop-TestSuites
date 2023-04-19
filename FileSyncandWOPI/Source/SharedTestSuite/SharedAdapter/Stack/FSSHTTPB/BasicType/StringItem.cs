@@ -2,6 +2,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
 {
     using System;
     using System.Collections.Generic;
+    using System.Text;
 
     /// <summary>
     /// The count and content of an arbitrary wide character string.
@@ -32,7 +33,15 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// <returns>Return the byte list which store the byte information of StringItem.</returns>
         public override List<byte> SerializeToByteList()
         {
-            throw new NotImplementedException();
+            List<byte> byteList = new List<byte>();
+            byteList.AddRange(this.Count.SerializeToByteList());
+
+            ushort[] content = Encoding.Unicode.GetBytes(this.Content).ToUInt16Array();
+            byte[] binaryString = new byte[content.Length * 2];
+            Buffer.BlockCopy(content, 0, binaryString, 0, content.Length * 2);
+            byteList.AddRange(binaryString);
+
+            return byteList;
         }
 
         /// <summary>
@@ -73,6 +82,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         /// </summary>
         public StringItemArray()
         {
+            this.Count = 0;
             this.Content = new List<StringItem>();
         }
 
@@ -110,4 +120,25 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             throw new NotImplementedException();
         }
     }
+
+    // Extension method to convert a byte array to an array of UInt16
+    public static class ByteArrayExtensions
+    {
+        public static ushort[] ToUInt16Array(this byte[] bytes)
+        {
+            if (bytes.Length % 2 != 0)
+            {
+                throw new ArgumentException("Byte array length must be even");
+            }
+
+            ushort[] result = new ushort[bytes.Length / 2];
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = BitConverter.ToUInt16(bytes, i * 2);
+            }
+
+            return result;
+        }
+    }
+
 }
