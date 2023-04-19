@@ -30,7 +30,10 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             this.LastWriterWinsOnNextChange = 0;
             this.Reserve1Byte = 0;
 
-            // The AuthorLogins field test data length is 19 bytes.
+            List<byte> byteList = new List<byte>();
+            byteList.AddRange(new byte[1]);
+            this.ContentVersionCoherencyCheck = new BinaryItem(byteList);
+
             List<StringItem> Content = new List<StringItem>();
             string str1 = "str1";
             StringItem str1Item = new StringItem();
@@ -43,9 +46,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             str2Item.Content = str2;
             Content.Add(str2Item);
 
-            this.AuthorLogins = new StringItemArray((ulong)Content.Count, Content);            
-
-            this.ContentVersionCoherencyCheck = new BinaryItem();
+            this.AuthorLogins = new StringItemArray((ulong)Content.Count, Content);        
 
             this.IsAdditionalFlagsUsed = false;
             this.IsLockIdUsed = false;
@@ -235,8 +236,14 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             // Expect Storage Index Extended GUID
             List<byte> expectedStorageIndexExtendedGUIDBytes = this.ExpectedStorageIndexExtendedGUID.SerializeToByteList();
 
-            // Put Changes Request,21 indicates the byte length of fields ContentVersionCoherencyCheck, Author Logins, and Reserve1Byte.
-            this.PutChangesRequestStart = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.PutChangesRequest, 1 + storageIndexExtendedGUIDBytes.Count + expectedStorageIndexExtendedGUIDBytes.Count + 21);
+            // ContentVersionCoherencyCheck
+            List<byte> contentVersionCoherencyCheckBytes = this.ContentVersionCoherencyCheck.SerializeToByteList();
+
+            // Author Logins 
+            List<byte> authorLoginsBytes = this.AuthorLogins.SerializeToByteList();
+
+            // Put Changes Request
+            this.PutChangesRequestStart = new StreamObjectHeaderStart32bit(StreamObjectTypeHeaderStart.PutChangesRequest, 1 + storageIndexExtendedGUIDBytes.Count + expectedStorageIndexExtendedGUIDBytes.Count + +contentVersionCoherencyCheckBytes.Count + authorLoginsBytes.Count + 1);
             List<byte> putChangesRequestBytes = this.PutChangesRequestStart.SerializeToByteList();
             
             // reserved
@@ -248,13 +255,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             bitWriter.AppendInit32(this.AbortRemainingPutChangesOnFailure, 1);
             bitWriter.AppendInit32(this.Reserved1Bit, 1);
             bitWriter.AppendInit32(this.ReturnCompleteKnowledgeIfPossible, 1);
-            bitWriter.AppendInit32(this.LastWriterWinsOnNextChange, 1);
-
-            // ContentVersionCoherencyCheck
-            List<byte> contentVersionCoherencyCheckBytes = this.ContentVersionCoherencyCheck.SerializeToByteList();
-
-            // Author Logins 
-            List<byte> authorLoginsBytes = this.AuthorLogins.SerializeToByteList();
+            bitWriter.AppendInit32(this.LastWriterWinsOnNextChange, 1);          
 
             // Reserve1Byte
             List<byte> reserve1ByteBytes = new List<byte>(new byte[1]);
