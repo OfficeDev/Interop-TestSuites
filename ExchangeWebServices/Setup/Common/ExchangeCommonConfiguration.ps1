@@ -80,7 +80,7 @@ function CompareExchangeMinorVersion
     {
         return  $false
     }
-}    
+}      
 
 #-----------------------------------------------------------------------------------
 # <summary>
@@ -99,10 +99,11 @@ function GetExchangeServerVersion
     $ExchangeServer2007             = "$global:Exchange2007",   "8.3.83.6",      "SP3"
     $ExchangeServer2010             = "$global:Exchange2010",   "14.3.123.4",    "SP3"
     $ExchangeServer2013             = "$global:Exchange2013",   "15.0.847.32",   "SP1"
-    $ExchangeServer2016             = "$global:Exchange2016",     "15.1.280.0",   ""
+    $ExchangeServer2016             = "$global:Exchange2016",   "15.1.280.0",   "0"
+    $ExchangeServer2019             = "$global:Exchange2019",   "15.2.196.0",   "0"
     $ExchangeVersion                = "Unknown Version"
     
-    OutputText "Trying to get the Exchange server version; please wait ..."
+    Output "Trying to get the Exchange server version; please wait ..." "White"
     $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
     $items = $keys | foreach-object {Get-ItemProperty $_.PsPath}    
     foreach ($item in $items)
@@ -137,7 +138,7 @@ function GetExchangeServerVersion
             $recommendMinorVersion = $ExchangeServer2013[2]
             $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
             break
-        }  
+        }     
         if($item.DisplayName.StartsWith($ExchangeServer2016[0]))
         {
             $version = $item.DisplayVersion
@@ -146,11 +147,20 @@ function GetExchangeServerVersion
             $recommendMinorVersion = $ExchangeServer2016[2]
             $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
             break
-        }       
+        }    
+        if($item.DisplayName.StartsWith($ExchangeServer2019[0]))
+        {
+            $version = $item.DisplayVersion
+            $ExchangeVersion = $ExchangeServer2019[0]
+            $recommendVersion = $ExchangeServer2019[1]
+            $recommendMinorVersion = $ExchangeServer2019[2]
+            $isRecommendMinorVersion = CompareExchangeMinorVersion $version $recommendVersion
+            break
+        }
     }
     if ($ExchangeVersion -eq "Unknown Version")
     {
-        Write-Warning "Could not find the supported version of Exchange server on the system! Install it first and run the SUT configuration script again.`r`n"
+        Write-Warning "Could not find the supported version of Exchange server on the system! Install one of the recommended versions ($($ExchangeServer2007[0]) $($ExchangeServer2007[2]), $($ExchangeServer2010[0]) $($ExchangeServer2010[2]), $($ExchangeServer2013[0]) $($ExchangeServer2013[2])) and run the SUT configuration script again.`r`n"
         Stop-Transcript
         exit 2
     }
@@ -158,15 +168,15 @@ function GetExchangeServerVersion
     {
         if($isRecommendMinorVersion)
         {
-            OutputText ("Exchange server version: $ExchangeVersion " + $recommendMinorVersion)
+            Output ("Exchange server version: $ExchangeVersion " + $recommendMinorVersion) "White"
         }
         else
         {
-            OutputWarning "$ExchangeVersion $version is not the recommended version."
-            OutputWarning ("Please install the recommended $ExchangeVersion " + "$recommendVersion, otherwise some cases might fail.")
-            OutputQuestion "Would you like to continue configuring the server or exit?"
-            OutputQuestion "1: CONTINUE."
-            OutputQuestion "2: EXIT."
+            Output "$ExchangeVersion $version is not the recommended version." "Yellow"
+            Output ("Please install the recommended $ExchangeVersion " + "$recommendVersion, otherwise some cases might fail.") "Yellow"
+            Output "Would you like to continue configuring the server or exit?" "Cyan"
+            Output "1: CONTINUE." "Cyan"
+            Output "2: EXIT." "Cyan"
             $runOnNonRecommendedSUTChoices = @('1','2')
             $runOnNonRecommendedSUT = ReadUserChoice $runOnNonRecommendedSUTChoices "runOnNonRecommendedSUT"
             if ($runOnNonRecommendedSUT -eq "2")
@@ -1094,7 +1104,6 @@ function GetExchangeServerVersionOnSUT
         $Exchange2013 = "Microsoft Exchange Server 2013", "ExchangeServer2013"
         $Exchange2016 = "Microsoft Exchange Server 2016", "ExchangeServer2016"
         $Exchange2019 = "Microsoft Exchange Server 2019", "ExchangeServer2019"
-             
         $ExchangeVersion  = "Unknown Version"
         $keys = Get-ChildItem HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall
         $items = $keys | foreach-object {Get-ItemProperty $_.PsPath}    
@@ -1118,12 +1127,12 @@ function GetExchangeServerVersionOnSUT
             {
                 $ExchangeVersion = $Exchange2013[1]
                 break
-            }  
+            }
             if($item.DisplayName.StartsWith($Exchange2016[0]))
             {
                 $ExchangeVersion = $Exchange2016[1]
                 break
-            } 
+            }   
             if($item.DisplayName.StartsWith($Exchange2019[0]))
             {
                 $ExchangeVersion = $Exchange2019[1]
@@ -1132,22 +1141,22 @@ function GetExchangeServerVersionOnSUT
         }    
         return $ExchangeVersion
     }
-    ,
-    $ExchangeVersions = @("ExchangeServer2007","ExchangeServer2010","ExchangeServer2013","ExchangeServer2016","ExchangeServer2019")
+
+    $ExchangeVersions = @("ExchangeServer2007","ExchangeServer2010","ExchangeServer2013","ExchangeServer2016","Exchangeserver2019")
     if($ExchangeVersions -notcontains $sutVersion )
     {
-        OutputWarning "Cannot get the Exchange version automatically."
+        Output "Cannot get the Exchange version automatically." "Yellow"
         $sutVersionChoices = @('1: Microsoft Exchange Server 2007',
                                '2: Microsoft Exchange Server 2010',
                                '3: Microsoft Exchange Server 2013',
                                '4: Microsoft Exchange Server 2016',
                                '5: Microsoft Exchange Server 2019')   
-        OutputQuestion "Select the Exchange version: "
-        OutputQuestion ($sutVersionChoices[0])
-        OutputQuestion ($sutVersionChoices[1])
-        OutputQuestion ($sutVersionChoices[2])
-        OutputQuestion ($sutVersionChoices[3])
-        OutputQuestion ($sutVersionChoices[4])
+        Output "Select the Exchange version: " "Cyan"
+        Output ($sutVersionChoices[0]) "Cyan"    
+        Output ($sutVersionChoices[1]) "Cyan"    
+        Output ($sutVersionChoices[2]) "Cyan"
+        Output ($sutVersionChoices[3]) "Cyan"
+        Output ($sutVersionChoices[4]) "Cyan"
             
         $sutVersion = ReadUserChoice $sutVersionChoices "sutVersion"
         Switch ($sutVersion)
@@ -1161,7 +1170,7 @@ function GetExchangeServerVersionOnSUT
     }
     else
     {
-        OutputSuccess "The Exchange version installed on the server is $sutVersion."
+        Output "The Exchange version installed on the server is $sutVersion." "Green"
     }
     return $sutVersion
 }
@@ -1170,5 +1179,5 @@ $global:Exchange2007 = "Microsoft Exchange Server 2007"
 $global:Exchange2010 = "Microsoft Exchange Server 2010"
 $global:Exchange2013 = "Microsoft Exchange Server 2013"
 $global:Exchange2016 = "Microsoft Exchange Server 2016"
-$global:Exchange2016 = "Microsoft Exchange Server 2019"
+$global:Exchange2019 = "Microsoft Exchange Server 2019"
 [void][System.Reflection.Assembly]::LoadWithPartialName("System.DirectoryServices.AccountManagement")
