@@ -26,7 +26,9 @@ AddTimesStampsToLogFile "Start" "$logFile"
 #----------------------------------------------------------------------------
 # Default Variables for Configuration 
 #----------------------------------------------------------------------------
+$domain                             = $env:USERDNSDOMAIN
 $sutComputerName                    = $env:ComputerName
+$userName                           = $env:UserName 
 $environmentResourceFile            = "$commonScriptDirectory\ExchangeTestSuite.config"
 
 $MSOXWSATTUser01              = ReadConfigFileNode "$environmentResourceFile" "MSOXWSATTUser01"
