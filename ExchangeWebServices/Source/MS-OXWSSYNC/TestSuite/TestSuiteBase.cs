@@ -341,7 +341,9 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             distinguishedFolderId.Id = folderIdName;
             request.SyncFolderId.Item = distinguishedFolderId;
             request.MaxChangesReturned = int.Parse(Common.GetConfigurationPropertyValue("MaxChanges", this.Site));
-
+            request.MaximumCount = 256;
+            request.MinimumCount = 0;
+            request.NumberOfDays = 1;
             request.ItemShape = new ItemResponseShapeType();
             request.ItemShape.BaseShape = defaultShapeNamesType;
 

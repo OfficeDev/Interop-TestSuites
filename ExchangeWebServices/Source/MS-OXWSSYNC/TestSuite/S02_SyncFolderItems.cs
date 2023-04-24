@@ -975,6 +975,30 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
                 @"[In m:SyncFolderItemsType Complex Type] This element [MaxChangesReturned] is set between 1 and 512, inclusive, the correct changes number returned in a synchronization response.");
 
             // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R3900");
+
+            // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R3900
+            Site.CaptureRequirement(
+                3900,
+                @"[In m:SyncFolderItemsType Complex Type]This element [NumberOfDays] specifies the time window (expressed in a number of days) of the items to include in a synchronization response.");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R3901");
+
+            // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R3901
+            Site.CaptureRequirement(
+                3901,
+                @"[In m:SyncFolderItemsType Complex Type]This element [MaximumCount] specifies the maximum number of items (from the latest received time) to include in a synchronization response");
+
+            // Add the debug information
+            Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R3902");
+
+            // Verify MS-OXWSSYNC requirement: MS-OXWSSYNC_R3902
+            Site.CaptureRequirement(
+                3902,
+                @"[In m:SyncFolderItemsType Complex Type]This element [MinimumCount] specifies the minimum number of items (from the latest received time) to include in a synchronization response.");
+
+            // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSSYNC_R388");
 
             // If the description of MS-OXWSSYNC_R3891 is true, then requirement MS-OXWSSYNC_R388 can be captured.

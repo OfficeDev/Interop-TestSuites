@@ -2917,6 +2917,18 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
           type="t:SyncFolderItemsScopeType"
           minOccurs="0"
          /&gt;
+       &lt;xs:element name="NumberOfDays"
+          type="xs:int"
+          minOccurs="0"
+         /&gt;
+        &lt;xs:element name="MaximumCount"
+          type="xs:int"
+          minOccurs="0"
+         /&gt;
+        &lt;xs:element name="MinimumCount"
+          type="xs:int"
+          minOccurs="0"
+         /&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:extension&gt;
   &lt;/xs:complexContent&gt;
@@ -3261,6 +3273,33 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
 		<ns1:VerificationComment>Verified by derived requirement: MS-OXWSSYNC_R37811008.</ns1:VerificationComment>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSSYNC_R3900</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.8</ns1:Doc_Sect>
+		<ns1:Description>[In m:SyncFolderItemsType Complex Type] This element [NumberOfDays] specifies the time window (expressed in a number of days) of the items to include in a synchronization response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSSYNC_R3901</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.8</ns1:Doc_Sect>
+		<ns1:Description>[In m:SyncFolderItemsType Complex Type] This element [MaximumCount] specifies the maximum number of items (from the latest received time) to include in a synchronization response.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OXWSSYNC_R3902</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.2.3.8</ns1:Doc_Sect>
+		<ns1:Description>[In m:SyncFolderItemsType Complex Type] This element [MinimumCount] specifies the minimum number of items (from the latest received time) to include in a synchronization response..</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R330</ns1:REQ_ID>
