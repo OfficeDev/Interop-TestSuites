@@ -41503,6 +41503,11 @@ namespace Microsoft.Protocols.TestSuites.Common
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/exchange/services/2006/messages")]
     public partial class SyncFolderItemsType : BaseRequestType
     {
+        private int MaximumCountField;
+
+        private int NumberOfDaysField;
+
+        private int MinimumCountField;
 
         private ItemResponseShapeType itemShapeField;
 
@@ -41583,6 +41588,65 @@ namespace Microsoft.Protocols.TestSuites.Common
                 this.maxChangesReturnedField = value;
             }
         }
+        [System.Xml.Serialization.XmlElementAttribute("MaximumCount")]
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public int MaximumCountForSerialization
+        {
+            get { return MaximumCount > 0 ? MaximumCount : 0; }
+            set { MaximumCount = value; }
+        }
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public int MaximumCount
+        {
+            get
+            {
+                return this.MaximumCountField;
+
+            }
+            set
+            {
+                this.MaximumCountField = value;
+            }
+        }
+        [System.Xml.Serialization.XmlElementAttribute("MinimumCount")]
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public int MinimumCountForSerialization
+        {
+            get { return MinimumCount > 0 ? MinimumCount : 0; }
+            set { MinimumCount = value; }
+        }
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public int MinimumCount
+        {
+            get
+            {
+                return this.MinimumCountField;
+            }
+            set
+            {
+                this.MinimumCountField = value;
+            }
+        }
+        [System.Xml.Serialization.XmlElementAttribute("NumberOfDays")]
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public int NumberOfDaysForSerialization
+        {
+            get { return NumberOfDays > 0 ? NumberOfDays : 0; }
+            set { NumberOfDays = value; }
+        }
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public int NumberOfDays
+        {
+            get
+            {
+                return this.NumberOfDaysField;
+            }
+            set
+            {
+                this.NumberOfDaysField = value;
+            }
+        }
+
 
         /// <remarks/>
         public SyncFolderItemsScopeType SyncScope
