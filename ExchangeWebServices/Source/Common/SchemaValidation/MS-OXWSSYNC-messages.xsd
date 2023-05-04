@@ -41,6 +41,9 @@
           <xs:element name="Ignore" type="t:ArrayOfBaseItemIdsType" minOccurs="0"/>
           <xs:element name="MaxChangesReturned" type="t:MaxSyncChangesReturnedType"/>
           <xs:element name="SyncScope" type="t:SyncFolderItemsScopeType" minOccurs="0"/>
+          <xs:element name="NumberOfDays" type="xs:int" minOccurs="0"/>
+          <xs:element name="MaximumCount" type="xs:int" minOccurs="0"/>
+          <xs:element name="MinimumCount" type="xs:int" minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

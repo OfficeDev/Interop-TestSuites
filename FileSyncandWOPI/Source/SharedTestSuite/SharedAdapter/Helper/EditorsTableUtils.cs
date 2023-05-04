@@ -76,7 +76,8 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                                 {
                                     stream.Flush();
                                     byte[] decompressBuffer = new byte[buffer.Length * 3];
-                                    stream.Read(decompressBuffer, 0, buffer.Length * 3);
+                                    int decompressdSize = stream.Read(decompressBuffer, 0, buffer.Length * 3);
+                                    Array.Resize(ref decompressBuffer, decompressdSize);
                                     stream.Close();
                                     editorsTableXml = System.Text.Encoding.UTF8.GetString(decompressBuffer);
                                 }
