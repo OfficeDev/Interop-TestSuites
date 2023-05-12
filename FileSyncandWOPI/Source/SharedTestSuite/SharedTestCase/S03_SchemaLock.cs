@@ -1910,8 +1910,7 @@ The conversion to an exclusive lock failed.");
             // Prepare a schema lock using a default schema lock.
             this.PrepareSchemaLock(this.DefaultFileUrl, SharedTestSuiteHelper.DefaultClientID, SharedTestSuiteHelper.ReservedSchemaLockID);
 
-            // Initialize the service using different user account.
-            this.InitializeContext(this.DefaultFileUrl, this.UserName02, this.Password02, this.Domain);
+            
             SchemaLockSubRequestType subRequestDifferentSchemaLockId = SharedTestSuiteHelper.CreateSchemaLockSubRequest(SchemaLockRequestTypes.ReleaseLock, null, null);
             subRequestDifferentSchemaLockId.SubRequestData.SchemaLockID = Guid.NewGuid().ToString();
 
@@ -1929,7 +1928,7 @@ The conversion to an exclusive lock failed.");
                              SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              158201,
-                             @"[In Appendix B: Product Behavior] Implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (<49> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)");
+                             @"[In Appendix B: Product Behavior] Implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (<52> Section 3.1.4.4.2:  SharePoint Server 2016 and SharePoint Server 2013, SharePoint Server 2010 return an error code ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)");
                 }
             }
             else
@@ -1939,7 +1938,7 @@ The conversion to an exclusive lock failed.");
                     Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.FileAlreadyLockedOnServer,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
-                    @"[In Appendix B: Product Behavior] Implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (<44> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)");
+                    @"[In Appendix B: Product Behavior] Implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (<52> Section 3.1.4.4.2:  SharePoint Server 2016 and SharePoint Server 2013, SharePoint Server 2010 return an error code ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)");
                 }
             }
         }
@@ -1969,14 +1968,14 @@ The conversion to an exclusive lock failed.");
                          SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          1608,
-                         @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a current exclusive lock on the file when sending a release lock subrequest. (<49> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is an exclusive lock on the file and valid coauthoring session with more than one clients in it.)");
+                         @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a current exclusive lock on the file when sending a release lock subrequest. (<52> Section 3.1.4.4.2:  SharePointServerSubscriptionEdition, SharePoint Server 2019, SharePoint Server 2016,  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is an exclusive lock on the file and valid coauthoring session with more than one clients in it.)");
             }
             else
             {
                 Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.Success,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
-                    @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a current exclusive lock on the file when sending a release lock subrequest. (<44> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is an exclusive lock on the file and valid coauthoring session with more than one clients in it.)");
+                    @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a current exclusive lock on the file when sending a release lock subrequest. (<52> Section 3.1.4.4.2:  SharePointServerSubscriptionEdition, SharePoint Server 2019, SharePoint Server 2016,  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is an exclusive lock on the file and valid coauthoring session with more than one clients in it.)");
             }
         }
 
@@ -2044,14 +2043,14 @@ The conversion to an exclusive lock failed.");
                          SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                          "MS-FSSHTTP",
                          3120,
-                         @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (<49> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)");
+                         @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (<52> Section 3.1.4.4.2:  SharePointServerSubscriptionEdition, SharePoint Server 2019, SharePoint Server 2016,  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)");
             }
             else
             {
                 Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.Success,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
-                    @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (<44> Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)");
+                    @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (<52> Section 3.1.4.4.2:  SharePointServerSubscriptionEdition, SharePoint Server 2019, SharePoint Server 2016,  SharePoint Server 2013 and SharePoint Server 2010 return error code ""Success"" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)");
             }
         }
 
@@ -2083,7 +2082,7 @@ The conversion to an exclusive lock failed.");
                              SharedTestSuiteHelper.ConvertToErrorCodeType(schemaLockSubResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              3129,
-                             @"[In Appendix B: Product Behavior] The implementation does return an error code ""Success"" if the current client is not already present in the coauthoring session and if there are other clients present in the coauthoring session. (<48> Section 3.1.4.4.2:  SharePoint Server 2010 will return an error code of ""Success"" if there are other clients present in the coauthoring session.)");
+                             @"[In Appendix B: Product Behavior] The implementation does return an error code ""Success"" if the current client is not already present in the coauthoring session and if there are other clients present in the coauthoring session. (<51> Section 3.1.4.4.2:  SharePoint Server 2010 will return an error code of ""Success"" if there are other clients present in the coauthoring session.)");
                 }
 
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 3128, this.Site))

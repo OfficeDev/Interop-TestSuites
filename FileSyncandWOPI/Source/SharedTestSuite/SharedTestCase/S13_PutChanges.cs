@@ -136,7 +136,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
-        /// A method used to verify the protocol server processes the PutChanges subRequest successfully when the ExpectedStorageIndexExtendedGUID attribute is specified and Imply Null Expected if No Mapping flag set to one.
+        /// A method used to verify the protocol server processes the PutChanges subRequest successfully when the ExpectedStorageIndexExtendedGUID attribute is specified.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S13_TC02_PutChanges_InvalidExpectedStorageIndexExtendedGUID()
@@ -321,7 +321,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
-        /// A method used to test the protocol server apply the change failed when the ExpectedStorageIndexExtendedGUID attribute is not specified and Imply Null Expected if No Mapping flag set to zero.
+        /// A method used to test the protocol server apply the change failed when the ExpectedStorageIndexExtendedGUID attribute is not specified and Imply Null Expected if No Mapping flag set to one.
         /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S13_TC06_PutChanges_NotSpecifiedExpectedStorageIndexExtendedGUID_ImplyFlagOne()
@@ -1190,8 +1190,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
         }
 
         /// <summary>
-        /// A method used to verify server check the index entry that is actually applied when Coherency Check Only Applied Index Entries set to 1.
-        /// </summary>
+        /// A method used to verify server will attempt to check the Put Changes request for the re-use of previously used IDs when Check For Id Reuse set to 1.        /// </summary>
         [TestCategory("SHAREDTESTCASE"), TestMethod()]
         public void TestCase_S13_TC20_PutChanges_CheckForIdReuse()
         {
@@ -1236,15 +1235,8 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
 
             if (SharedContext.Current.IsMsFsshttpRequirementsCaptured)
             {
-                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R99049
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
-                         ErrorCodeType.CellRequestFail,
-                         SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                         "MS-FSSHTTPB",
-                         99049,
-                         @"[Additional Flags] When D – Coherency Check Only Applied Index Entries (1 bit) is set, the server check the index entry that is actually applied and an index entry that is not applied is not checked.");
-
-                Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                // Verify MS-FSSHTTPB requirement: MS-FSSHTTPB_R99046
+               Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
                          ErrorCodeType.CellRequestFail,
                          SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
                          "MS-FSSHTTPB",
@@ -1263,7 +1255,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 Site.Assert.AreEqual<ErrorCodeType>(
                     ErrorCodeType.CellRequestFail,
                     SharedTestSuiteHelper.ConvertToErrorCodeType(cellSubResponse.ErrorCode, this.Site),
-                    @"[Additional Flags] When D - Coherency Check Only Applied Index Entries (1 bit) is set, the server check the index entry that is actually applied and an index entry that is not applied is not checked.");
+                    @"[Additional Flags] C – Check for Id Reuse (1 bit): A bit that specifies that the server will attempt to check the Put Changes request for the re-use of previously used IDs. ");
             }
         }
 
