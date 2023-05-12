@@ -19232,7 +19232,7 @@ Returns an error code value set to "Success".</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R187802</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In Join Coauthoring Session] This can happen when 1. the file is checked out by the current user [or 2. an exclusive lock is held by the current user or 3. the coauthoring feature] is disabled and the AllowFallbackToExclusive attribute is set to true on the request. </ns1:Description>
+		<ns1:Description>[In Join Coauthoring Session] This can happen when 1. the file is checked out by the current user [or 2. an exclusive lock is held by the current user or 3. the coauthoring feature is disabled and the AllowFallbackToExclusive attribute is set to true on the request]. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -25900,7 +25900,7 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1608</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a current exclusive lock on the file when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code "Success" if there is an exclusive lock on the file and valid coauthoring session with more than one clients in it.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a current exclusive lock on the file when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePointServerSubscriptionEdition, SharePoint Server 2019, SharePoint Server 2016, SharePoint Server 2013 and SharePoint Server 2010 return error code "Success" if there is an exclusive lock on the file and valid coauthoring session with more than one clients in it.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1580:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25910,7 +25910,7 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3120</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return error code "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePointServerSubscriptionEdition, SharePoint Server 2019, SharePoint Server 2016, SharePoint Server 2013 and SharePoint Server 2010 return error code "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1580:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25920,7 +25920,7 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R158201</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePoint Server 2016, SharePoint Server 2013 and SharePoint Server 2010 return an error code "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1582:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
