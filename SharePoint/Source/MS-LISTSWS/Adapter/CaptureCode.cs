@@ -2436,14 +2436,14 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 1789,
-                @"[GetListAndViewResponse]ListDefinitionSchema: Specifies the schema for the list");
+                @"[GetListAndViewResponse]List: Specifies the schema for the list");
 
             // Verify R1790
             // The response have been received successfully, then the following requirement can be captured.
             // If the response is not received and parsed successfully, the test case will fail before this requirement is captured 
             Site.CaptureRequirement(
                 1790,
-                @"[GetListAndViewResponse]ViewDefinition: Specifies the schema for the view.");
+                @"[GetListAndViewResponse]View: Specifies the schema for the view.");
 
             Site.Assert.IsNotNull(getListAndViewResult, "The return result of this operation cannot be NULL");
 
