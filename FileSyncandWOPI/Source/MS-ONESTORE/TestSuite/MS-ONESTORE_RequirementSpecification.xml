@@ -6803,7 +6803,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R747</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.6.1</ns1:Doc_Sect>
-		<ns1:Description>[In ObjectSpaceObjectPropSet] [padding] The total size, in bytes, of an ObjectSpaceObjectPropSet structure MUST be a multiple of 8; the size of the padding field is the number of bytes necessary to ensure the total size of ObjectSpaceObjectPropSet structure is a multiple of 8. </ns1:Description>
+		<ns1:Description>[In ObjectSpaceObjectPropSet] [padding] The total size, in bytes, of an ObjectSpaceObjectPropSet structure MUST be a multiple of 8 if the padding field is present; the size of the padding field is the number of bytes necessary to ensure the total size of ObjectSpaceObjectPropSet structure is a multiple of 8. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9000,7 +9000,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R989</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.8.1</ns1:Doc_Sect>
-		<ns1:Description>[In Packaging Structure] Packaging End (2 byte): An 16-bit stream object header end, as specified in [MS-FSSHTTPB] section 2.2.1.5.4, that specifies a stream object of type 0x7A. </ns1:Description>
+		<ns1:Description>[In Packaging Structure] Packaging End (2 bytes): A 16-bit stream object header end, as specified in [MS-FSSHTTPB] section 2.2.1.5.4, that specifies a stream object of type 0x7A. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

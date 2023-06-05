@@ -411,7 +411,7 @@
                             0,
                             (OIDsLen + OSIDsLen + contextLen + bodyLen + objectPropSet.Padding.Length) % 8,
                             747,
-                            @"[In ObjectSpaceObjectPropSet] [padding] The total size, in bytes, of an ObjectSpaceObjectPropSet structure MUST be a multiple of 8; the size of the padding field is the number of bytes necessary to ensure the total size of ObjectSpaceObjectPropSet structure is a multiple of 8. ");
+                            @"[In ObjectSpaceObjectPropSet] [padding] The total size, in bytes, of an ObjectSpaceObjectPropSet structure MUST be a multiple of 8 if the padding field is present; the size of the padding field is the number of bytes necessary to ensure the total size of ObjectSpaceObjectPropSet structure is a multiple of 8. ");
                     }
                 }
             }
