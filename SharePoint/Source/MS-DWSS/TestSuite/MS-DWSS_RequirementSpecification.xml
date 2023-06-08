@@ -6787,7 +6787,7 @@ http://schemas.microsoft.com/sharepoint/soap/dws/UpdateDwsData</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-DWSS_R1680</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error if the authenticated user is not permitted to access this information. (Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, and SharePoint Server 2016 will never return the "NoAccess" error code; instead, these product versions will return HTTP status code 401 with a response body containing the text "401 Unauthorized".)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return HTTP status code 401 with response body which contains text "401 Unauthorized" instead of the "NoAccess" error if the authenticated user is not permitted to access this information. (Windows SharePoint Services 3.0, SharePoint Foundation 2010, SharePoint Foundation 2013, SharePoint Server 2016 and SharePoint Server 2019 will never return the "NoAccess" error code; instead, these product versions will return HTTP status code 401 with a response body containing the text "401 Unauthorized".)</ns1:Description>
 		<ns1:Derived>MS-DWSS_R243:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
