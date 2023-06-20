@@ -25417,7 +25417,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11267</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;36&gt; Section 2.3.1.33:  SharePoint Server 2010 returns an "InvalidArgument" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;36&gt; Section 2.3.1.33:  SharePoint Server 2010 and SharePoint 2013, an error code SHOULD be returned. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 /Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11101:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25428,7 +25428,7 @@ The coauthoring administrator setting for the server is turned off. (Microsoft S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R11268</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;36&gt; Section 2.3.1.33:  SharePoint Server 2013 and SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Server 2016 follow this behavior).</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;36&gt; Section 2.3.1.33:  SharePoint Server 2016, return "HighLevelExceptionThrown" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft SharePoint Server 2016 follow this behavior).</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R11101:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

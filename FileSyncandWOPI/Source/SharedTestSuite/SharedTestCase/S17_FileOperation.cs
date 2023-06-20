@@ -163,12 +163,19 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 {
 
                     // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11267
-                    Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
+                    /* Below error information is on doc (version 20230221)
+                     Site.CaptureRequirementIfAreEqual<GenericErrorCodeTypes>(
                         GenericErrorCodeTypes.InvalidArgument,
                         cellStoreageResponse.ResponseVersion.ErrorCode,
-                        "MS-FSSHTTP",
+                       "MS-FSSHTTP",
                         11267,
                         @"[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2010 returns an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010 follow this behavior.)");
+                    */
+                    Site.CaptureRequirementIfIsNotNull(
+                         cellStoreageResponse.ResponseVersion.ErrorCode,
+                         "MS-FSSHTTP",
+                         11267,
+                         @"[In EditorsTableSubResponseType] If the specified attributes[FileOperation] are not provided,an error code SHOULD be returned on SharePoint 2010 and 2013");
                 }
 
                 // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11268
@@ -180,7 +187,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                         cellStoreageResponse.ResponseVersion.ErrorCode,
                         "MS-FSSHTTP",
                         11268,
-                        @"[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2013 and SharePoint Server 2016, return ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft SharePoint Foundation 2013/Microsoft SharePoint Server 2013/Microsoft SharePoint Server 2016 follow this behavior).");
+                        @"[In Appendix B: Product Behavior]  If the specified attributes[FileOperation] are not provided, the implementation does return error code. &lt;33&gt; Section 2.3.1.33:  SharePoint Server 2016 return ""HighLevelExceptionThrown"" error code as part of the SubResponseData element associated with the file operation subresponse(Microsoft SharePoint Server 2016 follow this behavior).");
                 }
             }
 
@@ -189,10 +196,11 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                 if (Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 11267, this.Site))
                 {
                     // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R11267
-                    Site.Assert.AreEqual<GenericErrorCodeTypes>(
-                    GenericErrorCodeTypes.HighLevelExceptionThrown,
-                    cellStoreageResponse.ResponseVersion.ErrorCode,
-                    @"[In Appendix B: Product Behavior] If the specified attributes[FileOperation attribute] are not provided, the implementation does return an ""InvalidArgument"" error code as part of the SubResponseData element associated with the file opeartion subresponse. (Microsoft Office 2010 suites/Microsoft SharePoint Foundation 2010/Microsoft SharePoint Server 2010/Microsoft SharePoint Workspace 2010/Microsoft Office 2016/Microsoft SharePoint Server 2016/Microsoft Office 2019/Microsoft SharePoint Server 2019 follow this behavior.)");
+                    Site.CaptureRequirementIfIsNotNull(
+                          cellStoreageResponse.ResponseVersion.ErrorCode,
+                          "MS-FSSHTTP",
+                          11267,
+                          @"[In EditorsTableSubResponseType] If the specified attributes[FileOperation] are not provided,an error code SHOULD be returned on SharePoint 2010 and 2013");
                 }
             }
         }
