@@ -4376,7 +4376,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
             site.CaptureRequirementIfIsTrue(
                     file.packagingEnd is StreamObjectHeaderEnd16bit,
                     989,
-                    @"[In Packaging Structure] Packaging Start (4 bytes): A 32-bit stream object header, as specified in [MS-FSSHTTPB] section 2.2.1.5.2, with a Header Type of  0x00, Compound of 0x1, Type of 0x7A, and Length set to the length of the Storage Index Extended GUID plus the length of the guidCellSchemaId.");
+                    @"[In Packaging Structure] Packaging End (2 bytes): A 16-bit stream object header end, as specified in [MS-FSSHTTPB] section 2.2.1.5.4, that specifies a stream object of type 0x7A.");
 
             // Verify MS-ONESTORE requirement: MS-ONESTORE_R990
             List<byte> packagingEndByteList = file.packagingEnd.SerializeToByteList();
