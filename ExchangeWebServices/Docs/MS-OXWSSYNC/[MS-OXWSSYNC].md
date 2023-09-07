@@ -1,6 +1,6 @@
 ## [MS-OXWSSYNC]: Mailbox Contents Synchronization Web Service Protocol
-- [MS-OXWSSYNC] v20230221 is used to develop the test suite.
-- Release date, 02/21/2023.
+- [MS-OXWSSYNC] v20230815 is used to develop the test suite.
+- Release date, 08/15/2023.
 
 To find the new landing page for [MS-OXWSSYNC], please visit https://msdn.microsoft.com/en-us/library/ee202309(v=exchg.80).aspx
 
