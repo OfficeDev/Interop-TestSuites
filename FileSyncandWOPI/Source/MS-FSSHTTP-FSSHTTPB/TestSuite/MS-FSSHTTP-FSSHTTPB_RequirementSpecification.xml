@@ -20994,7 +20994,7 @@ Return "Success" if no clients are present in the coauthoring session.</ns1:Desc
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R158201.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirement: MS-FSSHTTP_R158201 and MS-FSSHTTP_R158202.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1171</ns1:REQ_ID>
@@ -25910,7 +25910,7 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R3120</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePointServerSubscriptionEdition, SharePoint Server 2019, SharePoint Server 2016, SharePoint Server 2013 and SharePoint Server 2010 return error code "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePoint Server Subscription Edition, SharePoint Server 2019, SharePoint Server 2016, SharePoint Server 2013 and SharePoint Server 2010 return error code "Success" if there is a shared lock with a different shared lock identifier and valid coauthoring session with more than one clients in it.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1580:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25920,7 +25920,17 @@ MS-FSSHTTP_R1573:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R158201</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2:  SharePoint Server 2016, SharePoint Server 2013 and SharePoint Server 2010 return an error code "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2: SharePoint Server Subscription Edition, SharePoint Server 2019 return an error code "Success" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R1582:i,MS-FSSHTTP_R1345:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R158202</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest. (&lt;52&gt; Section 3.1.4.4.2: SharePoint Server 2016, SharePoint Server 2013 and SharePoint Server 2010 return an error code "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1582:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -28493,7 +28503,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R242</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12</ns1:Doc_Sect>
-		<ns1:Description>[In Data Element Package] Reserved (1 byte): Reserved (1 byte): MUST be ignored.</ns1:Description>
+		<ns1:Description>[In Data Element Package] Reserved (1 byte): MUST be ignored.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29414,7 +29424,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R2107</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.6.3</ns1:Doc_Sect>
-		<ns1:Description>[In Object Metadata Declaration] An Object Metadata Declaration has the following structure [Object Group Metadata Declarations (variable), Object Metadata (variable), Object Group Metadata Declarations End (2 byte)]. &lt;2&gt;</ns1:Description>
+		<ns1:Description>[In Object Metadata Declaration] An Object Metadata Declaration has the following structure [Object Group Metadata Declarations (variable), Object Metadata (variable), Object Group Metadata Declarations End (2 bytes)]. &lt;2&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -29442,7 +29452,7 @@ Fields are not aligned because data are of variable length.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R2110</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.12.6.3</ns1:Doc_Sect>
-		<ns1:Description>[In Object Metadata Declaration] Object Group Metadata Declarations End (2 byte): An 16-bit Stream Object Header (section 2.2.1.5.4) that specifies the end of Object Group metadata declarations.</ns1:Description>
+		<ns1:Description>[In Object Metadata Declaration] Object Group Metadata Declarations End (2 bytes): An 16-bit Stream Object Header (section 2.2.1.5.4) that specifies the end of Object Group metadata declarations.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -31507,7 +31517,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R1228</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Query Changes]I – User Content Equivalent Version Ok (1 bit): This attribute MAY be set. </ns1:Description>
+		<ns1:Description>[In Query Changes]I – User Content Equivalent Version Ok (1 bit, optional): This attribute MAY be set. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -31516,7 +31526,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R1229</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Query Changes][I – User Content Equivalent Version Ok (1 bit)]If set, a bit that specifies that if the version of the file cannot be found, it is acceptable to return a substitute version that is equivalent from a user authored content perspective, if such a version exists.&lt;14&gt;</ns1:Description>
+		<ns1:Description>[In Query Changes][I – User Content Equivalent Version Ok (1 bit, optional)]If set, a bit that specifies that if the version of the file cannot be found, it is acceptable to return a substitute version that is equivalent from a user authored content perspective, if such a version exists.&lt;14&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -31526,7 +31536,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R433</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Query Changes]J – Reserved1 (7bits): A 7-bit reserved field that MUST be set to zero.</ns1:Description>
+		<ns1:Description>[In Query Changes]J – Reserved1 (7bits, optional): A 7-bit reserved field that MUST be set to zero.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -31535,7 +31545,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R434</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In Query Changes] J - Reserved1 (7 bits): MUST be ignored.</ns1:Description>
+		<ns1:Description>[In Query Changes] [J – Reserved1 (7 bits, optional)] MUST be ignored.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -32533,6 +32543,24 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Doc_Sect>2.2.2.1.4</ns1:Doc_Sect>
 		<ns1:Description>[In Put Changes] Whenever the E - Abort Remaining Put Changes on Failure field is set to 0 or 1, the protocol server must return the same response.</ns1:Description>
 		<ns1:Derived>MS-FSSHTTPB_R518:p</ns1:Derived>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPB_R51802</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Put Changes] F - Multi-Request_Put_Hint (1 bit):  A bit that specifies to reduce the number of auto coalesces during multi-request put scenarios.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Both</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTPB_R51803</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.2.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Put Changes][F - Multi-Request_Put_Hint (1 bit)]If only one request for a Put Changes, this bit is zero.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
