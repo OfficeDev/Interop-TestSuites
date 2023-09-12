@@ -650,6 +650,24 @@ Otherwise, the reader MUST treat this attribute[AddOrUpdateFieldDefinition.PITar
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R123301</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[Contains:] Specifies the filter criteria.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R123302</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
+		<ns1:Description>[Contains:] The field and the value it contains MUST meet the filter criterion.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1233</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.3</ns1:Doc_Sect>
 		<ns1:Description>[FieldRef:] Specifies which field to apply the filter to.</ns1:Description>
@@ -749,9 +767,18 @@ Otherwise, the reader MUST treat this attribute[AddOrUpdateFieldDefinition.PITar
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R12390</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[QueryOptions]Specifies various options for modifying the query.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1239</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
-		<ns1:Description>[Date4InUtc]Specifies the format in which dates are returned.</ns1:Description>
+		<ns1:Description>[DateInUtc]Specifies the format in which dates are returned.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3279,7 +3306,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1410</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionSchema.Validation]If present, this element MUST not be longer than 1024 characters.&lt;26&gt;</ns1:Description>
+		<ns1:Description>[ListDefinitionSchema.Validation]If present, this element MUST NOT be longer than 1024 characters.&lt;26&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3298,7 +3325,7 @@ Users cannot modify any list items.</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1412</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionSchema.Validation.Message] If present, this element MUST not be longer than 1024 characters.&lt;27&gt;</ns1:Description>
+		<ns1:Description>[ListDefinitionSchema.Validation.Message] If present, this element MUST NOT be longer than 1024 characters.&lt;27&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3343,10 +3370,28 @@ Users cannot modify any list items.</ns1:Description>
 		<ns1:VerificationComment>Verified by derived requirement: MS-LISTSWS_R2422.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R14160</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
+		<ns1:Description>[ListDefinitionSchema.Fields]Specifies the collection of all the field (2) in the list.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1420</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
-		<ns1:Description>[ListDefinitionSchema.FieldDefinition: ]As specified in [MS-WSSFO2] section 2.2.8.3.3.
+		<ns1:Description>[ListDefinitionSchema.Fields.Field:]A FieldDefinition, as specified in [MS-WSSFO2] section 2.2.8.3.3.
 [A field definition describes the structure and format of a field that is used within a list or content type.]</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Adapter</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R14200</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
+		<ns1:Description>[ListDefinitionSchema.Fields.RegionalSettings:]Specifies the regional settings of the list.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3491,6 +3536,15 @@ Value Description
 		<ns1:REQ_ID>MS-LISTSWS_R2249</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
 		<ns1:Description>ListDefinitionSchema.Presence: [Specifies that presence is enabled if set to True; ]otherwise Presence is not enabled.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R22490</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.12</ns1:Doc_Sect>
+		<ns1:Description>[ListDefinitionSchema.ServerSettings:]Specifies a collection of protocol server settings.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3699,6 +3753,15 @@ Value Description
 		<ns1:Verification>Adapter</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R123303</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.14</ns1:Doc_Sect>
+		<ns1:Description>[Method:] Specifies the result of an operation on a list's fields.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1447</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.14</ns1:Doc_Sect>
 		<ns1:Description>[Method.ID:] The method identification matching the incoming method identification for which the results are to be displayed.</ns1:Description>
@@ -3737,7 +3800,7 @@ Value Description
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1450</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.14</ns1:Doc_Sect>
-		<ns1:Description>[ErrorString:] The string description of error if the operation[Add, Update, or Delete] failed.</ns1:Description>
+		<ns1:Description>[ErrorText:] The string description of error if the operation[Add, Update, or Delete] failed.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8188,6 +8251,15 @@ Contains the response to a request to create a new content type on a list.</ns1:
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R123304</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.9.2.1</ns1:Doc_Sect>
+		<ns1:Description>[In CreateContentType operation] [In CreateContentType element] [In ContentType]: The additional property definitions for the new content type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R458</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.2.1</ns1:Doc_Sect>
 		<ns1:Description>[In CreateContentType operation] [In CreateContentType element] [In addToView field] Specifies whether the fields will be added to the default list view, where "TRUE" MUST correspond to true, and all other values to false.</ns1:Description>
@@ -10489,9 +10561,18 @@ http://schemas.microsoft.com/sharepoint/soap/GetListAndView</ns1:Description>
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R123305</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.16.2.2</ns1:Doc_Sect>
+		<ns1:Description>[GetListAndViewResponse]ListAndView:  The container element for the list and view.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1789</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.16.2.2</ns1:Doc_Sect>
-		<ns1:Description>[GetListAndViewResponse]ListDefinitionSchema: Specifies the schema for the list</ns1:Description>
+		<ns1:Description>[GetListAndViewResponse]List: Specifies the schema for the list</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10500,7 +10581,7 @@ http://schemas.microsoft.com/sharepoint/soap/GetListAndView</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1790</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.16.2.2</ns1:Doc_Sect>
-		<ns1:Description>[GetListAndViewResponse]ViewDefinition: Specifies the schema for the view.</ns1:Description>
+		<ns1:Description>[GetListAndViewResponse]View: Specifies the schema for the view.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -17994,7 +18075,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2052</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.30.2.1</ns1:Doc_Sect>
-		<ns1:Description>[Validation]If present, it MUST not be longer than 1024 characters.</ns1:Description>
+		<ns1:Description>[Validation]If present, it MUST NOT be longer than 1024 characters.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -18012,7 +18093,7 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2054</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.30.2.1</ns1:Doc_Sect>
-		<ns1:Description>[Validation.Message]If present, it MUST not be longer than 1024 characters.</ns1:Description>
+		<ns1:Description>[Validation.Message]If present, it MUST NOT be longer than 1024 characters.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -19517,7 +19598,7 @@ The request to make inserts, updates, and deletions to specified list items in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R2113</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.31.2.2</ns1:Doc_Sect>
-		<ns1:Description>[UpdateListItemsResponse] [If the OnError attribute of the Batch element is set to Continue,] The outcome of a Method operation MUST not affect the other Method operations.</ns1:Description>
+		<ns1:Description>[UpdateListItemsResponse] [If the OnError attribute of the Batch element is set to Continue,] The outcome of a Method operation MUST NOT affect the other Method operations.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

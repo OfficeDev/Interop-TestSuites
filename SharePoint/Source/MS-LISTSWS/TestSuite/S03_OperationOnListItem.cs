@@ -7790,7 +7790,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                                  data.Rows.Count,
                                  2113,
                                  "[UpdateListItemsResponse] [If the OnError attribute of the Batch element is set to Continue,] "
-                                    + "The outcome of a Method operation MUST not affect the other Method operations.");
+                                    + "The outcome of a Method operation MUST NOT affect the other Method operations.");
 
             if (Common.IsRequirementEnabled(4009, this.Site))
             {
