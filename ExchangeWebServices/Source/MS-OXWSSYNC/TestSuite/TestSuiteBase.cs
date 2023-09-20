@@ -943,7 +943,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
 
         #region Common method
         /// <summary>
-        /// Verify SyncFoldersItems operation with/without all optional elements.
+        /// Verify SyncFolderItems operation with/without all optional elements.
         /// </summary>
         /// <param name="request">The request of SyncFolderItems operation.</param>
         /// <param name="isIgnoreElementIncluded">A Boolean value indicates whether the request includes Ignore element.</param>
