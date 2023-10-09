@@ -32543,18 +32543,18 @@ Server implementations do not need to replicate the same logic and behavior as S
 		<ns1:Doc_Sect>2.2.2.1.4</ns1:Doc_Sect>
 		<ns1:Description>[In Put Changes] F - Multi-Request_Put_Hint (1 bit):  A bit that specifies to reduce the number of auto coalesces during multi-request put scenarios.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Non-testable</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R51803</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.4</ns1:Doc_Sect>
 		<ns1:Description>[In Put Changes][F - Multi-Request_Put_Hint (1 bit)]If only one request for a Put Changes, this bit is zero.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
-		<ns1:Scope>Both</ns1:Scope>
+		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
-		<ns1:Verification>Test Case</ns1:Verification>
+		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R520</ns1:REQ_ID>
