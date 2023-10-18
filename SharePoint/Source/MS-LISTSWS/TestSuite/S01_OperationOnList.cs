@@ -1141,6 +1141,12 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     1427,
                     @"[ListDefinitionSchema.Presence:] Specifies that presence is enabled if set to True; [otherwise Presence is not enabled.]");
 
+                //Verify R22490
+                Site.Assert.IsNotNull(getResult.List.ServerSettings, "The ListDefinitionSchema.RegionalSettings cannot be null");
+                Site.CaptureRequirement(
+                            22490,
+                            @"[ListDefinitionSchema.ServerSettings]Specifies a collection of protocol server settings.");
+
                 // If the value of RecycleBinEnabled equals to the value set by sutControlAdapter(true), capture R1429.
                 Site.CaptureRequirementIfIsTrue(
                     bool.Parse(getResult.List.ServerSettings.RecycleBinEnabled),
