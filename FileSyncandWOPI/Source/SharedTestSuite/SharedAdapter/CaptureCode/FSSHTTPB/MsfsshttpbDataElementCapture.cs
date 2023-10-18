@@ -836,7 +836,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      2110,
-                     @"[In Object Metadata Declaration] Object Group Metadata Declarations End (2 byte): An 16-bit Stream Object Header (section 2.2.1.5.4) that specifies the end of Object Group metadata declarations.");
+                     @"[In Object Metadata Declaration] Object Group Metadata Declarations End (2 bytes): An 16-bit Stream Object Header (section 2.2.1.5.4) that specifies the end of Object Group metadata declarations.");
 
             if (Common.Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 21072, site))
             {
