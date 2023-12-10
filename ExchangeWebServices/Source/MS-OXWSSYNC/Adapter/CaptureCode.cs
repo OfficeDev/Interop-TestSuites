@@ -780,7 +780,7 @@ xs:complexType name=""SyncFolderHierarchyCreateOrUpdateType"">
             Site.CaptureRequirementIfIsTrue(
                 isSchemaValidated,
                 480,
-                @"[In tns:SyncFolderItemsSoapOut] The SyncFolderItemsSoapOut WSDL message specifies the response from the SyncFoldersItems operation.
+                @"[In tns:SyncFolderItemsSoapOut] The SyncFolderItemsSoapOut WSDL message specifies the response from the SyncFolderItems operation.
                 <wsdl:message name=""SyncFolderItemsSoapOut"">
                    <wsdl:part name=""SyncFolderItemsResult"" element=""tns:SyncFolderItemsResponse"" />
                    <wsdl:part name=""ServerVersion"" element=""t:ServerVersionInfo""/>

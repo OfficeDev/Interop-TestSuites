@@ -1012,8 +1012,11 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                 + @"</s:complexType>");
 
             Site.Assert.IsNotNull(listDefinitionSchema, "The ListDefinitionSchema cannot be null");
+            //Verify R14160
             Site.Assert.IsNotNull(listDefinitionSchema.Fields, "The ListDefinitionSchema.Fields cannot be null");
-
+            Site.CaptureRequirement(
+                        14160,
+                        @"[ListDefinitionSchema.Fields]Specifies the collection of all the field (2) in the list.");
             // Verify R1420
             if (listDefinitionSchema.Fields.Field != null)
             {
@@ -1023,7 +1026,7 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
                     // Thus R1420 can be captured directly here.
                     Site.CaptureRequirement(
                         1420,
-                        @"[ListDefinitionSchema.FieldDefinition: ]As specified in [MS-WSSFO2] section "
+                        @"[ListDefinitionSchema.Fields.Field:]A FieldDefinition, as specified in [MS-WSSFO2] section "
                         + "2.2.8.3.3.[A field definition describes the structure and format of a field that "
                         + "is used within a list or content type.]");
                 }
@@ -1031,6 +1034,12 @@ namespace Microsoft.Protocols.TestSuites.MS_LISTSWS
 
             // Verify R1421
             System.Globalization.CultureInfo[] cultures = System.Globalization.CultureInfo.GetCultures(System.Globalization.CultureTypes.AllCultures & ~System.Globalization.CultureTypes.NeutralCultures);
+
+            //Verify R14200
+            Site.Assert.IsNotNull(listDefinitionSchema.RegionalSettings, "The ListDefinitionSchema.RegionalSettings cannot be null");
+            Site.CaptureRequirement(
+                        14200,
+                        @"[ListDefinitionSchema.RegionalSettings]Specifies the regional settings of the list.");
 
             bool isValidLCIDForLanguage = false;
             if (listDefinitionSchema.RegionalSettings.Language != null)

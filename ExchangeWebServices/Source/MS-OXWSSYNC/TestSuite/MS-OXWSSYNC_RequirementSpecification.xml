@@ -1747,7 +1747,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R480</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In tns:SyncFolderItemsSoapOut] The SyncFolderItemsSoapOut WSDL message specifies the response from the SyncFoldersItems operation.
+		<ns1:Description>[In tns:SyncFolderItemsSoapOut] The SyncFolderItemsSoapOut WSDL message specifies the response from the SyncFolderItems operation.
 &lt;wsdl:message name="SyncFolderItemsSoapOut"&gt;
    &lt;wsdl:part name="SyncFolderItemsResult" element="tns:SyncFolderItemsResponse" /&gt;
    &lt;wsdl:part name="ServerVersion" element="t:ServerVersionInfo"/&gt;

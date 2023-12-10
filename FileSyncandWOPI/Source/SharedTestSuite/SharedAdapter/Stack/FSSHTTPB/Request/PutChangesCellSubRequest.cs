@@ -69,42 +69,42 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
         public ExGuid ExpectedStorageIndexExtendedGUID { get; set; }
 
         /// <summary>
-        /// Gets or sets I - Imply Null Expected if No Mapping (1 bit): A bit that specifies that the expected storage index is the basis for what the client believes is the current state of the storage index if set to 1, otherwise the expected storage index is not specified.
+        /// Gets or sets A - Imply Null Expected if No Mapping (1 bit): A bit that specifies that the expected storage index is the basis for what the client believes is the current state of the storage index if set to 1, otherwise the expected storage index is not specified.
         /// </summary>
         public int ImplyNullExpectedIfNoMapping { get; set; }
 
         /// <summary>
-        /// Gets or sets P - Partial (1 bit): A bit that specifies that this is a partial put changes and not the full changes.
+        /// Gets or sets B - Partial (1 bit): A bit that specifies that this is a partial put changes and not the full changes.
         /// </summary>
         public int Partial { get; set; }
 
         /// <summary>
-        /// Gets or sets L - Partial Last (1 bit): A bit that specifies if this is the last put changes in a partial set of changes.
+        /// Gets or sets C - Partial Last (1 bit): A bit that specifies if this is the last put changes in a partial set of changes.
         /// </summary>
         public int PartialLast { get; set; }
 
         /// <summary>
-        /// Gets or sets F - Favor Coherency Failure Over Not Found (1 bit): A bit that specifies to force a coherency check on the server if a Referenced Data Element Not Found. This may result in a Coherency Failure returned instead of Referenced Data Element Not Found. 
+        /// Gets or sets D - Favor Coherency Failure Over Not Found (1 bit): A bit that specifies to force a coherency check on the server if a Referenced Data Element Not Found. This may result in a Coherency Failure returned instead of Referenced Data Element Not Found. 
         /// </summary>
         public int FavorCoherencyFailureOverNotFound { get; set; }
 
         /// <summary>
-        /// Gets or sets A - Abort Remaining Put Changes on Failure (1 bit): A bit that specifies if set to abort remaining put changes on failure.
+        /// Gets or sets E - Abort Remaining Put Changes on Failure (1 bit): A bit that specifies if set to abort remaining put changes on failure.
         /// </summary>
         public int AbortRemainingPutChangesOnFailure { get; set; }
 
         /// <summary>
-        /// Gets or sets H - Multi-Request Put Hint (1 bit): A bit that specifies to reduce the number of auto coalesces during multi-request put scenarios, if only one request for a put changes, this bit is 0. 
+        /// Gets or sets F - Multi-Request Put Hint (1 bit): A bit that specifies to reduce the number of auto coalesces during multi-request put scenarios, if only one request for a put changes, this bit is 0. 
         /// </summary>
         public int Reserved1Bit { get; set; }
 
         /// <summary>
-        /// Gets or sets C - Return Complete Knowledge If Possible (1 bit): A bit that specifies to return the complete knowledge from the server provided that this request has exclusive access to the knowledge. Exclusive knowledge access is only granted on Coalesce and therefore complete knowledge will not be returned in non-coalescing sub-requests. 
+        /// Gets or sets G - Return Complete Knowledge If Possible (1 bit): A bit that specifies to return the complete knowledge from the server provided that this request has exclusive access to the knowledge. Exclusive knowledge access is only granted on Coalesce and therefore complete knowledge will not be returned in non-coalescing sub-requests. 
         /// </summary>
         public int ReturnCompleteKnowledgeIfPossible { get; set; }
 
         /// <summary>
-        /// Gets or sets LastWriterWinsOnNextChange (1 bit): A bit that specifies to allow the Put Changes to be subsequently overwritten on the next put changes.
+        /// Gets or sets H - LastWriterWinsOnNextChange (1 bit): A bit that specifies to allow the Put Changes to be subsequently overwritten on the next put changes.
         /// </summary>
         public int LastWriterWinsOnNextChange { get; set; }
 
