@@ -1010,6 +1010,15 @@ Otherwise, the reader MUST treat this attribute[AddOrUpdateFieldDefinition.PITar
 		<ns1:Verification>Unverified</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R126801</ns1:REQ_ID>
+		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
+		<ns1:Description>[ViewAttributes.Scope:]Specifies the scope for returning list items and list folders in a list view, as specified in section 2.2.5.4.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R1269</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.4</ns1:Doc_Sect>
 		<ns1:Description>[RecurrencePatternXMLVersion]Specifies the version supported for recurrence patterns.</ns1:Description>
@@ -16859,6 +16868,15 @@ Contains the response to a request to update a content type on a list.</ns1:Desc
 		<ns1:Verification>Non-testable</ns1:Verification>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R199801</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.27.2.2</ns1:Doc_Sect>
+		<ns1:Description>[UpdateContentTypeResponse]ListProperties.Version: Specifies the current version of the content type.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Non-testable</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-LISTSWS_R835</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.28</ns1:Doc_Sect>
 		<ns1:Description>[In UpdateContentTypesXmlDocument operation] The UpdateContentTypesXmlDocument operation&lt;83&gt; is used to update XML document properties of the content type collection on a list.</ns1:Description>
@@ -18049,6 +18067,15 @@ http://schemas.microsoft.com/sharepoint/soap/UpdateList</ns1:Description>
 		<ns1:REQ_ID>MS-LISTSWS_R2049</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.30.2.1</ns1:Doc_Sect>
 		<ns1:Description>[UpdateList]listProperties : The properties of the specified list.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Informative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-LISTSWS_R204901</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4.30.2.1</ns1:Doc_Sect>
+		<ns1:Description>[UpdateList]List: The container that specifies the list’s properties.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
