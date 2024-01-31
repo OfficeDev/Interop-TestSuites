@@ -25,6 +25,8 @@
     <Property name="NormalFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPI_TestData.txt"/>
     <!-- The BigFile property specifies the URL of the file which is larger than 1MB. -->
     <Property name="BigFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPIBigTest.txt"/>
+    <!-- The BigFile property specifies the URL of the file which is larger than 6MB. -->
+    <Property name="BigFile2" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPIBigTest2.txt"/>
     <!-- The ZipFile property specifies the URL of the file which is in zip file format. -->
     <Property name="ZipFile" value="[TransportType]://[SUTComputerName]/sites/[SiteCollectionName]/[MSFSSHTTPFSSHTTPBLibraryName]/FileSyncWOPI_ZipTestData.zip"/>
     <!-- The OneNoteFile property specifies the URL of the file which is a OneNote notebook. -->

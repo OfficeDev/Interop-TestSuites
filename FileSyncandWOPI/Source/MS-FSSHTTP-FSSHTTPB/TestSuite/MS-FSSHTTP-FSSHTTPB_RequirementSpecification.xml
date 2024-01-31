@@ -19457,7 +19457,7 @@ Returns an error code value set to "Success".</ns1:Description>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
 		<ns1:Verification>Non-testable</ns1:Verification>
-		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R2047, MS-FSSHTTP_R156001.</ns1:VerificationComment>
+		<ns1:VerificationComment>Verified by derived requirements: MS-FSSHTTP_R2047, MS-FSSHTTP_R156001, MS-FSSHTTP_R156002.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1038</ns1:REQ_ID>
@@ -25691,7 +25691,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R1605</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" when sending Exit Coauthoring Session subrequest. (&lt;45&gt; Section 3.1.4.3.2:  SharePoint Server 2013 and SharePoint Server 2010 return an error code of "Success" if there is an exclusive lock on the file.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" when sending Exit Coauthoring Session subrequest. (&lt;45&gt; Section 3.1.4.3.2:  SharePoint Server Subscription Edition, SharePoint Server 2019, SharePoint Server 2016, SharePoint Server 2013 and SharePoint Server 2010 return an error code of "Success" if there is an exclusive lock on the file.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1558:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25701,7 +25701,7 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R2047</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" when sending Exit Coauthoring Session subrequest. (&lt;45&gt; Section 3.1.4.3.2: SharePoint Server 2013 and SharePoint Server 2010 return an error code of "Success" if there is a shared lock with a different shared lock identifier and a valid coauthoring session containing more than one clients.)</ns1:Description>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" when sending Exit Coauthoring Session subrequest. (&lt;45&gt; Section 3.1.4.3.2: SharePoint Server Subscription Edition, SharePoint Server 2019, SharePoint Server 2016, SharePoint Server 2013 and SharePoint Server 2010 return an error code of "Success" if there is a shared lock with a different shared lock identifier and a valid coauthoring session containing more than one client.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1560:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -25712,6 +25712,16 @@ Instead[saving changes to the underlying store,] the changes will be stored in a
 		<ns1:REQ_ID>MS-FSSHTTP_R156001</ns1:REQ_ID>
 		<ns1:Doc_Sect>7</ns1:Doc_Sect>
 		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "FileAlreadyLockedOnServer" if there is a shared lock on the file with a different schema lock identifier When sending Exit Coauthoring Session subrequest. (&lt;45&gt; Section 3.1.4.3.2: SharePoint Server 2013 and SharePoint Server 2010 return an error code of "FileAlreadyLockedOnServer" if there is a shared lock with a different shared lock identifier and a coauthoring session containing one client.)</ns1:Description>
+		<ns1:Derived>MS-FSSHTTP_R1560:i,MS-FSSHTTP_R1345:i</ns1:Derived>
+		<ns1:Behavior>Product</ns1:Behavior>
+		<ns1:Scope>Server</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Test Case</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-FSSHTTP_R156002</ns1:REQ_ID>
+		<ns1:Doc_Sect>7</ns1:Doc_Sect>
+		<ns1:Description>[In Appendix B: Product Behavior] Implementation does return an error code of "Success" if there is a shared lock on the file with a different schema lock identifier When sending Exit Coauthoring Session subrequest. (&lt;45&gt; Section 3.1.4.3.2: SharePoint Server Subscription Edition and SharePoint Server 2019 return an error code of "Success" if there is a shared lock with a different shared lock identifier and a coauthoring session containing one client.)</ns1:Description>
 		<ns1:Derived>MS-FSSHTTP_R1560:i,MS-FSSHTTP_R1345:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -33998,7 +34008,7 @@ Construct a byte array representation of the editors table using UTF-8 encoding.
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R2203</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.3.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Allocate ExtendedGuid Range] Allocate Extended GUID Range Response (4 bytes): A Stream Object Header (section 2.2.1.5) that specifies an allocate Extended GUID Range response.</ns1:Description>
+		<ns1:Description>[In Allocate ExtendedGuid Range] Allocate Extended GUID Range Response (4 bytes): A 32-bit Stream Object Header (section 2.2.1.5.2) that specifies an allocate Extended GUID Range response.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
