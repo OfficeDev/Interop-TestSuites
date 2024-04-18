@@ -10699,7 +10699,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R3019</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (&lt;27&gt; Section 3.2.5.3: Exchange 2010, Exchange 2013 and Exchange 2016 follow this behavior.)</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (&lt;27&gt; Section 3.2.5.3: Exchange 2010, Exchange 2013 follow this behavior.)</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1699:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
@@ -10710,7 +10710,7 @@ PidTagSendRichInfo ([MS-OXOABK] section 2.2.3.18); PidTagTransmittableDisplayNam
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCMSG_R3020</ns1:REQ_ID>
 		<ns1:Doc_Sect>6</ns1:Doc_Sect>
-		<ns1:Description>[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (&lt;27&gt; Section 3.2.5.3: Exchange 2007 and Exchange 2019 return Success. )</ns1:Description>
+		<ns1:Description>[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (&lt;27&gt; Section 3.2.5.3: Exchange 2007, Exchange 2016 and Exchange 2019 return Success. )</ns1:Description>
 		<ns1:Derived>MS-OXCMSG_R1699:i</ns1:Derived>
 		<ns1:Behavior>Product</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>

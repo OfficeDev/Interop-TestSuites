@@ -2370,7 +2370,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 this.Site.CaptureRequirementIfIsTrue(
                     isR3019Verifed,
                     3019,
-                    @"[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (&lt;27&gt; Section 3.2.5.3: Exchange 2010, Exchange 2013 and Exchange 2016 follow this behavior.)");
+                    @"[In Appendix A: Product Behavior] [ecError (0x80004005)] The message has been opened or previously saved as read only; changes cannot be saved. (&lt;27&gt; Section 3.2.5.3: Exchange 2010 and Exchange 2013 follow this behavior.)");
 
             }
             #endregion
