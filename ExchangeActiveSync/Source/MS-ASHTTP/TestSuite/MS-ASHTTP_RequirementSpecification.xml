@@ -1329,7 +1329,7 @@ parameter-value         = 1*VCHAR</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ASHTTP_R102</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1.1.2.3</ns1:Doc_Sect>
-		<ns1:Description>[In Device ID] The device ID is specified by the device-id-spec ABNF rule portion of the plain text query value.</ns1:Description>
+		<ns1:Description>[In Device ID] The device ID is specified by the device-id-spec ABNF rule portion of the plain text query value. The device ID string MUST NOT contain commas or special characters. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>

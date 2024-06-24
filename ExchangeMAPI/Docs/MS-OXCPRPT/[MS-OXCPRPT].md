@@ -1,6 +1,6 @@
 ## [MS-OXCPRPT]: Property and Stream Object Protocol
 - [MS-OXCPRPT] v20210422 is used to develop the test suite. 
-- Release date, 4/22/2021.
+- Release date, 4/16/2024.
 
 To find the new landing page for [MS-OXCPRPT], please visit https://msdn.microsoft.com/en-us/library/cc425503(v=exchg.80).aspx
 

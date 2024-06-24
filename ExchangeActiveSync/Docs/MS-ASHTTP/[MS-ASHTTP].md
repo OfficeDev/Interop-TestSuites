@@ -1,6 +1,6 @@
 ## [MS-ASHTTP]: Exchange ActiveSync: HTTP Protocol
-- [MS-ASHTTP] v20181211 is used to develop the test suite.
-- Release date, 12/11/2018.
+- [MS-ASHTTP] v20240416 is used to develop the test suite.
+- Release date, 04/16/2024.
 
 To find the new landing page for [MS-ASHTTP], please visit https://docs.microsoft.com/en-us/openspecs/exchange_server_protocols/ms-ashttp/4cbf28dc-2876-41c6-9d87-ba9db86cd40d
 

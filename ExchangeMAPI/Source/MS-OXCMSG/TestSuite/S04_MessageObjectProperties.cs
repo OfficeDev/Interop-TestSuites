@@ -368,7 +368,7 @@
                 Common.GetConfigurationPropertyValue("Domain", this.Site),
                 pidTagPurportedSenderDomain.Value.ToString(),
                 1214,
-                @"[In PidTagPurportedSenderDomain Property] The PidTagPurportedSenderDomain property ([MS-OXPROPS] section 2.876) contains the domain name of the last sender responsible for transmitting the current message.");
+                @"[In PidTagPurportedSenderDomain Property] The PidTagPurportedSenderDomain property ([MS-OXPROPS] section 2.877) contains the domain name of the last sender responsible for transmitting the current message.");
 
             PropertyObj pidTagAlternateRecipientAllowed = PropertyHelper.GetPropertyByName(propertyValues, PropertyNames.PidTagAlternateRecipientAllowed);
 
@@ -426,7 +426,7 @@
                 TestDataOfPidTagSubjectPrefix,
                 pidTagSubjectPrefix.Value.ToString(),
                 58,
-                @"[In PidTagSubjectPrefix Property] The PidTagSubjectPrefix property ([MS-OXPROPS] section 2.1033) contains the prefix for the subject of the message.");
+                @"[In PidTagSubjectPrefix Property] The PidTagSubjectPrefix property ([MS-OXPROPS] section 2.1035) contains the prefix for the subject of the message.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R64");
@@ -436,7 +436,7 @@
                 TestSuiteBase.TestDataOfPidTagNormalizedSubject,
                 pidTagNormalizedSubject.Value.ToString(),
                 64,
-                @"[In PidTagNormalizedSubject Property] The PidTagNormalizedSubject property ([MS-OXPROPS] section 2.812) contains the normalized subject of the message, as specified in [MS-OXCMAIL] section 2.2.3.2.6.1.");
+                @"[In PidTagNormalizedSubject Property] The PidTagNormalizedSubject property ([MS-OXPROPS] section 2.813) contains the normalized subject of the message, as specified in [MS-OXCMAIL] section 2.2.3.2.6.1.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1238");
@@ -448,7 +448,7 @@
                 mailSubject,
                 pidTagSubject.Value.ToString(),
                 1238,
-                @"[In PidTagSubject Property] The PidTagSubject property ([MS-OXPROPS] section 2.1033) contains the full subject of an e-mail message.");
+                @"[In PidTagSubject Property] The PidTagSubject property ([MS-OXPROPS] section 2.1034) contains the full subject of an e-mail message.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R1239");
@@ -480,7 +480,7 @@
                 Common.GetConfigurationPropertyValue("AdminUserName", this.Site),
                 pidTagRecipientDisplayName.Value.ToString(),
                 2047,
-                @"[In PidTagRecipientDisplayName Property] The PidTagRecipientDisplayName property ([MS-OXPROPS] section 2.899) specifies the display name of a recipient (2).");
+                @"[In PidTagRecipientDisplayName Property] The PidTagRecipientDisplayName property ([MS-OXPROPS] section 2.900) specifies the display name of a recipient (2).");
             #endregion
             #endregion
 
@@ -683,7 +683,7 @@
             this.Site.CaptureRequirementIfIsNotNull(
                 pidTagHtml.Value,
                 2082,
-                @"[In PidTagHtml Property] [Type] The PidTagHtml property ([MS-OXPROPS] section 2.733) contains the message body text in HTML format.");
+                @"[In PidTagHtml Property] [Type] The PidTagHtml property ([MS-OXPROPS] section 2.734) contains the message body text in HTML format.");
 
             PropertyObj pidTagBodyContentLocation = PropertyHelper.GetPropertyByName(propertyValues, PropertyNames.PidTagBodyContentLocation);
 
@@ -901,7 +901,7 @@
             this.Site.CaptureRequirementIfIsTrue(
                 Convert.ToBoolean(pidTagRtfInSync.Value),
                 2068,
-                @"[In PidTagRtfInSync Property] The PidTagRtfInSync property ([MS-OXPROPS] section 2.942) is set to ""TRUE"" (0x01) if the RTF body has been synchronized with the contents in the PidTagBody property (section 2.2.1.56.1).");
+                @"[In PidTagRtfInSync Property] The PidTagRtfInSync property ([MS-OXPROPS] section 2.943) is set to ""TRUE"" (0x01) if the RTF body has been synchronized with the contents in the PidTagBody property (section 2.2.1.58.1).");
             #endregion
             #endregion
 

@@ -1,6 +1,6 @@
 ## [MS-OXCFXICS]: Bulk Data Transfer Protocol 
-- [MS-OXCFXICS] v20210422 is used to develop the test suite. 
-- Release date, 4/22/2021.
+- [MS-OXCFXICS] v20240416 is used to develop the test suite. 
+- Release date, 4/16/2024.
 
 To find the new landing page for [MS-OXCFXICS], please visit https://msdn.microsoft.com/en-us/library/cc463916(v=exchg.80).aspx
 

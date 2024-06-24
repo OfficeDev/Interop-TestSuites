@@ -708,7 +708,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                      creatorEntryId,
                      typeof(AddressBookEntryID),
                     1182,
-                    @"[In PidTagCreatorEntryId Property] The PidTagCreatorEntryId property ([MS-OXPROPS] section 2.655) specifies the original author of the message according to their address book EntryID.");
+                    @"[In PidTagCreatorEntryId Property] The PidTagCreatorEntryId property ([MS-OXPROPS] section 2.656) specifies the original author of the message according to their address book EntryID.");
 
                 AddressBookEntryID modifierEntryId = new AddressBookEntryID();
                 modifierEntryId.Deserialize((byte[])pidTagLastModifierEntryId.Value, 0);
@@ -731,7 +731,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                     modifierEntryId,
                     typeof(AddressBookEntryID),
                     1185,
-                    @"[In PidTagLastModifierEntryId Property] The PidTagLastModifierEntryId property ([MS-OXPROPS] section 2.765) specifies the last user to modify the contents of the message according to their address book EntryID.");
+                    @"[In PidTagLastModifierEntryId Property] The PidTagLastModifierEntryId property ([MS-OXPROPS] section 2.766) specifies the last user to modify the contents of the message according to their address book EntryID.");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R359");
