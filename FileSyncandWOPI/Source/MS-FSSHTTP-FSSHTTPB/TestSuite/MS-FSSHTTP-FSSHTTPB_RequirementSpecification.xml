@@ -32635,7 +32635,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R519</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Put Changes] ContentVersionCoherencyCheck (variable): A Binary Item (section 2.2.1.3) which MUST be ignored.&lt;18&gt;</ns1:Description>
+		<ns1:Description>[In Put Changes] ContentVersionCoherencyCheck (variable): An optional Binary Item (section 2.2.1.3) which MUST be ignored.&lt;18&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -32644,7 +32644,7 @@ Server implementations do not need to replicate the same logic and behavior as S
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTPB_R2171</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In Put Changes] Author Logins (variable): A String Item Array (section 2.2.1.14) structure that defines author login information.&lt;19&gt; </ns1:Description>
+		<ns1:Description>[In Put Changes] Author Logins (variable): An optional String Item Array (section 2.2.1.14) structure that defines author login information.&lt;19&gt; </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
