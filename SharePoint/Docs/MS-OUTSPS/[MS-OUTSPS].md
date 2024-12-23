@@ -1,6 +1,6 @@
 ## [MS-OUTSPS]: Lists Client Sync Protocol
-- [MS-OUTSPS] v20210817 is used to develop the test suite.
-- Release date, 08/17/2021.
+- [MS-OUTSPS] v20241112 is used to develop the test suite.
+- Release date, 11/12/2024.
 
 To find the new landing page for [MS-OUTSPS], please visit https://msdn.microsoft.com/en-us/library/cc313169(v=office.12).aspx
 

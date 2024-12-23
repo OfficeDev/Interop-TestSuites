@@ -2299,6 +2299,24 @@
 		<ns1:VerificationComment>Verified by derived requirement: MS-OUTSPS_R106802.</ns1:VerificationComment>
 	</ns1:Requirement>
 	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R10680</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules][The operation]HTTP PUT Update attachments from an item on a list.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
+		<ns1:REQ_ID>MS-OUTSPS_R10681</ns1:REQ_ID>
+		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
+		<ns1:Description>[In Message Processing Events and Sequencing Rules][The operation]HTTP GET Download attachments from an item on a list.</ns1:Description>
+		<ns1:Behavior>Protocol</ns1:Behavior>
+		<ns1:Scope>Client</ns1:Scope>
+		<ns1:IsNormative>Normative</ns1:IsNormative>
+		<ns1:Verification>Unverified</ns1:Verification>
+	</ns1:Requirement>
+	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R1069</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4</ns1:Doc_Sect>
 		<ns1:Description>[In Message Processing Events and Sequencing Rules][The operation]UpdateListItems Creates or modifies items on a list.</ns1:Description>
@@ -2796,7 +2814,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R1120</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.5.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In GetListResponse][The element]ExcludeFromOfflineClient['s purpose is:]Protocol clients SHOULD not make the data available offline when this is "True".&lt;6&gt;[Defined in]None</ns1:Description>
+		<ns1:Description>[In GetListResponse][The element]ExcludeFromOfflineClient['s purpose is:]Protocol clients SHOULD NOT make the data available offline when this is "True".&lt;6&gt;[Defined in]None</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3916,7 +3934,7 @@ IF-Match: &lt;a string&gt;</ns1:Description>
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OUTSPS_R2</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In Abstract Data Model]The item type of Calendar type list is Events and appointments.</ns1:Description>
+		<ns1:Description>[In Abstract Data Model]The item type of Appointment type list is Events and appointments.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
