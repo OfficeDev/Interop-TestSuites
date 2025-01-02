@@ -10958,7 +10958,6 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
         public System.DateTime BirthdayLocal
         {
             get
@@ -11240,7 +11239,6 @@ namespace Microsoft.Protocols.TestSuites.Common
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
         public System.DateTime WeddingAnniversaryLocal
         {
             get
