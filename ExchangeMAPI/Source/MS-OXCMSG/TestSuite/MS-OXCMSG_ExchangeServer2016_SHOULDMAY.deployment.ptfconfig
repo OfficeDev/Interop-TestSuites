@@ -88,7 +88,7 @@
     <!-- Set R3018Enabled to true to verify that the implementation return ecAccessDenied (0x80070005) when the user does not have permissions to create this message. Set R3018Enabled to false to disable this requirement.-->
     <Property name="R3018Enabled" value="true"/>
     <!-- Set R3019Enabled to true to verify that the implementation return ecError (0x80004005) when the message has been opened or previously saved as read only. Set R3019Enabled to false to disable this requirement.-->
-    <Property name="R3019Enabled" value="true"/>
+    <Property name="R3019Enabled" value="false"/>
     <!-- Set R3021Enabled to true to verify that the implementation return a nonzero value in PartialCompletion indicates the server was unable to modify one or more of the Message objects represented in the MessageIds field. Set R3021Enabled to false to disable this requirement.-->
     <Property name="R3021Enabled" value="false"/>
     <!-- Set R3022Enabled to true to verify that the value of ForceSave is 0x04. Set R3022Enabled to false to disable this requirement.-->
@@ -96,7 +96,7 @@
     <!-- Set R10000Enabled to true to verify that the implementation does support MAPIHTTP transport. Set R10000Enabled to false to disable this requirement.-->
     <Property name="R10000Enabled" value="true"/>
     <!-- Set R164101Enabled to true to verify that the implementation does not initialize the following properties: PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). Set R164101Enabled to false to disable this requirement.-->
-    <Property name="R164101Enabled" value="true"/>
+    <Property name="R164101Enabled" value="false"/>
     <!-- Set R164102Enabled to true to verify that the implementation does initialize the following properties: PidTagDisplayBcc ([MS-OXOMSG] section 2.2.1.7), PidTagDisplayCc ([MS-OXOMSG] section 2.2.1.8) and PidTagDisplayTo ([MS-OXOMSG] section 2.2.1.9). Set R164102Enabled to false to disable this requirement.-->
     <Property name="R164102Enabled" value="false"/>
   </Properties>

@@ -616,7 +616,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSSYNC
             Site.CaptureRequirementIfIsTrue(
                 isLastFolderIncluded,
                 4601,
-                @"[In m:SyncFolderHierarchyResponseMessageType Complex Type] [The element IncludesLastFolderInRange] If this element is included in the response, the value is always ""true"".");
+                @"[In m:SyncFolderHierarchyResponseMessageType Complex Type] [The element IncludesLastFolderInRange] If this element is included in the response, the value is ""true"".");
             #endregion
 
             #region Step 6. Client invokes FindAndDeleteSubFolder to delete the second level folder that created in step 2.

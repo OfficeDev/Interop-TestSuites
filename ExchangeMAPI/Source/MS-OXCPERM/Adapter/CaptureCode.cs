@@ -141,7 +141,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCPERM
             Site.CaptureRequirementIfIsTrue(
                 isVerifyR74,
                 74,
-                @"[In PidTagMemberId Property] The PidTagMemberId property ([MS-OXPROPS] section 2.782) specifies the unique identifier that the server generates for each user.");
+                @"[In PidTagMemberId Property] The PidTagMemberId property ([MS-OXPROPS] section 2.783) specifies the unique identifier that the server generates for each user.");
 
             // The PidTagMemberName is parsed as string, this requirement can be captured directly.
             Site.CaptureRequirement(

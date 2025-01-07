@@ -956,7 +956,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 isHasAttachmentSecond,
                 Convert.ToBoolean(pidTagHasAttachmentsSecond.Value),
                 16,
-                @"[In PidTagHasAttachments Property] The server computes this property [PidTagHasAttachments] from the mfHasAttach flag of the PidTagMessageFlags property ([MS-OXPROPS] section 2.791).");
+                @"[In PidTagHasAttachments Property] The server computes this property [PidTagHasAttachments] from the mfHasAttach flag of the PidTagMessageFlags property ([MS-OXPROPS] section 2.792).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R498. The value of PidTagHasAttachments before creating the attachment is {0}, the value of PidTagHasAttachments after creating the attachment is {1}.", pidTagHasAttachmentsFirst.Value, pidTagHasAttachmentsSecond.Value);
@@ -968,7 +968,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR498,
                 498,
-                @"[In PidTagHasAttachments Property] The PidTagHasAttachments property ([MS-OXPROPS] section 2.716) indicates whether the Message object contains at least one attachment.");
+                @"[In PidTagHasAttachments Property] The PidTagHasAttachments property ([MS-OXPROPS] section 2.717) indicates whether the Message object contains at least one attachment.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R875. The value of PidTagHasAttachments before creating the attachment is {0}, the value of PidTagHasAttachments after creating the attachment is {1}.", pidTagHasAttachmentsFirst.Value, pidTagHasAttachmentsSecond.Value);

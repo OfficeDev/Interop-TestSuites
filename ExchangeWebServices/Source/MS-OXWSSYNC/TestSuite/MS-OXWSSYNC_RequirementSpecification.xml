@@ -1200,7 +1200,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R43</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3.4</ns1:Doc_Sect>
-		<ns1:Description>[In m:SyncFolderHierarchyResponseMessageType Complex Type] The following table [in 3.1.4.1.3.4] lists the child elements of the SyncFolderHieracrchyResponseMessageType complex type.</ns1:Description>
+		<ns1:Description>[In m:SyncFolderHierarchyResponseMessageType Complex Type] The following table [in 3.1.4.1.3.4] lists the child elements of the SyncFolderHierarchyResponseMessageType complex type.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -1254,7 +1254,7 @@ xs:complexType name="SyncFolderHierarchyCreateOrUpdateType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSSYNC_R4601</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.1.3.4</ns1:Doc_Sect>
-		<ns1:Description>[In m:SyncFolderHierarchyResponseMessageType Complex Type] [The element IncludesLastFolderInRange] If this element is included in the response, the value is always "true".</ns1:Description>
+		<ns1:Description>[In m:SyncFolderHierarchyResponseMessageType Complex Type] [The element IncludesLastFolderInRange] If this element is included in the response, the value is "true".</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

@@ -8788,7 +8788,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R967</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.8</ns1:Doc_Sect>
-		<ns1:Description>[In Mapping Table] 2. Read Cell ID Array ([MS-FSSHTTPB] section 2.2.1.12.6.4) and the Compact Context ID (section 2.6.6) where Cell ID is different than current Cell ID in Order and append them to the Mapping Table, ignore nulls when populating.</ns1:Description>
+		<ns1:Description>[In Mapping Table] 2. Read Cell ID Array ([MS-FSSHTTPB] section 2.2.1.12.6.4) and the ContextID (section 2.6.6) where Cell ID is different than current Cell ID in Order and append them to the Mapping Table, ignore nulls when populating.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -8797,7 +8797,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R968</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.7.8</ns1:Doc_Sect>
-		<ns1:Description>[In Mapping Table] 3. Read Cell ID Array ([MS-FSSHTTPB] section 2.2.1.12.6.4) and Compact OSIDs (section 2.1.4) where Cell ID is same as current Cell ID and append them to the Mapping Table, ignore nulls when populating.</ns1:Description>
+		<ns1:Description>[In Mapping Table] 3. Read Cell ID Array ([MS-FSSHTTPB] section 2.2.1.12.6.4) and OSID (section 2.1.4) where Cell ID is same as current Cell ID and append them to the Mapping Table, ignore nulls when populating.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

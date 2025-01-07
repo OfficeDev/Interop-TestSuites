@@ -23,7 +23,7 @@
     <DeploymentItem filename="..\Common\SharePointCommonConfiguration.deployment.ptfconfig" />
     <DeploymentItem filename="..\Common\Proxy\XML.xsd" />
     <DeploymentItem filename="TestSuite\MS-OUTSPS_SharePointServer2019_SHOULDMAY.deployment.ptfconfig" />
-	<DeploymentItem filename="TestSuite\MS-OUTSPS_SharePointServerSubscriptionEditionPreview_SHOULDMAY.deployment.ptfconfig" />
+	<DeploymentItem filename="TestSuite\MS-OUTSPS_SharePointServerSubscriptionEdition_SHOULDMAY.deployment.ptfconfig" />
     <DeploymentItem filename="TestSuite\MS-OUTSPS_TestSuite.deployment.ptfconfig" />
   </Deployment>
   <Execution>
