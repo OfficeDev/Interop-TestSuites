@@ -1288,7 +1288,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
                 site.CaptureRequirement(
                          "MS-FSSHTTPB",
                          2103,
-                         @"[In Object Group Data Elements] Object Metadata Declaration (variable): If Object Metadata (section 2.2.1.12.6.3.1) exists, this field MUST specify an Object Metadata Declaration (section 2.2.1.12.6.3).");
+                         @"[In Object Group Data Elements] Object Metadata Declaration (variable, optional): If Object Metadata (section 2.2.1.12.6.3.1) exists, this field MUST specify an Object Metadata Declaration (section 2.2.1.12.6.3).");
             }
 
             // Verify the stream object header end related requirements.

@@ -1598,7 +1598,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R303</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer] 	[Rows] PidTagFolderId property ([MS-OXPROPS] section 2.700): A PtypInteger64 value that specifies the folder ID (FID) ([MS-OXCDATA] section 2.2.1.1) of the Receive folder, which is the folder to which messages of the specified message class will be delivered.</ns1:Description>
+		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer] 	[Rows] PidTagFolderId property ([MS-OXPROPS] section 2.702): A PtypInteger64 value that specifies the folder ID (FID) ([MS-OXCDATA] section 2.2.1.1) of the Receive folder, which is the folder to which messages of the specified message class will be delivered.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1616,7 +1616,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R305</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer] [Rows] PidTagMessageClass property ([MS-OXPROPS] section 2.787): A PtypString8 value.</ns1:Description>
+		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer] [Rows] PidTagMessageClass property ([MS-OXPROPS] section 2.788): A PtypString8 value.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1706,7 +1706,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R314</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4.2</ns1:Doc_Sect>
-		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer]  [Rows] PidTagLastModificationTime property: PidTagLastModificationTime property ([MS-OXPROPS] section 2.764) -- A PtypTime value that specifies the time, in Coordinated Universal Time (UTC), when the server created or last modified the row in the Receive folder table.</ns1:Description>
+		<ns1:Description>[In RopGetReceiveFolderTable ROP Success Response Buffer]  [Rows] PidTagLastModificationTime property: PidTagLastModificationTime property ([MS-OXPROPS] section 2.765) -- A PtypTime value that specifies the time, in Coordinated Universal Time (UTC), when the server created or last modified the row in the Receive folder table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3488,7 +3488,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R643</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagExtendedRuleSizeLimit Property] The PidTagExtendedRuleSizeLimit property ([MS-OXPROPS] section 2.694) contains the Maximum size, in bytes, the user is allowed to accumulate for a single "extended" rule.</ns1:Description>
+		<ns1:Description>[In PidTagExtendedRuleSizeLimit Property] The PidTagExtendedRuleSizeLimit property ([MS-OXPROPS] section 2.695) contains the Maximum size, in bytes, the user is allowed to accumulate for a single "extended" rule.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3515,7 +3515,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R644</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMaximumSubmitMessageSize Property] The PidTagMaximumSubmitMessageSize property ([MS-OXPROPS] section 2.781) contains the maximum size, in kilobytes, of a message a user is allowed to submit for transmission to another user.</ns1:Description>
+		<ns1:Description>[In PidTagMaximumSubmitMessageSize Property] The PidTagMaximumSubmitMessageSize property ([MS-OXPROPS] section 2.782) contains the maximum size, in kilobytes, of a message a user is allowed to submit for transmission to another user.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3542,7 +3542,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R646</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagProhibitReceiveQuota Property] The PidTagProhibitReceiveQuota property ([MS-OXPROPS] section 2.874) contains the maximum size, in kilobytes, a user is allowed to accumulate in their mailbox, before no further mail will be delivered.</ns1:Description>
+		<ns1:Description>[In PidTagProhibitReceiveQuota Property] The PidTagProhibitReceiveQuota property ([MS-OXPROPS] section 2.875) contains the maximum size, in kilobytes, a user is allowed to accumulate in their mailbox, before no further mail will be delivered.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3569,7 +3569,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R648</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagProhibitSendQuota Property] The PidTagProhibitSendQuota property ([MS-OXPROPS] section 2.875) contains the maximum size, in kilobytes, a user is allowed to accumulate in their mailbox, before the user can no longer submit any more mail.</ns1:Description>
+		<ns1:Description>[In PidTagProhibitSendQuota Property] The PidTagProhibitSendQuota property ([MS-OXPROPS] section 2.876) contains the maximum size, in kilobytes, a user is allowed to accumulate in their mailbox, before the user can no longer submit any more mail.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3596,7 +3596,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R1140</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagStoreState Property] The PidTagStoreState property ([MS-OXPROPS] section 2.1029) indicates whether the mailbox has any active search folders.</ns1:Description>
+		<ns1:Description>[In PidTagStoreState Property] The PidTagStoreState property ([MS-OXPROPS] section 2.1030) indicates whether the mailbox has any active search folders.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3632,7 +3632,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R651</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.646) contains the cumulative count of non-folder associated information (FAI) messages in the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.647) contains the cumulative count of non-folder associated information (FAI) messages in the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3650,7 +3650,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R656</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.7</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMailboxOwnerEntryId Property] The PidTagMailboxOwnerEntryId property ([MS-OXPROPS] section 2.777) contains the EntryID in the Global Address List (GAL) of the owner of the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagMailboxOwnerEntryId Property] The PidTagMailboxOwnerEntryId property ([MS-OXPROPS] section 2.778) contains the EntryID in the Global Address List (GAL) of the owner of the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3668,7 +3668,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R657</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.8</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMailboxOwnerName Property] The PidTagMailboxOwnerName property ([MS-OXPROPS] section 2.778) contains the display name of the owner of the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagMailboxOwnerName Property] The PidTagMailboxOwnerName property ([MS-OXPROPS] section 2.779) contains the display name of the owner of the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3686,7 +3686,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R658</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.9</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.796) contains the cumulative size, in bytes, of all content in the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.797) contains the cumulative size, in bytes, of all content in the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3713,7 +3713,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R660</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.10</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.797) contains the cumulative size, in bytes, of all content in the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.798) contains the cumulative size, in bytes, of all content in the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3731,7 +3731,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R664</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.11</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagUserEntryId Property] The PidTagUserEntryId property ([MS-OXPROPS] section 2.1053) contains the Address book EntryID of the user logged on to the mailbox.</ns1:Description>
+		<ns1:Description>[In PidTagUserEntryId Property] The PidTagUserEntryId property ([MS-OXPROPS] section 2.1054) contains the Address book EntryID of the user logged on to the mailbox.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3749,7 +3749,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R4003</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.12</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagLocaleId Property] The PidTagLocaleId property ([MS-OXPROPS] section 2.774) establishes the language locale for translating system-generated messages, such as delivery reports. For more details, see [MS-LCID].</ns1:Description>
+		<ns1:Description>[In PidTagLocaleId Property] The PidTagLocaleId property ([MS-OXPROPS] section 2.775) establishes the language locale for translating system-generated messages, such as delivery reports. For more details, see [MS-LCID].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3767,7 +3767,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R4003002</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.13</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSerializedReplidGuidMap Property] The PidTagSerializedReplidGuidMap property ([MS-OXPROPS] section 2.1019) contains a serialized list of REPLID and REPLGUID pairs which represents all or part of the REPLID /REPLGUID mapping of the associated Logon object. </ns1:Description>
+		<ns1:Description>[In PidTagSerializedReplidGuidMap Property] The PidTagSerializedReplidGuidMap property ([MS-OXPROPS] section 2.1020) contains a serialized list of REPLID and REPLGUID pairs which represents all or part of the REPLID /REPLGUID mapping of the associated Logon object. </ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -3830,7 +3830,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R4005</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.14</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSortLocaleId Property] The PidTagSortLocaleId property ([MS-OXPROPS] section 2.1021) establishes the language locale for sorting the contents of tables. For more details, see [MS-LCID].</ns1:Description>
+		<ns1:Description>[In PidTagSortLocaleId Property] The PidTagSortLocaleId property ([MS-OXPROPS] section 2.1022) establishes the language locale for sorting the contents of tables. For more details, see [MS-LCID].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3857,7 +3857,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R667</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.1.15</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagCodePageId Property] The PidTagCodePageId property ([MS-OXPROPS] section 2.636) establishes the client code page for Unicode to double-byte character set (DBCS) string conversion. For details, see [MS-UCODEREF].</ns1:Description>
+		<ns1:Description>[In PidTagCodePageId Property] The PidTagCodePageId property ([MS-OXPROPS] section 2.637) establishes the client code page for Unicode to double-byte character set (DBCS) string conversion. For details, see [MS-UCODEREF].</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3965,7 +3965,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R650</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.637) contains a mailbox comment.</ns1:Description>
+		<ns1:Description>[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.638) contains a mailbox comment.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3983,7 +3983,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R653</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDeleteAfterSubmit Property] The PidTagDeleteAfterSubmit property ([MS-OXPROPS] section 2.668) indicates whether a transport deletes all submitted mail after transmission.</ns1:Description>
+		<ns1:Description>[In PidTagDeleteAfterSubmit Property] The PidTagDeleteAfterSubmit property ([MS-OXPROPS] section 2.669) indicates whether a transport deletes all submitted mail after transmission.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4037,7 +4037,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R661</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagOutOfOfficeState Property] The PidTagOutOfOfficeState property ([MS-OXPROPS] section 2.855) indicates whether the user is Out of Office (OOF).</ns1:Description>
+		<ns1:Description>[In PidTagOutOfOfficeState Property] The PidTagOutOfOfficeState property ([MS-OXPROPS] section 2.856) indicates whether the user is Out of Office (OOF).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4082,7 +4082,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R665</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.1.2.5</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagSentMailSvrEID Property] The PidTagSentMailSvrEID property ([MS-OXPROPS] section 2.1011) contains the structure identifying the Sent Items folder.</ns1:Description>
+		<ns1:Description>[In PidTagSentMailSvrEID Property] The PidTagSentMailSvrEID property ([MS-OXPROPS] section 2.1012) contains the structure identifying the Sent Items folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4157,7 +4157,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R673</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagUserEntryId Property] The PidTagUserEntryId property ([MS-OXPROPS] section 2.1053) contains the Address book EntryID of the user logged on to the public folder.</ns1:Description>
+		<ns1:Description>[In PidTagUserEntryId Property] The PidTagUserEntryId property ([MS-OXPROPS] section 2.1054) contains the Address book EntryID of the user logged on to the public folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6430,7 +6430,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R870</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Folder ID" column (PidTagFolderId property ([MS-OXPROPS] section 2.700)) - Contains the Folder ID, as specified in [MS-OXCDATA] section 2.2.1.1, of the Receive folder, which is the folder to which messages of the specified message class will be delivered.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Folder ID" column (PidTagFolderId property ([MS-OXPROPS] section 2.702)) - Contains the Folder ID, as specified in [MS-OXCDATA] section 2.2.1.1, of the Receive folder, which is the folder to which messages of the specified message class will be delivered.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6448,7 +6448,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R872</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Message Class" column (PidTagMessageClass property ([MS-OXPROPS] section 2.787)) - Contains a string that specifies the message class that is configured for the Receive folder.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Message Class" column (PidTagMessageClass property ([MS-OXPROPS] section 2.788)) - Contains a string that specifies the message class that is configured for the Receive folder.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -6457,7 +6457,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCSTOR_R873</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.2.5.3</ns1:Doc_Sect>
-		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Last-modification Time" column (PidTagLastModificationTime property ([MS-OXPROPS] section 2.764)) - Contains the current system-time, in UTC, when the entry was created or last modified.</ns1:Description>
+		<ns1:Description>[In Receiving a RopSetReceiveFolder ROP Request] "Last-modification Time" column (PidTagLastModificationTime property ([MS-OXPROPS] section 2.765)) - Contains the current system-time, in UTC, when the entry was created or last modified.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

@@ -1,6 +1,6 @@
 ## [MS-ONESTORE]: OneNote Revision Store File Format
-- [MS-ONESTORE] v20230516 is used to develop the test suite.
-- Release date, 5/16/2023.
+- [MS-ONESTORE] v20241112 is used to develop the test suite.
+- Release date, 11/12/2024.
 
 To find the new landing page for [MS-ONESTORE], please visit https://msdn.microsoft.com/en-us/library/dd951288(v=office.12).aspx
 

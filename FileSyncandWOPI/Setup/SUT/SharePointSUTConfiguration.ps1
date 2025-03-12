@@ -57,6 +57,7 @@ $NoUseRemoteUserUserPs                       = ReadConfigFileNode "$environmentR
 $FileSyncWOPIUser                            = ReadConfigFileNode "$environmentResourceFile" "FileSyncWOPIUser"
 $FileSyncWOPIUserPassword                    = ReadConfigFileNode "$environmentResourceFile" "FileSyncWOPIUserPassword"
 $FileSyncWOPIBigTestData1                    = ReadConfigFileNode "$environmentResourceFile" "FileSyncWOPIBigTestData1"
+$FileSyncWOPIBigTestData2                    = ReadConfigFileNode "$environmentResourceFile" "FileSyncWOPIBigTestData2"
 
 $MSFSSHTTPFSSHTTPBSiteCollectionName         = ReadConfigFileNode "$environmentResourceFile" "MSFSSHTTPFSSHTTPBSiteCollectionName"
 $MSFSSHTTPFSSHTTPBDocumentLibrary            = ReadConfigFileNode "$environmentResourceFile" "MSFSSHTTPFSSHTTPBDocumentLibrary"
@@ -278,6 +279,11 @@ Output "Steps for manual configuration:" "Yellow"
 Output "Create a 1.1MB-sized text file named $FileSyncWOPIBigTestData1." "Yellow"
 CreateFile $FileSyncWOPIBigTestData1 1.1mb $containerPath
 
+Output "Steps for manual configuration:" "Yellow"
+Output "Create a 6.1MB-sized text file named $FileSyncWOPIBigTestData2." "Yellow"
+CreateFile $FileSyncWOPIBigTestData2 6.1mb $containerPath
+
+
 #-----------------------------------------------------
 # Start to configure SUT for MS-FSSHTTP-FSSHTTPB
 #-----------------------------------------------------
@@ -303,6 +309,10 @@ if($SharePointVersion -eq $SharePointFoundation2010[0] -or $SharePointVersion -e
     Output "Steps for manual configuration:" "Yellow"
     Output "Upload the file $FileSyncWOPIBigTestData1 to http://$sutComputerName/sites/$MSFSSHTTPFSSHTTPBSiteCollectionName ..." "Yellow"
     UploadFileToSharePointFolder $MSFSSHTTPFSSHTTPB_web $MSFSSHTTPFSSHTTPBDocumentLibrary $FileSyncWOPIBigTestData1 ".\$FileSyncWOPIBigTestData1" $true
+	
+	Output "Steps for manual configuration:" "Yellow"
+	Output "Upload the file $FileSyncWOPIBigTestData2 to http://$sutComputerName/sites/$MSFSSHTTPFSSHTTPBSiteCollectionName ..." "Yellow"
+    UploadFileToSharePointFolder $MSFSSHTTPFSSHTTPB_web $MSFSSHTTPFSSHTTPBDocumentLibrary $FileSyncWOPIBigTestData2 ".\$FileSyncWOPIBigTestData2" $true
 
     Output "Steps for manual configuration:" "Yellow"
     Output "Upload the test data $MSFSSHTTPFSSHTTPBZipTestData2 to http://$sutComputerName/sites/$MSFSSHTTPFSSHTTPBSiteCollectionName ..." "Yellow"
@@ -364,6 +374,10 @@ if($SharePointVersion -ge $SharePointServer2013[0] -or $SharePointVersion -eq $S
     Output "Steps for manual configuration:" "Yellow"
     Output "Upload the file $FileSyncWOPIBigTestData1 to http://$sutComputerName/sites/$MSWOPISiteCollectionName ..." "Yellow"
     UploadFileToSharePointFolder $MSWOPI_web $MSWOPISharedDocumentLibrary $FileSyncWOPIBigTestData1 ".\$FileSyncWOPIBigTestData1" $true
+	
+	Output "Steps for manual configuration:" "Yellow"
+    Output "Upload the file $FileSyncWOPIBigTestData2 to http://$sutComputerName/sites/$MSWOPISiteCollectionName ..." "Yellow"
+    UploadFileToSharePointFolder $MSWOPI_web $MSWOPISharedDocumentLibrary $FileSyncWOPIBigTestData2 ".\$FileSyncWOPIBigTestData2" $true
 
     Output "Steps for manual configuration:" "Yellow"
     Output "Upload the test data $MSWOPISharedZipTestData2 to http://$sutComputerName/sites/$MSWOPISiteCollectionName ..." "Yellow"

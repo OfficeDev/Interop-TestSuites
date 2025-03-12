@@ -57,7 +57,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R6</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagInstID] The PidTagInstID property ([MS-OXPROPS] section 2.745) is an identifier for all instances of a row in the table.</ns1:Description>
+		<ns1:Description>[In PidTagInstID] The PidTagInstID property ([MS-OXPROPS] section 2.746) is an identifier for all instances of a row in the table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -93,7 +93,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R10</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.2</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagInstanceNum] The PidTagInstanceNum property ([MS-OXPROPS] section 2.744) is an identifier for a single instance of a row in the table.</ns1:Description>
+		<ns1:Description>[In PidTagInstanceNum] The PidTagInstanceNum property ([MS-OXPROPS] section 2.745) is an identifier for a single instance of a row in the table.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -129,7 +129,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R13</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.3</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagRowType] The PidTagRowType property ([MS-OXPROPS] section 2.940) identifies the type of the row.</ns1:Description>
+		<ns1:Description>[In PidTagRowType] The PidTagRowType property ([MS-OXPROPS] section 2.941) identifies the type of the row.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -192,7 +192,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R19</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.4</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagDepth] The PidTagDepth property ([MS-OXPROPS] section 2.673) specifies the number of nested categories in which a given row is contained.</ns1:Description>
+		<ns1:Description>[In PidTagDepth] The PidTagDepth property ([MS-OXPROPS] section 2.674) specifies the number of nested categories in which a given row is contained.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -255,7 +255,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXCTABL_R22</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.1.6</ns1:Doc_Sect>
-		<ns1:Description>[In PidTagContentUnreadCount] The PidTagContentUnreadCount property ([MS-OXCFOLD] section 2.2.2.2.1.2) specifies the number of rows under the header row that have the PidTagRead property ([MS-OXPROPS] section 2.878) set to "FALSE" (0x00).</ns1:Description>
+		<ns1:Description>[In PidTagContentUnreadCount] The PidTagContentUnreadCount property ([MS-OXCFOLD] section 2.2.2.2.1.2) specifies the number of rows under the header row that have the PidTagRead property ([MS-OXPROPS] section 2.879) set to "FALSE" (0x00).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

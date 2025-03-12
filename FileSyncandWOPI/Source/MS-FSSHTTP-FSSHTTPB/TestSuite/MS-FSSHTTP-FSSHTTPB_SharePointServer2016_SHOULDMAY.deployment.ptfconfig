@@ -193,6 +193,8 @@
   <Property name="R1082Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R156001Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock on the file with a different schema lock identifier When sending Exit Coauthoring Session subrequest.Set R156001Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R156001Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
+   <!--Set R156002Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does return an error code of ""Success"" if there is a shared lock on the file with a different schema lock identifier When sending Exit Coauthoring Session subrequest.Set R156002Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
+   <Property name="R156002Enabled_MS-FSSHTTP-FSSHTTPB" value="false"/>
   <!--Set R158201Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session with one client in it when sending a release lock subrequest.Set R158201Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->
   <Property name="R158201Enabled_MS-FSSHTTP-FSSHTTPB" value="true"/>
   <!--Set R1208Enabled_MS-FSSHTTP-FSSHTTPB to true to indicate that if the coauthorable file is checked out on the server and it is checked out by a client with a different user name than the current client, the protocol server returns an error code value set to ""FileAlreadyCheckedOutOnServer"".Set R1208Enabled_MS-FSSHTTP-FSSHTTPB to false to disable this requirement. -->

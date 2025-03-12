@@ -3868,7 +3868,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR1391,
                             1391,
-                            @"[In recipient Element] [PidTagRowid,Required] [The following table lists the restrictions[Required, Fixed position] that exist on the contained propList element] The property PidTagRowid ([MS-OXPROPS] section 2.939) MUST be present in the propList.");
+                            @"[In recipient Element] [PidTagRowid,Required] [The following table lists the restrictions[Required, Fixed position] that exist on the contained propList element] The property PidTagRowid ([MS-OXPROPS] section 2.940) MUST be present in the propList.");
 
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R1392");
@@ -3878,7 +3878,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         Site.CaptureRequirementIfIsTrue(
                             isVerifyR1392,
                             1392,
-                            @"[In recipient Element] [PidTagRowid ,Fixed position] The position[1] of the property PidTagRowid ([MS-OXPROPS] section 2.939) within the array propList is fixed and MUST correspond to the position of the corresponding restriction in the property list restriction table.");
+                            @"[In recipient Element] [PidTagRowid ,Fixed position] The position[1] of the property PidTagRowid ([MS-OXPROPS] section 2.940) within the array propList is fixed and MUST correspond to the position of the corresponding restriction in the property list restriction table.");
                     }
                 }
 
@@ -4223,7 +4223,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         // If the program can execute here, this requirement can be verified.
                         this.Site.CaptureRequirement(
                             3049,
-                            @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.796) identifies the size of the message in bytes.");
+                            @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.797) identifies the size of the message in bytes.");
 
                         // Add the debug information
                         Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCDATA_R2691");
@@ -4339,7 +4339,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                         // If the program can execute here, this requirement can be verified.
                         this.Site.CaptureRequirement(
                             3017,
-                            @"[In PidTagMid Property] The PidTagMid property ([MS-OXPROPS] section 2.801) contains the MID structure ([MS-OXCDATA] section 2.2.1.2) of the message currently being synchronized.");
+                            @"[In PidTagMid Property] The PidTagMid property ([MS-OXPROPS] section 2.802) contains the MID structure ([MS-OXCDATA] section 2.2.1.2) of the message currently being synchronized.");
 
                         // If the program can execute here, this requirement can be verified.
                         this.Site.CaptureRequirement(
@@ -5230,7 +5230,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     // If the program can execute here, this requirement can be verified directly.
                     this.Site.CaptureRequirement(
                         3019,
-                        @"[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.700) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) of the folder currently being synchronized.");
+                        @"[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.702) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) of the folder currently being synchronized.");
 
                     // If the program can execute here, this requirement can be verified directly.
                     this.Site.CaptureRequirement(
@@ -5310,7 +5310,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
                     // If the program execute here, this requirement can be verified directly.
                     this.Site.CaptureRequirement(
                         1270,
-                        @"[In PidTagParentFolderId Property] The PidTagParentFolderId property ([MS-OXPROPS] section 2.859) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) that identifies the parent folder of the messaging object being synchronized.");
+                        @"[In PidTagParentFolderId Property] The PidTagParentFolderId property ([MS-OXPROPS] section 2.860) contains the Folder ID structure ([MS-OXCDATA] section 2.2.1.1) that identifies the parent folder of the messaging object being synchronized.");
                 }
                 #endregion
             }
@@ -5385,7 +5385,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             // If the program can execute here, this requirement can be verified directly.
             this.Site.CaptureRequirement(
                 1272,
-                @"[In PidTagParentSourceKey Property] The PidTagParentSourceKey property ([MS-OXPROPS] section 2.861) specifies the PidTagSourceKey property (section 2.2.1.2.5) of the current folder's parent folder.");
+                @"[In PidTagParentSourceKey Property] The PidTagParentSourceKey property ([MS-OXPROPS] section 2.862) specifies the PidTagSourceKey property (section 2.2.1.2.5) of the current folder's parent folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXPROPS_R7478");
@@ -5460,7 +5460,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             // If the program can execute here, this requirement can be verified.
             this.Site.CaptureRequirement(
                 1271,
-                @"[In PidTagSourceKey Property] The PidTagSourceKey property ([MS-OXPROPS] section 2.1022) contains a serialized XID structure, as specified in section 2.2.2.2, that specifies the internal identifier for the folder or message.");
+                @"[In PidTagSourceKey Property] The PidTagSourceKey property ([MS-OXPROPS] section 2.1023) contains a serialized XID structure, as specified in section 2.2.2.2, that specifies the internal identifier for the folder or message.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXPROPS_R8583");
@@ -5617,7 +5617,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFXICS
             // If the program can execute here, this requirement can be verified directly.
             this.Site.CaptureRequirement(
                 1274,
-                @"[In PidTagPredecessorChangeList Property] The PidTagPredecessorChangeList property ([MS-OXPROPS] section 2.867) contains PredecessorChangeList structures, as specified in section 2.2.2.3.");
+                @"[In PidTagPredecessorChangeList Property] The PidTagPredecessorChangeList property ([MS-OXPROPS] section 2.868) contains PredecessorChangeList structures, as specified in section 2.2.2.3.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFXICS_R1093");

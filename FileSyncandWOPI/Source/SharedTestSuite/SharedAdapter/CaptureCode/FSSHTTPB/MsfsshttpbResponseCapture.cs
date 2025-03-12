@@ -518,7 +518,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTPB",
                      2203,
-                     @"[In Allocate ExtendedGuid Range] Allocate ExtendedGuid Range Response (4 bytes): A stream object header (section 2.2.1.5) that specifies an allocate extendedGUID range response.");
+                     @"[In Allocate ExtendedGuid Range] Allocate ExtendedGuid Range Response (4 bytes): A 32-bit stream object header (section 2.2.1.5.2) that specifies an allocate extendedGUID range response.");
 
             // Directly capture requirement MS-FSSHTTPB_R2204, if there are no parsing errors. 
             site.CaptureRequirement(

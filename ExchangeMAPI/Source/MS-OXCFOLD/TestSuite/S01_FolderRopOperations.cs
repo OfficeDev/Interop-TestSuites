@@ -167,7 +167,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsTrue(
                 isEqual,
                 10027,
-                @"[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.858) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.");
+                @"[In PidTagParentEntryId Property] The PidTagParentEntryId property ([MS-OXPROPS] section 2.859) contains a Folder EntryID structure, as specified in [MS-OXCDATA] section 2.2.4.1, that specifies the entry ID of the folder that contains the message or subfolder.");
 
             #endregion
 
@@ -428,7 +428,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 this.Site.CaptureRequirementIfIsTrue(
                     getPropertiesSpecificResponse.RowData.PropertyValues[0].Value.Length > 0,
                     10348,
-                    @"[In PidTagDeletedOn Property] The PidTagDeletedOn property ([MS-OXPROPS] section 2.670) specifies the time when the folder was soft deleted.");
+                    @"[In PidTagDeletedOn Property] The PidTagDeletedOn property ([MS-OXPROPS] section 2.671) specifies the time when the folder was soft deleted.");
                 #endregion
             }
 
@@ -925,7 +925,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0,
                 pidTagMessageSizeExtended,
                 10354,
-                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.797) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
+                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.798) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
             #endregion
             #endregion
         }

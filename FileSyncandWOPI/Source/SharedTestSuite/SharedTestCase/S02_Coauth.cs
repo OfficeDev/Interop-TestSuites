@@ -1096,7 +1096,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              SharedTestSuiteHelper.ConvertToErrorCodeType(subResponse.ErrorCode, this.Site),
                              "MS-FSSHTTP",
                              383,
-                             @"[In LockAndCoauthRelatedErrorCodeTypes] Indicates an error when a protocol server fails to process a lock conversion request sent as part of a cell storage service request because coauthoring of the file is disabled on the server.");
+                             @"[In LockAndCoauthRelatedErrorCodeTypes] LockNotConvertedAsCoauthDisabled indicates an error when a protocol server fails to process a lock conversion request sent as part of a cell storage service request because coauthoring of the file is disabled on the server.");
                 }
 
                 if (Common.IsRequirementEnabled(11274, this.Site))
@@ -1348,6 +1348,16 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
                              "MS-FSSHTTP",
                              156001,
                              @"[In Appendix B: Product Behavior] Implementation does return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock on the file with a different schema lock identifier When sending Exit Coauthoring Session subrequest. (<42> Section 3.1.4.3.2: SharePoint Server 2013 and SharePoint Server 2010 return an error code of ""FileAlreadyLockedOnServer"" if there is a shared lock with a different shared lock identifier and a coauthoring session containing one client.)");
+                }
+                if(Common.IsRequirementEnabled("MS-FSSHTTP-FSSHTTPB", 156002, this.Site))
+                {
+                    // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R156002
+                    Site.CaptureRequirementIfAreEqual<ErrorCodeType>(
+                             ErrorCodeType.Success,
+                             SharedTestSuiteHelper.ConvertToErrorCodeType(exitResponse.ErrorCode, this.Site),
+                             "MS-FSSHTTP",
+                             156002,
+                             @"[In Appendix B: Product Behavior] Implementation does return an error code of ""Success"" if there is a shared lock on the file with a different schema lock identifier When sending Exit Coauthoring Session subrequest. (<45> Section 3.1.4.3.2: SharePoint Server Subscription Edition and SharePoint Server 2019 return an error code of ""Success"" if there is a shared lock with a different shared lock identifier and a coauthoring session containing one client.)");
                 }
             }
             else

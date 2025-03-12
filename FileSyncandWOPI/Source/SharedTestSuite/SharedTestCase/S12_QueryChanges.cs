@@ -646,7 +646,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             }
             
             // Initialize the service
-            string fileUrl = Common.GetConfigurationPropertyValue("BigFile", this.Site);
+            string fileUrl = Common.GetConfigurationPropertyValue("BigFile2", this.Site);
             this.InitializeContext(fileUrl, this.UserName01, this.Password01, this.Domain);
 
             // Create query changes request with allow fragments flag with the value true.
@@ -1177,7 +1177,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             }
 
             // Initialize the service
-            string fileUrl = Common.GetConfigurationPropertyValue("BigFile", this.Site);
+            string fileUrl = Common.GetConfigurationPropertyValue("BigFile2", this.Site);
             this.InitializeContext(fileUrl, this.UserName01, this.Password01, this.Domain);
 
             // Create query changes request with allow fragments B flag with the value false.
@@ -1259,7 +1259,7 @@ namespace Microsoft.Protocols.TestSuites.SharedTestSuite
             }
 
             // Initialize the service
-            string fileUrl = Common.GetConfigurationPropertyValue("BigFile", this.Site);
+            string fileUrl = Common.GetConfigurationPropertyValue("BigFile2", this.Site);
             this.InitializeContext(fileUrl, this.UserName01, this.Password01, this.Domain);
 
             // Create query changes request with allow fragments B flag with the value false.

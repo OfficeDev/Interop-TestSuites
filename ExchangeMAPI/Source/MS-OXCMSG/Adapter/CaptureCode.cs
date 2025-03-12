@@ -611,7 +611,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                         // MS-OXCMSG_R140 can be indirectly verified when the value of property PidTagInternetCodepage is not null.
                         this.Site.CaptureRequirement(
                             2070,
-                            @"[In PidTagInternetCodepage Property] The PidTagInternetCodepage property ([MS-OXPROPS] section 2.746) indicates the code page used for the PidTagBody property (section 2.2.1.56.1) or the PidTagBodyHtml property (section 2.2.1.56.3).");
+                            @"[In PidTagInternetCodepage Property] The PidTagInternetCodepage property ([MS-OXPROPS] section 2.747) indicates the code page used for the PidTagBody property (section 2.2.1.58.1) or the PidTagBodyHtml property (section 2.2.1.58.3).");
                     }
 
                     break;
@@ -665,7 +665,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                             12,
                             ((byte[])propertyObj.Value).Length - 2,
                             2126,
-                            @"[In PidTagStartDateEtc Property] The PidTagStartDateEtc property ([MS-OXPROPS] section 2.1026) has the following structure [Default retention period, Start date].");
+                            @"[In PidTagStartDateEtc Property] The PidTagStartDateEtc property ([MS-OXPROPS] section 2.1027) has the following structure [Default retention period, Start date].");
 
                         // Add the debug information
                         this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCMSG_R172");
@@ -1309,7 +1309,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                             0,
                             (propertyObj.Value.ToString().Length - 2) % 8,
                             1162,
-                            @"[In PidTagInternetReferences Property] The PidTagInternetReferences property ([MS-OXPROPS] section 2.749) contains a list of message IDs (MIDs), as specified in [MS-OXCDATA] section 2.2.1.2, that specify the messages to which this reply is related.");
+                            @"[In PidTagInternetReferences Property] The PidTagInternetReferences property ([MS-OXPROPS] section 2.750) contains a list of message IDs (MIDs), as specified in [MS-OXCDATA] section 2.2.1.2, that specify the messages to which this reply is related.");
                     }
 
                     break;
@@ -2596,7 +2596,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCMSG
                 dateTimeObj,
                 pidTagStartDateEtc,
                 2181,
-                @"[In PidTagArchiveDate Property] The start date is obtained from the last eight bytes of the PidTagStartDateEtc property (section 2.2.1.58.4).");
+                @"[In PidTagArchiveDate Property] The start date is obtained from the last eight bytes of the PidTagStartDateEtc property (section 2.2.1.60.4).");
         }
     }
 }

@@ -1771,7 +1771,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0,
                 pidTagMessageSize,
                 10353,
-                @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.796) specifies the aggregate size of messages in the folder.");
+                @"[In PidTagMessageSize Property] The PidTagMessageSize property ([MS-OXPROPS] section 2.797) specifies the aggregate size of messages in the folder.");
 
             ulong pidTagMessageSizeExtended = BitConverter.ToUInt64(getPropertiesSpecificResponse1.RowData.PropertyValues[8].Value, 0);       
             // Add the debug information
@@ -1782,7 +1782,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 (ulong)pidTagMessageSize,
                 pidTagMessageSizeExtended,
                 10354,
-                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.797) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
+                @"[In PidTagMessageSizeExtended Property] The PidTagMessageSizeExtended property ([MS-OXPROPS] section 2.798) specifies the 64-bit version of the PidTagMessageSize property (section 2.2.2.2.1.7).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R354");
@@ -1819,7 +1819,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 unreadMessagesCountExpect,
                 unreadMessagesCountActual,
                 10347,
-                @"[In PidTagContentUnreadCount Property] The PidTagContentUnreadCount property ([MS-OXPROPS] section 2.648) specifies the number of unread messages in a folder, as computed by the message store.");
+                @"[In PidTagContentUnreadCount Property] The PidTagContentUnreadCount property ([MS-OXPROPS] section 2.649) specifies the number of unread messages in a folder, as computed by the message store.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R10345");
@@ -1829,7 +1829,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 1,
                 BitConverter.ToInt32(getPropertiesSpecificResponse1.RowData.PropertyValues[0].Value, 0),
                 10345,
-                @"[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.646) specifies the number of messages in a folder, as computed by the message store.");
+                @"[In PidTagContentCount Property] The PidTagContentCount property ([MS-OXPROPS] section 2.647) specifies the number of messages in a folder, as computed by the message store.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R346");
@@ -1849,7 +1849,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 subfolderId1,
                 BitConverter.ToUInt64(getPropertiesSpecificResponse1.RowData.PropertyValues[3].Value, 0),
                 10351,
-                @"[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.700) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.");
+                @"[In PidTagFolderId Property] The PidTagFolderId property ([MS-OXPROPS] section 2.702) contains a FID structure ([MS-OXCDATA] section 2.2.1.1) that uniquely identifies a folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R1030");
@@ -1872,7 +1872,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 0,
                 pidTagDeletedCountTotal,
                 3006,
-                @"[In PidTagDeletedCountTotal Property] The PidTagDeletedCountTotal property ([MS-OXPROPS] section 2.669) specifies the total number of messages that have been deleted from a folder, excluding messages that have been deleted from the folder's subfolders.");
+                @"[In PidTagDeletedCountTotal Property] The PidTagDeletedCountTotal property ([MS-OXPROPS] section 2.670) specifies the total number of messages that have been deleted from a folder, excluding messages that have been deleted from the folder's subfolders.");
  
             // Add the debug information.
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R352001");
@@ -1892,7 +1892,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             this.Site.CaptureRequirementIfIsTrue(
                 getPropertiesSpecificResponse1.RowData.PropertyValues[10].Value.Length > 0,
                 352002,
-                @"[In PidTagHierRev Property] The PidTagHierRev property ([MS-OXPROPS] section 2.721) specifies the time, in Coordinated Universal Time (UTC), to trigger the client in cached mode to synchronize the folder hierarchy.");
+                @"[In PidTagHierRev Property] The PidTagHierRev property ([MS-OXPROPS] section 2.722) specifies the time, in Coordinated Universal Time (UTC), to trigger the client in cached mode to synchronize the folder hierarchy.");
             #endregion
 
             #region Step 5. The client calls RopCreateFolder to create [MSOXCFOLDSubfolder2] under [MSOXCFOLDSubfolder1].
@@ -1928,7 +1928,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             // MS-OXCFOLD_R1029 and MS-OXCFOLD_R1030 is verified, MS-OXCFOLD_R10355 can be verified directly.
             Site.CaptureRequirement(
                 10355,
-                @"[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1032) specifies whether the folder has any subfolders.");
+                @"[In PidTagSubfolders Property] The PidTagSubfolders property ([MS-OXPROPS] section 2.1033) specifies whether the folder has any subfolders.");
 
             #endregion
 
@@ -1964,7 +1964,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             Site.CaptureRequirementIfIsTrue(
                 changeNumberIncreased,
                 10028,
-                @"[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.720) specifies the number of subfolders in the folder.");
+                @"[In PidTagHierarchyChangeNumber Property] The PidTagHierarchyChangeNumber property ([MS-OXPROPS] section 2.721) specifies the number of subfolders in the folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R352, the value of property PidTagHierarchyChangeNumber after getting the read-only properties from [MSOXCFOLDSubfolder1] is {0}, the value of property PidTagHierarchyChangeNumber after getting the read-only properties from [MSOXCFOLDSubfolder1] after creating [MSOXCFOLDSubfolder2] under [MSOXCFOLDSubfolder1] is {1}, the value of property PidTagHierarchyChangeNumber after getting the read-only properties from [MSOXCFOLDSubfolder1] after deleting [MSOXCFOLDSubfolder2] under [MSOXCFOLDSubfolder1] is {2}.", getPropertiesSpecificResponse1.RowData.PropertyValues[5].Value, getPropertiesSpecificResponse2.RowData.PropertyValues[5].Value, getPropertiesSpecificResponse.RowData.PropertyValues[5].Value);
@@ -2106,7 +2106,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
                 Constants.Subfolder1,
                 Encoding.Unicode.GetString(getPropertiesSpecificResponse.RowData.PropertyValues[1].Value),
                 10359,
-                @"[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.637) contains a comment about the purpose or content of the folder.");
+                @"[In PidTagComment Property] The PidTagComment property ([MS-OXPROPS] section 2.638) contains a comment about the purpose or content of the folder.");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCFOLD_R811");
@@ -2229,7 +2229,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCFOLD
             // So R10036 will be verfied.
             this.Site.CaptureRequirement(
                 10036,
-                @"[In PidTagContainerClass Property] The PidTagContainerClass property ([MS-OXPROPS] section 2.642) specifies the type of Message object that the folder contains.");
+                @"[In PidTagContainerClass Property] The PidTagContainerClass property ([MS-OXPROPS] section 2.643) specifies the type of Message object that the folder contains.");
             #endregion
 
             #endregion
