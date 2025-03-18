@@ -633,7 +633,7 @@
                         logFragment.nextFragment,
                         typeof(FileChunkReference64x32),
                         332,
-                        @"[In TransactionLogFragment] nextFragment (12 bytes): A FileChunkReference64x32 structure (section 2.2.4.4) that specifies the location and size of the next TransactionLogFragment structure.");
+                        @"[In TransactionLogFragment] nextFragment (12 bytes): An optional FileChunkReference64x32 structure (section 2.2.4.4) that specifies the location and size of the next TransactionLogFragment structure.");
 
                 this.VerifyFileChunkReference64x32(logFragment.nextFragment, site);
             }
