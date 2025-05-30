@@ -5288,7 +5288,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             Site.CaptureRequirementIfIsNotNull(
                 parentFolderIdResponse,
                 1309,
-                @"[In t:ItemType Complex Type] The type of ParentFolderId is t:FolderIdType ([MS-OXWSCDATA] section 2.2.4.31).");
+                @"[In t:ItemType Complex Type] The type of ParentFolderId is t:FolderIdType ([MS-OXWSCDATA] section 2.2.4.35).");
 
             // Add the debug information
             Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1628");
