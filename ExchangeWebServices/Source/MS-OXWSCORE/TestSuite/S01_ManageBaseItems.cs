@@ -703,7 +703,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.Site.CaptureRequirementIfIsNotNull(
                 updateItemResponseMessage,
                 58,
-                @"[In m:UpdateItemResponseMessageType Complex Type] The UpdateItemResponseMessageType complex type extends the ItemInfoResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.37).");
+                @"[In m:UpdateItemResponseMessageType Complex Type] The UpdateItemResponseMessageType complex type extends the ItemInfoResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.41).");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R1586");
@@ -1779,7 +1779,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                 // The Attachments is set and the item is created successfully, so this requirement can be captured.
                 this.Site.CaptureRequirement(
                     1314,
-                    @"[In t:ItemType Complex Type] The type of Attachments is t:NonEmptyArrayOfAttachmentsType ([MS-OXWSCDATA] section 2.2.4.43).");
+                    @"[In t:ItemType Complex Type] The type of Attachments is t:NonEmptyArrayOfAttachmentsType ([MS-OXWSCDATA] section 2.2.4.47).");
 
                 // Add the debug information
                 this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R2281");
