@@ -3020,7 +3020,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R332</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In TransactionLogFragment] nextFragment (12 bytes): A FileChunkReference64x32 structure (section 2.2.4.4) that specifies the location and size of the next TransactionLogFragment structure.</ns1:Description>
+		<ns1:Description>[In TransactionLogFragment] nextFragment (12 bytes): An optional FileChunkReference64x32 structure (section 2.2.4.4) that specifies the location and size of the next TransactionLogFragment structure.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -3101,7 +3101,7 @@ fcrNil: Specifies a file chunk reference where all bits of the stp field are set
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-ONESTORE_R343</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.3.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In TransactionEntry] [srcID value] 0x00000001: [TransactionEntrySwitch] MUST be equal to CRC (section 2.1.2) of all TransactionEntry structures in the current transaction.&lt;8&gt;</ns1:Description>
+		<ns1:Description>[In TransactionEntry] [srcID value] 0x00000001: [TransactionEntrySwitch] SHOULD be equal to CRC (section 2.1.2) of all TransactionEntry structures in the current transaction.&lt;8&gt;</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

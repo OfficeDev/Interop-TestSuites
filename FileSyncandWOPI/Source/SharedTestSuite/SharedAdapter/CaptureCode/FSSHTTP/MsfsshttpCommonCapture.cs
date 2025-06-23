@@ -208,7 +208,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTP",
                      19,
-                     @"[In Response] [The Body element of each SOAP response message MUST contain] zero or more ResponseCollection elements.");
+                     @"[In Response] [The Body element of each SOAP response message MUST contain] zero or one ResponseCollection elements.");
 
             if (responseCollection.WebUrl != null)
             {
@@ -300,7 +300,7 @@ namespace Microsoft.Protocols.TestSuites.SharedAdapter
             site.CaptureRequirement(
                      "MS-FSSHTTP",
                      19,
-                     @"[In Response] [The Body element of each SOAP response message MUST contain] zero or more ResponseCollection elements.");
+                     @"[In Response] [The Body element of each SOAP response message MUST contain] zero or one ResponseCollection elements.");
 
             // Verify MS-FSSHTTP requirement: MS-FSSHTTP_R1613
             bool isVerifiedR1613 = storageResponse.ResponseVersion != null;
