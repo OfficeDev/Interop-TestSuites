@@ -25,7 +25,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         public static void AcceptServerCertificate()
         {
             ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(ValidateServerCertificate);
-			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+	    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         /// <summary>
