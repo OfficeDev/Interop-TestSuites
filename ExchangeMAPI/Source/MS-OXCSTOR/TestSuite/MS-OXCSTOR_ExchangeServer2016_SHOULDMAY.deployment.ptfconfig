@@ -78,9 +78,9 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <!-- Set R1911Enabled to true to verify that Implementation does support this given protocol sequence [ncacn_ip_tcp]. Set R1911Enabled to false to disable this requirement.-->
     <Property name="R1911Enabled" value="false"/>
     <!-- Set R94801001Enabled to true to verify that when the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does return 0 in the ReturnValue field. Set R94801001Enabled to false to disable this requirement.-->
-    <Property name="R94801001Enabled" value="false"/>
+    <Property name="R94801001Enabled" value="true"/>
     <!-- Set R94801002Enabled to true to verify that when the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does fail the operation with 0x80070057 (ecInvalidParam) in the ReturnValue field. Set R94801002Enabled to false to disable this requirement.-->
-    <Property name="R94801002Enabled" value="true"/>
+    <Property name="R94801002Enabled" value="false"/>
     <!-- Set R1268001Enabled to true to verify that implementation returns ecLoginFailure, then, after 5 minutes, the server returns ecUnknownUser if the client attempts to log on to a mailbox that is disabled. Set R1268001Enabled to false to disable this requirement.-->
     <Property name="R1268001Enabled" value="false"/>
     <!-- Set R5979301Enabled to true to verify that implementation returns the Folder ID of Public Folders Root Folder, Interpersonal messages subtree, Non-interpersonal messages subtree, EForms Registry, Free/Busy Data, Offline address book Data, EForms Registry for the user's locale, Local Site's Free/Busy Data, Local Site's Offline Address Book Data, NNTP Article Index, Empty, Empty, Empty in RopLogon ROP Success Response Buffer for Public Folders. Set R5979301Enabled to false to disable this requirement.-->

@@ -257,7 +257,7 @@ targetNamespace="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-FSSHTTP_R19</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.2.2</ns1:Doc_Sect>
-		<ns1:Description>[In Response] [The Body element of each SOAP response message MUST contain] zero or more ResponseCollection elements.</ns1:Description>
+		<ns1:Description>[In Response] [The Body element of each SOAP response message MUST contain] zero or one ResponseCollection elements.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

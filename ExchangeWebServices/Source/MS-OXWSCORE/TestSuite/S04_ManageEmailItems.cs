@@ -596,7 +596,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     // The schema is validated, so this requirement can be captured.
                     this.Site.CaptureRequirement(
                         1371,
-                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyToItem is t:ReplyToItemType ([MS-OXWSCDATA] section 2.2.4.66).");
+                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyToItem is t:ReplyToItemType ([MS-OXWSCDATA] section 2.2.4.64).");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R131");
@@ -617,7 +617,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     // The schema is validated, so this requirement can be captured.
                     this.Site.CaptureRequirement(
                         1372,
-                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ForwardItem is t:ForwardItemType ([MS-OXWSCDATA] section 2.2.4.38).");
+                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ForwardItem is t:ForwardItemType ([MS-OXWSCDATA] section 2.2.4.37).");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R132");
@@ -638,7 +638,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     // The schema is validated, so this requirement can be captured.
                     this.Site.CaptureRequirement(
                         1373,
-                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyAllToItem is t:ReplyAllToItemType ([MS-OXWSCDATA] section 2.2.4.64).");
+                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyAllToItem is t:ReplyAllToItemType ([MS-OXWSCDATA] section 2.2.4.62).");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R133");
@@ -659,7 +659,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
                     // The schema is validated, so this requirement can be captured.
                     this.Site.CaptureRequirement(
                         1376,
-                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of SuppressReadReceipt is t:SuppressReadReceiptType ([MS-OXWSCDATA] section 2.2.4.61).");
+                        @"[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of SuppressReadReceipt is t:SuppressReadReceiptType ([MS-OXWSCDATA] section 2.2.4.71).");
 
                     // Add the debug information
                     this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCORE_R136");
@@ -776,7 +776,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXWSCORE
             this.Site.CaptureRequirementIfIsNotNull(
                 markAsJunkResponseMessage,
                 1847,
-                @"[In m:MarkAsJunkResponseMessageType Complex Type] This type [MarkAsJunkResponseMessageType Complex Type] extends the ResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.57.");
+                @"[In m:MarkAsJunkResponseMessageType Complex Type] This type [MarkAsJunkResponseMessageType Complex Type] extends the ResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.65.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXWSCDATA_R3060");

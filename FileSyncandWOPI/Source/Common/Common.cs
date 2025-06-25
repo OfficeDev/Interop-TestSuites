@@ -1,4 +1,4 @@
-namespace Microsoft.Protocols.TestSuites.Common
+﻿namespace Microsoft.Protocols.TestSuites.Common
 {
     using System;
     using System.Collections.Generic;
@@ -32,6 +32,7 @@ namespace Microsoft.Protocols.TestSuites.Common
         public static void AcceptServerCertificate()
         {
             ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(ValidateServerCertificate);
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         /// <summary>

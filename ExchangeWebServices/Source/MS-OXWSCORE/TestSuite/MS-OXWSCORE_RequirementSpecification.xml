@@ -1093,7 +1093,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R58</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.47</ns1:Doc_Sect>
-		<ns1:Description>[In m:UpdateItemResponseMessageType Complex Type] The UpdateItemResponseMessageType complex type extends the ItemInfoResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.37).</ns1:Description>
+		<ns1:Description>[In m:UpdateItemResponseMessageType Complex Type] The UpdateItemResponseMessageType complex type extends the ItemInfoResponseMessageType complex type ([MS-OXWSCDATA] section 2.2.4.41).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1389,7 +1389,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1309</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] The type of ParentFolderId is t:FolderIdType ([MS-OXWSCDATA] section 2.2.4.31).</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] The type of ParentFolderId is t:FolderIdType ([MS-OXWSCDATA] section 2.2.4.35).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -1640,7 +1640,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1314</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.24</ns1:Doc_Sect>
-		<ns1:Description>[In t:ItemType Complex Type] The type of Attachments is t:NonEmptyArrayOfAttachmentsType ([MS-OXWSCDATA] section 2.2.4.43).</ns1:Description>
+		<ns1:Description>[In t:ItemType Complex Type] The type of Attachments is t:NonEmptyArrayOfAttachmentsType ([MS-OXWSCDATA] section 2.2.4.47).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Both</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4200,7 +4200,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1371</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.33</ns1:Doc_Sect>
-		<ns1:Description>[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyToItem is t:ReplyToItemType ([MS-OXWSCDATA] section 2.2.4.66).</ns1:Description>
+		<ns1:Description>[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyToItem is t:ReplyToItemType ([MS-OXWSCDATA] section 2.2.4.64).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4218,7 +4218,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1372</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.33</ns1:Doc_Sect>
-		<ns1:Description>[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ForwardItem is t:ForwardItemType ([MS-OXWSCDATA] section 2.2.4.38).</ns1:Description>
+		<ns1:Description>[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ForwardItem is t:ForwardItemType ([MS-OXWSCDATA] section 2.2.4.37).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4236,7 +4236,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1373</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.33</ns1:Doc_Sect>
-		<ns1:Description>[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyAllToItem is t:ReplyAllToItemType ([MS-OXWSCDATA] section 2.2.4.64).</ns1:Description>
+		<ns1:Description>[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of ReplyAllToItem is t:ReplyAllToItemType ([MS-OXWSCDATA] section 2.2.4.62).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4290,7 +4290,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1376</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.33</ns1:Doc_Sect>
-		<ns1:Description>[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of SuppressReadReceipt is t:SuppressReadReceiptType ([MS-OXWSCDATA] section 2.2.4.61).</ns1:Description>
+		<ns1:Description>[In t:NonEmptyArrayOfResponseObjectsType Complex Type] The type of SuppressReadReceipt is t:SuppressReadReceiptType ([MS-OXWSCDATA] section 2.2.4.71).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4887,7 +4887,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R161</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.41</ns1:Doc_Sect>
-		<ns1:Description>[In t:ReferenceItemResponseType Complex Type] The ReferenceItemResponseType complex type extends the ResponseObjectType complex type ([MS-OXWSCDATA] section 2.2.4.59).</ns1:Description>
+		<ns1:Description>[In t:ReferenceItemResponseType Complex Type] The ReferenceItemResponseType complex type extends the ResponseObjectType complex type ([MS-OXWSCDATA] section 2.2.4.67).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -4968,7 +4968,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R166</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
-		<ns1:Description>[In t:SmartResponseBaseType Complex Type] The SmartResponseBaseType complex type specifies the base type for the ReplyToItemType complex type ([MS-OXWSCDATA] section 2.2.4.66), the ReplyAllToItemType complex type ([MS-OXWSCDATA] section 2.2.4.64), the ForwardItemType complex type ([MS-OXWSCDATA] section 2.2.4.38), and the CancelCalendarItemType complex type, as specified in [MS-OXWSMTGS] section 2.2.4.10.</ns1:Description>
+		<ns1:Description>[In t:SmartResponseBaseType Complex Type] The SmartResponseBaseType complex type specifies the base type for the ReplyToItemType complex type ([MS-OXWSCDATA] section 2.2.4.64), the ReplyAllToItemType complex type ([MS-OXWSCDATA] section 2.2.4.62), the ForwardItemType complex type ([MS-OXWSCDATA] section 2.2.4.37), and the CancelCalendarItemType complex type, as specified in [MS-OXWSMTGS] section 2.2.4.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -4977,7 +4977,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R167</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
-		<ns1:Description>[In t:SmartResponseBaseType Complex Type] The SmartResponseBaseType complex type extends the ResponseObjectType complex type ([MS-OXWSCDATA] section 2.2.4.69).</ns1:Description>
+		<ns1:Description>[In t:SmartResponseBaseType Complex Type] The SmartResponseBaseType complex type extends the ResponseObjectType complex type ([MS-OXWSCDATA] section 2.2.4.67).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5229,7 +5229,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1396</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.44</ns1:Doc_Sect>
-		<ns1:Description>[In t:SmartResponseBaseType Complex Type] The type of From is t:SingleRecipientType ([MS-OXWSCDATA] section 2.2.4.60).</ns1:Description>
+		<ns1:Description>[In t:SmartResponseBaseType Complex Type] The type of From is t:SingleRecipientType ([MS-OXWSCDATA] section 2.2.4.69).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -5362,7 +5362,7 @@
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R182</ns1:REQ_ID>
 		<ns1:Doc_Sect>2.2.4.45</ns1:Doc_Sect>
-		<ns1:Description>[In t:SmartResponseType Complex Type] The SmartResponseType complex type specifies the base type for the ReplyToItemType complex type ([MS-OXWSCDATA] section 2.2.4.56), the ReplyAllToItemType complex type ([MS-OXWSCDATA] section 2.2.4.54), the ForwardItemType complex type ([MS-OXWSCDATA] section 2.2.4.33), and the CancelCalendarItemType complex type, as specified in [MS-OXWSMTGS] section 2.2.4.8.</ns1:Description>
+		<ns1:Description>[In t:SmartResponseType Complex Type] The SmartResponseType complex type specifies the base type for the ReplyToItemType complex type ([MS-OXWSCDATA] section 2.2.4.64), the ReplyAllToItemType complex type ([MS-OXWSCDATA] section 2.2.4.62), the ForwardItemType complex type ([MS-OXWSCDATA] section 2.2.4.37), and the CancelCalendarItemType complex type, as specified in [MS-OXWSMTGS] section 2.2.4.10.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Informative</ns1:IsNormative>
@@ -8392,7 +8392,7 @@ xs:simpleType name="EmailPositionType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1414</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.2.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In m:CreateItemType Complex Type] The type of Items is t:NonEmptyArrayOfAllItemsType ([MS-OXWSCDATA] section 2.2.4.42).</ns1:Description>
+		<ns1:Description>[In m:CreateItemType Complex Type] The type of Items is t:NonEmptyArrayOfAllItemsType ([MS-OXWSCDATA] section 2.2.4.46).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -9589,7 +9589,7 @@ xs:simpleType name="EmailPositionType"&gt;
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1436</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.4.3.2</ns1:Doc_Sect>
-		<ns1:Description>[In m:GetItemType Complex Type] The type of ItemShape is t:ItemResponseShapeType ([MS-OXWSCDATA] section 2.2.4.38).</ns1:Description>
+		<ns1:Description>[In m:GetItemType Complex Type] The type of ItemShape is t:ItemResponseShapeType ([MS-OXWSCDATA] section 2.2.4.42).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10276,7 +10276,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1804</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.1.1</ns1:Doc_Sect>
-		<ns1:Description>[In tns:MarkAsJunkSoapIn Message] The type of MailboxCulture is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.3.6).</ns1:Description>
+		<ns1:Description>[In tns:MarkAsJunkSoapIn Message] The type of MailboxCulture is t:MailboxCulture ([MS-OXWSCDATA] section 2.2.4.43).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -10716,7 +10716,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R1847</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.6.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In m:MarkAsJunkResponseMessageType Complex Type] This type [MarkAsJunkResponseMessageType Complex Type] extends the ResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.57.</ns1:Description>
+		<ns1:Description>[In m:MarkAsJunkResponseMessageType Complex Type] This type [MarkAsJunkResponseMessageType Complex Type] extends the ResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.65.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -12786,7 +12786,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2194</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In t:AppendToItemFieldType Complex Type] The type of XrmOrganization is t:XrmOrganizationItemType ([MS-OXWSCDATA] section 2.2.4.79).</ns1:Description>
+		<ns1:Description>[In t:AppendToItemFieldType Complex Type] The type of XrmOrganization is t:XrmOrganizationItemType ([MS-OXWSCDATA] section 2.2.4.77).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -13552,7 +13552,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2204</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.9.3.10</ns1:Doc_Sect>
-		<ns1:Description>[In t:AppendToItemFieldType Complex Type] The type of XrmOrganization is t:XrmOrganizationItemType ([MS-OXWSCDATA] section 2.2.4.79).</ns1:Description>
+		<ns1:Description>[In t:AppendToItemFieldType Complex Type] The type of XrmOrganization is t:XrmOrganizationItemType ([MS-OXWSCDATA] section 2.2.4.77).</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14197,7 +14197,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2257</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10.3.1</ns1:Doc_Sect>
-		<ns1:Description>[In m:UpdateItemInRecoverableItemsType Complex Type] The type of Attachments is t:NonEmptyArrayOfAttachmentsType ([MS-OXWSCDATA] section 2.2.4.49)</ns1:Description>
+		<ns1:Description>[In m:UpdateItemInRecoverableItemsType Complex Type] The type of Attachments is t:NonEmptyArrayOfAttachmentsType ([MS-OXWSCDATA] section 2.2.4.47)</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Client</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>
@@ -14274,7 +14274,7 @@ The element [MarkAllItemsAsRead] is defined as follow: &lt;xs:element name="Mark
 	<ns1:Requirement>
 		<ns1:REQ_ID>MS-OXWSCORE_R2265</ns1:REQ_ID>
 		<ns1:Doc_Sect>3.1.4.10.3.3</ns1:Doc_Sect>
-		<ns1:Description>[In m:UpdateItemInRecoverableItemsResponseMessageType Complex Type] This type [UpdateItemInRecoverableItemsResponseMessageType] extends the m:ItemInfoResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.43.</ns1:Description>
+		<ns1:Description>[In m:UpdateItemInRecoverableItemsResponseMessageType Complex Type] This type [UpdateItemInRecoverableItemsResponseMessageType] extends the m:ItemInfoResponseMessageType complex type, as specified in [MS-OXWSCDATA] section 2.2.4.41.</ns1:Description>
 		<ns1:Behavior>Protocol</ns1:Behavior>
 		<ns1:Scope>Server</ns1:Scope>
 		<ns1:IsNormative>Normative</ns1:IsNormative>

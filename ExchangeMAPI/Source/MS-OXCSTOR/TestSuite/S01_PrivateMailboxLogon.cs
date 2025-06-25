@@ -1004,7 +1004,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                         Site.CaptureRequirementIfIsTrue(
                             isEqual,
                             314,
-                            @"[In RopGetReceiveFolderTable ROP Success Response Buffer]  [Rows] PidTagLastModificationTime property: PidTagLastModificationTime property ([MS-OXPROPS] section 2.765) -- A PtypTime value that specifies the time, in Coordinated Universal Time (UTC), when the server created or last modified the row in the Receive folder table.");
+                            @"[In RopGetReceiveFolderTable ROP Success Response Buffer]  [Rows] PidTagLastModificationTime property: PidTagLastModificationTime property ([MS-OXPROPS] section 2.766) -- A PtypTime value that specifies the time, in Coordinated Universal Time (UTC), when the server created or last modified the row in the Receive folder table.");
                     }
                 }
                 else
@@ -1066,7 +1066,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
             this.Site.CaptureRequirementIfIsTrue(
                 isVerifiedR872,
                 872,
-                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Message Class"" column (PidTagMessageClass property ([MS-OXPROPS] section 2.788)) - Contains a string that specifies the message class that is configured for the Receive folder.");
+                @"[In Receiving a RopSetReceiveFolder ROP Request] ""Message Class"" column (PidTagMessageClass property ([MS-OXPROPS] section 2.789)) - Contains a string that specifies the message class that is configured for the Receive folder.");
 
             // Add the debug information
             this.Site.Log.Add(LogEntryKind.Debug, "Verify MS-OXCSTOR_R59801, The MessageClass calling RopGetReceiveFolderTable ROP: {0}", returnedMyClass.Replace("\0", string.Empty));
@@ -4530,7 +4530,7 @@ namespace Microsoft.Protocols.TestSuites.MS_OXCSTOR
                     0,
                     this.getIdFromLongTermIdResponse.ReturnValue,
                     94801001,
-                    @"[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does return ecNone in the ReturnValue field.  <44> Section 3.2.5.9:  Exchange 2007 and Exchange 2019 return ecNone if the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component.");
+                    @"[In Appendix A: Product Behavior] When the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component, the implementation does return ecNone in the ReturnValue field.  <44> Section 3.2.5.9:  Exchange 2007, Exchange 2016 and Exchange 2019 return ecNone if the LongTermId field of the request contains zeros for the replica GUID (REPLGUID) component.");
             }
 
             if (Common.IsRequirementEnabled(94801002, this.Site))
